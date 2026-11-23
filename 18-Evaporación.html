@@ -1,0 +1,2168 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.40">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>18&nbsp; Evaporación – Hidrología Aplicada a la Ingeniería Civil</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./19-Evapotranspiración.html" rel="next">
+<link href="./17-precipitacion_maxima_probable.html" rel="prev">
+<link href="./assets/img/favicon.png" rel="icon" type="image/png">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-8ea72dc5fed832574809a9c94082fbbb.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-9308c6a3e2b77de33fd175cc56d97d6e.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-955cb59a11449acdc5f9686ead510861.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script src="site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "Sin resultados",
+    "search-matching-documents-text": "documentos encontrados",
+    "search-copy-link-title": "Copiar el enlace en la búsqueda",
+    "search-hide-matches-text": "Ocultar resultados adicionales",
+    "search-more-match-text": "resultado adicional en este documento",
+    "search-more-matches-text": "resultados adicionales en este documento",
+    "search-clear-button-title": "Borrar",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancelar",
+    "search-submit-button-title": "Enviar",
+    "search-label": "Buscar"
+  }
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
+<script src="site_libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+<link href="site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet">
+<script src="site_libs/pagedtable-1.1/js/pagedtable.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="assets/css/styles.css">
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./18-Evaporación.html">Procesos de pérdida del agua</a></li><li class="breadcrumb-item"><a href="./18-Evaporación.html"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Evaporación</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Hidrología Aplicada a la Ingeniería Civil</a> 
+        <div class="sidebar-tools-main">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Alternar modo oscuro"><i class="bi"></i></a>
+  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Alternar modo lector">
+  <div class="quarto-reader-toggle-btn">
+  <i class="bi"></i>
+  </div>
+</a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Buscar"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Hidrología Aplicada a la Ingeniería Civil</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./welcome.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Prefacio</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introducción</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Fundamentos</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01-La_hidrologia_como_ciencia.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">La hidrología como ciencia</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02-Disponibilidad.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">La disponibilidad del recurso hídrico</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03-Ciclo_hidrologico.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">El ciclo hidrológico</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04-Cuenca.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">La cuenca como unidad hidrológica</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Información hidrometeorológica</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05-Fuentes_info_hidrometeo.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Fuentes de información hidrometeorológica</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./06-Meteo.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Principios de meteorología y climatología</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./07-Precip.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Precipitación</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./08-hidrometria.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Hidrometría: aforos y curvas de descarga</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./09-registros_hidro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Verificación y completado de registros hidrológicos</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./10-teledeteccion_productos_satelitales.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Teledetección y productos satelitales</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Análisis estadístico aplicado a la hidrología</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./11-estadistica.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Conceptos básicos de probabilidad</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./12-retorno_y_riesgo.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Conceptos clave de probabilidad en hidrología</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./13-modelos.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Modelos estadísticos y distribuciones de probabilidad</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./14-dist_parametrica.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Distribuciones paramétricas de probabilidad comunes en hidrología</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">Lluvia de diseño</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./15-IDF.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Intensidad, duración y frecuencia de la precipitación</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./16-hietogramas_diseno.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Distribución temporal de la lluvia de diseño</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./17-precipitacion_maxima_probable.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Precipitación máxima probable</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
+ <span class="menu-text">Procesos de pérdida del agua</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./18-Evaporación.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Evaporación</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./19-Evapotranspiración.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Evapotranspiración</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./20-Infiltración y almacenamiento en el suelo.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Infiltración y almacenamiento en el suelo</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./21-Transición hacia la escorrentía superficial.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Intercepción, almacenamiento superficial y transición a la escorrentía</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true">
+ <span class="menu-text">Balance hídrico, agua subterránea y caudales bajos</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./22-Principio de conservación de la masa.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Principio de conservación de la masa</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./23-Balance hídrico a escala de cuenca.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Balance hídrico a escala de cuenca</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./24-Balance hídrico del suelo.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Balance hídrico del suelo</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./25-agua_subterranea.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Agua subterránea y recarga de acuíferos</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./26-caudales_minimos_sequias.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Caudales mínimos, sequías y curvas de duración</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./27-oferta_demanda.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Oferta y demanda hídrica</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true">
+ <span class="menu-text">Escorrentía y crecidas de diseño</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./28-hidrograma_unitario.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Hidrograma de escorrentía directa e hidrograma unitario</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./29-metodo_racional.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Método racional y tiempo de concentración</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./30-modelos_lluvia_escorrentia.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Modelos lluvia-escorrentía</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./31-frecuencia_caudales.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Análisis de frecuencia de caudales y regionalización</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./32-incertidumbre.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Incertidumbre en hidrología</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true">
+ <span class="menu-text">Sedimentos, calidad del agua y morfología fluvial</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./33-erosion_sedimentos.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Erosión y producción de sedimentos</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./34-transporte_sedimentos.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">Transporte de sedimentos y sedimentación de embalses</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./35-morfologia_fluvial.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">Morfología fluvial</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./36-calidad_agua.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">36</span>&nbsp; <span class="chapter-title">Calidad del agua</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="true">
+ <span class="menu-text">Tránsito de avenidas, embalses y crecidas</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="true" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./37-transito_fundamentos.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">37</span>&nbsp; <span class="chapter-title">Fundamentos del tránsito de avenidas</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./38-transito_embalses.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">38</span>&nbsp; <span class="chapter-title">Tránsito de avenidas y operación de embalses</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./39-transito_rios.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">39</span>&nbsp; <span class="chapter-title">Tránsito hidrológico en ríos</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./40-amenaza_inundacion.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">40</span>&nbsp; <span class="chapter-title">Amenaza por inundación</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./41-pronostico_alerta_temprana.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">41</span>&nbsp; <span class="chapter-title">Pronóstico de crecidas y sistemas de alerta temprana</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="true">
+ <span class="menu-text">Hidrología urbana</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="true" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./42-hidrologia_urbana.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">42</span>&nbsp; <span class="chapter-title">Hidrología urbana y escorrentía urbana</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./43-drenaje_urbano.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">43</span>&nbsp; <span class="chapter-title">Sistemas de drenaje urbano</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./44-drenaje_sostenible.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">44</span>&nbsp; <span class="chapter-title">Hidrología urbana sostenible y adaptación climática</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" role="navigation" aria-expanded="true">
+ <span class="menu-text">Cambio climático, uso del suelo e hidrología</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" role="navigation" aria-expanded="true" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-11" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./45-ecohidrologia_uso_suelo.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">45</span>&nbsp; <span class="chapter-title">Ecohidrología y cambio de uso del suelo</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./46-cambio_climatico_fundamentos.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">46</span>&nbsp; <span class="chapter-title">Cambio climático: fundamentos y evidencia</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./47-escenarios_modelos_climaticos.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">47</span>&nbsp; <span class="chapter-title">Escenarios y modelos climáticos</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./48-diseno_cambio_climatico.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">48</span>&nbsp; <span class="chapter-title">Diseño hidrológico con cambio climático</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./49-epilogo.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Palabras finales</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./99-Referencias.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Referencias</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Tabla de contenidos</h2>
+   
+  <ul>
+  <li><a href="#sec-evap-concepto" id="toc-sec-evap-concepto" class="nav-link active" data-scroll-target="#sec-evap-concepto"><span class="header-section-number">18.1</span> Concepto físico de la evaporación</a>
+  <ul class="collapse">
+  <li><a href="#dinámica-molecular-y-energía-cinética" id="toc-dinámica-molecular-y-energía-cinética" class="nav-link" data-scroll-target="#dinámica-molecular-y-energía-cinética"><span class="header-section-number">18.1.1</span> Dinámica molecular y energía cinética</a></li>
+  <li><a href="#calor-latente-y-calor-sensible" id="toc-calor-latente-y-calor-sensible" class="nav-link" data-scroll-target="#calor-latente-y-calor-sensible"><span class="header-section-number">18.1.2</span> Calor latente y calor sensible</a></li>
+  <li><a href="#presión-de-vapor-y-ley-de-dalton" id="toc-presión-de-vapor-y-ley-de-dalton" class="nav-link" data-scroll-target="#presión-de-vapor-y-ley-de-dalton"><span class="header-section-number">18.1.3</span> Presión de vapor y ley de Dalton</a></li>
+  <li><a href="#factores-meteorológicos" id="toc-factores-meteorológicos" class="nav-link" data-scroll-target="#factores-meteorológicos"><span class="header-section-number">18.1.4</span> Factores meteorológicos</a></li>
+  <li><a href="#sublimación" id="toc-sublimación" class="nav-link" data-scroll-target="#sublimación"><span class="header-section-number">18.1.5</span> Sublimación</a></li>
+  </ul></li>
+  <li><a href="#sec-evap-superficies" id="toc-sec-evap-superficies" class="nav-link" data-scroll-target="#sec-evap-superficies"><span class="header-section-number">18.2</span> Evaporación desde distintas superficies</a>
+  <ul class="collapse">
+  <li><a href="#agua-libre" id="toc-agua-libre" class="nav-link" data-scroll-target="#agua-libre"><span class="header-section-number">18.2.1</span> Agua libre</a></li>
+  <li><a href="#suelos-húmedos" id="toc-suelos-húmedos" class="nav-link" data-scroll-target="#suelos-húmedos"><span class="header-section-number">18.2.2</span> Suelos húmedos</a></li>
+  </ul></li>
+  <li><a href="#sec-evap-tanque" id="toc-sec-evap-tanque" class="nav-link" data-scroll-target="#sec-evap-tanque"><span class="header-section-number">18.3</span> Medición con el tanque evaporímetro</a></li>
+  <li><a href="#sec-evap-metodos" id="toc-sec-evap-metodos" class="nav-link" data-scroll-target="#sec-evap-metodos"><span class="header-section-number">18.4</span> Métodos de estimación</a>
+  <ul class="collapse">
+  <li><a href="#sec-evap-balance" id="toc-sec-evap-balance" class="nav-link" data-scroll-target="#sec-evap-balance"><span class="header-section-number">18.4.1</span> Balance de energía</a></li>
+  <li><a href="#método-aerodinámico" id="toc-método-aerodinámico" class="nav-link" data-scroll-target="#método-aerodinámico"><span class="header-section-number">18.4.2</span> Método aerodinámico</a></li>
+  <li><a href="#fórmula-de-meyer" id="toc-fórmula-de-meyer" class="nav-link" data-scroll-target="#fórmula-de-meyer"><span class="header-section-number">18.4.3</span> Fórmula de Meyer</a></li>
+  <li><a href="#método-de-combinación-de-penman" id="toc-método-de-combinación-de-penman" class="nav-link" data-scroll-target="#método-de-combinación-de-penman"><span class="header-section-number">18.4.4</span> Método de combinación de Penman</a></li>
+  <li><a href="#método-de-priestley-y-taylor" id="toc-método-de-priestley-y-taylor" class="nav-link" data-scroll-target="#método-de-priestley-y-taylor"><span class="header-section-number">18.4.5</span> Método de Priestley y Taylor</a></li>
+  <li><a href="#razón-de-bowen" id="toc-razón-de-bowen" class="nav-link" data-scroll-target="#razón-de-bowen"><span class="header-section-number">18.4.6</span> Razón de Bowen</a></li>
+  </ul></li>
+  <li><a href="#sec-evap-ejercicios" id="toc-sec-evap-ejercicios" class="nav-link" data-scroll-target="#sec-evap-ejercicios"><span class="header-section-number">18.5</span> Ejercicios propuestos</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./18-Evaporación.html">Procesos de pérdida del agua</a></li><li class="breadcrumb-item"><a href="./18-Evaporación.html"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Evaporación</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Evaporación</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="quote-block">
+<p>“La luz puede evaporar el agua sin necesidad de calor.”<br>
+— <em>Atribuida a Yaodong Tu, ingeniero mecánico del MIT</em></p>
+</div>
+<p>Un embalse pierde agua aunque nadie la use. En la época seca, con sol fuerte, aire seco y viento, la lámina que se evapora de su superficie puede ser comparable con lo que se extrae para riego o para abastecimiento, y por eso entra en el balance de cualquier embalse, laguna o reservorio. La evaporación también seca el suelo entre lluvias y con eso cambia cuánta lluvia infiltra y cuánta escurre en la tormenta siguiente. Este capítulo explica el proceso físico, cómo se mide con el tanque evaporímetro y cómo se estima con datos meteorológicos. La evaporación desde la vegetación, que se suma a la transpiración de las plantas, se trata en el capítulo siguiente.</p>
+<section id="sec-evap-concepto" class="level2" data-number="18.1">
+<h2 data-number="18.1" class="anchored" data-anchor-id="sec-evap-concepto"><span class="header-section-number">18.1</span> Concepto físico de la evaporación</h2>
+<p>La evaporación es el paso del agua líquida a vapor y su incorporación a la atmósfera. En el ciclo hidrológico es la vía por la que el agua de océanos, lagos, embalses y suelos vuelve al aire. Para entenderla conviene verla en tres escalas: el movimiento de las moléculas, la energía que exige el cambio de fase y el transporte del vapor en el aire que está sobre la superficie.</p>
+<section id="dinámica-molecular-y-energía-cinética" class="level3" data-number="18.1.1">
+<h3 data-number="18.1.1" class="anchored" data-anchor-id="dinámica-molecular-y-energía-cinética"><span class="header-section-number">18.1.1</span> Dinámica molecular y energía cinética</h3>
+<p>En el agua líquida las moléculas están unidas por fuerzas intermoleculares, sobre todo por puentes de hidrógeno (<a href="#fig-agua" class="quarto-xref">Figura&nbsp;<span>18.1</span></a>). No están quietas: se mueven sin parar, con una energía cinética media que depende de la temperatura del líquido.</p>
+<div class="cell fig-border" data-layout-align="center">
+<div class="cell-output-display">
+<div id="fig-agua" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" alt="Esquema de moléculas de agua unidas por puentes de hidrógeno">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-agua-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="assets/img/agua.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Figura&nbsp;18.1: Moléculas de agua. Fuente: @USGS."><img src="assets/img/agua.jpg" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:75.0%" alt="Esquema de moléculas de agua unidas por puentes de hidrógeno"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-agua-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;18.1: Moléculas de agua. Fuente: <span class="citation" data-cites="USGS">U.S. Geological Survey (2024)</span>.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>No todas las moléculas tienen la misma energía: las velocidades siguen una distribución, y una fracción de las moléculas está muy por encima del promedio. Cuando una de esas moléculas rápidas está cerca de la superficie libre, puede vencer la cohesión y la tensión superficial y escapar al aire (<a href="#fig-evapo2" class="quarto-xref">Figura&nbsp;<span>18.2</span></a>).</p>
+<div class="cell fig-border" data-layout-align="center">
+<div class="cell-output-display">
+<div id="fig-evapo2" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" alt="Dos esquemas de una superficie de agua con moléculas; a la izquierda seis flechas naranjas suben desde el agua y dos grises bajan, con poco vapor en el aire; a la derecha suben cuatro y bajan cuatro, con mucho más vapor en el aire">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-evapo2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="assets/img/evaporacion_molecular.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Figura&nbsp;18.2: Intercambio de moléculas en la superficie del agua. (a) Con aire no saturado escapan más moléculas de las que regresan y hay evaporación neta. (b) Con aire saturado los dos flujos se igualan. Fuente: elaboración propia a partir de @shuttleworth2012terrestrial [fig. 2.1]."><img src="assets/img/evaporacion_molecular.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:95.0%" alt="Dos esquemas de una superficie de agua con moléculas; a la izquierda seis flechas naranjas suben desde el agua y dos grises bajan, con poco vapor en el aire; a la derecha suben cuatro y bajan cuatro, con mucho más vapor en el aire"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-evapo2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;18.2: Intercambio de moléculas en la superficie del agua. (a) Con aire no saturado escapan más moléculas de las que regresan y hay evaporación neta. (b) Con aire saturado los dos flujos se igualan. Fuente: elaboración propia a partir de <span class="citation" data-cites="shuttleworth2012terrestrial">Shuttleworth (2012, fig. 2.1)</span>.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>Al mismo tiempo, moléculas de vapor del aire chocan con la superficie y se reincorporan al líquido: eso es la condensación. Lo que se mide en hidrología es la evaporación neta, la diferencia entre las moléculas que salen y las que regresan. Por eso la evaporación se detiene cuando el aire sobre el agua se satura, aunque las moléculas sigan escapando.</p>
+</section>
+<section id="calor-latente-y-calor-sensible" class="level3" data-number="18.1.2">
+<h3 data-number="18.1.2" class="anchored" data-anchor-id="calor-latente-y-calor-sensible"><span class="header-section-number">18.1.2</span> Calor latente y calor sensible</h3>
+<p>Cambiar de fase cuesta mucha energía. La energía que necesita un kilogramo de agua para pasar a vapor sin cambiar de temperatura es el calor latente de vaporización, <span class="math inline">\(\lambda\)</span>. Se puede calcular con <span class="citation" data-cites="allen1998fao56">(Allen et&nbsp;al. 1998)</span>:</p>
+<p><span id="eq-evap-lambda"><span class="math display">\[
+\lambda = 2.501 - 0.002361\,T_s
+\tag{18.1}\]</span></span></p>
+<p>donde <span class="math inline">\(\lambda\)</span> es el calor latente de vaporización (MJ/kg) y <span class="math inline">\(T_s\)</span> es la temperatura de la superficie del agua (°C). A las temperaturas habituales vale cerca de 2.45 MJ/kg, unas 585 cal/g. Esa es justamente la energía que hace falta para evaporar una lámina de 1 mm sobre 1 m², porque esa lámina pesa 1 kg.</p>
+<p>Como las moléculas que escapan son las más rápidas, la energía media del líquido que queda baja y la superficie se enfría. Ese enfriamiento evaporativo se nota en un lago, en un suelo mojado y en la hoja de una planta.</p>
+<p>La energía para evaporar viene sobre todo de la radiación solar. Una parte menor la aporta el calor sensible del aire y del suelo. El calor sensible es la energía que se transfiere por una diferencia de temperatura, sin cambio de fase: el aire caliente que pasa sobre un embalse frío le entrega calor sensible, y el embalse caliente que calienta el aire de la noche se lo devuelve. En el balance de energía de una superficie (<a href="#sec-evap-balance" class="quarto-xref"><span>Sección 18.4.1</span></a>), el calor sensible y el calor latente compiten por la misma radiación.</p>
+</section>
+<section id="presión-de-vapor-y-ley-de-dalton" class="level3" data-number="18.1.3">
+<h3 data-number="18.1.3" class="anchored" data-anchor-id="presión-de-vapor-y-ley-de-dalton"><span class="header-section-number">18.1.3</span> Presión de vapor y ley de Dalton</h3>
+<p>A cada temperatura le corresponde una presión de vapor de saturación, <span class="math inline">\(e_s\)</span>: la presión del vapor cuando el aire está en equilibrio con una superficie de agua. Crece casi exponencialmente con la temperatura (<a href="05-Fuentes_info_hidrometeo.html#eq-fuentes-es" class="quarto-xref">Ecuación&nbsp;<span>5.3</span></a>), y por eso el aire cálido admite mucho más vapor que el frío. La presión de vapor real del aire, <span class="math inline">\(e_a\)</span>, depende de cuánta humedad tiene.</p>
+<p>La tasa de evaporación es proporcional a la diferencia entre las dos. Es la ley que enunció Dalton en 1802 <span class="citation" data-cites="chow1988appliedhydrology">(Chow, Maidment, y Mays 1988)</span>:</p>
+<p><span id="eq-evap-dalton"><span class="math display">\[
+E = k\,(e_s - e_a)
+\tag{18.2}\]</span></span></p>
+<p>donde <span class="math inline">\(E\)</span> es la tasa de evaporación (mm/d), <span class="math inline">\(e_s\)</span> es la presión de vapor de saturación a la temperatura de la superficie (kPa), <span class="math inline">\(e_a\)</span> es la presión de vapor del aire (kPa) y <span class="math inline">\(k\)</span> es un coeficiente que agrupa el efecto del viento y de la rugosidad de la superficie (mm/(d·kPa)). La diferencia <span class="math inline">\(e_s - e_a\)</span> se llama déficit de presión de vapor. Si <span class="math inline">\(e_s &gt; e_a\)</span> hay evaporación neta; si <span class="math inline">\(e_s = e_a\)</span> la evaporación neta es nula; y si <span class="math inline">\(e_a &gt; e_s\)</span> el vapor se condensa sobre la superficie, como el rocío de la madrugada.</p>
+</section>
+<section id="factores-meteorológicos" class="level3" data-number="18.1.4">
+<h3 data-number="18.1.4" class="anchored" data-anchor-id="factores-meteorológicos"><span class="header-section-number">18.1.4</span> Factores meteorológicos</h3>
+<div class="pregunta">
+<p>¿Por qué la ropa tendida se seca más rápido en un día con viento, aunque esté nublado?</p>
+</div>
+<p>Porque el viento se lleva el aire húmedo que queda pegado a la tela y lo cambia por aire más seco. Sin viento, esa capa se satura y la evaporación casi se detiene, aunque haya energía. La evaporación depende de cuatro factores:</p>
+<ul>
+<li><strong>Radiación solar.</strong> Es la fuente principal de la energía que exige el cambio de fase.</li>
+<li><strong>Temperatura del aire y de la superficie.</strong> Controla la energía de las moléculas y el valor de <span class="math inline">\(e_s\)</span>.</li>
+<li><strong>Humedad del aire.</strong> Fija <span class="math inline">\(e_a\)</span>. Un aire seco tiene un déficit de presión de vapor grande y evapora más.</li>
+<li><strong>Viento.</strong> Renueva el aire sobre la superficie y mantiene el déficit de presión de vapor.</li>
+</ul>
+<p>Los cuatro actúan juntos. Un día soleado y calmo puede evaporar menos que uno nublado y ventoso, y por eso los métodos de estimación que funcionan mejor (<a href="#sec-evap-metodos" class="quarto-xref"><span>Sección 18.4</span></a>) combinan la energía disponible con el transporte del vapor.</p>
+</section>
+<section id="sublimación" class="level3" data-number="18.1.5">
+<h3 data-number="18.1.5" class="anchored" data-anchor-id="sublimación"><span class="header-section-number">18.1.5</span> Sublimación</h3>
+<p>En la alta montaña y en las zonas con nieve o hielo, el agua puede pasar del estado sólido al vapor sin fundirse: es la sublimación. Exige más energía que la evaporación, porque suma el calor latente de fusión y el de vaporización: a 0 °C son unas 80 + 597 = 677 cal/g <span class="citation" data-cites="chow1988appliedhydrology">(Chow, Maidment, y Mays 1988)</span>. En Costa Rica casi no tiene importancia hidrológica, pero en las cuencas con glaciares es una pérdida de masa apreciable.</p>
+</section>
+</section>
+<section id="sec-evap-superficies" class="level2" data-number="18.2">
+<h2 data-number="18.2" class="anchored" data-anchor-id="sec-evap-superficies"><span class="header-section-number">18.2</span> Evaporación desde distintas superficies</h2>
+<p>Para que haya evaporación se necesitan tres cosas a la vez: energía, agua disponible en la superficie y un aire capaz de llevarse el vapor. Desde el punto de vista del balance hídrico, la evaporación es una salida: el agua que se evapora ya no escurre, no recarga acuíferos y no queda almacenada.</p>
+<section id="agua-libre" class="level3" data-number="18.2.1">
+<h3 data-number="18.2.1" class="anchored" data-anchor-id="agua-libre"><span class="header-section-number">18.2.1</span> Agua libre</h3>
+<p>En un lago, un embalse o el mar el agua nunca falta, así que la evaporación depende solo de la energía y del aire. Es el caso más sencillo y el que mejor se estima.</p>
+<p>En un cuerpo de agua profundo, parte de la energía de los meses de más sol se gasta en calentar el agua y no en evaporarla. Ese calor se libera después, cuando el aire se enfría, y la evaporación sigue alta aunque haya menos radiación. Por eso en los lagos grandes el máximo de evaporación llega con retraso respecto del máximo de radiación. En un embalse poco profundo o en un tanque evaporímetro ese retraso casi no existe.</p>
+<p>Las sales disueltas bajan la presión de vapor de la superficie y con ella la evaporación. En agua dulce el efecto es despreciable, pero se nota en lagunas costeras y en estanques salobres.</p>
+</section>
+<section id="suelos-húmedos" class="level3" data-number="18.2.2">
+<h3 data-number="18.2.2" class="anchored" data-anchor-id="suelos-húmedos"><span class="header-section-number">18.2.2</span> Suelos húmedos</h3>
+<p>En un suelo el agua sí puede faltar, y la evaporación pasa por dos etapas:</p>
+<ol type="1">
+<li><strong>Etapa limitada por la energía.</strong> Después de una lluvia o de un riego, la superficie del suelo está mojada y se comporta casi como agua libre. La evaporación depende de la energía y del aire, y puede acercarse a la de un embalse en las mismas condiciones.</li>
+<li><strong>Etapa limitada por el suelo.</strong> Cuando la superficie se seca, el agua tiene que subir por capilaridad desde capas más profundas, y la conductividad hidráulica del suelo baja rápidamente al bajar la humedad. El suelo ya no entrega toda el agua que el aire podría llevarse, el frente de secado baja dentro del perfil y la evaporación cae. Los suelos finos, como las arcillas, mantienen el agua conectada en sus poros más tiempo que los arenosos y sostienen la evaporación por más días.</li>
+</ol>
+</section>
+</section>
+<section id="sec-evap-tanque" class="level2" data-number="18.3">
+<h2 data-number="18.3" class="anchored" data-anchor-id="sec-evap-tanque"><span class="header-section-number">18.3</span> Medición con el tanque evaporímetro</h2>
+<p>Medir la evaporación de un embalse entero es casi imposible, así que se mide en un recipiente pequeño y se corrige. El instrumento más usado es el tanque clase A: un recipiente circular de hierro galvanizado de 120.7 cm de diámetro y 25 cm de profundidad, montado sobre una tarima de madera a unos 15 cm del suelo y lleno hasta 5 cm del borde <span class="citation" data-cites="allen1998fao56">(Allen et&nbsp;al. 1998)</span> (<a href="#fig-Evaporation_Pan" class="quarto-xref">Figura&nbsp;<span>18.3</span></a>).</p>
+<div class="cell fig-border" data-layout-align="center">
+<div class="cell-output-display">
+<div id="fig-Evaporation_Pan" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" alt="Fotografía de un tanque circular metálico con agua, sobre una tarima de madera en un terreno con césped">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-Evaporation_Pan-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="assets/img/Evaporation_Pan.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="Figura&nbsp;18.3: Tanque evaporímetro clase A sobre su tarima, con el pozo tranquilizador y el anemómetro, en una estación del Servicio Meteorológico de Australia. Fotografía: Bidgee, Wikimedia Commons, licencia CC BY."><img src="assets/img/Evaporation_Pan.webp" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:60.0%" alt="Fotografía de un tanque circular metálico con agua, sobre una tarima de madera en un terreno con césped"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-Evaporation_Pan-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;18.3: Tanque evaporímetro clase A sobre su tarima, con el pozo tranquilizador y el anemómetro, en una estación del Servicio Meteorológico de Australia. Fotografía: Bidgee, Wikimedia Commons, licencia CC BY.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>Cada día se mide el descenso del nivel en el pozo tranquilizador y se le suma la lluvia del pluviómetro vecino. El tanque evapora más que un embalse: tiene poca agua, sus paredes metálicas absorben calor y el aire que le llega no se ha humedecido sobre una superficie extensa. Para pasar a la evaporación de un embalse se usa el coeficiente del tanque <span class="citation" data-cites="chow1988appliedhydrology">(Chow, Maidment, y Mays 1988)</span>:</p>
+<p><span id="eq-evap-tanque"><span class="math display">\[
+E_L = K_p\,E_{\text{tanque}}
+\tag{18.3}\]</span></span></p>
+<p>donde <span class="math inline">\(E_L\)</span> es la evaporación del embalse o lago (mm/d), <span class="math inline">\(E_{\text{tanque}}\)</span> es la evaporación medida en el tanque (mm/d) y <span class="math inline">\(K_p\)</span> es el coeficiente del tanque (adimensional). <span class="math inline">\(K_p\)</span> suele estar entre 0.60 y 0.85; para estimaciones anuales se usa con frecuencia 0.70, pero cambia con la estación y con el sitio <span class="citation" data-cites="chow1988appliedhydrology">(Chow, Maidment, y Mays 1988)</span>.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Ejemplo: pérdida anual por evaporación en un embalse a partir del tanque clase A">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Ejemplo: pérdida anual por evaporación en un embalse a partir del tanque clase A
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Un embalse de 12 km<sup>2</sup> en el Pacífico seco tiene cerca una estación con tanque clase A. El Cuadro siguiente da la evaporación mensual media del tanque (datos hipotéticos). Con <span class="math inline">\(K_p = 0.70\)</span>, estime la evaporación anual del embalse en milímetros y en hectómetros cúbicos, y el volumen que pierde en el mes más evaporante.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Mes</th>
+<th style="text-align: right;">Ene</th>
+<th style="text-align: right;">Feb</th>
+<th style="text-align: right;">Mar</th>
+<th style="text-align: right;">Abr</th>
+<th style="text-align: right;">May</th>
+<th style="text-align: right;">Jun</th>
+<th style="text-align: right;">Jul</th>
+<th style="text-align: right;">Ago</th>
+<th style="text-align: right;">Set</th>
+<th style="text-align: right;">Oct</th>
+<th style="text-align: right;">Nov</th>
+<th style="text-align: right;">Dic</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Tanque (mm)</td>
+<td style="text-align: right;">220</td>
+<td style="text-align: right;">240</td>
+<td style="text-align: right;">290</td>
+<td style="text-align: right;">270</td>
+<td style="text-align: right;">180</td>
+<td style="text-align: right;">130</td>
+<td style="text-align: right;">150</td>
+<td style="text-align: right;">145</td>
+<td style="text-align: right;">115</td>
+<td style="text-align: right;">110</td>
+<td style="text-align: right;">130</td>
+<td style="text-align: right;">180</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Solución:</strong></p>
+<ol type="1">
+<li><strong>Evaporación anual del tanque.</strong> La suma de los doce meses es 2160 mm.</li>
+<li><strong>Evaporación del embalse.</strong> Con la <a href="#eq-evap-tanque" class="quarto-xref">Ecuación&nbsp;<span>18.3</span></a>, <span class="math inline">\(E_L = 0.70 \times 2160 = 1512\)</span> mm/año.</li>
+<li><strong>Volumen.</strong> Una lámina de 1 mm sobre 1 km<sup>2</sup> son 1000 m³. Entonces <span class="math inline">\(V = 1512\ \mathrm{mm} \times 12\ \mathrm{km^2} \times 1000\ \mathrm{m^3/(mm \cdot km^2)} = 18.1 \times 10^6\ \mathrm{m^3}\)</span>, o 18.1 hm³.</li>
+<li><strong>Mes más evaporante.</strong> En marzo, <span class="math inline">\(E_L = 0.70 \times 290 = 203\)</span> mm y <span class="math inline">\(V = 203 \times 12 \times 1000 = 2.44\)</span> hm³.</li>
+</ol>
+<p><strong>Pseudocódigo</strong></p>
+<ol type="1">
+<li>Escribir la evaporación mensual del tanque.</li>
+<li>Multiplicar por <span class="math inline">\(K_p\)</span> para obtener la evaporación del embalse.</li>
+<li>Multiplicar la lámina por el área para obtener el volumen.</li>
+<li>Sumar el año e identificar el mes de mayor pérdida.</li>
+</ol>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 1) Evaporación mensual del tanque (mm, datos hipotéticos)</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>tanque <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">mes =</span> month.abb,</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">e_tanque_mm =</span> <span class="fu">c</span>(<span class="dv">220</span>, <span class="dv">240</span>, <span class="dv">290</span>, <span class="dv">270</span>, <span class="dv">180</span>, <span class="dv">130</span>, <span class="dv">150</span>, <span class="dv">145</span>, <span class="dv">115</span>, <span class="dv">110</span>, <span class="dv">130</span>, <span class="dv">180</span>)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co"># 2) y 3) Evaporación y volumen del embalse</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>k_p <span class="ot">&lt;-</span> <span class="fl">0.70</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>area_km2 <span class="ot">&lt;-</span> <span class="dv">12</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>embalse <span class="ot">&lt;-</span> tanque <span class="sc">%&gt;%</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">e_embalse_mm =</span> k_p <span class="sc">*</span> e_tanque_mm,</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>         <span class="at">volumen_hm3 =</span> e_embalse_mm <span class="sc">*</span> area_km2 <span class="sc">/</span> <span class="dv">1000</span>)</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="co"># 4) Totales y mes de mayor pérdida</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>embalse <span class="sc">%&gt;%</span> <span class="fu">summarise</span>(<span class="at">e_anual_mm =</span> <span class="fu">sum</span>(e_embalse_mm), <span class="at">volumen_anual_hm3 =</span> <span class="fu">sum</span>(volumen_hm3))</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":["e_anual_mm"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["volumen_anual_hm3"],"name":[2],"type":["dbl"],"align":["right"]}],"data":[{"1":"1512","2":"18.144"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>embalse <span class="sc">%&gt;%</span> <span class="fu">slice_max</span>(volumen_hm3)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":["mes"],"name":[1],"type":["chr"],"align":["left"]},{"label":["e_tanque_mm"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["e_embalse_mm"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["volumen_hm3"],"name":[4],"type":["dbl"],"align":["right"]}],"data":[{"1":"Mar","2":"290","3":"203","4":"2.436"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+</div>
+<p>El embalse pierde unos 18 hm³ al año, y más de la mitad entre enero y abril, justo cuando no llueve y la demanda de agua es mayor. Un error de 0.1 en <span class="math inline">\(K_p\)</span> cambia la pérdida anual en unos 2.6 hm³, así que conviene calibrar <span class="math inline">\(K_p\)</span> con un balance del propio embalse cuando hay datos.</p>
+</div>
+</div>
+</section>
+<section id="sec-evap-metodos" class="level2" data-number="18.4">
+<h2 data-number="18.4" class="anchored" data-anchor-id="sec-evap-metodos"><span class="header-section-number">18.4</span> Métodos de estimación</h2>
+<p>Cuando no hay tanque, o cuando se quiere comprobar su resultado, la evaporación se estima con datos meteorológicos. Los métodos se diferencian en qué factor consideran que limita la evaporación: la energía, el transporte del vapor o ambos.</p>
+<section id="sec-evap-balance" class="level3" data-number="18.4.1">
+<h3 data-number="18.4.1" class="anchored" data-anchor-id="sec-evap-balance"><span class="header-section-number">18.4.1</span> Balance de energía</h3>
+<p>Si se toma la superficie del agua como volumen de control, la energía que entra debe salir o quedarse:</p>
+<p><span id="eq-evap-balance"><span class="math display">\[
+R_n - G - H - \lambda\,\rho_w\,E = 0
+\tag{18.4}\]</span></span></p>
+<p>donde <span class="math inline">\(R_n\)</span> es la radiación neta (W/m²), <span class="math inline">\(G\)</span> es el flujo de calor hacia el agua o el suelo (W/m²), <span class="math inline">\(H\)</span> es el flujo de calor sensible hacia el aire (W/m²), <span class="math inline">\(\lambda\)</span> es el calor latente de vaporización (J/kg), <span class="math inline">\(\rho_w\)</span> es la densidad del agua (kg/m³) y <span class="math inline">\(E\)</span> es la tasa de evaporación (m/s). La radiación neta se mide con un radiómetro neto o se estima con la radiación solar y la temperatura; el capítulo de evapotranspiración muestra cómo calcularla con el método de la FAO.</p>
+<p>Si toda la radiación neta se gasta en evaporar (<span class="math inline">\(G = H = 0\)</span>), la evaporación límite por energía es <span class="citation" data-cites="chow1988appliedhydrology">(Chow, Maidment, y Mays 1988)</span>:</p>
+<p><span id="eq-evap-er"><span class="math display">\[
+E_r = \frac{R_n}{\lambda\,\rho_w}
+\tag{18.5}\]</span></span></p>
+<p>donde <span class="math inline">\(E_r\)</span> es la evaporación por radiación (m/s) y las demás variables son las de la <a href="#eq-evap-balance" class="quarto-xref">Ecuación&nbsp;<span>18.4</span></a>. Para pasar a mm/d se multiplica por <span class="math inline">\(1000 \times 86\,400\)</span>. Con <span class="math inline">\(\lambda = 2.45\)</span> MJ/kg y <span class="math inline">\(\rho_w = 1000\)</span> kg/m³, 100 W/m² de radiación neta evaporan 3.5 mm/d.</p>
+</section>
+<section id="método-aerodinámico" class="level3" data-number="18.4.2">
+<h3 data-number="18.4.2" class="anchored" data-anchor-id="método-aerodinámico"><span class="header-section-number">18.4.2</span> Método aerodinámico</h3>
+<p>El otro límite es el transporte del vapor. Si se supone un perfil logarítmico del viento sobre la superficie y aire saturado a la altura de rugosidad, la ley de Dalton toma una forma física <span class="citation" data-cites="chow1988appliedhydrology">(Chow, Maidment, y Mays 1988)</span>:</p>
+<p><span id="eq-evap-aero"><span class="math display">\[
+E_a = B\,(e_s - e_a), \qquad B = \frac{0.622\,k^2\,\rho_a\,u_2}{P\,\rho_w\,\left[\ln(z_2/z_0)\right]^2}
+\tag{18.6}\]</span></span></p>
+<p>donde:</p>
+<ul>
+<li><span class="math inline">\(E_a\)</span> es la evaporación por transporte de vapor (m/s);</li>
+<li><span class="math inline">\(e_s\)</span> es la presión de vapor de saturación a la temperatura del aire y <span class="math inline">\(e_a\)</span> la presión de vapor del aire (Pa);</li>
+<li><span class="math inline">\(k = 0.4\)</span> es la constante de von Kármán;</li>
+<li><span class="math inline">\(\rho_a\)</span> es la densidad del aire (kg/m³) y <span class="math inline">\(\rho_w\)</span> la del agua (kg/m³);</li>
+<li><span class="math inline">\(u_2\)</span> es la velocidad del viento (m/s) medida a la altura <span class="math inline">\(z_2\)</span> (m);</li>
+<li><span class="math inline">\(P\)</span> es la presión atmosférica (Pa);</li>
+<li><span class="math inline">\(z_0\)</span> es la altura de rugosidad de la superficie (m), entre 0.01 y 0.06 cm para agua abierta según <span class="citation" data-cites="chow1988appliedhydrology">Chow, Maidment, y Mays (1988)</span>.</li>
+</ul>
+</section>
+<section id="fórmula-de-meyer" class="level3" data-number="18.4.3">
+<h3 data-number="18.4.3" class="anchored" data-anchor-id="fórmula-de-meyer"><span class="header-section-number">18.4.3</span> Fórmula de Meyer</h3>
+<p>Antes de que hubiera datos de radiación se usaron fórmulas empíricas del tipo de Dalton, con un coeficiente ajustado a observaciones. La más citada en los textos en español es la de Meyer, de 1915 <span class="citation" data-cites="Aparicio1992">(Aparicio 1992)</span>:</p>
+<p><span id="eq-evap-meyer"><span class="math display">\[
+E_m = C\,(e_s - e_a)\left(1 + \frac{V_w}{16.09}\right)
+\tag{18.7}\]</span></span></p>
+<p>donde <span class="math inline">\(E_m\)</span> es la evaporación mensual (cm), <span class="math inline">\(e_s\)</span> es la presión de vapor de saturación media mensual a la temperatura del agua (pulgadas de mercurio), <span class="math inline">\(e_a\)</span> es la presión de vapor media mensual del aire (pulgadas de mercurio), <span class="math inline">\(V_w\)</span> es la velocidad media mensual del viento a 10 m de altura (km/h) y <span class="math inline">\(C\)</span> es un coeficiente empírico: 38 para depósitos pequeños y tanques evaporímetros y 28 para embalses grandes. La fórmula conserva las unidades inglesas de su origen: 1 pulgada de mercurio son 3.386 kPa, y 16.09 km/h son 10 millas por hora. Sirve para valores mensuales y para comparar; su coeficiente no se ha calibrado en el trópico.</p>
+</section>
+<section id="método-de-combinación-de-penman" class="level3" data-number="18.4.4">
+<h3 data-number="18.4.4" class="anchored" data-anchor-id="método-de-combinación-de-penman"><span class="header-section-number">18.4.4</span> Método de combinación de Penman</h3>
+<p>En la realidad la energía y el transporte limitan a la vez. <span class="citation" data-cites="penman1948natural">Penman (1948)</span> combinó los dos métodos en una sola ecuación, que pondera la evaporación por radiación y la aerodinámica según la temperatura <span class="citation" data-cites="chow1988appliedhydrology">(Chow, Maidment, y Mays 1988)</span>:</p>
+<p><span id="eq-evap-penman"><span class="math display">\[
+E = \frac{\Delta}{\Delta + \gamma}\,E_r + \frac{\gamma}{\Delta + \gamma}\,E_a
+\tag{18.8}\]</span></span></p>
+<p>donde <span class="math inline">\(E\)</span> es la evaporación (mm/d), <span class="math inline">\(E_r\)</span> y <span class="math inline">\(E_a\)</span> son las de la <a href="#eq-evap-er" class="quarto-xref">Ecuación&nbsp;<span>18.5</span></a> y la <a href="#eq-evap-aero" class="quarto-xref">Ecuación&nbsp;<span>18.6</span></a> (mm/d), <span class="math inline">\(\Delta\)</span> es la pendiente de la curva de presión de vapor de saturación a la temperatura del aire (kPa/°C) y <span class="math inline">\(\gamma\)</span> es la constante psicrométrica (kPa/°C). Los dos pesos suman 1. Con la ecuación de Penman no hace falta medir la temperatura de la superficie del agua, que es difícil de obtener; basta con radiación, temperatura y humedad del aire, viento y presión.</p>
+<p>La pendiente <span class="math inline">\(\Delta\)</span> y la constante psicrométrica se calculan con <span class="citation" data-cites="allen1998fao56">(Allen et&nbsp;al. 1998)</span>:</p>
+<p><span id="eq-evap-delta-gamma"><span class="math display">\[
+\Delta = \frac{4098\,e_s}{(T + 237.3)^2}, \qquad \gamma = 0.0016286\,\frac{P}{\lambda}
+\tag{18.9}\]</span></span></p>
+<p>donde <span class="math inline">\(e_s\)</span> es la presión de vapor de saturación de la <a href="05-Fuentes_info_hidrometeo.html#eq-fuentes-es" class="quarto-xref">Ecuación&nbsp;<span>5.3</span></a> (kPa), <span class="math inline">\(T\)</span> es la temperatura del aire (°C), <span class="math inline">\(P\)</span> es la presión atmosférica (kPa) y <span class="math inline">\(\lambda\)</span> es el calor latente de la <a href="#eq-evap-lambda" class="quarto-xref">Ecuación&nbsp;<span>18.1</span></a> (MJ/kg). Al nivel del mar <span class="math inline">\(\gamma\)</span> vale cerca de 0.067 kPa/°C. Como <span class="math inline">\(\Delta\)</span> crece con la temperatura (<a href="#fig-vapor2" class="quarto-xref">Figura&nbsp;<span>18.4</span></a>), en el trópico cálido el peso de la radiación es mayor: a 28 °C, <span class="math inline">\(\Delta/(\Delta + \gamma)\)</span> es 0.77.</p>
+<div class="cell fig-border" data-layout-align="center">
+<div class="cell-output-display">
+<div id="fig-vapor2" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" alt="Curva que sube cada vez más rápido, de 0.6 kPa a 0 °C a 7.4 kPa a 40 °C, con una recta tangente en 25 °C y 3.17 kPa">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-vapor2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="18-Evaporación_files/figure-html/fig-vapor2-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4" title="Figura&nbsp;18.4: Presión de vapor de saturación según la temperatura (Ecuación&nbsp;eq-fuentes-es). La recta es la tangente a 25 °C, cuya pendiente es \Delta."><img src="18-Evaporación_files/figure-html/fig-vapor2-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:75.0%" alt="Curva que sube cada vez más rápido, de 0.6 kPa a 0 °C a 7.4 kPa a 40 °C, con una recta tangente en 25 °C y 3.17 kPa"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-vapor2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;18.4: Presión de vapor de saturación según la temperatura (<a href="05-Fuentes_info_hidrometeo.html#eq-fuentes-es" class="quarto-xref">Ecuación&nbsp;<span>5.3</span></a>). La recta es la tangente a 25 °C, cuya pendiente es <span class="math inline">\(\Delta\)</span>.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="método-de-priestley-y-taylor" class="level3" data-number="18.4.5">
+<h3 data-number="18.4.5" class="anchored" data-anchor-id="método-de-priestley-y-taylor"><span class="header-section-number">18.4.5</span> Método de Priestley y Taylor</h3>
+<p>Sobre superficies extensas y húmedas el aire que llega ya viene casi saturado, y la energía manda. <span class="citation" data-cites="priestley1972assessment">Priestley y Taylor (1972)</span> encontraron que en esas condiciones el término aerodinámico de la <a href="#eq-evap-penman" class="quarto-xref">Ecuación&nbsp;<span>18.8</span></a> es cerca del 30 % del término de radiación, y propusieron <span class="citation" data-cites="chow1988appliedhydrology">(Chow, Maidment, y Mays 1988)</span>:</p>
+<p><span id="eq-evap-pt"><span class="math display">\[
+E = \alpha\,\frac{\Delta}{\Delta + \gamma}\,E_r
+\tag{18.10}\]</span></span></p>
+<p>donde <span class="math inline">\(\alpha = 1.3\)</span> es el coeficiente de Priestley y Taylor (adimensional) y las demás variables son las de la <a href="#eq-evap-penman" class="quarto-xref">Ecuación&nbsp;<span>18.8</span></a>. Solo necesita radiación neta y temperatura, y por eso se usa mucho cuando faltan datos de viento y humedad.</p>
+</section>
+<section id="razón-de-bowen" class="level3" data-number="18.4.6">
+<h3 data-number="18.4.6" class="anchored" data-anchor-id="razón-de-bowen"><span class="header-section-number">18.4.6</span> Razón de Bowen</h3>
+<p>En una estación de investigación se pueden medir la temperatura y la presión de vapor a dos alturas sobre la superficie. Como el calor sensible y el vapor se transportan por el mismo mecanismo turbulento, su cociente, la razón de Bowen, se obtiene de esas diferencias <span class="citation" data-cites="bowen1926ratio chow1988appliedhydrology">(Bowen 1926; Chow, Maidment, y Mays 1988)</span>:</p>
+<p><span id="eq-evap-bowen"><span class="math display">\[
+\beta = \frac{H}{\lambda\,\rho_w\,E} = \gamma\,\frac{T_2 - T_1}{e_2 - e_1}, \qquad E = \frac{R_n - G}{\lambda\,\rho_w\,(1 + \beta)}
+\tag{18.11}\]</span></span></p>
+<p>donde <span class="math inline">\(\beta\)</span> es la razón de Bowen (adimensional), <span class="math inline">\(T_1\)</span> y <span class="math inline">\(T_2\)</span> son las temperaturas del aire a dos alturas (°C), <span class="math inline">\(e_1\)</span> y <span class="math inline">\(e_2\)</span> las presiones de vapor a esas alturas (kPa), <span class="math inline">\(\gamma\)</span> es la constante psicrométrica (kPa/°C) y las demás variables son las de la <a href="#eq-evap-balance" class="quarto-xref">Ecuación&nbsp;<span>18.4</span></a>. Sobre un embalse <span class="math inline">\(\beta\)</span> suele ser pequeño, porque casi toda la energía se va en evaporar; sobre un suelo seco puede pasar de 1.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Ejemplo: evaporación de un embalse por cinco métodos">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Ejemplo: evaporación de un embalse por cinco métodos
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Para un día medio de la época seca en un embalse del Pacífico seco se tienen estos datos, medidos a 2 m sobre el agua (datos hipotéticos): radiación neta 180 W/m², temperatura del aire 28 °C, humedad relativa 55 %, viento 4 m/s y presión atmosférica 100.5 kPa. Tome <span class="math inline">\(z_0 = 0.03\)</span> cm y <span class="math inline">\(\rho_w = 996\)</span> kg/m³. Estime la evaporación con el balance de energía, el método aerodinámico, Penman, Priestley y Taylor y Meyer.</p>
+<p><strong>Solución:</strong></p>
+<ol type="1">
+<li><strong>Propiedades.</strong> Con la <a href="#eq-evap-lambda" class="quarto-xref">Ecuación&nbsp;<span>18.1</span></a>, <span class="math inline">\(\lambda = 2.501 - 0.002361 \times 28 = 2.435\)</span> MJ/kg. La densidad del aire es <span class="math inline">\(\rho_a = P/(R_d\,T) = 100\,500/(287 \times 301.15) = 1.163\)</span> kg/m³. Con la <a href="05-Fuentes_info_hidrometeo.html#eq-fuentes-es" class="quarto-xref">Ecuación&nbsp;<span>5.3</span></a>, <span class="math inline">\(e_s = 3.780\)</span> kPa, y <span class="math inline">\(e_a = 0.55 \times 3.780 = 2.079\)</span> kPa.</li>
+<li><strong>Balance de energía.</strong> Con la <a href="#eq-evap-er" class="quarto-xref">Ecuación&nbsp;<span>18.5</span></a>: <span class="math display">\[
+E_r = \frac{180}{2.435 \times 10^6 \times 996} = 7.42 \times 10^{-8}\ \mathrm{m/s} = 6.41\ \mathrm{mm/d}
+\]</span></li>
+<li><strong>Método aerodinámico.</strong> Con la <a href="#eq-evap-aero" class="quarto-xref">Ecuación&nbsp;<span>18.6</span></a>, <span class="math inline">\(\ln(2/0.0003) = 8.80\)</span> y <span class="math display">\[
+B = \frac{0.622 \times 0.4^2 \times 1.163 \times 4}{100\,500 \times 996 \times 8.80^2} = 5.96 \times 10^{-11}\ \mathrm{m/(Pa \cdot s)}
+\]</span> Entonces <span class="math inline">\(E_a = 5.96 \times 10^{-11} \times (3780 - 2079) = 1.01 \times 10^{-7}\)</span> m/s, o 8.77 mm/d.</li>
+<li><strong>Penman.</strong> Con la <a href="#eq-evap-delta-gamma" class="quarto-xref">Ecuación&nbsp;<span>18.9</span></a>, <span class="math inline">\(\Delta = 4098 \times 3.780/(265.3)^2 = 0.220\)</span> kPa/°C y <span class="math inline">\(\gamma = 0.0016286 \times 100.5/2.435 = 0.0672\)</span> kPa/°C. Los pesos son <span class="math inline">\(0.220/0.287 = 0.766\)</span> y 0.234, y <span class="math inline">\(E = 0.766 \times 6.41 + 0.234 \times 8.77 = 6.96\)</span> mm/d.</li>
+<li><strong>Priestley y Taylor.</strong> Con la <a href="#eq-evap-pt" class="quarto-xref">Ecuación&nbsp;<span>18.10</span></a>, <span class="math inline">\(E = 1.3 \times 0.766 \times 6.41 = 6.39\)</span> mm/d.</li>
+<li><strong>Meyer.</strong> El viento a 10 m sale del perfil logarítmico: <span class="math inline">\(u_{10} = 4 \times \ln(10/0.0003)/\ln(2/0.0003) = 4.73\)</span> m/s, o 17.0 km/h. El déficit es <span class="math inline">\(1.701/3.386 = 0.502\)</span> pulgadas de mercurio. Con la <a href="#eq-evap-meyer" class="quarto-xref">Ecuación&nbsp;<span>18.7</span></a> y <span class="math inline">\(C = 28\)</span>, <span class="math inline">\(E_m = 28 \times 0.502 \times (1 + 17.0/16.09) = 29.0\)</span> cm en un mes de 30 días, o 9.65 mm/d.</li>
+</ol>
+<p><strong>Pseudocódigo</strong></p>
+<ol type="1">
+<li>Calcular <span class="math inline">\(\lambda\)</span>, <span class="math inline">\(\rho_a\)</span>, <span class="math inline">\(e_s\)</span> y <span class="math inline">\(e_a\)</span>.</li>
+<li>Calcular <span class="math inline">\(E_r\)</span> con la radiación neta.</li>
+<li>Calcular <span class="math inline">\(B\)</span> y <span class="math inline">\(E_a\)</span> con el viento y el déficit de presión de vapor.</li>
+<li>Calcular <span class="math inline">\(\Delta\)</span> y <span class="math inline">\(\gamma\)</span> y combinar <span class="math inline">\(E_r\)</span> y <span class="math inline">\(E_a\)</span> con Penman.</li>
+<li>Aplicar Priestley y Taylor con <span class="math inline">\(\alpha = 1.3\)</span>.</li>
+<li>Llevar el viento a 10 m, pasar el déficit a pulgadas de mercurio y aplicar Meyer.</li>
+</ol>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Datos del día (medidos a 2 m sobre el agua)</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>r_n <span class="ot">&lt;-</span> <span class="dv">180</span>          <span class="co"># radiación neta (W/m2)</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>t_aire <span class="ot">&lt;-</span> <span class="dv">28</span>        <span class="co"># temperatura del aire (°C)</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>hr <span class="ot">&lt;-</span> <span class="fl">0.55</span>          <span class="co"># humedad relativa (fracción)</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>u_2 <span class="ot">&lt;-</span> <span class="dv">4</span>            <span class="co"># viento a 2 m (m/s)</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>p_kpa <span class="ot">&lt;-</span> <span class="fl">100.5</span>      <span class="co"># presión atmosférica (kPa)</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>z_0 <span class="ot">&lt;-</span> <span class="fl">0.0003</span>       <span class="co"># rugosidad del agua (m)</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>rho_w <span class="ot">&lt;-</span> <span class="dv">996</span>        <span class="co"># densidad del agua (kg/m3)</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>s_dia <span class="ot">&lt;-</span> <span class="dv">86400</span>      <span class="co"># segundos por día</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="co"># 1) Propiedades del aire y del agua</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>lambda <span class="ot">&lt;-</span> <span class="fl">2.501</span> <span class="sc">-</span> <span class="fl">0.002361</span> <span class="sc">*</span> t_aire                     <span class="co"># MJ/kg</span></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>rho_a <span class="ot">&lt;-</span> p_kpa <span class="sc">*</span> <span class="dv">1000</span> <span class="sc">/</span> (<span class="dv">287</span> <span class="sc">*</span> (t_aire <span class="sc">+</span> <span class="fl">273.15</span>))       <span class="co"># kg/m3</span></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>e_s <span class="ot">&lt;-</span> <span class="fl">0.6108</span> <span class="sc">*</span> <span class="fu">exp</span>(<span class="fl">17.27</span> <span class="sc">*</span> t_aire <span class="sc">/</span> (t_aire <span class="sc">+</span> <span class="fl">237.3</span>))  <span class="co"># kPa</span></span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>e_a <span class="ot">&lt;-</span> hr <span class="sc">*</span> e_s                                         <span class="co"># kPa</span></span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a><span class="co"># 2) Balance de energía (mm/d)</span></span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>e_r <span class="ot">&lt;-</span> r_n <span class="sc">/</span> (lambda <span class="sc">*</span> <span class="fl">1e6</span> <span class="sc">*</span> rho_w) <span class="sc">*</span> <span class="dv">1000</span> <span class="sc">*</span> s_dia</span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a><span class="co"># 3) Método aerodinámico (mm/d); las presiones van en Pa</span></span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>b <span class="ot">&lt;-</span> <span class="fl">0.622</span> <span class="sc">*</span> <span class="fl">0.4</span><span class="sc">^</span><span class="dv">2</span> <span class="sc">*</span> rho_a <span class="sc">*</span> u_2 <span class="sc">/</span> (p_kpa <span class="sc">*</span> <span class="dv">1000</span> <span class="sc">*</span> rho_w <span class="sc">*</span> <span class="fu">log</span>(<span class="dv">2</span> <span class="sc">/</span> z_0)<span class="sc">^</span><span class="dv">2</span>)</span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>e_aero <span class="ot">&lt;-</span> b <span class="sc">*</span> (e_s <span class="sc">-</span> e_a) <span class="sc">*</span> <span class="dv">1000</span> <span class="sc">*</span> <span class="dv">1000</span> <span class="sc">*</span> s_dia</span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a><span class="co"># 4) Penman</span></span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a>delta <span class="ot">&lt;-</span> <span class="dv">4098</span> <span class="sc">*</span> e_s <span class="sc">/</span> (t_aire <span class="sc">+</span> <span class="fl">237.3</span>)<span class="sc">^</span><span class="dv">2</span></span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a>gamma <span class="ot">&lt;-</span> <span class="fl">0.0016286</span> <span class="sc">*</span> p_kpa <span class="sc">/</span> lambda</span>
+<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a>peso <span class="ot">&lt;-</span> delta <span class="sc">/</span> (delta <span class="sc">+</span> gamma)</span>
+<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a>e_penman <span class="ot">&lt;-</span> peso <span class="sc">*</span> e_r <span class="sc">+</span> (<span class="dv">1</span> <span class="sc">-</span> peso) <span class="sc">*</span> e_aero</span>
+<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a><span class="co"># 5) Priestley y Taylor</span></span>
+<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a>e_pt <span class="ot">&lt;-</span> <span class="fl">1.3</span> <span class="sc">*</span> peso <span class="sc">*</span> e_r</span>
+<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a><span class="co"># 6) Meyer (cm/mes con presiones en pulgadas de Hg y viento a 10 m en km/h)</span></span>
+<span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a>u_10 <span class="ot">&lt;-</span> u_2 <span class="sc">*</span> <span class="fu">log</span>(<span class="dv">10</span> <span class="sc">/</span> z_0) <span class="sc">/</span> <span class="fu">log</span>(<span class="dv">2</span> <span class="sc">/</span> z_0)</span>
+<span id="cb3-37"><a href="#cb3-37" aria-hidden="true" tabindex="-1"></a>e_meyer <span class="ot">&lt;-</span> <span class="dv">28</span> <span class="sc">*</span> ((e_s <span class="sc">-</span> e_a) <span class="sc">/</span> <span class="fl">3.386</span>) <span class="sc">*</span> (<span class="dv">1</span> <span class="sc">+</span> u_10 <span class="sc">*</span> <span class="fl">3.6</span> <span class="sc">/</span> <span class="fl">16.09</span>) <span class="sc">*</span> <span class="dv">10</span> <span class="sc">/</span> <span class="dv">30</span></span>
+<span id="cb3-38"><a href="#cb3-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-39"><a href="#cb3-39" aria-hidden="true" tabindex="-1"></a>resultados <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb3-40"><a href="#cb3-40" aria-hidden="true" tabindex="-1"></a>  <span class="at">metodo =</span> <span class="fu">c</span>(<span class="st">"Balance de energía"</span>, <span class="st">"Aerodinámico"</span>, <span class="st">"Penman"</span>, <span class="st">"Priestley y Taylor"</span>, <span class="st">"Meyer"</span>),</span>
+<span id="cb3-41"><a href="#cb3-41" aria-hidden="true" tabindex="-1"></a>  <span class="at">e_mm_d =</span> <span class="fu">c</span>(e_r, e_aero, e_penman, e_pt, e_meyer)</span>
+<span id="cb3-42"><a href="#cb3-42" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb3-43"><a href="#cb3-43" aria-hidden="true" tabindex="-1"></a>resultados</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":["metodo"],"name":[1],"type":["chr"],"align":["left"]},{"label":["e_mm_d"],"name":[2],"type":["dbl"],"align":["right"]}],"data":[{"1":"Balance de energía","2":"6.412793"},{"1":"Aerodinámico","2":"8.766170"},{"1":"Penman","2":"6.963417"},{"1":"Priestley y Taylor","2":"6.386091"},{"1":"Meyer","2":"9.651812"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+</div>
+<div class="cell" data-layout-align="center">
+<div id="tbl-evap-metodos" class="cell quarto-float quarto-figure quarto-figure-center anchored" data-layout-align="center">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-evap-metodos-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Cuadro&nbsp;18.1: Evaporación estimada para el día del ejemplo con cinco métodos.
+</figcaption>
+<div aria-describedby="tbl-evap-metodos-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<table class="table table-hover table-condensed table-striped do-not-create-environment cell caption-top table-sm small" data-quarto-postprocess="true">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th" style="text-align: left; font-weight: bold;">Método</th>
+<th data-quarto-table-cell-role="th" style="text-align: center; font-weight: bold;">Evaporación (mm/d)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Balance de energía</td>
+<td style="text-align: center;">6.41</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Aerodinámico</td>
+<td style="text-align: center;">8.77</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Penman</td>
+<td style="text-align: center;">6.96</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Priestley y Taylor</td>
+<td style="text-align: center;">6.39</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Meyer</td>
+<td style="text-align: center;">9.65</td>
+</tr>
+</tbody>
+</table>
+
+
+</div>
+</div>
+</figure>
+</div>
+</div>
+<p>Los métodos dan entre 6.4 y 9.7 mm/d (<a href="#tbl-evap-metodos" class="quarto-xref">Cuadro&nbsp;<span>18.1</span></a>). Penman queda entre el límite por energía y el aerodinámico, como debe ser, y Priestley y Taylor da casi lo mismo que el balance de energía, porque el aire de este día es seco y el término aerodinámico pesa más que el 30 % que supone el método. Meyer da el valor más alto: su coeficiente viene de lagos de clima templado y no se calibró para el trópico. Para un balance de embalse conviene usar Penman y contrastarlo con el tanque clase A cuando lo hay.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="sec-evap-ejercicios" class="level2" data-number="18.5">
+<h2 data-number="18.5" class="anchored" data-anchor-id="sec-evap-ejercicios"><span class="header-section-number">18.5</span> Ejercicios propuestos</h2>
+<ol type="1">
+<li><p>Calcule el calor latente de vaporización a 30 °C y la energía diaria que se necesita para evaporar 5 mm/d sobre 1 m². ¿A qué flujo medio de radiación equivale?</p>
+<p><em>Respuesta:</em> con la <a href="#eq-evap-lambda" class="quarto-xref">Ecuación&nbsp;<span>18.1</span></a>, <span class="math inline">\(\lambda = 2.430\)</span> MJ/kg. Evaporar 5 mm sobre 1 m² son 5 kg, así que hacen falta <span class="math inline">\(5 \times 2.430 = 12.15\)</span> MJ/m² al día, un flujo medio de <span class="math inline">\(12.15 \times 10^6/86\,400 = 141\)</span> W/m².</p></li>
+<li><p>El tanque clase A de una estación marca 6.5 mm/d en un mes. Con <span class="math inline">\(K_p = 0.70\)</span>, estime la evaporación de un embalse vecino de 3 km<sup>2</sup> en mm/d y en m³/d.</p>
+<p><em>Respuesta:</em> <span class="math inline">\(E_L = 0.70 \times 6.5 = 4.55\)</span> mm/d, y el volumen es <span class="math inline">\(4.55 \times 3 \times 1000 = 13\,650\)</span> m³/d.</p></li>
+<li><p>Un embalse grande tiene agua a 25 °C, humedad relativa del 60 % y viento medio de 15 km/h a 10 m. Estime la evaporación del mes con la fórmula de Meyer.</p>
+<p><em>Respuesta:</em> <span class="math inline">\(e_s = 3.168\)</span> kPa, o 0.935 pulgadas de mercurio, y <span class="math inline">\(e_a = 0.60 \times 0.935 = 0.561\)</span> pulgadas. Con <span class="math inline">\(C = 28\)</span>, <span class="math inline">\(E_m = 28 \times 0.374 \times (1 + 15/16.09) = 20.2\)</span> cm/mes.</p></li>
+<li><p>Sobre un embalse se miden <span class="math inline">\(R_n = 150\)</span> W/m² y <span class="math inline">\(G = 10\)</span> W/m². A dos alturas, la temperatura del aire es 27.0 °C y 26.2 °C, y la presión de vapor, 2.30 kPa y 2.10 kPa. Con <span class="math inline">\(\gamma = 0.067\)</span> kPa/°C y <span class="math inline">\(\lambda = 2.438\)</span> MJ/kg, estime la evaporación por el método de la razón de Bowen.</p>
+<p><em>Respuesta:</em> con la <a href="#eq-evap-bowen" class="quarto-xref">Ecuación&nbsp;<span>18.11</span></a>, <span class="math inline">\(\beta = 0.067 \times (26.2 - 27.0)/(2.10 - 2.30) = 0.268\)</span> y <span class="math inline">\(E = 140/(2.438 \times 10^6 \times 997 \times 1.268) \times 1000 \times 86\,400 = 3.92\)</span> mm/d.</p></li>
+<li><p>Con el método de Priestley y Taylor, estime la evaporación de un lago con radiación neta de 150 W/m², temperatura del aire de 20 °C y presión de 101.3 kPa (<span class="math inline">\(\rho_w = 998\)</span> kg/m³).</p>
+<p><em>Respuesta:</em> <span class="math inline">\(\lambda = 2.454\)</span> MJ/kg y <span class="math inline">\(E_r = 5.29\)</span> mm/d.&nbsp;Con <span class="math inline">\(e_s = 2.338\)</span> kPa, <span class="math inline">\(\Delta = 0.145\)</span> kPa/°C y <span class="math inline">\(\gamma = 0.0672\)</span> kPa/°C, el peso es 0.683 y <span class="math inline">\(E = 1.3 \times 0.683 \times 5.29 = 4.70\)</span> mm/d.</p></li>
+</ol>
+
+
+</section>
+
+</main> <!-- /main -->
+<!--
+  Herramientas de lectura del libro: búsqueda en todo el texto (funciona sin
+  internet) y ajustes de accesibilidad (tamaño de letra, alto contraste y
+  fuente más legible). Los ajustes se guardan en el navegador del lector.
+  Lo insertan _quarto.yml (libro web) y herramientas/publicar.R (un solo archivo).
+  En el libro web, Quarto ya trae su propia búsqueda, así que aquí no se agrega.
+-->
+<style>
+  #barra-lectura {
+    position: fixed; top: 0.6rem; right: 1rem; z-index: 1060;
+    display: flex; gap: 0.35rem; align-items: center;
+  }
+  #barra-lectura > button, #barra-lectura > .quarto-color-scheme-toggle {
+    position: static; display: inline-flex; align-items: center; justify-content: center;
+    min-width: 2.3rem; height: 2.3rem; padding: 0 0.55rem;
+    background: var(--bs-body-bg, #fff); color: var(--bs-body-color, #212529);
+    border: 1px solid var(--bs-border-color, #ced4da); border-radius: 0.45rem;
+    font: 600 0.95rem/1 system-ui, sans-serif; cursor: pointer; text-decoration: none;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+  }
+  #barra-lectura > button:hover, #barra-lectura > button[aria-expanded="true"] {
+    border-color: #1C6BA0; color: #1C6BA0;
+  }
+  #barra-lectura > button:focus-visible, .panel-lectura button:focus-visible,
+  .panel-lectura input:focus-visible { outline: 3px solid #1C6BA0; outline-offset: 2px; }
+  #barra-lectura svg { width: 1.05rem; height: 1.05rem; }
+  /* Icono propio del interruptor de modo oscuro (luna en modo claro, sol en
+     modo oscuro), dibujado con el color del texto para que se vea en ambos */
+  #barra-lectura > .quarto-color-scheme-toggle .bi::before {
+    content: ""; display: inline-block; width: 1.05rem; height: 1.05rem;
+    background: currentColor; -webkit-mask: var(--icono-modo) center / contain no-repeat; mask: var(--icono-modo) center / contain no-repeat;
+  }
+  #barra-lectura > .quarto-color-scheme-toggle {
+    --icono-modo: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M6 .278a.77.77 0 0 1 .08.858 7.2 7.2 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277q.792-.001 1.533-.16a.79.79 0 0 1 .81.316.73.73 0 0 1-.031.893A8.35 8.35 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.75.75 0 0 1 6 .278'/%3E%3C/svg%3E");
+  }
+  #barra-lectura > .quarto-color-scheme-toggle.alternate {
+    --icono-modo: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8M8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0m0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13m8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5M3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8m10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0m-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0m9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707M4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708'/%3E%3C/svg%3E");
+  }
+
+  .panel-lectura {
+    position: fixed; top: 3.4rem; right: 1rem; z-index: 1060; display: none;
+    width: min(24rem, calc(100vw - 2rem)); max-height: calc(100vh - 5rem); overflow: auto;
+    background: var(--bs-body-bg, #fff); color: var(--bs-body-color, #212529);
+    border: 1px solid var(--bs-border-color, #ced4da); border-radius: 0.6rem;
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.18); padding: 1rem;
+    font-family: system-ui, sans-serif; font-size: 0.95rem;
+  }
+  .panel-lectura.abierto { display: block; }
+  .panel-lectura h2 { font-size: 1rem; margin: 0 0 0.75rem; font-weight: 700; border: 0; padding: 0; }
+  .panel-lectura .fila { display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; margin: 0.6rem 0; }
+  .panel-lectura .grupo { display: inline-flex; gap: 0.3rem; }
+  .panel-lectura .grupo button, .panel-lectura .restablecer {
+    min-width: 2.4rem; padding: 0.3rem 0.6rem; border-radius: 0.4rem; cursor: pointer;
+    border: 1px solid var(--bs-border-color, #ced4da);
+    background: var(--bs-body-bg, #fff); color: var(--bs-body-color, #212529); font: inherit;
+  }
+  .panel-lectura button[aria-pressed="true"] { background: #1C6BA0; border-color: #1C6BA0; color: #fff; }
+  .panel-lectura .restablecer { width: 100%; margin-top: 0.6rem; }
+  .panel-lectura .nota { color: var(--bs-secondary-color, #6c757d); font-size: 0.85rem; margin: 0.6rem 0 0; }
+
+  #caja-busqueda {
+    width: 100%; padding: 0.5rem 0.65rem; font: inherit; border-radius: 0.4rem;
+    border: 1px solid var(--bs-border-color, #ced4da);
+    background: var(--bs-body-bg, #fff); color: var(--bs-body-color, #212529);
+  }
+  #resultados-busqueda { list-style: none; margin: 0.6rem 0 0; padding: 0; }
+  #resultados-busqueda li { border-top: 1px solid var(--bs-border-color, #e9ecef); }
+  #resultados-busqueda a { display: block; padding: 0.5rem 0.2rem; text-decoration: none; color: inherit; }
+  #resultados-busqueda a:hover, #resultados-busqueda a:focus { background: rgba(28, 107, 160, 0.08); }
+  #resultados-busqueda .lugar { display: block; font-size: 0.8rem; color: #1C6BA0; font-weight: 600; }
+  #resultados-busqueda mark { padding: 0; background: #ffe58a; color: #000; }
+  .resaltado-busqueda { outline: 3px solid #f0ad4e; outline-offset: 3px; transition: outline-color 1s; }
+
+  /* Fuente más legible: sin serifa, más espacio entre letras y líneas */
+  body.lectura-legible #quarto-document-content :is(p, li, td, th, dd, dt, figcaption, blockquote, .callout-body-container),
+  body.lectura-legible #TOC {
+    font-family: Verdana, Tahoma, "Segoe UI", sans-serif !important;
+    letter-spacing: 0.02em; word-spacing: 0.08em; line-height: 1.75;
+  }
+  body.lectura-legible #quarto-document-content :is(h1, h2, h3, h4) {
+    font-family: Verdana, Tahoma, "Segoe UI", sans-serif !important;
+  }
+
+  /* Alto contraste: texto negro sobre blanco (o blanco sobre negro en modo oscuro) */
+  body.lectura-contraste.quarto-light { --bs-body-color: #000; --bs-body-bg: #fff; background: #fff !important; color: #000 !important; }
+  body.lectura-contraste.quarto-light #quarto-document-content *:not(mark):not(code):not(pre) { color: #000 !important; }
+  body.lectura-contraste.quarto-light #quarto-document-content a { color: #0033cc !important; text-decoration: underline !important; }
+  body.lectura-contraste.quarto-dark { --bs-body-color: #fff; --bs-body-bg: #000; background: #000 !important; color: #fff !important; }
+  body.lectura-contraste.quarto-dark #quarto-document-content *:not(mark):not(code):not(pre) { color: #fff !important; }
+  body.lectura-contraste.quarto-dark #quarto-document-content a { color: #ffd84d !important; text-decoration: underline !important; }
+  body.lectura-contraste #quarto-document-content :is(.callout, table, th, td) { border-color: currentColor !important; }
+
+  @media (max-width: 767.98px) {
+    #barra-lectura { top: 0.4rem; right: 0.5rem; }
+    .panel-lectura { right: 0.5rem; top: 3.1rem; }
+  }
+  @media print { #barra-lectura, .panel-lectura { display: none !important; } }
+</style>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  var CLAVE = "libro-hidrologia-lectura";
+  var ESCALAS = [0.9, 1, 1.12, 1.25, 1.4];
+  var ajustes = { escala: 1, contraste: false, legible: false };
+  try {
+    var guardado = JSON.parse(localStorage.getItem(CLAVE) || "null");
+    if (guardado) Object.assign(ajustes, guardado);
+  } catch (e) { /* sin almacenamiento: se usan los valores de fábrica */ }
+
+  function guardar() {
+    try { localStorage.setItem(CLAVE, JSON.stringify(ajustes)); } catch (e) {}
+  }
+  function aplicar() {
+    document.documentElement.style.fontSize = ajustes.escala === 1 ? "" : (ajustes.escala * 100) + "%";
+    document.body.classList.toggle("lectura-contraste", !!ajustes.contraste);
+    document.body.classList.toggle("lectura-legible", !!ajustes.legible);
+    var b;
+    if ((b = document.getElementById("lect-contraste"))) b.setAttribute("aria-pressed", String(!!ajustes.contraste));
+    if ((b = document.getElementById("lect-legible"))) b.setAttribute("aria-pressed", String(!!ajustes.legible));
+    if ((b = document.getElementById("lect-tamano"))) b.textContent = Math.round(ajustes.escala * 100) + " %";
+  }
+  aplicar();
+
+  var main = document.getElementById("quarto-document-content") || document.querySelector("main");
+  var hayBusquedaQuarto = !!document.getElementById("quarto-search");
+
+  // --- Barra de botones, arriba a la derecha, junto al modo oscuro ---
+  var barra = document.createElement("div");
+  barra.id = "barra-lectura";
+  var iconoLupa = '<svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M11.74 10.34a6.5 6.5 0 1 0-1.4 1.4l3.85 3.85a1 1 0 0 0 1.4-1.4zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/></svg>';
+  var html = "";
+  if (!hayBusquedaQuarto) {
+    html += '<button type="button" id="boton-busqueda" aria-label="Buscar en el libro" aria-expanded="false" aria-controls="panel-busqueda" title="Buscar en el libro (Ctrl+K)">' + iconoLupa + '</button>';
+  }
+  html += '<button type="button" id="boton-acceso" aria-label="Opciones de lectura: tamaño de letra, contraste y fuente" aria-expanded="false" aria-controls="panel-acceso" title="Tamaño de letra, contraste y fuente">Aa</button>';
+  barra.innerHTML = html;
+  document.body.appendChild(barra);
+
+  // El interruptor de modo oscuro de Quarto pasa a la misma barra, que está
+  // fija arriba a la derecha y se ve en todos los capítulos. En el libro de un
+  // solo archivo Quarto crea el interruptor después de este código, así que se
+  // intenta de nuevo cuando la página termina de cargar.
+  function moverInterruptor() {
+    var interruptor = document.querySelector("body > .quarto-color-scheme-toggle.top-right");
+    if (!interruptor) return;
+    interruptor.classList.remove("top-right");
+    interruptor.setAttribute("aria-label", "Cambiar entre modo claro y oscuro");
+    interruptor.title = "Modo claro u oscuro";
+    barra.appendChild(interruptor);
+    // Quarto no recuerda el modo cuando el libro se abre como archivo local;
+    // se guarda aquí para que se mantenga al volver a abrirlo
+    interruptor.addEventListener("click", function () {
+      setTimeout(function () {
+        try { localStorage.setItem("libro-modo-oscuro", document.body.classList.contains("quarto-dark") ? "1" : "0"); } catch (e) {}
+      }, 0);
+    });
+    var oscuro = null;
+    try { oscuro = localStorage.getItem("libro-modo-oscuro"); } catch (e) {}
+    if (oscuro === "1" && !document.body.classList.contains("quarto-dark") && window.quartoToggleColorScheme) {
+      window.quartoToggleColorScheme();
+    }
+  }
+  moverInterruptor();
+  document.addEventListener("DOMContentLoaded", moverInterruptor);
+  window.addEventListener("load", moverInterruptor);
+
+  // --- Panel de accesibilidad ---
+  var panelAcceso = document.createElement("div");
+  panelAcceso.className = "panel-lectura";
+  panelAcceso.id = "panel-acceso";
+  panelAcceso.setAttribute("role", "dialog");
+  panelAcceso.setAttribute("aria-label", "Opciones de lectura");
+  panelAcceso.innerHTML =
+    '<h2>Opciones de lectura</h2>' +
+    '<div class="fila"><span>Tamaño de letra</span><span class="grupo">' +
+      '<button type="button" id="lect-menos" aria-label="Letra más pequeña">A&minus;</button>' +
+      '<button type="button" id="lect-tamano" aria-label="Volver al tamaño normal" title="Tamaño normal">100 %</button>' +
+      '<button type="button" id="lect-mas" aria-label="Letra más grande">A+</button></span></div>' +
+    '<div class="fila"><span>Alto contraste</span><span class="grupo">' +
+      '<button type="button" id="lect-contraste" aria-pressed="false">Activar</button></span></div>' +
+    '<div class="fila"><span>Fuente más legible</span><span class="grupo">' +
+      '<button type="button" id="lect-legible" aria-pressed="false">Activar</button></span></div>' +
+    '<button type="button" class="restablecer" id="lect-restablecer">Restablecer</button>' +
+    '<p class="nota">Los ajustes se guardan en este navegador. El modo oscuro está en el botón de al lado.</p>';
+  document.body.appendChild(panelAcceso);
+
+  function cambiarEscala(paso) {
+    var i = ESCALAS.indexOf(ajustes.escala);
+    if (i < 0) i = 1;
+    i = paso === 0 ? 1 : Math.min(ESCALAS.length - 1, Math.max(0, i + paso));
+    ajustes.escala = ESCALAS[i];
+    aplicar(); guardar();
+  }
+  document.getElementById("lect-menos").addEventListener("click", function () { cambiarEscala(-1); });
+  document.getElementById("lect-mas").addEventListener("click", function () { cambiarEscala(1); });
+  document.getElementById("lect-tamano").addEventListener("click", function () { cambiarEscala(0); });
+  document.getElementById("lect-contraste").addEventListener("click", function () {
+    ajustes.contraste = !ajustes.contraste; aplicar(); guardar();
+  });
+  document.getElementById("lect-legible").addEventListener("click", function () {
+    ajustes.legible = !ajustes.legible; aplicar(); guardar();
+  });
+  document.getElementById("lect-restablecer").addEventListener("click", function () {
+    ajustes = { escala: 1, contraste: false, legible: false }; aplicar(); guardar();
+  });
+  aplicar();
+
+  // --- Panel de búsqueda (solo en el libro de un archivo) ---
+  var panelBusqueda = null;
+  if (!hayBusquedaQuarto && main) {
+    panelBusqueda = document.createElement("div");
+    panelBusqueda.className = "panel-lectura";
+    panelBusqueda.id = "panel-busqueda";
+    panelBusqueda.setAttribute("role", "dialog");
+    panelBusqueda.setAttribute("aria-label", "Buscar en el libro");
+    panelBusqueda.innerHTML =
+      '<h2>Buscar en el libro</h2>' +
+      '<input type="search" id="caja-busqueda" placeholder="Por ejemplo: Thiessen, curva masa…" autocomplete="off" aria-describedby="estado-busqueda">' +
+      '<p class="nota" id="estado-busqueda" aria-live="polite">Escriba al menos 3 letras. No distingue tildes ni mayúsculas.</p>' +
+      '<ul id="resultados-busqueda"></ul>';
+    document.body.appendChild(panelBusqueda);
+  }
+
+  function normalizar(t) {
+    return t.normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase();
+  }
+
+  // Índice: cada párrafo, elemento de lista, celda o leyenda, con su capítulo y sección
+  var indice = null;
+  function construirIndice() {
+    indice = [];
+    var nodos = main.querySelectorAll("p, li, td, th, figcaption, h1, h2, h3, h4, .callout-title-container");
+    Array.prototype.forEach.call(nodos, function (el) {
+      if (el.closest(".nav-capitulos, #TOC, .panel-lectura, pre, .sourceCode, script, style")) return;
+      if (el.tagName === "LI" && el.querySelector("p")) return;   // ya se indexan sus párrafos
+      var texto = (el.textContent || "").replace(/\s+/g, " ").trim();
+      if (texto.length < 3) return;
+      var sec = el.closest("section[id]");
+      var cap = el.closest("section.level1");
+      var h1 = cap ? cap.querySelector("h1") : null;
+      var hs = sec && sec !== cap ? sec.querySelector(":scope > h2, :scope > h3, :scope > h4") : null;
+      indice.push({
+        el: el, texto: texto, norm: normalizar(texto),
+        destino: (sec || cap || {}).id || "",
+        capitulo: h1 ? h1.textContent.replace(/\s+/g, " ").trim() : "",
+        seccion: hs ? hs.textContent.replace(/\s+/g, " ").trim() : ""
+      });
+    });
+  }
+
+  function escaparHtml(t) {
+    return t.replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; });
+  }
+  function fragmento(item, palabras) {
+    var pos = item.norm.indexOf(palabras[0]);
+    var ini = Math.max(0, pos - 60), fin = Math.min(item.texto.length, pos + 140);
+    var trozo = item.texto.slice(ini, fin), trozoNorm = item.norm.slice(ini, fin);
+    // Resalta cada palabra buscada (las posiciones coinciden porque normalizar no cambia la longitud
+    // de los caracteres comunes del español)
+    var marcas = [];
+    palabras.forEach(function (w) {
+      var k = trozoNorm.indexOf(w);
+      while (k >= 0) { marcas.push([k, k + w.length]); k = trozoNorm.indexOf(w, k + w.length); }
+    });
+    marcas.sort(function (a, b) { return a[0] - b[0]; });
+    var salida = "", ultimo = 0;
+    marcas.forEach(function (m) {
+      if (m[0] < ultimo) return;
+      salida += escaparHtml(trozo.slice(ultimo, m[0])) + "<mark>" + escaparHtml(trozo.slice(m[0], m[1])) + "</mark>";
+      ultimo = m[1];
+    });
+    salida += escaparHtml(trozo.slice(ultimo));
+    return (ini > 0 ? "… " : "") + salida + (fin < item.texto.length ? " …" : "");
+  }
+
+  var temporizador = null;
+  function buscar() {
+    var caja = document.getElementById("caja-busqueda");
+    var estado = document.getElementById("estado-busqueda");
+    var lista = document.getElementById("resultados-busqueda");
+    var consulta = normalizar(caja.value.trim());
+    lista.innerHTML = "";
+    if (consulta.length < 3) {
+      estado.textContent = "Escriba al menos 3 letras. No distingue tildes ni mayúsculas.";
+      return;
+    }
+    if (!indice) construirIndice();
+    var palabras = consulta.split(/\s+/).filter(Boolean);
+    var hallados = indice.filter(function (it) {
+      return palabras.every(function (w) { return it.norm.indexOf(w) >= 0; });
+    });
+    var MAX = 60;
+    estado.textContent = hallados.length === 0 ? "Sin resultados." :
+      (hallados.length > MAX ? "Se muestran " + MAX + " de " + hallados.length + " resultados." :
+       hallados.length + (hallados.length === 1 ? " resultado." : " resultados."));
+    hallados.slice(0, MAX).forEach(function (it) {
+      var li = document.createElement("li");
+      var a = document.createElement("a");
+      a.href = "#" + it.destino;
+      var lugar = it.capitulo + (it.seccion && it.seccion !== it.capitulo ? " › " + it.seccion : "");
+      a.innerHTML = '<span class="lugar">' + escaparHtml(lugar) + "</span>" + fragmento(it, palabras);
+      a.addEventListener("click", function () {
+        cerrarPaneles();
+        // La navegación por capítulos abre la página; después se lleva al párrafo exacto
+        setTimeout(function () {
+          it.el.scrollIntoView({ block: "center" });
+          it.el.classList.add("resaltado-busqueda");
+          setTimeout(function () { it.el.classList.remove("resaltado-busqueda"); }, 2500);
+        }, 60);
+      });
+      li.appendChild(a);
+      lista.appendChild(li);
+    });
+  }
+
+  // --- Abrir y cerrar paneles ---
+  function cerrarPaneles() {
+    [panelAcceso, panelBusqueda].forEach(function (p) { if (p) p.classList.remove("abierto"); });
+    Array.prototype.forEach.call(barra.querySelectorAll("button[aria-expanded]"), function (b) {
+      b.setAttribute("aria-expanded", "false");
+    });
+  }
+  function alternar(panel, boton, foco) {
+    var abrir = !panel.classList.contains("abierto");
+    cerrarPaneles();
+    if (abrir) {
+      panel.classList.add("abierto");
+      boton.setAttribute("aria-expanded", "true");
+      if (foco) foco.focus();
+    }
+  }
+  document.getElementById("boton-acceso").addEventListener("click", function () {
+    alternar(panelAcceso, this, document.getElementById("lect-mas"));
+  });
+  if (panelBusqueda) {
+    var caja = document.getElementById("caja-busqueda");
+    document.getElementById("boton-busqueda").addEventListener("click", function () {
+      alternar(panelBusqueda, this, caja);
+    });
+    caja.addEventListener("input", function () {
+      clearTimeout(temporizador);
+      temporizador = setTimeout(buscar, 200);
+    });
+  }
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape") cerrarPaneles();
+    if (panelBusqueda && (e.ctrlKey || e.metaKey) && (e.key === "k" || e.key === "K")) {
+      e.preventDefault();
+      alternar(panelBusqueda, document.getElementById("boton-busqueda"), document.getElementById("caja-busqueda"));
+    }
+  });
+  document.addEventListener("click", function (e) {
+    if (!e.target.closest(".panel-lectura, #barra-lectura")) cerrarPaneles();
+  });
+});
+</script>
+
+<!--
+  Notas al pie de los cuadros hechos con kableExtra: Quarto parte la celda que
+  ocupa todo el ancho en una celda por columna, y la nota queda apretada en la
+  primera columna. Aquí se vuelve a unir en una sola celda de todo el ancho.
+-->
+<style>
+  tfoot td.nota-cuadro { text-align: left !important; padding: 0.4rem 0.5rem !important;
+    font-size: 0.9em; white-space: normal; }
+</style>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  document.querySelectorAll("tfoot tr").forEach(function (fila) {
+    var celdas = Array.prototype.slice.call(fila.cells);
+    if (celdas.length < 2 || celdas[0].textContent.trim() === "") return;
+    var vacias = celdas.slice(1).every(function (c) { return c.textContent.trim() === ""; });
+    if (!vacias) return;
+    celdas[0].colSpan = celdas.length;
+    celdas[0].classList.add("nota-cuadro");
+    celdas.slice(1).forEach(function (c) { c.remove(); });
+  });
+});
+</script>
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+    let newTheme = '';
+    if(darkModeDefault) {
+      newTheme = isAlternate ? baseTheme : alternateTheme;
+    } else {
+      newTheme = isAlternate ? alternateTheme : baseTheme;
+    }
+    const changeGiscusTheme = () => {
+      // From: https://github.com/giscus/giscus/issues/336
+      const sendMessage = (message) => {
+        const iframe = document.querySelector('iframe.giscus-frame');
+        if (!iframe) return;
+        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+      }
+      sendMessage({
+        setConfig: {
+          theme: newTheme
+        }
+      });
+    }
+    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+    if (isGiscussLoaded) {
+      changeGiscusTheme();
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  const darkModeDefault = false;
+  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+    toggleGiscusIfUsed(toAlternate, darkModeDefault);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copiado");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copiado");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/ems270900\.github\.io\/hidrologia-aplicada\/");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+          // target, if specified
+          link.setAttribute("target", "_blank");
+          if (link.getAttribute("rel") === null) {
+            link.setAttribute("rel", "noopener");
+          }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./17-precipitacion_maxima_probable.html" class="pagination-link" aria-label="Precipitación máxima probable">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Precipitación máxima probable</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./19-Evapotranspiración.html" class="pagination-link" aria-label="Evapotranspiración">
+        <span class="nav-page-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Evapotranspiración</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>© 2026 Ing. Edwin Matarrita Segura. Texto bajo licencia <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.es">CC BY-NC-SA 4.0</a>; código R bajo licencia <a href="https://github.com/ems270900/hidrologia-aplicada/blob/main/LICENSE-CODE">MIT</a>.</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+<p>Este libro fue construido con <a href="https://quarto.org/">Quarto</a> y <a href="https://posit.co/download/rstudio-desktop/">RStudio</a>.</p>
+</div>
+  </div>
+</footer>
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
+
+
+
+
+<script src="site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>

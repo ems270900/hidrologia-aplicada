@@ -1,0 +1,2432 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.40">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>30&nbsp; Modelos lluvia-escorrentía – Hidrología Aplicada a la Ingeniería Civil</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./31-frecuencia_caudales.html" rel="next">
+<link href="./29-metodo_racional.html" rel="prev">
+<link href="./assets/img/favicon.png" rel="icon" type="image/png">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-8ea72dc5fed832574809a9c94082fbbb.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-9308c6a3e2b77de33fd175cc56d97d6e.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-955cb59a11449acdc5f9686ead510861.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script src="site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "Sin resultados",
+    "search-matching-documents-text": "documentos encontrados",
+    "search-copy-link-title": "Copiar el enlace en la búsqueda",
+    "search-hide-matches-text": "Ocultar resultados adicionales",
+    "search-more-match-text": "resultado adicional en este documento",
+    "search-more-matches-text": "resultados adicionales en este documento",
+    "search-clear-button-title": "Borrar",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancelar",
+    "search-submit-button-title": "Enviar",
+    "search-label": "Buscar"
+  }
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
+<script src="site_libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+<link href="site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet">
+<script src="site_libs/pagedtable-1.1/js/pagedtable.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="assets/css/styles.css">
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./28-hidrograma_unitario.html">Escorrentía y crecidas de diseño</a></li><li class="breadcrumb-item"><a href="./30-modelos_lluvia_escorrentia.html"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Modelos lluvia-escorrentía</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Hidrología Aplicada a la Ingeniería Civil</a> 
+        <div class="sidebar-tools-main">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Alternar modo oscuro"><i class="bi"></i></a>
+  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Alternar modo lector">
+  <div class="quarto-reader-toggle-btn">
+  <i class="bi"></i>
+  </div>
+</a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Buscar"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Hidrología Aplicada a la Ingeniería Civil</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./welcome.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Prefacio</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introducción</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Fundamentos</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01-La_hidrologia_como_ciencia.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">La hidrología como ciencia</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02-Disponibilidad.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">La disponibilidad del recurso hídrico</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03-Ciclo_hidrologico.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">El ciclo hidrológico</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04-Cuenca.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">La cuenca como unidad hidrológica</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Información hidrometeorológica</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05-Fuentes_info_hidrometeo.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Fuentes de información hidrometeorológica</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./06-Meteo.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Principios de meteorología y climatología</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./07-Precip.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Precipitación</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./08-hidrometria.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Hidrometría: aforos y curvas de descarga</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./09-registros_hidro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Verificación y completado de registros hidrológicos</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./10-teledeteccion_productos_satelitales.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Teledetección y productos satelitales</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Análisis estadístico aplicado a la hidrología</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./11-estadistica.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Conceptos básicos de probabilidad</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./12-retorno_y_riesgo.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Conceptos clave de probabilidad en hidrología</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./13-modelos.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Modelos estadísticos y distribuciones de probabilidad</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./14-dist_parametrica.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Distribuciones paramétricas de probabilidad comunes en hidrología</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">Lluvia de diseño</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./15-IDF.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Intensidad, duración y frecuencia de la precipitación</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./16-hietogramas_diseno.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Distribución temporal de la lluvia de diseño</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./17-precipitacion_maxima_probable.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Precipitación máxima probable</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
+ <span class="menu-text">Procesos de pérdida del agua</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./18-Evaporación.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Evaporación</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./19-Evapotranspiración.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Evapotranspiración</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./20-Infiltración y almacenamiento en el suelo.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Infiltración y almacenamiento en el suelo</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./21-Transición hacia la escorrentía superficial.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Intercepción, almacenamiento superficial y transición a la escorrentía</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true">
+ <span class="menu-text">Balance hídrico, agua subterránea y caudales bajos</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./22-Principio de conservación de la masa.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Principio de conservación de la masa</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./23-Balance hídrico a escala de cuenca.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Balance hídrico a escala de cuenca</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./24-Balance hídrico del suelo.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Balance hídrico del suelo</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./25-agua_subterranea.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Agua subterránea y recarga de acuíferos</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./26-caudales_minimos_sequias.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Caudales mínimos, sequías y curvas de duración</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./27-oferta_demanda.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Oferta y demanda hídrica</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true">
+ <span class="menu-text">Escorrentía y crecidas de diseño</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./28-hidrograma_unitario.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Hidrograma de escorrentía directa e hidrograma unitario</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./29-metodo_racional.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Método racional y tiempo de concentración</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./30-modelos_lluvia_escorrentia.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Modelos lluvia-escorrentía</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./31-frecuencia_caudales.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Análisis de frecuencia de caudales y regionalización</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./32-incertidumbre.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Incertidumbre en hidrología</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true">
+ <span class="menu-text">Sedimentos, calidad del agua y morfología fluvial</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./33-erosion_sedimentos.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Erosión y producción de sedimentos</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./34-transporte_sedimentos.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">Transporte de sedimentos y sedimentación de embalses</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./35-morfologia_fluvial.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">Morfología fluvial</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./36-calidad_agua.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">36</span>&nbsp; <span class="chapter-title">Calidad del agua</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="true">
+ <span class="menu-text">Tránsito de avenidas, embalses y crecidas</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="true" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./37-transito_fundamentos.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">37</span>&nbsp; <span class="chapter-title">Fundamentos del tránsito de avenidas</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./38-transito_embalses.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">38</span>&nbsp; <span class="chapter-title">Tránsito de avenidas y operación de embalses</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./39-transito_rios.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">39</span>&nbsp; <span class="chapter-title">Tránsito hidrológico en ríos</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./40-amenaza_inundacion.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">40</span>&nbsp; <span class="chapter-title">Amenaza por inundación</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./41-pronostico_alerta_temprana.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">41</span>&nbsp; <span class="chapter-title">Pronóstico de crecidas y sistemas de alerta temprana</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="true">
+ <span class="menu-text">Hidrología urbana</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="true" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./42-hidrologia_urbana.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">42</span>&nbsp; <span class="chapter-title">Hidrología urbana y escorrentía urbana</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./43-drenaje_urbano.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">43</span>&nbsp; <span class="chapter-title">Sistemas de drenaje urbano</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./44-drenaje_sostenible.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">44</span>&nbsp; <span class="chapter-title">Hidrología urbana sostenible y adaptación climática</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" role="navigation" aria-expanded="true">
+ <span class="menu-text">Cambio climático, uso del suelo e hidrología</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" role="navigation" aria-expanded="true" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-11" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./45-ecohidrologia_uso_suelo.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">45</span>&nbsp; <span class="chapter-title">Ecohidrología y cambio de uso del suelo</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./46-cambio_climatico_fundamentos.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">46</span>&nbsp; <span class="chapter-title">Cambio climático: fundamentos y evidencia</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./47-escenarios_modelos_climaticos.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">47</span>&nbsp; <span class="chapter-title">Escenarios y modelos climáticos</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./48-diseno_cambio_climatico.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">48</span>&nbsp; <span class="chapter-title">Diseño hidrológico con cambio climático</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./49-epilogo.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Palabras finales</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./99-Referencias.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Referencias</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Tabla de contenidos</h2>
+   
+  <ul>
+  <li><a href="#sec-mlr-concepto" id="toc-sec-mlr-concepto" class="nav-link active" data-scroll-target="#sec-mlr-concepto"><span class="header-section-number">30.1</span> Qué es un modelo lluvia-escorrentía</a></li>
+  <li><a href="#sec-mlr-calibracion" id="toc-sec-mlr-calibracion" class="nav-link" data-scroll-target="#sec-mlr-calibracion"><span class="header-section-number">30.2</span> Calibración y validación</a>
+  <ul class="collapse">
+  <li><a href="#pasos-de-una-calibración" id="toc-pasos-de-una-calibración" class="nav-link" data-scroll-target="#pasos-de-una-calibración"><span class="header-section-number">30.2.1</span> Pasos de una calibración</a></li>
+  <li><a href="#sec-mlr-metricas" id="toc-sec-mlr-metricas" class="nav-link" data-scroll-target="#sec-mlr-metricas"><span class="header-section-number">30.2.2</span> Métricas de desempeño</a></li>
+  </ul></li>
+  <li><a href="#sec-mlr-evento" id="toc-sec-mlr-evento" class="nav-link" data-scroll-target="#sec-mlr-evento"><span class="header-section-number">30.3</span> Modelos de evento: la estructura de HEC-HMS</a>
+  <ul class="collapse">
+  <li><a href="#cómo-se-arma-un-modelo-en-hec-hms" id="toc-cómo-se-arma-un-modelo-en-hec-hms" class="nav-link" data-scroll-target="#cómo-se-arma-un-modelo-en-hec-hms"><span class="header-section-number">30.3.1</span> Cómo se arma un modelo en HEC-HMS</a></li>
+  </ul></li>
+  <li><a href="#sec-mlr-continuo" id="toc-sec-mlr-continuo" class="nav-link" data-scroll-target="#sec-mlr-continuo"><span class="header-section-number">30.4</span> Modelos continuos conceptuales: GR4J</a>
+  <ul class="collapse">
+  <li><a href="#cómo-funciona-gr4j-paso-a-paso" id="toc-cómo-funciona-gr4j-paso-a-paso" class="nav-link" data-scroll-target="#cómo-funciona-gr4j-paso-a-paso"><span class="header-section-number">30.4.1</span> Cómo funciona GR4J, paso a paso</a></li>
+  </ul></li>
+  <li><a href="#sec-mlr-datos" id="toc-sec-mlr-datos" class="nav-link" data-scroll-target="#sec-mlr-datos"><span class="header-section-number">30.5</span> Modelos basados en datos</a></li>
+  <li><a href="#ejercicios-propuestos" id="toc-ejercicios-propuestos" class="nav-link" data-scroll-target="#ejercicios-propuestos"><span class="header-section-number">30.6</span> Ejercicios propuestos</a></li>
+  <li><a href="#lecturas-recomendadas" id="toc-lecturas-recomendadas" class="nav-link" data-scroll-target="#lecturas-recomendadas"><span class="header-section-number">30.7</span> Lecturas recomendadas</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./28-hidrograma_unitario.html">Escorrentía y crecidas de diseño</a></li><li class="breadcrumb-item"><a href="./30-modelos_lluvia_escorrentia.html"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Modelos lluvia-escorrentía</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Modelos lluvia-escorrentía</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="quote-block">
+<p>“En esencia, todos los modelos están equivocados, pero algunos son útiles.”<br>
+— <em>George E. P. Box y Norman R. Draper</em>, Empirical model-building and response surfaces (1987), p.&nbsp;424</p>
+</div>
+<p>El método racional da un caudal pico y el hidrograma unitario da una creciente, pero las dos cosas se calculan para una cuenca pequeña o para una sola tormenta. Para estudiar una cuenca con varias subcuencas, simular años completos de caudales diarios o ver qué pasa si cambia el uso del suelo hace falta un modelo lluvia-escorrentía: un conjunto de ecuaciones que convierte la lluvia y la evapotranspiración en caudal en el punto de control. Hay modelos de todos los tamaños, desde cuatro parámetros hasta miles de celdas, y en los últimos años también modelos que aprenden la relación directamente de los datos. Este capítulo explica cómo se clasifican, cómo se calibran y se validan, cómo funcionan un modelo de evento como HEC-HMS y un modelo continuo como GR4J, y qué pueden y qué no pueden hacer los modelos basados en datos.</p>
+<section id="sec-mlr-concepto" class="level2" data-number="30.1">
+<h2 data-number="30.1" class="anchored" data-anchor-id="sec-mlr-concepto"><span class="header-section-number">30.1</span> Qué es un modelo lluvia-escorrentía</h2>
+<p>Un modelo hidrológico representa la cuenca como un sistema con entradas (lluvia, evapotranspiración), un estado interno (agua en el suelo, en el acuífero, en los cauces) y una salida (caudal). Los modelos se clasifican según tres preguntas <span class="citation" data-cites="chow1988appliedhydrology">(Chow, Maidment, y Mays 1988, 9-12)</span>:</p>
+<ol type="1">
+<li><strong>¿Considera el azar?</strong> Un modelo determinístico da siempre la misma salida para la misma entrada. Un modelo estocástico tiene salidas en parte aleatorias. Los modelos lluvia-escorrentía de este capítulo son determinísticos; los generadores de series sintéticas del capítulo de registros son estocásticos.</li>
+<li><strong>¿Cómo trata el espacio?</strong> Un modelo agregado trata la cuenca como un punto, con una lluvia media y parámetros medios. Un modelo distribuido divide la cuenca en celdas y calcula el agua en cada una. Entre los dos están los semidistribuidos, que dividen la cuenca en subcuencas o en unidades de respuesta parecida, cada una agregada.</li>
+<li><strong>¿Cómo trata el tiempo?</strong> Un modelo de evento simula una tormenta, de horas a pocos días, y necesita saber la humedad inicial de la cuenca. Un modelo continuo simula años sin interrupción y lleva la cuenta del agua almacenada entre tormentas.</li>
+</ol>
+<p>Una cuarta distinción es cuánta física llevan las ecuaciones. Los modelos empíricos relacionan entradas y salidas sin representar procesos, como el método racional o una regresión. Los conceptuales representan la cuenca con depósitos que se llenan y se vacían según reglas sencillas, como GR4J. Los de base física resuelven las ecuaciones del flujo de agua en el suelo y sobre el terreno, con parámetros que en principio se pueden medir. En la práctica, todos los modelos necesitan calibrarse, incluso los de base física, porque sus parámetros medidos en un punto no representan la cuenca entera <span class="citation" data-cites="beven2012rainfall">(Beven 2012)</span>.</p>
+<div id="tbl-mlr-tipos" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-mlr-tipos-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Cuadro&nbsp;30.1: Ejemplos de modelos lluvia-escorrentía.
+</figcaption>
+<div aria-describedby="tbl-mlr-tipos-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Modelo</th>
+<th style="text-align: left;">Espacio</th>
+<th style="text-align: left;">Tiempo</th>
+<th style="text-align: left;">Tipo</th>
+<th style="text-align: left;">Dónde se trata</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Método racional</td>
+<td style="text-align: left;">Agregado</td>
+<td style="text-align: left;">Pico de una tormenta</td>
+<td style="text-align: left;">Empírico</td>
+<td style="text-align: left;"><a href="29-metodo_racional.html#sec-racional" class="quarto-xref"><span>Sección 29.1</span></a></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Hidrograma unitario</td>
+<td style="text-align: left;">Agregado</td>
+<td style="text-align: left;">Evento</td>
+<td style="text-align: left;">Empírico lineal</td>
+<td style="text-align: left;"><a href="28-hidrograma_unitario.html#sec-hu-concepto" class="quarto-xref"><span>Sección 28.4</span></a></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">HEC-HMS</td>
+<td style="text-align: left;">Semidistribuido</td>
+<td style="text-align: left;">Evento o continuo</td>
+<td style="text-align: left;">Conceptual</td>
+<td style="text-align: left;"><a href="#sec-mlr-evento" class="quarto-xref"><span>Sección 30.3</span></a></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">GR4J</td>
+<td style="text-align: left;">Agregado</td>
+<td style="text-align: left;">Continuo diario</td>
+<td style="text-align: left;">Conceptual</td>
+<td style="text-align: left;"><a href="#sec-mlr-continuo" class="quarto-xref"><span>Sección 30.4</span></a></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Bosque aleatorio</td>
+<td style="text-align: left;">Agregado</td>
+<td style="text-align: left;">Continuo</td>
+<td style="text-align: left;">Basado en datos</td>
+<td style="text-align: left;"><a href="#sec-mlr-datos" class="quarto-xref"><span>Sección 30.5</span></a></td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled" title="En la práctica">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+En la práctica
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>El modelo se escoge por la pregunta, no por su complejidad. Para dimensionar una alcantarilla basta el método racional. Para la creciente de diseño de un puente sobre un río de 300 km² sirve un modelo de evento con subcuencas. Para estimar cuánta agua habrá en la época seca, o el efecto de un embalse sobre los caudales de todo el año, hace falta un modelo continuo. Un modelo más complejo tiene más parámetros, y con pocos datos esos parámetros quedan mal definidos.</p>
+</div>
+</div>
+</section>
+<section id="sec-mlr-calibracion" class="level2" data-number="30.2">
+<h2 data-number="30.2" class="anchored" data-anchor-id="sec-mlr-calibracion"><span class="header-section-number">30.2</span> Calibración y validación</h2>
+<p>Calibrar es ajustar los parámetros del modelo para que el caudal simulado se parezca al observado. Validar es comprobar, con datos que no se usaron para calibrar, que el modelo sigue funcionando. Un modelo calibrado y no validado solo demuestra que sus parámetros se pueden ajustar a un registro, no que represente la cuenca.</p>
+<section id="pasos-de-una-calibración" class="level3" data-number="30.2.1">
+<h3 data-number="30.2.1" class="anchored" data-anchor-id="pasos-de-una-calibración"><span class="header-section-number">30.2.1</span> Pasos de una calibración</h3>
+<ol type="1">
+<li><strong>Dividir el registro.</strong> Se separa un periodo de calibración y otro de validación, por ejemplo dos décadas distintas. Esta prueba de muestra dividida la propuso <span class="citation" data-cites="klemes1986operational">Klemeš (1986)</span> como la mínima que debe pasar un modelo antes de usarse. Si el modelo se va a usar en condiciones distintas, como un clima más seco, conviene validar en los años más secos del registro.</li>
+<li><strong>Calentar el modelo.</strong> Los depósitos de un modelo continuo empiezan con un contenido supuesto. Se simula un periodo previo, de uno o dos años, cuyos resultados no se usan, para que el contenido de los depósitos deje de depender del valor inicial.</li>
+<li><strong>Escoger una función objetivo.</strong> Es la medida del error que se quiere minimizar (<a href="#sec-mlr-metricas" class="quarto-xref"><span>Sección 30.2.2</span></a>).</li>
+<li><strong>Buscar los parámetros.</strong> A mano, cambiando un parámetro a la vez y mirando el hidrograma, o con un algoritmo de optimización. En R, <code>optim()</code> del paquete <code>stats</code> sirve para modelos pequeños; los paquetes de modelos hidrológicos traen sus propios algoritmos, como <code>Calibration_Michel()</code> de airGR.</li>
+<li><strong>Validar.</strong> Se corre el modelo con los parámetros calibrados en el periodo de validación y se calculan las mismas métricas. Si empeoran mucho, el modelo está sobreajustado o algo cambió en la cuenca.</li>
+</ol>
+</section>
+<section id="sec-mlr-metricas" class="level3" data-number="30.2.2">
+<h3 data-number="30.2.2" class="anchored" data-anchor-id="sec-mlr-metricas"><span class="header-section-number">30.2.2</span> Métricas de desempeño</h3>
+<p>La métrica más usada es la eficiencia de Nash y Sutcliffe <span class="citation" data-cites="nash1970river">(Nash y Sutcliffe 1970)</span>:</p>
+<p><span id="eq-mlr-nse"><span class="math display">\[
+\mathrm{NSE} = 1 - \frac{\sum_{t=1}^{n} (Q_{o,t} - Q_{s,t})^2}{\sum_{t=1}^{n} (Q_{o,t} - \bar{Q}_o)^2}
+\tag{30.1}\]</span></span></p>
+<p>donde <span class="math inline">\(Q_{o,t}\)</span> y <span class="math inline">\(Q_{s,t}\)</span> son los caudales observado y simulado en el tiempo <span class="math inline">\(t\)</span>, <span class="math inline">\(\bar{Q}_o\)</span> es la media de los caudales observados y <span class="math inline">\(n\)</span> es el número de datos. Vale 1 si la simulación es perfecta y 0 si el modelo no es mejor que usar la media observada todos los días. Puede ser negativa. Como eleva los errores al cuadrado, da mucho peso a los caudales altos.</p>
+<p>La eficiencia de Kling y Gupta separa el error en tres partes: la correlación, la variabilidad y el sesgo <span class="citation" data-cites="gupta2009decomposition">(Gupta et&nbsp;al. 2009)</span>:</p>
+<p><span id="eq-mlr-kge"><span class="math display">\[
+\mathrm{KGE} = 1 - \sqrt{(r - 1)^2 + (\alpha - 1)^2 + (\beta - 1)^2}
+\tag{30.2}\]</span></span></p>
+<p>donde <span class="math inline">\(r\)</span> es el coeficiente de correlación entre caudales observados y simulados, <span class="math inline">\(\alpha = \sigma_s/\sigma_o\)</span> es el cociente de sus desviaciones estándar y <span class="math inline">\(\beta = \bar{Q}_s/\bar{Q}_o\)</span> es el cociente de sus medias. También vale 1 si la simulación es perfecta, pero un KGE de 0 no equivale a usar la media: usar la media da <span class="math inline">\(\mathrm{KGE} = -0.41\)</span> <span class="citation" data-cites="knoben2019inherent">(Knoben, Freer, y Woods 2019)</span>. Por eso los valores de NSE y de KGE no se comparan entre sí.</p>
+<p>El sesgo porcentual mide si el modelo produce más o menos volumen que el observado:</p>
+<p><span id="eq-mlr-pbias"><span class="math display">\[
+\mathrm{PBIAS} = 100 \, \frac{\sum_{t=1}^{n} (Q_{s,t} - Q_{o,t})}{\sum_{t=1}^{n} Q_{o,t}}
+\tag{30.3}\]</span></span></p>
+<p>donde PBIAS está en porcentaje y es positivo si el modelo sobrestima el volumen.</p>
+<p><span class="citation" data-cites="moriasi2007model">Moriasi et&nbsp;al. (2007)</span> revisaron muchos estudios y propusieron, para caudales mensuales, considerar satisfactoria una simulación con NSE mayor de 0.50 y PBIAS dentro de ±25 %. Con datos diarios u horarios las métricas suelen ser más bajas, y con eventos aislados más todavía. Más que un umbral fijo, conviene mirar siempre el hidrograma simulado contra el observado: dos simulaciones con la misma NSE pueden fallar en cosas muy distintas.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Ejemplo: métricas de desempeño con cinco caudales">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Ejemplo: métricas de desempeño con cinco caudales
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Planteamiento.</strong> Un modelo simula cinco caudales diarios de una creciente. Los observados son 12, 30, 85, 41 y 20 m³/s, y los simulados 15, 38, 70, 45 y 18 m³/s. Calcule NSE, KGE y PBIAS.</p>
+<p><strong>Solución:</strong></p>
+<ol type="1">
+<li>Media observada: <span class="math inline">\(\bar{Q}_o = (12 + 30 + 85 + 41 + 20)/5 = 37.6\)</span> m³/s. Media simulada: 37.2 m³/s.</li>
+<li>Suma de errores al cuadrado: <span class="math inline">\(3^2 + 8^2 + 15^2 + 4^2 + 2^2 = 318\)</span>.</li>
+<li>Suma de desviaciones al cuadrado de los observados respecto a su media: <span class="math inline">\(25.6^2 + 7.6^2 + 47.4^2 + 3.4^2 + 17.6^2 = 3281.2\)</span>.</li>
+<li>NSE: <span class="math inline">\(1 - 318/3281.2 = 0.903\)</span>.</li>
+<li>KGE: la correlación es <span class="math inline">\(r = 0.969\)</span>, las desviaciones estándar son 28.64 y 22.35 m³/s, así que <span class="math inline">\(\alpha = 22.35/28.64 = 0.781\)</span>, y <span class="math inline">\(\beta = 37.2/37.6 = 0.989\)</span>. Entonces <span class="math inline">\(\mathrm{KGE} = 1 - \sqrt{0.031^2 + 0.219^2 + 0.011^2} = 1 - 0.222 = 0.778\)</span>.</li>
+<li>PBIAS: <span class="math inline">\(100 \times (186 - 188)/188 = -1.1\)</span> %.</li>
+</ol>
+<p><strong>Pseudocódigo</strong></p>
+<ol type="1">
+<li>Escribir las fórmulas de NSE, KGE y PBIAS como funciones.</li>
+<li>Calcularlas con los caudales del ejemplo.</li>
+<li>Con un paquete: <code>NSE()</code>, <code>KGE()</code> y <code>pbias()</code> de hydroGOF hacen lo mismo. Ojo con el orden de los argumentos: hydroGOF pide primero el simulado y después el observado.</li>
+</ol>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(hydroGOF)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 1) Métricas escritas a mano</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>nse <span class="ot">&lt;-</span> <span class="cf">function</span>(obs, sim) <span class="dv">1</span> <span class="sc">-</span> <span class="fu">sum</span>((obs <span class="sc">-</span> sim)<span class="sc">^</span><span class="dv">2</span>) <span class="sc">/</span> <span class="fu">sum</span>((obs <span class="sc">-</span> <span class="fu">mean</span>(obs))<span class="sc">^</span><span class="dv">2</span>)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>kge <span class="ot">&lt;-</span> <span class="cf">function</span>(obs, sim) {</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  r <span class="ot">&lt;-</span> <span class="fu">cor</span>(obs, sim)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  alfa <span class="ot">&lt;-</span> <span class="fu">sd</span>(sim) <span class="sc">/</span> <span class="fu">sd</span>(obs)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  beta <span class="ot">&lt;-</span> <span class="fu">mean</span>(sim) <span class="sc">/</span> <span class="fu">mean</span>(obs)</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  <span class="dv">1</span> <span class="sc">-</span> <span class="fu">sqrt</span>((r <span class="sc">-</span> <span class="dv">1</span>)<span class="sc">^</span><span class="dv">2</span> <span class="sc">+</span> (alfa <span class="sc">-</span> <span class="dv">1</span>)<span class="sc">^</span><span class="dv">2</span> <span class="sc">+</span> (beta <span class="sc">-</span> <span class="dv">1</span>)<span class="sc">^</span><span class="dv">2</span>)</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>pbias_pct <span class="ot">&lt;-</span> <span class="cf">function</span>(obs, sim) <span class="dv">100</span> <span class="sc">*</span> <span class="fu">sum</span>(sim <span class="sc">-</span> obs) <span class="sc">/</span> <span class="fu">sum</span>(obs)</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="co"># 2) Caudales del ejemplo (m³/s)</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>obs <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">12</span>, <span class="dv">30</span>, <span class="dv">85</span>, <span class="dv">41</span>, <span class="dv">20</span>)</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>sim <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">15</span>, <span class="dv">38</span>, <span class="dv">70</span>, <span class="dv">45</span>, <span class="dv">18</span>)</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="at">NSE =</span> <span class="fu">nse</span>(obs, sim), <span class="at">KGE =</span> <span class="fu">kge</span>(obs, sim), <span class="at">PBIAS =</span> <span class="fu">pbias_pct</span>(obs, sim))</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>       NSE        KGE      PBIAS 
+ 0.9030842  0.7780497 -1.0638298 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 3) Las mismas métricas con hydroGOF (primero el simulado)</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="at">NSE =</span> <span class="fu">NSE</span>(sim, obs), <span class="at">KGE =</span> <span class="fu">KGE</span>(sim, obs), <span class="at">PBIAS =</span> <span class="fu">pbias</span>(sim, obs))</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>       NSE        KGE      PBIAS 
+ 0.9030842  0.7780497 -1.1000000 </code></pre>
+</div>
+</div>
+<p><strong>Interpretación.</strong> La NSE de 0.90 parece excelente, pero el KGE muestra dónde falla el modelo: la correlación y el volumen están bien, y la variabilidad simulada es un 22 % menor que la observada, porque el pico simulado se queda en 70 m³/s cuando el observado fue de 85 m³/s. Para diseñar una obra ese pico bajo es el error que más importa, y la NSE sola no lo deja ver.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-warning callout-titled" title="Cuidado">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Cuidado
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Casi siempre hay varios juegos de parámetros que simulan igual de bien el periodo de calibración. Beven llama a esto equifinalidad <span class="citation" data-cites="beven2012rainfall">(Beven 2012)</span>. Esos juegos pueden dar resultados muy distintos fuera del periodo de calibración, por ejemplo en una crecida mayor que las registradas. Un parámetro calibrado no es una propiedad medida de la cuenca, y no se debe trasladar a otra cuenca sin validarlo.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="sec-mlr-evento" class="level2" data-number="30.3">
+<h2 data-number="30.3" class="anchored" data-anchor-id="sec-mlr-evento"><span class="header-section-number">30.3</span> Modelos de evento: la estructura de HEC-HMS</h2>
+<p>HEC-HMS es el programa del Cuerpo de Ingenieros del Ejército de Estados Unidos (USACE) para simular la respuesta de una cuenca a la lluvia. Es gratuito y es el más usado en Centroamérica para crecientes de diseño de puentes, alcantarillas mayores y embalses. Representa la cuenca como una red de elementos: subcuencas, tramos de río, uniones y embalses. En cada subcuenca calcula tres procesos, y en cada tramo calcula el tránsito de la creciente <span class="citation" data-cites="usace2000hechmstech HECHMS2023">(U.S. Army Corps of Engineers 2000, 2023)</span>:</p>
+<ol type="1">
+<li><strong>Pérdidas.</strong> Separan la lluvia efectiva de la lluvia total. Los métodos más usados son el número de curva del SCS (<a href="21-Transición hacia la escorrentía superficial.html#sec-trans-numero-curva" class="quarto-xref"><span>Sección 21.5</span></a>), la pérdida inicial y constante, Green y Ampt (<a href="20-Infiltración y almacenamiento en el suelo.html#sec-infil-modelos" class="quarto-xref"><span>Sección 20.4</span></a>) y, para simulación continua, la contabilidad de humedad del suelo.</li>
+<li><strong>Transformación.</strong> Convierte la lluvia efectiva en escorrentía directa en la salida de la subcuenca: el hidrograma unitario del SCS (<a href="28-hidrograma_unitario.html#sec-hu-scs" class="quarto-xref"><span>Sección 28.7.2</span></a>), el de Snyder (<a href="28-hidrograma_unitario.html#sec-hu-snyder" class="quarto-xref"><span>Sección 28.7.1</span></a>), el de Clark o la onda cinemática.</li>
+<li><strong>Flujo base.</strong> Suma el aporte subterráneo: constante, con una recesión exponencial (<a href="25-agua_subterranea.html#sec-sub-recesion" class="quarto-xref"><span>Sección 25.5.2</span></a>) o con depósitos lineales.</li>
+<li><strong>Tránsito en los cauces.</strong> Traslada y atenúa los hidrogramas de las subcuencas aguas arriba: Muskingum, Muskingum-Cunge, retardo puro o Puls modificado, que se estudian en los capítulos de tránsito de crecientes.</li>
+</ol>
+<p>Cada uno de esos métodos ya se trató en el libro. HEC-HMS los junta, lleva la cuenta de las unidades y de los tiempos, suma los hidrogramas en las uniones y tiene un módulo de optimización para calibrar. Lo que no hace es escoger los métodos ni los parámetros: eso sigue siendo trabajo de quien modela.</p>
+<section id="cómo-se-arma-un-modelo-en-hec-hms" class="level3" data-number="30.3.1">
+<h3 data-number="30.3.1" class="anchored" data-anchor-id="cómo-se-arma-un-modelo-en-hec-hms"><span class="header-section-number">30.3.1</span> Cómo se arma un modelo en HEC-HMS</h3>
+<ol type="1">
+<li><strong>Modelo de cuenca.</strong> Se delimitan las subcuencas con un modelo de elevación (<a href="04-Cuenca.html#sec-cuenca-delimitacion-sig" class="quarto-xref"><span>Sección 4.3.2</span></a>), se mide el área de cada una y se dibujan los tramos y las uniones. Una regla útil es que las subcuencas tengan tamaños parecidos y que cada una tenga una respuesta homogénea.</li>
+<li><strong>Parámetros.</strong> Para cada subcuenca se calculan el número de curva con mapas de suelos y de cobertura, el tiempo de concentración o el retardo (<a href="29-metodo_racional.html#sec-tc" class="quarto-xref"><span>Sección 29.4</span></a>) y los parámetros del flujo base; para cada tramo, los del método de tránsito.</li>
+<li><strong>Modelo meteorológico.</strong> Se carga la lluvia: un hietograma de diseño (<a href="16-hietogramas_diseno.html" class="quarto-xref"><span>Capítulo 16</span></a>) o la lluvia registrada en pluviógrafos, repartida entre subcuencas con polígonos de Thiessen o con pesos.</li>
+<li><strong>Especificaciones de control.</strong> Se fijan el inicio, el fin y el intervalo de cálculo. El intervalo debe ser bastante menor que el retardo de la subcuenca más rápida; si es muy largo, el hidrograma unitario queda mal representado y el pico se pierde.</li>
+<li><strong>Calibración y validación.</strong> Si hay crecientes registradas, se calibra con unas y se valida con otras. Si no las hay, se comparan los resultados con el método racional en las subcuencas pequeñas y con un análisis regional de caudales.</li>
+</ol>
+<div class="callout callout-style-default callout-note callout-titled" title="Ejemplo: calibración evento por evento de un modelo de número de curva e hidrograma del SCS">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Ejemplo: calibración evento por evento de un modelo de número de curva e hidrograma del SCS
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Planteamiento.</strong> Con las cinco crecientes horarias de la cuenca de montaña de 318 km² que se usaron en el capítulo del hidrograma unitario, calibre para cada evento un modelo con la estructura más común de HEC-HMS: pérdidas con el número de curva del SCS (<span class="math inline">\(I_a = 0.2\,S\)</span>), transformación con el hidrograma unitario adimensional del SCS y flujo base constante igual al caudal al inicio del evento. Los dos parámetros son el número de curva <span class="math inline">\(CN\)</span> y el retardo <span class="math inline">\(t_{\text{lag}}\)</span> (h). Use la NSE como función objetivo.</p>
+<p><strong>Solución:</strong></p>
+<p>A mano se puede revisar un juego de parámetros, pero no buscar el mejor. Para el evento 3, con <span class="math inline">\(CN = 72.6\)</span> y <span class="math inline">\(t_{\text{lag}} = 1.87\)</span> h, que son los valores calibrados:</p>
+<ol type="1">
+<li>Retención máxima: <span class="math inline">\(S = 25\,400/72.6 - 254 = 95.8\)</span> mm. Abstracción inicial: <span class="math inline">\(I_a = 0.2 \times 95.8 = 19.2\)</span> mm.</li>
+<li>La lluvia acumulada del evento es de 57.9 mm. La lámina efectiva total es <span class="math inline">\(P_e = (57.9 - 19.2)^2/(57.9 - 19.2 + 95.8) = 11.2\)</span> mm. La lluvia efectiva de cada hora es la diferencia entre la lámina efectiva acumulada al final y al inicio de la hora.</li>
+<li>Hidrograma unitario de 1 h: con <span class="math inline">\(t_{\text{lag}} = 1.87\)</span> h, el tiempo al pico es <span class="math inline">\(T_p = 0.5 + 1.87 = 2.37\)</span> h y el pico es <span class="math inline">\(q_p = 0.208 \times 318/2.37 = 27.9\)</span> m³/s por mm (<a href="28-hidrograma_unitario.html#eq-hu-scs" class="quarto-xref">Ecuación&nbsp;<span>28.15</span></a>).</li>
+<li>El caudal simulado es el flujo base de 34.5 m³/s más la convolución de la lluvia efectiva con el hidrograma unitario (<a href="28-hidrograma_unitario.html#eq-hu-convolucion" class="quarto-xref">Ecuación&nbsp;<span>28.8</span></a>).</li>
+</ol>
+<p>La búsqueda del mejor <span class="math inline">\(CN\)</span> y <span class="math inline">\(t_{\text{lag}}\)</span> para cada evento se hace con el código.</p>
+<p><strong>Pseudocódigo</strong></p>
+<ol type="1">
+<li>Leer las crecientes y escribir el hidrograma unitario adimensional del SCS.</li>
+<li>Escribir el modelo: lluvia efectiva con el número de curva, convolución con el hidrograma unitario y suma del flujo base.</li>
+<li>Para cada evento, buscar el <span class="math inline">\(CN\)</span> y el <span class="math inline">\(t_{\text{lag}}\)</span> que maximizan la NSE. Con un paquete: <code>optim()</code> de <code>stats</code> hace la búsqueda; HEC-HMS tiene su propio módulo de optimización.</li>
+<li>Comparar los parámetros de los cinco eventos y probar los valores medianos en todos.</li>
+</ol>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 1) Datos y hidrograma unitario adimensional del SCS (McCuen, 1998)</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>hg <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"datos/hidrogramas_cuenca_montana.csv"</span>, <span class="at">show_col_types =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>area_km2 <span class="ot">&lt;-</span> <span class="dv">318</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>scs <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">t_tp =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="fl">0.1</span>, <span class="fl">0.2</span>, <span class="fl">0.3</span>, <span class="fl">0.4</span>, <span class="fl">0.5</span>, <span class="fl">0.6</span>, <span class="fl">0.7</span>, <span class="fl">0.8</span>, <span class="fl">0.9</span>, <span class="dv">1</span>, <span class="fl">1.1</span>, <span class="fl">1.2</span>, <span class="fl">1.3</span>, <span class="fl">1.4</span>,</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>           <span class="fl">1.5</span>, <span class="fl">1.6</span>, <span class="fl">1.7</span>, <span class="fl">1.8</span>, <span class="fl">1.9</span>, <span class="dv">2</span>, <span class="fl">2.2</span>, <span class="fl">2.4</span>, <span class="fl">2.6</span>, <span class="fl">2.8</span>, <span class="dv">3</span>, <span class="fl">3.2</span>, <span class="fl">3.4</span>, <span class="fl">3.6</span>, <span class="fl">3.8</span>,</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>           <span class="dv">4</span>, <span class="fl">4.5</span>, <span class="dv">5</span>),</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">q_qp =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="fl">0.03</span>, <span class="fl">0.10</span>, <span class="fl">0.19</span>, <span class="fl">0.31</span>, <span class="fl">0.47</span>, <span class="fl">0.66</span>, <span class="fl">0.82</span>, <span class="fl">0.93</span>, <span class="fl">0.99</span>, <span class="dv">1</span>, <span class="fl">0.99</span>,</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>           <span class="fl">0.93</span>, <span class="fl">0.86</span>, <span class="fl">0.78</span>, <span class="fl">0.68</span>, <span class="fl">0.56</span>, <span class="fl">0.46</span>, <span class="fl">0.39</span>, <span class="fl">0.33</span>, <span class="fl">0.28</span>, <span class="fl">0.207</span>, <span class="fl">0.147</span>,</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>           <span class="fl">0.107</span>, <span class="fl">0.077</span>, <span class="fl">0.055</span>, <span class="fl">0.040</span>, <span class="fl">0.029</span>, <span class="fl">0.021</span>, <span class="fl">0.015</span>, <span class="fl">0.011</span>, <span class="fl">0.005</span>, <span class="dv">0</span>)</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>hu_scs <span class="ot">&lt;-</span> <span class="cf">function</span>(t_lag, <span class="at">n =</span> <span class="dv">60</span>) {</span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>  tp <span class="ot">&lt;-</span> <span class="fl">0.5</span> <span class="sc">+</span> t_lag                       <span class="co"># tiempo al pico para lluvia de 1 h</span></span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>  qp <span class="ot">&lt;-</span> <span class="fl">0.208</span> <span class="sc">*</span> area_km2 <span class="sc">/</span> tp             <span class="co"># m³/s por mm</span></span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>  u <span class="ot">&lt;-</span> <span class="fu">approx</span>(scs<span class="sc">$</span>t_tp <span class="sc">*</span> tp, scs<span class="sc">$</span>q_qp <span class="sc">*</span> qp, <span class="at">xout =</span> <span class="dv">1</span><span class="sc">:</span>n, <span class="at">rule =</span> <span class="dv">2</span>)<span class="sc">$</span>y</span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>  u <span class="sc">/</span> (<span class="fu">sum</span>(u) <span class="sc">*</span> <span class="dv">3600</span> <span class="sc">/</span> (<span class="dv">1000</span> <span class="sc">*</span> area_km2)) <span class="co"># se ajusta para que sume 1 mm</span></span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a><span class="co"># 2) Modelo de evento: número de curva + hidrograma del SCS + flujo base</span></span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>modelo_evento <span class="ot">&lt;-</span> <span class="cf">function</span>(par, p, q0) {</span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a>  cn <span class="ot">&lt;-</span> par[<span class="dv">1</span>]; t_lag <span class="ot">&lt;-</span> par[<span class="dv">2</span>]</span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a>  s <span class="ot">&lt;-</span> <span class="dv">25400</span> <span class="sc">/</span> cn <span class="sc">-</span> <span class="dv">254</span></span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a>  p_acum <span class="ot">&lt;-</span> <span class="fu">cumsum</span>(p)</span>
+<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a>  pe_acum <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(p_acum <span class="sc">&gt;</span> <span class="fl">0.2</span> <span class="sc">*</span> s, (p_acum <span class="sc">-</span> <span class="fl">0.2</span> <span class="sc">*</span> s)<span class="sc">^</span><span class="dv">2</span> <span class="sc">/</span> (p_acum <span class="sc">+</span> <span class="fl">0.8</span> <span class="sc">*</span> s), <span class="dv">0</span>)</span>
+<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a>  pe <span class="ot">&lt;-</span> <span class="fu">diff</span>(<span class="fu">c</span>(<span class="dv">0</span>, pe_acum))</span>
+<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a>  u <span class="ot">&lt;-</span> <span class="fu">hu_scs</span>(t_lag)</span>
+<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a>  q_directo <span class="ot">&lt;-</span> <span class="fu">sapply</span>(<span class="fu">seq_along</span>(p), <span class="cf">function</span>(i) <span class="fu">sum</span>(pe[<span class="dv">1</span><span class="sc">:</span>i] <span class="sc">*</span> u[i<span class="sc">:</span><span class="dv">1</span>]))</span>
+<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a>  q0 <span class="sc">+</span> q_directo</span>
+<span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb5-32"><a href="#cb5-32" aria-hidden="true" tabindex="-1"></a>nse <span class="ot">&lt;-</span> <span class="cf">function</span>(obs, sim) <span class="dv">1</span> <span class="sc">-</span> <span class="fu">sum</span>((obs <span class="sc">-</span> sim)<span class="sc">^</span><span class="dv">2</span>) <span class="sc">/</span> <span class="fu">sum</span>((obs <span class="sc">-</span> <span class="fu">mean</span>(obs))<span class="sc">^</span><span class="dv">2</span>)</span>
+<span id="cb5-33"><a href="#cb5-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-34"><a href="#cb5-34" aria-hidden="true" tabindex="-1"></a><span class="co"># 3) Calibración de cada evento con optim()</span></span>
+<span id="cb5-35"><a href="#cb5-35" aria-hidden="true" tabindex="-1"></a>calibrar <span class="ot">&lt;-</span> <span class="cf">function</span>(d) {</span>
+<span id="cb5-36"><a href="#cb5-36" aria-hidden="true" tabindex="-1"></a>  objetivo <span class="ot">&lt;-</span> <span class="cf">function</span>(par) {</span>
+<span id="cb5-37"><a href="#cb5-37" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (par[<span class="dv">1</span>] <span class="sc">&lt;</span> <span class="dv">30</span> <span class="sc">||</span> par[<span class="dv">1</span>] <span class="sc">&gt;</span> <span class="dv">99</span> <span class="sc">||</span> par[<span class="dv">2</span>] <span class="sc">&lt;</span> <span class="fl">0.3</span>) <span class="fu">return</span>(<span class="fl">1e6</span>)</span>
+<span id="cb5-38"><a href="#cb5-38" aria-hidden="true" tabindex="-1"></a>    <span class="dv">1</span> <span class="sc">-</span> <span class="fu">nse</span>(d<span class="sc">$</span>caudal_m3s, <span class="fu">modelo_evento</span>(par, d<span class="sc">$</span>lluvia_mm, d<span class="sc">$</span>caudal_m3s[<span class="dv">1</span>]))</span>
+<span id="cb5-39"><a href="#cb5-39" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb5-40"><a href="#cb5-40" aria-hidden="true" tabindex="-1"></a>  ajuste <span class="ot">&lt;-</span> <span class="fu">optim</span>(<span class="fu">c</span>(<span class="dv">80</span>, <span class="dv">2</span>), objetivo)</span>
+<span id="cb5-41"><a href="#cb5-41" aria-hidden="true" tabindex="-1"></a>  sim <span class="ot">&lt;-</span> <span class="fu">modelo_evento</span>(ajuste<span class="sc">$</span>par, d<span class="sc">$</span>lluvia_mm, d<span class="sc">$</span>caudal_m3s[<span class="dv">1</span>])</span>
+<span id="cb5-42"><a href="#cb5-42" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tibble</span>(<span class="at">p_mm =</span> <span class="fu">sum</span>(d<span class="sc">$</span>lluvia_mm), <span class="at">cn =</span> ajuste<span class="sc">$</span>par[<span class="dv">1</span>], <span class="at">t_lag =</span> ajuste<span class="sc">$</span>par[<span class="dv">2</span>],</span>
+<span id="cb5-43"><a href="#cb5-43" aria-hidden="true" tabindex="-1"></a>         <span class="at">nse =</span> <span class="dv">1</span> <span class="sc">-</span> ajuste<span class="sc">$</span>value, <span class="at">q_max_obs =</span> <span class="fu">max</span>(d<span class="sc">$</span>caudal_m3s), <span class="at">q_max_sim =</span> <span class="fu">max</span>(sim))</span>
+<span id="cb5-44"><a href="#cb5-44" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb5-45"><a href="#cb5-45" aria-hidden="true" tabindex="-1"></a>calibracion <span class="ot">&lt;-</span> hg <span class="sc">%&gt;%</span></span>
+<span id="cb5-46"><a href="#cb5-46" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(evento) <span class="sc">%&gt;%</span></span>
+<span id="cb5-47"><a href="#cb5-47" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_modify</span>(<span class="sc">~</span> <span class="fu">calibrar</span>(.x)) <span class="sc">%&gt;%</span></span>
+<span id="cb5-48"><a href="#cb5-48" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>()</span>
+<span id="cb5-49"><a href="#cb5-49" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-50"><a href="#cb5-50" aria-hidden="true" tabindex="-1"></a><span class="co"># 4) Parámetros medianos probados en todos los eventos</span></span>
+<span id="cb5-51"><a href="#cb5-51" aria-hidden="true" tabindex="-1"></a>par_mediana <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fu">median</span>(calibracion<span class="sc">$</span>cn), <span class="fu">median</span>(calibracion<span class="sc">$</span>t_lag))</span>
+<span id="cb5-52"><a href="#cb5-52" aria-hidden="true" tabindex="-1"></a>calibracion <span class="ot">&lt;-</span> calibracion <span class="sc">%&gt;%</span></span>
+<span id="cb5-53"><a href="#cb5-53" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">nse_mediana =</span> <span class="fu">map_dbl</span>(evento, <span class="cf">function</span>(e) {</span>
+<span id="cb5-54"><a href="#cb5-54" aria-hidden="true" tabindex="-1"></a>    d <span class="ot">&lt;-</span> <span class="fu">filter</span>(hg, evento <span class="sc">==</span> e)</span>
+<span id="cb5-55"><a href="#cb5-55" aria-hidden="true" tabindex="-1"></a>    <span class="fu">nse</span>(d<span class="sc">$</span>caudal_m3s, <span class="fu">modelo_evento</span>(par_mediana, d<span class="sc">$</span>lluvia_mm, d<span class="sc">$</span>caudal_m3s[<span class="dv">1</span>]))</span>
+<span id="cb5-56"><a href="#cb5-56" aria-hidden="true" tabindex="-1"></a>  }))</span>
+<span id="cb5-57"><a href="#cb5-57" aria-hidden="true" tabindex="-1"></a>calibracion</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":["evento"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["p_mm"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["cn"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["t_lag"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["nse"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["q_max_obs"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["q_max_sim"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["nse_mediana"],"name":[8],"type":["dbl"],"align":["right"]}],"data":[{"1":"1","2":"66.12","3":"61.98077","4":"1.7609821","5":"0.798338905","6":"170","7":"158.75485","8":"-13.9192223"},{"1":"2","2":"28.83","3":"83.43272","4":"0.9285716","5":"0.865841643","6":"184","7":"154.83357","8":"0.5219248"},{"1":"3","2":"57.87","3":"72.62111","4":"1.8664643","5":"0.873464941","6":"228","7":"208.64488","8":"-0.6760678"},{"1":"4","2":"40.83","3":"81.41587","4":"1.7645984","5":"0.603524093","6":"314","7":"237.63168","8":"0.6035201"},{"1":"5","2":"16.85","3":"88.11973","4":"0.8678254","5":"0.008029418","6":"116","7":"79.05195","8":"-0.3406553"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+</div>
+<div class="cell" data-layout-align="center">
+<div id="tbl-mlr-evento" class="cell quarto-float quarto-figure quarto-figure-center anchored" data-layout-align="center">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-mlr-evento-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Cuadro&nbsp;30.2: Parámetros calibrados en cada creciente.
+</figcaption>
+<div aria-describedby="tbl-mlr-evento-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<table class="table table-hover table-condensed do-not-create-environment cell caption-top table-sm table-striped small" data-quarto-postprocess="true">
+<thead>
+<tr class="header">
+<th style="text-align: center;" data-quarto-table-cell-role="th">Evento</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th"><em>P</em> (mm)</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th"><em>CN</em></th>
+<th style="text-align: center;" data-quarto-table-cell-role="th"><em>t</em><sub>lag</sub> (h)</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">NSE</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th"><em>Q</em><sub>máx</sub> observado (m³/s)</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th"><em>Q</em><sub>máx</sub> simulado (m³/s)</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">NSE con medianas</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">66.1</td>
+<td style="text-align: center;">62.0</td>
+<td style="text-align: center;">1.76</td>
+<td style="text-align: center;">0.80</td>
+<td style="text-align: center;">170</td>
+<td style="text-align: center;">159</td>
+<td style="text-align: center;">-13.92</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">28.8</td>
+<td style="text-align: center;">83.4</td>
+<td style="text-align: center;">0.93</td>
+<td style="text-align: center;">0.87</td>
+<td style="text-align: center;">184</td>
+<td style="text-align: center;">155</td>
+<td style="text-align: center;">0.52</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">57.9</td>
+<td style="text-align: center;">72.6</td>
+<td style="text-align: center;">1.87</td>
+<td style="text-align: center;">0.87</td>
+<td style="text-align: center;">228</td>
+<td style="text-align: center;">209</td>
+<td style="text-align: center;">-0.68</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">40.8</td>
+<td style="text-align: center;">81.4</td>
+<td style="text-align: center;">1.76</td>
+<td style="text-align: center;">0.60</td>
+<td style="text-align: center;">314</td>
+<td style="text-align: center;">238</td>
+<td style="text-align: center;">0.60</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">16.9</td>
+<td style="text-align: center;">88.1</td>
+<td style="text-align: center;">0.87</td>
+<td style="text-align: center;">0.01</td>
+<td style="text-align: center;">116</td>
+<td style="text-align: center;">79</td>
+<td style="text-align: center;">-0.34</td>
+</tr>
+</tbody>
+</table>
+
+
+</div>
+</div>
+</figure>
+</div>
+</div>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div id="fig-mlr-evento" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" alt="Cinco paneles, uno por evento, con el hidrograma observado en gris y el simulado en azul. En los eventos 1 a 3 el simulado sigue de cerca al observado; en el 4 el pico simulado queda en 238 m³/s contra 314 observado; en el 5 el simulado casi no responde">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-mlr-evento-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="30-modelos_lluvia_escorrentia_files/figure-html/fig-mlr-evento-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Figura&nbsp;30.1: Crecientes observadas y simuladas con los parámetros de cada evento."><img src="30-modelos_lluvia_escorrentia_files/figure-html/fig-mlr-evento-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:70.0%" alt="Cinco paneles, uno por evento, con el hidrograma observado en gris y el simulado en azul. En los eventos 1 a 3 el simulado sigue de cerca al observado; en el 4 el pico simulado queda en 238 m³/s contra 314 observado; en el 5 el simulado casi no responde"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-mlr-evento-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;30.1: Crecientes observadas y simuladas con los parámetros de cada evento.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p><strong>Interpretación.</strong> El modelo reproduce bien los eventos 1 a 3 (NSE de 0.80 a 0.87), regular el 4 y mal el 5, que es la creciente con menos lluvia (<a href="#tbl-mlr-evento" class="quarto-xref">Cuadro&nbsp;<span>30.2</span></a> y <a href="#fig-mlr-evento" class="quarto-xref">Figura&nbsp;<span>30.1</span></a>). El número de curva calibrado va de 62 a 88: la misma cuenca se comporta como un suelo permeable en el evento 1 y casi como un suelo impermeable en el 5. Esa variación es la humedad antecedente, que el número de curva no conoce por sí solo, sumada al error de estimar la lluvia media con pocos pluviógrafos. Por eso, con los parámetros medianos, la NSE baja a valores negativos en tres eventos. En los cinco el volumen simulado es menor que el observado, porque el flujo base constante no sube durante la creciente como el real (<a href="28-hidrograma_unitario.html#sec-hu-separacion" class="quarto-xref"><span>Sección 28.2</span></a>). Para un diseño no basta un evento calibrado: hay que calibrar varios, relacionar el número de curva con la lluvia de los días previos y escoger la condición de humedad que pide el criterio de diseño (<a href="21-Transición hacia la escorrentía superficial.html#sec-trans-numero-curva" class="quarto-xref"><span>Sección 21.5</span></a>).</p>
+</div>
+</div>
+</section>
+</section>
+<section id="sec-mlr-continuo" class="level2" data-number="30.4">
+<h2 data-number="30.4" class="anchored" data-anchor-id="sec-mlr-continuo"><span class="header-section-number">30.4</span> Modelos continuos conceptuales: GR4J</h2>
+<p>Un modelo continuo lleva la cuenta del agua en la cuenca día tras día. Cuando llueve, una parte de la lluvia llena el suelo y otra escurre; entre tormentas, el suelo se seca por evapotranspiración y el acuífero descarga despacio al río. Así el modelo sabe, al empezar cada tormenta, qué tan húmeda está la cuenca, que es justo lo que le falta al modelo de evento del ejemplo anterior.</p>
+<p>GR4J es un modelo conceptual diario de cuatro parámetros, desarrollado en Francia y probado con cientos de cuencas de varios países para tener el menor número de parámetros que diera buenos resultados en cuencas muy distintas <span class="citation" data-cites="perrin2003improvement">(Perrin, Michel, y Andréassian 2003)</span>. Por eso es un buen punto de partida para aprender, y se usa como referencia para comparar modelos más complejos. En R está programado en el paquete airGR, del instituto francés INRAE, que trae la simulación (<code>RunModel_GR4J()</code>), la calibración automática (<code>Calibration_Michel()</code>) y otros modelos de la misma familia <span class="citation" data-cites="coron2017airgr">(Coron et&nbsp;al. 2017)</span>. Aquí se programa a mano, para entender qué hace cada depósito, y se compara con la versión del paquete. La <a href="#fig-mlr-gr4j" class="quarto-xref">Figura&nbsp;<span>30.2</span></a> muestra su estructura.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div id="fig-mlr-gr4j" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" alt="Diagrama de flujo. La lluvia P y la evapotranspiración E se compensan; la lluvia neta se reparte entre el depósito de producción, que pierde agua por evapotranspiración y percola, y la escorrentía directa. La suma se divide en 90 % hacia el hidrograma unitario 1 y el depósito de tránsito, y 10 % hacia el hidrograma unitario 2. Un intercambio subterráneo F actúa sobre las dos ramas, y las dos salidas se suman en el caudal Q">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-mlr-gr4j-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="30-modelos_lluvia_escorrentia_files/figure-html/fig-mlr-gr4j-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Figura&nbsp;30.2: Estructura del modelo GR4J."><img src="30-modelos_lluvia_escorrentia_files/figure-html/fig-mlr-gr4j-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:70.0%" alt="Diagrama de flujo. La lluvia P y la evapotranspiración E se compensan; la lluvia neta se reparte entre el depósito de producción, que pierde agua por evapotranspiración y percola, y la escorrentía directa. La suma se divide en 90 % hacia el hidrograma unitario 1 y el depósito de tránsito, y 10 % hacia el hidrograma unitario 2. Un intercambio subterráneo F actúa sobre las dos ramas, y las dos salidas se suman en el caudal Q"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-mlr-gr4j-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;30.2: Estructura del modelo GR4J.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<section id="cómo-funciona-gr4j-paso-a-paso" class="level3" data-number="30.4.1">
+<h3 data-number="30.4.1" class="anchored" data-anchor-id="cómo-funciona-gr4j-paso-a-paso"><span class="header-section-number">30.4.1</span> Cómo funciona GR4J, paso a paso</h3>
+<p>Cada día el modelo hace estos pasos <span class="citation" data-cites="perrin2003improvement">(Perrin, Michel, y Andréassian 2003)</span>:</p>
+<ol type="1">
+<li><p><strong>Compensar lluvia y evapotranspiración.</strong> Si la lluvia <span class="math inline">\(P\)</span> es mayor que la evapotranspiración potencial <span class="math inline">\(E\)</span>, queda una lluvia neta <span class="math inline">\(P_n = P - E\)</span>. Si es menor, queda una evapotranspiración neta <span class="math inline">\(E_n = E - P\)</span> que se toma del suelo.</p></li>
+<li><p><strong>Llenar o vaciar el depósito de producción.</strong> Este depósito representa el agua del suelo, con capacidad <span class="math inline">\(X_1\)</span> (mm). De la lluvia neta entra al suelo la parte</p>
+<p><span id="eq-mlr-gr4j-ps"><span class="math display">\[
+P_s = \frac{X_1 \left[1 - (S/X_1)^2\right] \tanh(P_n/X_1)}{1 + (S/X_1) \tanh(P_n/X_1)}
+\tag{30.4}\]</span></span></p>
+<p>donde <span class="math inline">\(S\)</span> es el contenido del depósito (mm). Mientras más lleno está el suelo, menos lluvia entra. Si en lugar de lluvia neta hay evapotranspiración neta, el depósito pierde</p>
+<p><span id="eq-mlr-gr4j-es"><span class="math display">\[
+E_s = \frac{S \, (2 - S/X_1) \tanh(E_n/X_1)}{1 + (1 - S/X_1) \tanh(E_n/X_1)}
+\tag{30.5}\]</span></span></p>
+<p>y mientras más seco está el suelo, menos agua pierde.</p></li>
+<li><p><strong>Percolar.</strong> Del depósito sale cada día una percolación pequeña, <span class="math inline">\(\mathrm{Perc} = S\{1 - [1 + (4S/9X_1)^4]^{-1/4}\}\)</span>, que representa el drenaje lento del suelo.</p></li>
+<li><p><strong>Repartir el agua que va al río.</strong> El agua que va al cauce es <span class="math inline">\(P_r = \mathrm{Perc} + (P_n - P_s)\)</span>. Un 90 % se reparte en el tiempo con un hidrograma unitario de base <span class="math inline">\(X_4\)</span> días y entra a un depósito de tránsito; el 10 % restante se reparte con un hidrograma unitario de base <span class="math inline">\(2X_4\)</span> y va directo al río.</p></li>
+<li><p><strong>Intercambiar con el exterior.</strong> El término <span class="math inline">\(F = X_2 (R/X_3)^{7/2}\)</span> representa agua que la cuenca gana (<span class="math inline">\(X_2 &gt; 0\)</span>) o pierde (<span class="math inline">\(X_2 &lt; 0\)</span>) con acuíferos que no drenan al punto de control. Se suma a las dos ramas.</p></li>
+<li><p><strong>Vaciar el depósito de tránsito.</strong> El depósito de tránsito, de capacidad <span class="math inline">\(X_3\)</span> (mm) y contenido <span class="math inline">\(R\)</span>, entrega <span class="math inline">\(Q_r = R\{1 - [1 + (R/X_3)^4]^{-1/4}\}\)</span>. El caudal del día es <span class="math inline">\(Q = Q_r + Q_d\)</span>, donde <span class="math inline">\(Q_d\)</span> es la rama del 10 % más el intercambio.</p></li>
+</ol>
+<div class="callout callout-style-default callout-note callout-titled" title="Ejemplo: simulación continua con GR4J, a mano y con airGR">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Ejemplo: simulación continua con GR4J, a mano y con airGR
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Planteamiento.</strong> El paquete airGR <span class="citation" data-cites="coron2017airgr">(Coron et&nbsp;al. 2017)</span> trae como ejemplo 29 años de lluvia, evapotranspiración potencial y caudal diarios (en mm) de una cuenca ficticia de 360 km², la L0123001. Programe GR4J paso a paso, compruebe que da lo mismo que la función del paquete, calibre los cuatro parámetros con 1990–1999 usando el KGE y valide con 2000–2009.</p>
+<p><strong>Solución:</strong></p>
+<p>Un día del paso 2, para ver el orden de magnitud. Con <span class="math inline">\(X_1 = 144\)</span> mm, un suelo con <span class="math inline">\(S = 100\)</span> mm, <span class="math inline">\(P = 12\)</span> mm y <span class="math inline">\(E = 2\)</span> mm:</p>
+<ol type="1">
+<li>Lluvia neta: <span class="math inline">\(P_n = 12 - 2 = 10\)</span> mm. Entonces <span class="math inline">\(\tanh(10/144) = 0.0693\)</span>.</li>
+<li>Lluvia que entra al suelo: <span class="math inline">\(P_s = 144 \times (1 - 0.694^2) \times 0.0693/(1 + 0.694 \times 0.0693) = 5.17/1.048 = 4.93\)</span> mm. El suelo queda con <span class="math inline">\(S = 104.93\)</span> mm.</li>
+<li>Percolación: <span class="math inline">\(4S/(9X_1) = 0.324\)</span>, y <span class="math inline">\(\mathrm{Perc} = 104.93 \times [1 - (1 + 0.324^4)^{-1/4}] = 0.29\)</span> mm. El suelo queda con 104.65 mm.</li>
+<li>Agua hacia el río: <span class="math inline">\(P_r = 0.29 + (10 - 4.93) = 5.35\)</span> mm, que se reparte en los días siguientes con los dos hidrogramas unitarios.</li>
+</ol>
+<p>De los 10 mm de lluvia neta, la mitad se queda en el suelo. La calibración, que repite estos pasos 3652 días para cada juego de parámetros que prueba, se hace con el código.</p>
+<p><strong>Pseudocódigo</strong></p>
+<ol type="1">
+<li>Programar GR4J como una función que recorre los días con los seis pasos.</li>
+<li>Correrla con un juego de parámetros y compararla con <code>RunModel_GR4J()</code> de airGR.</li>
+<li>Calibrar con <code>Calibration_Michel()</code> de airGR en 1990–1999, con 1989 como calentamiento y el KGE como función objetivo.</li>
+<li>Validar en 2000–2009, con 1999 como calentamiento, y calcular NSE y KGE en los dos periodos.</li>
+</ol>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(airGR)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co"># 1) GR4J paso a paso (Perrin et al., 2003); p, e y q en mm/d</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>gr4j <span class="ot">&lt;-</span> <span class="cf">function</span>(par, p, e, <span class="at">s0 =</span> <span class="fl">0.3</span>, <span class="at">r0 =</span> <span class="fl">0.5</span>) {</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>  x1 <span class="ot">&lt;-</span> par[<span class="dv">1</span>]; x2 <span class="ot">&lt;-</span> par[<span class="dv">2</span>]; x3 <span class="ot">&lt;-</span> par[<span class="dv">3</span>]; x4 <span class="ot">&lt;-</span> par[<span class="dv">4</span>]</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>  n <span class="ot">&lt;-</span> <span class="fu">length</span>(p); q <span class="ot">&lt;-</span> <span class="fu">numeric</span>(n)</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>  s <span class="ot">&lt;-</span> s0 <span class="sc">*</span> x1; r <span class="ot">&lt;-</span> r0 <span class="sc">*</span> x3                       <span class="co"># contenido inicial</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Hidrogramas unitarios a partir de sus curvas S</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>  sh1 <span class="ot">&lt;-</span> <span class="cf">function</span>(t) <span class="fu">ifelse</span>(t <span class="sc">&lt;=</span> <span class="dv">0</span>, <span class="dv">0</span>, <span class="fu">ifelse</span>(t <span class="sc">&lt;</span> x4, (t <span class="sc">/</span> x4)<span class="sc">^</span><span class="fl">2.5</span>, <span class="dv">1</span>))</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>  sh2 <span class="ot">&lt;-</span> <span class="cf">function</span>(t) <span class="fu">ifelse</span>(t <span class="sc">&lt;=</span> <span class="dv">0</span>, <span class="dv">0</span>, <span class="fu">ifelse</span>(t <span class="sc">&lt;</span> x4, <span class="fl">0.5</span> <span class="sc">*</span> (t <span class="sc">/</span> x4)<span class="sc">^</span><span class="fl">2.5</span>,</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>                     <span class="fu">ifelse</span>(t <span class="sc">&lt;</span> <span class="dv">2</span> <span class="sc">*</span> x4, <span class="dv">1</span> <span class="sc">-</span> <span class="fl">0.5</span> <span class="sc">*</span> (<span class="dv">2</span> <span class="sc">-</span> t <span class="sc">/</span> x4)<span class="sc">^</span><span class="fl">2.5</span>, <span class="dv">1</span>)))</span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>  uh1 <span class="ot">&lt;-</span> <span class="fu">diff</span>(<span class="fu">sh1</span>(<span class="dv">0</span><span class="sc">:</span><span class="fu">ceiling</span>(x4)))</span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>  uh2 <span class="ot">&lt;-</span> <span class="fu">diff</span>(<span class="fu">sh2</span>(<span class="dv">0</span><span class="sc">:</span>(<span class="dv">2</span> <span class="sc">*</span> <span class="fu">ceiling</span>(x4))))</span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>  cola1 <span class="ot">&lt;-</span> <span class="fu">numeric</span>(<span class="fu">length</span>(uh1)); cola2 <span class="ot">&lt;-</span> <span class="fu">numeric</span>(<span class="fu">length</span>(uh2))</span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>n) {</span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Pasos 1 y 2: compensación y depósito de producción</span></span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (p[i] <span class="sc">&gt;=</span> e[i]) {</span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>      pn <span class="ot">&lt;-</span> p[i] <span class="sc">-</span> e[i]; tw <span class="ot">&lt;-</span> <span class="fu">tanh</span>(pn <span class="sc">/</span> x1)</span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>      ps <span class="ot">&lt;-</span> x1 <span class="sc">*</span> (<span class="dv">1</span> <span class="sc">-</span> (s <span class="sc">/</span> x1)<span class="sc">^</span><span class="dv">2</span>) <span class="sc">*</span> tw <span class="sc">/</span> (<span class="dv">1</span> <span class="sc">+</span> s <span class="sc">/</span> x1 <span class="sc">*</span> tw); es <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a>    } <span class="cf">else</span> {</span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a>      pn <span class="ot">&lt;-</span> <span class="dv">0</span>; ps <span class="ot">&lt;-</span> <span class="dv">0</span>; tw <span class="ot">&lt;-</span> <span class="fu">tanh</span>((e[i] <span class="sc">-</span> p[i]) <span class="sc">/</span> x1)</span>
+<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a>      es <span class="ot">&lt;-</span> s <span class="sc">*</span> (<span class="dv">2</span> <span class="sc">-</span> s <span class="sc">/</span> x1) <span class="sc">*</span> tw <span class="sc">/</span> (<span class="dv">1</span> <span class="sc">+</span> (<span class="dv">1</span> <span class="sc">-</span> s <span class="sc">/</span> x1) <span class="sc">*</span> tw)</span>
+<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a>    s <span class="ot">&lt;-</span> s <span class="sc">-</span> es <span class="sc">+</span> ps</span>
+<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Paso 3: percolación</span></span>
+<span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a>    perc <span class="ot">&lt;-</span> s <span class="sc">*</span> (<span class="dv">1</span> <span class="sc">-</span> (<span class="dv">1</span> <span class="sc">+</span> (<span class="dv">4</span> <span class="sc">/</span> <span class="dv">9</span> <span class="sc">*</span> s <span class="sc">/</span> x1)<span class="sc">^</span><span class="dv">4</span>)<span class="sc">^</span>(<span class="sc">-</span><span class="fl">0.25</span>))</span>
+<span id="cb6-28"><a href="#cb6-28" aria-hidden="true" tabindex="-1"></a>    s <span class="ot">&lt;-</span> s <span class="sc">-</span> perc</span>
+<span id="cb6-29"><a href="#cb6-29" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Paso 4: reparto en el tiempo con los hidrogramas unitarios</span></span>
+<span id="cb6-30"><a href="#cb6-30" aria-hidden="true" tabindex="-1"></a>    pr <span class="ot">&lt;-</span> perc <span class="sc">+</span> (pn <span class="sc">-</span> ps)</span>
+<span id="cb6-31"><a href="#cb6-31" aria-hidden="true" tabindex="-1"></a>    cola1 <span class="ot">&lt;-</span> cola1 <span class="sc">+</span> <span class="fl">0.9</span> <span class="sc">*</span> pr <span class="sc">*</span> uh1</span>
+<span id="cb6-32"><a href="#cb6-32" aria-hidden="true" tabindex="-1"></a>    cola2 <span class="ot">&lt;-</span> cola2 <span class="sc">+</span> <span class="fl">0.1</span> <span class="sc">*</span> pr <span class="sc">*</span> uh2</span>
+<span id="cb6-33"><a href="#cb6-33" aria-hidden="true" tabindex="-1"></a>    q9 <span class="ot">&lt;-</span> cola1[<span class="dv">1</span>]; q1 <span class="ot">&lt;-</span> cola2[<span class="dv">1</span>]</span>
+<span id="cb6-34"><a href="#cb6-34" aria-hidden="true" tabindex="-1"></a>    cola1 <span class="ot">&lt;-</span> <span class="fu">c</span>(cola1[<span class="sc">-</span><span class="dv">1</span>], <span class="dv">0</span>); cola2 <span class="ot">&lt;-</span> <span class="fu">c</span>(cola2[<span class="sc">-</span><span class="dv">1</span>], <span class="dv">0</span>)</span>
+<span id="cb6-35"><a href="#cb6-35" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Pasos 5 y 6: intercambio y depósito de tránsito</span></span>
+<span id="cb6-36"><a href="#cb6-36" aria-hidden="true" tabindex="-1"></a>    f <span class="ot">&lt;-</span> x2 <span class="sc">*</span> (r <span class="sc">/</span> x3)<span class="sc">^</span><span class="fl">3.5</span></span>
+<span id="cb6-37"><a href="#cb6-37" aria-hidden="true" tabindex="-1"></a>    r <span class="ot">&lt;-</span> <span class="fu">max</span>(<span class="dv">0</span>, r <span class="sc">+</span> q9 <span class="sc">+</span> f)</span>
+<span id="cb6-38"><a href="#cb6-38" aria-hidden="true" tabindex="-1"></a>    qr <span class="ot">&lt;-</span> r <span class="sc">*</span> (<span class="dv">1</span> <span class="sc">-</span> (<span class="dv">1</span> <span class="sc">+</span> (r <span class="sc">/</span> x3)<span class="sc">^</span><span class="dv">4</span>)<span class="sc">^</span>(<span class="sc">-</span><span class="fl">0.25</span>))</span>
+<span id="cb6-39"><a href="#cb6-39" aria-hidden="true" tabindex="-1"></a>    r <span class="ot">&lt;-</span> r <span class="sc">-</span> qr</span>
+<span id="cb6-40"><a href="#cb6-40" aria-hidden="true" tabindex="-1"></a>    q[i] <span class="ot">&lt;-</span> qr <span class="sc">+</span> <span class="fu">max</span>(<span class="dv">0</span>, q1 <span class="sc">+</span> f)</span>
+<span id="cb6-41"><a href="#cb6-41" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb6-42"><a href="#cb6-42" aria-hidden="true" tabindex="-1"></a>  q</span>
+<span id="cb6-43"><a href="#cb6-43" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb6-44"><a href="#cb6-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-45"><a href="#cb6-45" aria-hidden="true" tabindex="-1"></a><span class="co"># 2) Comparación con airGR para un juego de parámetros cualquiera</span></span>
+<span id="cb6-46"><a href="#cb6-46" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(L0123001)</span>
+<span id="cb6-47"><a href="#cb6-47" aria-hidden="true" tabindex="-1"></a>datos <span class="ot">&lt;-</span> BasinObs <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">fecha =</span> <span class="fu">as.Date</span>(DatesR))</span>
+<span id="cb6-48"><a href="#cb6-48" aria-hidden="true" tabindex="-1"></a>entrada <span class="ot">&lt;-</span> <span class="fu">CreateInputsModel</span>(RunModel_GR4J, <span class="at">DatesR =</span> BasinObs<span class="sc">$</span>DatesR,</span>
+<span id="cb6-49"><a href="#cb6-49" aria-hidden="true" tabindex="-1"></a>                             <span class="at">Precip =</span> BasinObs<span class="sc">$</span>P, <span class="at">PotEvap =</span> BasinObs<span class="sc">$</span>E)</span>
+<span id="cb6-50"><a href="#cb6-50" aria-hidden="true" tabindex="-1"></a>ind_cal <span class="ot">&lt;-</span> <span class="fu">which</span>(datos<span class="sc">$</span>fecha <span class="sc">&gt;=</span> <span class="fu">as.Date</span>(<span class="st">"1990-01-01"</span>) <span class="sc">&amp;</span> datos<span class="sc">$</span>fecha <span class="sc">&lt;=</span> <span class="fu">as.Date</span>(<span class="st">"1999-12-31"</span>))</span>
+<span id="cb6-51"><a href="#cb6-51" aria-hidden="true" tabindex="-1"></a>ind_calent_cal <span class="ot">&lt;-</span> <span class="fu">which</span>(datos<span class="sc">$</span>fecha <span class="sc">&gt;=</span> <span class="fu">as.Date</span>(<span class="st">"1989-01-01"</span>) <span class="sc">&amp;</span> datos<span class="sc">$</span>fecha <span class="sc">&lt;=</span> <span class="fu">as.Date</span>(<span class="st">"1989-12-31"</span>))</span>
+<span id="cb6-52"><a href="#cb6-52" aria-hidden="true" tabindex="-1"></a>opciones_cal <span class="ot">&lt;-</span> <span class="fu">CreateRunOptions</span>(RunModel_GR4J, <span class="at">InputsModel =</span> entrada,</span>
+<span id="cb6-53"><a href="#cb6-53" aria-hidden="true" tabindex="-1"></a>                                 <span class="at">IndPeriod_Run =</span> ind_cal, <span class="at">IndPeriod_WarmUp =</span> ind_calent_cal)</span>
+<span id="cb6-54"><a href="#cb6-54" aria-hidden="true" tabindex="-1"></a>par_prueba <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">257.2</span>, <span class="fl">1.01</span>, <span class="fl">88.2</span>, <span class="fl">2.21</span>)</span>
+<span id="cb6-55"><a href="#cb6-55" aria-hidden="true" tabindex="-1"></a>q_airgr <span class="ot">&lt;-</span> <span class="fu">RunModel_GR4J</span>(entrada, opciones_cal, par_prueba)<span class="sc">$</span>Qsim</span>
+<span id="cb6-56"><a href="#cb6-56" aria-hidden="true" tabindex="-1"></a>dias <span class="ot">&lt;-</span> <span class="fu">c</span>(ind_calent_cal, ind_cal)</span>
+<span id="cb6-57"><a href="#cb6-57" aria-hidden="true" tabindex="-1"></a>q_mano <span class="ot">&lt;-</span> <span class="fu">gr4j</span>(par_prueba, datos<span class="sc">$</span>P[dias], datos<span class="sc">$</span>E[dias])[<span class="sc">-</span><span class="fu">seq_along</span>(ind_calent_cal)]</span>
+<span id="cb6-58"><a href="#cb6-58" aria-hidden="true" tabindex="-1"></a><span class="fu">max</span>(<span class="fu">abs</span>(q_mano <span class="sc">-</span> q_airgr))   <span class="co"># diferencia máxima (mm/d)</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1.008448e-07</code></pre>
+</div>
+</div>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 3) Calibración con el KGE en 1990-1999</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>criterio <span class="ot">&lt;-</span> <span class="fu">CreateInputsCrit</span>(ErrorCrit_KGE, <span class="at">InputsModel =</span> entrada,</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>                             <span class="at">RunOptions =</span> opciones_cal, <span class="at">Obs =</span> BasinObs<span class="sc">$</span>Qmm[ind_cal])</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>calib <span class="ot">&lt;-</span> <span class="fu">Calibration_Michel</span>(entrada, opciones_cal, criterio,</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>                            <span class="fu">CreateCalibOptions</span>(RunModel_GR4J),</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>                            <span class="at">FUN_MOD =</span> RunModel_GR4J, <span class="at">verbose =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>par_gr4j <span class="ot">&lt;-</span> calib<span class="sc">$</span>ParamFinalR</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="co"># 4) Validación en 2000-2009</span></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>ind_val <span class="ot">&lt;-</span> <span class="fu">which</span>(datos<span class="sc">$</span>fecha <span class="sc">&gt;=</span> <span class="fu">as.Date</span>(<span class="st">"2000-01-01"</span>) <span class="sc">&amp;</span> datos<span class="sc">$</span>fecha <span class="sc">&lt;=</span> <span class="fu">as.Date</span>(<span class="st">"2009-12-31"</span>))</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>ind_calent_val <span class="ot">&lt;-</span> <span class="fu">which</span>(datos<span class="sc">$</span>fecha <span class="sc">&gt;=</span> <span class="fu">as.Date</span>(<span class="st">"1999-01-01"</span>) <span class="sc">&amp;</span> datos<span class="sc">$</span>fecha <span class="sc">&lt;=</span> <span class="fu">as.Date</span>(<span class="st">"1999-12-31"</span>))</span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>opciones_val <span class="ot">&lt;-</span> <span class="fu">CreateRunOptions</span>(RunModel_GR4J, <span class="at">InputsModel =</span> entrada,</span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>                                 <span class="at">IndPeriod_Run =</span> ind_val, <span class="at">IndPeriod_WarmUp =</span> ind_calent_val)</span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>q_cal <span class="ot">&lt;-</span> <span class="fu">RunModel_GR4J</span>(entrada, opciones_cal, par_gr4j)<span class="sc">$</span>Qsim</span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>q_val <span class="ot">&lt;-</span> <span class="fu">RunModel_GR4J</span>(entrada, opciones_val, par_gr4j)<span class="sc">$</span>Qsim</span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Métricas sin los días sin dato observado</span></span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a>metricas <span class="ot">&lt;-</span> <span class="cf">function</span>(obs, sim) {</span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a>  ok <span class="ot">&lt;-</span> <span class="sc">!</span><span class="fu">is.na</span>(obs)</span>
+<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">c</span>(<span class="at">NSE =</span> hydroGOF<span class="sc">::</span><span class="fu">NSE</span>(sim[ok], obs[ok]), <span class="at">KGE =</span> hydroGOF<span class="sc">::</span><span class="fu">KGE</span>(sim[ok], obs[ok]))</span>
+<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(par_gr4j, <span class="dv">3</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 144.027   0.567  62.803   2.315</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rbind</span>(<span class="at">calibracion =</span> <span class="fu">metricas</span>(BasinObs<span class="sc">$</span>Qmm[ind_cal], q_cal),</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>      <span class="at">validacion =</span> <span class="fu">metricas</span>(BasinObs<span class="sc">$</span>Qmm[ind_val], q_val))</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                  NSE       KGE
+calibracion 0.7401350 0.8561214
+validacion  0.6269398 0.6883967</code></pre>
+</div>
+</div>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div id="fig-mlr-gr4j-validacion" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" alt="Hidrograma diario de 2005 con el caudal observado en gris y el simulado en azul. El simulado sigue la subida del invierno y las crecidas principales, con picos algo menores en algunas crecidas y una recesión de verano parecida a la observada">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-mlr-gr4j-validacion-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="30-modelos_lluvia_escorrentia_files/figure-html/fig-mlr-gr4j-validacion-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="Figura&nbsp;30.3: Caudal observado y simulado con GR4J en 2005, año del periodo de validación."><img src="30-modelos_lluvia_escorrentia_files/figure-html/fig-mlr-gr4j-validacion-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:70.0%" alt="Hidrograma diario de 2005 con el caudal observado en gris y el simulado en azul. El simulado sigue la subida del invierno y las crecidas principales, con picos algo menores en algunas crecidas y una recesión de verano parecida a la observada"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-mlr-gr4j-validacion-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;30.3: Caudal observado y simulado con GR4J en 2005, año del periodo de validación.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p><strong>Interpretación.</strong> La función programada a mano y la del paquete dan el mismo caudal, con diferencias menores de una millonésima de milímetro. En calibración el modelo llega a un KGE de 0.86 y una NSE de 0.74; en validación bajan a 0.69 y 0.63. Esa caída es normal y dice cuánto se puede confiar en el modelo fuera de los años con que se ajustó. La capacidad del suelo calibrada, <span class="math inline">\(X_1 = 144\)</span> mm, y el tiempo base del hidrograma, <span class="math inline">\(X_4 = 2.3\)</span> días, son valores razonables para una cuenca de 360 km²; el intercambio positivo, <span class="math inline">\(X_2 = 0.57\)</span> mm, indica que el modelo necesita algo de agua extra para cerrar el balance, lo que puede ser un aporte subterráneo real o un error en la lluvia media.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled" title="En la práctica">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+En la práctica
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>GR4J y otros modelos de la familia GR, como GR2M para datos mensuales y GR4H para datos horarios, están en airGR. Necesitan solo lluvia media de la cuenca, evapotranspiración potencial y, para calibrar, caudales. En Centroamérica, donde los registros de caudal son cortos o tienen huecos, un modelo de pocos parámetros calibrado con cuidado suele dar mejores resultados que uno complejo con parámetros mal definidos. La evapotranspiración potencial se puede calcular con los métodos del capítulo de evapotranspiración, y la lluvia media con los del capítulo de precipitación.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="sec-mlr-datos" class="level2" data-number="30.5">
+<h2 data-number="30.5" class="anchored" data-anchor-id="sec-mlr-datos"><span class="header-section-number">30.5</span> Modelos basados en datos</h2>
+<p>Los modelos basados en datos no representan los procesos. Aprenden la relación entre las variables de entrada y el caudal a partir del registro, sin depósitos ni ecuaciones de balance. Los más usados en hidrología son tres:</p>
+<ul>
+<li><strong>Regresión lineal.</strong> El caudal es una suma ponderada de variables como la lluvia de los días anteriores o la lluvia acumulada en un mes. Es fácil de interpretar, pero supone que la relación es lineal, y la respuesta de una cuenca no lo es: la misma lluvia escurre mucho más con el suelo húmedo.</li>
+<li><strong>Bosques aleatorios.</strong> Un árbol de regresión divide los datos en grupos con preguntas sucesivas (“¿la lluvia de 30 días pasa de 120 mm?”) y predice con el promedio de cada grupo. Un bosque aleatorio promedia cientos de árboles, cada uno entrenado con una muestra distinta de los datos y de las variables <span class="citation" data-cites="breiman2001random">(Breiman 2001)</span>. Capta relaciones no lineales sin que haya que escribirlas.</li>
+<li><strong>Redes neuronales recurrentes (LSTM).</strong> Las redes de memoria de corto y largo plazo procesan la serie día a día y guardan un estado interno, parecido al agua almacenada de un modelo conceptual, que aprenden de los datos. Entrenadas con cientos de cuencas, han dado simulaciones comparables a las de modelos conceptuales calibrados cuenca por cuenca <span class="citation" data-cites="kratzert2018rainfall">(Kratzert et&nbsp;al. 2018)</span>.</li>
+</ul>
+<div class="callout callout-style-default callout-note callout-titled" title="Ejemplo: bosque aleatorio y regresión lineal frente a GR4J">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Ejemplo: bosque aleatorio y regresión lineal frente a GR4J
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Planteamiento.</strong> Con los mismos datos y los mismos periodos del ejemplo de GR4J, entrene una regresión lineal y un bosque aleatorio para simular el caudal diario a partir de la lluvia del día y de los cinco días anteriores, la lluvia acumulada en 7, 30 y 90 días y la evapotranspiración acumulada en 30 días. Compare su desempeño en validación con el de GR4J y revise qué pasa con los caudales mayores que los del entrenamiento.</p>
+<p><strong>Solución:</strong></p>
+<p>El bosque aleatorio no tiene una solución a mano: sus 500 árboles tienen miles de divisiones. Lo que sí se puede seguir a mano es la idea de cada árbol:</p>
+<ol type="1">
+<li>Se toma una muestra al azar de los días de entrenamiento, con reemplazo.</li>
+<li>Se busca la variable y el umbral que mejor separan los días en dos grupos de caudal parecido, por ejemplo, días con lluvia de 30 días mayor o menor de 110 mm.</li>
+<li>Se repite la división dentro de cada grupo hasta tener grupos pequeños.</li>
+<li>Para un día nuevo, se recorren las preguntas hasta llegar a un grupo, y la predicción es el caudal medio de ese grupo.</li>
+<li>El bosque promedia las predicciones de todos los árboles.</li>
+</ol>
+<p>El paso 4 muestra la limitación principal: la predicción es siempre un promedio de caudales del entrenamiento, así que nunca puede pasar del mayor caudal que el modelo vio.</p>
+<p><strong>Pseudocódigo</strong></p>
+<ol type="1">
+<li>Armar la tabla de variables de entrada con rezagos y sumas móviles de la lluvia. Con un paquete: <code>lag()</code> de dplyr y <code>rollsumr()</code> de zoo.</li>
+<li>Separar entrenamiento (1990–1999) y validación (2000–2009).</li>
+<li>Ajustar la regresión con <code>lm()</code> y el bosque con <code>ranger()</code> del paquete ranger <span class="citation" data-cites="wright2017ranger">(Wright y Ziegler 2017)</span>.</li>
+<li>Calcular NSE y KGE en validación y compararlos con GR4J.</li>
+<li>Entrenar otro bosque solo con días de caudal menor de 5 mm/d y ver su predicción máxima.</li>
+</ol>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ranger)</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 1) Variables de entrada</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>tabla <span class="ot">&lt;-</span> datos <span class="sc">%&gt;%</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">transmute</span>(fecha, <span class="at">q =</span> Qmm, <span class="at">p0 =</span> P,</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>            <span class="at">p1 =</span> <span class="fu">lag</span>(P, <span class="dv">1</span>), <span class="at">p2 =</span> <span class="fu">lag</span>(P, <span class="dv">2</span>), <span class="at">p3 =</span> <span class="fu">lag</span>(P, <span class="dv">3</span>), <span class="at">p4 =</span> <span class="fu">lag</span>(P, <span class="dv">4</span>), <span class="at">p5 =</span> <span class="fu">lag</span>(P, <span class="dv">5</span>),</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>            <span class="at">p7 =</span> zoo<span class="sc">::</span><span class="fu">rollsumr</span>(P, <span class="dv">7</span>, <span class="at">fill =</span> <span class="cn">NA</span>), <span class="at">p30 =</span> zoo<span class="sc">::</span><span class="fu">rollsumr</span>(P, <span class="dv">30</span>, <span class="at">fill =</span> <span class="cn">NA</span>),</span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>            <span class="at">p90 =</span> zoo<span class="sc">::</span><span class="fu">rollsumr</span>(P, <span class="dv">90</span>, <span class="at">fill =</span> <span class="cn">NA</span>), <span class="at">e30 =</span> zoo<span class="sc">::</span><span class="fu">rollsumr</span>(E, <span class="dv">30</span>, <span class="at">fill =</span> <span class="cn">NA</span>))</span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a><span class="co"># 2) Entrenamiento y validación</span></span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>entrena <span class="ot">&lt;-</span> tabla[ind_cal, ] <span class="sc">%&gt;%</span> <span class="fu">drop_na</span>()</span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>valida <span class="ot">&lt;-</span> tabla[ind_val, ] <span class="sc">%&gt;%</span> <span class="fu">drop_na</span>()</span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a><span class="co"># 3) Regresión lineal y bosque aleatorio</span></span>
+<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a>reg <span class="ot">&lt;-</span> <span class="fu">lm</span>(q <span class="sc">~</span> . <span class="sc">-</span> fecha, <span class="at">data =</span> entrena)</span>
+<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a>bosque <span class="ot">&lt;-</span> <span class="fu">ranger</span>(q <span class="sc">~</span> . <span class="sc">-</span> fecha, <span class="at">data =</span> entrena, <span class="at">num.trees =</span> <span class="dv">500</span>, <span class="at">seed =</span> <span class="dv">2026</span>)</span>
+<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a>q_reg <span class="ot">&lt;-</span> <span class="fu">pmax</span>(<span class="fu">predict</span>(reg, valida), <span class="dv">0</span>)     <span class="co"># sin caudales negativos</span></span>
+<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a>q_bosque <span class="ot">&lt;-</span> <span class="fu">predict</span>(bosque, valida)<span class="sc">$</span>predictions</span>
+<span id="cb12-19"><a href="#cb12-19" aria-hidden="true" tabindex="-1"></a>q_gr4j <span class="ot">&lt;-</span> q_val[<span class="fu">match</span>(valida<span class="sc">$</span>fecha, datos<span class="sc">$</span>fecha[ind_val])]</span>
+<span id="cb12-20"><a href="#cb12-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-21"><a href="#cb12-21" aria-hidden="true" tabindex="-1"></a><span class="co"># 4) Desempeño en validación</span></span>
+<span id="cb12-22"><a href="#cb12-22" aria-hidden="true" tabindex="-1"></a>desempeno <span class="ot">&lt;-</span> <span class="fu">rbind</span>(</span>
+<span id="cb12-23"><a href="#cb12-23" aria-hidden="true" tabindex="-1"></a>  <span class="st">`</span><span class="at">Regresión lineal</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">metricas</span>(valida<span class="sc">$</span>q, q_reg),</span>
+<span id="cb12-24"><a href="#cb12-24" aria-hidden="true" tabindex="-1"></a>  <span class="st">`</span><span class="at">Bosque aleatorio</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">metricas</span>(valida<span class="sc">$</span>q, q_bosque),</span>
+<span id="cb12-25"><a href="#cb12-25" aria-hidden="true" tabindex="-1"></a>  <span class="at">GR4J =</span> <span class="fu">metricas</span>(valida<span class="sc">$</span>q, q_gr4j)</span>
+<span id="cb12-26"><a href="#cb12-26" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb12-27"><a href="#cb12-27" aria-hidden="true" tabindex="-1"></a>desempeno</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                       NSE       KGE
+Regresión lineal 0.5158379 0.6314668
+Bosque aleatorio 0.4733664 0.6448323
+GR4J             0.6269398 0.6883967</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 5) Bosque entrenado solo con caudales menores de 5 mm/d</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>bosque_bajo <span class="ot">&lt;-</span> <span class="fu">ranger</span>(q <span class="sc">~</span> . <span class="sc">-</span> fecha, <span class="at">data =</span> <span class="fu">filter</span>(entrena, q <span class="sc">&lt;</span> <span class="dv">5</span>),</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>                      <span class="at">num.trees =</span> <span class="dv">500</span>, <span class="at">seed =</span> <span class="dv">2026</span>)</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="at">max_observado =</span> <span class="fu">max</span>(valida<span class="sc">$</span>q),</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">max_bosque =</span> <span class="fu">max</span>(q_bosque),</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">max_gr4j =</span> <span class="fu">max</span>(q_gr4j),</span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">max_bosque_bajo =</span> <span class="fu">max</span>(<span class="fu">predict</span>(bosque_bajo, valida)<span class="sc">$</span>predictions))</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  max_observado      max_bosque        max_gr4j max_bosque_bajo 
+      20.160000       14.062490       19.086112        3.939392 </code></pre>
+</div>
+</div>
+<p><strong>Interpretación.</strong> En validación GR4J es el mejor de los tres (NSE de 0.63), seguido de la regresión lineal (0.52) y del bosque aleatorio (0.47). El bosque no gana aquí porque solo ve la lluvia de unos pocos días y unas sumas móviles: no sabe cuánta agua hay en el suelo, que GR4J sí calcula. La prueba del paso 5 muestra el riesgo de extrapolar: el bosque entrenado con caudales menores de 5 mm/d nunca predice más de 4 mm/d, aunque en la validación hubo días de hasta 20 mm/d.&nbsp;Un modelo conceptual también puede fallar en una crecida extrema, pero al menos sus ecuaciones de balance responden a una lluvia mayor con más caudal.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-warning callout-titled" title="Cuidado">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Cuidado
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Un modelo basado en datos solo sabe lo que hay en el registro con que se entrenó. No lo use para estimar crecidas mayores que las registradas, ni para simular un cambio de uso del suelo o de clima que no está en los datos. Tampoco lo valide con días al azar mezclados con los de entrenamiento: los días seguidos se parecen mucho, y el modelo parecerá mejor de lo que es. Valide con un periodo separado, como en el ejemplo.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled" title="Para profundizar">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Para profundizar
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-9" class="callout-9-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Las redes LSTM necesitan miles de datos y muchas cuencas para generalizar bien. <span class="citation" data-cites="kratzert2018rainfall">Kratzert et&nbsp;al. (2018)</span> entrenaron una sola red con 241 cuencas de Estados Unidos y obtuvieron, en promedio, simulaciones comparables a las de un modelo conceptual calibrado para cada cuenca. Una ventaja de entrenar con muchas cuencas es que la red aprende respuestas distintas, incluidas crecidas mayores que las de una cuenca en particular, lo que reduce el problema de extrapolar. En R se pueden programar con los paquetes keras o torch; en la práctica, la mayoría de los trabajos usan Python. Para una cuenca sola, con 10 o 20 años de datos, un modelo conceptual de pocos parámetros sigue siendo la opción más segura.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="ejercicios-propuestos" class="level2" data-number="30.6">
+<h2 data-number="30.6" class="anchored" data-anchor-id="ejercicios-propuestos"><span class="header-section-number">30.6</span> Ejercicios propuestos</h2>
+<ol type="1">
+<li>Para los caudales observados 5, 9, 40, 22, 14 y 8 m³/s y los simulados 6, 12, 31, 25, 13 y 7 m³/s, calcule a mano NSE, KGE y PBIAS. ¿Cuál de las tres métricas penaliza más el error en el pico?</li>
+<li>Demuestre que, si el caudal simulado es igual a la media observada todos los días, la NSE vale 0. ¿Cuánto vale el KGE en ese caso?</li>
+<li>Con el modelo de evento del ejemplo, calibre los eventos 1 a 3 juntos, con un solo <span class="math inline">\(CN\)</span> y un solo <span class="math inline">\(t_{\text{lag}}\)</span> que maximicen la suma de las NSE, y valide con los eventos 4 y 5. Compare con la calibración evento por evento.</li>
+<li>Cambie en el modelo de evento el flujo base constante por una recesión exponencial que sube hasta el caudal del punto C de la separación de pendiente variable (<a href="28-hidrograma_unitario.html#sec-hu-pendiente" class="quarto-xref"><span>Sección 28.2.2</span></a>). ¿Mejora el error de volumen?</li>
+<li>Con la función <code>gr4j()</code> del ejemplo, varíe uno a uno los cuatro parámetros calibrados en ±30 % y calcule la NSE de validación. ¿A qué parámetro es más sensible el modelo?</li>
+<li>Calibre GR4J con 2000–2009 y valide con 1990–1999. ¿Se mantienen las métricas? ¿Cambian mucho los parámetros?</li>
+<li>Agregue al bosque aleatorio del ejemplo el caudal simulado por GR4J como variable de entrada. ¿Mejora la validación? ¿Qué ventaja y qué riesgo tiene este modelo híbrido?</li>
+<li>Escoja una cuenca de Costa Rica con datos de caudal y de lluvia disponibles y describa, sin correrlo, cómo armaría un modelo en HEC-HMS: subcuencas, métodos de pérdida, transformación, flujo base y tránsito, y de dónde sacaría cada parámetro.</li>
+</ol>
+</section>
+<section id="lecturas-recomendadas" class="level2" data-number="30.7">
+<h2 data-number="30.7" class="anchored" data-anchor-id="lecturas-recomendadas"><span class="header-section-number">30.7</span> Lecturas recomendadas</h2>
+<ul>
+<li><span class="citation" data-cites="beven2012rainfall">Beven (2012)</span>: el libro de referencia sobre modelación lluvia-escorrentía, con una discusión clara de la calibración, la equifinalidad y la incertidumbre.</li>
+<li><span class="citation" data-cites="usace2000hechmstech">U.S. Army Corps of Engineers (2000)</span>: describe cada método de pérdida, transformación, flujo base y tránsito de HEC-HMS, con sus ecuaciones y parámetros.</li>
+<li><span class="citation" data-cites="perrin2003improvement">Perrin, Michel, y Andréassian (2003)</span>: explica cómo se llegó a la estructura de GR4J y por qué cuatro parámetros bastan en la mayoría de las cuencas.</li>
+<li><span class="citation" data-cites="kratzert2018rainfall">Kratzert et&nbsp;al. (2018)</span>: el artículo que mostró el potencial de las redes LSTM para simular caudales.</li>
+</ul>
+
+
+</section>
+
+</main> <!-- /main -->
+<!--
+  Herramientas de lectura del libro: búsqueda en todo el texto (funciona sin
+  internet) y ajustes de accesibilidad (tamaño de letra, alto contraste y
+  fuente más legible). Los ajustes se guardan en el navegador del lector.
+  Lo insertan _quarto.yml (libro web) y herramientas/publicar.R (un solo archivo).
+  En el libro web, Quarto ya trae su propia búsqueda, así que aquí no se agrega.
+-->
+<style>
+  #barra-lectura {
+    position: fixed; top: 0.6rem; right: 1rem; z-index: 1060;
+    display: flex; gap: 0.35rem; align-items: center;
+  }
+  #barra-lectura > button, #barra-lectura > .quarto-color-scheme-toggle {
+    position: static; display: inline-flex; align-items: center; justify-content: center;
+    min-width: 2.3rem; height: 2.3rem; padding: 0 0.55rem;
+    background: var(--bs-body-bg, #fff); color: var(--bs-body-color, #212529);
+    border: 1px solid var(--bs-border-color, #ced4da); border-radius: 0.45rem;
+    font: 600 0.95rem/1 system-ui, sans-serif; cursor: pointer; text-decoration: none;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+  }
+  #barra-lectura > button:hover, #barra-lectura > button[aria-expanded="true"] {
+    border-color: #1C6BA0; color: #1C6BA0;
+  }
+  #barra-lectura > button:focus-visible, .panel-lectura button:focus-visible,
+  .panel-lectura input:focus-visible { outline: 3px solid #1C6BA0; outline-offset: 2px; }
+  #barra-lectura svg { width: 1.05rem; height: 1.05rem; }
+  /* Icono propio del interruptor de modo oscuro (luna en modo claro, sol en
+     modo oscuro), dibujado con el color del texto para que se vea en ambos */
+  #barra-lectura > .quarto-color-scheme-toggle .bi::before {
+    content: ""; display: inline-block; width: 1.05rem; height: 1.05rem;
+    background: currentColor; -webkit-mask: var(--icono-modo) center / contain no-repeat; mask: var(--icono-modo) center / contain no-repeat;
+  }
+  #barra-lectura > .quarto-color-scheme-toggle {
+    --icono-modo: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M6 .278a.77.77 0 0 1 .08.858 7.2 7.2 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277q.792-.001 1.533-.16a.79.79 0 0 1 .81.316.73.73 0 0 1-.031.893A8.35 8.35 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.75.75 0 0 1 6 .278'/%3E%3C/svg%3E");
+  }
+  #barra-lectura > .quarto-color-scheme-toggle.alternate {
+    --icono-modo: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8M8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0m0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13m8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5M3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8m10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0m-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0m9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707M4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708'/%3E%3C/svg%3E");
+  }
+
+  .panel-lectura {
+    position: fixed; top: 3.4rem; right: 1rem; z-index: 1060; display: none;
+    width: min(24rem, calc(100vw - 2rem)); max-height: calc(100vh - 5rem); overflow: auto;
+    background: var(--bs-body-bg, #fff); color: var(--bs-body-color, #212529);
+    border: 1px solid var(--bs-border-color, #ced4da); border-radius: 0.6rem;
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.18); padding: 1rem;
+    font-family: system-ui, sans-serif; font-size: 0.95rem;
+  }
+  .panel-lectura.abierto { display: block; }
+  .panel-lectura h2 { font-size: 1rem; margin: 0 0 0.75rem; font-weight: 700; border: 0; padding: 0; }
+  .panel-lectura .fila { display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; margin: 0.6rem 0; }
+  .panel-lectura .grupo { display: inline-flex; gap: 0.3rem; }
+  .panel-lectura .grupo button, .panel-lectura .restablecer {
+    min-width: 2.4rem; padding: 0.3rem 0.6rem; border-radius: 0.4rem; cursor: pointer;
+    border: 1px solid var(--bs-border-color, #ced4da);
+    background: var(--bs-body-bg, #fff); color: var(--bs-body-color, #212529); font: inherit;
+  }
+  .panel-lectura button[aria-pressed="true"] { background: #1C6BA0; border-color: #1C6BA0; color: #fff; }
+  .panel-lectura .restablecer { width: 100%; margin-top: 0.6rem; }
+  .panel-lectura .nota { color: var(--bs-secondary-color, #6c757d); font-size: 0.85rem; margin: 0.6rem 0 0; }
+
+  #caja-busqueda {
+    width: 100%; padding: 0.5rem 0.65rem; font: inherit; border-radius: 0.4rem;
+    border: 1px solid var(--bs-border-color, #ced4da);
+    background: var(--bs-body-bg, #fff); color: var(--bs-body-color, #212529);
+  }
+  #resultados-busqueda { list-style: none; margin: 0.6rem 0 0; padding: 0; }
+  #resultados-busqueda li { border-top: 1px solid var(--bs-border-color, #e9ecef); }
+  #resultados-busqueda a { display: block; padding: 0.5rem 0.2rem; text-decoration: none; color: inherit; }
+  #resultados-busqueda a:hover, #resultados-busqueda a:focus { background: rgba(28, 107, 160, 0.08); }
+  #resultados-busqueda .lugar { display: block; font-size: 0.8rem; color: #1C6BA0; font-weight: 600; }
+  #resultados-busqueda mark { padding: 0; background: #ffe58a; color: #000; }
+  .resaltado-busqueda { outline: 3px solid #f0ad4e; outline-offset: 3px; transition: outline-color 1s; }
+
+  /* Fuente más legible: sin serifa, más espacio entre letras y líneas */
+  body.lectura-legible #quarto-document-content :is(p, li, td, th, dd, dt, figcaption, blockquote, .callout-body-container),
+  body.lectura-legible #TOC {
+    font-family: Verdana, Tahoma, "Segoe UI", sans-serif !important;
+    letter-spacing: 0.02em; word-spacing: 0.08em; line-height: 1.75;
+  }
+  body.lectura-legible #quarto-document-content :is(h1, h2, h3, h4) {
+    font-family: Verdana, Tahoma, "Segoe UI", sans-serif !important;
+  }
+
+  /* Alto contraste: texto negro sobre blanco (o blanco sobre negro en modo oscuro) */
+  body.lectura-contraste.quarto-light { --bs-body-color: #000; --bs-body-bg: #fff; background: #fff !important; color: #000 !important; }
+  body.lectura-contraste.quarto-light #quarto-document-content *:not(mark):not(code):not(pre) { color: #000 !important; }
+  body.lectura-contraste.quarto-light #quarto-document-content a { color: #0033cc !important; text-decoration: underline !important; }
+  body.lectura-contraste.quarto-dark { --bs-body-color: #fff; --bs-body-bg: #000; background: #000 !important; color: #fff !important; }
+  body.lectura-contraste.quarto-dark #quarto-document-content *:not(mark):not(code):not(pre) { color: #fff !important; }
+  body.lectura-contraste.quarto-dark #quarto-document-content a { color: #ffd84d !important; text-decoration: underline !important; }
+  body.lectura-contraste #quarto-document-content :is(.callout, table, th, td) { border-color: currentColor !important; }
+
+  @media (max-width: 767.98px) {
+    #barra-lectura { top: 0.4rem; right: 0.5rem; }
+    .panel-lectura { right: 0.5rem; top: 3.1rem; }
+  }
+  @media print { #barra-lectura, .panel-lectura { display: none !important; } }
+</style>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  var CLAVE = "libro-hidrologia-lectura";
+  var ESCALAS = [0.9, 1, 1.12, 1.25, 1.4];
+  var ajustes = { escala: 1, contraste: false, legible: false };
+  try {
+    var guardado = JSON.parse(localStorage.getItem(CLAVE) || "null");
+    if (guardado) Object.assign(ajustes, guardado);
+  } catch (e) { /* sin almacenamiento: se usan los valores de fábrica */ }
+
+  function guardar() {
+    try { localStorage.setItem(CLAVE, JSON.stringify(ajustes)); } catch (e) {}
+  }
+  function aplicar() {
+    document.documentElement.style.fontSize = ajustes.escala === 1 ? "" : (ajustes.escala * 100) + "%";
+    document.body.classList.toggle("lectura-contraste", !!ajustes.contraste);
+    document.body.classList.toggle("lectura-legible", !!ajustes.legible);
+    var b;
+    if ((b = document.getElementById("lect-contraste"))) b.setAttribute("aria-pressed", String(!!ajustes.contraste));
+    if ((b = document.getElementById("lect-legible"))) b.setAttribute("aria-pressed", String(!!ajustes.legible));
+    if ((b = document.getElementById("lect-tamano"))) b.textContent = Math.round(ajustes.escala * 100) + " %";
+  }
+  aplicar();
+
+  var main = document.getElementById("quarto-document-content") || document.querySelector("main");
+  var hayBusquedaQuarto = !!document.getElementById("quarto-search");
+
+  // --- Barra de botones, arriba a la derecha, junto al modo oscuro ---
+  var barra = document.createElement("div");
+  barra.id = "barra-lectura";
+  var iconoLupa = '<svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M11.74 10.34a6.5 6.5 0 1 0-1.4 1.4l3.85 3.85a1 1 0 0 0 1.4-1.4zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/></svg>';
+  var html = "";
+  if (!hayBusquedaQuarto) {
+    html += '<button type="button" id="boton-busqueda" aria-label="Buscar en el libro" aria-expanded="false" aria-controls="panel-busqueda" title="Buscar en el libro (Ctrl+K)">' + iconoLupa + '</button>';
+  }
+  html += '<button type="button" id="boton-acceso" aria-label="Opciones de lectura: tamaño de letra, contraste y fuente" aria-expanded="false" aria-controls="panel-acceso" title="Tamaño de letra, contraste y fuente">Aa</button>';
+  barra.innerHTML = html;
+  document.body.appendChild(barra);
+
+  // El interruptor de modo oscuro de Quarto pasa a la misma barra, que está
+  // fija arriba a la derecha y se ve en todos los capítulos. En el libro de un
+  // solo archivo Quarto crea el interruptor después de este código, así que se
+  // intenta de nuevo cuando la página termina de cargar.
+  function moverInterruptor() {
+    var interruptor = document.querySelector("body > .quarto-color-scheme-toggle.top-right");
+    if (!interruptor) return;
+    interruptor.classList.remove("top-right");
+    interruptor.setAttribute("aria-label", "Cambiar entre modo claro y oscuro");
+    interruptor.title = "Modo claro u oscuro";
+    barra.appendChild(interruptor);
+    // Quarto no recuerda el modo cuando el libro se abre como archivo local;
+    // se guarda aquí para que se mantenga al volver a abrirlo
+    interruptor.addEventListener("click", function () {
+      setTimeout(function () {
+        try { localStorage.setItem("libro-modo-oscuro", document.body.classList.contains("quarto-dark") ? "1" : "0"); } catch (e) {}
+      }, 0);
+    });
+    var oscuro = null;
+    try { oscuro = localStorage.getItem("libro-modo-oscuro"); } catch (e) {}
+    if (oscuro === "1" && !document.body.classList.contains("quarto-dark") && window.quartoToggleColorScheme) {
+      window.quartoToggleColorScheme();
+    }
+  }
+  moverInterruptor();
+  document.addEventListener("DOMContentLoaded", moverInterruptor);
+  window.addEventListener("load", moverInterruptor);
+
+  // --- Panel de accesibilidad ---
+  var panelAcceso = document.createElement("div");
+  panelAcceso.className = "panel-lectura";
+  panelAcceso.id = "panel-acceso";
+  panelAcceso.setAttribute("role", "dialog");
+  panelAcceso.setAttribute("aria-label", "Opciones de lectura");
+  panelAcceso.innerHTML =
+    '<h2>Opciones de lectura</h2>' +
+    '<div class="fila"><span>Tamaño de letra</span><span class="grupo">' +
+      '<button type="button" id="lect-menos" aria-label="Letra más pequeña">A&minus;</button>' +
+      '<button type="button" id="lect-tamano" aria-label="Volver al tamaño normal" title="Tamaño normal">100 %</button>' +
+      '<button type="button" id="lect-mas" aria-label="Letra más grande">A+</button></span></div>' +
+    '<div class="fila"><span>Alto contraste</span><span class="grupo">' +
+      '<button type="button" id="lect-contraste" aria-pressed="false">Activar</button></span></div>' +
+    '<div class="fila"><span>Fuente más legible</span><span class="grupo">' +
+      '<button type="button" id="lect-legible" aria-pressed="false">Activar</button></span></div>' +
+    '<button type="button" class="restablecer" id="lect-restablecer">Restablecer</button>' +
+    '<p class="nota">Los ajustes se guardan en este navegador. El modo oscuro está en el botón de al lado.</p>';
+  document.body.appendChild(panelAcceso);
+
+  function cambiarEscala(paso) {
+    var i = ESCALAS.indexOf(ajustes.escala);
+    if (i < 0) i = 1;
+    i = paso === 0 ? 1 : Math.min(ESCALAS.length - 1, Math.max(0, i + paso));
+    ajustes.escala = ESCALAS[i];
+    aplicar(); guardar();
+  }
+  document.getElementById("lect-menos").addEventListener("click", function () { cambiarEscala(-1); });
+  document.getElementById("lect-mas").addEventListener("click", function () { cambiarEscala(1); });
+  document.getElementById("lect-tamano").addEventListener("click", function () { cambiarEscala(0); });
+  document.getElementById("lect-contraste").addEventListener("click", function () {
+    ajustes.contraste = !ajustes.contraste; aplicar(); guardar();
+  });
+  document.getElementById("lect-legible").addEventListener("click", function () {
+    ajustes.legible = !ajustes.legible; aplicar(); guardar();
+  });
+  document.getElementById("lect-restablecer").addEventListener("click", function () {
+    ajustes = { escala: 1, contraste: false, legible: false }; aplicar(); guardar();
+  });
+  aplicar();
+
+  // --- Panel de búsqueda (solo en el libro de un archivo) ---
+  var panelBusqueda = null;
+  if (!hayBusquedaQuarto && main) {
+    panelBusqueda = document.createElement("div");
+    panelBusqueda.className = "panel-lectura";
+    panelBusqueda.id = "panel-busqueda";
+    panelBusqueda.setAttribute("role", "dialog");
+    panelBusqueda.setAttribute("aria-label", "Buscar en el libro");
+    panelBusqueda.innerHTML =
+      '<h2>Buscar en el libro</h2>' +
+      '<input type="search" id="caja-busqueda" placeholder="Por ejemplo: Thiessen, curva masa…" autocomplete="off" aria-describedby="estado-busqueda">' +
+      '<p class="nota" id="estado-busqueda" aria-live="polite">Escriba al menos 3 letras. No distingue tildes ni mayúsculas.</p>' +
+      '<ul id="resultados-busqueda"></ul>';
+    document.body.appendChild(panelBusqueda);
+  }
+
+  function normalizar(t) {
+    return t.normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase();
+  }
+
+  // Índice: cada párrafo, elemento de lista, celda o leyenda, con su capítulo y sección
+  var indice = null;
+  function construirIndice() {
+    indice = [];
+    var nodos = main.querySelectorAll("p, li, td, th, figcaption, h1, h2, h3, h4, .callout-title-container");
+    Array.prototype.forEach.call(nodos, function (el) {
+      if (el.closest(".nav-capitulos, #TOC, .panel-lectura, pre, .sourceCode, script, style")) return;
+      if (el.tagName === "LI" && el.querySelector("p")) return;   // ya se indexan sus párrafos
+      var texto = (el.textContent || "").replace(/\s+/g, " ").trim();
+      if (texto.length < 3) return;
+      var sec = el.closest("section[id]");
+      var cap = el.closest("section.level1");
+      var h1 = cap ? cap.querySelector("h1") : null;
+      var hs = sec && sec !== cap ? sec.querySelector(":scope > h2, :scope > h3, :scope > h4") : null;
+      indice.push({
+        el: el, texto: texto, norm: normalizar(texto),
+        destino: (sec || cap || {}).id || "",
+        capitulo: h1 ? h1.textContent.replace(/\s+/g, " ").trim() : "",
+        seccion: hs ? hs.textContent.replace(/\s+/g, " ").trim() : ""
+      });
+    });
+  }
+
+  function escaparHtml(t) {
+    return t.replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; });
+  }
+  function fragmento(item, palabras) {
+    var pos = item.norm.indexOf(palabras[0]);
+    var ini = Math.max(0, pos - 60), fin = Math.min(item.texto.length, pos + 140);
+    var trozo = item.texto.slice(ini, fin), trozoNorm = item.norm.slice(ini, fin);
+    // Resalta cada palabra buscada (las posiciones coinciden porque normalizar no cambia la longitud
+    // de los caracteres comunes del español)
+    var marcas = [];
+    palabras.forEach(function (w) {
+      var k = trozoNorm.indexOf(w);
+      while (k >= 0) { marcas.push([k, k + w.length]); k = trozoNorm.indexOf(w, k + w.length); }
+    });
+    marcas.sort(function (a, b) { return a[0] - b[0]; });
+    var salida = "", ultimo = 0;
+    marcas.forEach(function (m) {
+      if (m[0] < ultimo) return;
+      salida += escaparHtml(trozo.slice(ultimo, m[0])) + "<mark>" + escaparHtml(trozo.slice(m[0], m[1])) + "</mark>";
+      ultimo = m[1];
+    });
+    salida += escaparHtml(trozo.slice(ultimo));
+    return (ini > 0 ? "… " : "") + salida + (fin < item.texto.length ? " …" : "");
+  }
+
+  var temporizador = null;
+  function buscar() {
+    var caja = document.getElementById("caja-busqueda");
+    var estado = document.getElementById("estado-busqueda");
+    var lista = document.getElementById("resultados-busqueda");
+    var consulta = normalizar(caja.value.trim());
+    lista.innerHTML = "";
+    if (consulta.length < 3) {
+      estado.textContent = "Escriba al menos 3 letras. No distingue tildes ni mayúsculas.";
+      return;
+    }
+    if (!indice) construirIndice();
+    var palabras = consulta.split(/\s+/).filter(Boolean);
+    var hallados = indice.filter(function (it) {
+      return palabras.every(function (w) { return it.norm.indexOf(w) >= 0; });
+    });
+    var MAX = 60;
+    estado.textContent = hallados.length === 0 ? "Sin resultados." :
+      (hallados.length > MAX ? "Se muestran " + MAX + " de " + hallados.length + " resultados." :
+       hallados.length + (hallados.length === 1 ? " resultado." : " resultados."));
+    hallados.slice(0, MAX).forEach(function (it) {
+      var li = document.createElement("li");
+      var a = document.createElement("a");
+      a.href = "#" + it.destino;
+      var lugar = it.capitulo + (it.seccion && it.seccion !== it.capitulo ? " › " + it.seccion : "");
+      a.innerHTML = '<span class="lugar">' + escaparHtml(lugar) + "</span>" + fragmento(it, palabras);
+      a.addEventListener("click", function () {
+        cerrarPaneles();
+        // La navegación por capítulos abre la página; después se lleva al párrafo exacto
+        setTimeout(function () {
+          it.el.scrollIntoView({ block: "center" });
+          it.el.classList.add("resaltado-busqueda");
+          setTimeout(function () { it.el.classList.remove("resaltado-busqueda"); }, 2500);
+        }, 60);
+      });
+      li.appendChild(a);
+      lista.appendChild(li);
+    });
+  }
+
+  // --- Abrir y cerrar paneles ---
+  function cerrarPaneles() {
+    [panelAcceso, panelBusqueda].forEach(function (p) { if (p) p.classList.remove("abierto"); });
+    Array.prototype.forEach.call(barra.querySelectorAll("button[aria-expanded]"), function (b) {
+      b.setAttribute("aria-expanded", "false");
+    });
+  }
+  function alternar(panel, boton, foco) {
+    var abrir = !panel.classList.contains("abierto");
+    cerrarPaneles();
+    if (abrir) {
+      panel.classList.add("abierto");
+      boton.setAttribute("aria-expanded", "true");
+      if (foco) foco.focus();
+    }
+  }
+  document.getElementById("boton-acceso").addEventListener("click", function () {
+    alternar(panelAcceso, this, document.getElementById("lect-mas"));
+  });
+  if (panelBusqueda) {
+    var caja = document.getElementById("caja-busqueda");
+    document.getElementById("boton-busqueda").addEventListener("click", function () {
+      alternar(panelBusqueda, this, caja);
+    });
+    caja.addEventListener("input", function () {
+      clearTimeout(temporizador);
+      temporizador = setTimeout(buscar, 200);
+    });
+  }
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape") cerrarPaneles();
+    if (panelBusqueda && (e.ctrlKey || e.metaKey) && (e.key === "k" || e.key === "K")) {
+      e.preventDefault();
+      alternar(panelBusqueda, document.getElementById("boton-busqueda"), document.getElementById("caja-busqueda"));
+    }
+  });
+  document.addEventListener("click", function (e) {
+    if (!e.target.closest(".panel-lectura, #barra-lectura")) cerrarPaneles();
+  });
+});
+</script>
+
+<!--
+  Notas al pie de los cuadros hechos con kableExtra: Quarto parte la celda que
+  ocupa todo el ancho en una celda por columna, y la nota queda apretada en la
+  primera columna. Aquí se vuelve a unir en una sola celda de todo el ancho.
+-->
+<style>
+  tfoot td.nota-cuadro { text-align: left !important; padding: 0.4rem 0.5rem !important;
+    font-size: 0.9em; white-space: normal; }
+</style>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  document.querySelectorAll("tfoot tr").forEach(function (fila) {
+    var celdas = Array.prototype.slice.call(fila.cells);
+    if (celdas.length < 2 || celdas[0].textContent.trim() === "") return;
+    var vacias = celdas.slice(1).every(function (c) { return c.textContent.trim() === ""; });
+    if (!vacias) return;
+    celdas[0].colSpan = celdas.length;
+    celdas[0].classList.add("nota-cuadro");
+    celdas.slice(1).forEach(function (c) { c.remove(); });
+  });
+});
+</script>
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+    let newTheme = '';
+    if(darkModeDefault) {
+      newTheme = isAlternate ? baseTheme : alternateTheme;
+    } else {
+      newTheme = isAlternate ? alternateTheme : baseTheme;
+    }
+    const changeGiscusTheme = () => {
+      // From: https://github.com/giscus/giscus/issues/336
+      const sendMessage = (message) => {
+        const iframe = document.querySelector('iframe.giscus-frame');
+        if (!iframe) return;
+        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+      }
+      sendMessage({
+        setConfig: {
+          theme: newTheme
+        }
+      });
+    }
+    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+    if (isGiscussLoaded) {
+      changeGiscusTheme();
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  const darkModeDefault = false;
+  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+    toggleGiscusIfUsed(toAlternate, darkModeDefault);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copiado");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copiado");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/ems270900\.github\.io\/hidrologia-aplicada\/");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+          // target, if specified
+          link.setAttribute("target", "_blank");
+          if (link.getAttribute("rel") === null) {
+            link.setAttribute("rel", "noopener");
+          }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./29-metodo_racional.html" class="pagination-link" aria-label="Método racional y tiempo de concentración">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Método racional y tiempo de concentración</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./31-frecuencia_caudales.html" class="pagination-link" aria-label="Análisis de frecuencia de caudales y regionalización">
+        <span class="nav-page-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Análisis de frecuencia de caudales y regionalización</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>© 2026 Ing. Edwin Matarrita Segura. Texto bajo licencia <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.es">CC BY-NC-SA 4.0</a>; código R bajo licencia <a href="https://github.com/ems270900/hidrologia-aplicada/blob/main/LICENSE-CODE">MIT</a>.</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+<p>Este libro fue construido con <a href="https://quarto.org/">Quarto</a> y <a href="https://posit.co/download/rstudio-desktop/">RStudio</a>.</p>
+</div>
+  </div>
+</footer>
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
+
+
+
+
+<script src="site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>

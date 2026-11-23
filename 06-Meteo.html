@@ -1,0 +1,2736 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.40">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>6&nbsp; Principios de meteorología y climatología – Hidrología Aplicada a la Ingeniería Civil</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./07-Precip.html" rel="next">
+<link href="./05-Fuentes_info_hidrometeo.html" rel="prev">
+<link href="./assets/img/favicon.png" rel="icon" type="image/png">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-8ea72dc5fed832574809a9c94082fbbb.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-9308c6a3e2b77de33fd175cc56d97d6e.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-955cb59a11449acdc5f9686ead510861.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script src="site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "Sin resultados",
+    "search-matching-documents-text": "documentos encontrados",
+    "search-copy-link-title": "Copiar el enlace en la búsqueda",
+    "search-hide-matches-text": "Ocultar resultados adicionales",
+    "search-more-match-text": "resultado adicional en este documento",
+    "search-more-matches-text": "resultados adicionales en este documento",
+    "search-clear-button-title": "Borrar",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancelar",
+    "search-submit-button-title": "Enviar",
+    "search-label": "Buscar"
+  }
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
+<link href="site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet">
+<script src="site_libs/pagedtable-1.1/js/pagedtable.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="assets/css/styles.css">
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./05-Fuentes_info_hidrometeo.html">Información hidrometeorológica</a></li><li class="breadcrumb-item"><a href="./06-Meteo.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Principios de meteorología y climatología</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Hidrología Aplicada a la Ingeniería Civil</a> 
+        <div class="sidebar-tools-main">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Alternar modo oscuro"><i class="bi"></i></a>
+  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Alternar modo lector">
+  <div class="quarto-reader-toggle-btn">
+  <i class="bi"></i>
+  </div>
+</a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Buscar"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Hidrología Aplicada a la Ingeniería Civil</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./welcome.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Prefacio</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introducción</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Fundamentos</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01-La_hidrologia_como_ciencia.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">La hidrología como ciencia</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02-Disponibilidad.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">La disponibilidad del recurso hídrico</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03-Ciclo_hidrologico.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">El ciclo hidrológico</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04-Cuenca.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">La cuenca como unidad hidrológica</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Información hidrometeorológica</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05-Fuentes_info_hidrometeo.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Fuentes de información hidrometeorológica</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./06-Meteo.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Principios de meteorología y climatología</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./07-Precip.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Precipitación</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./08-hidrometria.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Hidrometría: aforos y curvas de descarga</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./09-registros_hidro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Verificación y completado de registros hidrológicos</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./10-teledeteccion_productos_satelitales.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Teledetección y productos satelitales</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Análisis estadístico aplicado a la hidrología</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./11-estadistica.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Conceptos básicos de probabilidad</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./12-retorno_y_riesgo.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Conceptos clave de probabilidad en hidrología</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./13-modelos.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Modelos estadísticos y distribuciones de probabilidad</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./14-dist_parametrica.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Distribuciones paramétricas de probabilidad comunes en hidrología</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">Lluvia de diseño</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./15-IDF.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Intensidad, duración y frecuencia de la precipitación</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./16-hietogramas_diseno.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Distribución temporal de la lluvia de diseño</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./17-precipitacion_maxima_probable.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Precipitación máxima probable</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
+ <span class="menu-text">Procesos de pérdida del agua</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./18-Evaporación.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Evaporación</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./19-Evapotranspiración.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Evapotranspiración</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./20-Infiltración y almacenamiento en el suelo.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Infiltración y almacenamiento en el suelo</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./21-Transición hacia la escorrentía superficial.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Intercepción, almacenamiento superficial y transición a la escorrentía</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true">
+ <span class="menu-text">Balance hídrico, agua subterránea y caudales bajos</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./22-Principio de conservación de la masa.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Principio de conservación de la masa</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./23-Balance hídrico a escala de cuenca.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Balance hídrico a escala de cuenca</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./24-Balance hídrico del suelo.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Balance hídrico del suelo</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./25-agua_subterranea.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Agua subterránea y recarga de acuíferos</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./26-caudales_minimos_sequias.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Caudales mínimos, sequías y curvas de duración</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./27-oferta_demanda.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Oferta y demanda hídrica</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true">
+ <span class="menu-text">Escorrentía y crecidas de diseño</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./28-hidrograma_unitario.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Hidrograma de escorrentía directa e hidrograma unitario</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./29-metodo_racional.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Método racional y tiempo de concentración</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./30-modelos_lluvia_escorrentia.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Modelos lluvia-escorrentía</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./31-frecuencia_caudales.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Análisis de frecuencia de caudales y regionalización</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./32-incertidumbre.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Incertidumbre en hidrología</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true">
+ <span class="menu-text">Sedimentos, calidad del agua y morfología fluvial</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./33-erosion_sedimentos.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Erosión y producción de sedimentos</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./34-transporte_sedimentos.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">Transporte de sedimentos y sedimentación de embalses</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./35-morfologia_fluvial.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">Morfología fluvial</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./36-calidad_agua.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">36</span>&nbsp; <span class="chapter-title">Calidad del agua</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="true">
+ <span class="menu-text">Tránsito de avenidas, embalses y crecidas</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="true" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./37-transito_fundamentos.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">37</span>&nbsp; <span class="chapter-title">Fundamentos del tránsito de avenidas</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./38-transito_embalses.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">38</span>&nbsp; <span class="chapter-title">Tránsito de avenidas y operación de embalses</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./39-transito_rios.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">39</span>&nbsp; <span class="chapter-title">Tránsito hidrológico en ríos</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./40-amenaza_inundacion.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">40</span>&nbsp; <span class="chapter-title">Amenaza por inundación</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./41-pronostico_alerta_temprana.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">41</span>&nbsp; <span class="chapter-title">Pronóstico de crecidas y sistemas de alerta temprana</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="true">
+ <span class="menu-text">Hidrología urbana</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="true" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./42-hidrologia_urbana.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">42</span>&nbsp; <span class="chapter-title">Hidrología urbana y escorrentía urbana</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./43-drenaje_urbano.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">43</span>&nbsp; <span class="chapter-title">Sistemas de drenaje urbano</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./44-drenaje_sostenible.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">44</span>&nbsp; <span class="chapter-title">Hidrología urbana sostenible y adaptación climática</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" role="navigation" aria-expanded="true">
+ <span class="menu-text">Cambio climático, uso del suelo e hidrología</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" role="navigation" aria-expanded="true" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-11" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./45-ecohidrologia_uso_suelo.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">45</span>&nbsp; <span class="chapter-title">Ecohidrología y cambio de uso del suelo</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./46-cambio_climatico_fundamentos.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">46</span>&nbsp; <span class="chapter-title">Cambio climático: fundamentos y evidencia</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./47-escenarios_modelos_climaticos.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">47</span>&nbsp; <span class="chapter-title">Escenarios y modelos climáticos</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./48-diseno_cambio_climatico.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">48</span>&nbsp; <span class="chapter-title">Diseño hidrológico con cambio climático</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./49-epilogo.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Palabras finales</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./99-Referencias.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Referencias</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Tabla de contenidos</h2>
+   
+  <ul>
+  <li><a href="#sec-meteo-tiempo-clima" id="toc-sec-meteo-tiempo-clima" class="nav-link active" data-scroll-target="#sec-meteo-tiempo-clima"><span class="header-section-number">6.1</span> Tiempo y clima</a></li>
+  <li><a href="#sec-meteo-atmosfera" id="toc-sec-meteo-atmosfera" class="nav-link" data-scroll-target="#sec-meteo-atmosfera"><span class="header-section-number">6.2</span> La atmósfera</a>
+  <ul class="collapse">
+  <li><a href="#sec-meteo-composicion" id="toc-sec-meteo-composicion" class="nav-link" data-scroll-target="#sec-meteo-composicion"><span class="header-section-number">6.2.1</span> Composición</a></li>
+  <li><a href="#sec-meteo-capas" id="toc-sec-meteo-capas" class="nav-link" data-scroll-target="#sec-meteo-capas"><span class="header-section-number">6.2.2</span> Capas de la atmósfera</a></li>
+  </ul></li>
+  <li><a href="#sec-meteo-elementos" id="toc-sec-meteo-elementos" class="nav-link" data-scroll-target="#sec-meteo-elementos"><span class="header-section-number">6.3</span> Elementos del tiempo</a>
+  <ul class="collapse">
+  <li><a href="#sec-meteo-temperatura" id="toc-sec-meteo-temperatura" class="nav-link" data-scroll-target="#sec-meteo-temperatura"><span class="header-section-number">6.3.1</span> Temperatura</a></li>
+  <li><a href="#sec-meteo-presion" id="toc-sec-meteo-presion" class="nav-link" data-scroll-target="#sec-meteo-presion"><span class="header-section-number">6.3.2</span> Presión atmosférica</a></li>
+  <li><a href="#sec-meteo-humedad" id="toc-sec-meteo-humedad" class="nav-link" data-scroll-target="#sec-meteo-humedad"><span class="header-section-number">6.3.3</span> Humedad</a></li>
+  <li><a href="#sec-meteo-viento" id="toc-sec-meteo-viento" class="nav-link" data-scroll-target="#sec-meteo-viento"><span class="header-section-number">6.3.4</span> Viento</a></li>
+  <li><a href="#sec-meteo-adiabatico" id="toc-sec-meteo-adiabatico" class="nav-link" data-scroll-target="#sec-meteo-adiabatico"><span class="header-section-number">6.3.5</span> Ascenso del aire y enfriamiento adiabático</a></li>
+  <li><a href="#sec-meteo-inversiones" id="toc-sec-meteo-inversiones" class="nav-link" data-scroll-target="#sec-meteo-inversiones"><span class="header-section-number">6.3.6</span> Estabilidad e inversiones térmicas</a></li>
+  </ul></li>
+  <li><a href="#sec-meteo-energia" id="toc-sec-meteo-energia" class="nav-link" data-scroll-target="#sec-meteo-energia"><span class="header-section-number">6.4</span> Energía del sistema Tierra-atmósfera</a>
+  <ul class="collapse">
+  <li><a href="#sec-meteo-calor" id="toc-sec-meteo-calor" class="nav-link" data-scroll-target="#sec-meteo-calor"><span class="header-section-number">6.4.1</span> Transmisión del calor</a></li>
+  <li><a href="#sec-meteo-insolacion" id="toc-sec-meteo-insolacion" class="nav-link" data-scroll-target="#sec-meteo-insolacion"><span class="header-section-number">6.4.2</span> Insolación</a></li>
+  <li><a href="#sec-meteo-balance" id="toc-sec-meteo-balance" class="nav-link" data-scroll-target="#sec-meteo-balance"><span class="header-section-number">6.4.3</span> Balance de energía y efecto invernadero</a></li>
+  <li><a href="#sec-meteo-calentamiento" id="toc-sec-meteo-calentamiento" class="nav-link" data-scroll-target="#sec-meteo-calentamiento"><span class="header-section-number">6.4.4</span> Calentamiento desigual</a></li>
+  </ul></li>
+  <li><a href="#sec-meteo-circulacion" id="toc-sec-meteo-circulacion" class="nav-link" data-scroll-target="#sec-meteo-circulacion"><span class="header-section-number">6.5</span> Circulación de la atmósfera</a>
+  <ul class="collapse">
+  <li><a href="#sec-meteo-hadley" id="toc-sec-meteo-hadley" class="nav-link" data-scroll-target="#sec-meteo-hadley"><span class="header-section-number">6.5.1</span> Circulación general</a></li>
+  <li><a href="#sec-meteo-chorro" id="toc-sec-meteo-chorro" class="nav-link" data-scroll-target="#sec-meteo-chorro"><span class="header-section-number">6.5.2</span> El chorro de bajo nivel del Caribe</a></li>
+  <li><a href="#sec-meteo-escalas" id="toc-sec-meteo-escalas" class="nav-link" data-scroll-target="#sec-meteo-escalas"><span class="header-section-number">6.5.3</span> Escalas de los fenómenos atmosféricos</a></li>
+  </ul></li>
+  <li><a href="#sec-meteo-corrientes" id="toc-sec-meteo-corrientes" class="nav-link" data-scroll-target="#sec-meteo-corrientes"><span class="header-section-number">6.6</span> Corrientes oceánicas</a></li>
+  <li><a href="#sec-meteo-enos" id="toc-sec-meteo-enos" class="nav-link" data-scroll-target="#sec-meteo-enos"><span class="header-section-number">6.7</span> Variabilidad climática: El Niño-Oscilación del Sur</a></li>
+  <li><a href="#sec-meteo-cambio-climatico" id="toc-sec-meteo-cambio-climatico" class="nav-link" data-scroll-target="#sec-meteo-cambio-climatico"><span class="header-section-number">6.8</span> Cambio climático</a>
+  <ul class="collapse">
+  <li><a href="#sec-meteo-cambio-ciclo" id="toc-sec-meteo-cambio-ciclo" class="nav-link" data-scroll-target="#sec-meteo-cambio-ciclo"><span class="header-section-number">6.8.1</span> Efectos en el ciclo del agua</a></li>
+  <li><a href="#sec-meteo-cambio-ingenieria" id="toc-sec-meteo-cambio-ingenieria" class="nav-link" data-scroll-target="#sec-meteo-cambio-ingenieria"><span class="header-section-number">6.8.2</span> Implicaciones para la ingeniería</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./05-Fuentes_info_hidrometeo.html">Información hidrometeorológica</a></li><li class="breadcrumb-item"><a href="./06-Meteo.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Principios de meteorología y climatología</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Principios de meteorología y climatología</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="quote-block">
+<p>“Los remolinos grandes tienen remolinos pequeños que se alimentan de su velocidad, y los pequeños tienen otros menores, y así hasta la viscosidad.”<br>
+— <em>Lewis Fry Richardson, Weather Prediction by Numerical Process (1922)</em></p>
+</div>
+<p>La atmósfera mueve el agua del ciclo hidrológico. Evapora el agua de los océanos, la transporta miles de kilómetros y la devuelve como lluvia cuando el aire sube y se enfría. Para interpretar un registro de lluvia o de temperatura, o para entender por qué el Caribe y el Pacífico de Costa Rica tienen regímenes tan distintos, hace falta conocer cómo funciona la atmósfera. Este capítulo reúne los principios que se usan después en los capítulos de precipitación, evaporación y balance hídrico.</p>
+<section id="sec-meteo-tiempo-clima" class="level2" data-number="6.1">
+<h2 data-number="6.1" class="anchored" data-anchor-id="sec-meteo-tiempo-clima"><span class="header-section-number">6.1</span> Tiempo y clima</h2>
+<p>La meteorología estudia la atmósfera y sus fenómenos. Se ocupa del tiempo, que es el estado de la atmósfera en un lugar y un momento dados: la temperatura, la presión, el viento o la lluvia de esta tarde.</p>
+<p>La climatología estudia el clima, que es el comportamiento del tiempo en periodos largos. Se describe con estadísticas: promedios, variabilidad y extremos. Por convención, la Organización Meteorológica Mundial (OMM) calcula las normales climatológicas con periodos de 30 años, por ejemplo 1991–2020. La diferencia entre ambas disciplinas se resume en el <a href="#tbl-meteovsclima" class="quarto-xref">Cuadro&nbsp;<span>6.1</span></a>.</p>
+<div id="tbl-meteovsclima" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-meteovsclima-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Cuadro&nbsp;6.1: Diferencias entre meteorología y climatología.
+</figcaption>
+<div aria-describedby="tbl-meteovsclima-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Disciplina</th>
+<th style="text-align: left;">Escala de tiempo</th>
+<th style="text-align: left;">Pregunta típica</th>
+<th style="text-align: left;">Uso en hidrología</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Meteorología</td>
+<td style="text-align: left;">Horas a días</td>
+<td style="text-align: left;">¿Cuánto lloverá mañana en la cuenca?</td>
+<td style="text-align: left;">Pronóstico de crecidas y operación de embalses</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Climatología</td>
+<td style="text-align: left;">Décadas</td>
+<td style="text-align: left;">¿Qué lluvia diaria se supera en promedio una vez cada 50 años?</td>
+<td style="text-align: left;">Diseño de obras, balances hídricos, estudios de disponibilidad</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p>Ambas se apoyan en las mismas leyes físicas: la conservación de la masa (del aire y del vapor de agua), la conservación de la energía (radiación, calor sensible y calor latente) y las leyes del movimiento, que gobiernan el viento.</p>
+<p>En hidrología, la meteorología y la climatología sirven para:</p>
+<ul>
+<li>Interpretar los registros de las estaciones y reconocer datos dudosos.</li>
+<li>Elegir el método para rellenar datos faltantes, por ejemplo con una estación vecina de la misma vertiente y no de la opuesta.</li>
+<li>Juzgar si una estación representa la cuenca o solo su entorno inmediato.</li>
+<li>Diseñar obras que toleren la variabilidad del clima y los cambios esperados.</li>
+</ul>
+</section>
+<section id="sec-meteo-atmosfera" class="level2" data-number="6.2">
+<h2 data-number="6.2" class="anchored" data-anchor-id="sec-meteo-atmosfera"><span class="header-section-number">6.2</span> La atmósfera</h2>
+<section id="sec-meteo-composicion" class="level3" data-number="6.2.1">
+<h3 data-number="6.2.1" class="anchored" data-anchor-id="sec-meteo-composicion"><span class="header-section-number">6.2.1</span> Composición</h3>
+<p>La atmósfera tiene una masa de unos <span class="math inline">\(5.1\times10^{18}\)</span> kg <span class="citation" data-cites="trenberth2005mass">(Trenberth y Smith 2005)</span>. El aire seco es una mezcla de nitrógeno (78 %), oxígeno (21 %) y argón (0.9 %), con trazas de otros gases (<a href="#tbl-atmosfera" class="quarto-xref">Cuadro&nbsp;<span>6.2</span></a>). Por la turbulencia, esas proporciones se mantienen casi constantes hasta unos 100 km de altura <span class="citation" data-cites="wallace2006atmospheric">(Wallace y Hobbs 2006)</span>.</p>
+<div id="tbl-atmosfera" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-atmosfera-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Cuadro&nbsp;6.2: Composición de la atmósfera en fracción de volumen y en partes por millón (ppm). Los valores de CO₂, CH₄ y N₂O son los de 2019; el vapor de agua varía con el lugar y el momento. Fuente: <span class="citation" data-cites="wallace2006atmospheric">Wallace y Hobbs (2006)</span> y <span class="citation" data-cites="ipcc2021spm">IPCC (2021)</span>.
+</figcaption>
+<div aria-describedby="tbl-atmosfera-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 19%">
+<col style="width: 10%">
+<col style="width: 12%">
+<col style="width: 11%">
+<col style="width: 46%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Gas</th>
+<th style="text-align: center;">Fórmula</th>
+<th style="text-align: right;">Volumen (%)</th>
+<th style="text-align: right;">ppm</th>
+<th style="text-align: left;">Papel en el clima y el ciclo del agua</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Nitrógeno</td>
+<td style="text-align: center;">N₂</td>
+<td style="text-align: right;">78.08</td>
+<td style="text-align: right;">780 800</td>
+<td style="text-align: left;">Casi inerte; no absorbe radiación solar ni terrestre</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Oxígeno</td>
+<td style="text-align: center;">O₂</td>
+<td style="text-align: right;">20.95</td>
+<td style="text-align: right;">209 500</td>
+<td style="text-align: left;">Absorbe radiación ultravioleta en la alta atmósfera y da origen al ozono</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Argón</td>
+<td style="text-align: center;">Ar</td>
+<td style="text-align: right;">0.934</td>
+<td style="text-align: right;">9340</td>
+<td style="text-align: left;">Gas noble, inerte</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Dióxido de carbono</td>
+<td style="text-align: center;">CO₂</td>
+<td style="text-align: right;">0.041</td>
+<td style="text-align: right;">410</td>
+<td style="text-align: left;">Gas de efecto invernadero; aumenta por la quema de combustibles fósiles</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Neón</td>
+<td style="text-align: center;">Ne</td>
+<td style="text-align: right;">0.0018</td>
+<td style="text-align: right;">18</td>
+<td style="text-align: left;">Gas noble, inerte</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Helio</td>
+<td style="text-align: center;">He</td>
+<td style="text-align: right;">0.0005</td>
+<td style="text-align: right;">5.2</td>
+<td style="text-align: left;">Gas noble, inerte</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Metano</td>
+<td style="text-align: center;">CH₄</td>
+<td style="text-align: right;">0.0002</td>
+<td style="text-align: right;">1.9</td>
+<td style="text-align: left;">Gas de efecto invernadero</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Kriptón</td>
+<td style="text-align: center;">Kr</td>
+<td style="text-align: right;">0.0001</td>
+<td style="text-align: right;">1.1</td>
+<td style="text-align: left;">Gas noble, inerte</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Hidrógeno</td>
+<td style="text-align: center;">H₂</td>
+<td style="text-align: right;">0.00005</td>
+<td style="text-align: right;">0.5</td>
+<td style="text-align: left;">Sin efecto apreciable</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Óxido nitroso</td>
+<td style="text-align: center;">N₂O</td>
+<td style="text-align: right;">0.00003</td>
+<td style="text-align: right;">0.33</td>
+<td style="text-align: left;">Gas de efecto invernadero</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Xenón</td>
+<td style="text-align: center;">Xe</td>
+<td style="text-align: right;">0.000009</td>
+<td style="text-align: right;">0.09</td>
+<td style="text-align: left;">Gas noble, inerte</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Vapor de agua</td>
+<td style="text-align: center;">H₂O</td>
+<td style="text-align: right;">0 a 4</td>
+<td style="text-align: right;">0 a 40 000</td>
+<td style="text-align: left;">Principal gas de efecto invernadero; forma las nubes y la lluvia</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Ozono</td>
+<td style="text-align: center;">O₃</td>
+<td style="text-align: right;">Variable</td>
+<td style="text-align: right;">Hasta 10</td>
+<td style="text-align: left;">Absorbe la radiación ultravioleta; se concentra en la estratosfera</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p>Los gases que siguen a los tres principales suman menos del 0.05 % del aire, pero entre ellos están el dióxido de carbono, el metano y el óxido nitroso, que controlan buena parte del efecto invernadero (<a href="#sec-meteo-balance" class="quarto-xref"><span>Sección 6.4.3</span></a>). Como las fracciones van de 78 % a menos de una cienmilésima, la <a href="#fig-atmosfera" class="quarto-xref">Figura&nbsp;<span>6.1</span></a> las muestra en escala logarítmica.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div id="fig-atmosfera" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" alt="Gráfico de puntos horizontal con once gases ordenados de mayor a menor fracción, desde el nitrógeno con 78 % hasta el xenón con 0.0000087 %, en escala logarítmica">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-atmosfera-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="06-Meteo_files/figure-html/fig-atmosfera-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Figura&nbsp;6.1: Fracción en volumen de los gases del aire seco, en escala logarítmica. Los puntos anaranjados son gases de efecto invernadero. Fuente: elaboración propia con datos de @wallace2006atmospheric y @ipcc2021spm."><img src="06-Meteo_files/figure-html/fig-atmosfera-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:85.0%" alt="Gráfico de puntos horizontal con once gases ordenados de mayor a menor fracción, desde el nitrógeno con 78 % hasta el xenón con 0.0000087 %, en escala logarítmica"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-atmosfera-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;6.1: Fracción en volumen de los gases del aire seco, en escala logarítmica. Los puntos anaranjados son gases de efecto invernadero. Fuente: elaboración propia con datos de <span class="citation" data-cites="wallace2006atmospheric">Wallace y Hobbs (2006)</span> y <span class="citation" data-cites="ipcc2021spm">IPCC (2021)</span>.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>El vapor de agua es el componente que más le importa a la hidrología, y también el más variable: va de casi cero en los desiertos fríos a cerca de 4 % del volumen en el aire tropical. La mayor parte está en los primeros kilómetros sobre la superficie, porque su fuente es la evaporación de océanos, suelos y plantas, y porque el aire frío de los niveles altos lo condensa (<a href="#fig-vapor" class="quarto-xref">Figura&nbsp;<span>6.2</span></a>). El aire contiene además aerosoles, partículas sólidas y líquidas en suspensión (polvo, sal marina, humo) que sirven de núcleos de condensación para formar las gotas de las nubes.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div id="fig-vapor" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" alt="Animación de imágenes satelitales del canal de vapor de agua, con masas húmedas en blanco que se desplazan sobre fondo oscuro">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-vapor-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="assets/img/vapor.gif" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Figura&nbsp;6.2: Vapor de agua en la atmósfera visto desde satélite. Fuente: @NOAA_OSPO."><img src="assets/img/vapor.gif" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:60.0%" alt="Animación de imágenes satelitales del canal de vapor de agua, con masas húmedas en blanco que se desplazan sobre fondo oscuro"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-vapor-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;6.2: Vapor de agua en la atmósfera visto desde satélite. Fuente: <span class="citation" data-cites="NOAA_OSPO">National Oceanic and Atmospheric Administration (2025)</span>.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="sec-meteo-capas" class="level3" data-number="6.2.2">
+<h3 data-number="6.2.2" class="anchored" data-anchor-id="sec-meteo-capas"><span class="header-section-number">6.2.2</span> Capas de la atmósfera</h3>
+<p>La atmósfera se divide en capas según cómo cambia la temperatura con la altura (<a href="#fig-meteo-perfil" class="quarto-xref">Figura&nbsp;<span>6.3</span></a>). La presión, en cambio, baja siempre: a 5.5 km ya es la mitad de la del nivel del mar, y a 50 km es menor que 1 hPa, lo que significa que el 99.9 % de la masa del aire está por debajo de esa altura.</p>
+<ul>
+<li><strong>Troposfera.</strong> Va de la superficie hasta la tropopausa, a unos 16 o 17 km en el trópico y a unos 8 km sobre los polos. Contiene entre el 75 % y el 80 % de la masa del aire y casi todo el vapor de agua, así que en ella se forman las nubes y la lluvia. La temperatura baja con la altura, en promedio 6.5 °C por kilómetro.</li>
+<li><strong>Estratosfera.</strong> Va de la tropopausa hasta unos 50 km. La temperatura se mantiene constante y después sube, porque el ozono absorbe la radiación ultravioleta del Sol. Esa inversión frena los movimientos verticales: por eso las nubes de tormenta se aplanan en la tropopausa y forman el yunque.</li>
+<li><strong>Mesosfera.</strong> Entre 50 y 85 km. La temperatura vuelve a bajar hasta unos −90 °C en la mesopausa, el punto más frío de la atmósfera.</li>
+<li><strong>Termosfera.</strong> Por encima de 85 km. El aire es tan escaso que unas pocas moléculas absorben la radiación solar de mayor energía y alcanzan temperaturas de 500 a 2000 °C, según la actividad del Sol. Más allá de unos 500 km está la exosfera, donde los gases ligeros escapan al espacio.</li>
+</ul>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div id="fig-meteo-perfil" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" alt="Perfil vertical de temperatura que baja en la troposfera, sube en la estratosfera, baja en la mesosfera y sube en la termosfera, con las capas sombreadas y la presión anotada a la derecha">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-meteo-perfil-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="06-Meteo_files/figure-html/fig-meteo-perfil-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="Figura&nbsp;6.3: Temperatura y presión de la atmósfera estándar hasta 100 km. Por encima de 85 km el perfil es solo indicativo. Fuente: elaboración propia con datos de @noaa1976standard."><img src="06-Meteo_files/figure-html/fig-meteo-perfil-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:75.0%" alt="Perfil vertical de temperatura que baja en la troposfera, sube en la estratosfera, baja en la mesosfera y sube en la termosfera, con las capas sombreadas y la presión anotada a la derecha"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-meteo-perfil-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;6.3: Temperatura y presión de la atmósfera estándar hasta 100 km. Por encima de 85 km el perfil es solo indicativo. Fuente: elaboración propia con datos de <span class="citation" data-cites="noaa1976standard">NOAA, NASA, y USAF (1976)</span>.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>La atmósfera estándar de la <a href="#fig-meteo-perfil" class="quarto-xref">Figura&nbsp;<span>6.3</span></a> representa condiciones medias de latitudes medias, con la tropopausa a 11 km. Sobre Costa Rica la tropopausa está más alta, cerca de 16 km, y por eso las tormentas tropicales pueden crecer mucho más en vertical que las de latitudes medias.</p>
+</section>
+</section>
+<section id="sec-meteo-elementos" class="level2" data-number="6.3">
+<h2 data-number="6.3" class="anchored" data-anchor-id="sec-meteo-elementos"><span class="header-section-number">6.3</span> Elementos del tiempo</h2>
+<p>El estado de la atmósfera se describe con unas pocas variables, llamadas elementos del tiempo: temperatura, presión, humedad, viento, nubosidad y precipitación. Cómo se miden se explicó en el capítulo de fuentes de información (<a href="05-Fuentes_info_hidrometeo.html#sec-fuentes-meteorologicas" class="quarto-xref"><span>Sección 5.1</span></a>). Aquí interesa cómo se relacionan entre sí.</p>
+<section id="sec-meteo-temperatura" class="level3" data-number="6.3.1">
+<h3 data-number="6.3.1" class="anchored" data-anchor-id="sec-meteo-temperatura"><span class="header-section-number">6.3.1</span> Temperatura</h3>
+<p>La temperatura del aire mide la energía cinética media de sus moléculas. En la troposfera baja con la altura, en promedio 6.5 °C/km. Ese valor es el de la atmósfera estándar; el gradiente real cambia con la hora, la humedad y el tipo de masa de aire. A veces la temperatura sube con la altura en una capa, y se habla de inversión térmica (<a href="#sec-meteo-inversiones" class="quarto-xref"><span>Sección 6.3.6</span></a>).</p>
+<p>En el trópico la variación diaria de la temperatura suele ser mayor que la variación entre meses. La máxima del día ocurre a primera hora de la tarde y la mínima poco antes de la salida del sol, porque durante la noche el suelo pierde calor por radiación infrarroja sin recibir energía solar. En latitudes medias, en cambio, domina la variación estacional: los meses más cálidos llegan uno o dos meses después del solsticio de verano, por la inercia térmica del suelo y del océano. Las regiones continentales tienen amplitudes anuales mayores que las costeras, porque el agua se calienta y se enfría más despacio que la tierra.</p>
+</section>
+<section id="sec-meteo-presion" class="level3" data-number="6.3.2">
+<h3 data-number="6.3.2" class="anchored" data-anchor-id="sec-meteo-presion"><span class="header-section-number">6.3.2</span> Presión atmosférica</h3>
+<p>La presión atmosférica es el peso de la columna de aire sobre una unidad de área. Al nivel del mar, en la atmósfera estándar, vale 1013.25 hPa, es decir, 101.325 kPa. Equivale a una columna de agua de 10.33 m, o a 1.033 kgf/cm².</p>
+<p>El aire se comporta como un gas ideal. Para una masa de aire de volumen <span class="math inline">\(V\)</span> que contiene <span class="math inline">\(n\)</span> moles:</p>
+<p><span id="eq-meteo-gases"><span class="math display">\[
+P\,V = n\,R^*\,T
+\tag{6.1}\]</span></span></p>
+<p>donde <span class="math inline">\(P\)</span> es la presión (Pa), <span class="math inline">\(V\)</span> es el volumen (m³), <span class="math inline">\(n\)</span> es el número de moles, <span class="math inline">\(R^* = 8.314\ \mathrm{J/(mol\,K)}\)</span> es la constante universal de los gases y <span class="math inline">\(T\)</span> es la temperatura absoluta (K). En meteorología es más cómodo escribirla con la densidad:</p>
+<p><span id="eq-meteo-gas-densidad"><span class="math display">\[
+P = \rho\,R_d\,T
+\tag{6.2}\]</span></span></p>
+<p>donde <span class="math inline">\(\rho\)</span> es la densidad del aire (kg/m³) y <span class="math inline">\(R_d = 287\ \mathrm{J/(kg\,K)}\)</span> es la constante del aire seco <span class="citation" data-cites="wallace2006atmospheric">(Wallace y Hobbs 2006)</span>. Con <span class="math inline">\(P = 101\,325\)</span> Pa y <span class="math inline">\(T = 288\)</span> K da <span class="math inline">\(\rho = 1.23\)</span> kg/m³.</p>
+<p>La presión baja con la altura porque cada capa de aire sostiene el peso de las que tiene encima. En una atmósfera en reposo se cumple la ecuación hidrostática:</p>
+<p><span id="eq-meteo-hidrostatica"><span class="math display">\[
+\frac{dP}{dz} = -\rho\,g
+\tag{6.3}\]</span></span></p>
+<p>donde <span class="math inline">\(z\)</span> es la altitud (m) y <span class="math inline">\(g = 9.81\ \mathrm{m/s^2}\)</span> es la aceleración de la gravedad. Si se integra con la <a href="#eq-meteo-gas-densidad" class="quarto-xref">Ecuación&nbsp;<span>6.2</span></a> y se supone que la temperatura baja 6.5 °C/km desde 15 °C al nivel del mar, se obtiene la presión de la atmósfera estándar <span class="citation" data-cites="noaa1976standard">(NOAA, NASA, y USAF 1976)</span>:</p>
+<p><span id="eq-meteo-presion-altitud"><span class="math display">\[
+P = 1013.25 \left( \frac{288.15 - 0.0065\,z}{288.15} \right)^{5.256}
+\tag{6.4}\]</span></span></p>
+<p>donde <span class="math inline">\(P\)</span> está en hPa y <span class="math inline">\(z\)</span> en metros. Vale en la troposfera, hasta 11 km. El <a href="#tbl-meteo-atm-estandar" class="quarto-xref">Cuadro&nbsp;<span>6.3</span></a> da algunos valores.</p>
+<div class="cell" data-layout-align="center">
+<div id="tbl-meteo-atm-estandar" class="cell quarto-float quarto-figure quarto-figure-center anchored" data-layout-align="center">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-meteo-atm-estandar-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Cuadro&nbsp;6.3: Presión y temperatura de la atmósfera estándar. Fuente: elaboración propia con la ecuación de la atmósfera estándar <span class="citation" data-cites="noaa1976standard">(NOAA, NASA, y USAF 1976)</span>.
+</figcaption>
+<div aria-describedby="tbl-meteo-atm-estandar-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<table class="do-not-create-environment cell caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: center;">Altitud (m)</th>
+<th style="text-align: center;">Presión (hPa)</th>
+<th style="text-align: center;">Temperatura (°C)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1013.2</td>
+<td style="text-align: center;">15.0</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">500</td>
+<td style="text-align: center;">954.6</td>
+<td style="text-align: center;">11.8</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">1000</td>
+<td style="text-align: center;">898.7</td>
+<td style="text-align: center;">8.5</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">1500</td>
+<td style="text-align: center;">845.6</td>
+<td style="text-align: center;">5.2</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">2000</td>
+<td style="text-align: center;">794.9</td>
+<td style="text-align: center;">2.0</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">3000</td>
+<td style="text-align: center;">701.1</td>
+<td style="text-align: center;">-4.5</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">4000</td>
+<td style="text-align: center;">616.4</td>
+<td style="text-align: center;">-11.0</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</figure>
+</div>
+</div>
+<p>La presión al nivel del mar cambia poco de un día a otro, unos pocos hectopascales, salvo al paso de un sistema de baja presión o de un huracán. En el trópico tiene además una oscilación de dos ciclos por día, la marea barométrica, con máximos cerca de las 10:00 y las 22:00 y mínimos cerca de las 04:00 y las 16:00, hora local.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Ejemplo: presión atmosférica a distintas altitudes">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Ejemplo: presión atmosférica a distintas altitudes
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Con la <a href="#eq-meteo-presion-altitud" class="quarto-xref">Ecuación&nbsp;<span>6.4</span></a>, estime la presión atmosférica a 0 m, 1150 m (más o menos la elevación de San José) y 3400 m (cerca de la cima del cerro de la Muerte). Después calcule la constante psicrométrica <span class="math inline">\(\gamma = 0.665\times10^{-3}\,P\)</span>, con <span class="math inline">\(P\)</span> en kPa y <span class="math inline">\(\gamma\)</span> en kPa/°C, que entra en el cálculo de la evapotranspiración de referencia <span class="citation" data-cites="allen1998fao56">(Allen et&nbsp;al. 1998)</span>.</p>
+<p><strong>Solución:</strong></p>
+<p>Para <span class="math inline">\(z = 1150\)</span> m:</p>
+<ol type="1">
+<li>Base: <span class="math inline">\((288.15 - 0.0065 \times 1150)/288.15 = 280.675/288.15 = 0.97406\)</span>.</li>
+<li>Potencia: <span class="math inline">\(0.97406^{5.256} = 0.87097\)</span>.</li>
+<li>Presión: <span class="math inline">\(P = 1013.25 \times 0.87097 = 882.5\)</span> hPa <span class="math inline">\(= 88.25\)</span> kPa.</li>
+<li>Constante psicrométrica: <span class="math inline">\(\gamma = 0.665\times10^{-3} \times 88.25 = 0.0587\)</span> kPa/°C.</li>
+</ol>
+<p>Para <span class="math inline">\(z = 3400\)</span> m, la base es <span class="math inline">\(266.05/288.15 = 0.92330\)</span>, la potencia da <span class="math inline">\(0.65745\)</span> y <span class="math inline">\(P = 666.2\)</span> hPa, con <span class="math inline">\(\gamma = 0.0443\)</span> kPa/°C. Al nivel del mar, <span class="math inline">\(P = 1013.25\)</span> hPa y <span class="math inline">\(\gamma = 0.0674\)</span> kPa/°C.</p>
+<p><strong>Pseudocódigo</strong></p>
+<ol type="1">
+<li>Definir las altitudes.</li>
+<li>Calcular la presión con la ecuación de la atmósfera estándar.</li>
+<li>Pasar la presión a kPa y calcular <span class="math inline">\(\gamma\)</span>.</li>
+<li>Calcular cuánto baja la presión respecto al nivel del mar.</li>
+</ol>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 1) Altitudes (m)</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>sitios <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">sitio =</span> <span class="fu">c</span>(<span class="st">"Nivel del mar"</span>, <span class="st">"San José (aprox.)"</span>, <span class="st">"Cerro de la Muerte (aprox.)"</span>),</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">z =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1150</span>, <span class="dv">3400</span>)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>sitios <span class="ot">&lt;-</span> sitios <span class="sc">%&gt;%</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    <span class="co"># 2) Presión de la atmósfera estándar (hPa)</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">p_hpa =</span> <span class="fl">1013.25</span> <span class="sc">*</span> ((<span class="fl">288.15</span> <span class="sc">-</span> <span class="fl">0.0065</span> <span class="sc">*</span> z) <span class="sc">/</span> <span class="fl">288.15</span>)<span class="sc">^</span><span class="fl">5.256</span>,</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    <span class="co"># 3) Constante psicrométrica (kPa/°C), con P en kPa</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">gamma =</span> <span class="fl">0.665e-3</span> <span class="sc">*</span> p_hpa <span class="sc">/</span> <span class="dv">10</span>,</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>    <span class="co"># 4) Reducción respecto al nivel del mar (%)</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">reduccion =</span> <span class="dv">100</span> <span class="sc">*</span> (<span class="dv">1</span> <span class="sc">-</span> p_hpa <span class="sc">/</span> <span class="fl">1013.25</span>)</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>sitios</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":["sitio"],"name":[1],"type":["chr"],"align":["left"]},{"label":["z"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["p_hpa"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["gamma"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["reduccion"],"name":[5],"type":["dbl"],"align":["right"]}],"data":[{"1":"Nivel del mar","2":"0","3":"1013.2500","4":"0.06738113","5":"0.00000"},{"1":"San José (aprox.)","2":"1150","3":"882.5106","4":"0.05868696","5":"12.90297"},{"1":"Cerro de la Muerte (aprox.)","2":"3400","3":"666.1439","4":"0.04429857","5":"34.25671"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+</div>
+<p>La presión a 3400 m es un 34 % menor que al nivel del mar. Con ella baja la constante psicrométrica, y eso cambia la evapotranspiración que se calcula con la ecuación de Penman-Monteith. Por eso en una cuenca de montaña se usa la presión de la elevación de la estación, no la del nivel del mar.</p>
+</div>
+</div>
+</section>
+<section id="sec-meteo-humedad" class="level3" data-number="6.3.3">
+<h3 data-number="6.3.3" class="anchored" data-anchor-id="sec-meteo-humedad"><span class="header-section-number">6.3.3</span> Humedad</h3>
+<p>El vapor de agua del aire se puede expresar de varias formas, que se relacionan entre sí con la temperatura:</p>
+<ul>
+<li><strong>Presión de vapor</strong> (<span class="math inline">\(e\)</span>): la parte de la presión del aire que se debe al vapor de agua (kPa).</li>
+<li><strong>Presión de vapor de saturación</strong> (<span class="math inline">\(e_s\)</span>): la presión de vapor máxima que admite el aire a una temperatura dada. Crece casi exponencialmente con la temperatura (<a href="05-Fuentes_info_hidrometeo.html#eq-fuentes-es" class="quarto-xref">Ecuación&nbsp;<span>5.3</span></a>).</li>
+<li><strong>Humedad relativa</strong> (<span class="math inline">\(HR\)</span>): el cociente <span class="math inline">\(100\,e/e_s\)</span>, en porcentaje (<a href="05-Fuentes_info_hidrometeo.html#eq-fuentes-hr" class="quarto-xref">Ecuación&nbsp;<span>5.2</span></a>).</li>
+<li><strong>Humedad absoluta</strong> (<span class="math inline">\(\rho_v\)</span>): masa de vapor por unidad de volumen de aire (g/m³).</li>
+<li><strong>Punto de rocío</strong> (<span class="math inline">\(T_d\)</span>): temperatura a la que hay que enfriar el aire, sin cambiar su presión ni su contenido de vapor, para que se sature.</li>
+</ul>
+<p>Como <span class="math inline">\(e_s\)</span> depende tanto de la temperatura, la humedad relativa sube en la noche y baja en la tarde aunque el aire tenga la misma cantidad de vapor. Para comparar masas de aire conviene usar el punto de rocío o la presión de vapor, que no cambian con el ciclo diario de temperatura.</p>
+<p>La pendiente de la curva de saturación la da la ecuación de Clausius-Clapeyron:</p>
+<p><span id="eq-meteo-clausius"><span class="math display">\[
+\frac{1}{e_s}\,\frac{de_s}{dT} = \frac{L_v}{R_v\,T^2}
+\tag{6.5}\]</span></span></p>
+<p>donde <span class="math inline">\(L_v = 2.5\times10^{6}\ \mathrm{J/kg}\)</span> es el calor latente de vaporización, <span class="math inline">\(R_v = 461.5\ \mathrm{J/(kg\,K)}\)</span> es la constante del vapor de agua y <span class="math inline">\(T\)</span> es la temperatura (K). A 288 K el lado derecho vale 0.065 K⁻¹: por cada grado de calentamiento, el aire saturado puede contener entre 6 % y 7 % más vapor. Esa cifra explica buena parte de lo que se espera de la lluvia intensa con el cambio climático (<a href="#sec-meteo-cambio-climatico" class="quarto-xref"><span>Sección 6.8</span></a>).</p>
+</section>
+<section id="sec-meteo-viento" class="level3" data-number="6.3.4">
+<h3 data-number="6.3.4" class="anchored" data-anchor-id="sec-meteo-viento"><span class="header-section-number">6.3.4</span> Viento</h3>
+<p>El viento es el movimiento horizontal del aire. Los movimientos verticales se llaman corrientes ascendentes o descendentes. En hidrología el viento importa por dos razones: transporta el vapor desde los océanos hacia los continentes, y renueva el aire sobre una superficie que evapora, por lo que aparece en las fórmulas de evaporación.</p>
+<p>Tres fuerzas controlan el viento:</p>
+<ul>
+<li><strong>Fuerza del gradiente de presión.</strong> Empuja el aire de las zonas de alta presión hacia las de baja presión. Es la que inicia el movimiento, y es mayor cuanto más juntas están las isobaras en un mapa.</li>
+<li><strong>Fuerza de Coriolis.</strong> Es una fuerza aparente que aparece porque la Tierra gira. Desvía el aire hacia la derecha en el hemisferio norte y hacia la izquierda en el sur, sin cambiar su rapidez. Su valor por unidad de masa se da en la <a href="#eq-meteo-coriolis" class="quarto-xref">Ecuación&nbsp;<span>6.6</span></a>.</li>
+<li><strong>Fricción.</strong> El roce con el terreno frena el viento y lo desvía hacia la baja presión. Su efecto se siente en la capa límite, que va de unos cientos de metros a 1 o 2 km de espesor según la hora y la rugosidad del terreno (bosques, edificios, relieve). Por eso el viento medido a 10 m de altura en una ciudad es más débil que el medido en un aeropuerto abierto.</li>
+</ul>
+<p><span id="eq-meteo-coriolis"><span class="math display">\[
+F_c = 2\,\Omega\,v\,\sin\varphi
+\tag{6.6}\]</span></span></p>
+<p>donde <span class="math inline">\(F_c\)</span> es la aceleración de Coriolis (m/s²), <span class="math inline">\(\Omega = 7.292\times10^{-5}\ \mathrm{rad/s}\)</span> es la velocidad angular de la Tierra, <span class="math inline">\(v\)</span> es la velocidad del viento (m/s) y <span class="math inline">\(\varphi\)</span> es la latitud. A 10° N, la latitud de Costa Rica, <span class="math inline">\(\sin\varphi = 0.17\)</span>, y la fuerza es apenas la cuarta parte de la que hay a 45°. Por eso cerca del ecuador el viento no se ajusta a las isobaras como en latitudes medias, y los huracanes casi nunca se forman a menos de 5° del ecuador, donde el giro no alcanza a organizarse <span class="citation" data-cites="wallace2006atmospheric">(Wallace y Hobbs 2006)</span>.</p>
+</section>
+<section id="sec-meteo-adiabatico" class="level3" data-number="6.3.5">
+<h3 data-number="6.3.5" class="anchored" data-anchor-id="sec-meteo-adiabatico"><span class="header-section-number">6.3.5</span> Ascenso del aire y enfriamiento adiabático</h3>
+<p>Cuando el aire sube, encuentra menos presión, se expande y se enfría, aunque no ceda calor a su entorno. Ese enfriamiento se llama adiabático, y es el mecanismo que forma casi todas las nubes y casi toda la lluvia.</p>
+<p>Mientras el aire no está saturado, se enfría a razón del gradiente adiabático seco:</p>
+<p><span id="eq-meteo-adiabatico-seco"><span class="math display">\[
+\Gamma_d = \frac{g}{c_p} \approx 9.8\ \mathrm{^\circ C/km}
+\tag{6.7}\]</span></span></p>
+<p>donde <span class="math inline">\(c_p = 1004\ \mathrm{J/(kg\,K)}\)</span> es el calor específico del aire a presión constante. Al llegar a su punto de rocío, el vapor empieza a condensarse y libera calor latente. Desde ahí el aire se enfría más despacio, con el gradiente adiabático húmedo <span class="math inline">\(\Gamma_s\)</span>, que va de unos 4 °C/km en aire cálido a unos 7 °C/km en aire frío <span class="citation" data-cites="wallace2006atmospheric">(Wallace y Hobbs 2006)</span>. La altura donde empieza la condensación es la base de las nubes, o nivel de condensación por ascenso. Se estima con:</p>
+<p><span id="eq-meteo-nca"><span class="math display">\[
+z_{\text{NCA}} \approx 125\,(T - T_d)
+\tag{6.8}\]</span></span></p>
+<p>donde <span class="math inline">\(z_{\text{NCA}}\)</span> es la altura sobre el punto de partida (m), <span class="math inline">\(T\)</span> es la temperatura del aire (°C) y <span class="math inline">\(T_d\)</span> es su punto de rocío (°C) <span class="citation" data-cites="lawrence2005relationship">(Lawrence 2005)</span>.</p>
+<p>El aire sube por cuatro causas:</p>
+<ul>
+<li><strong>Convección.</strong> El suelo calentado por el sol calienta el aire en contacto con él, que se vuelve menos denso y sube. Es el origen de los aguaceros de la tarde en el Valle Central.</li>
+<li><strong>Ascenso orográfico.</strong> El viento choca con una montaña y la remonta (<a href="#fig-foehn" class="quarto-xref">Figura&nbsp;<span>6.6</span></a>).</li>
+<li><strong>Frentes.</strong> Una masa de aire frío, más densa, se mete por debajo de una cálida y la levanta (<a href="#fig-frente_frio" class="quarto-xref">Figura&nbsp;<span>6.4</span></a>). En Costa Rica los frentes llegan debilitados, como empujes fríos que entre noviembre y marzo traen lluvias al Caribe y viento fuerte al Pacífico Norte.</li>
+<li><strong>Convergencia.</strong> Cuando el aire confluye en superficie, no tiene más salida que subir; cuando diverge, el aire de arriba baja a reemplazarlo (<a href="#fig-conver_diver" class="quarto-xref">Figura&nbsp;<span>6.5</span></a>). La Zona de Convergencia Intertropical (<a href="#sec-meteo-hadley" class="quarto-xref"><span>Sección 6.5.1</span></a>) es el caso más importante para Costa Rica.</li>
+</ul>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div id="fig-frente_frio" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" alt="Bloque esquemático con una cuña de aire frío que levanta aire cálido y forma un cumulonimbo con lluvia sobre el frente">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-frente_frio-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="assets/img/frente_frio.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-4" title="Figura&nbsp;6.4: Frente frío: el aire frío avanza por debajo del aire cálido y lo obliga a subir."><img src="assets/img/frente_frio.webp" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:75.0%" alt="Bloque esquemático con una cuña de aire frío que levanta aire cálido y forma un cumulonimbo con lluvia sobre el frente"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-frente_frio-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;6.4: Frente frío: el aire frío avanza por debajo del aire cálido y lo obliga a subir.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div id="fig-conver_diver" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" alt="Esquema con aire que converge y sube sobre una baja presión y aire que baja y diverge sobre una alta presión">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-conver_diver-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="assets/img/conver_diver.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-5" title="Figura&nbsp;6.5: Convergencia y divergencia del aire en superficie, con las isobaras de un centro de alta (A) y uno de baja (B) presión."><img src="assets/img/conver_diver.jpg" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:55.0%" alt="Esquema con aire que converge y sube sobre una baja presión y aire que baja y diverge sobre una alta presión"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-conver_diver-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;6.5: Convergencia y divergencia del aire en superficie, con las isobaras de un centro de alta (A) y uno de baja (B) presión.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>Cuando el aire remonta una cordillera, deja buena parte de su humedad como lluvia en la ladera de barlovento. Del otro lado baja sin nubes, se calienta con el gradiente seco y llega al pie de la montaña más caliente y más seco que en el punto de partida. Ese viento cálido y seco de sotavento es el efecto Foehn (<a href="#fig-foehn" class="quarto-xref">Figura&nbsp;<span>6.6</span></a>).</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div id="fig-foehn" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" alt="Montaña con nubes y lluvia en la ladera izquierda y aire cálido y seco que baja por la derecha, con escalas de temperatura a ambos lados">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-foehn-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="assets/img/foehn2.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-6" title="Figura&nbsp;6.6: Efecto Foehn: el aire se enfría con el gradiente húmedo al subir por barlovento y se calienta con el gradiente seco al bajar por sotavento. Fuente: Instituto Geográfico Nacional de España."><img src="assets/img/foehn2.webp" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:80.0%" alt="Montaña con nubes y lluvia en la ladera izquierda y aire cálido y seco que baja por la derecha, con escalas de temperatura a ambos lados"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-foehn-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;6.6: Efecto Foehn: el aire se enfría con el gradiente húmedo al subir por barlovento y se calienta con el gradiente seco al bajar por sotavento. Fuente: Instituto Geográfico Nacional de España.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled" title="Ejemplo: aire que cruza la cordillera de Talamanca">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Ejemplo: aire que cruza la cordillera de Talamanca
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>El viento alisio lleva aire del Caribe a 26 °C, con punto de rocío de 19 °C, hacia la cordillera de Talamanca. El aire remonta la cordillera hasta 3000 m y baja por la vertiente del Pacífico hasta un valle a 700 m. Suponga un gradiente seco de 9.8 °C/km, un gradiente húmedo constante de 6.0 °C/km y que toda el agua que se condensa cae como lluvia en barlovento. Estime la temperatura del aire en la cima y en el valle, y compárela con la que tendría el aire a 700 m en la ladera del Caribe. Los datos son de ejemplo.</p>
+<p><strong>Solución:</strong></p>
+<ol type="1">
+<li>Base de las nubes (<a href="#eq-meteo-nca" class="quarto-xref">Ecuación&nbsp;<span>6.8</span></a>): <span class="math inline">\(z_{\text{NCA}} = 125 \times (26 - 19) = 875\)</span> m.</li>
+<li>De 0 a 875 m el aire sube seco: <span class="math inline">\(T = 26 - 9.8 \times 0.875 = 17.4\)</span> °C.</li>
+<li>De 875 a 3000 m sube saturado: <span class="math inline">\(T = 17.4 - 6.0 \times 2.125 = 4.7\)</span> °C en la cima.</li>
+<li>Baja seco de 3000 a 700 m: <span class="math inline">\(T = 4.7 + 9.8 \times 2.30 = 27.2\)</span> °C en el valle.</li>
+<li>En la ladera del Caribe, a 700 m, el aire todavía no se ha saturado: <span class="math inline">\(T = 26 - 9.8 \times 0.70 = 19.1\)</span> °C.</li>
+</ol>
+<p>El aire llega al valle de sotavento 8.1 °C más caliente que a la misma altura en barlovento.</p>
+<p><strong>Pseudocódigo</strong></p>
+<ol type="1">
+<li>Definir la temperatura, el punto de rocío, los gradientes y las altitudes.</li>
+<li>Calcular la base de las nubes.</li>
+<li>Calcular la temperatura en la base, en la cima y en el valle de sotavento.</li>
+<li>Calcular la temperatura a la misma altura en barlovento y comparar.</li>
+</ol>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 1) Datos (°C, m y °C/km)</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>t0 <span class="ot">&lt;-</span> <span class="dv">26</span>; td <span class="ot">&lt;-</span> <span class="dv">19</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>gamma_seco <span class="ot">&lt;-</span> <span class="fl">9.8</span>; gamma_humedo <span class="ot">&lt;-</span> <span class="fl">6.0</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>z_cima <span class="ot">&lt;-</span> <span class="dv">3000</span>; z_valle <span class="ot">&lt;-</span> <span class="dv">700</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co"># 2) Nivel de condensación por ascenso (m)</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>z_nca <span class="ot">&lt;-</span> <span class="dv">125</span> <span class="sc">*</span> (t0 <span class="sc">-</span> td)</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="co"># 3) Temperaturas a lo largo del recorrido</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>t_nca   <span class="ot">&lt;-</span> t0 <span class="sc">-</span> gamma_seco <span class="sc">*</span> z_nca <span class="sc">/</span> <span class="dv">1000</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>t_cima  <span class="ot">&lt;-</span> t_nca <span class="sc">-</span> gamma_humedo <span class="sc">*</span> (z_cima <span class="sc">-</span> z_nca) <span class="sc">/</span> <span class="dv">1000</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>t_valle <span class="ot">&lt;-</span> t_cima <span class="sc">+</span> gamma_seco <span class="sc">*</span> (z_cima <span class="sc">-</span> z_valle) <span class="sc">/</span> <span class="dv">1000</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="co"># 4) Misma altura en barlovento (debajo de la base de las nubes)</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>t_barlovento <span class="ot">&lt;-</span> t0 <span class="sc">-</span> gamma_seco <span class="sc">*</span> z_valle <span class="sc">/</span> <span class="dv">1000</span></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(<span class="fu">c</span>(<span class="at">z_nca =</span> z_nca, <span class="at">t_nca =</span> t_nca, <span class="at">t_cima =</span> t_cima, <span class="at">t_valle =</span> t_valle,</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>        <span class="at">t_barlovento =</span> t_barlovento, <span class="at">diferencia =</span> t_valle <span class="sc">-</span> t_barlovento), <span class="dv">1</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>       z_nca        t_nca       t_cima      t_valle t_barlovento   diferencia 
+       875.0         17.4          4.7         27.2         19.1          8.1 </code></pre>
+</div>
+</div>
+<p>La diferencia sale de que el aire perdió su humedad al subir: el calor latente que liberó la condensación se queda en el aire. Es la razón de que en Costa Rica la vertiente que da al viento dominante sea mucho más lluviosa que la opuesta. En el análisis de una cuenca de montaña conviene revisar en qué vertiente está cada estación antes de usarla para rellenar o interpolar datos de otra.</p>
+</div>
+</div>
+</section>
+<section id="sec-meteo-inversiones" class="level3" data-number="6.3.6">
+<h3 data-number="6.3.6" class="anchored" data-anchor-id="sec-meteo-inversiones"><span class="header-section-number">6.3.6</span> Estabilidad e inversiones térmicas</h3>
+<p>Si el aire que sube queda más caliente que su entorno, sigue subiendo solo: la atmósfera es inestable y se forman nubes de gran desarrollo vertical. Si queda más frío, vuelve a bajar: la atmósfera es estable. La comparación se hace entre el gradiente real del entorno y los gradientes adiabáticos. Un gradiente real mayor que 9.8 °C/km es siempre inestable; uno menor que el gradiente húmedo es siempre estable.</p>
+<p>Una inversión térmica es una capa en la que la temperatura sube con la altura. Es la condición más estable que existe, porque el aire frío y denso queda abajo. Las inversiones frenan los movimientos verticales, atrapan el humo y la contaminación y limitan el crecimiento de las nubes. Se forman por:</p>
+<ul>
+<li>El enfriamiento del suelo en noches despejadas y sin viento, que enfría el aire de abajo.</li>
+<li>El paso de aire cálido sobre aire frío o sobre una superficie fría.</li>
+<li>El descenso del aire en los anticiclones, que lo calienta por compresión. Es la inversión de los alisios, que en el Caribe limita la altura de las nubes de buen tiempo.</li>
+</ul>
+<p>La tropopausa también es una inversión, a escala planetaria.</p>
+</section>
+</section>
+<section id="sec-meteo-energia" class="level2" data-number="6.4">
+<h2 data-number="6.4" class="anchored" data-anchor-id="sec-meteo-energia"><span class="header-section-number">6.4</span> Energía del sistema Tierra-atmósfera</h2>
+<section id="sec-meteo-calor" class="level3" data-number="6.4.1">
+<h3 data-number="6.4.1" class="anchored" data-anchor-id="sec-meteo-calor"><span class="header-section-number">6.4.1</span> Transmisión del calor</h3>
+<p>La energía se mueve en la atmósfera por cuatro mecanismos (<a href="#fig-calor" class="quarto-xref">Figura&nbsp;<span>6.7</span></a>):</p>
+<ul>
+<li><strong>Radiación.</strong> Transferencia por ondas electromagnéticas, sin necesidad de un medio. Es la única forma en que la energía del Sol llega a la Tierra.</li>
+<li><strong>Conducción.</strong> Transferencia por contacto entre moléculas. El aire conduce mal el calor, así que solo cuenta en los primeros milímetros sobre el suelo o el agua.</li>
+<li><strong>Convección.</strong> Transporte vertical de calor por el movimiento del aire o del agua.</li>
+<li><strong>Advección.</strong> Transporte horizontal de calor y de humedad por el viento. Lleva la energía del ecuador hacia los polos y el vapor del mar hacia la tierra.</li>
+</ul>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div id="fig-calor" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" alt="Cuatro paneles con ilustraciones de radiación, convección, conducción y advección">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-calor-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="assets/img/calor.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-7" title="Figura&nbsp;6.7: Mecanismos de transmisión del calor en la atmósfera."><img src="assets/img/calor.webp" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:80.0%" alt="Cuatro paneles con ilustraciones de radiación, convección, conducción y advección"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-calor-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;6.7: Mecanismos de transmisión del calor en la atmósfera.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>Todo cuerpo emite radiación según su temperatura. La ley de Stefan-Boltzmann da la energía emitida por unidad de área:</p>
+<p><span id="eq-meteo-stefan"><span class="math display">\[
+R = \varepsilon\,\sigma\,T^4
+\tag{6.9}\]</span></span></p>
+<p>donde <span class="math inline">\(R\)</span> es la radiación emitida (W/m²), <span class="math inline">\(\varepsilon\)</span> es la emisividad de la superficie (1 para un cuerpo negro; entre 0.95 y 0.99 para el agua, el suelo y la vegetación), <span class="math inline">\(\sigma = 5.67\times10^{-8}\ \mathrm{W/(m^2\,K^4)}\)</span> es la constante de Stefan-Boltzmann y <span class="math inline">\(T\)</span> es la temperatura absoluta (K). Una superficie a 15 °C (288 K) emite unos 390 W/m². Como la superficie de la Tierra es mucho más fría que la del Sol, emite en longitudes de onda más largas: el Sol emite radiación de onda corta (visible e infrarrojo cercano) y la Tierra radiación de onda larga (infrarrojo térmico).</p>
+</section>
+<section id="sec-meteo-insolacion" class="level3" data-number="6.4.2">
+<h3 data-number="6.4.2" class="anchored" data-anchor-id="sec-meteo-insolacion"><span class="header-section-number">6.4.2</span> Insolación</h3>
+<p>La energía que llega del Sol se llama insolación. Fuera de la atmósfera, sobre una superficie perpendicular a los rayos y a la distancia media Tierra-Sol, vale 1361 W/m²; es la constante solar <span class="citation" data-cites="kopp2011new">(Kopp y Lean 2011)</span>. La que llega a un punto del suelo depende de cuatro factores:</p>
+<ul>
+<li><strong>Altura del Sol.</strong> Cuanto más alto está el Sol, más concentrada llega la energía. Un mismo haz de rayos que cae inclinado se reparte sobre un área mayor (<a href="#fig-latitud" class="quarto-xref">Figura&nbsp;<span>6.8</span></a>).</li>
+<li><strong>Espesor de atmósfera atravesado.</strong> Con el Sol cerca del horizonte, los rayos recorren más aire y pierden más energía por absorción y dispersión.</li>
+<li><strong>Duración del día.</strong> A 10° N el día dura entre 11.4 y 12.6 horas a lo largo del año; a 45° N, entre 8.6 y 15.4 horas (calculado con las ecuaciones de <span class="citation" data-cites="allen1998fao56">Allen et&nbsp;al. (1998)</span>). Por eso en Costa Rica la radiación cambia poco de un mes a otro, salvo por la nubosidad.</li>
+<li><strong>Nubosidad.</strong> Las nubes reflejan la radiación solar. En la época lluviosa de Costa Rica, la radiación que llega al suelo puede ser menor que en la época seca, aunque el Sol esté más alto.</li>
+</ul>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div id="fig-latitud" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" alt="Esquema del Sol y la Tierra con rayos paralelos que se reparten en áreas pequeñas cerca del ecuador y en áreas grandes cerca de los polos">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-latitud-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="assets/img/latitud.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-8" title="Figura&nbsp;6.8: Distribución de la radiación solar según la latitud: cerca del ecuador los rayos llegan más perpendiculares y concentran más energía por unidad de área."><img src="assets/img/latitud.webp" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:80.0%" alt="Esquema del Sol y la Tierra con rayos paralelos que se reparten en áreas pequeñas cerca del ecuador y en áreas grandes cerca de los polos"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-latitud-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;6.8: Distribución de la radiación solar según la latitud: cerca del ecuador los rayos llegan más perpendiculares y concentran más energía por unidad de área.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="sec-meteo-balance" class="level3" data-number="6.4.3">
+<h3 data-number="6.4.3" class="anchored" data-anchor-id="sec-meteo-balance"><span class="header-section-number">6.4.3</span> Balance de energía y efecto invernadero</h3>
+<p>Para que la temperatura media de la Tierra se mantenga, la energía que entra debe ser igual a la que sale. La <a href="05-Fuentes_info_hidrometeo.html#fig-balance_rad" class="quarto-xref">Figura&nbsp;<span>5.18</span></a>, en el capítulo anterior, resume el balance medio. De cada 342 W/m² que llegan en promedio al tope de la atmósfera <span class="citation" data-cites="letreut2007historical">(Le Treut et&nbsp;al. 2007)</span>:</p>
+<ul>
+<li>107 W/m² (31 %) se reflejan al espacio, sobre todo en las nubes y en superficies claras. Esa fracción es el albedo de la Tierra.</li>
+<li>67 W/m² (20 %) los absorbe la atmósfera.</li>
+<li>168 W/m² (49 %) los absorbe la superficie.</li>
+</ul>
+<p>La superficie devuelve esa energía a la atmósfera de tres formas: como calor latente en la evaporación (78 W/m², que se liberan después cuando el vapor se condensa en las nubes), como calor sensible por conducción y convección (24 W/m²) y como radiación de onda larga. Sin contar la radiación, unas tres cuartas partes de la energía que la superficie entrega a la atmósfera se van en evaporar agua: el ciclo hidrológico es también el principal transporte de energía del planeta.</p>
+<p>El vapor de agua, el CO₂, el metano y otros gases dejan pasar casi toda la radiación solar, pero absorben la radiación de onda larga que emite la superficie y devuelven una parte hacia abajo (<a href="#fig-invernadero" class="quarto-xref">Figura&nbsp;<span>6.9</span></a>). Ese es el efecto invernadero. El ejemplo siguiente estima cuánto calienta.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div id="fig-invernadero" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" alt="Ilustración del Sol y la Tierra con flechas amarillas de radiación solar y flechas rojas de radiación infrarroja que rebotan en una capa de gases">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-invernadero-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="assets/img/invernadero.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-9" title="Figura&nbsp;6.9: Efecto invernadero: la radiación solar de onda corta atraviesa la atmósfera y los gases de efecto invernadero retienen parte de la radiación infrarroja que emite la superficie."><img src="assets/img/invernadero.webp" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:75.0%" alt="Ilustración del Sol y la Tierra con flechas amarillas de radiación solar y flechas rojas de radiación infrarroja que rebotan en una capa de gases"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-invernadero-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;6.9: Efecto invernadero: la radiación solar de onda corta atraviesa la atmósfera y los gases de efecto invernadero retienen parte de la radiación infrarroja que emite la superficie.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled" title="Ejemplo: temperatura de la Tierra sin efecto invernadero">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Ejemplo: temperatura de la Tierra sin efecto invernadero
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Estime la temperatura que tendría la superficie de la Tierra si la atmósfera no absorbiera radiación de onda larga. Use una constante solar <span class="math inline">\(S_0 = 1361\)</span> W/m², un albedo <span class="math inline">\(\alpha = 0.30\)</span> y suponga que la Tierra emite como un cuerpo negro. Compare con la temperatura media observada, de unos 15 °C.</p>
+<p><strong>Solución:</strong></p>
+<p>La Tierra intercepta la radiación solar con un disco de área <span class="math inline">\(\pi r^2\)</span>, pero la emite desde toda su esfera, de área <span class="math inline">\(4\pi r^2\)</span>. En equilibrio:</p>
+<p><span id="eq-meteo-temperatura-equilibrio"><span class="math display">\[
+S_0\,(1 - \alpha)\,\pi r^2 = \sigma\,T_e^4\,4\pi r^2
+\quad\Rightarrow\quad
+T_e = \left[\frac{S_0\,(1-\alpha)}{4\,\sigma}\right]^{1/4}
+\tag{6.10}\]</span></span></p>
+<p>donde <span class="math inline">\(T_e\)</span> es la temperatura de equilibrio (K).</p>
+<ol type="1">
+<li>Energía absorbida por unidad de área de la esfera: <span class="math inline">\(1361 \times (1 - 0.30)/4 = 238.2\)</span> W/m².</li>
+<li>Cociente: <span class="math inline">\(238.2 / 5.67\times10^{-8} = 4.201\times10^{9}\)</span> K⁴.</li>
+<li>Raíz cuarta: <span class="math inline">\(T_e = 254.6\)</span> K <span class="math inline">\(= -18.6\)</span> °C.</li>
+<li>Diferencia con la temperatura observada: <span class="math inline">\(15 - (-18.6) = 33.6\)</span> °C.</li>
+</ol>
+<p><strong>Pseudocódigo</strong></p>
+<ol type="1">
+<li>Definir <span class="math inline">\(S_0\)</span>, <span class="math inline">\(\alpha\)</span> y <span class="math inline">\(\sigma\)</span>.</li>
+<li>Calcular la energía absorbida por unidad de área.</li>
+<li>Despejar la temperatura con la ley de Stefan-Boltzmann.</li>
+<li>Restar la temperatura de equilibrio a la temperatura observada.</li>
+</ol>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 1) Datos</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>s0 <span class="ot">&lt;-</span> <span class="dv">1361</span>        <span class="co"># constante solar (W/m²)</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>albedo <span class="ot">&lt;-</span> <span class="fl">0.30</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>sigma <span class="ot">&lt;-</span> <span class="fl">5.67e-8</span>  <span class="co"># W/(m² K⁴)</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="co"># 2) Energía absorbida por unidad de área de la esfera (W/m²)</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>absorbida <span class="ot">&lt;-</span> s0 <span class="sc">*</span> (<span class="dv">1</span> <span class="sc">-</span> albedo) <span class="sc">/</span> <span class="dv">4</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="co"># 3) Temperatura de equilibrio (K y °C)</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>t_e <span class="ot">&lt;-</span> (absorbida <span class="sc">/</span> sigma)<span class="sc">^</span>(<span class="dv">1</span> <span class="sc">/</span> <span class="dv">4</span>)</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>t_e_c <span class="ot">&lt;-</span> t_e <span class="sc">-</span> <span class="fl">273.15</span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a><span class="co"># 4) Calentamiento debido al efecto invernadero (°C)</span></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>efecto <span class="ot">&lt;-</span> <span class="dv">15</span> <span class="sc">-</span> t_e_c</span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(<span class="fu">c</span>(<span class="at">absorbida =</span> absorbida, <span class="at">t_e_k =</span> t_e, <span class="at">t_e_c =</span> t_e_c, <span class="at">efecto =</span> efecto), <span class="dv">1</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>absorbida     t_e_k     t_e_c    efecto 
+    238.2     254.6     -18.6      33.6 </code></pre>
+</div>
+</div>
+<p>Sin efecto invernadero, la superficie estaría unos 33 °C más fría y casi toda el agua del planeta estaría congelada. El resultado también muestra la sensibilidad del sistema: un cambio de solo 1 % en la energía absorbida mueve la temperatura de equilibrio unos 0.6 °C.</p>
+</div>
+</div>
+</section>
+<section id="sec-meteo-calentamiento" class="level3" data-number="6.4.4">
+<h3 data-number="6.4.4" class="anchored" data-anchor-id="sec-meteo-calentamiento"><span class="header-section-number">6.4.4</span> Calentamiento desigual</h3>
+<p>La superficie de la Tierra no se calienta igual en todas partes, y esa diferencia es la que pone en marcha el viento, la convección y la lluvia. Además de la latitud y la nubosidad, influyen las propiedades de la superficie:</p>
+<ul>
+<li><strong>Albedo.</strong> La nieve fresca refleja más del 80 % de la radiación solar; un bosque, entre 10 % y 20 %, y el océano, menos del 10 %.</li>
+<li><strong>Capacidad calorífica.</strong> El agua almacena mucho calor y lo suelta despacio. Por eso las costas tienen menos diferencia de temperatura entre el día y la noche que el interior, y por eso existen las brisas de mar y de tierra.</li>
+<li><strong>Cobertura del suelo.</strong> La vegetación usa parte de la energía en evapotranspirar, y así se calienta menos. Las superficies urbanas impermeables almacenan calor y lo liberan de noche, lo que forma las islas de calor urbanas.</li>
+</ul>
+<div class="callout callout-style-default callout-note callout-titled" title="Para profundizar: los cinturones de Van Allen">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Para profundizar: los cinturones de Van Allen
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>La Tierra está rodeada por dos zonas en forma de anillo donde el campo magnético atrapa protones y electrones de alta energía: los cinturones de Van Allen (<a href="#fig-allen" class="quarto-xref">Figura&nbsp;<span>6.10</span></a>). El interior está entre unos 1000 y 6000 km de altura y el exterior entre unos 13 000 y 60 000 km. Las partículas viajan en espiral de un polo magnético al otro. Cuando el viento solar es intenso, parte de ellas entra en la alta atmósfera cerca de los polos, excita los átomos de oxígeno y nitrógeno y produce las auroras. Estos cinturones no influyen en el tiempo ni en el ciclo del agua, pero muestran cómo el campo magnético desvía la mayor parte del viento solar.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div id="fig-allen" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" alt="Esquema de la Tierra con las líneas del campo magnético, dos cinturones de radiación a cada lado y partículas del viento solar que se desvían">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-allen-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="assets/img/allen.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-10" title="Figura&nbsp;6.10: Cinturones de radiación de Van Allen y desvío del viento solar por el campo magnético terrestre. Fuente: adaptado de astronomynotes.com."><img src="assets/img/allen.webp" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:85.0%" alt="Esquema de la Tierra con las líneas del campo magnético, dos cinturones de radiación a cada lado y partículas del viento solar que se desvían"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-allen-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;6.10: Cinturones de radiación de Van Allen y desvío del viento solar por el campo magnético terrestre. Fuente: adaptado de astronomynotes.com.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="sec-meteo-circulacion" class="level2" data-number="6.5">
+<h2 data-number="6.5" class="anchored" data-anchor-id="sec-meteo-circulacion"><span class="header-section-number">6.5</span> Circulación de la atmósfera</h2>
+<section id="sec-meteo-hadley" class="level3" data-number="6.5.1">
+<h3 data-number="6.5.1" class="anchored" data-anchor-id="sec-meteo-hadley"><span class="header-section-number">6.5.1</span> Circulación general</h3>
+<p>El ecuador recibe más energía de la que emite y los polos emiten más de la que reciben. La atmósfera y los océanos llevan el excedente hacia los polos. En cada hemisferio, la atmósfera lo hace con tres grandes células de circulación: la de Hadley, entre el ecuador y unos 30° de latitud; la de Ferrel, en latitudes medias; y la Polar (<a href="#fig-hadley" class="quarto-xref">Figura&nbsp;<span>6.11</span></a>).</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div id="fig-hadley" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" alt="Globo terrestre con las células de Hadley, Ferrel y polares a cada lado y flechas de los alisios, los vientos del oeste y los polares del este">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-hadley-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="assets/img/hadley.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-11" title="Figura&nbsp;6.11: Células de circulación general de la atmósfera y vientos dominantes en superficie. Fuente: CEUPE (2025)."><img src="assets/img/hadley.webp" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:75.0%" alt="Globo terrestre con las células de Hadley, Ferrel y polares a cada lado y flechas de los alisios, los vientos del oeste y los polares del este"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-hadley-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;6.11: Células de circulación general de la atmósfera y vientos dominantes en superficie. Fuente: CEUPE (2025).
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>La célula de Hadley es la que gobierna el clima de Costa Rica. Funciona en cuatro pasos:</p>
+<ol type="1">
+<li><strong>Ascenso cerca del ecuador.</strong> El aire cálido y húmedo de las latitudes bajas sube en una franja de nubes de tormenta y lluvias intensas, la Zona de Convergencia Intertropical (ZCIT). Casi toda la lluvia de la célula cae aquí, durante el ascenso.</li>
+<li><strong>Flujo hacia los polos en altura.</strong> Ya seco, el aire se desplaza cerca de la tropopausa hacia latitudes mayores y se enfría por radiación.</li>
+<li><strong>Descenso subtropical.</strong> Cerca de los 30° de latitud el aire baja, se calienta por compresión y se seca todavía más. Así se forman los anticiclones subtropicales, como el de las Azores, y los grandes desiertos del planeta.</li>
+<li><strong>Retorno en superficie.</strong> El aire vuelve hacia el ecuador cerca del suelo. La fuerza de Coriolis lo desvía y forma los vientos alisios, del noreste en el hemisferio norte y del sureste en el sur.</li>
+</ol>
+<p>La ZCIT sigue al Sol con algunas semanas de retraso: entre mayo y octubre está sobre Centroamérica o cerca de ella, y entre diciembre y marzo se retira hacia el sur. Junto con los alisios, ese vaivén define la época lluviosa y la seca de la vertiente del Pacífico de Costa Rica.</p>
+</section>
+<section id="sec-meteo-chorro" class="level3" data-number="6.5.2">
+<h3 data-number="6.5.2" class="anchored" data-anchor-id="sec-meteo-chorro"><span class="header-section-number">6.5.2</span> El chorro de bajo nivel del Caribe</h3>
+<p>Sobre el mar Caribe los alisios forman una banda de vientos máximos a menos de 1 km de altura, con su núcleo cerca del nivel de 925 hPa: el chorro de bajo nivel del Caribe <span class="citation" data-cites="amador2008intra">(Amador 2008)</span>. No debe confundirse con las corrientes en chorro de latitudes medias, que soplan a más de 30 m/s cerca de la tropopausa. El chorro del Caribe lleva grandes cantidades de vapor desde el Atlántico hacia Centroamérica (<a href="#fig-chorro" class="quarto-xref">Figura&nbsp;<span>6.12</span></a>).</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div id="fig-chorro" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" alt="Bloque de Costa Rica con el viento del este que llega del Caribe, sube por la cordillera con nubes y lluvia y baja seco hacia el Pacífico">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-chorro-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="assets/img/chorro2.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-12" title="Figura&nbsp;6.12: Chorro de bajo nivel del Caribe sobre Costa Rica. Fuente: @Cigefi."><img src="assets/img/chorro2.webp" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:75.0%" alt="Bloque de Costa Rica con el viento del este que llega del Caribe, sube por la cordillera con nubes y lluvia y baja seco hacia el Pacífico"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-chorro-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;6.12: Chorro de bajo nivel del Caribe sobre Costa Rica. Fuente: <span class="citation" data-cites="Cigefi">Centro de Investigaciones Geofísicas (2025)</span>.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>El chorro tiene dos máximos al año, uno en julio y otro, más débil, en enero y febrero <span class="citation" data-cites="amador2008intra">(Amador 2008)</span>. Sus efectos en Costa Rica se ven con claridad en los registros de lluvia:</p>
+<ul>
+<li><strong>Vertiente del Caribe.</strong> El aire húmedo choca con las cordilleras y sube. El ascenso orográfico produce lluvias casi todo el año, así que buena parte del Caribe costarricense no tiene una estación seca definida.</li>
+<li><strong>Vertiente del Pacífico.</strong> Cuando el chorro se intensifica en julio y agosto, el aire baja por sotavento, se seca y frena la convección. La lluvia disminuye a mitad de la época lluviosa: es el veranillo o canícula <span class="citation" data-cites="magana1999midsummer">(Magaña, Amador, y Medina 1999)</span>. Por eso muchas estaciones del Pacífico tienen un régimen bimodal, con un máximo en junio y otro en septiembre u octubre.</li>
+<li><strong>Relación con el ENOS.</strong> En años de El Niño el chorro suele ser más intenso en julio, lo que refuerza la lluvia del Caribe y el déficit del Pacífico <span class="citation" data-cites="amador2008intra">(Amador 2008)</span>.</li>
+</ul>
+</section>
+<section id="sec-meteo-escalas" class="level3" data-number="6.5.3">
+<h3 data-number="6.5.3" class="anchored" data-anchor-id="sec-meteo-escalas"><span class="header-section-number">6.5.3</span> Escalas de los fenómenos atmosféricos</h3>
+<p>Los movimientos del aire van desde la circulación general, que abarca el planeta, hasta remolinos de pocos centímetros. Cada escala tiene su tiempo característico y afecta a la hidrología de otra forma (<a href="#tbl-escala" class="quarto-xref">Cuadro&nbsp;<span>6.4</span></a>). Los límites entre escalas son convencionales; los del cuadro siguen la propuesta de <span class="citation" data-cites="orlanski1975rational">Orlanski (1975)</span>.</p>
+<div id="tbl-escala" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-escala-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Cuadro&nbsp;6.4: Escalas de los fenómenos atmosféricos. Fuente: adaptado de <span class="citation" data-cites="orlanski1975rational">Orlanski (1975)</span>.
+</figcaption>
+<div aria-describedby="tbl-escala-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Escala</th>
+<th style="text-align: left;">Tamaño horizontal</th>
+<th style="text-align: left;">Duración típica</th>
+<th style="text-align: left;">Ejemplos</th>
+<th style="text-align: left;">Importancia hidrológica</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Planetaria</td>
+<td style="text-align: left;">Más de 10 000 km</td>
+<td style="text-align: left;">Semanas a años</td>
+<td style="text-align: left;">Células de Hadley, ZCIT, ENOS</td>
+<td style="text-align: left;">Régimen de lluvias y años secos o húmedos</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Sinóptica</td>
+<td style="text-align: left;">2000 a 10 000 km</td>
+<td style="text-align: left;">Días a una semana</td>
+<td style="text-align: left;">Anticiclones, ondas tropicales, empujes fríos</td>
+<td style="text-align: left;">Temporales de varios días sobre cuencas grandes</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Mesoescala</td>
+<td style="text-align: left;">2 a 2000 km</td>
+<td style="text-align: left;">Horas a días</td>
+<td style="text-align: left;">Huracanes, sistemas convectivos, tormentas, brisas</td>
+<td style="text-align: left;">Lluvias intensas y crecidas súbitas en cuencas pequeñas</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Microescala</td>
+<td style="text-align: left;">Menos de 2 km</td>
+<td style="text-align: left;">Segundos a minutos</td>
+<td style="text-align: left;">Turbulencia, remolinos, intercambio suelo-aire</td>
+<td style="text-align: left;">Evaporación y evapotranspiración</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p>Los mapas del tiempo de escala sinóptica muestran los grandes sistemas, como los huracanes de la <a href="#fig-sinop" class="quarto-xref">Figura&nbsp;<span>6.13</span></a>. Las tormentas de mesoescala, en cambio, pueden concentrar la lluvia en franjas de pocos kilómetros (<a href="#fig-lluvia" class="quarto-xref">Figura&nbsp;<span>6.14</span></a>).</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div id="fig-sinop" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" alt="Imagen satelital del Atlántico y el Caribe con dos huracanes de ojo bien definido">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-sinop-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="assets/img/sinop.jfif" class="lightbox" data-gallery="quarto-lightbox-gallery-13" title="Figura&nbsp;6.13: Huracanes en el Atlántico vistos desde satélite. Fuente: @NOAA_OSPO."><img src="assets/img/sinop.jfif" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:70.0%" alt="Imagen satelital del Atlántico y el Caribe con dos huracanes de ojo bien definido"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-sinop-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;6.13: Huracanes en el Atlántico vistos desde satélite. Fuente: <span class="citation" data-cites="NOAA_OSPO">National Oceanic and Atmospheric Administration (2025)</span>.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div id="fig-lluvia" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" alt="Fotografía en blanco y negro de una cortina de lluvia intensa que cae de una nube sobre un valle">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-lluvia-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="assets/img/lluvia.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-14" title="Figura&nbsp;6.14: Tormenta convectiva, con la lluvia concentrada en una franja de pocos kilómetros. Fuente: @NOAA_OSPO."><img src="assets/img/lluvia.webp" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:70.0%" alt="Fotografía en blanco y negro de una cortina de lluvia intensa que cae de una nube sobre un valle"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-lluvia-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;6.14: Tormenta convectiva, con la lluvia concentrada en una franja de pocos kilómetros. Fuente: <span class="citation" data-cites="NOAA_OSPO">National Oceanic and Atmospheric Administration (2025)</span>.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>Para el diseño hidrológico, la escala de la tormenta se compara con el tamaño de la cuenca. Una tormenta convectiva puede cubrir por completo una cuenca urbana de 5 km² y dejar seca la estación vecina, mientras que en una cuenca de 2000 km² las crecidas grandes suelen venir de sistemas sinópticos que llueven varios días seguidos.</p>
+</section>
+</section>
+<section id="sec-meteo-corrientes" class="level2" data-number="6.6">
+<h2 data-number="6.6" class="anchored" data-anchor-id="sec-meteo-corrientes"><span class="header-section-number">6.6</span> Corrientes oceánicas</h2>
+<div class="pregunta">
+<p>¿Por qué, si Nueva York y Madrid están casi en la misma latitud, los inviernos de Nueva York son mucho más fríos y nevados que los de Madrid?</p>
+</div>
+<p>Las dos ciudades están cerca del paralelo 40.5° N (<a href="#fig-meteo-nueva-york-madrid" class="quarto-xref">Figura&nbsp;<span>6.15</span></a>). La latitud define cuánta energía solar llega, pero no basta para explicar el clima: también cuenta cómo el océano y el viento transportan el calor.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div id="fig-meteo-nueva-york-madrid" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" alt="Mapa del Atlántico Norte con una línea discontinua en el paralelo 40.5° N que pasa por Nueva York y por Madrid">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-meteo-nueva-york-madrid-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="06-Meteo_files/figure-html/fig-meteo-nueva-york-madrid-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-15" title="Figura&nbsp;6.15: Nueva York y Madrid, casi en el mismo paralelo, a ambos lados del Atlántico Norte."><img src="06-Meteo_files/figure-html/fig-meteo-nueva-york-madrid-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:85.0%" alt="Mapa del Atlántico Norte con una línea discontinua en el paralelo 40.5° N que pasa por Nueva York y por Madrid"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-meteo-nueva-york-madrid-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;6.15: Nueva York y Madrid, casi en el mismo paralelo, a ambos lados del Atlántico Norte.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>Tres razones explican la diferencia:</p>
+<ul>
+<li><strong>Corrientes oceánicas.</strong> La corriente del Golfo y su continuación, la deriva del Atlántico Norte, llevan agua cálida desde el Caribe hacia Europa (<a href="#fig-corrientes" class="quarto-xref">Figura&nbsp;<span>6.16</span></a>).</li>
+<li><strong>Vientos dominantes.</strong> En latitudes medias soplan los vientos del oeste. En Europa llegan después de cruzar el Atlántico y traen aire templado y húmedo. En Nueva York llegan después de cruzar el continente, y en invierno traen aire frío de Canadá.</li>
+<li><strong>Influencia marítima o continental.</strong> El océano amortigua los extremos de temperatura. La costa este de Norteamérica recibe sobre todo aire continental, con inviernos más fríos y veranos más cálidos.</li>
+</ul>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div id="fig-corrientes" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" alt="Planisferio con flechas rojas y azules que muestran los giros de las corrientes oceánicas en cada océano">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-corrientes-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="assets/img/corrientes.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-16" title="Figura&nbsp;6.16: Corrientes oceánicas superficiales cálidas (rojo) y frías (azul). Fuente: EOM (2026)."><img src="assets/img/corrientes.webp" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:85.0%" alt="Planisferio con flechas rojas y azules que muestran los giros de las corrientes oceánicas en cada océano"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-corrientes-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;6.16: Corrientes oceánicas superficiales cálidas (rojo) y frías (azul). Fuente: EOM (2026).
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>Las corrientes oceánicas son flujos persistentes de agua que mueven calor desde el ecuador hacia latitudes altas. Las superficiales las ponen en marcha los vientos permanentes; la fuerza de Coriolis las desvía y las costas las encauzan en grandes giros. Las profundas se mueven por diferencias de densidad, que dependen de la temperatura y la salinidad.</p>
+<p>El océano se calienta desde arriba, al revés que la atmósfera, y por eso su estructura térmica es estable. Tiene tres capas:</p>
+<ol type="1">
+<li><strong>Capa de mezcla.</strong> Desde la superficie hasta unas decenas de metros o hasta 200 m. El viento la mezcla y su temperatura sigue los cambios del tiempo y de las estaciones.</li>
+<li><strong>Termoclina.</strong> Debajo de la capa de mezcla, la temperatura baja rápido con la profundidad.</li>
+<li><strong>Aguas profundas.</strong> Por debajo de unos 1000 m, el agua es fría y su temperatura casi no cambia.</li>
+</ol>
+<p>En el Pacífico frente a Sudamérica, y también en el golfo de Papagayo durante la época seca, el viento aparta el agua superficial y hace subir agua fría de la termoclina. Ese afloramiento enfría el mar y reduce la evaporación y la lluvia en la costa.</p>
+</section>
+<section id="sec-meteo-enos" class="level2" data-number="6.7">
+<h2 data-number="6.7" class="anchored" data-anchor-id="sec-meteo-enos"><span class="header-section-number">6.7</span> Variabilidad climática: El Niño-Oscilación del Sur</h2>
+<p>El clima de un lugar no se repite igual cada año. En el trópico, la principal fuente de esas diferencias entre años es El Niño-Oscilación del Sur (ENOS), un acople entre el océano y la atmósfera del Pacífico ecuatorial que se repite sin un periodo fijo cada 2 a 7 años. Tiene dos componentes:</p>
+<ul>
+<li><strong>Oceánico (El Niño y La Niña):</strong> anomalías de la temperatura superficial del mar en el Pacífico ecuatorial central y oriental.</li>
+<li><strong>Atmosférico (Oscilación del Sur):</strong> el cambio de la diferencia de presión al nivel del mar entre Tahití, en el Pacífico central, y Darwin, en el norte de Australia.</li>
+</ul>
+<p>Los dos componentes están unidos por la circulación de Walker, una célula a lo largo del ecuador con aire que sube sobre Indonesia, donde el mar es cálido, y baja sobre el Pacífico oriental, donde el mar es frío.</p>
+<p>El estado del ENOS se sigue con el Índice Oceánico de El Niño (ONI, por sus siglas en inglés): la anomalía de la temperatura del mar en la región Niño 3.4 (5° N a 5° S, 170° O a 120° O), promediada en tres meses. Se habla de El Niño cuando el ONI es de +0.5 °C o más durante al menos cinco trimestres seguidos, y de La Niña cuando es de −0.5 °C o menos <span class="citation" data-cites="noaacpc2024oni">(NOAA Climate Prediction Center 2024)</span>. Las fases son:</p>
+<ul>
+<li><strong>El Niño (fase cálida).</strong> Los alisios del Pacífico se debilitan, el agua cálida se extiende hacia el este y el afloramiento frente a Perú se debilita. La lluvia del Pacífico occidental se traslada hacia el Pacífico central y oriental. Los eventos suelen llegar a su máximo hacia fin de año, entre noviembre y enero.</li>
+<li><strong>La Niña (fase fría).</strong> Los alisios y la circulación de Walker se refuerzan, y el Pacífico oriental se enfría más de lo normal. Los eventos de La Niña suelen durar más que los de El Niño y a veces se repiten dos o tres años seguidos.</li>
+<li><strong>Neutra.</strong> Ninguna de las dos condiciones.</li>
+</ul>
+<p>Por medio de cambios en la circulación, el ENOS altera la lluvia en regiones muy lejanas del Pacífico. Esas conexiones a distancia se llaman teleconexiones (<a href="#tbl-enos-impactos" class="quarto-xref">Cuadro&nbsp;<span>6.5</span></a>).</p>
+<div id="tbl-enos-impactos" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-enos-impactos-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Cuadro&nbsp;6.5: Efectos típicos de las fases del ENOS. No todos los eventos los producen. Fuente: <span class="citation" data-cites="IMN_ClimaVariabilidadCC">Comité Regional de Recursos Hidráulicos (2008)</span> y <span class="citation" data-cites="wallace2006atmospheric">Wallace y Hobbs (2006)</span>.
+</figcaption>
+<div aria-describedby="tbl-enos-impactos-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Región</th>
+<th style="text-align: left;">Durante El Niño</th>
+<th style="text-align: left;">Durante La Niña</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Costa de Perú y Ecuador</td>
+<td style="text-align: left;">Lluvias intensas e inundaciones</td>
+<td style="text-align: left;">Condiciones más secas que lo normal</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Sur de Estados Unidos</td>
+<td style="text-align: left;">Inviernos más húmedos</td>
+<td style="text-align: left;">Inviernos más secos y cálidos</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Costa Rica, vertiente del Pacífico</td>
+<td style="text-align: left;">Déficit de lluvia y sequía</td>
+<td style="text-align: left;">Exceso de lluvia e inundaciones</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Costa Rica, vertiente del Caribe</td>
+<td style="text-align: left;">Exceso de lluvia</td>
+<td style="text-align: left;">Déficit de lluvia</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Indonesia y Australia</td>
+<td style="text-align: left;">Sequías e incendios forestales</td>
+<td style="text-align: left;">Lluvias intensas e inundaciones</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled" title="En la práctica">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+En la práctica
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>El ENOS afecta casi todo el análisis hidrológico en Costa Rica:</p>
+<ul>
+<li><strong>Disponibilidad de agua.</strong> Los caudales de estiaje de los ríos del Pacífico bajan en años de El Niño, y eso afecta embalses, riego y acueductos. Al evaluar una fuente conviene revisar los caudales de los años El Niño del registro.</li>
+<li><strong>Análisis de frecuencia.</strong> Una serie corta que cae casi toda en años de una misma fase da lluvias o caudales de diseño sesgados. Antes de ajustar una distribución, conviene ver qué fases del ENOS cubre el registro.</li>
+<li><strong>Pronóstico estacional.</strong> El Instituto Meteorológico Nacional (IMN) publica perspectivas climáticas basadas en el estado del ENOS, útiles para planificar la operación de embalses y sistemas de abastecimiento.</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="sec-meteo-cambio-climatico" class="level2" data-number="6.8">
+<h2 data-number="6.8" class="anchored" data-anchor-id="sec-meteo-cambio-climatico"><span class="header-section-number">6.8</span> Cambio climático</h2>
+<p>El cambio climático es un cambio del clima que persiste durante décadas o más: de sus promedios, de su variabilidad o de sus extremos. No debe confundirse con la variabilidad climática, como el ENOS, que son oscilaciones de unos años alrededor de un mismo estado. El calentamiento global es una parte del cambio climático: el aumento de la temperatura media del aire y del océano. Entre 1850–1900 y 2011–2020, la temperatura media de la superficie subió 1.09 °C <span class="citation" data-cites="ipcc2021spm">(IPCC 2021)</span>.</p>
+<p>Cualquier factor que altere el balance de energía de la <a href="#sec-meteo-balance" class="quarto-xref"><span>Sección 6.4.3</span></a> es un forzamiento:</p>
+<ul>
+<li><strong>Naturales:</strong> cambios en la órbita de la Tierra, en la actividad del Sol y erupciones volcánicas que inyectan aerosoles en la estratosfera y enfrían el planeta por uno o dos años.</li>
+<li><strong>Humanos:</strong> sobre todo la emisión de gases de efecto invernadero (CO₂, metano y óxido nitroso) por la quema de combustibles fósiles, la deforestación y la agricultura. En 2019 la concentración de CO₂ llegó a 410 ppm, la mayor en al menos dos millones de años <span class="citation" data-cites="ipcc2021spm">(IPCC 2021)</span>.</li>
+</ul>
+<section id="sec-meteo-cambio-ciclo" class="level3" data-number="6.8.1">
+<h3 data-number="6.8.1" class="anchored" data-anchor-id="sec-meteo-cambio-ciclo"><span class="header-section-number">6.8.1</span> Efectos en el ciclo del agua</h3>
+<p>Por la <a href="#eq-meteo-clausius" class="quarto-xref">Ecuación&nbsp;<span>6.5</span></a>, un aire más caliente puede contener más vapor: entre 6 % y 7 % más por grado. Ese vapor extra alimenta las tormentas, y por eso la lluvia más intensa tiende a crecer a una tasa parecida, aunque la lluvia total del planeta crezca mucho menos <span class="citation" data-cites="trenberth2003changing">(Trenberth et&nbsp;al. 2003)</span>. Las consecuencias para la hidrología son:</p>
+<ul>
+<li><strong>Redistribución de la lluvia.</strong> En general, las regiones húmedas tienden a recibir más lluvia y las secas menos, aunque con grandes diferencias regionales.</li>
+<li><strong>Extremos más intensos.</strong> Aguaceros más fuertes, con más crecidas súbitas, y a la vez sequías más largas por la mayor evaporación.</li>
+<li><strong>Calidad del agua.</strong> El agua más caliente disuelve menos oxígeno.</li>
+<li><strong>Glaciares y nieve.</strong> En las cuencas que dependen del deshielo, el caudal máximo llega antes en la primavera y el estiaje se vuelve más severo.</li>
+<li><strong>Nivel del mar.</strong> El nivel medio subió 1.3 mm/año entre 1901 y 1971 y 3.7 mm/año entre 2006 y 2018, por la expansión térmica del agua y el deshielo <span class="citation" data-cites="ipcc2021spm">(IPCC 2021)</span>. Eso aumenta la intrusión salina en los acuíferos costeros y el nivel de las crecidas en las desembocaduras.</li>
+</ul>
+</section>
+<section id="sec-meteo-cambio-ingenieria" class="level3" data-number="6.8.2">
+<h3 data-number="6.8.2" class="anchored" data-anchor-id="sec-meteo-cambio-ingenieria"><span class="header-section-number">6.8.2</span> Implicaciones para la ingeniería</h3>
+<p>El diseño hidrológico clásico supone que el clima es estacionario: que la lluvia y los caudales del pasado son una buena muestra de los del futuro. Con el cambio climático ese supuesto deja de cumplirse <span class="citation" data-cites="milly2008stationarity">(Milly et&nbsp;al. 2008)</span>. Una alcantarilla o un puente diseñados con las lluvias máximas de 1970–2000 pueden quedar cortos para las de 2050.</p>
+<p>Para estimar el clima futuro se usan modelos climáticos globales, que resuelven las ecuaciones físicas de la atmósfera y el océano. Se corren con escenarios de emisiones y desarrollo; los del sexto informe del Grupo Intergubernamental de Expertos sobre el Cambio Climático (IPCC) se llaman SSP, por <em>Shared Socioeconomic Pathways</em>. Sus resultados no son pronósticos, sino rangos de futuros posibles, y sirven para ver qué tan sensible es una cuenca o una obra a cambios plausibles del clima. Los capítulos sobre cambio climático, desde el <a href="./46-cambio_climatico_fundamentos.html">de fundamentos y evidencia</a>, retoman el tema desde el análisis y el diseño.</p>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<!--
+  Herramientas de lectura del libro: búsqueda en todo el texto (funciona sin
+  internet) y ajustes de accesibilidad (tamaño de letra, alto contraste y
+  fuente más legible). Los ajustes se guardan en el navegador del lector.
+  Lo insertan _quarto.yml (libro web) y herramientas/publicar.R (un solo archivo).
+  En el libro web, Quarto ya trae su propia búsqueda, así que aquí no se agrega.
+-->
+<style>
+  #barra-lectura {
+    position: fixed; top: 0.6rem; right: 1rem; z-index: 1060;
+    display: flex; gap: 0.35rem; align-items: center;
+  }
+  #barra-lectura > button, #barra-lectura > .quarto-color-scheme-toggle {
+    position: static; display: inline-flex; align-items: center; justify-content: center;
+    min-width: 2.3rem; height: 2.3rem; padding: 0 0.55rem;
+    background: var(--bs-body-bg, #fff); color: var(--bs-body-color, #212529);
+    border: 1px solid var(--bs-border-color, #ced4da); border-radius: 0.45rem;
+    font: 600 0.95rem/1 system-ui, sans-serif; cursor: pointer; text-decoration: none;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+  }
+  #barra-lectura > button:hover, #barra-lectura > button[aria-expanded="true"] {
+    border-color: #1C6BA0; color: #1C6BA0;
+  }
+  #barra-lectura > button:focus-visible, .panel-lectura button:focus-visible,
+  .panel-lectura input:focus-visible { outline: 3px solid #1C6BA0; outline-offset: 2px; }
+  #barra-lectura svg { width: 1.05rem; height: 1.05rem; }
+  /* Icono propio del interruptor de modo oscuro (luna en modo claro, sol en
+     modo oscuro), dibujado con el color del texto para que se vea en ambos */
+  #barra-lectura > .quarto-color-scheme-toggle .bi::before {
+    content: ""; display: inline-block; width: 1.05rem; height: 1.05rem;
+    background: currentColor; -webkit-mask: var(--icono-modo) center / contain no-repeat; mask: var(--icono-modo) center / contain no-repeat;
+  }
+  #barra-lectura > .quarto-color-scheme-toggle {
+    --icono-modo: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M6 .278a.77.77 0 0 1 .08.858 7.2 7.2 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277q.792-.001 1.533-.16a.79.79 0 0 1 .81.316.73.73 0 0 1-.031.893A8.35 8.35 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.75.75 0 0 1 6 .278'/%3E%3C/svg%3E");
+  }
+  #barra-lectura > .quarto-color-scheme-toggle.alternate {
+    --icono-modo: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8M8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0m0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13m8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5M3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8m10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0m-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0m9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707M4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708'/%3E%3C/svg%3E");
+  }
+
+  .panel-lectura {
+    position: fixed; top: 3.4rem; right: 1rem; z-index: 1060; display: none;
+    width: min(24rem, calc(100vw - 2rem)); max-height: calc(100vh - 5rem); overflow: auto;
+    background: var(--bs-body-bg, #fff); color: var(--bs-body-color, #212529);
+    border: 1px solid var(--bs-border-color, #ced4da); border-radius: 0.6rem;
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.18); padding: 1rem;
+    font-family: system-ui, sans-serif; font-size: 0.95rem;
+  }
+  .panel-lectura.abierto { display: block; }
+  .panel-lectura h2 { font-size: 1rem; margin: 0 0 0.75rem; font-weight: 700; border: 0; padding: 0; }
+  .panel-lectura .fila { display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; margin: 0.6rem 0; }
+  .panel-lectura .grupo { display: inline-flex; gap: 0.3rem; }
+  .panel-lectura .grupo button, .panel-lectura .restablecer {
+    min-width: 2.4rem; padding: 0.3rem 0.6rem; border-radius: 0.4rem; cursor: pointer;
+    border: 1px solid var(--bs-border-color, #ced4da);
+    background: var(--bs-body-bg, #fff); color: var(--bs-body-color, #212529); font: inherit;
+  }
+  .panel-lectura button[aria-pressed="true"] { background: #1C6BA0; border-color: #1C6BA0; color: #fff; }
+  .panel-lectura .restablecer { width: 100%; margin-top: 0.6rem; }
+  .panel-lectura .nota { color: var(--bs-secondary-color, #6c757d); font-size: 0.85rem; margin: 0.6rem 0 0; }
+
+  #caja-busqueda {
+    width: 100%; padding: 0.5rem 0.65rem; font: inherit; border-radius: 0.4rem;
+    border: 1px solid var(--bs-border-color, #ced4da);
+    background: var(--bs-body-bg, #fff); color: var(--bs-body-color, #212529);
+  }
+  #resultados-busqueda { list-style: none; margin: 0.6rem 0 0; padding: 0; }
+  #resultados-busqueda li { border-top: 1px solid var(--bs-border-color, #e9ecef); }
+  #resultados-busqueda a { display: block; padding: 0.5rem 0.2rem; text-decoration: none; color: inherit; }
+  #resultados-busqueda a:hover, #resultados-busqueda a:focus { background: rgba(28, 107, 160, 0.08); }
+  #resultados-busqueda .lugar { display: block; font-size: 0.8rem; color: #1C6BA0; font-weight: 600; }
+  #resultados-busqueda mark { padding: 0; background: #ffe58a; color: #000; }
+  .resaltado-busqueda { outline: 3px solid #f0ad4e; outline-offset: 3px; transition: outline-color 1s; }
+
+  /* Fuente más legible: sin serifa, más espacio entre letras y líneas */
+  body.lectura-legible #quarto-document-content :is(p, li, td, th, dd, dt, figcaption, blockquote, .callout-body-container),
+  body.lectura-legible #TOC {
+    font-family: Verdana, Tahoma, "Segoe UI", sans-serif !important;
+    letter-spacing: 0.02em; word-spacing: 0.08em; line-height: 1.75;
+  }
+  body.lectura-legible #quarto-document-content :is(h1, h2, h3, h4) {
+    font-family: Verdana, Tahoma, "Segoe UI", sans-serif !important;
+  }
+
+  /* Alto contraste: texto negro sobre blanco (o blanco sobre negro en modo oscuro) */
+  body.lectura-contraste.quarto-light { --bs-body-color: #000; --bs-body-bg: #fff; background: #fff !important; color: #000 !important; }
+  body.lectura-contraste.quarto-light #quarto-document-content *:not(mark):not(code):not(pre) { color: #000 !important; }
+  body.lectura-contraste.quarto-light #quarto-document-content a { color: #0033cc !important; text-decoration: underline !important; }
+  body.lectura-contraste.quarto-dark { --bs-body-color: #fff; --bs-body-bg: #000; background: #000 !important; color: #fff !important; }
+  body.lectura-contraste.quarto-dark #quarto-document-content *:not(mark):not(code):not(pre) { color: #fff !important; }
+  body.lectura-contraste.quarto-dark #quarto-document-content a { color: #ffd84d !important; text-decoration: underline !important; }
+  body.lectura-contraste #quarto-document-content :is(.callout, table, th, td) { border-color: currentColor !important; }
+
+  @media (max-width: 767.98px) {
+    #barra-lectura { top: 0.4rem; right: 0.5rem; }
+    .panel-lectura { right: 0.5rem; top: 3.1rem; }
+  }
+  @media print { #barra-lectura, .panel-lectura { display: none !important; } }
+</style>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  var CLAVE = "libro-hidrologia-lectura";
+  var ESCALAS = [0.9, 1, 1.12, 1.25, 1.4];
+  var ajustes = { escala: 1, contraste: false, legible: false };
+  try {
+    var guardado = JSON.parse(localStorage.getItem(CLAVE) || "null");
+    if (guardado) Object.assign(ajustes, guardado);
+  } catch (e) { /* sin almacenamiento: se usan los valores de fábrica */ }
+
+  function guardar() {
+    try { localStorage.setItem(CLAVE, JSON.stringify(ajustes)); } catch (e) {}
+  }
+  function aplicar() {
+    document.documentElement.style.fontSize = ajustes.escala === 1 ? "" : (ajustes.escala * 100) + "%";
+    document.body.classList.toggle("lectura-contraste", !!ajustes.contraste);
+    document.body.classList.toggle("lectura-legible", !!ajustes.legible);
+    var b;
+    if ((b = document.getElementById("lect-contraste"))) b.setAttribute("aria-pressed", String(!!ajustes.contraste));
+    if ((b = document.getElementById("lect-legible"))) b.setAttribute("aria-pressed", String(!!ajustes.legible));
+    if ((b = document.getElementById("lect-tamano"))) b.textContent = Math.round(ajustes.escala * 100) + " %";
+  }
+  aplicar();
+
+  var main = document.getElementById("quarto-document-content") || document.querySelector("main");
+  var hayBusquedaQuarto = !!document.getElementById("quarto-search");
+
+  // --- Barra de botones, arriba a la derecha, junto al modo oscuro ---
+  var barra = document.createElement("div");
+  barra.id = "barra-lectura";
+  var iconoLupa = '<svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M11.74 10.34a6.5 6.5 0 1 0-1.4 1.4l3.85 3.85a1 1 0 0 0 1.4-1.4zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/></svg>';
+  var html = "";
+  if (!hayBusquedaQuarto) {
+    html += '<button type="button" id="boton-busqueda" aria-label="Buscar en el libro" aria-expanded="false" aria-controls="panel-busqueda" title="Buscar en el libro (Ctrl+K)">' + iconoLupa + '</button>';
+  }
+  html += '<button type="button" id="boton-acceso" aria-label="Opciones de lectura: tamaño de letra, contraste y fuente" aria-expanded="false" aria-controls="panel-acceso" title="Tamaño de letra, contraste y fuente">Aa</button>';
+  barra.innerHTML = html;
+  document.body.appendChild(barra);
+
+  // El interruptor de modo oscuro de Quarto pasa a la misma barra, que está
+  // fija arriba a la derecha y se ve en todos los capítulos. En el libro de un
+  // solo archivo Quarto crea el interruptor después de este código, así que se
+  // intenta de nuevo cuando la página termina de cargar.
+  function moverInterruptor() {
+    var interruptor = document.querySelector("body > .quarto-color-scheme-toggle.top-right");
+    if (!interruptor) return;
+    interruptor.classList.remove("top-right");
+    interruptor.setAttribute("aria-label", "Cambiar entre modo claro y oscuro");
+    interruptor.title = "Modo claro u oscuro";
+    barra.appendChild(interruptor);
+    // Quarto no recuerda el modo cuando el libro se abre como archivo local;
+    // se guarda aquí para que se mantenga al volver a abrirlo
+    interruptor.addEventListener("click", function () {
+      setTimeout(function () {
+        try { localStorage.setItem("libro-modo-oscuro", document.body.classList.contains("quarto-dark") ? "1" : "0"); } catch (e) {}
+      }, 0);
+    });
+    var oscuro = null;
+    try { oscuro = localStorage.getItem("libro-modo-oscuro"); } catch (e) {}
+    if (oscuro === "1" && !document.body.classList.contains("quarto-dark") && window.quartoToggleColorScheme) {
+      window.quartoToggleColorScheme();
+    }
+  }
+  moverInterruptor();
+  document.addEventListener("DOMContentLoaded", moverInterruptor);
+  window.addEventListener("load", moverInterruptor);
+
+  // --- Panel de accesibilidad ---
+  var panelAcceso = document.createElement("div");
+  panelAcceso.className = "panel-lectura";
+  panelAcceso.id = "panel-acceso";
+  panelAcceso.setAttribute("role", "dialog");
+  panelAcceso.setAttribute("aria-label", "Opciones de lectura");
+  panelAcceso.innerHTML =
+    '<h2>Opciones de lectura</h2>' +
+    '<div class="fila"><span>Tamaño de letra</span><span class="grupo">' +
+      '<button type="button" id="lect-menos" aria-label="Letra más pequeña">A&minus;</button>' +
+      '<button type="button" id="lect-tamano" aria-label="Volver al tamaño normal" title="Tamaño normal">100 %</button>' +
+      '<button type="button" id="lect-mas" aria-label="Letra más grande">A+</button></span></div>' +
+    '<div class="fila"><span>Alto contraste</span><span class="grupo">' +
+      '<button type="button" id="lect-contraste" aria-pressed="false">Activar</button></span></div>' +
+    '<div class="fila"><span>Fuente más legible</span><span class="grupo">' +
+      '<button type="button" id="lect-legible" aria-pressed="false">Activar</button></span></div>' +
+    '<button type="button" class="restablecer" id="lect-restablecer">Restablecer</button>' +
+    '<p class="nota">Los ajustes se guardan en este navegador. El modo oscuro está en el botón de al lado.</p>';
+  document.body.appendChild(panelAcceso);
+
+  function cambiarEscala(paso) {
+    var i = ESCALAS.indexOf(ajustes.escala);
+    if (i < 0) i = 1;
+    i = paso === 0 ? 1 : Math.min(ESCALAS.length - 1, Math.max(0, i + paso));
+    ajustes.escala = ESCALAS[i];
+    aplicar(); guardar();
+  }
+  document.getElementById("lect-menos").addEventListener("click", function () { cambiarEscala(-1); });
+  document.getElementById("lect-mas").addEventListener("click", function () { cambiarEscala(1); });
+  document.getElementById("lect-tamano").addEventListener("click", function () { cambiarEscala(0); });
+  document.getElementById("lect-contraste").addEventListener("click", function () {
+    ajustes.contraste = !ajustes.contraste; aplicar(); guardar();
+  });
+  document.getElementById("lect-legible").addEventListener("click", function () {
+    ajustes.legible = !ajustes.legible; aplicar(); guardar();
+  });
+  document.getElementById("lect-restablecer").addEventListener("click", function () {
+    ajustes = { escala: 1, contraste: false, legible: false }; aplicar(); guardar();
+  });
+  aplicar();
+
+  // --- Panel de búsqueda (solo en el libro de un archivo) ---
+  var panelBusqueda = null;
+  if (!hayBusquedaQuarto && main) {
+    panelBusqueda = document.createElement("div");
+    panelBusqueda.className = "panel-lectura";
+    panelBusqueda.id = "panel-busqueda";
+    panelBusqueda.setAttribute("role", "dialog");
+    panelBusqueda.setAttribute("aria-label", "Buscar en el libro");
+    panelBusqueda.innerHTML =
+      '<h2>Buscar en el libro</h2>' +
+      '<input type="search" id="caja-busqueda" placeholder="Por ejemplo: Thiessen, curva masa…" autocomplete="off" aria-describedby="estado-busqueda">' +
+      '<p class="nota" id="estado-busqueda" aria-live="polite">Escriba al menos 3 letras. No distingue tildes ni mayúsculas.</p>' +
+      '<ul id="resultados-busqueda"></ul>';
+    document.body.appendChild(panelBusqueda);
+  }
+
+  function normalizar(t) {
+    return t.normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase();
+  }
+
+  // Índice: cada párrafo, elemento de lista, celda o leyenda, con su capítulo y sección
+  var indice = null;
+  function construirIndice() {
+    indice = [];
+    var nodos = main.querySelectorAll("p, li, td, th, figcaption, h1, h2, h3, h4, .callout-title-container");
+    Array.prototype.forEach.call(nodos, function (el) {
+      if (el.closest(".nav-capitulos, #TOC, .panel-lectura, pre, .sourceCode, script, style")) return;
+      if (el.tagName === "LI" && el.querySelector("p")) return;   // ya se indexan sus párrafos
+      var texto = (el.textContent || "").replace(/\s+/g, " ").trim();
+      if (texto.length < 3) return;
+      var sec = el.closest("section[id]");
+      var cap = el.closest("section.level1");
+      var h1 = cap ? cap.querySelector("h1") : null;
+      var hs = sec && sec !== cap ? sec.querySelector(":scope > h2, :scope > h3, :scope > h4") : null;
+      indice.push({
+        el: el, texto: texto, norm: normalizar(texto),
+        destino: (sec || cap || {}).id || "",
+        capitulo: h1 ? h1.textContent.replace(/\s+/g, " ").trim() : "",
+        seccion: hs ? hs.textContent.replace(/\s+/g, " ").trim() : ""
+      });
+    });
+  }
+
+  function escaparHtml(t) {
+    return t.replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; });
+  }
+  function fragmento(item, palabras) {
+    var pos = item.norm.indexOf(palabras[0]);
+    var ini = Math.max(0, pos - 60), fin = Math.min(item.texto.length, pos + 140);
+    var trozo = item.texto.slice(ini, fin), trozoNorm = item.norm.slice(ini, fin);
+    // Resalta cada palabra buscada (las posiciones coinciden porque normalizar no cambia la longitud
+    // de los caracteres comunes del español)
+    var marcas = [];
+    palabras.forEach(function (w) {
+      var k = trozoNorm.indexOf(w);
+      while (k >= 0) { marcas.push([k, k + w.length]); k = trozoNorm.indexOf(w, k + w.length); }
+    });
+    marcas.sort(function (a, b) { return a[0] - b[0]; });
+    var salida = "", ultimo = 0;
+    marcas.forEach(function (m) {
+      if (m[0] < ultimo) return;
+      salida += escaparHtml(trozo.slice(ultimo, m[0])) + "<mark>" + escaparHtml(trozo.slice(m[0], m[1])) + "</mark>";
+      ultimo = m[1];
+    });
+    salida += escaparHtml(trozo.slice(ultimo));
+    return (ini > 0 ? "… " : "") + salida + (fin < item.texto.length ? " …" : "");
+  }
+
+  var temporizador = null;
+  function buscar() {
+    var caja = document.getElementById("caja-busqueda");
+    var estado = document.getElementById("estado-busqueda");
+    var lista = document.getElementById("resultados-busqueda");
+    var consulta = normalizar(caja.value.trim());
+    lista.innerHTML = "";
+    if (consulta.length < 3) {
+      estado.textContent = "Escriba al menos 3 letras. No distingue tildes ni mayúsculas.";
+      return;
+    }
+    if (!indice) construirIndice();
+    var palabras = consulta.split(/\s+/).filter(Boolean);
+    var hallados = indice.filter(function (it) {
+      return palabras.every(function (w) { return it.norm.indexOf(w) >= 0; });
+    });
+    var MAX = 60;
+    estado.textContent = hallados.length === 0 ? "Sin resultados." :
+      (hallados.length > MAX ? "Se muestran " + MAX + " de " + hallados.length + " resultados." :
+       hallados.length + (hallados.length === 1 ? " resultado." : " resultados."));
+    hallados.slice(0, MAX).forEach(function (it) {
+      var li = document.createElement("li");
+      var a = document.createElement("a");
+      a.href = "#" + it.destino;
+      var lugar = it.capitulo + (it.seccion && it.seccion !== it.capitulo ? " › " + it.seccion : "");
+      a.innerHTML = '<span class="lugar">' + escaparHtml(lugar) + "</span>" + fragmento(it, palabras);
+      a.addEventListener("click", function () {
+        cerrarPaneles();
+        // La navegación por capítulos abre la página; después se lleva al párrafo exacto
+        setTimeout(function () {
+          it.el.scrollIntoView({ block: "center" });
+          it.el.classList.add("resaltado-busqueda");
+          setTimeout(function () { it.el.classList.remove("resaltado-busqueda"); }, 2500);
+        }, 60);
+      });
+      li.appendChild(a);
+      lista.appendChild(li);
+    });
+  }
+
+  // --- Abrir y cerrar paneles ---
+  function cerrarPaneles() {
+    [panelAcceso, panelBusqueda].forEach(function (p) { if (p) p.classList.remove("abierto"); });
+    Array.prototype.forEach.call(barra.querySelectorAll("button[aria-expanded]"), function (b) {
+      b.setAttribute("aria-expanded", "false");
+    });
+  }
+  function alternar(panel, boton, foco) {
+    var abrir = !panel.classList.contains("abierto");
+    cerrarPaneles();
+    if (abrir) {
+      panel.classList.add("abierto");
+      boton.setAttribute("aria-expanded", "true");
+      if (foco) foco.focus();
+    }
+  }
+  document.getElementById("boton-acceso").addEventListener("click", function () {
+    alternar(panelAcceso, this, document.getElementById("lect-mas"));
+  });
+  if (panelBusqueda) {
+    var caja = document.getElementById("caja-busqueda");
+    document.getElementById("boton-busqueda").addEventListener("click", function () {
+      alternar(panelBusqueda, this, caja);
+    });
+    caja.addEventListener("input", function () {
+      clearTimeout(temporizador);
+      temporizador = setTimeout(buscar, 200);
+    });
+  }
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape") cerrarPaneles();
+    if (panelBusqueda && (e.ctrlKey || e.metaKey) && (e.key === "k" || e.key === "K")) {
+      e.preventDefault();
+      alternar(panelBusqueda, document.getElementById("boton-busqueda"), document.getElementById("caja-busqueda"));
+    }
+  });
+  document.addEventListener("click", function (e) {
+    if (!e.target.closest(".panel-lectura, #barra-lectura")) cerrarPaneles();
+  });
+});
+</script>
+
+<!--
+  Notas al pie de los cuadros hechos con kableExtra: Quarto parte la celda que
+  ocupa todo el ancho en una celda por columna, y la nota queda apretada en la
+  primera columna. Aquí se vuelve a unir en una sola celda de todo el ancho.
+-->
+<style>
+  tfoot td.nota-cuadro { text-align: left !important; padding: 0.4rem 0.5rem !important;
+    font-size: 0.9em; white-space: normal; }
+</style>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  document.querySelectorAll("tfoot tr").forEach(function (fila) {
+    var celdas = Array.prototype.slice.call(fila.cells);
+    if (celdas.length < 2 || celdas[0].textContent.trim() === "") return;
+    var vacias = celdas.slice(1).every(function (c) { return c.textContent.trim() === ""; });
+    if (!vacias) return;
+    celdas[0].colSpan = celdas.length;
+    celdas[0].classList.add("nota-cuadro");
+    celdas.slice(1).forEach(function (c) { c.remove(); });
+  });
+});
+</script>
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+    let newTheme = '';
+    if(darkModeDefault) {
+      newTheme = isAlternate ? baseTheme : alternateTheme;
+    } else {
+      newTheme = isAlternate ? alternateTheme : baseTheme;
+    }
+    const changeGiscusTheme = () => {
+      // From: https://github.com/giscus/giscus/issues/336
+      const sendMessage = (message) => {
+        const iframe = document.querySelector('iframe.giscus-frame');
+        if (!iframe) return;
+        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+      }
+      sendMessage({
+        setConfig: {
+          theme: newTheme
+        }
+      });
+    }
+    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+    if (isGiscussLoaded) {
+      changeGiscusTheme();
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  const darkModeDefault = false;
+  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+    toggleGiscusIfUsed(toAlternate, darkModeDefault);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copiado");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copiado");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/ems270900\.github\.io\/hidrologia-aplicada\/");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+          // target, if specified
+          link.setAttribute("target", "_blank");
+          if (link.getAttribute("rel") === null) {
+            link.setAttribute("rel", "noopener");
+          }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./05-Fuentes_info_hidrometeo.html" class="pagination-link" aria-label="Fuentes de información hidrometeorológica">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Fuentes de información hidrometeorológica</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./07-Precip.html" class="pagination-link" aria-label="Precipitación">
+        <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Precipitación</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>© 2026 Ing. Edwin Matarrita Segura. Texto bajo licencia <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.es">CC BY-NC-SA 4.0</a>; código R bajo licencia <a href="https://github.com/ems270900/hidrologia-aplicada/blob/main/LICENSE-CODE">MIT</a>.</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+<p>Este libro fue construido con <a href="https://quarto.org/">Quarto</a> y <a href="https://posit.co/download/rstudio-desktop/">RStudio</a>.</p>
+</div>
+  </div>
+</footer>
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
+
+
+
+
+<script src="site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>

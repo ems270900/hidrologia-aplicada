@@ -1,0 +1,2402 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.40">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>42&nbsp; Hidrología urbana y escorrentía urbana – Hidrología Aplicada a la Ingeniería Civil</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./43-drenaje_urbano.html" rel="next">
+<link href="./41-pronostico_alerta_temprana.html" rel="prev">
+<link href="./assets/img/favicon.png" rel="icon" type="image/png">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-8ea72dc5fed832574809a9c94082fbbb.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-9308c6a3e2b77de33fd175cc56d97d6e.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-955cb59a11449acdc5f9686ead510861.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script src="site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "Sin resultados",
+    "search-matching-documents-text": "documentos encontrados",
+    "search-copy-link-title": "Copiar el enlace en la búsqueda",
+    "search-hide-matches-text": "Ocultar resultados adicionales",
+    "search-more-match-text": "resultado adicional en este documento",
+    "search-more-matches-text": "resultados adicionales en este documento",
+    "search-clear-button-title": "Borrar",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancelar",
+    "search-submit-button-title": "Enviar",
+    "search-label": "Buscar"
+  }
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
+<script src="site_libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+<link href="site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet">
+<script src="site_libs/pagedtable-1.1/js/pagedtable.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="assets/css/styles.css">
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./42-hidrologia_urbana.html">Hidrología urbana</a></li><li class="breadcrumb-item"><a href="./42-hidrologia_urbana.html"><span class="chapter-number">42</span>&nbsp; <span class="chapter-title">Hidrología urbana y escorrentía urbana</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Hidrología Aplicada a la Ingeniería Civil</a> 
+        <div class="sidebar-tools-main">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Alternar modo oscuro"><i class="bi"></i></a>
+  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Alternar modo lector">
+  <div class="quarto-reader-toggle-btn">
+  <i class="bi"></i>
+  </div>
+</a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Buscar"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Hidrología Aplicada a la Ingeniería Civil</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./welcome.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Prefacio</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introducción</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Fundamentos</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01-La_hidrologia_como_ciencia.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">La hidrología como ciencia</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02-Disponibilidad.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">La disponibilidad del recurso hídrico</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03-Ciclo_hidrologico.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">El ciclo hidrológico</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04-Cuenca.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">La cuenca como unidad hidrológica</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Información hidrometeorológica</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05-Fuentes_info_hidrometeo.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Fuentes de información hidrometeorológica</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./06-Meteo.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Principios de meteorología y climatología</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./07-Precip.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Precipitación</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./08-hidrometria.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Hidrometría: aforos y curvas de descarga</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./09-registros_hidro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Verificación y completado de registros hidrológicos</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./10-teledeteccion_productos_satelitales.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Teledetección y productos satelitales</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Análisis estadístico aplicado a la hidrología</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./11-estadistica.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Conceptos básicos de probabilidad</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./12-retorno_y_riesgo.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Conceptos clave de probabilidad en hidrología</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./13-modelos.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Modelos estadísticos y distribuciones de probabilidad</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./14-dist_parametrica.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Distribuciones paramétricas de probabilidad comunes en hidrología</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">Lluvia de diseño</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./15-IDF.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Intensidad, duración y frecuencia de la precipitación</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./16-hietogramas_diseno.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Distribución temporal de la lluvia de diseño</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./17-precipitacion_maxima_probable.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Precipitación máxima probable</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
+ <span class="menu-text">Procesos de pérdida del agua</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./18-Evaporación.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Evaporación</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./19-Evapotranspiración.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Evapotranspiración</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./20-Infiltración y almacenamiento en el suelo.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Infiltración y almacenamiento en el suelo</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./21-Transición hacia la escorrentía superficial.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Intercepción, almacenamiento superficial y transición a la escorrentía</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true">
+ <span class="menu-text">Balance hídrico, agua subterránea y caudales bajos</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./22-Principio de conservación de la masa.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Principio de conservación de la masa</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./23-Balance hídrico a escala de cuenca.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Balance hídrico a escala de cuenca</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./24-Balance hídrico del suelo.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Balance hídrico del suelo</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./25-agua_subterranea.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Agua subterránea y recarga de acuíferos</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./26-caudales_minimos_sequias.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Caudales mínimos, sequías y curvas de duración</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./27-oferta_demanda.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Oferta y demanda hídrica</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true">
+ <span class="menu-text">Escorrentía y crecidas de diseño</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./28-hidrograma_unitario.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Hidrograma de escorrentía directa e hidrograma unitario</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./29-metodo_racional.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Método racional y tiempo de concentración</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./30-modelos_lluvia_escorrentia.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Modelos lluvia-escorrentía</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./31-frecuencia_caudales.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Análisis de frecuencia de caudales y regionalización</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./32-incertidumbre.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Incertidumbre en hidrología</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true">
+ <span class="menu-text">Sedimentos, calidad del agua y morfología fluvial</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./33-erosion_sedimentos.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Erosión y producción de sedimentos</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./34-transporte_sedimentos.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">Transporte de sedimentos y sedimentación de embalses</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./35-morfologia_fluvial.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">Morfología fluvial</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./36-calidad_agua.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">36</span>&nbsp; <span class="chapter-title">Calidad del agua</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="true">
+ <span class="menu-text">Tránsito de avenidas, embalses y crecidas</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="true" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./37-transito_fundamentos.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">37</span>&nbsp; <span class="chapter-title">Fundamentos del tránsito de avenidas</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./38-transito_embalses.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">38</span>&nbsp; <span class="chapter-title">Tránsito de avenidas y operación de embalses</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./39-transito_rios.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">39</span>&nbsp; <span class="chapter-title">Tránsito hidrológico en ríos</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./40-amenaza_inundacion.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">40</span>&nbsp; <span class="chapter-title">Amenaza por inundación</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./41-pronostico_alerta_temprana.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">41</span>&nbsp; <span class="chapter-title">Pronóstico de crecidas y sistemas de alerta temprana</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="true">
+ <span class="menu-text">Hidrología urbana</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="true" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./42-hidrologia_urbana.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">42</span>&nbsp; <span class="chapter-title">Hidrología urbana y escorrentía urbana</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./43-drenaje_urbano.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">43</span>&nbsp; <span class="chapter-title">Sistemas de drenaje urbano</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./44-drenaje_sostenible.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">44</span>&nbsp; <span class="chapter-title">Hidrología urbana sostenible y adaptación climática</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" role="navigation" aria-expanded="true">
+ <span class="menu-text">Cambio climático, uso del suelo e hidrología</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" role="navigation" aria-expanded="true" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-11" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./45-ecohidrologia_uso_suelo.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">45</span>&nbsp; <span class="chapter-title">Ecohidrología y cambio de uso del suelo</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./46-cambio_climatico_fundamentos.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">46</span>&nbsp; <span class="chapter-title">Cambio climático: fundamentos y evidencia</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./47-escenarios_modelos_climaticos.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">47</span>&nbsp; <span class="chapter-title">Escenarios y modelos climáticos</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./48-diseno_cambio_climatico.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">48</span>&nbsp; <span class="chapter-title">Diseño hidrológico con cambio climático</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./49-epilogo.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Palabras finales</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./99-Referencias.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Referencias</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Tabla de contenidos</h2>
+   
+  <ul>
+  <li><a href="#sec-urb-efectos" id="toc-sec-urb-efectos" class="nav-link active" data-scroll-target="#sec-urb-efectos"><span class="header-section-number">42.1</span> Efectos de la urbanización en el ciclo hidrológico</a>
+  <ul class="collapse">
+  <li><a href="#cambios-en-el-hidrograma" id="toc-cambios-en-el-hidrograma" class="nav-link" data-scroll-target="#cambios-en-el-hidrograma"><span class="header-section-number">42.1.1</span> Cambios en el hidrograma</a></li>
+  <li><a href="#efectos-sobre-los-cauces-y-la-calidad-del-agua" id="toc-efectos-sobre-los-cauces-y-la-calidad-del-agua" class="nav-link" data-scroll-target="#efectos-sobre-los-cauces-y-la-calidad-del-agua"><span class="header-section-number">42.1.2</span> Efectos sobre los cauces y la calidad del agua</a></li>
+  </ul></li>
+  <li><a href="#sec-urb-impermeable" id="toc-sec-urb-impermeable" class="nav-link" data-scroll-target="#sec-urb-impermeable"><span class="header-section-number">42.2</span> Superficie impermeable</a></li>
+  <li><a href="#sec-urb-estimacion" id="toc-sec-urb-estimacion" class="nav-link" data-scroll-target="#sec-urb-estimacion"><span class="header-section-number">42.3</span> Estimación de la escorrentía urbana</a>
+  <ul class="collapse">
+  <li><a href="#sec-urb-racional" id="toc-sec-urb-racional" class="nav-link" data-scroll-target="#sec-urb-racional"><span class="header-section-number">42.3.1</span> Método racional en áreas urbanas</a></li>
+  <li><a href="#sec-urb-cn" id="toc-sec-urb-cn" class="nav-link" data-scroll-target="#sec-urb-cn"><span class="header-section-number">42.3.2</span> Número de curva con superficie impermeable</a></li>
+  <li><a href="#sec-urb-rv" id="toc-sec-urb-rv" class="nav-link" data-scroll-target="#sec-urb-rv"><span class="header-section-number">42.3.3</span> Coeficiente volumétrico para lluvias frecuentes</a></li>
+  <li><a href="#sec-urb-hidrograma" id="toc-sec-urb-hidrograma" class="nav-link" data-scroll-target="#sec-urb-hidrograma"><span class="header-section-number">42.3.4</span> Hidrogramas en cuencas urbanas</a></li>
+  <li><a href="#modelos-de-simulación-urbana" id="toc-modelos-de-simulación-urbana" class="nav-link" data-scroll-target="#modelos-de-simulación-urbana"><span class="header-section-number">42.3.5</span> Modelos de simulación urbana</a></li>
+  </ul></li>
+  <li><a href="#sec-urb-gestion" id="toc-sec-urb-gestion" class="nav-link" data-scroll-target="#sec-urb-gestion"><span class="header-section-number">42.4</span> Gestión del agua pluvial urbana</a></li>
+  <li><a href="#ejercicios-propuestos" id="toc-ejercicios-propuestos" class="nav-link" data-scroll-target="#ejercicios-propuestos"><span class="header-section-number">42.5</span> Ejercicios propuestos</a></li>
+  <li><a href="#lecturas-recomendadas" id="toc-lecturas-recomendadas" class="nav-link" data-scroll-target="#lecturas-recomendadas"><span class="header-section-number">42.6</span> Lecturas recomendadas</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./42-hidrologia_urbana.html">Hidrología urbana</a></li><li class="breadcrumb-item"><a href="./42-hidrologia_urbana.html"><span class="chapter-number">42</span>&nbsp; <span class="chapter-title">Hidrología urbana y escorrentía urbana</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">42</span>&nbsp; <span class="chapter-title">Hidrología urbana y escorrentía urbana</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="quote-block">
+<p>“De todos los cambios de uso de la tierra que afectan la hidrología de una zona, la urbanización es, con mucho, el más contundente.”<br>
+— <em>Luna B. Leopold</em>, Hydrology for urban land planning <span class="citation" data-cites="leopold1968urban">(1968, 2)</span></p>
+</div>
+<p>En la Gran Área Metropolitana de Costa Rica, muchas de las quebradas que hoy se desbordan con aguaceros de una hora eran, hace cuarenta años, cauces que casi nunca salían de sus márgenes. La lluvia no cambió tanto como el terreno: donde había cafetales y potreros ahora hay techos, calles y estacionamientos que no dejan infiltrar el agua y la conducen en minutos a los cauces. En la microcuenca del río Torres, por ejemplo, un aumento de 10 % del área urbanizable cambia el caudal pico de las tres subcuencas estudiadas, y el efecto es mayor si se impermeabiliza la parte alta <span class="citation" data-cites="alvarado2020torres">(Alvarado García 2020)</span>. Quien diseña un alcantarillado pluvial, una urbanización o un puente urbano necesita estimar ese cambio con números, para una cuenca de pocas hectáreas y con tormentas de minutos. Ese es el tema de la hidrología urbana.</p>
+<section id="sec-urb-efectos" class="level2" data-number="42.1">
+<h2 data-number="42.1" class="anchored" data-anchor-id="sec-urb-efectos"><span class="header-section-number">42.1</span> Efectos de la urbanización en el ciclo hidrológico</h2>
+<p>La urbanización cambia casi todos los términos del balance hídrico de una cuenca pequeña. Las superficies impermeables eliminan la infiltración y el almacenamiento en depresiones; la pérdida de vegetación reduce la intercepción y la evapotranspiración; y las cunetas, los tragantes y las tuberías acortan el recorrido del agua y aumentan su velocidad. El resultado neto es más escorrentía, que llega antes y en menos tiempo.</p>
+<p>Arnold y Gibbons <span class="citation" data-cites="arnold1996impervious">(1996)</span> resumieron el cambio del balance con cuatro estados típicos de cobertura impermeable, que se muestran en la <a href="#fig-urb-balance" class="quarto-xref">Figura&nbsp;<span>42.1</span></a>. Con cobertura natural, unos 10 % de la lluvia anual se convierte en escorrentía superficial; con 75 a 100 % de superficie impermeable, la fracción llega a 55 %. La infiltración profunda, que recarga los acuíferos y sostiene el caudal base, baja de 25 % a 5 %.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div id="fig-urb-balance" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" alt="Barras apiladas para cuatro niveles de cobertura impermeable; la escorrentía superficial crece de 10 a 55 por ciento y la infiltración profunda baja de 25 a 5 por ciento">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-urb-balance-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="42-hidrologia_urbana_files/figure-html/fig-urb-balance-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Figura&nbsp;42.1: Reparto típico de la lluvia anual según la cobertura impermeable. Fuente: adaptado de @arnold1996impervious."><img src="42-hidrologia_urbana_files/figure-html/fig-urb-balance-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:70.0%" alt="Barras apiladas para cuatro niveles de cobertura impermeable; la escorrentía superficial crece de 10 a 55 por ciento y la infiltración profunda baja de 25 a 5 por ciento"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-urb-balance-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;42.1: Reparto típico de la lluvia anual según la cobertura impermeable. Fuente: adaptado de <span class="citation" data-cites="arnold1996impervious">Arnold y Gibbons (1996)</span>.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<section id="cambios-en-el-hidrograma" class="level3" data-number="42.1.1">
+<h3 data-number="42.1.1" class="anchored" data-anchor-id="cambios-en-el-hidrograma"><span class="header-section-number">42.1.1</span> Cambios en el hidrograma</h3>
+<p>El efecto que más le interesa a quien diseña es el cambio del hidrograma de crecida. Leopold <span class="citation" data-cites="leopold1968urban">(1968)</span> mostró, con datos de cuencas de los Estados Unidos, que el caudal pico de una crecida frecuente crece con dos variables: la fracción impermeable de la cuenca y la fracción de la cuenca servida por alcantarillado pluvial. La segunda importa tanto como la primera, porque un sistema de tuberías elimina el recorrido lento por laderas y cauces naturales. En la práctica se observan cuatro cambios a la vez:</p>
+<ul>
+<li><strong>Mayor volumen de escorrentía.</strong> Las pérdidas iniciales y la infiltración disminuyen, de modo que una misma lluvia produce más lámina de escorrentía.</li>
+<li><strong>Menor tiempo de concentración.</strong> El agua corre sobre superficies lisas y por conductos, con velocidades de 1 a 3 m/s en lugar de unos centímetros por segundo en una ladera con pasto.</li>
+<li><strong>Mayor caudal pico.</strong> Se suman los dos efectos anteriores: más volumen concentrado en menos tiempo. Además, con un <span class="math inline">\(t_c\)</span> menor la intensidad de diseño de la curva IDF es mayor.</li>
+<li><strong>Menor caudal base.</strong> Con menos recarga, las quebradas urbanas llevan menos agua en la época seca, aunque las fugas de acueductos y los vertidos de aguas residuales a veces compensan esa pérdida.</li>
+</ul>
+</section>
+<section id="efectos-sobre-los-cauces-y-la-calidad-del-agua" class="level3" data-number="42.1.2">
+<h3 data-number="42.1.2" class="anchored" data-anchor-id="efectos-sobre-los-cauces-y-la-calidad-del-agua"><span class="header-section-number">42.1.2</span> Efectos sobre los cauces y la calidad del agua</h3>
+<p>Las crecidas más frecuentes y más altas erosionan el cauce: se ensancha, se profundiza y pierde los hábitats del lecho. Walsh et al. <span class="citation" data-cites="walsh2005urban">(2005)</span> llamaron síndrome del río urbano a ese conjunto de síntomas, que incluye hidrogramas más bruscos, más nutrientes y contaminantes, cauces alterados y menos especies. Schueler <span class="citation" data-cites="schueler1994importance">(1994)</span> recopiló estudios que muestran que la calidad de los cauces empieza a degradarse cuando la cobertura impermeable de la cuenca pasa de 10 %, y que por encima de 25 a 30 % el deterioro es severo. Esos umbrales son aproximados, pero explican por qué muchas normas de drenaje ya no se limitan a evacuar el agua y piden además controlar volúmenes y caudales en el sitio (<a href="#sec-urb-gestion" class="quarto-xref"><span>Sección 42.4</span></a>).</p>
+<p>La escorrentía urbana también arrastra sedimentos, aceites, metales, basura y bacterias. En los primeros minutos de una tormenta la concentración suele ser mayor, porque la lluvia lava lo acumulado en calles y techos desde el último evento. Ese fenómeno de lavado inicial es la base del volumen de calidad de agua que se trata en el capítulo de drenaje sostenible.</p>
+</section>
+</section>
+<section id="sec-urb-impermeable" class="level2" data-number="42.2">
+<h2 data-number="42.2" class="anchored" data-anchor-id="sec-urb-impermeable"><span class="header-section-number">42.2</span> Superficie impermeable</h2>
+<p>La variable que mejor resume la urbanización de una cuenca es la fracción impermeable, el porcentaje del área cubierto por techos, pavimentos y otras superficies que no dejan infiltrar el agua. Para la hidrología no basta con conocer el total: importa también cómo está conectada al sistema de drenaje.</p>
+<ul>
+<li><strong>Superficie impermeable conectada.</strong> Drena directamente a una cuneta, un tragante o una tubería, sin pasar por suelo permeable. Un techo cuyo bajante llega a la calle es un caso típico.</li>
+<li><strong>Superficie impermeable no conectada.</strong> Descarga primero sobre un jardín o una zona verde, donde parte del agua se infiltra antes de llegar al sistema. Un techo con bajante hacia el césped es un ejemplo.</li>
+</ul>
+<p>La superficie conectada es la que genera casi toda la escorrentía de las lluvias pequeñas y medianas. Por eso, desconectar techos y pavimentos es una de las medidas más baratas para reducir la escorrentía de una urbanización existente.</p>
+<p>La fracción impermeable se estima de tres maneras. La más precisa es medir sobre planos de construcción o sobre una ortofoto. Para cuencas grandes se clasifica una imagen satelital (<a href="04-Cuenca.html#sec-cuenca-urbana" class="quarto-xref"><span>Sección 4.9</span></a> y <a href="10-teledeteccion_productos_satelitales.html#sec-sat-principios" class="quarto-xref"><span>Sección 10.1</span></a>). En estudios preliminares se usan valores típicos por tipo de uso, como los del <a href="#tbl-urb-cn" class="quarto-xref">Cuadro&nbsp;<span>42.4</span></a>, que vienen del método del número de curva.</p>
+<div class="callout callout-style-default callout-warning callout-titled" title="Cuidado">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Cuidado
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>La fracción impermeable de una urbanización cambia con el tiempo. Los lotes se techan por completo, los patios se pavimentan y se construyen ampliaciones que no estaban en los planos. Un diseño que usa la cobertura del proyecto aprobado subestima la de quince años después. Conviene diseñar con la cobertura de la urbanización consolidada, no con la de entrega.</p>
+</div>
+</div>
+</section>
+<section id="sec-urb-estimacion" class="level2" data-number="42.3">
+<h2 data-number="42.3" class="anchored" data-anchor-id="sec-urb-estimacion"><span class="header-section-number">42.3</span> Estimación de la escorrentía urbana</h2>
+<p>Los métodos de estimación de la escorrentía urbana son los mismos de los capítulos de escorrentía, adaptados a cuencas pequeñas y muy impermeables. El método se elige según lo que se necesita: solo el caudal pico, el volumen de la tormenta o el hidrograma completo <span class="citation" data-cites="fhwa2009hec22 mays2001stormwater">(Brown et&nbsp;al. 2009, cap. 3; Mays 2001)</span>.</p>
+<div class="cell" data-layout-align="center">
+<div id="tbl-urb-metodos" class="cell quarto-float quarto-figure quarto-figure-center anchored" data-layout-align="center">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-urb-metodos-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Cuadro&nbsp;42.1: Métodos de estimación de escorrentía en cuencas urbanas.
+</figcaption>
+<div aria-describedby="tbl-urb-metodos-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<table class="table table-hover table-condensed do-not-create-environment cell caption-top table-sm table-striped small" data-quarto-postprocess="true">
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">Método</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Qué entrega</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Uso típico</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Método racional</td>
+<td style="text-align: left;">Caudal pico</td>
+<td style="text-align: left;">Tragantes, tuberías y cunetas en áreas pequeñas</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Número de curva (NRCS)</td>
+<td style="text-align: left;">Lámina de escorrentía</td>
+<td style="text-align: left;">Volúmenes de tormenta, detención, cuencas mixtas</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Coeficiente volumétrico</td>
+<td style="text-align: left;">Volumen de escorrentía</td>
+<td style="text-align: left;">Volumen de calidad de agua y lluvias frecuentes</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Hidrograma unitario sintético</td>
+<td style="text-align: left;">Hidrograma</td>
+<td style="text-align: left;">Cuencas urbanas medianas y canales</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Reservorio no lineal (SWMM)</td>
+<td style="text-align: left;">Hidrograma</td>
+<td style="text-align: left;">Redes pluviales, detención y simulación continua</td>
+</tr>
+</tbody>
+</table>
+
+
+</div>
+</div>
+</figure>
+</div>
+</div>
+<section id="sec-urb-racional" class="level3" data-number="42.3.1">
+<h3 data-number="42.3.1" class="anchored" data-anchor-id="sec-urb-racional"><span class="header-section-number">42.3.1</span> Método racional en áreas urbanas</h3>
+<p>El método racional, <span class="math inline">\(Q = C\,i\,A/360\)</span>, con <span class="math inline">\(Q\)</span> en m³/s, <span class="math inline">\(i\)</span> en mm/h y <span class="math inline">\(A\)</span> en ha, es el más usado para diseñar tragantes y tuberías en Centroamérica. Sus hipótesis, el cálculo del tiempo de concentración y sus límites de aplicación están en el capítulo del método racional (<a href="29-metodo_racional.html#sec-racional" class="quarto-xref"><span>Sección 29.1</span></a> y <a href="29-metodo_racional.html#sec-tc" class="quarto-xref"><span>Sección 29.4</span></a>). En una cuenca urbana hay dos detalles propios.</p>
+<p>El primero es el coeficiente de escorrentía compuesto. Una cuenca urbana mezcla techos, calles y zonas verdes, y el coeficiente se obtiene como promedio ponderado por área:</p>
+<p><span id="eq-urb-c-compuesto"><span class="math display">\[
+C = \frac{\sum_{k} C_k \, A_k}{\sum_{k} A_k}
+\tag{42.1}\]</span></span></p>
+<p>donde <span class="math inline">\(C_k\)</span> es el coeficiente de la superficie <span class="math inline">\(k\)</span> (adimensional) y <span class="math inline">\(A_k\)</span> es su área (ha). El <a href="#tbl-urb-c" class="quarto-xref">Cuadro&nbsp;<span>42.2</span></a> resume los valores del manual HEC-22 de la Administración Federal de Carreteras de los Estados Unidos (FHWA). Los valores altos de cada rango corresponden a pendientes fuertes y a periodos de retorno largos <span class="citation" data-cites="fhwa2009hec22">(Brown et&nbsp;al. 2009, cuadro 3-1)</span>.</p>
+<div class="cell" data-layout-align="center">
+<div id="tbl-urb-c" class="cell quarto-float quarto-figure quarto-figure-center anchored" data-layout-align="center">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-urb-c-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Cuadro&nbsp;42.2: Coeficientes de escorrentía del método racional para superficies urbanas.
+</figcaption>
+<div aria-describedby="tbl-urb-c-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<table class="table table-hover table-condensed do-not-create-environment cell caption-top table-sm table-striped small" data-quarto-postprocess="true">
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">Tipo de área o superficie</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th"><em>C</em></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Centro comercial</td>
+<td style="text-align: center;">0.70–0.95</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Comercio de barrio</td>
+<td style="text-align: center;">0.50–0.70</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Vivienda unifamiliar</td>
+<td style="text-align: center;">0.30–0.50</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Vivienda multifamiliar adosada</td>
+<td style="text-align: center;">0.60–0.75</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Vivienda suburbana</td>
+<td style="text-align: center;">0.25–0.40</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Industria liviana</td>
+<td style="text-align: center;">0.50–0.80</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Industria pesada</td>
+<td style="text-align: center;">0.60–0.90</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Parques y cementerios</td>
+<td style="text-align: center;">0.10–0.25</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Calles de asfalto</td>
+<td style="text-align: center;">0.70–0.95</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Calles de concreto</td>
+<td style="text-align: center;">0.80–0.95</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Accesos y aceras</td>
+<td style="text-align: center;">0.75–0.85</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Techos</td>
+<td style="text-align: center;">0.75–0.95</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Césped, suelo arcilloso, pendiente de 2 a 7 %</td>
+<td style="text-align: center;">0.18–0.22</td>
+</tr>
+</tbody><tfoot>
+<tr class="odd">
+<td style="text-align: left; padding: 0;"><span style="font-style: italic;">Fuente: </span> <sup></sup> FHWA, HEC-22 (Brown et al., 2009, cuadro 3-1).</td>
+<td style="text-align: center;"></td>
+</tr>
+</tfoot>
+
+</table>
+
+
+</div>
+</div>
+</figure>
+</div>
+</div>
+<p>El segundo detalle es el tiempo de concentración. Al urbanizar, el <span class="math inline">\(t_c\)</span> baja y la intensidad de la curva IDF sube. Comparar el caudal antes y después del proyecto con la misma intensidad subestima el efecto de la urbanización. Para tormentas de diseño de 25 años o más, algunas agencias multiplican <span class="math inline">\(C\)</span> por un factor de frecuencia de 1.10 a 1.25. El HEC-22 lo menciona pero no lo recomienda <span class="citation" data-cites="fhwa2009hec22">(Brown et&nbsp;al. 2009, 3-7)</span>.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Ejemplo: caudal pico de un lote antes y después de urbanizar">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Ejemplo: caudal pico de un lote antes y después de urbanizar
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Planteamiento.</strong> Un lote de 8 ha con pasto sobre suelo arcilloso se va a urbanizar. Antes del proyecto tiene 0.4 ha de caminos de lastre compactado y 7.6 ha de pasto; después tendrá 2.6 ha de techos, 1.8 ha de calles y aceras y 3.6 ha de zonas verdes. Se usa <span class="math inline">\(C = 0.85\)</span> para techos, calles y caminos, y <span class="math inline">\(C = 0.18\)</span> para el pasto y las zonas verdes. El tiempo de concentración es de 25 min antes y de 12 min después del proyecto. La curva IDF de la estación, hipotética, es <span class="math inline">\(i = 1150\,T^{0.18}/(d + 12)^{0.78}\)</span>, con <span class="math inline">\(i\)</span> en mm/h y <span class="math inline">\(d\)</span> en min. Calcule el caudal pico de 10 años en las dos condiciones.</p>
+<p><strong>Solución:</strong></p>
+<ol type="1">
+<li><strong>Coeficiente antes del proyecto.</strong> Con la <a href="#eq-urb-c-compuesto" class="quarto-xref">Ecuación&nbsp;<span>42.1</span></a>, <span class="math inline">\(C = (0.85 \times 0.4 + 0.18 \times 7.6)/8 = (0.34 + 1.368)/8 = 0.214\)</span>.</li>
+<li><strong>Coeficiente después.</strong> <span class="math inline">\(C = (0.85 \times 2.6 + 0.85 \times 1.8 + 0.18 \times 3.6)/8 = (2.21 + 1.53 + 0.648)/8 = 0.549\)</span>.</li>
+<li><strong>Intensidades.</strong> Con <span class="math inline">\(T = 10\)</span> años, <span class="math inline">\(T^{0.18} = 1.514\)</span>. Para 25 min, <span class="math inline">\(i = 1150 \times 1.514/37^{0.78} = 1741/16.72 = 104.1\)</span> mm/h. Para 12 min, <span class="math inline">\(i = 1741/24^{0.78} = 1741/11.93 = 145.9\)</span> mm/h.</li>
+<li><strong>Caudales.</strong> Antes: <span class="math inline">\(Q = 0.214 \times 104.1 \times 8/360 = 0.494\)</span> m³/s. Después: <span class="math inline">\(Q = 0.549 \times 145.9 \times 8/360 = 1.78\)</span> m³/s.</li>
+<li><strong>Razón.</strong> El pico crece 3.6 veces. Si se hubiera usado la misma intensidad de 104.1 mm/h en las dos condiciones, la razón sería solo <span class="math inline">\(0.549/0.214 = 2.6\)</span>.</li>
+</ol>
+<p><strong>Pseudocódigo</strong></p>
+<ol type="1">
+<li>Escribir las áreas y coeficientes de cada superficie, antes y después.</li>
+<li>Calcular el coeficiente compuesto de cada condición.</li>
+<li>Calcular la intensidad IDF con el <span class="math inline">\(t_c\)</span> de cada condición.</li>
+<li>Aplicar el método racional y comparar.</li>
+</ol>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 1) Superficies (ha) y coeficientes</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>lote <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">superficie =</span> <span class="fu">c</span>(<span class="st">"Techos"</span>, <span class="st">"Calles, aceras y caminos"</span>, <span class="st">"Pasto y zonas verdes"</span>),</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">c_esc      =</span> <span class="fu">c</span>(<span class="fl">0.85</span>, <span class="fl">0.85</span>, <span class="fl">0.18</span>),</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">a_antes    =</span> <span class="fu">c</span>(<span class="fl">0.0</span>, <span class="fl">0.4</span>, <span class="fl">7.6</span>),</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">a_despues  =</span> <span class="fu">c</span>(<span class="fl">2.6</span>, <span class="fl">1.8</span>, <span class="fl">3.6</span>)</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co"># 2) Coeficiente compuesto (promedio ponderado por área)</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>c_antes   <span class="ot">&lt;-</span> <span class="fu">weighted.mean</span>(lote<span class="sc">$</span>c_esc, lote<span class="sc">$</span>a_antes)</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>c_despues <span class="ot">&lt;-</span> <span class="fu">weighted.mean</span>(lote<span class="sc">$</span>c_esc, lote<span class="sc">$</span>a_despues)</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="co"># 3) Intensidad de la curva IDF hipotética (i en mm/h, d en min)</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>i_idf <span class="ot">&lt;-</span> <span class="cf">function</span>(d, t_ret) <span class="dv">1150</span> <span class="sc">*</span> t_ret<span class="sc">^</span><span class="fl">0.18</span> <span class="sc">/</span> (d <span class="sc">+</span> <span class="dv">12</span>)<span class="sc">^</span><span class="fl">0.78</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>i_antes   <span class="ot">&lt;-</span> <span class="fu">i_idf</span>(<span class="dv">25</span>, <span class="dv">10</span>)</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>i_despues <span class="ot">&lt;-</span> <span class="fu">i_idf</span>(<span class="dv">12</span>, <span class="dv">10</span>)</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="co"># 4) Método racional (Q en m³/s, i en mm/h, A en ha)</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>area <span class="ot">&lt;-</span> <span class="dv">8</span></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>comparacion <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>  <span class="at">condicion =</span> <span class="fu">c</span>(<span class="st">"Antes"</span>, <span class="st">"Después"</span>),</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>  <span class="at">c_esc =</span> <span class="fu">c</span>(c_antes, c_despues),</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>  <span class="at">tc_min =</span> <span class="fu">c</span>(<span class="dv">25</span>, <span class="dv">12</span>),</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>  <span class="at">i_mmh =</span> <span class="fu">c</span>(i_antes, i_despues),</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>  <span class="at">q_m3s =</span> c_esc <span class="sc">*</span> i_mmh <span class="sc">*</span> area <span class="sc">/</span> <span class="dv">360</span></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>comparacion</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":["condicion"],"name":[1],"type":["chr"],"align":["left"]},{"label":["c_esc"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["tc_min"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["i_mmh"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["q_m3s"],"name":[5],"type":["dbl"],"align":["right"]}],"data":[{"1":"Antes","2":"0.2135","3":"25","4":"104.1119","5":"0.4939533"},{"1":"Después","2":"0.5485","3":"12","4":"145.9261","5":"1.7786774"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+</div>
+<div class="cell" data-layout-align="center">
+<div id="tbl-urb-ejemplo-racional" class="cell quarto-float quarto-figure quarto-figure-center anchored" data-layout-align="center">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-urb-ejemplo-racional-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Cuadro&nbsp;42.3: Caudal pico de 10 años antes y después de urbanizar el lote.
+</figcaption>
+<div aria-describedby="tbl-urb-ejemplo-racional-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<table class="table table-hover table-condensed do-not-create-environment cell caption-top table-sm table-striped small" data-quarto-postprocess="true">
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">Condición</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th"><em>C</em></th>
+<th style="text-align: center;" data-quarto-table-cell-role="th"><em>t<sub>c</sub></em> (min)</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th"><em>i</em> (mm/h)</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th"><em>Q</em> (m³/s)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Antes</td>
+<td style="text-align: center;">0.214</td>
+<td style="text-align: center;">25</td>
+<td style="text-align: center;">104.1</td>
+<td style="text-align: center;">0.49</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Después</td>
+<td style="text-align: center;">0.548</td>
+<td style="text-align: center;">12</td>
+<td style="text-align: center;">145.9</td>
+<td style="text-align: center;">1.78</td>
+</tr>
+</tbody>
+</table>
+
+
+</div>
+</div>
+</figure>
+</div>
+</div>
+<p><strong>Interpretación.</strong> El proyecto multiplica el caudal pico por 3.6. Casi un tercio de ese aumento viene de la reducción del tiempo de concentración, no del coeficiente. Si la quebrada que recibe la descarga no tiene capacidad para 1.78 m³/s, el proyecto necesita una obra de detención que devuelva el pico a unos 0.5 m³/s, como se diseña en el capítulo de drenaje sostenible.</p>
+</div>
+</div>
+</section>
+<section id="sec-urb-cn" class="level3" data-number="42.3.2">
+<h3 data-number="42.3.2" class="anchored" data-anchor-id="sec-urb-cn"><span class="header-section-number">42.3.2</span> Número de curva con superficie impermeable</h3>
+<p>El método del número de curva del Servicio de Conservación de Recursos Naturales de los Estados Unidos (NRCS), presentado en <a href="21-Transición hacia la escorrentía superficial.html#sec-trans-numero-curva" class="quarto-xref"><span>Sección 21.5</span></a>, da la lámina de escorrentía de una tormenta. Para zonas urbanas, el TR-55 tabula números de curva por tipo de uso que ya incluyen una fracción impermeable típica (<a href="#tbl-urb-cn" class="quarto-xref">Cuadro&nbsp;<span>42.4</span></a>), suponiendo que esa superficie está conectada al sistema de drenaje, que tiene <span class="math inline">\(CN = 98\)</span> y que la parte permeable está en buena condición hidrológica <span class="citation" data-cites="usda1986tr55">(Soil Conservation Service 1986, cuadro 2-2a)</span>.</p>
+<div class="cell" data-layout-align="center">
+<div id="tbl-urb-cn" class="cell quarto-float quarto-figure quarto-figure-center anchored" data-layout-align="center">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-urb-cn-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Cuadro&nbsp;42.4: Números de curva para áreas urbanas, condición de humedad antecedente media.
+</figcaption>
+<div aria-describedby="tbl-urb-cn-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<table class="table table-hover table-condensed do-not-create-environment cell caption-top table-sm table-striped small" data-quarto-postprocess="true">
+<colgroup>
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+</colgroup>
+<thead>
+<tr class="header">
+<th colspan="2" data-quarto-table-cell-role="th" style="text-align: left; empty-cells: hide; border-bottom: hidden;"></th>
+<th colspan="4" data-quarto-table-cell-role="th" style="text-align: center; border-bottom: hidden; padding-bottom: 0; padding-left: 3px; padding-right: 3px;"><div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; ">
+Grupo hidrológico de suelo
+</div></th>
+</tr>
+<tr class="even">
+<th style="text-align: left;" data-quarto-table-cell-role="th">Uso del suelo</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">Impermeable (%)</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">A</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">B</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">C</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">D</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Comercio y oficinas</td>
+<td style="text-align: center;">85</td>
+<td style="text-align: center;">89</td>
+<td style="text-align: center;">92</td>
+<td style="text-align: center;">94</td>
+<td style="text-align: center;">95</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Industria</td>
+<td style="text-align: center;">72</td>
+<td style="text-align: center;">81</td>
+<td style="text-align: center;">88</td>
+<td style="text-align: center;">91</td>
+<td style="text-align: center;">93</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Vivienda, lotes de 500 m² o menos</td>
+<td style="text-align: center;">65</td>
+<td style="text-align: center;">77</td>
+<td style="text-align: center;">85</td>
+<td style="text-align: center;">90</td>
+<td style="text-align: center;">92</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Vivienda, lotes de 1000 m²</td>
+<td style="text-align: center;">38</td>
+<td style="text-align: center;">61</td>
+<td style="text-align: center;">75</td>
+<td style="text-align: center;">83</td>
+<td style="text-align: center;">87</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Vivienda, lotes de 1300 m²</td>
+<td style="text-align: center;">30</td>
+<td style="text-align: center;">57</td>
+<td style="text-align: center;">72</td>
+<td style="text-align: center;">81</td>
+<td style="text-align: center;">86</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Vivienda, lotes de 2000 m²</td>
+<td style="text-align: center;">25</td>
+<td style="text-align: center;">54</td>
+<td style="text-align: center;">70</td>
+<td style="text-align: center;">80</td>
+<td style="text-align: center;">85</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Vivienda, lotes de 4000 m²</td>
+<td style="text-align: center;">20</td>
+<td style="text-align: center;">51</td>
+<td style="text-align: center;">68</td>
+<td style="text-align: center;">79</td>
+<td style="text-align: center;">84</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Estacionamientos, techos y calles pavimentadas</td>
+<td style="text-align: center;">100</td>
+<td style="text-align: center;">98</td>
+<td style="text-align: center;">98</td>
+<td style="text-align: center;">98</td>
+<td style="text-align: center;">98</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Zonas verdes en buena condición (más de 75 % de pasto)</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">39</td>
+<td style="text-align: center;">61</td>
+<td style="text-align: center;">74</td>
+<td style="text-align: center;">80</td>
+</tr>
+</tbody><tfoot>
+<tr class="odd">
+<td style="text-align: left; padding: 0;"><span style="font-style: italic;">Fuente: </span> <sup></sup> SCS, TR-55 (1986, cuadro 2-2a). Las áreas de lote se redondearon de las originales en acres.</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+</tfoot>
+
+</table>
+
+
+</div>
+</div>
+</figure>
+</div>
+</div>
+<p>Cuando la fracción impermeable real difiere de la del cuadro, el número de curva compuesto se calcula con la parte permeable, <span class="math inline">\(CN_p\)</span>, y el porcentaje impermeable conectado, <span class="math inline">\(P_{\text{imp}}\)</span>:</p>
+<p><span id="eq-urb-cn-conectado"><span class="math display">\[
+CN_c = CN_p + \frac{P_{\text{imp}}}{100}\,(98 - CN_p)
+\tag{42.2}\]</span></span></p>
+<p>Si la superficie impermeable total es menor de 30 % y parte de ella no está conectada, el TR-55 reduce el aumento con la fracción no conectada <span class="math inline">\(R\)</span> (superficie no conectada entre superficie impermeable total):</p>
+<p><span id="eq-urb-cn-no-conectado"><span class="math display">\[
+CN_c = CN_p + \frac{P_{\text{imp}}}{100}\,(98 - CN_p)\,(1 - 0.5\,R)
+\tag{42.3}\]</span></span></p>
+<p>donde <span class="math inline">\(CN_c\)</span> es el número de curva compuesto, <span class="math inline">\(CN_p\)</span> el de la parte permeable y <span class="math inline">\(R\)</span> va de 0 a 1 <span class="citation" data-cites="usda1986tr55">(Soil Conservation Service 1986, cap. 2)</span>.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Ejemplo: lámina de escorrentía de una urbanización con el número de curva">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Ejemplo: lámina de escorrentía de una urbanización con el número de curva
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Planteamiento.</strong> Una cuenca de suelo del grupo B con pasto en buena condición (<span class="math inline">\(CN_p = 61\)</span>) se urbaniza con 55 % de superficie impermeable conectada. Calcule el número de curva compuesto y la lámina de escorrentía para una lluvia de 110 mm, antes y después. Use <span class="math inline">\(I_a = 0.2\,S\)</span>. Calcule además el número de curva si la urbanización tuviera solo 25 % impermeable, con la mitad desconectada.</p>
+<p><strong>Solución:</strong></p>
+<ol type="1">
+<li><strong>Número de curva urbano.</strong> Con la <a href="#eq-urb-cn-conectado" class="quarto-xref">Ecuación&nbsp;<span>42.2</span></a>, <span class="math inline">\(CN_c = 61 + 0.55\,(98 - 61) = 61 + 20.35 = 81.4\)</span>.</li>
+<li><strong>Retención potencial.</strong> Antes, <span class="math inline">\(S = 25\,400/61 - 254 = 162.4\)</span> mm e <span class="math inline">\(I_a = 32.5\)</span> mm. Después, <span class="math inline">\(S = 25\,400/81.35 - 254 = 58.2\)</span> mm e <span class="math inline">\(I_a = 11.6\)</span> mm.</li>
+<li><strong>Lámina antes.</strong> <span class="math inline">\(Q = (110 - 32.5)^2/(110 - 32.5 + 162.4) = 6006/239.9 = 25.0\)</span> mm.</li>
+<li><strong>Lámina después.</strong> <span class="math inline">\(Q = (110 - 11.6)^2/(110 - 11.6 + 58.2) = 9682/156.6 = 61.8\)</span> mm.</li>
+<li><strong>Caso con desconexión.</strong> Con <span class="math inline">\(P_{\text{imp}} = 25\)</span> y <span class="math inline">\(R = 0.5\)</span>, la <a href="#eq-urb-cn-no-conectado" class="quarto-xref">Ecuación&nbsp;<span>42.3</span></a> da <span class="math inline">\(CN_c = 61 + 0.25 \times 37 \times 0.75 = 67.9\)</span>.</li>
+</ol>
+<p><strong>Pseudocódigo</strong></p>
+<ol type="1">
+<li>Definir una función para el número de curva compuesto, con la fracción no conectada como argumento opcional.</li>
+<li>Definir una función para la lámina de escorrentía del NRCS.</li>
+<li>Evaluar ambas funciones antes y después del proyecto.</li>
+</ol>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 1) Número de curva compuesto (TR-55)</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>cn_compuesto <span class="ot">&lt;-</span> <span class="cf">function</span>(cn_p, p_imp, <span class="at">r_desc =</span> <span class="dv">0</span>) {</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  cn_p <span class="sc">+</span> p_imp <span class="sc">/</span> <span class="dv">100</span> <span class="sc">*</span> (<span class="dv">98</span> <span class="sc">-</span> cn_p) <span class="sc">*</span> (<span class="dv">1</span> <span class="sc">-</span> <span class="fl">0.5</span> <span class="sc">*</span> r_desc)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co"># 2) Lámina de escorrentía del NRCS (P y Q en mm)</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>escorrentia_cn <span class="ot">&lt;-</span> <span class="cf">function</span>(p, cn, <span class="at">lambda =</span> <span class="fl">0.2</span>) {</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  s <span class="ot">&lt;-</span> <span class="dv">25400</span> <span class="sc">/</span> cn <span class="sc">-</span> <span class="dv">254</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>  ia <span class="ot">&lt;-</span> lambda <span class="sc">*</span> s</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ifelse</span>(p <span class="sc">&gt;</span> ia, (p <span class="sc">-</span> ia)<span class="sc">^</span><span class="dv">2</span> <span class="sc">/</span> (p <span class="sc">-</span> ia <span class="sc">+</span> s), <span class="dv">0</span>)</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="co"># 3) Antes y después</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>cn_antes   <span class="ot">&lt;-</span> <span class="dv">61</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>cn_despues <span class="ot">&lt;-</span> <span class="fu">cn_compuesto</span>(<span class="dv">61</span>, <span class="dv">55</span>)</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="at">cn_despues =</span> cn_despues,</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>  <span class="at">q_antes_mm =</span> <span class="fu">escorrentia_cn</span>(<span class="dv">110</span>, cn_antes),</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>  <span class="at">q_despues_mm =</span> <span class="fu">escorrentia_cn</span>(<span class="dv">110</span>, cn_despues),</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>  <span class="at">cn_desconectado =</span> <span class="fu">cn_compuesto</span>(<span class="dv">61</span>, <span class="dv">25</span>, <span class="at">r_desc =</span> <span class="fl">0.5</span>))</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     cn_despues      q_antes_mm    q_despues_mm cn_desconectado 
+       81.35000        25.04870        61.77778        67.93750 </code></pre>
+</div>
+</div>
+<p><strong>Interpretación.</strong> La misma lluvia de 110 mm produce 2.5 veces más escorrentía después de urbanizar: pasa de 25 a 62 mm. Para 10 ha eso son 3700 m³ adicionales que alguna obra tiene que conducir o almacenar. La desconexión de techos y pavimentos baja el número de curva de una urbanización de baja densidad de 70 (todo conectado) a 68, una ganancia modesta en la lámina de diseño pero mucho mayor en las lluvias pequeñas y frecuentes.</p>
+</div>
+</div>
+</section>
+<section id="sec-urb-rv" class="level3" data-number="42.3.3">
+<h3 data-number="42.3.3" class="anchored" data-anchor-id="sec-urb-rv"><span class="header-section-number">42.3.3</span> Coeficiente volumétrico para lluvias frecuentes</h3>
+<p>El método del número de curva da láminas casi nulas para lluvias de 10 a 25 mm en cuencas con suelo permeable, aunque en las ciudades esas lluvias sí producen escorrentía desde los techos y las calles. Para ese rango, que es el que más importa en la calidad del agua, se usa un coeficiente volumétrico que depende solo de la fracción impermeable:</p>
+<p><span id="eq-urb-rv"><span class="math display">\[
+R_v = 0.05 + 0.009\,I
+\tag{42.4}\]</span></span></p>
+<p>donde <span class="math inline">\(R_v\)</span> es la fracción de la lluvia que escurre (adimensional) e <span class="math inline">\(I\)</span> es la superficie impermeable (%). La ecuación viene de una regresión con 44 cuencas urbanas pequeñas de los Estados Unidos, y su uso para tormentas pequeñas lo describen Debo y Reese <span class="citation" data-cites="debo2003municipal">(2003, sec. 7.11)</span>. Con 55 % de superficie impermeable, <span class="math inline">\(R_v = 0.545\)</span>: de una lluvia de 20 mm escurren 10.9 mm.</p>
+</section>
+<section id="sec-urb-hidrograma" class="level3" data-number="42.3.4">
+<h3 data-number="42.3.4" class="anchored" data-anchor-id="sec-urb-hidrograma"><span class="header-section-number">42.3.4</span> Hidrogramas en cuencas urbanas</h3>
+<p>Cuando hace falta el hidrograma completo, para tránsito en tuberías o para diseñar una laguna de detención, hay dos caminos. El primero es un hidrograma unitario sintético (<a href="28-hidrograma_unitario.html#sec-hu-sinteticos" class="quarto-xref"><span>Sección 28.7</span></a>), con el tiempo de retardo ajustado por la urbanización. El segundo, más usado en redes pluviales, es el modelo de reservorio no lineal del programa SWMM (<em>Storm Water Management Model</em>) de la Agencia de Protección Ambiental de los Estados Unidos (EPA) <span class="citation" data-cites="rossman2016swmm">(Rossman y Huber 2016)</span>.</p>
+<p>En SWMM, cada subcuenca es una superficie plana de área <span class="math inline">\(A\)</span>, ancho <span class="math inline">\(W\)</span> y pendiente <span class="math inline">\(S\)</span>. La lluvia llena un almacenamiento en depresiones de profundidad <span class="math inline">\(d_p\)</span>, y cuando la lámina <span class="math inline">\(d\)</span> lo supera, el agua sale por el borde con flujo uniforme según Manning:</p>
+<p><span id="eq-urb-swmm"><span class="math display">\[
+Q = \frac{W}{n}\,(d - d_p)^{5/3}\,S^{1/2}
+\tag{42.5}\]</span></span></p>
+<p>donde <span class="math inline">\(Q\)</span> es el caudal de salida (m³/s), <span class="math inline">\(W\)</span> es el ancho de la subcuenca (m), <span class="math inline">\(n\)</span> es el coeficiente de Manning del flujo superficial, <span class="math inline">\(d\)</span> y <span class="math inline">\(d_p\)</span> son la lámina de agua y el almacenamiento en depresiones (m) y <span class="math inline">\(S\)</span> es la pendiente (m/m). La lámina cambia con el balance de masa de la superficie:</p>
+<p><span id="eq-urb-swmm-balance"><span class="math display">\[
+A\,\frac{\mathrm{d}d}{\mathrm{d}t} = A\,i - Q
+\tag{42.6}\]</span></span></p>
+<p>donde <span class="math inline">\(i\)</span> es la intensidad de lluvia neta (m/s), es decir, la lluvia menos la infiltración, que en una superficie impermeable es nula. El ancho <span class="math inline">\(W\)</span> se estima como el área dividida entre la longitud media del recorrido del flujo superficial, y es el parámetro que más se ajusta en la calibración <span class="citation" data-cites="rossman2016swmm">(Rossman y Huber 2016, cap. 3)</span>. Los valores de <span class="math inline">\(n\)</span> para flujo laminar sobre superficies son mayores que los de un canal: 0.011 a 0.015 para concreto o asfalto liso y de 0.15 a 0.24 para pasto <span class="citation" data-cites="rossman2016swmm">(Rossman y Huber 2016)</span>.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Ejemplo: hidrograma de un estacionamiento con el reservorio no lineal">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Ejemplo: hidrograma de un estacionamiento con el reservorio no lineal
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Planteamiento.</strong> Un estacionamiento de asfalto de 2 ha (<span class="math inline">\(A = 20\,000\)</span> m²) tiene un recorrido de flujo de 100 m, de modo que <span class="math inline">\(W = 200\)</span> m. La pendiente es 1 %, <span class="math inline">\(n = 0.015\)</span> y <span class="math inline">\(d_p = 1.5\)</span> mm. Recibe la tormenta hipotética de 60 min de la <a href="#tbl-urb-tormenta" class="quarto-xref">Cuadro&nbsp;<span>42.5</span></a>, en bloques de 10 min. Calcule el hidrograma de salida con pasos de 1 min durante 2 h y compare el pico con el del método racional.</p>
+<div class="cell" data-layout-align="center">
+<div id="tbl-urb-tormenta" class="cell quarto-float quarto-figure quarto-figure-center anchored" data-layout-align="center">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-urb-tormenta-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Cuadro&nbsp;42.5: Tormenta hipotética del ejemplo.
+</figcaption>
+<div aria-describedby="tbl-urb-tormenta-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<table class="table table-hover table-condensed do-not-create-environment cell caption-top table-sm table-striped small" data-quarto-postprocess="true">
+<thead>
+<tr class="header">
+<th style="text-align: center;" data-quarto-table-cell-role="th">Intervalo (min)</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">Intensidad (mm/h)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">0–10</td>
+<td style="text-align: center;">20</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">10–20</td>
+<td style="text-align: center;">60</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">20–30</td>
+<td style="text-align: center;">100</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">30–40</td>
+<td style="text-align: center;">40</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">40–50</td>
+<td style="text-align: center;">20</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">50–60</td>
+<td style="text-align: center;">10</td>
+</tr>
+</tbody>
+</table>
+
+
+</div>
+</div>
+</figure>
+</div>
+</div>
+<p><strong>Solución:</strong></p>
+<p>La <a href="#eq-urb-swmm-balance" class="quarto-xref">Ecuación&nbsp;<span>42.6</span></a> se resuelve paso a paso: con la lámina al inicio de cada minuto se calcula el caudal, y con la lluvia y el caudal se actualiza la lámina, <span class="math inline">\(d_{j+1} = d_j + (i_j - Q_j/A)\,\Delta t\)</span>, con <span class="math inline">\(\Delta t = 60\)</span> s.</p>
+<ol type="1">
+<li><strong>Minutos 0 a 5.</strong> Mientras <span class="math inline">\(d \le d_p\)</span> no sale agua. Con 20 mm/h, en cada minuto la lámina sube <span class="math inline">\(20/60 = 0.333\)</span> mm: 0.333, 0.667, 1.000, 1.333 y 1.667 mm. En el minuto 5 se supera el almacenamiento en depresiones.</li>
+<li><strong>Minuto 5.</strong> <span class="math inline">\(d - d_p = 1.667 - 1.5 = 0.167\)</span> mm <span class="math inline">\(= 1.67 \times 10^{-4}\)</span> m. Con la <a href="#eq-urb-swmm" class="quarto-xref">Ecuación&nbsp;<span>42.5</span></a>, <span class="math inline">\(Q = (200/0.015)\,(1.67 \times 10^{-4})^{5/3}\,(0.01)^{1/2} = 13\,333 \times 4.98 \times 10^{-7} \times 0.1 = 0.000\,67\)</span> m³/s.</li>
+<li><strong>Minuto 6.</strong> La salida en el minuto 5 equivale a <span class="math inline">\(0.000\,67/20\,000 \times 60 = 0.000\,002\)</span> m <span class="math inline">\(= 0.002\)</span> mm, así que <span class="math inline">\(d = 1.667 + 0.333 - 0.002 = 1.998\)</span> mm. Entonces <span class="math inline">\(d - d_p = 0.498\)</span> mm y <span class="math inline">\(Q = 13\,333 \times (4.98 \times 10^{-4})^{5/3} \times 0.1 = 0.0042\)</span> m³/s.</li>
+<li><strong>Resto de la tormenta.</strong> El cálculo sigue igual minuto a minuto. El código lo repite para los 120 minutos y da un pico de 0.545 m³/s en el minuto 30, al final del bloque de 100 mm/h, con una lámina máxima de 10.8 mm.</li>
+<li><strong>Comparación.</strong> El método racional con <span class="math inline">\(C = 0.90\)</span> y la intensidad máxima de 100 mm/h da <span class="math inline">\(Q = 0.90 \times 100 \times 2/360 = 0.50\)</span> m³/s, del mismo orden.</li>
+</ol>
+<p><strong>Pseudocódigo</strong></p>
+<ol type="1">
+<li>Definir los parámetros de la subcuenca y la lluvia minuto a minuto.</li>
+<li>Para cada minuto, calcular el caudal con la lámina actual (cero si no supera <span class="math inline">\(d_p\)</span>).</li>
+<li>Actualizar la lámina con el balance de masa.</li>
+<li>Guardar caudal y lámina, y graficar el hidrograma.</li>
+</ol>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 1) Parámetros (SI) y lluvia de 1 min</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>area <span class="ot">&lt;-</span> <span class="dv">20000</span>; ancho <span class="ot">&lt;-</span> <span class="dv">200</span>; pend <span class="ot">&lt;-</span> <span class="fl">0.01</span>; n_man <span class="ot">&lt;-</span> <span class="fl">0.015</span>; d_p <span class="ot">&lt;-</span> <span class="fl">0.0015</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>dt <span class="ot">&lt;-</span> <span class="dv">60</span>                                    <span class="co"># s</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>lluvia_mmh <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fu">rep</span>(<span class="fu">c</span>(<span class="dv">20</span>, <span class="dv">60</span>, <span class="dv">100</span>, <span class="dv">40</span>, <span class="dv">20</span>, <span class="dv">10</span>), <span class="at">each =</span> <span class="dv">10</span>), <span class="fu">rep</span>(<span class="dv">0</span>, <span class="dv">60</span>))</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>i_ms <span class="ot">&lt;-</span> lluvia_mmh <span class="sc">/</span> <span class="dv">1000</span> <span class="sc">/</span> <span class="dv">3600</span>            <span class="co"># m/s</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Caudal de salida para una lámina d (ecuación de SWMM)</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>q_salida <span class="ot">&lt;-</span> <span class="cf">function</span>(d) <span class="fu">ifelse</span>(d <span class="sc">&gt;</span> d_p, ancho <span class="sc">/</span> n_man <span class="sc">*</span> (d <span class="sc">-</span> d_p)<span class="sc">^</span>(<span class="dv">5</span><span class="sc">/</span><span class="dv">3</span>) <span class="sc">*</span> <span class="fu">sqrt</span>(pend), <span class="dv">0</span>)</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="co"># 2) y 3) Balance de masa minuto a minuto</span></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>n_pasos <span class="ot">&lt;-</span> <span class="fu">length</span>(i_ms)</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> <span class="fu">numeric</span>(n_pasos <span class="sc">+</span> <span class="dv">1</span>)</span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>q <span class="ot">&lt;-</span> <span class="fu">numeric</span>(n_pasos <span class="sc">+</span> <span class="dv">1</span>)</span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (j <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>n_pasos) {</span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>  q[j] <span class="ot">&lt;-</span> <span class="fu">q_salida</span>(d[j])</span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>  d[j <span class="sc">+</span> <span class="dv">1</span>] <span class="ot">&lt;-</span> <span class="fu">max</span>(d[j] <span class="sc">+</span> (i_ms[j] <span class="sc">-</span> q[j] <span class="sc">/</span> area) <span class="sc">*</span> dt, <span class="dv">0</span>)</span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>q[n_pasos <span class="sc">+</span> <span class="dv">1</span>] <span class="ot">&lt;-</span> <span class="fu">q_salida</span>(d[n_pasos <span class="sc">+</span> <span class="dv">1</span>])</span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>hidrograma <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">t_min =</span> <span class="dv">0</span><span class="sc">:</span>n_pasos, <span class="at">d_mm =</span> d <span class="sc">*</span> <span class="dv">1000</span>, <span class="at">q_m3s =</span> q)</span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a><span class="co"># 4) Resultados</span></span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="at">q_pico =</span> <span class="fu">max</span>(hidrograma<span class="sc">$</span>q_m3s), <span class="at">t_pico =</span> hidrograma<span class="sc">$</span>t_min[<span class="fu">which.max</span>(hidrograma<span class="sc">$</span>q_m3s)],</span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>  <span class="at">d_max_mm =</span> <span class="fu">max</span>(hidrograma<span class="sc">$</span>d_mm))</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>    q_pico     t_pico   d_max_mm 
+ 0.5454415 30.0000000 10.7701269 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(hidrograma, <span class="fu">aes</span>(t_min, q_m3s)) <span class="sc">+</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">data =</span> <span class="fu">tibble</span>(<span class="at">t_min =</span> <span class="dv">0</span><span class="sc">:</span>(n_pasos <span class="sc">-</span> <span class="dv">1</span>) <span class="sc">+</span> <span class="fl">0.5</span>, <span class="at">p =</span> lluvia_mmh <span class="sc">/</span> <span class="dv">150</span>),</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>           <span class="fu">aes</span>(t_min, p), <span class="at">fill =</span> <span class="st">"#8CC3E2"</span>, <span class="at">width =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">colour =</span> <span class="st">"#1C6BA0"</span>, <span class="at">linewidth =</span> <span class="fl">0.9</span>) <span class="sc">+</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">name =</span> <span class="st">"Caudal (m³/s)"</span>,</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>                     <span class="at">sec.axis =</span> <span class="fu">sec_axis</span>(<span class="sc">~</span> . <span class="sc">*</span> <span class="dv">150</span>, <span class="at">name =</span> <span class="st">"Intensidad de lluvia (mm/h)"</span>)) <span class="sc">+</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Tiempo (min)"</span>) <span class="sc">+</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="fig-urb-swmm" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" alt="Barras de lluvia en mm/h y curva del caudal de salida que sube desde el minuto 5, llega a 0.55 metros cúbicos por segundo en el minuto 30 y baja hasta casi cero hacia el minuto 70">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-urb-swmm-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="42-hidrologia_urbana_files/figure-html/fig-urb-swmm-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Figura&nbsp;42.2: Hidrograma del estacionamiento con el reservorio no lineal."><img src="42-hidrologia_urbana_files/figure-html/fig-urb-swmm-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:70.0%" alt="Barras de lluvia en mm/h y curva del caudal de salida que sube desde el minuto 5, llega a 0.55 metros cúbicos por segundo en el minuto 30 y baja hasta casi cero hacia el minuto 70"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-urb-swmm-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;42.2: Hidrograma del estacionamiento con el reservorio no lineal.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p><strong>Interpretación.</strong> El estacionamiento responde en minutos: el pico llega justo cuando termina el bloque más intenso y la descarga casi desaparece 15 min después de que deja de llover. El método racional da un pico parecido para esta superficie impermeable y pequeña, pero no dice nada del volumen ni de la forma del hidrograma, que son lo que se necesita para diseñar una obra de detención o para sumar los aportes de varias subcuencas con tiempos distintos.</p>
+</div>
+</div>
+</section>
+<section id="modelos-de-simulación-urbana" class="level3" data-number="42.3.5">
+<h3 data-number="42.3.5" class="anchored" data-anchor-id="modelos-de-simulación-urbana"><span class="header-section-number">42.3.5</span> Modelos de simulación urbana</h3>
+<p>Para una red pluvial con decenas de subcuencas y tuberías se usa un modelo que combine la escorrentía con el tránsito hidráulico. SWMM es libre y es el estándar de facto: calcula la escorrentía con el reservorio no lineal, la infiltración con Horton, Green-Ampt o el número de curva, y transita los caudales por la red con la onda cinemática o con las ecuaciones completas de Saint-Venant <span class="citation" data-cites="rossman2016swmm">(Rossman y Huber 2016)</span>. HEC-HMS del Cuerpo de Ingenieros del Ejército de los Estados Unidos (USACE) también representa subcuencas urbanas con su fracción impermeable, y se usa más cuando la cuenca urbana es parte de una cuenca natural mayor <span class="citation" data-cites="usace2000hechmstech">(U.S. Army Corps of Engineers 2000)</span>. Ambos se pueden correr por eventos o en simulación continua con años de lluvia horaria; la simulación continua es la única forma de evaluar bien las medidas de drenaje sostenible, porque su desempeño depende de cómo estaban las obras cuando empezó cada tormenta.</p>
+</section>
+</section>
+<section id="sec-urb-gestion" class="level2" data-number="42.4">
+<h2 data-number="42.4" class="anchored" data-anchor-id="sec-urb-gestion"><span class="header-section-number">42.4</span> Gestión del agua pluvial urbana</h2>
+<p>El criterio tradicional del drenaje urbano fue sacar el agua de la ciudad lo más rápido posible. Funciona para el sitio que se drena, pero traslada el problema aguas abajo: cada urbanización nueva suma su aumento de caudal al de las anteriores, y la quebrada receptora termina con crecidas que nadie diseñó. Por eso las guías actuales separan tres objetivos <span class="citation" data-cites="ASCE_EWRI_StandardGuidelines debo2003municipal">(American Society of Civil Engineers 2006; Debo y Reese 2003)</span>:</p>
+<ol type="1">
+<li><strong>Conducción.</strong> Llevar la escorrentía de diseño sin inundar calles ni propiedades. Es el tema del capítulo de sistemas de drenaje urbano.</li>
+<li><strong>Control de caudal.</strong> Limitar el caudal que sale del sitio, normalmente al valor que tenía antes del proyecto. Se logra con detención.</li>
+<li><strong>Control de volumen y calidad.</strong> Reducir el volumen de las lluvias frecuentes y tratar el agua antes de descargarla, con infiltración, retención y vegetación. Es el campo del drenaje sostenible.</li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled" title="En la práctica">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+En la práctica
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>En Costa Rica, la norma técnica del Instituto Costarricense de Acueductos y Alcantarillados (AyA) para sistemas pluviales establece el método racional para áreas de hasta 100 ha, un periodo de retorno mínimo de 10 años y un tiempo de concentración mínimo de 10 min, e incluye un apartado de sistemas de retardo pluvial <span class="citation" data-cites="aya2017norma">(Instituto Costarricense de Acueductos y Alcantarillados 2017, cap. 6)</span>. Varias municipalidades de la Gran Área Metropolitana exigen además que los proyectos nuevos no aumenten el caudal que descargan a la vía pública o al cauce, y piden una obra de retención o detención para lograrlo. Los requisitos cambian de un cantón a otro, así que se verifican en el reglamento de cada municipalidad antes de diseñar. <!-- CITA PENDIENTE: reglamentos municipales de desarrollo urbano con requisito de retención pluvial (por ejemplo, San José, Escazú, Curridabat); verificar textos vigentes. --></p>
+</div>
+</div>
+</section>
+<section id="ejercicios-propuestos" class="level2" data-number="42.5">
+<h2 data-number="42.5" class="anchored" data-anchor-id="ejercicios-propuestos"><span class="header-section-number">42.5</span> Ejercicios propuestos</h2>
+<ol type="1">
+<li>Una manzana de 3.2 ha tiene 1.5 ha de techos, 0.9 ha de calles y 0.8 ha de jardines. Con los coeficientes medios del <a href="#tbl-urb-c" class="quarto-xref">Cuadro&nbsp;<span>42.2</span></a>, calcule el coeficiente compuesto y el caudal de 10 años si <span class="math inline">\(t_c = 10\)</span> min, con la curva IDF del primer ejemplo.</li>
+<li>Repita el ejemplo del número de curva para un suelo del grupo C (<span class="math inline">\(CN_p = 74\)</span>). ¿Aumenta más o menos la escorrentía relativa al urbanizar? Explique por qué.</li>
+<li>Con la <a href="#eq-urb-rv" class="quarto-xref">Ecuación&nbsp;<span>42.4</span></a>, calcule el volumen de escorrentía de una lluvia de 25 mm en una cuenca de 15 ha con 20, 40 y 70 % de superficie impermeable.</li>
+<li>En el ejemplo del estacionamiento, cambie el ancho a 100 m (recorrido de 200 m) y luego a 400 m. Grafique los tres hidrogramas y describa cómo cambian el pico y su tiempo.</li>
+<li>Busque el reglamento de desarrollo urbano de su cantón o municipio y resuma qué exige sobre el manejo de las aguas pluviales de un proyecto nuevo: periodo de retorno, caudal permitido y obras de retención.</li>
+</ol>
+</section>
+<section id="lecturas-recomendadas" class="level2" data-number="42.6">
+<h2 data-number="42.6" class="anchored" data-anchor-id="lecturas-recomendadas"><span class="header-section-number">42.6</span> Lecturas recomendadas</h2>
+<ul>
+<li><span class="citation" data-cites="fhwa2009hec22">Brown et&nbsp;al. (2009)</span>, capítulos 2 y 3: los conceptos de sistema mayor y menor, y la hidrología para drenaje urbano con ejemplos resueltos en unidades del SI.</li>
+<li><span class="citation" data-cites="mays2001stormwater">Mays (2001)</span>: manual de referencia del diseño de sistemas pluviales, con capítulos de hidrología urbana escritos por autores de cada método.</li>
+<li><span class="citation" data-cites="debo2003municipal">Debo y Reese (2003)</span>: el texto más completo sobre la gestión municipal del agua pluvial, desde la hidrología hasta la regulación y el financiamiento.</li>
+<li><span class="citation" data-cites="rossman2016swmm">Rossman y Huber (2016)</span>: manual técnico de la hidrología de SWMM, con las ecuaciones y los valores de sus parámetros.</li>
+<li><span class="citation" data-cites="walsh2005urban">Walsh et&nbsp;al. (2005)</span>: revisión breve y muy citada sobre los efectos de la urbanización en los ríos.</li>
+</ul>
+
+
+</section>
+
+</main> <!-- /main -->
+<!--
+  Herramientas de lectura del libro: búsqueda en todo el texto (funciona sin
+  internet) y ajustes de accesibilidad (tamaño de letra, alto contraste y
+  fuente más legible). Los ajustes se guardan en el navegador del lector.
+  Lo insertan _quarto.yml (libro web) y herramientas/publicar.R (un solo archivo).
+  En el libro web, Quarto ya trae su propia búsqueda, así que aquí no se agrega.
+-->
+<style>
+  #barra-lectura {
+    position: fixed; top: 0.6rem; right: 1rem; z-index: 1060;
+    display: flex; gap: 0.35rem; align-items: center;
+  }
+  #barra-lectura > button, #barra-lectura > .quarto-color-scheme-toggle {
+    position: static; display: inline-flex; align-items: center; justify-content: center;
+    min-width: 2.3rem; height: 2.3rem; padding: 0 0.55rem;
+    background: var(--bs-body-bg, #fff); color: var(--bs-body-color, #212529);
+    border: 1px solid var(--bs-border-color, #ced4da); border-radius: 0.45rem;
+    font: 600 0.95rem/1 system-ui, sans-serif; cursor: pointer; text-decoration: none;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+  }
+  #barra-lectura > button:hover, #barra-lectura > button[aria-expanded="true"] {
+    border-color: #1C6BA0; color: #1C6BA0;
+  }
+  #barra-lectura > button:focus-visible, .panel-lectura button:focus-visible,
+  .panel-lectura input:focus-visible { outline: 3px solid #1C6BA0; outline-offset: 2px; }
+  #barra-lectura svg { width: 1.05rem; height: 1.05rem; }
+  /* Icono propio del interruptor de modo oscuro (luna en modo claro, sol en
+     modo oscuro), dibujado con el color del texto para que se vea en ambos */
+  #barra-lectura > .quarto-color-scheme-toggle .bi::before {
+    content: ""; display: inline-block; width: 1.05rem; height: 1.05rem;
+    background: currentColor; -webkit-mask: var(--icono-modo) center / contain no-repeat; mask: var(--icono-modo) center / contain no-repeat;
+  }
+  #barra-lectura > .quarto-color-scheme-toggle {
+    --icono-modo: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M6 .278a.77.77 0 0 1 .08.858 7.2 7.2 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277q.792-.001 1.533-.16a.79.79 0 0 1 .81.316.73.73 0 0 1-.031.893A8.35 8.35 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.75.75 0 0 1 6 .278'/%3E%3C/svg%3E");
+  }
+  #barra-lectura > .quarto-color-scheme-toggle.alternate {
+    --icono-modo: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8M8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0m0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13m8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5M3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8m10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0m-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0m9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707M4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708'/%3E%3C/svg%3E");
+  }
+
+  .panel-lectura {
+    position: fixed; top: 3.4rem; right: 1rem; z-index: 1060; display: none;
+    width: min(24rem, calc(100vw - 2rem)); max-height: calc(100vh - 5rem); overflow: auto;
+    background: var(--bs-body-bg, #fff); color: var(--bs-body-color, #212529);
+    border: 1px solid var(--bs-border-color, #ced4da); border-radius: 0.6rem;
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.18); padding: 1rem;
+    font-family: system-ui, sans-serif; font-size: 0.95rem;
+  }
+  .panel-lectura.abierto { display: block; }
+  .panel-lectura h2 { font-size: 1rem; margin: 0 0 0.75rem; font-weight: 700; border: 0; padding: 0; }
+  .panel-lectura .fila { display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; margin: 0.6rem 0; }
+  .panel-lectura .grupo { display: inline-flex; gap: 0.3rem; }
+  .panel-lectura .grupo button, .panel-lectura .restablecer {
+    min-width: 2.4rem; padding: 0.3rem 0.6rem; border-radius: 0.4rem; cursor: pointer;
+    border: 1px solid var(--bs-border-color, #ced4da);
+    background: var(--bs-body-bg, #fff); color: var(--bs-body-color, #212529); font: inherit;
+  }
+  .panel-lectura button[aria-pressed="true"] { background: #1C6BA0; border-color: #1C6BA0; color: #fff; }
+  .panel-lectura .restablecer { width: 100%; margin-top: 0.6rem; }
+  .panel-lectura .nota { color: var(--bs-secondary-color, #6c757d); font-size: 0.85rem; margin: 0.6rem 0 0; }
+
+  #caja-busqueda {
+    width: 100%; padding: 0.5rem 0.65rem; font: inherit; border-radius: 0.4rem;
+    border: 1px solid var(--bs-border-color, #ced4da);
+    background: var(--bs-body-bg, #fff); color: var(--bs-body-color, #212529);
+  }
+  #resultados-busqueda { list-style: none; margin: 0.6rem 0 0; padding: 0; }
+  #resultados-busqueda li { border-top: 1px solid var(--bs-border-color, #e9ecef); }
+  #resultados-busqueda a { display: block; padding: 0.5rem 0.2rem; text-decoration: none; color: inherit; }
+  #resultados-busqueda a:hover, #resultados-busqueda a:focus { background: rgba(28, 107, 160, 0.08); }
+  #resultados-busqueda .lugar { display: block; font-size: 0.8rem; color: #1C6BA0; font-weight: 600; }
+  #resultados-busqueda mark { padding: 0; background: #ffe58a; color: #000; }
+  .resaltado-busqueda { outline: 3px solid #f0ad4e; outline-offset: 3px; transition: outline-color 1s; }
+
+  /* Fuente más legible: sin serifa, más espacio entre letras y líneas */
+  body.lectura-legible #quarto-document-content :is(p, li, td, th, dd, dt, figcaption, blockquote, .callout-body-container),
+  body.lectura-legible #TOC {
+    font-family: Verdana, Tahoma, "Segoe UI", sans-serif !important;
+    letter-spacing: 0.02em; word-spacing: 0.08em; line-height: 1.75;
+  }
+  body.lectura-legible #quarto-document-content :is(h1, h2, h3, h4) {
+    font-family: Verdana, Tahoma, "Segoe UI", sans-serif !important;
+  }
+
+  /* Alto contraste: texto negro sobre blanco (o blanco sobre negro en modo oscuro) */
+  body.lectura-contraste.quarto-light { --bs-body-color: #000; --bs-body-bg: #fff; background: #fff !important; color: #000 !important; }
+  body.lectura-contraste.quarto-light #quarto-document-content *:not(mark):not(code):not(pre) { color: #000 !important; }
+  body.lectura-contraste.quarto-light #quarto-document-content a { color: #0033cc !important; text-decoration: underline !important; }
+  body.lectura-contraste.quarto-dark { --bs-body-color: #fff; --bs-body-bg: #000; background: #000 !important; color: #fff !important; }
+  body.lectura-contraste.quarto-dark #quarto-document-content *:not(mark):not(code):not(pre) { color: #fff !important; }
+  body.lectura-contraste.quarto-dark #quarto-document-content a { color: #ffd84d !important; text-decoration: underline !important; }
+  body.lectura-contraste #quarto-document-content :is(.callout, table, th, td) { border-color: currentColor !important; }
+
+  @media (max-width: 767.98px) {
+    #barra-lectura { top: 0.4rem; right: 0.5rem; }
+    .panel-lectura { right: 0.5rem; top: 3.1rem; }
+  }
+  @media print { #barra-lectura, .panel-lectura { display: none !important; } }
+</style>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  var CLAVE = "libro-hidrologia-lectura";
+  var ESCALAS = [0.9, 1, 1.12, 1.25, 1.4];
+  var ajustes = { escala: 1, contraste: false, legible: false };
+  try {
+    var guardado = JSON.parse(localStorage.getItem(CLAVE) || "null");
+    if (guardado) Object.assign(ajustes, guardado);
+  } catch (e) { /* sin almacenamiento: se usan los valores de fábrica */ }
+
+  function guardar() {
+    try { localStorage.setItem(CLAVE, JSON.stringify(ajustes)); } catch (e) {}
+  }
+  function aplicar() {
+    document.documentElement.style.fontSize = ajustes.escala === 1 ? "" : (ajustes.escala * 100) + "%";
+    document.body.classList.toggle("lectura-contraste", !!ajustes.contraste);
+    document.body.classList.toggle("lectura-legible", !!ajustes.legible);
+    var b;
+    if ((b = document.getElementById("lect-contraste"))) b.setAttribute("aria-pressed", String(!!ajustes.contraste));
+    if ((b = document.getElementById("lect-legible"))) b.setAttribute("aria-pressed", String(!!ajustes.legible));
+    if ((b = document.getElementById("lect-tamano"))) b.textContent = Math.round(ajustes.escala * 100) + " %";
+  }
+  aplicar();
+
+  var main = document.getElementById("quarto-document-content") || document.querySelector("main");
+  var hayBusquedaQuarto = !!document.getElementById("quarto-search");
+
+  // --- Barra de botones, arriba a la derecha, junto al modo oscuro ---
+  var barra = document.createElement("div");
+  barra.id = "barra-lectura";
+  var iconoLupa = '<svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M11.74 10.34a6.5 6.5 0 1 0-1.4 1.4l3.85 3.85a1 1 0 0 0 1.4-1.4zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/></svg>';
+  var html = "";
+  if (!hayBusquedaQuarto) {
+    html += '<button type="button" id="boton-busqueda" aria-label="Buscar en el libro" aria-expanded="false" aria-controls="panel-busqueda" title="Buscar en el libro (Ctrl+K)">' + iconoLupa + '</button>';
+  }
+  html += '<button type="button" id="boton-acceso" aria-label="Opciones de lectura: tamaño de letra, contraste y fuente" aria-expanded="false" aria-controls="panel-acceso" title="Tamaño de letra, contraste y fuente">Aa</button>';
+  barra.innerHTML = html;
+  document.body.appendChild(barra);
+
+  // El interruptor de modo oscuro de Quarto pasa a la misma barra, que está
+  // fija arriba a la derecha y se ve en todos los capítulos. En el libro de un
+  // solo archivo Quarto crea el interruptor después de este código, así que se
+  // intenta de nuevo cuando la página termina de cargar.
+  function moverInterruptor() {
+    var interruptor = document.querySelector("body > .quarto-color-scheme-toggle.top-right");
+    if (!interruptor) return;
+    interruptor.classList.remove("top-right");
+    interruptor.setAttribute("aria-label", "Cambiar entre modo claro y oscuro");
+    interruptor.title = "Modo claro u oscuro";
+    barra.appendChild(interruptor);
+    // Quarto no recuerda el modo cuando el libro se abre como archivo local;
+    // se guarda aquí para que se mantenga al volver a abrirlo
+    interruptor.addEventListener("click", function () {
+      setTimeout(function () {
+        try { localStorage.setItem("libro-modo-oscuro", document.body.classList.contains("quarto-dark") ? "1" : "0"); } catch (e) {}
+      }, 0);
+    });
+    var oscuro = null;
+    try { oscuro = localStorage.getItem("libro-modo-oscuro"); } catch (e) {}
+    if (oscuro === "1" && !document.body.classList.contains("quarto-dark") && window.quartoToggleColorScheme) {
+      window.quartoToggleColorScheme();
+    }
+  }
+  moverInterruptor();
+  document.addEventListener("DOMContentLoaded", moverInterruptor);
+  window.addEventListener("load", moverInterruptor);
+
+  // --- Panel de accesibilidad ---
+  var panelAcceso = document.createElement("div");
+  panelAcceso.className = "panel-lectura";
+  panelAcceso.id = "panel-acceso";
+  panelAcceso.setAttribute("role", "dialog");
+  panelAcceso.setAttribute("aria-label", "Opciones de lectura");
+  panelAcceso.innerHTML =
+    '<h2>Opciones de lectura</h2>' +
+    '<div class="fila"><span>Tamaño de letra</span><span class="grupo">' +
+      '<button type="button" id="lect-menos" aria-label="Letra más pequeña">A&minus;</button>' +
+      '<button type="button" id="lect-tamano" aria-label="Volver al tamaño normal" title="Tamaño normal">100 %</button>' +
+      '<button type="button" id="lect-mas" aria-label="Letra más grande">A+</button></span></div>' +
+    '<div class="fila"><span>Alto contraste</span><span class="grupo">' +
+      '<button type="button" id="lect-contraste" aria-pressed="false">Activar</button></span></div>' +
+    '<div class="fila"><span>Fuente más legible</span><span class="grupo">' +
+      '<button type="button" id="lect-legible" aria-pressed="false">Activar</button></span></div>' +
+    '<button type="button" class="restablecer" id="lect-restablecer">Restablecer</button>' +
+    '<p class="nota">Los ajustes se guardan en este navegador. El modo oscuro está en el botón de al lado.</p>';
+  document.body.appendChild(panelAcceso);
+
+  function cambiarEscala(paso) {
+    var i = ESCALAS.indexOf(ajustes.escala);
+    if (i < 0) i = 1;
+    i = paso === 0 ? 1 : Math.min(ESCALAS.length - 1, Math.max(0, i + paso));
+    ajustes.escala = ESCALAS[i];
+    aplicar(); guardar();
+  }
+  document.getElementById("lect-menos").addEventListener("click", function () { cambiarEscala(-1); });
+  document.getElementById("lect-mas").addEventListener("click", function () { cambiarEscala(1); });
+  document.getElementById("lect-tamano").addEventListener("click", function () { cambiarEscala(0); });
+  document.getElementById("lect-contraste").addEventListener("click", function () {
+    ajustes.contraste = !ajustes.contraste; aplicar(); guardar();
+  });
+  document.getElementById("lect-legible").addEventListener("click", function () {
+    ajustes.legible = !ajustes.legible; aplicar(); guardar();
+  });
+  document.getElementById("lect-restablecer").addEventListener("click", function () {
+    ajustes = { escala: 1, contraste: false, legible: false }; aplicar(); guardar();
+  });
+  aplicar();
+
+  // --- Panel de búsqueda (solo en el libro de un archivo) ---
+  var panelBusqueda = null;
+  if (!hayBusquedaQuarto && main) {
+    panelBusqueda = document.createElement("div");
+    panelBusqueda.className = "panel-lectura";
+    panelBusqueda.id = "panel-busqueda";
+    panelBusqueda.setAttribute("role", "dialog");
+    panelBusqueda.setAttribute("aria-label", "Buscar en el libro");
+    panelBusqueda.innerHTML =
+      '<h2>Buscar en el libro</h2>' +
+      '<input type="search" id="caja-busqueda" placeholder="Por ejemplo: Thiessen, curva masa…" autocomplete="off" aria-describedby="estado-busqueda">' +
+      '<p class="nota" id="estado-busqueda" aria-live="polite">Escriba al menos 3 letras. No distingue tildes ni mayúsculas.</p>' +
+      '<ul id="resultados-busqueda"></ul>';
+    document.body.appendChild(panelBusqueda);
+  }
+
+  function normalizar(t) {
+    return t.normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase();
+  }
+
+  // Índice: cada párrafo, elemento de lista, celda o leyenda, con su capítulo y sección
+  var indice = null;
+  function construirIndice() {
+    indice = [];
+    var nodos = main.querySelectorAll("p, li, td, th, figcaption, h1, h2, h3, h4, .callout-title-container");
+    Array.prototype.forEach.call(nodos, function (el) {
+      if (el.closest(".nav-capitulos, #TOC, .panel-lectura, pre, .sourceCode, script, style")) return;
+      if (el.tagName === "LI" && el.querySelector("p")) return;   // ya se indexan sus párrafos
+      var texto = (el.textContent || "").replace(/\s+/g, " ").trim();
+      if (texto.length < 3) return;
+      var sec = el.closest("section[id]");
+      var cap = el.closest("section.level1");
+      var h1 = cap ? cap.querySelector("h1") : null;
+      var hs = sec && sec !== cap ? sec.querySelector(":scope > h2, :scope > h3, :scope > h4") : null;
+      indice.push({
+        el: el, texto: texto, norm: normalizar(texto),
+        destino: (sec || cap || {}).id || "",
+        capitulo: h1 ? h1.textContent.replace(/\s+/g, " ").trim() : "",
+        seccion: hs ? hs.textContent.replace(/\s+/g, " ").trim() : ""
+      });
+    });
+  }
+
+  function escaparHtml(t) {
+    return t.replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; });
+  }
+  function fragmento(item, palabras) {
+    var pos = item.norm.indexOf(palabras[0]);
+    var ini = Math.max(0, pos - 60), fin = Math.min(item.texto.length, pos + 140);
+    var trozo = item.texto.slice(ini, fin), trozoNorm = item.norm.slice(ini, fin);
+    // Resalta cada palabra buscada (las posiciones coinciden porque normalizar no cambia la longitud
+    // de los caracteres comunes del español)
+    var marcas = [];
+    palabras.forEach(function (w) {
+      var k = trozoNorm.indexOf(w);
+      while (k >= 0) { marcas.push([k, k + w.length]); k = trozoNorm.indexOf(w, k + w.length); }
+    });
+    marcas.sort(function (a, b) { return a[0] - b[0]; });
+    var salida = "", ultimo = 0;
+    marcas.forEach(function (m) {
+      if (m[0] < ultimo) return;
+      salida += escaparHtml(trozo.slice(ultimo, m[0])) + "<mark>" + escaparHtml(trozo.slice(m[0], m[1])) + "</mark>";
+      ultimo = m[1];
+    });
+    salida += escaparHtml(trozo.slice(ultimo));
+    return (ini > 0 ? "… " : "") + salida + (fin < item.texto.length ? " …" : "");
+  }
+
+  var temporizador = null;
+  function buscar() {
+    var caja = document.getElementById("caja-busqueda");
+    var estado = document.getElementById("estado-busqueda");
+    var lista = document.getElementById("resultados-busqueda");
+    var consulta = normalizar(caja.value.trim());
+    lista.innerHTML = "";
+    if (consulta.length < 3) {
+      estado.textContent = "Escriba al menos 3 letras. No distingue tildes ni mayúsculas.";
+      return;
+    }
+    if (!indice) construirIndice();
+    var palabras = consulta.split(/\s+/).filter(Boolean);
+    var hallados = indice.filter(function (it) {
+      return palabras.every(function (w) { return it.norm.indexOf(w) >= 0; });
+    });
+    var MAX = 60;
+    estado.textContent = hallados.length === 0 ? "Sin resultados." :
+      (hallados.length > MAX ? "Se muestran " + MAX + " de " + hallados.length + " resultados." :
+       hallados.length + (hallados.length === 1 ? " resultado." : " resultados."));
+    hallados.slice(0, MAX).forEach(function (it) {
+      var li = document.createElement("li");
+      var a = document.createElement("a");
+      a.href = "#" + it.destino;
+      var lugar = it.capitulo + (it.seccion && it.seccion !== it.capitulo ? " › " + it.seccion : "");
+      a.innerHTML = '<span class="lugar">' + escaparHtml(lugar) + "</span>" + fragmento(it, palabras);
+      a.addEventListener("click", function () {
+        cerrarPaneles();
+        // La navegación por capítulos abre la página; después se lleva al párrafo exacto
+        setTimeout(function () {
+          it.el.scrollIntoView({ block: "center" });
+          it.el.classList.add("resaltado-busqueda");
+          setTimeout(function () { it.el.classList.remove("resaltado-busqueda"); }, 2500);
+        }, 60);
+      });
+      li.appendChild(a);
+      lista.appendChild(li);
+    });
+  }
+
+  // --- Abrir y cerrar paneles ---
+  function cerrarPaneles() {
+    [panelAcceso, panelBusqueda].forEach(function (p) { if (p) p.classList.remove("abierto"); });
+    Array.prototype.forEach.call(barra.querySelectorAll("button[aria-expanded]"), function (b) {
+      b.setAttribute("aria-expanded", "false");
+    });
+  }
+  function alternar(panel, boton, foco) {
+    var abrir = !panel.classList.contains("abierto");
+    cerrarPaneles();
+    if (abrir) {
+      panel.classList.add("abierto");
+      boton.setAttribute("aria-expanded", "true");
+      if (foco) foco.focus();
+    }
+  }
+  document.getElementById("boton-acceso").addEventListener("click", function () {
+    alternar(panelAcceso, this, document.getElementById("lect-mas"));
+  });
+  if (panelBusqueda) {
+    var caja = document.getElementById("caja-busqueda");
+    document.getElementById("boton-busqueda").addEventListener("click", function () {
+      alternar(panelBusqueda, this, caja);
+    });
+    caja.addEventListener("input", function () {
+      clearTimeout(temporizador);
+      temporizador = setTimeout(buscar, 200);
+    });
+  }
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape") cerrarPaneles();
+    if (panelBusqueda && (e.ctrlKey || e.metaKey) && (e.key === "k" || e.key === "K")) {
+      e.preventDefault();
+      alternar(panelBusqueda, document.getElementById("boton-busqueda"), document.getElementById("caja-busqueda"));
+    }
+  });
+  document.addEventListener("click", function (e) {
+    if (!e.target.closest(".panel-lectura, #barra-lectura")) cerrarPaneles();
+  });
+});
+</script>
+
+<!--
+  Notas al pie de los cuadros hechos con kableExtra: Quarto parte la celda que
+  ocupa todo el ancho en una celda por columna, y la nota queda apretada en la
+  primera columna. Aquí se vuelve a unir en una sola celda de todo el ancho.
+-->
+<style>
+  tfoot td.nota-cuadro { text-align: left !important; padding: 0.4rem 0.5rem !important;
+    font-size: 0.9em; white-space: normal; }
+</style>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  document.querySelectorAll("tfoot tr").forEach(function (fila) {
+    var celdas = Array.prototype.slice.call(fila.cells);
+    if (celdas.length < 2 || celdas[0].textContent.trim() === "") return;
+    var vacias = celdas.slice(1).every(function (c) { return c.textContent.trim() === ""; });
+    if (!vacias) return;
+    celdas[0].colSpan = celdas.length;
+    celdas[0].classList.add("nota-cuadro");
+    celdas.slice(1).forEach(function (c) { c.remove(); });
+  });
+});
+</script>
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+    let newTheme = '';
+    if(darkModeDefault) {
+      newTheme = isAlternate ? baseTheme : alternateTheme;
+    } else {
+      newTheme = isAlternate ? alternateTheme : baseTheme;
+    }
+    const changeGiscusTheme = () => {
+      // From: https://github.com/giscus/giscus/issues/336
+      const sendMessage = (message) => {
+        const iframe = document.querySelector('iframe.giscus-frame');
+        if (!iframe) return;
+        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+      }
+      sendMessage({
+        setConfig: {
+          theme: newTheme
+        }
+      });
+    }
+    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+    if (isGiscussLoaded) {
+      changeGiscusTheme();
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  const darkModeDefault = false;
+  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+    toggleGiscusIfUsed(toAlternate, darkModeDefault);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copiado");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copiado");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/ems270900\.github\.io\/hidrologia-aplicada\/");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+          // target, if specified
+          link.setAttribute("target", "_blank");
+          if (link.getAttribute("rel") === null) {
+            link.setAttribute("rel", "noopener");
+          }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./41-pronostico_alerta_temprana.html" class="pagination-link" aria-label="Pronóstico de crecidas y sistemas de alerta temprana">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">41</span>&nbsp; <span class="chapter-title">Pronóstico de crecidas y sistemas de alerta temprana</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./43-drenaje_urbano.html" class="pagination-link" aria-label="Sistemas de drenaje urbano">
+        <span class="nav-page-text"><span class="chapter-number">43</span>&nbsp; <span class="chapter-title">Sistemas de drenaje urbano</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>© 2026 Ing. Edwin Matarrita Segura. Texto bajo licencia <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.es">CC BY-NC-SA 4.0</a>; código R bajo licencia <a href="https://github.com/ems270900/hidrologia-aplicada/blob/main/LICENSE-CODE">MIT</a>.</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+<p>Este libro fue construido con <a href="https://quarto.org/">Quarto</a> y <a href="https://posit.co/download/rstudio-desktop/">RStudio</a>.</p>
+</div>
+  </div>
+</footer>
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
+
+
+
+
+<script src="site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>

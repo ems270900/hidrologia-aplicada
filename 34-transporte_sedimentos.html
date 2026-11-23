@@ -1,0 +1,2418 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.40">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>34&nbsp; Transporte de sedimentos y sedimentación de embalses – Hidrología Aplicada a la Ingeniería Civil</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./35-morfologia_fluvial.html" rel="next">
+<link href="./33-erosion_sedimentos.html" rel="prev">
+<link href="./assets/img/favicon.png" rel="icon" type="image/png">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-8ea72dc5fed832574809a9c94082fbbb.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-9308c6a3e2b77de33fd175cc56d97d6e.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-955cb59a11449acdc5f9686ead510861.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script src="site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "Sin resultados",
+    "search-matching-documents-text": "documentos encontrados",
+    "search-copy-link-title": "Copiar el enlace en la búsqueda",
+    "search-hide-matches-text": "Ocultar resultados adicionales",
+    "search-more-match-text": "resultado adicional en este documento",
+    "search-more-matches-text": "resultados adicionales en este documento",
+    "search-clear-button-title": "Borrar",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancelar",
+    "search-submit-button-title": "Enviar",
+    "search-label": "Buscar"
+  }
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
+<script src="site_libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+<script src="site_libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
+<link href="site_libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet">
+<script src="site_libs/datatables-binding-0.31/datatables.js"></script>
+<script src="site_libs/jquery-3.6.1/jquery-3.6.1.min.js"></script>
+<link href="site_libs/dt-core-1.13.6/css/jquery.dataTables.min.css" rel="stylesheet">
+<link href="site_libs/dt-core-1.13.6/css/jquery.dataTables.extra.css" rel="stylesheet">
+<script src="site_libs/dt-core-1.13.6/js/jquery.dataTables.min.js"></script>
+<link href="site_libs/crosstalk-1.2.1/css/crosstalk.min.css" rel="stylesheet">
+<script src="site_libs/crosstalk-1.2.1/js/crosstalk.min.js"></script>
+<link href="site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet">
+<script src="site_libs/pagedtable-1.1/js/pagedtable.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="assets/css/styles.css">
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./33-erosion_sedimentos.html">Sedimentos, calidad del agua y morfología fluvial</a></li><li class="breadcrumb-item"><a href="./34-transporte_sedimentos.html"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">Transporte de sedimentos y sedimentación de embalses</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Hidrología Aplicada a la Ingeniería Civil</a> 
+        <div class="sidebar-tools-main">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Alternar modo oscuro"><i class="bi"></i></a>
+  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Alternar modo lector">
+  <div class="quarto-reader-toggle-btn">
+  <i class="bi"></i>
+  </div>
+</a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Buscar"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Hidrología Aplicada a la Ingeniería Civil</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./welcome.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Prefacio</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introducción</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Fundamentos</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01-La_hidrologia_como_ciencia.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">La hidrología como ciencia</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02-Disponibilidad.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">La disponibilidad del recurso hídrico</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03-Ciclo_hidrologico.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">El ciclo hidrológico</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04-Cuenca.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">La cuenca como unidad hidrológica</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Información hidrometeorológica</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05-Fuentes_info_hidrometeo.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Fuentes de información hidrometeorológica</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./06-Meteo.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Principios de meteorología y climatología</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./07-Precip.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Precipitación</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./08-hidrometria.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Hidrometría: aforos y curvas de descarga</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./09-registros_hidro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Verificación y completado de registros hidrológicos</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./10-teledeteccion_productos_satelitales.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Teledetección y productos satelitales</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Análisis estadístico aplicado a la hidrología</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./11-estadistica.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Conceptos básicos de probabilidad</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./12-retorno_y_riesgo.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Conceptos clave de probabilidad en hidrología</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./13-modelos.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Modelos estadísticos y distribuciones de probabilidad</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./14-dist_parametrica.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Distribuciones paramétricas de probabilidad comunes en hidrología</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">Lluvia de diseño</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./15-IDF.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Intensidad, duración y frecuencia de la precipitación</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./16-hietogramas_diseno.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Distribución temporal de la lluvia de diseño</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./17-precipitacion_maxima_probable.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Precipitación máxima probable</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
+ <span class="menu-text">Procesos de pérdida del agua</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./18-Evaporación.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Evaporación</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./19-Evapotranspiración.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Evapotranspiración</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./20-Infiltración y almacenamiento en el suelo.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Infiltración y almacenamiento en el suelo</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./21-Transición hacia la escorrentía superficial.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Intercepción, almacenamiento superficial y transición a la escorrentía</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true">
+ <span class="menu-text">Balance hídrico, agua subterránea y caudales bajos</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./22-Principio de conservación de la masa.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Principio de conservación de la masa</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./23-Balance hídrico a escala de cuenca.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Balance hídrico a escala de cuenca</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./24-Balance hídrico del suelo.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Balance hídrico del suelo</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./25-agua_subterranea.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Agua subterránea y recarga de acuíferos</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./26-caudales_minimos_sequias.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Caudales mínimos, sequías y curvas de duración</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./27-oferta_demanda.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Oferta y demanda hídrica</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true">
+ <span class="menu-text">Escorrentía y crecidas de diseño</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./28-hidrograma_unitario.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Hidrograma de escorrentía directa e hidrograma unitario</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./29-metodo_racional.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Método racional y tiempo de concentración</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./30-modelos_lluvia_escorrentia.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Modelos lluvia-escorrentía</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./31-frecuencia_caudales.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Análisis de frecuencia de caudales y regionalización</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./32-incertidumbre.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Incertidumbre en hidrología</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true">
+ <span class="menu-text">Sedimentos, calidad del agua y morfología fluvial</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./33-erosion_sedimentos.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Erosión y producción de sedimentos</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./34-transporte_sedimentos.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">Transporte de sedimentos y sedimentación de embalses</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./35-morfologia_fluvial.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">Morfología fluvial</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./36-calidad_agua.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">36</span>&nbsp; <span class="chapter-title">Calidad del agua</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="true">
+ <span class="menu-text">Tránsito de avenidas, embalses y crecidas</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="true" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./37-transito_fundamentos.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">37</span>&nbsp; <span class="chapter-title">Fundamentos del tránsito de avenidas</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./38-transito_embalses.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">38</span>&nbsp; <span class="chapter-title">Tránsito de avenidas y operación de embalses</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./39-transito_rios.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">39</span>&nbsp; <span class="chapter-title">Tránsito hidrológico en ríos</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./40-amenaza_inundacion.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">40</span>&nbsp; <span class="chapter-title">Amenaza por inundación</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./41-pronostico_alerta_temprana.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">41</span>&nbsp; <span class="chapter-title">Pronóstico de crecidas y sistemas de alerta temprana</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="true">
+ <span class="menu-text">Hidrología urbana</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="true" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./42-hidrologia_urbana.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">42</span>&nbsp; <span class="chapter-title">Hidrología urbana y escorrentía urbana</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./43-drenaje_urbano.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">43</span>&nbsp; <span class="chapter-title">Sistemas de drenaje urbano</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./44-drenaje_sostenible.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">44</span>&nbsp; <span class="chapter-title">Hidrología urbana sostenible y adaptación climática</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" role="navigation" aria-expanded="true">
+ <span class="menu-text">Cambio climático, uso del suelo e hidrología</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" role="navigation" aria-expanded="true" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-11" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./45-ecohidrologia_uso_suelo.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">45</span>&nbsp; <span class="chapter-title">Ecohidrología y cambio de uso del suelo</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./46-cambio_climatico_fundamentos.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">46</span>&nbsp; <span class="chapter-title">Cambio climático: fundamentos y evidencia</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./47-escenarios_modelos_climaticos.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">47</span>&nbsp; <span class="chapter-title">Escenarios y modelos climáticos</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./48-diseno_cambio_climatico.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">48</span>&nbsp; <span class="chapter-title">Diseño hidrológico con cambio climático</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./49-epilogo.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Palabras finales</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./99-Referencias.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Referencias</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Tabla de contenidos</h2>
+   
+  <ul>
+  <li><a href="#sec-sed-propiedades" id="toc-sec-sed-propiedades" class="nav-link active" data-scroll-target="#sec-sed-propiedades"><span class="header-section-number">34.1</span> Propiedades de los sedimentos</a>
+  <ul class="collapse">
+  <li><a href="#sec-sed-tamano" id="toc-sec-sed-tamano" class="nav-link" data-scroll-target="#sec-sed-tamano"><span class="header-section-number">34.1.1</span> Tamaño y densidad</a></li>
+  <li><a href="#sec-sed-caida" id="toc-sec-sed-caida" class="nav-link" data-scroll-target="#sec-sed-caida"><span class="header-section-number">34.1.2</span> Velocidad de caída</a></li>
+  </ul></li>
+  <li><a href="#sec-sed-formas" id="toc-sec-sed-formas" class="nav-link" data-scroll-target="#sec-sed-formas"><span class="header-section-number">34.2</span> Formas de transporte</a></li>
+  <li><a href="#sec-sed-inicio" id="toc-sec-sed-inicio" class="nav-link" data-scroll-target="#sec-sed-inicio"><span class="header-section-number">34.3</span> Inicio del movimiento</a>
+  <ul class="collapse">
+  <li><a href="#sec-sed-cortante" id="toc-sec-sed-cortante" class="nav-link" data-scroll-target="#sec-sed-cortante"><span class="header-section-number">34.3.1</span> Esfuerzo cortante en el lecho</a></li>
+  <li><a href="#sec-sed-shields" id="toc-sec-sed-shields" class="nav-link" data-scroll-target="#sec-sed-shields"><span class="header-section-number">34.3.2</span> Diagrama de Shields</a></li>
+  </ul></li>
+  <li><a href="#sec-sed-fondo" id="toc-sec-sed-fondo" class="nav-link" data-scroll-target="#sec-sed-fondo"><span class="header-section-number">34.4</span> Carga de fondo</a></li>
+  <li><a href="#sec-sed-suspension" id="toc-sec-sed-suspension" class="nav-link" data-scroll-target="#sec-sed-suspension"><span class="header-section-number">34.5</span> Carga en suspensión y carga total</a></li>
+  <li><a href="#sec-sed-medicion" id="toc-sec-sed-medicion" class="nav-link" data-scroll-target="#sec-sed-medicion"><span class="header-section-number">34.6</span> Medición del sedimento y curva de gasto sólido</a>
+  <ul class="collapse">
+  <li><a href="#sec-sed-muestreo" id="toc-sec-sed-muestreo" class="nav-link" data-scroll-target="#sec-sed-muestreo"><span class="header-section-number">34.6.1</span> Muestreo</a></li>
+  <li><a href="#sec-sed-curva" id="toc-sec-sed-curva" class="nav-link" data-scroll-target="#sec-sed-curva"><span class="header-section-number">34.6.2</span> Curva de gasto sólido</a></li>
+  </ul></li>
+  <li><a href="#sec-sed-embalses" id="toc-sec-sed-embalses" class="nav-link" data-scroll-target="#sec-sed-embalses"><span class="header-section-number">34.7</span> Sedimentación de embalses</a>
+  <ul class="collapse">
+  <li><a href="#sec-sed-depositos" id="toc-sec-sed-depositos" class="nav-link" data-scroll-target="#sec-sed-depositos"><span class="header-section-number">34.7.1</span> Cómo se llena un embalse</a></li>
+  <li><a href="#sec-sed-atrape" id="toc-sec-sed-atrape" class="nav-link" data-scroll-target="#sec-sed-atrape"><span class="header-section-number">34.7.2</span> Eficiencia de atrape</a></li>
+  <li><a href="#sec-sed-densidad" id="toc-sec-sed-densidad" class="nav-link" data-scroll-target="#sec-sed-densidad"><span class="header-section-number">34.7.3</span> Densidad de los depósitos</a></li>
+  <li><a href="#sec-sed-vida" id="toc-sec-sed-vida" class="nav-link" data-scroll-target="#sec-sed-vida"><span class="header-section-number">34.7.4</span> Vida útil</a></li>
+  <li><a href="#sec-sed-manejo" id="toc-sec-sed-manejo" class="nav-link" data-scroll-target="#sec-sed-manejo"><span class="header-section-number">34.7.5</span> Manejo de sedimentos</a></li>
+  </ul></li>
+  <li><a href="#ejercicios-propuestos" id="toc-ejercicios-propuestos" class="nav-link" data-scroll-target="#ejercicios-propuestos"><span class="header-section-number">34.8</span> Ejercicios propuestos</a></li>
+  <li><a href="#lecturas-recomendadas" id="toc-lecturas-recomendadas" class="nav-link" data-scroll-target="#lecturas-recomendadas"><span class="header-section-number">34.9</span> Lecturas recomendadas</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./33-erosion_sedimentos.html">Sedimentos, calidad del agua y morfología fluvial</a></li><li class="breadcrumb-item"><a href="./34-transporte_sedimentos.html"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">Transporte de sedimentos y sedimentación de embalses</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">Transporte de sedimentos y sedimentación de embalses</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="quote-block">
+<p>“Los embalses son, probablemente, la clase de infraestructura no sostenible más importante de nuestros días.”<br>
+— <em>Gregory L. Morris, George Annandale y Rollin Hotchkiss</em>, Sedimentation engineering (2008), capítulo 12</p>
+</div>
+<p>El sedimento que entregan las laderas (capítulo anterior) viaja por los ríos en dos formas: rodando y saltando sobre el lecho, o suspendido en el agua. Cuánto lleva un río y en qué forma lo lleva decide si una toma de agua se azolva, si un puente queda descalzado, si un tramo canalizado se rellena y cuántos años de vida útil tiene un embalse. El transporte de sedimentos es uno de los temas más difíciles de la hidráulica: las fórmulas de capacidad de transporte dan resultados que pueden diferir por un factor de diez entre sí, y las mediciones de campo tienen errores grandes. Por eso aquí se insiste tanto en entender qué hace cada fórmula como en saber cuándo no usarla. El capítulo sigue el camino del sedimento: cómo cae, cuándo empieza a moverse, cuánto se mueve, cómo se mide y qué pasa cuando llega a un embalse.</p>
+<section id="sec-sed-propiedades" class="level2" data-number="34.1">
+<h2 data-number="34.1" class="anchored" data-anchor-id="sec-sed-propiedades"><span class="header-section-number">34.1</span> Propiedades de los sedimentos</h2>
+<section id="sec-sed-tamano" class="level3" data-number="34.1.1">
+<h3 data-number="34.1.1" class="anchored" data-anchor-id="sec-sed-tamano"><span class="header-section-number">34.1.1</span> Tamaño y densidad</h3>
+<p>La propiedad que más influye en el transporte es el tamaño de la partícula. Se describe con el diámetro de cribado o, para partículas finas, con el diámetro de sedimentación, y se agrupa en la escala del <a href="#tbl-sed-escala" class="quarto-xref">Cuadro&nbsp;<span>34.1</span></a>. Como un lecho de río tiene partículas de muchos tamaños, se resume con los diámetros característicos de su curva granulométrica: <span class="math inline">\(d_{50}\)</span> es el diámetro mediano, el tamaño del que el 50 % del peso es más fino; <span class="math inline">\(d_{84}\)</span> y <span class="math inline">\(d_{90}\)</span> representan la fracción gruesa, que controla la rugosidad.</p>
+<div class="cell" data-layout-align="center">
+<div id="tbl-sed-escala" class="cell quarto-float quarto-figure quarto-figure-center anchored" data-layout-align="center">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-sed-escala-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Cuadro&nbsp;34.1: Escala de tamaños de sedimento y velocidad de caída en agua clara a 20 °C.
+</figcaption>
+<div aria-describedby="tbl-sed-escala-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<table class="table table-hover table-condensed do-not-create-environment cell caption-top table-sm table-striped small" data-quarto-postprocess="true">
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">Clase</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">Diámetro (mm)</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">Velocidad de caída (mm/s)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Bloque</td>
+<td style="text-align: center;">&gt; 256</td>
+<td style="text-align: center;">&gt; 1900</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Canto</td>
+<td style="text-align: center;">64–256</td>
+<td style="text-align: center;">960–1900</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Grava</td>
+<td style="text-align: center;">2–64</td>
+<td style="text-align: center;">167–960</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Arena</td>
+<td style="text-align: center;">0.0625–2</td>
+<td style="text-align: center;">3.5–167</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Limo</td>
+<td style="text-align: center;">0.004–0.0625</td>
+<td style="text-align: center;">0.014–3.5</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Arcilla</td>
+<td style="text-align: center;">&lt; 0.004</td>
+<td style="text-align: center;">&lt; 0.014</td>
+</tr>
+</tbody><tfoot>
+<tr class="odd">
+<td style="text-align: left; padding: 0;"><span style="font-style: italic;">Fuente: </span> <sup></sup> Julien (2010, cuadro 5.4). Por debajo de unos 0.03 mm las partículas pueden flocular y caer más rápido.</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+</tfoot>
+
+</table>
+
+
+</div>
+</div>
+</figure>
+</div>
+</div>
+<p>Los granos de cuarzo y feldespato, que forman la mayoría de las arenas, tienen una densidad relativa <span class="math inline">\(G = \rho_s/\rho\)</span> cercana a 2.65. En los ríos de origen volcánico de Centroamérica hay fragmentos de lava y pómez de densidades distintas, y conviene medirla en lugar de suponerla. En las fórmulas aparece casi siempre el peso específico sumergido relativo, <span class="math inline">\(G - 1 = 1.65\)</span>.</p>
+</section>
+<section id="sec-sed-caida" class="level3" data-number="34.1.2">
+<h3 data-number="34.1.2" class="anchored" data-anchor-id="sec-sed-caida"><span class="header-section-number">34.1.2</span> Velocidad de caída</h3>
+<p>La velocidad de caída <span class="math inline">\(\omega\)</span> es la velocidad constante que alcanza una partícula al caer en agua quieta, cuando su peso sumergido se equilibra con la resistencia del agua. Separa el sedimento que el río lleva en suspensión del que solo arrastra por el fondo, y controla cuánto tarda una partícula en depositarse en un desarenador o en un embalse. Para granos naturales de arena y grava, <span class="citation" data-cites="julien2010erosion">Julien (2010, ec. 5.23d)</span> propone</p>
+<p><span id="eq-sed-caida"><span class="math display">\[
+\omega = \frac{8\,\nu}{d_s}\left[\left(1 + 0.0139\,d_*^3\right)^{0.5} - 1\right], \qquad d_* = d_s \left[\frac{(G-1)\,g}{\nu^2}\right]^{1/3}
+\tag{34.1}\]</span></span></p>
+<p>donde <span class="math inline">\(\omega\)</span> es la velocidad de caída (m/s), <span class="math inline">\(d_s\)</span> es el diámetro de la partícula (m), <span class="math inline">\(\nu\)</span> es la viscosidad cinemática del agua (m²/s, <span class="math inline">\(1.0 \times 10^{-6}\)</span> a 20 °C), <span class="math inline">\(g\)</span> es la aceleración de la gravedad (m/s²) y <span class="math inline">\(d_*\)</span> es el diámetro adimensional. Para partículas muy finas la ecuación tiende a la ley de Stokes, y para gravas, a una velocidad proporcional a la raíz del diámetro.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Ejemplo: velocidad de caída de cuatro tamaños de sedimento">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Ejemplo: velocidad de caída de cuatro tamaños de sedimento
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Planteamiento.</strong> Calcule la velocidad de caída en agua a 20 °C (<span class="math inline">\(\nu = 1.0 \times 10^{-6}\)</span> m²/s) de partículas de cuarzo (<span class="math inline">\(G = 2.65\)</span>) de 0.0625, 0.25, 1 y 4 mm. Compare con el <a href="#tbl-sed-escala" class="quarto-xref">Cuadro&nbsp;<span>34.1</span></a>.</p>
+<p><strong>Solución:</strong></p>
+<p>Para la arena de 0.25 mm:</p>
+<ol type="1">
+<li><span class="math inline">\((G-1)\,g/\nu^2 = 1.65 \times 9.81/(1.0 \times 10^{-6})^2 = 1.619 \times 10^{13}\)</span> m⁻³, y su raíz cúbica es 25 296 m⁻¹.</li>
+<li><span class="math inline">\(d_* = 0.00025 \times 25\,296 = 6.32\)</span>.</li>
+<li><span class="math inline">\(1 + 0.0139 \times 6.32^3 = 1 + 0.0139 \times 252.9 = 4.515\)</span>, cuya raíz es 2.125.</li>
+<li><span class="math inline">\(\omega = (8 \times 10^{-6}/0.00025) \times (2.125 - 1) = 0.032 \times 1.125 = 0.036\)</span> m/s, es decir, 36 mm/s.</li>
+</ol>
+<p>Los otros tamaños siguen igual y dan 3.5, 112 y 238 mm/s.</p>
+<p><strong>Pseudocódigo</strong></p>
+<ol type="1">
+<li>Definir las constantes y los diámetros.</li>
+<li>Calcular <span class="math inline">\(d_*\)</span> y <span class="math inline">\(\omega\)</span> con la <a href="#eq-sed-caida" class="quarto-xref">Ecuación&nbsp;<span>34.1</span></a> para cada diámetro.</li>
+</ol>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 1) Constantes</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>g <span class="ot">&lt;-</span> <span class="fl">9.81</span>; nu <span class="ot">&lt;-</span> <span class="fl">1.0e-6</span>; dens_rel <span class="ot">&lt;-</span> <span class="fl">2.65</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># 2) Velocidad de caída de Julien (2010)</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>vel_caida <span class="ot">&lt;-</span> <span class="cf">function</span>(d_m) {</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  d_ast <span class="ot">&lt;-</span> d_m <span class="sc">*</span> ((dens_rel <span class="sc">-</span> <span class="dv">1</span>) <span class="sc">*</span> g <span class="sc">/</span> nu<span class="sc">^</span><span class="dv">2</span>)<span class="sc">^</span>(<span class="dv">1</span><span class="sc">/</span><span class="dv">3</span>)</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  <span class="dv">8</span> <span class="sc">*</span> nu <span class="sc">/</span> d_m <span class="sc">*</span> (<span class="fu">sqrt</span>(<span class="dv">1</span> <span class="sc">+</span> <span class="fl">0.0139</span> <span class="sc">*</span> d_ast<span class="sc">^</span><span class="dv">3</span>) <span class="sc">-</span> <span class="dv">1</span>)</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="fu">tibble</span>(<span class="at">d_mm =</span> <span class="fu">c</span>(<span class="fl">0.0625</span>, <span class="fl">0.25</span>, <span class="dv">1</span>, <span class="dv">4</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">d_ast =</span> d_mm <span class="sc">/</span> <span class="dv">1000</span> <span class="sc">*</span> ((dens_rel <span class="sc">-</span> <span class="dv">1</span>) <span class="sc">*</span> g <span class="sc">/</span> nu<span class="sc">^</span><span class="dv">2</span>)<span class="sc">^</span>(<span class="dv">1</span><span class="sc">/</span><span class="dv">3</span>),</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>         <span class="at">w_mms =</span> <span class="fu">vel_caida</span>(d_mm <span class="sc">/</span> <span class="dv">1000</span>) <span class="sc">*</span> <span class="dv">1000</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":["d_mm"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["d_ast"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["w_mms"],"name":[3],"type":["dbl"],"align":["right"]}],"data":[{"1":"0.0625","2":"1.580997","3":"3.468511"},{"1":"0.2500","2":"6.323987","3":"35.999100"},{"1":"1.0000","2":"25.295949","3":"112.264336"},{"1":"4.0000","2":"101.183798","3":"238.004253"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+</div>
+<p><strong>Interpretación.</strong> Los cuatro valores coinciden con los del cuadro de <span class="citation" data-cites="julien2010erosion">Julien (2010)</span>. Entre la arena muy fina y la grava fina la velocidad de caída aumenta casi 70 veces. Por eso un desarenador diseñado para retener arena de 0.25 mm deja pasar casi todo el limo: una partícula de 0.03 mm cae a menos de 1 mm/s y necesitaría más de una hora para bajar 4 m.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="sec-sed-formas" class="level2" data-number="34.2">
+<h2 data-number="34.2" class="anchored" data-anchor-id="sec-sed-formas"><span class="header-section-number">34.2</span> Formas de transporte</h2>
+<p>El sedimento que mueve un río se clasifica de dos maneras, y conviene no mezclarlas <span class="citation" data-cites="garcia2008sediment">(García 2008)</span>:</p>
+<ul>
+<li><strong>Por el mecanismo.</strong> La carga de fondo rueda, se desliza o salta sobre el lecho, siempre en contacto frecuente con él. La carga en suspensión viaja dentro de la columna de agua, sostenida por la turbulencia, y solo toca el fondo de vez en cuando.</li>
+<li><strong>Por el origen.</strong> La carga de material del lecho está formada por partículas de los tamaños que hay en el lecho; puede ir por el fondo o en suspensión. La carga de lavado son las partículas finas, casi siempre limos y arcillas, que vienen de las laderas y casi no se encuentran en el lecho. Su cantidad depende de lo que entrega la cuenca y no de la capacidad del río.</li>
+</ul>
+<p>La <a href="#fig-sed-cargas" class="quarto-xref">Figura&nbsp;<span>34.1</span></a> muestra las tres cargas en un tramo de río:</p>
+<ul>
+<li><strong>Carga de fondo.</strong> Arenas gruesas y gravas que ruedan, se deslizan o avanzan a saltos cortos, de pocos diámetros de altura, sobre el lecho. Se mueve solo cuando el esfuerzo cortante supera el valor crítico de la <a href="#sec-sed-inicio" class="quarto-xref"><span>Sección 34.3</span></a>, y su velocidad es mucho menor que la del agua. Es la que forma las barras, las dunas y los deltas en las colas de los embalses. En los ríos de arena de llanura suele ser una fracción pequeña de la carga total; en los de grava y de montaña su peso relativo es mayor.</li>
+<li><strong>Carga en suspensión de material del lecho.</strong> Arenas finas y medias del propio lecho que la turbulencia levanta y mantiene en la columna de agua. Su concentración es máxima cerca del fondo y baja hacia la superficie, porque las partículas tienden a caer y la turbulencia las vuelve a subir. Crece muy rápido con el caudal.</li>
+<li><strong>Carga de lavado.</strong> Limos y arcillas que llegan de las laderas y de las márgenes, tan finos que caen muy despacio y se distribuyen casi uniformemente en la vertical. El río los lleva sin dificultad, de modo que la cantidad depende de lo que entrega la cuenca. En una creciente, la concentración de la carga de lavado a menudo alcanza su máximo antes que el pico del caudal, cuando la lluvia lava las laderas.</li>
+</ul>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div id="fig-sed-cargas" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Corte esquemático de un río con el lecho de arena y grava abajo. Sobre el lecho, granos que ruedan y otros que avanzan a saltos marcados con arcos punteados; en el agua, partículas de arena más abundantes cerca del fondo y más escasas hacia la superficie, y partículas muy finas repartidas uniformemente en toda la altura. A la derecha, dos llaves clasifican la carga por mecanismo, fondo o suspensión, y por origen, material del lecho o lavado" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-sed-cargas-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="34-transporte_sedimentos_files/figure-html/fig-sed-cargas-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Figura&nbsp;34.1: Carga de fondo, carga en suspensión y carga de lavado en un río."><img src="34-transporte_sedimentos_files/figure-html/fig-sed-cargas-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:70.0%" alt="Corte esquemático de un río con el lecho de arena y grava abajo. Sobre el lecho, granos que ruedan y otros que avanzan a saltos marcados con arcos punteados; en el agua, partículas de arena más abundantes cerca del fondo y más escasas hacia la superficie, y partículas muy finas repartidas uniformemente en toda la altura. A la derecha, dos llaves clasifican la carga por mecanismo, fondo o suspensión, y por origen, material del lecho o lavado"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-sed-cargas-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;34.1: Carga de fondo, carga en suspensión y carga de lavado en un río.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>La distinción importa porque las fórmulas de capacidad de transporte solo predicen la carga de material del lecho. La carga de lavado no se calcula con la hidráulica del tramo; se mide, o se estima con los métodos del capítulo anterior. En los ríos de montaña de la región, la carga de lavado puede ser la mayor parte del sedimento total durante las crecientes.</p>
+<p>Que una partícula viaje por el fondo o en suspensión depende del cociente entre su velocidad de caída y la velocidad de corte del flujo, <span class="math inline">\(u_* = \sqrt{\tau_0/\rho}\)</span>, que mide la intensidad de la turbulencia cerca del lecho. Si <span class="math inline">\(\omega/u_*\)</span> es mayor que 1, la partícula viaja casi siempre por el fondo; si es menor que 0.4, buena parte va en suspensión <span class="citation" data-cites="julien2010erosion">(Julien 2010)</span>.</p>
+</section>
+<section id="sec-sed-inicio" class="level2" data-number="34.3">
+<h2 data-number="34.3" class="anchored" data-anchor-id="sec-sed-inicio"><span class="header-section-number">34.3</span> Inicio del movimiento</h2>
+<section id="sec-sed-cortante" class="level3" data-number="34.3.1">
+<h3 data-number="34.3.1" class="anchored" data-anchor-id="sec-sed-cortante"><span class="header-section-number">34.3.1</span> Esfuerzo cortante en el lecho</h3>
+<p>El agua que corre por un cauce ejerce sobre el lecho un esfuerzo cortante. En flujo uniforme, el peso del agua en la dirección de la pendiente se equilibra con ese esfuerzo, y su valor medio es</p>
+<p><span id="eq-sed-tau"><span class="math display">\[
+\tau_0 = \gamma \, R_h \, S
+\tag{34.2}\]</span></span></p>
+<p>donde <span class="math inline">\(\tau_0\)</span> es el esfuerzo cortante medio en el lecho (Pa), <span class="math inline">\(\gamma\)</span> es el peso específico del agua (9810 N/m³), <span class="math inline">\(R_h\)</span> es el radio hidráulico (m) y <span class="math inline">\(S\)</span> es la pendiente de la línea de energía (m/m). En cauces anchos, con ancho mayor que unas diez veces la profundidad, <span class="math inline">\(R_h\)</span> es casi igual a la profundidad <span class="math inline">\(h\)</span>.</p>
+</section>
+<section id="sec-sed-shields" class="level3" data-number="34.3.2">
+<h3 data-number="34.3.2" class="anchored" data-anchor-id="sec-sed-shields"><span class="header-section-number">34.3.2</span> Diagrama de Shields</h3>
+<p>Una partícula del lecho empieza a moverse cuando las fuerzas del flujo vencen su peso sumergido y la fricción con las vecinas. Shields expresó esa condición con el parámetro adimensional</p>
+<p><span id="eq-sed-shields"><span class="math display">\[
+\tau_* = \frac{\tau_0}{(\gamma_s - \gamma)\,d_s}
+\tag{34.3}\]</span></span></p>
+<p>donde <span class="math inline">\(\tau_*\)</span> es el esfuerzo cortante adimensional o parámetro de Shields y <span class="math inline">\(\gamma_s\)</span> es el peso específico del sedimento (N/m³). El movimiento empieza cuando <span class="math inline">\(\tau_*\)</span> supera un valor crítico <span class="math inline">\(\tau_{*c}\)</span>, que depende del número de Reynolds de la partícula. <span class="citation" data-cites="garcia2008sediment">García (2008, ec. 2-59a)</span> recomienda el ajuste de Brownlie a los datos de Shields:</p>
+<p><span id="eq-sed-brownlie"><span class="math display">\[
+\tau_{*c} = 0.22\,Re_p^{-0.6} + 0.06\,\exp\left(-17.77\,Re_p^{-0.6}\right), \qquad Re_p = \frac{\sqrt{(G-1)\,g\,d_s}\;d_s}{\nu}
+\tag{34.4}\]</span></span></p>
+<p>Para arenas medias el valor crítico es del orden de 0.03 a 0.04; para gravas y cantos, con <span class="math inline">\(Re_p\)</span> grande, tiende a 0.06. <span class="citation" data-cites="garcia2008sediment">García (2008)</span> advierte que el diagrama marca un movimiento ya generalizado y que, del lado de la seguridad, para proyectos se puede usar la mitad del valor de la ecuación. La <a href="#fig-sed-shields" class="quarto-xref">Figura&nbsp;<span>34.2</span></a> muestra la curva.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div id="fig-sed-shields" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Curva en escala logarítmica del parámetro de Shields crítico contra el número de Reynolds de la partícula; baja desde 0.2 en Rep igual a 0.1 hasta un mínimo cercano a 0.03 en Rep de unos 10 y sube hasta 0.06 para Rep mayores de 1000" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-sed-shields-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="34-transporte_sedimentos_files/figure-html/fig-sed-shields-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Figura&nbsp;34.2: Esfuerzo cortante crítico adimensional según el ajuste de Brownlie al diagrama de Shields."><img src="34-transporte_sedimentos_files/figure-html/fig-sed-shields-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:70.0%" alt="Curva en escala logarítmica del parámetro de Shields crítico contra el número de Reynolds de la partícula; baja desde 0.2 en Rep igual a 0.1 hasta un mínimo cercano a 0.03 en Rep de unos 10 y sube hasta 0.06 para Rep mayores de 1000"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-sed-shields-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;34.2: Esfuerzo cortante crítico adimensional según el ajuste de Brownlie al diagrama de Shields.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled" title="Ejemplo: estabilidad del lecho de grava de un río de montaña">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Ejemplo: estabilidad del lecho de grava de un río de montaña
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Planteamiento.</strong> Durante una creciente, un río de montaña ancho tiene una profundidad media de 1.2 m y una pendiente de 0.005. Su lecho tiene <span class="math inline">\(d_{50} = 20\)</span> mm. Los datos son hipotéticos. Determine si la grava mediana se mueve y cuál es el mayor diámetro que el flujo puede poner en movimiento.</p>
+<p><strong>Solución:</strong></p>
+<ol type="1">
+<li>Esfuerzo cortante con <span class="math inline">\(R_h \approx h\)</span>: <span class="math inline">\(\tau_0 = 9810 \times 1.2 \times 0.005 = 58.9\)</span> Pa.</li>
+<li>Parámetro de Shields: <span class="math inline">\(\tau_* = 58.9/(1.65 \times 9810 \times 0.020) = 58.9/323.7 = 0.182\)</span>.</li>
+<li>Reynolds de la partícula: <span class="math inline">\(Re_p = \sqrt{1.65 \times 9.81 \times 0.020} \times 0.020/10^{-6} = 0.569 \times 0.020 \times 10^6 = 11\,380\)</span>.</li>
+<li>Valor crítico con la <a href="#eq-sed-brownlie" class="quarto-xref">Ecuación&nbsp;<span>34.4</span></a>: <span class="math inline">\(Re_p^{-0.6} = 0.00365\)</span>, de modo que <span class="math inline">\(\tau_{*c} = 0.22 \times 0.00365 + 0.06\,e^{-0.0648} = 0.0008 + 0.0562 = 0.057\)</span>.</li>
+<li>Como <span class="math inline">\(0.182 &gt; 0.057\)</span>, la grava de 20 mm se mueve. El flujo supera tres veces la condición crítica.</li>
+<li>Diámetro crítico: se busca <span class="math inline">\(d_c\)</span> tal que <span class="math inline">\(\tau_0/[(\gamma_s - \gamma)\,d_c] = \tau_{*c}\)</span>. Para gravas, con <span class="math inline">\(\tau_{*c} \approx 0.057\)</span>: <span class="math inline">\(d_c = 58.9/(1.65 \times 9810 \times 0.057) = 0.064\)</span> m. Como <span class="math inline">\(\tau_{*c}\)</span> cambia un poco con <span class="math inline">\(d_c\)</span>, una segunda iteración con <span class="math inline">\(\tau_{*c} = 0.0594\)</span> (el valor para <span class="math inline">\(d = 64\)</span> mm) da <span class="math inline">\(d_c = 0.062\)</span> m.</li>
+</ol>
+<p><strong>Pseudocódigo</strong></p>
+<ol type="1">
+<li>Calcular <span class="math inline">\(\tau_0\)</span> y <span class="math inline">\(\tau_*\)</span> para el <span class="math inline">\(d_{50}\)</span>.</li>
+<li>Calcular <span class="math inline">\(Re_p\)</span> y <span class="math inline">\(\tau_{*c}\)</span> con la ecuación de Brownlie y compararlos.</li>
+<li>Resolver por tanteo la ecuación <span class="math inline">\(\tau_*(d) = \tau_{*c}(d)\)</span> con <code>uniroot()</code>.</li>
+</ol>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 1) Datos (hipotéticos) y esfuerzos</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>g <span class="ot">&lt;-</span> <span class="fl">9.81</span>; nu <span class="ot">&lt;-</span> <span class="fl">1.0e-6</span>; dens_rel <span class="ot">&lt;-</span> <span class="fl">2.65</span>; gamma <span class="ot">&lt;-</span> <span class="dv">9810</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>h <span class="ot">&lt;-</span> <span class="fl">1.2</span>; s_pend <span class="ot">&lt;-</span> <span class="fl">0.005</span>; d50 <span class="ot">&lt;-</span> <span class="fl">0.020</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>tau0 <span class="ot">&lt;-</span> gamma <span class="sc">*</span> h <span class="sc">*</span> s_pend</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>tau_ast <span class="ot">&lt;-</span> <span class="cf">function</span>(d) tau0 <span class="sc">/</span> ((dens_rel <span class="sc">-</span> <span class="dv">1</span>) <span class="sc">*</span> gamma <span class="sc">*</span> d)</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co"># 2) Valor crítico de Brownlie</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>tau_c <span class="ot">&lt;-</span> <span class="cf">function</span>(d) {</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>  rep <span class="ot">&lt;-</span> <span class="fu">sqrt</span>((dens_rel <span class="sc">-</span> <span class="dv">1</span>) <span class="sc">*</span> g <span class="sc">*</span> d) <span class="sc">*</span> d <span class="sc">/</span> nu</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>  <span class="fl">0.22</span> <span class="sc">*</span> rep<span class="sc">^-</span><span class="fl">0.6</span> <span class="sc">+</span> <span class="fl">0.06</span> <span class="sc">*</span> <span class="fu">exp</span>(<span class="sc">-</span><span class="fl">17.77</span> <span class="sc">*</span> rep<span class="sc">^-</span><span class="fl">0.6</span>)</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="co"># 3) Diámetro crítico: tau_ast(d) - tau_c(d) = 0</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>d_crit <span class="ot">&lt;-</span> <span class="fu">uniroot</span>(<span class="cf">function</span>(d) <span class="fu">tau_ast</span>(d) <span class="sc">-</span> <span class="fu">tau_c</span>(d), <span class="at">interval =</span> <span class="fu">c</span>(<span class="fl">1e-4</span>, <span class="dv">1</span>))<span class="sc">$</span>root</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="at">tau0_Pa =</span> tau0, <span class="at">tau_ast =</span> <span class="fu">tau_ast</span>(d50), <span class="at">tau_c =</span> <span class="fu">tau_c</span>(d50), <span class="at">d_crit_mm =</span> d_crit <span class="sc">*</span> <span class="dv">1000</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>    tau0_Pa     tau_ast       tau_c   d_crit_mm 
+58.86000000  0.18181818  0.05700836 61.76112309 </code></pre>
+</div>
+</div>
+<p><strong>Interpretación.</strong> En esta creciente el lecho de grava se mueve y el flujo puede arrastrar partículas de hasta unos 6 cm. Si se quiere proteger una margen con enrocado en este tramo, la roca debe ser bastante más grande que 6 cm, y además hay que considerar que en la curva exterior el esfuerzo local supera el medio. Con el criterio conservador de usar la mitad del valor crítico, el diámetro estable pasa a unos 12 cm.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="sec-sed-fondo" class="level2" data-number="34.4">
+<h2 data-number="34.4" class="anchored" data-anchor-id="sec-sed-fondo"><span class="header-section-number">34.4</span> Carga de fondo</h2>
+<p>Una vez que el esfuerzo supera el crítico, el caudal sólido de fondo crece rápido con el exceso de esfuerzo. Casi todas las fórmulas de carga de fondo tienen la forma de una potencia de <span class="math inline">\(\tau_* - \tau_{*c}\)</span> y se escriben con el caudal sólido adimensional de Einstein:</p>
+<p><span id="eq-sed-einstein"><span class="math display">\[
+q_* = \frac{q_b}{\sqrt{(G-1)\,g\,d_s^3}}
+\tag{34.5}\]</span></span></p>
+<p>donde <span class="math inline">\(q_b\)</span> es el caudal sólido de fondo por unidad de ancho, en volumen (m²/s).</p>
+<p>La fórmula de Meyer-Peter y Müller, de 1948, se desarrolló con experimentos en gravas y es la más usada en ríos de grava. En la forma simplificada de Chien es <span class="citation" data-cites="julien2010erosion">(Julien 2010, ec. 9.2a)</span></p>
+<p><span id="eq-sed-mpm"><span class="math display">\[
+q_* = 8\,(\tau_* - 0.047)^{3/2}
+\tag{34.6}\]</span></span></p>
+<p>Wong y Parker revisaron los datos originales y encontraron que la fórmula incluía una corrección por las paredes del canal que no corresponde a ríos anchos. Su versión corregida, <span class="math inline">\(q_* = 3.97\,(\tau_* - 0.0495)^{3/2}\)</span>, da aproximadamente la mitad del caudal sólido de la original <span class="citation" data-cites="wong2006mpm">(Wong y Parker 2006)</span>. <!-- VERIFICAR: coeficientes de Wong y Parker (2006) contra el artículo original. --></p>
+<div class="callout callout-style-default callout-note callout-titled" title="Ejemplo: carga de fondo con Meyer-Peter y Müller">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Ejemplo: carga de fondo con Meyer-Peter y Müller
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Planteamiento.</strong> Para el río del ejemplo anterior, con 25 m de ancho, calcule el caudal sólido de fondo durante la creciente con la fórmula original de Meyer-Peter y Müller y con la corrección de Wong y Parker. Exprese el resultado en toneladas por día.</p>
+<p><strong>Solución:</strong></p>
+<ol type="1">
+<li>Del ejemplo anterior, <span class="math inline">\(\tau_* = 0.182\)</span>.</li>
+<li>Meyer-Peter y Müller: <span class="math inline">\(q_* = 8 \times (0.182 - 0.047)^{1.5} = 8 \times 0.135^{1.5} = 8 \times 0.0495 = 0.396\)</span>.</li>
+<li>Escala del caudal sólido: <span class="math inline">\(\sqrt{1.65 \times 9.81 \times 0.020^3} = \sqrt{1.295 \times 10^{-4}} = 0.01138\)</span> m²/s.</li>
+<li><span class="math inline">\(q_b = 0.396 \times 0.01138 = 0.00451\)</span> m²/s por metro de ancho.</li>
+<li>En todo el ancho: <span class="math inline">\(Q_b = 0.00451 \times 25 = 0.113\)</span> m³/s de grava, que con <span class="math inline">\(\rho_s = 2650\)</span> kg/m³ son <span class="math inline">\(0.113 \times 2650 \times 86\,400/1000 = 25\,800\)</span> t/d.</li>
+<li>Wong y Parker: <span class="math inline">\(q_* = 3.97 \times (0.182 - 0.0495)^{1.5} = 0.191\)</span>, y <span class="math inline">\(Q_b = 12\,400\)</span> t/d.</li>
+</ol>
+<p><strong>Pseudocódigo</strong></p>
+<ol type="1">
+<li>Calcular <span class="math inline">\(\tau_*\)</span>.</li>
+<li>Evaluar las dos fórmulas de <span class="math inline">\(q_*\)</span>.</li>
+<li>Pasar a caudal dimensional, multiplicar por el ancho y convertir a toneladas por día.</li>
+</ol>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 1) Datos del ejemplo anterior</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>g <span class="ot">&lt;-</span> <span class="fl">9.81</span>; dens_rel <span class="ot">&lt;-</span> <span class="fl">2.65</span>; gamma <span class="ot">&lt;-</span> <span class="dv">9810</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>h <span class="ot">&lt;-</span> <span class="fl">1.2</span>; s_pend <span class="ot">&lt;-</span> <span class="fl">0.005</span>; d50 <span class="ot">&lt;-</span> <span class="fl">0.020</span>; ancho <span class="ot">&lt;-</span> <span class="dv">25</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>tau_ast <span class="ot">&lt;-</span> gamma <span class="sc">*</span> h <span class="sc">*</span> s_pend <span class="sc">/</span> ((dens_rel <span class="sc">-</span> <span class="dv">1</span>) <span class="sc">*</span> gamma <span class="sc">*</span> d50)</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="co"># 2) Caudal sólido adimensional</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>q_mpm <span class="ot">&lt;-</span> <span class="dv">8</span> <span class="sc">*</span> <span class="fu">max</span>(tau_ast <span class="sc">-</span> <span class="fl">0.047</span>, <span class="dv">0</span>)<span class="sc">^</span><span class="fl">1.5</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>q_wp <span class="ot">&lt;-</span> <span class="fl">3.97</span> <span class="sc">*</span> <span class="fu">max</span>(tau_ast <span class="sc">-</span> <span class="fl">0.0495</span>, <span class="dv">0</span>)<span class="sc">^</span><span class="fl">1.5</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="co"># 3) Caudal sólido en t/d</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>escala <span class="ot">&lt;-</span> <span class="fu">sqrt</span>((dens_rel <span class="sc">-</span> <span class="dv">1</span>) <span class="sc">*</span> g <span class="sc">*</span> d50<span class="sc">^</span><span class="dv">3</span>)          <span class="co"># m²/s</span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>a_tdia <span class="ot">&lt;-</span> <span class="cf">function</span>(q_ast) q_ast <span class="sc">*</span> escala <span class="sc">*</span> ancho <span class="sc">*</span> <span class="dv">2650</span> <span class="sc">*</span> <span class="dv">86400</span> <span class="sc">/</span> <span class="dv">1000</span></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="at">q_MPM =</span> q_mpm, <span class="at">Qb_MPM_td =</span> <span class="fu">a_tdia</span>(q_mpm), <span class="at">q_WP =</span> q_wp, <span class="at">Qb_WP_td =</span> <span class="fu">a_tdia</span>(q_wp))</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>       q_MPM    Qb_MPM_td         q_WP     Qb_WP_td 
+    0.396016 25794.895938     0.191082 12446.317862 </code></pre>
+</div>
+</div>
+<p><strong>Interpretación.</strong> Las dos versiones difieren en un factor de dos, y eso con la misma fórmula. Entre fórmulas distintas las diferencias suelen ser mayores. Como el caudal sólido crece con la potencia 1.5 del exceso de esfuerzo, un error de 20 % en la profundidad o en la pendiente cambia el resultado en más de 40 %. Una creciente de un día en este río movería unos 5000 a 10 000 m³ de grava, suficiente para rellenar una toma o la sección de un puente si la grava se detiene ahí.</p>
+</div>
+</div>
+</section>
+<section id="sec-sed-suspension" class="level2" data-number="34.5">
+<h2 data-number="34.5" class="anchored" data-anchor-id="sec-sed-suspension"><span class="header-section-number">34.5</span> Carga en suspensión y carga total</h2>
+<p>La concentración de sedimento en suspensión es mayor cerca del lecho y disminuye hacia la superficie, porque la turbulencia sube las partículas y la gravedad las baja. El perfil de Rouse describe esa distribución con un exponente <span class="math inline">\(\omega/(\kappa\,u_*)\)</span>, donde <span class="math inline">\(\kappa = 0.41\)</span> es la constante de von Kármán: con exponentes pequeños la concentración es casi uniforme en la vertical, y con exponentes mayores que 2.5 casi todo el sedimento queda pegado al fondo <span class="citation" data-cites="garcia2008sediment">(García 2008)</span>. Por eso una muestra tomada solo en la superficie subestima la concentración media, sobre todo de arenas.</p>
+<p>Para ríos de arena, donde buena parte del material del lecho viaja en suspensión, se usan fórmulas de carga total que no separan fondo y suspensión. La de Engelund y Hansen, basada en el concepto de potencia del flujo de Bagnold, es sencilla y funciona bien en ríos arenosos con dunas <span class="citation" data-cites="engelund1967monograph julien2010erosion">(Engelund y Hansen 1967; Julien 2010, ec. 11.9)</span>:</p>
+<p><span id="eq-sed-eh"><span class="math display">\[
+C_w = 0.05\,\frac{G}{G-1}\,\frac{V\,S}{\sqrt{(G-1)\,g\,d_s}}\,\frac{R_h\,S}{(G-1)\,d_s}
+\tag{34.7}\]</span></span></p>
+<p>donde <span class="math inline">\(C_w\)</span> es la concentración de sedimento en peso (adimensional; multiplicada por <span class="math inline">\(10^6\)</span> da partes por millón) y <span class="math inline">\(V\)</span> es la velocidad media del flujo (m/s). La fórmula no tiene umbral de movimiento, de modo que no sirve para gravas ni para flujos cercanos al inicio del movimiento.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Ejemplo: carga total de un río de arena con Engelund y Hansen">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Ejemplo: carga total de un río de arena con Engelund y Hansen
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Planteamiento.</strong> Un río de llanura con lecho de arena de <span class="math inline">\(d_{50} = 0.3\)</span> mm lleva 60 m³/s con una velocidad media de 1.2 m/s, un radio hidráulico de 1.5 m y una pendiente de 0.0008. Los datos son hipotéticos. Estime la concentración de material del lecho y el caudal sólido total.</p>
+<p><strong>Solución:</strong></p>
+<ol type="1">
+<li><span class="math inline">\(G/(G-1) = 2.65/1.65 = 1.606\)</span>.</li>
+<li><span class="math inline">\(V\,S/\sqrt{(G-1)\,g\,d_s} = 1.2 \times 0.0008/\sqrt{1.65 \times 9.81 \times 0.0003} = 0.00096/0.0697 = 0.01378\)</span>.</li>
+<li><span class="math inline">\(R_h\,S/[(G-1)\,d_s] = 1.5 \times 0.0008/(1.65 \times 0.0003) = 0.0012/0.000495 = 2.424\)</span>. Es el parámetro de Shields del flujo.</li>
+<li><span class="math inline">\(C_w = 0.05 \times 1.606 \times 0.01378 \times 2.424 = 0.00268\)</span>, unos 2700 ppm.</li>
+<li>Caudal sólido: <span class="math inline">\(0.00268 \times 60\ \mathrm{m^3/s} \times 1000\ \mathrm{kg/m^3} = 161\)</span> kg/s, unas 13 900 t/d.</li>
+</ol>
+<p><strong>Pseudocódigo</strong></p>
+<ol type="1">
+<li>Definir los datos hidráulicos y del sedimento.</li>
+<li>Evaluar la <a href="#eq-sed-eh" class="quarto-xref">Ecuación&nbsp;<span>34.7</span></a>.</li>
+<li>Multiplicar la concentración por el caudal másico de agua.</li>
+</ol>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 1) Datos (hipotéticos)</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>g <span class="ot">&lt;-</span> <span class="fl">9.81</span>; dens_rel <span class="ot">&lt;-</span> <span class="fl">2.65</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>q_agua <span class="ot">&lt;-</span> <span class="dv">60</span>; vel <span class="ot">&lt;-</span> <span class="fl">1.2</span>; r_h <span class="ot">&lt;-</span> <span class="fl">1.5</span>; s_f <span class="ot">&lt;-</span> <span class="fl">0.0008</span>; d50 <span class="ot">&lt;-</span> <span class="fl">0.0003</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="co"># 2) Engelund y Hansen</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>c_w <span class="ot">&lt;-</span> <span class="fl">0.05</span> <span class="sc">*</span> dens_rel <span class="sc">/</span> (dens_rel <span class="sc">-</span> <span class="dv">1</span>) <span class="sc">*</span> vel <span class="sc">*</span> s_f <span class="sc">/</span> <span class="fu">sqrt</span>((dens_rel <span class="sc">-</span> <span class="dv">1</span>) <span class="sc">*</span> g <span class="sc">*</span> d50) <span class="sc">*</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>  r_h <span class="sc">*</span> s_f <span class="sc">/</span> ((dens_rel <span class="sc">-</span> <span class="dv">1</span>) <span class="sc">*</span> d50)</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="co"># 3) Caudal sólido total de material del lecho</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>qs_kgs <span class="ot">&lt;-</span> c_w <span class="sc">*</span> q_agua <span class="sc">*</span> <span class="dv">1000</span></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="at">Cw_ppm =</span> c_w <span class="sc">*</span> <span class="fl">1e6</span>, <span class="at">Qs_kgs =</span> qs_kgs, <span class="at">Qs_td =</span> qs_kgs <span class="sc">*</span> <span class="fl">86.4</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>    Cw_ppm     Qs_kgs      Qs_td 
+ 2681.8971   160.9138 13902.9546 </code></pre>
+</div>
+</div>
+<p><strong>Interpretación.</strong> El resultado es solo la carga de material del lecho, la arena. Si el río además trae limo y arcilla de las laderas, esa carga de lavado se suma y puede ser mayor. Una concentración de 2700 ppm de arena es alta para un río de llanura, señal de que el tramo está en una creciente con el lecho muy activo; con caudales medios la potencia del flujo cae y la concentración baja mucho más que en proporción al caudal.</p>
+</div>
+</div>
+</section>
+<section id="sec-sed-medicion" class="level2" data-number="34.6">
+<h2 data-number="34.6" class="anchored" data-anchor-id="sec-sed-medicion"><span class="header-section-number">34.6</span> Medición del sedimento y curva de gasto sólido</h2>
+<section id="sec-sed-muestreo" class="level3" data-number="34.6.1">
+<h3 data-number="34.6.1" class="anchored" data-anchor-id="sec-sed-muestreo"><span class="header-section-number">34.6.1</span> Muestreo</h3>
+<p>El sedimento en suspensión se mide tomando muestras de agua con muestreadores que se llenan a la velocidad del flujo, para no alterar la concentración. Con el método de incrementos iguales de ancho, el muestreador se baja y se sube a velocidad constante en verticales equidistantes de la sección, y la mezcla de las muestras da la concentración media ponderada por el caudal. La carga de fondo se mide con muestreadores de canasta o de presión que se apoyan en el lecho, o con trampas, y sus errores son mucho mayores <span class="citation" data-cites="garcia2008sediment">(García 2008)</span>. Por esa dificultad, en muchos estudios la carga de fondo se estima como un porcentaje de la carga en suspensión. En el estudio de factibilidad del embalse del Centro de Producción Pirrís, del Instituto Costarricense de Electricidad (ICE), se estimó en un 34 % de la suspendida: 31 900 t/año de fondo contra 93 500 t/año en suspensión <span class="citation" data-cites="alfaro2018pirris">(Alfaro Solano 2018, cuadro 14)</span>.</p>
+</section>
+<section id="sec-sed-curva" class="level3" data-number="34.6.2">
+<h3 data-number="34.6.2" class="anchored" data-anchor-id="sec-sed-curva"><span class="header-section-number">34.6.2</span> Curva de gasto sólido</h3>
+<p>Como las muestras son caras y pocas, se relacionan con el caudal medido en el mismo momento por medio de una curva de gasto sólido de forma potencial:</p>
+<p><span id="eq-sed-curva"><span class="math display">\[
+C = a\,Q^{b}, \qquad Q_s = 0.0864\,C\,Q
+\tag{34.8}\]</span></span></p>
+<p>donde <span class="math inline">\(C\)</span> es la concentración de sedimento en suspensión (mg/L), <span class="math inline">\(Q\)</span> es el caudal líquido (m³/s), <span class="math inline">\(a\)</span> y <span class="math inline">\(b\)</span> son coeficientes de ajuste y <span class="math inline">\(Q_s\)</span> es el caudal sólido en suspensión (t/d). El exponente <span class="math inline">\(b\)</span> suele estar entre 1 y 2: la concentración crece más rápido que el caudal.</p>
+<p>La curva se ajusta casi siempre por mínimos cuadrados sobre los logaritmos. El problema es que la recta en logaritmos predice la mediana de la concentración y no su media, y al volver a unidades naturales subestima la carga. La subestimación crece con la dispersión de los datos y puede pasar de 30 % <span class="citation" data-cites="ferguson1986loads">(Ferguson 1986)</span>. Se corrige multiplicando por un factor: con logaritmos naturales, <span class="math inline">\(\exp(s^2/2)\)</span>, donde <span class="math inline">\(s\)</span> es el error estándar de la regresión, si los residuos son normales; o el factor de Duan, el promedio de <span class="math inline">\(\exp(e_i)\)</span> de los residuos <span class="math inline">\(e_i\)</span>, que no supone ninguna distribución <span class="citation" data-cites="duan1983smearing">(Duan 1983)</span>.</p>
+<p>Una vez ajustada, la curva se aplica a la serie diaria de caudales para obtener la carga anual. El error dominante no es el ajuste, sino la falta de muestras en las crecientes, cuando pasa casi todo el sedimento. <span class="citation" data-cites="alfaro2018pirris">Alfaro Solano (2018)</span> construyó siete curvas distintas con los mismos datos de las estaciones Tabacales y El Salado, en la cuenca del Pirrís, entre ellas <span class="math inline">\(C = 4.51\,Q^{1.47}\)</span> (<span class="math inline">\(R^2 = 0.71\)</span>) con todos los puntos. Dos de ellas dieron, para 2011 a 2016, cargas en suspensión de 321 000 y 652 000 t: un factor de dos según la decisión de cómo trazar la curva <span class="citation" data-cites="alfaro2018pirris">(Alfaro Solano 2018, cuadro 16)</span>.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Ejemplo: curva de gasto sólido y carga anual en suspensión">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Ejemplo: curva de gasto sólido y carga anual en suspensión
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Planteamiento.</strong> En una estación hidrométrica se tomaron 40 muestras de sedimento en suspensión durante un año, con el caudal del momento (archivo <code>muestras_sedimento_hipoteticas.csv</code>), y se tiene el caudal medio diario del mismo año (archivo <code>caudal_diario_hipotetico_sedimentos.csv</code>). Ambas series son sintéticas: se generaron con una curva de forma parecida a la del Pirrís. Ajuste la curva de gasto sólido, corrija el sesgo de la transformación logarítmica, calcule la carga anual en suspensión y determine qué fracción de la carga pasa en el 10 % de los días de mayor aporte.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="datos-ejemplo">
+<a href="data:text/csv;base64,ZmVjaGEsY2F1ZGFsX20zcyxjb25jX21nTAoyMDIzLTAxLTE0LDIuMDgsMTIuNwoyMDIzLTAxLTE2LDIuMTgsMTkuNwoyMDIzLTAxLTE3LDIuOTUsMzcKMjAyMy0wMi0yNyw0LjAzLDExLjkKMjAyMy0wMy0wNywxLjc5LDYuOAoyMDIzLTAzLTI3LDMuMDMsNzcuMQoyMDIzLTA0LTA4LDUuMzEsMjUuNQoyMDIzLTA0LTE5LDIuNjQsNS40CjIwMjMtMDQtMzAsMi40OSwxNS41CjIwMjMtMDUtMTEsNi4xNiwzOS4xCjIwMjMtMDUtMTUsNC44OCwxNjYuMwoyMDIzLTA1LTE5LDYuMTksNzAuOQoyMDIzLTA1LTIzLDkuMTgsMTcyLjYKMjAyMy0wNS0yNCw3Ljc5LDEzNi45CjIwMjMtMDUtMjUsMy45NSwzOAoyMDIzLTA2LTA3LDY0Ljk4LDIwOTYuNwoyMDIzLTA2LTEwLDY3Ljc5LDE1NzQuMwoyMDIzLTA2LTE5LDEyLjMxLDcwCjIwMjMtMDYtMjAsOTAuOTEsMjQ4MS42CjIwMjMtMDYtMjcsOC44NiwxMjcuMQoyMDIzLTA3LTEwLDI0LjEzLDk3Mi44CjIwMjMtMDctMjIsMjYuMDksNjcwCjIwMjMtMDgtMjEsMTguMTgsMzY3LjgKMjAyMy0wOC0yNiw5LjI2LDE0My41CjIwMjMtMDktMDcsMjAuMTIsNTY4LjEKMjAyMy0wOS0xMSwxMS4wMSw0NzEuOQoyMDIzLTA5LTE0LDUuMSw1NAoyMDIzLTA5LTIzLDkuNzksMTE5LjUKMjAyMy0wOS0yNCw3LjY1LDMzLjcKMjAyMy0xMC0wMyw1LjU1LDI4LjkKMjAyMy0xMC0wOCw0LjAxLDkwLjkKMjAyMy0xMC0xNyw0Mi4zMiwzNDYuNgoyMDIzLTEwLTIxLDMuOTIsMjQuNgoyMDIzLTEwLTI0LDIuNTcsMTEuOQoyMDIzLTEwLTI3LDIuOCwyMC40CjIwMjMtMTAtMjksNC4xMiwyNy4yCjIwMjMtMTEtMTUsMTExLjQ1LDkwODQuNgoyMDIzLTExLTIwLDQuNTEsMTc1LjYKMjAyMy0xMi0wNCwyLjk3LDE5LjYKMjAyMy0xMi0yNCwzLjE2LDM4LjkK" download="muestras_sedimento_hipoteticas.csv" class="boton-datos">⬇ Descargar <code>muestras_sedimento_hipoteticas.csv</code></a>
+<div class="datatables html-widget html-fill-item" id="htmlwidget-967c66e54ca74ed27303" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-967c66e54ca74ed27303">{"x":{"filter":"none","vertical":false,"data":[["2023-01-14","2023-01-16","2023-01-17","2023-02-27","2023-03-07","2023-03-27","2023-04-08","2023-04-19","2023-04-30","2023-05-11","2023-05-15","2023-05-19","2023-05-23","2023-05-24","2023-05-25","2023-06-07","2023-06-10","2023-06-19","2023-06-20","2023-06-27","2023-07-10","2023-07-22","2023-08-21","2023-08-26","2023-09-07","2023-09-11","2023-09-14","2023-09-23","2023-09-24","2023-10-03","2023-10-08","2023-10-17","2023-10-21","2023-10-24","2023-10-27","2023-10-29","2023-11-15","2023-11-20","2023-12-04","2023-12-24"],[2.08,2.18,2.95,4.03,1.79,3.03,5.31,2.64,2.49,6.16,4.88,6.19,9.18,7.79,3.95,64.98,67.79000000000001,12.31,90.91,8.859999999999999,24.13,26.09,18.18,9.26,20.12,11.01,5.1,9.789999999999999,7.65,5.55,4.01,42.32,3.92,2.57,2.8,4.12,111.45,4.51,2.97,3.16],[12.7,19.7,37,11.9,6.8,77.09999999999999,25.5,5.4,15.5,39.1,166.3,70.90000000000001,172.6,136.9,38,2096.7,1574.3,70,2481.6,127.1,972.8,670,367.8,143.5,568.1,471.9,54,119.5,33.7,28.9,90.90000000000001,346.6,24.6,11.9,20.4,27.2,9084.6,175.6,19.6,38.9]],"container":"<table class=\"compact stripe hover\">\n  <thead>\n    <tr>\n      <th>Fecha<\/th>\n      <th>Caudal (m³/s)<\/th>\n      <th>Concentración (mg/L)<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":6,"lengthChange":false,"searching":false,"ordering":false,"autoWidth":false,"dom":"tip","language":{"info":"Filas _START_ a _END_ de _TOTAL_","infoEmpty":"Sin filas","paginate":{"previous":"Anterior","next":"Siguiente","first":"Primera","last":"Última"}},"columnDefs":[{"className":"dt-right","targets":[1,2]},{"name":"fecha","targets":0},{"name":"caudal_m3s","targets":1},{"name":"conc_mgL","targets":2}],"order":[],"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+<div class="cell-output-display">
+<div class="datos-ejemplo">
+<a href="data:text/csv;base64,ZmVjaGEsY2F1ZGFsX20zcwoyMDIzLTAxLTAxLDMuMDYKMjAyMy0wMS0wMiwyLjgxCjIwMjMtMDEtMDMsNS4yNAoyMDIzLTAxLTA0LDQuMjEKMjAyMy0wMS0wNSw1LjA4CjIwMjMtMDEtMDYsMi41NwoyMDIzLTAxLTA3LDMuNDQKMjAyMy0wMS0wOCw0LjE0CjIwMjMtMDEtMDksMS45MgoyMDIzLTAxLTEwLDIuMzIKMjAyMy0wMS0xMSwyLjA2CjIwMjMtMDEtMTIsMi42NwoyMDIzLTAxLTEzLDMuMTkKMjAyMy0wMS0xNCwyLjA4CjIwMjMtMDEtMTUsMi4xMgoyMDIzLTAxLTE2LDIuMTgKMjAyMy0wMS0xNywyLjk1CjIwMjMtMDEtMTgsNC4wNQoyMDIzLTAxLTE5LDMuMDQKMjAyMy0wMS0yMCwyLjE3CjIwMjMtMDEtMjEsMS42OQoyMDIzLTAxLTIyLDIuOAoyMDIzLTAxLTIzLDMuNzMKMjAyMy0wMS0yNCwzLjkxCjIwMjMtMDEtMjUsMi44OAoyMDIzLTAxLTI2LDMuMDgKMjAyMy0wMS0yNyw2LjgxCjIwMjMtMDEtMjgsMy4wMgoyMDIzLTAxLTI5LDIuODEKMjAyMy0wMS0zMCwyLjk2CjIwMjMtMDEtMzEsMS45MQoyMDIzLTAyLTAxLDMuOTgKMjAyMy0wMi0wMiwzLjg4CjIwMjMtMDItMDMsMi4xCjIwMjMtMDItMDQsMy4wOQoyMDIzLTAyLTA1LDIuODYKMjAyMy0wMi0wNiwxLjc2CjIwMjMtMDItMDcsMi4wMgoyMDIzLTAyLTA4LDIuNAoyMDIzLTAyLTA5LDEuOAoyMDIzLTAyLTEwLDIuOTQKMjAyMy0wMi0xMSwzLjM0CjIwMjMtMDItMTIsMS42CjIwMjMtMDItMTMsMy41MQoyMDIzLTAyLTE0LDIuMzEKMjAyMy0wMi0xNSwyLjk2CjIwMjMtMDItMTYsMi43NgoyMDIzLTAyLTE3LDEuMjMKMjAyMy0wMi0xOCwzLjYKMjAyMy0wMi0xOSwyLjg4CjIwMjMtMDItMjAsNC44MwoyMDIzLTAyLTIxLDQuOTUKMjAyMy0wMi0yMiwyLjIzCjIwMjMtMDItMjMsNS4xOQoyMDIzLTAyLTI0LDIuOTgKMjAyMy0wMi0yNSwyLjE1CjIwMjMtMDItMjYsMi45CjIwMjMtMDItMjcsNC4wMwoyMDIzLTAyLTI4LDEuODYKMjAyMy0wMy0wMSwyLjMzCjIwMjMtMDMtMDIsNC40MwoyMDIzLTAzLTAzLDIuMzYKMjAyMy0wMy0wNCwzLjA5CjIwMjMtMDMtMDUsMi40MwoyMDIzLTAzLTA2LDEuOTQKMjAyMy0wMy0wNywxLjc5CjIwMjMtMDMtMDgsMy4yMgoyMDIzLTAzLTA5LDIuOTgKMjAyMy0wMy0xMCwzLjk5CjIwMjMtMDMtMTEsMy42NQoyMDIzLTAzLTEyLDMuOTIKMjAyMy0wMy0xMywyLjYKMjAyMy0wMy0xNCwzLjA5CjIwMjMtMDMtMTUsMS44MgoyMDIzLTAzLTE2LDIuOAoyMDIzLTAzLTE3LDQuNDIKMjAyMy0wMy0xOCw2LjE0CjIwMjMtMDMtMTksNC4yNAoyMDIzLTAzLTIwLDIuNzIKMjAyMy0wMy0yMSwzLjg1CjIwMjMtMDMtMjIsMi42NQoyMDIzLTAzLTIzLDQuNTMKMjAyMy0wMy0yNCwzLjAzCjIwMjMtMDMtMjUsMi42MwoyMDIzLTAzLTI2LDMuNzMKMjAyMy0wMy0yNywzLjAzCjIwMjMtMDMtMjgsMy42CjIwMjMtMDMtMjksNC4xNgoyMDIzLTAzLTMwLDIuODEKMjAyMy0wMy0zMSwyLjY4CjIwMjMtMDQtMDEsNi42NgoyMDIzLTA0LTAyLDIuNQoyMDIzLTA0LTAzLDMuMDgKMjAyMy0wNC0wNCwyLjUzCjIwMjMtMDQtMDUsMi41OQoyMDIzLTA0LTA2LDIuMTIKMjAyMy0wNC0wNywyLjg2CjIwMjMtMDQtMDgsNS4zMQoyMDIzLTA0LTA5LDQuNTkKMjAyMy0wNC0xMCwzLjE1CjIwMjMtMDQtMTEsMy4wOQoyMDIzLTA0LTEyLDMuNTkKMjAyMy0wNC0xMyw0Ljc5CjIwMjMtMDQtMTQsMi41NwoyMDIzLTA0LTE1LDQuOTMKMjAyMy0wNC0xNiwyLjAxCjIwMjMtMDQtMTcsMy4xMQoyMDIzLTA0LTE4LDIuMzUKMjAyMy0wNC0xOSwyLjY0CjIwMjMtMDQtMjAsNC44MgoyMDIzLTA0LTIxLDMuOTQKMjAyMy0wNC0yMiwxLjM4CjIwMjMtMDQtMjMsMy4wMQoyMDIzLTA0LTI0LDMuNDQKMjAyMy0wNC0yNSwzLjczCjIwMjMtMDQtMjYsNS45NwoyMDIzLTA0LTI3LDIuNzYKMjAyMy0wNC0yOCwzLjIyCjIwMjMtMDQtMjksNC41NAoyMDIzLTA0LTMwLDIuNDkKMjAyMy0wNS0wMSwyLjI2CjIwMjMtMDUtMDIsMi43MwoyMDIzLTA1LTAzLDQuNDQKMjAyMy0wNS0wNCwyLjg2CjIwMjMtMDUtMDUsNC45NQoyMDIzLTA1LTA2LDMuMTkKMjAyMy0wNS0wNywzLjY3CjIwMjMtMDUtMDgsNC4wMgoyMDIzLTA1LTA5LDIuMzYKMjAyMy0wNS0xMCw0CjIwMjMtMDUtMTEsNi4xNgoyMDIzLTA1LTEyLDQuNTEKMjAyMy0wNS0xMyw0LjMKMjAyMy0wNS0xNCwzLjYKMjAyMy0wNS0xNSw0Ljg4CjIwMjMtMDUtMTYsMy4zNwoyMDIzLTA1LTE3LDQuNTIKMjAyMy0wNS0xOCw0LjEKMjAyMy0wNS0xOSw2LjE5CjIwMjMtMDUtMjAsMy4yOQoyMDIzLTA1LTIxLDQuOTkKMjAyMy0wNS0yMiw0LjU0CjIwMjMtMDUtMjMsOS4xOAoyMDIzLTA1LTI0LDcuNzkKMjAyMy0wNS0yNSwzLjk1CjIwMjMtMDUtMjYsNS40CjIwMjMtMDUtMjcsNC40NgoyMDIzLTA1LTI4LDMuNjQKMjAyMy0wNS0yOSw5LjAxCjIwMjMtMDUtMzAsNy44NAoyMDIzLTA1LTMxLDQuMDQKMjAyMy0wNi0wMSw0LjgKMjAyMy0wNi0wMiw1LjMxCjIwMjMtMDYtMDMsNC4wNgoyMDIzLTA2LTA0LDUuMjkKMjAyMy0wNi0wNSw0Ljc0CjIwMjMtMDYtMDYsNy45MgoyMDIzLTA2LTA3LDY0Ljk4CjIwMjMtMDYtMDgsMzMuMTIKMjAyMy0wNi0wOSwxNy44OAoyMDIzLTA2LTEwLDY3Ljc5CjIwMjMtMDYtMTEsMzEuNjMKMjAyMy0wNi0xMiwyMS43OQoyMDIzLTA2LTEzLDguOTkKMjAyMy0wNi0xNCwxMAoyMDIzLTA2LTE1LDcuMTYKMjAyMy0wNi0xNiwxMS4yMwoyMDIzLTA2LTE3LDcuODUKMjAyMy0wNi0xOCw1LjEzCjIwMjMtMDYtMTksMTIuMzEKMjAyMy0wNi0yMCw5MC45MQoyMDIzLTA2LTIxLDUwLjc1CjIwMjMtMDYtMjIsMTA2LjQKMjAyMy0wNi0yMyw0Ni4xNgoyMDIzLTA2LTI0LDI3LjkyCjIwMjMtMDYtMjUsMTIuNjEKMjAyMy0wNi0yNiwxNS41NgoyMDIzLTA2LTI3LDguODYKMjAyMy0wNi0yOCwxNC45MwoyMDIzLTA2LTI5LDEwLjc5CjIwMjMtMDYtMzAsMTguNDQKMjAyMy0wNy0wMSw1LjE5CjIwMjMtMDctMDIsOS42OQoyMDIzLTA3LTAzLDE0LjgyCjIwMjMtMDctMDQsMjAuNTcKMjAyMy0wNy0wNSwxMy42NQoyMDIzLTA3LTA2LDcuNzQKMjAyMy0wNy0wNywyMy42OQoyMDIzLTA3LTA4LDgyLjIyCjIwMjMtMDctMDksMzkuOAoyMDIzLTA3LTEwLDI0LjEzCjIwMjMtMDctMTEsMjAuMjUKMjAyMy0wNy0xMiwxNC42NgoyMDIzLTA3LTEzLDEyLjE5CjIwMjMtMDctMTQsMTUuMDUKMjAyMy0wNy0xNSw1LjYKMjAyMy0wNy0xNiwxMS44NQoyMDIzLTA3LTE3LDE2LjM4CjIwMjMtMDctMTgsMTE3LjExCjIwMjMtMDctMTksNTQuMTQKMjAyMy0wNy0yMCwyOC41OQoyMDIzLTA3LTIxLDE2LjExCjIwMjMtMDctMjIsMjYuMDkKMjAyMy0wNy0yMywxMy4wNAoyMDIzLTA3LTI0LDExLjg0CjIwMjMtMDctMjUsNy41CjIwMjMtMDctMjYsMTMuNgoyMDIzLTA3LTI3LDcuNzMKMjAyMy0wNy0yOCw4LjYzCjIwMjMtMDctMjksMTAuMzIKMjAyMy0wNy0zMCwxNy43NgoyMDIzLTA3LTMxLDkuODQKMjAyMy0wOC0wMSwxMjQuOQoyMDIzLTA4LTAyLDY0LjkzCjIwMjMtMDgtMDMsMzQuMDUKMjAyMy0wOC0wNCwxOS41NQoyMDIzLTA4LTA1LDI3LjgyCjIwMjMtMDgtMDYsOS43OAoyMDIzLTA4LTA3LDExLjc1CjIwMjMtMDgtMDgsMjEuODEKMjAyMy0wOC0wOSw5LjUzCjIwMjMtMDgtMTAsNS4zNwoyMDIzLTA4LTExLDEyLjcKMjAyMy0wOC0xMiw3LjIzCjIwMjMtMDgtMTMsOS41OQoyMDIzLTA4LTE0LDUuMjQKMjAyMy0wOC0xNSwzMi4zNwoyMDIzLTA4LTE2LDIzLjI0CjIwMjMtMDgtMTcsMTYuMDUKMjAyMy0wOC0xOCw1Ni40CjIwMjMtMDgtMTksMjEuNwoyMDIzLTA4LTIwLDIxLjAxCjIwMjMtMDgtMjEsMTguMTgKMjAyMy0wOC0yMiwxNi4wNwoyMDIzLTA4LTIzLDguNTEKMjAyMy0wOC0yNCwxMC41NwoyMDIzLTA4LTI1LDguMjYKMjAyMy0wOC0yNiw5LjI2CjIwMjMtMDgtMjcsNi42NgoyMDIzLTA4LTI4LDguMjYKMjAyMy0wOC0yOSw4Ljk5CjIwMjMtMDgtMzAsOS4xMgoyMDIzLTA4LTMxLDEwLjE1CjIwMjMtMDktMDEsMTEuNDYKMjAyMy0wOS0wMiw2LjMKMjAyMy0wOS0wMyw2LjQzCjIwMjMtMDktMDQsMTA1LjIxCjIwMjMtMDktMDUsNDkuODgKMjAyMy0wOS0wNiwzMC44NgoyMDIzLTA5LTA3LDIwLjEyCjIwMjMtMDktMDgsMTAuODkKMjAyMy0wOS0wOSw5LjM5CjIwMjMtMDktMTAsMTQuOTcKMjAyMy0wOS0xMSwxMS4wMQoyMDIzLTA5LTEyLDUuNTMKMjAyMy0wOS0xMyw4Ljg4CjIwMjMtMDktMTQsNS4xCjIwMjMtMDktMTUsNy4zMgoyMDIzLTA5LTE2LDEwLjQ1CjIwMjMtMDktMTcsNS4xCjIwMjMtMDktMTgsNS4xOAoyMDIzLTA5LTE5LDE5LjEyCjIwMjMtMDktMjAsMTAuNjEKMjAyMy0wOS0yMSw1LjU4CjIwMjMtMDktMjIsOS4xNAoyMDIzLTA5LTIzLDkuNzkKMjAyMy0wOS0yNCw3LjY1CjIwMjMtMDktMjUsNi44NQoyMDIzLTA5LTI2LDkuNzUKMjAyMy0wOS0yNyw4LjI4CjIwMjMtMDktMjgsNDAuNjMKMjAyMy0wOS0yOSwyMC41NwoyMDIzLTA5LTMwLDExLjA4CjIwMjMtMTAtMDEsNgoyMDIzLTEwLTAyLDcuMjEKMjAyMy0xMC0wMyw1LjU1CjIwMjMtMTAtMDQsMi44MgoyMDIzLTEwLTA1LDUuOTkKMjAyMy0xMC0wNiw0Ljg2CjIwMjMtMTAtMDcsNy44CjIwMjMtMTAtMDgsNC4wMQoyMDIzLTEwLTA5LDUuNDUKMjAyMy0xMC0xMCw3LjcKMjAyMy0xMC0xMSw1LjYzCjIwMjMtMTAtMTIsNC4wNwoyMDIzLTEwLTEzLDcuMTEKMjAyMy0xMC0xNCwyLjU2CjIwMjMtMTAtMTUsNS43CjIwMjMtMTAtMTYsOTYuMzIKMjAyMy0xMC0xNyw0Mi4zMgoyMDIzLTEwLTE4LDE2LjUKMjAyMy0xMC0xOSw5LjQKMjAyMy0xMC0yMCw1CjIwMjMtMTAtMjEsMy45MgoyMDIzLTEwLTIyLDUuMDQKMjAyMy0xMC0yMyw0LjE1CjIwMjMtMTAtMjQsMi41NwoyMDIzLTEwLTI1LDUuNTIKMjAyMy0xMC0yNiwyLjQxCjIwMjMtMTAtMjcsMi44CjIwMjMtMTAtMjgsMy4zMQoyMDIzLTEwLTI5LDQuMTIKMjAyMy0xMC0zMCwyLjY1CjIwMjMtMTAtMzEsNC4zOQoyMDIzLTExLTAxLDEuODQKMjAyMy0xMS0wMiwyLjc4CjIwMjMtMTEtMDMsMy4zNgoyMDIzLTExLTA0LDQuNjQKMjAyMy0xMS0wNSwxLjkKMjAyMy0xMS0wNiwzLjQxCjIwMjMtMTEtMDcsMi4yNwoyMDIzLTExLTA4LDMuNDMKMjAyMy0xMS0wOSwzLjIyCjIwMjMtMTEtMTAsMy4yMgoyMDIzLTExLTExLDMuMwoyMDIzLTExLTEyLDIuNDUKMjAyMy0xMS0xMywxMDkuMDEKMjAyMy0xMS0xNCw0Ny43OQoyMDIzLTExLTE1LDExMS40NQoyMDIzLTExLTE2LDQ2Ljc1CjIwMjMtMTEtMTcsMjIuMzMKMjAyMy0xMS0xOCwxMi4xNwoyMDIzLTExLTE5LDcuNzYKMjAyMy0xMS0yMCw0LjUxCjIwMjMtMTEtMjEsMS42NQoyMDIzLTExLTIyLDIuODEKMjAyMy0xMS0yMywyLjYxCjIwMjMtMTEtMjQsMi4yOQoyMDIzLTExLTI1LDIuNTEKMjAyMy0xMS0yNiwyLjgyCjIwMjMtMTEtMjcsNC4zMQoyMDIzLTExLTI4LDYuMzMKMjAyMy0xMS0yOSwyLjk1CjIwMjMtMTEtMzAsMi44NQoyMDIzLTEyLTAxLDIuODEKMjAyMy0xMi0wMiw0LjA1CjIwMjMtMTItMDMsNS40MgoyMDIzLTEyLTA0LDIuOTcKMjAyMy0xMi0wNSwzLjYyCjIwMjMtMTItMDYsMy45NQoyMDIzLTEyLTA3LDMuNjUKMjAyMy0xMi0wOCw0Ljg5CjIwMjMtMTItMDksMi40OQoyMDIzLTEyLTEwLDIuMzkKMjAyMy0xMi0xMSw0LjM0CjIwMjMtMTItMTIsMy41NwoyMDIzLTEyLTEzLDIuNjEKMjAyMy0xMi0xNCwxLjcyCjIwMjMtMTItMTUsNC4yNwoyMDIzLTEyLTE2LDQuNDEKMjAyMy0xMi0xNywzLjY2CjIwMjMtMTItMTgsMi4yNQoyMDIzLTEyLTE5LDEuMzIKMjAyMy0xMi0yMCwzLjQKMjAyMy0xMi0yMSwzLjUzCjIwMjMtMTItMjIsMy4xCjIwMjMtMTItMjMsMy4zMQoyMDIzLTEyLTI0LDMuMTYKMjAyMy0xMi0yNSwzLjE1CjIwMjMtMTItMjYsMi40CjIwMjMtMTItMjcsMi4xMQoyMDIzLTEyLTI4LDMuMDMKMjAyMy0xMi0yOSw0LjE3CjIwMjMtMTItMzAsMi40MgoyMDIzLTEyLTMxLDQuMTYK" download="caudal_diario_hipotetico_sedimentos.csv" class="boton-datos">⬇ Descargar <code>caudal_diario_hipotetico_sedimentos.csv</code></a>
+<div class="datatables html-widget html-fill-item" id="htmlwidget-8f1ac9bbaaae964a76ab" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-8f1ac9bbaaae964a76ab">{"x":{"filter":"none","vertical":false,"data":[["2023-01-01","2023-01-02","2023-01-03","2023-01-04","2023-01-05","2023-01-06","2023-01-07","2023-01-08","2023-01-09","2023-01-10","2023-01-11","2023-01-12","2023-01-13","2023-01-14","2023-01-15","2023-01-16","2023-01-17","2023-01-18","2023-01-19","2023-01-20","2023-01-21","2023-01-22","2023-01-23","2023-01-24","2023-01-25","2023-01-26","2023-01-27","2023-01-28","2023-01-29","2023-01-30","2023-01-31","2023-02-01","2023-02-02","2023-02-03","2023-02-04","2023-02-05","2023-02-06","2023-02-07","2023-02-08","2023-02-09","2023-02-10","2023-02-11","2023-02-12","2023-02-13","2023-02-14","2023-02-15","2023-02-16","2023-02-17","2023-02-18","2023-02-19","2023-02-20","2023-02-21","2023-02-22","2023-02-23","2023-02-24","2023-02-25","2023-02-26","2023-02-27","2023-02-28","2023-03-01","2023-03-02","2023-03-03","2023-03-04","2023-03-05","2023-03-06","2023-03-07","2023-03-08","2023-03-09","2023-03-10","2023-03-11","2023-03-12","2023-03-13","2023-03-14","2023-03-15","2023-03-16","2023-03-17","2023-03-18","2023-03-19","2023-03-20","2023-03-21","2023-03-22","2023-03-23","2023-03-24","2023-03-25","2023-03-26","2023-03-27","2023-03-28","2023-03-29","2023-03-30","2023-03-31","2023-04-01","2023-04-02","2023-04-03","2023-04-04","2023-04-05","2023-04-06","2023-04-07","2023-04-08","2023-04-09","2023-04-10","2023-04-11","2023-04-12","2023-04-13","2023-04-14","2023-04-15","2023-04-16","2023-04-17","2023-04-18","2023-04-19","2023-04-20","2023-04-21","2023-04-22","2023-04-23","2023-04-24","2023-04-25","2023-04-26","2023-04-27","2023-04-28","2023-04-29","2023-04-30","2023-05-01","2023-05-02","2023-05-03","2023-05-04","2023-05-05","2023-05-06","2023-05-07","2023-05-08","2023-05-09","2023-05-10","2023-05-11","2023-05-12","2023-05-13","2023-05-14","2023-05-15","2023-05-16","2023-05-17","2023-05-18","2023-05-19","2023-05-20","2023-05-21","2023-05-22","2023-05-23","2023-05-24","2023-05-25","2023-05-26","2023-05-27","2023-05-28","2023-05-29","2023-05-30","2023-05-31","2023-06-01","2023-06-02","2023-06-03","2023-06-04","2023-06-05","2023-06-06","2023-06-07","2023-06-08","2023-06-09","2023-06-10","2023-06-11","2023-06-12","2023-06-13","2023-06-14","2023-06-15","2023-06-16","2023-06-17","2023-06-18","2023-06-19","2023-06-20","2023-06-21","2023-06-22","2023-06-23","2023-06-24","2023-06-25","2023-06-26","2023-06-27","2023-06-28","2023-06-29","2023-06-30","2023-07-01","2023-07-02","2023-07-03","2023-07-04","2023-07-05","2023-07-06","2023-07-07","2023-07-08","2023-07-09","2023-07-10","2023-07-11","2023-07-12","2023-07-13","2023-07-14","2023-07-15","2023-07-16","2023-07-17","2023-07-18","2023-07-19","2023-07-20","2023-07-21","2023-07-22","2023-07-23","2023-07-24","2023-07-25","2023-07-26","2023-07-27","2023-07-28","2023-07-29","2023-07-30","2023-07-31","2023-08-01","2023-08-02","2023-08-03","2023-08-04","2023-08-05","2023-08-06","2023-08-07","2023-08-08","2023-08-09","2023-08-10","2023-08-11","2023-08-12","2023-08-13","2023-08-14","2023-08-15","2023-08-16","2023-08-17","2023-08-18","2023-08-19","2023-08-20","2023-08-21","2023-08-22","2023-08-23","2023-08-24","2023-08-25","2023-08-26","2023-08-27","2023-08-28","2023-08-29","2023-08-30","2023-08-31","2023-09-01","2023-09-02","2023-09-03","2023-09-04","2023-09-05","2023-09-06","2023-09-07","2023-09-08","2023-09-09","2023-09-10","2023-09-11","2023-09-12","2023-09-13","2023-09-14","2023-09-15","2023-09-16","2023-09-17","2023-09-18","2023-09-19","2023-09-20","2023-09-21","2023-09-22","2023-09-23","2023-09-24","2023-09-25","2023-09-26","2023-09-27","2023-09-28","2023-09-29","2023-09-30","2023-10-01","2023-10-02","2023-10-03","2023-10-04","2023-10-05","2023-10-06","2023-10-07","2023-10-08","2023-10-09","2023-10-10","2023-10-11","2023-10-12","2023-10-13","2023-10-14","2023-10-15","2023-10-16","2023-10-17","2023-10-18","2023-10-19","2023-10-20","2023-10-21","2023-10-22","2023-10-23","2023-10-24","2023-10-25","2023-10-26","2023-10-27","2023-10-28","2023-10-29","2023-10-30","2023-10-31","2023-11-01","2023-11-02","2023-11-03","2023-11-04","2023-11-05","2023-11-06","2023-11-07","2023-11-08","2023-11-09","2023-11-10","2023-11-11","2023-11-12","2023-11-13","2023-11-14","2023-11-15","2023-11-16","2023-11-17","2023-11-18","2023-11-19","2023-11-20","2023-11-21","2023-11-22","2023-11-23","2023-11-24","2023-11-25","2023-11-26","2023-11-27","2023-11-28","2023-11-29","2023-11-30","2023-12-01","2023-12-02","2023-12-03","2023-12-04","2023-12-05","2023-12-06","2023-12-07","2023-12-08","2023-12-09","2023-12-10","2023-12-11","2023-12-12","2023-12-13","2023-12-14","2023-12-15","2023-12-16","2023-12-17","2023-12-18","2023-12-19","2023-12-20","2023-12-21","2023-12-22","2023-12-23","2023-12-24","2023-12-25","2023-12-26","2023-12-27","2023-12-28","2023-12-29","2023-12-30","2023-12-31"],[3.06,2.81,5.24,4.21,5.08,2.57,3.44,4.14,1.92,2.32,2.06,2.67,3.19,2.08,2.12,2.18,2.95,4.05,3.04,2.17,1.69,2.8,3.73,3.91,2.88,3.08,6.81,3.02,2.81,2.96,1.91,3.98,3.88,2.1,3.09,2.86,1.76,2.02,2.4,1.8,2.94,3.34,1.6,3.51,2.31,2.96,2.76,1.23,3.6,2.88,4.83,4.95,2.23,5.19,2.98,2.15,2.9,4.03,1.86,2.33,4.43,2.36,3.09,2.43,1.94,1.79,3.22,2.98,3.99,3.65,3.92,2.6,3.09,1.82,2.8,4.42,6.14,4.24,2.72,3.85,2.65,4.53,3.03,2.63,3.73,3.03,3.6,4.16,2.81,2.68,6.66,2.5,3.08,2.53,2.59,2.12,2.86,5.31,4.59,3.15,3.09,3.59,4.79,2.57,4.93,2.01,3.11,2.35,2.64,4.82,3.94,1.38,3.01,3.44,3.73,5.97,2.76,3.22,4.54,2.49,2.26,2.73,4.44,2.86,4.95,3.19,3.67,4.02,2.36,4,6.16,4.51,4.3,3.6,4.88,3.37,4.52,4.1,6.19,3.29,4.99,4.54,9.18,7.79,3.95,5.4,4.46,3.64,9.01,7.84,4.04,4.8,5.31,4.06,5.29,4.74,7.92,64.98,33.12,17.88,67.79000000000001,31.63,21.79,8.99,10,7.16,11.23,7.85,5.13,12.31,90.91,50.75,106.4,46.16,27.92,12.61,15.56,8.859999999999999,14.93,10.79,18.44,5.19,9.69,14.82,20.57,13.65,7.74,23.69,82.22,39.8,24.13,20.25,14.66,12.19,15.05,5.6,11.85,16.38,117.11,54.14,28.59,16.11,26.09,13.04,11.84,7.5,13.6,7.73,8.630000000000001,10.32,17.76,9.84,124.9,64.93000000000001,34.05,19.55,27.82,9.779999999999999,11.75,21.81,9.529999999999999,5.37,12.7,7.23,9.59,5.24,32.37,23.24,16.05,56.4,21.7,21.01,18.18,16.07,8.51,10.57,8.26,9.26,6.66,8.26,8.99,9.119999999999999,10.15,11.46,6.3,6.43,105.21,49.88,30.86,20.12,10.89,9.390000000000001,14.97,11.01,5.53,8.880000000000001,5.1,7.32,10.45,5.1,5.18,19.12,10.61,5.58,9.140000000000001,9.789999999999999,7.65,6.85,9.75,8.279999999999999,40.63,20.57,11.08,6,7.21,5.55,2.82,5.99,4.86,7.8,4.01,5.45,7.7,5.63,4.07,7.11,2.56,5.7,96.31999999999999,42.32,16.5,9.4,5,3.92,5.04,4.15,2.57,5.52,2.41,2.8,3.31,4.12,2.65,4.39,1.84,2.78,3.36,4.64,1.9,3.41,2.27,3.43,3.22,3.22,3.3,2.45,109.01,47.79,111.45,46.75,22.33,12.17,7.76,4.51,1.65,2.81,2.61,2.29,2.51,2.82,4.31,6.33,2.95,2.85,2.81,4.05,5.42,2.97,3.62,3.95,3.65,4.89,2.49,2.39,4.34,3.57,2.61,1.72,4.27,4.41,3.66,2.25,1.32,3.4,3.53,3.1,3.31,3.16,3.15,2.4,2.11,3.03,4.17,2.42,4.16]],"container":"<table class=\"compact stripe hover\">\n  <thead>\n    <tr>\n      <th>Fecha<\/th>\n      <th>Caudal medio diario (m³/s)<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":6,"lengthChange":false,"searching":false,"ordering":false,"autoWidth":false,"dom":"tip","language":{"info":"Filas _START_ a _END_ de _TOTAL_","infoEmpty":"Sin filas","paginate":{"previous":"Anterior","next":"Siguiente","first":"Primera","last":"Última"}},"columnDefs":[{"className":"dt-right","targets":1},{"name":"fecha","targets":0},{"name":"caudal_m3s","targets":1}],"order":[],"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+</div>
+<p><strong>Solución:</strong></p>
+<ol type="1">
+<li>Se toma el logaritmo natural de <span class="math inline">\(C\)</span> y de <span class="math inline">\(Q\)</span> de las 40 muestras y se ajusta una recta: <span class="math inline">\(\ln C = 1.539 + 1.467 \ln Q\)</span>, con error estándar <span class="math inline">\(s = 0.678\)</span>. Entonces <span class="math inline">\(a = e^{1.539} = 4.66\)</span> y <span class="math inline">\(b = 1.467\)</span>.</li>
+<li>Factor de corrección: con la fórmula normal, <span class="math inline">\(\exp(0.678^2/2) = 1.258\)</span>; con el de Duan, el promedio de <span class="math inline">\(\exp(e_i)\)</span> es 1.246. Se usa este último.</li>
+<li>Para un día con <span class="math inline">\(Q = 10\)</span> m³/s: <span class="math inline">\(C = 4.66 \times 10^{1.467} \times 1.246 = 4.66 \times 29.3 \times 1.246 = 170\)</span> mg/L y <span class="math inline">\(Q_s = 0.0864 \times 170 \times 10 = 147\)</span> t/d.</li>
+<li>Se repite para los 365 días y se suma: unas 617 000 t/año. Sin la corrección de Duan el resultado habría sido 495 000 t, un 20 % menos.</li>
+<li>Ordenando los días de mayor a menor aporte, los 37 primeros (10 %) suman el 96 % de la carga anual, y solo los cinco mayores, el 48 %.</li>
+</ol>
+<p><strong>Pseudocódigo</strong></p>
+<ol type="1">
+<li>Leer las muestras y ajustar <code>lm(log(C) ~ log(Q))</code>.</li>
+<li>Calcular <span class="math inline">\(a\)</span>, <span class="math inline">\(b\)</span> y el factor de Duan con los residuos.</li>
+<li>Aplicar la curva corregida a cada día y calcular <span class="math inline">\(Q_s\)</span>.</li>
+<li>Sumar la carga anual y calcular la fracción acumulada por días ordenados.</li>
+</ol>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 1) Datos y ajuste en logaritmos</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>muestras <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"datos/muestras_sedimento_hipoteticas.csv"</span>)</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>diario <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"datos/caudal_diario_hipotetico_sedimentos.csv"</span>)</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>ajuste <span class="ot">&lt;-</span> <span class="fu">lm</span>(<span class="fu">log</span>(conc_mgL) <span class="sc">~</span> <span class="fu">log</span>(caudal_m3s), <span class="at">data =</span> muestras)</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="co"># 2) Coeficientes y corrección del sesgo</span></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>a_c <span class="ot">&lt;-</span> <span class="fu">exp</span>(<span class="fu">coef</span>(ajuste)[[<span class="dv">1</span>]]); b_c <span class="ot">&lt;-</span> <span class="fu">coef</span>(ajuste)[[<span class="dv">2</span>]]</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>duan <span class="ot">&lt;-</span> <span class="fu">mean</span>(<span class="fu">exp</span>(<span class="fu">residuals</span>(ajuste)))</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>normal <span class="ot">&lt;-</span> <span class="fu">exp</span>(<span class="fu">summary</span>(ajuste)<span class="sc">$</span>sigma<span class="sc">^</span><span class="dv">2</span> <span class="sc">/</span> <span class="dv">2</span>)</span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a><span class="co"># 3) Carga diaria en suspensión (t/d)</span></span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>diario <span class="ot">&lt;-</span> diario <span class="sc">%&gt;%</span></span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">conc =</span> a_c <span class="sc">*</span> caudal_m3s<span class="sc">^</span>b_c <span class="sc">*</span> duan,</span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>         <span class="at">qs_td =</span> <span class="fl">0.0864</span> <span class="sc">*</span> conc <span class="sc">*</span> caudal_m3s)</span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a><span class="co"># 4) Carga anual y concentración del aporte en pocos días</span></span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a>carga_anual <span class="ot">&lt;-</span> <span class="fu">sum</span>(diario<span class="sc">$</span>qs_td)</span>
+<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a>orden <span class="ot">&lt;-</span> <span class="fu">sort</span>(diario<span class="sc">$</span>qs_td, <span class="at">decreasing =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a>frac_10 <span class="ot">&lt;-</span> <span class="fu">sum</span>(orden[<span class="dv">1</span><span class="sc">:</span><span class="fu">round</span>(<span class="fl">0.1</span> <span class="sc">*</span> <span class="fu">nrow</span>(diario))]) <span class="sc">/</span> carga_anual</span>
+<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(muestras, <span class="fu">aes</span>(caudal_m3s, conc_mgL)) <span class="sc">+</span></span>
+<span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">colour =</span> <span class="st">"grey30"</span>) <span class="sc">+</span></span>
+<span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_function</span>(<span class="at">fun =</span> <span class="cf">function</span>(q) a_c <span class="sc">*</span> q<span class="sc">^</span>b_c, <span class="at">colour =</span> <span class="st">"#1C6BA0"</span>, <span class="at">linewidth =</span> <span class="fl">0.9</span>) <span class="sc">+</span></span>
+<span id="cb8-26"><a href="#cb8-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_function</span>(<span class="at">fun =</span> <span class="cf">function</span>(q) a_c <span class="sc">*</span> q<span class="sc">^</span>b_c <span class="sc">*</span> duan, <span class="at">colour =</span> <span class="st">"#D55E00"</span>,</span>
+<span id="cb8-27"><a href="#cb8-27" aria-hidden="true" tabindex="-1"></a>                <span class="at">linewidth =</span> <span class="fl">0.9</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>) <span class="sc">+</span></span>
+<span id="cb8-28"><a href="#cb8-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_log10</span>() <span class="sc">+</span> <span class="fu">scale_y_log10</span>() <span class="sc">+</span></span>
+<span id="cb8-29"><a href="#cb8-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Caudal (m³/s)"</span>, <span class="at">y =</span> <span class="st">"Concentración (mg/L)"</span>) <span class="sc">+</span></span>
+<span id="cb8-30"><a href="#cb8-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>(<span class="at">base_family =</span> <span class="st">"serif"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="fig-sed-curva-gasto" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Puntos de concentración contra caudal en escala logarítmica, con dispersión de casi un orden de magnitud, y una recta creciente ajustada; la recta corregida por el sesgo queda ligeramente por encima de la ajustada" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-sed-curva-gasto-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="34-transporte_sedimentos_files/figure-html/fig-sed-curva-gasto-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="Figura&nbsp;34.3: Curva de gasto sólido ajustada a las muestras del ejemplo."><img src="34-transporte_sedimentos_files/figure-html/fig-sed-curva-gasto-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:70.0%" alt="Puntos de concentración contra caudal en escala logarítmica, con dispersión de casi un orden de magnitud, y una recta creciente ajustada; la recta corregida por el sesgo queda ligeramente por encima de la ajustada"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-sed-curva-gasto-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;34.3: Curva de gasto sólido ajustada a las muestras del ejemplo.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="at">a =</span> a_c, <span class="at">b =</span> b_c, <span class="at">factor_normal =</span> normal, <span class="at">factor_duan =</span> duan,</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">carga_t_anio =</span> carga_anual, <span class="at">sin_correccion =</span> carga_anual <span class="sc">/</span> duan,</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">fraccion_10pct_dias =</span> frac_10)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                  a                   b       factor_normal         factor_duan 
+       4.660798e+00        1.466781e+00        1.258344e+00        1.246393e+00 
+       carga_t_anio      sin_correccion fraccion_10pct_dias 
+       6.167048e+05        4.947915e+05        9.554630e-01 </code></pre>
+</div>
+</div>
+<p><strong>Interpretación.</strong> Casi toda la carga del año pasa en unas pocas semanas de crecientes. Por eso un programa de muestreo que toma muestras una vez al mes, casi siempre con caudales bajos, define bien la parte baja de la curva y mal la parte que importa. Las muestras durante las crecientes, aunque sean pocas, valen más que muchas en época seca. La corrección del sesgo no es un detalle: cambia la carga anual en una quinta parte.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-warning callout-titled" title="Cuidado">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Cuidado
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Una curva de gasto sólido no es estable en el tiempo. Un deslizamiento grande, una carretera nueva o un incendio cambian la cantidad de sedimento disponible, y la misma creciente puede traer el doble de sedimento el año siguiente. Además, para el mismo caudal la concentración suele ser mayor en la rama ascendente del hidrograma que en la descendente, y mayor en las primeras crecientes de la época lluviosa que en las últimas. Antes de usar una curva vieja, se comprueba con muestras recientes.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="sec-sed-embalses" class="level2" data-number="34.7">
+<h2 data-number="34.7" class="anchored" data-anchor-id="sec-sed-embalses"><span class="header-section-number">34.7</span> Sedimentación de embalses</h2>
+<section id="sec-sed-depositos" class="level3" data-number="34.7.1">
+<h3 data-number="34.7.1" class="anchored" data-anchor-id="sec-sed-depositos"><span class="header-section-number">34.7.1</span> Cómo se llena un embalse</h3>
+<p>Cuando un río entra a un embalse, la velocidad del agua cae y el sedimento se deposita en orden de tamaño. Las gravas y arenas forman un delta en la cola del embalse, que avanza hacia la presa y crece también hacia aguas arriba por el remanso. Los limos y arcillas siguen más adelante y se depositan en el fondo del vaso, a veces llevados hasta la presa por corrientes de densidad: agua cargada de sedimento, más pesada que la del embalse, que corre por el fondo siguiendo el antiguo cauce. Los depósitos llenan primero la parte más profunda de cada sección y después se extienden hacia los lados <span class="citation" data-cites="morris2008reservoir">(Morris, Annandale, y Hotchkiss 2008)</span>.</p>
+<p>El volumen muerto que se reserva bajo la toma para el sedimento no garantiza nada si el delta avanza y tapa la toma antes de que el volumen muerto se llene. Por eso, en un embalse con mucha carga gruesa, la distribución de los depósitos importa tanto como su volumen total.</p>
+</section>
+<section id="sec-sed-atrape" class="level3" data-number="34.7.2">
+<h3 data-number="34.7.2" class="anchored" data-anchor-id="sec-sed-atrape"><span class="header-section-number">34.7.2</span> Eficiencia de atrape</h3>
+<p>La eficiencia de atrape es la fracción del sedimento que entra al embalse y queda retenida en él. Depende sobre todo del tiempo que el agua permanece en el embalse. Brune relacionó la eficiencia de atrape de largo plazo con el cociente entre la capacidad del embalse y el volumen de agua que entra en un año, <span class="math inline">\(C/I\)</span>, usando datos de 44 embalses de Estados Unidos <span class="citation" data-cites="brune1953trap">(Brune 1953)</span>. Su curva media es la que se usa para estimaciones preliminares y para embalses grandes de operación normal. Para desarenadores, embalses pequeños y presas de retención de crecidas, funciona mejor el método de Churchill, que usa además la longitud del embalse y la velocidad media del flujo <span class="citation" data-cites="morris2008reservoir">(Morris, Annandale, y Hotchkiss 2008, 595)</span>.</p>
+<p>Para cálculos en hoja de cálculo o en R es práctica una aproximación de la curva media de Brune propuesta por Dendy <span class="citation" data-cites="dendy1974trap">(Dendy 1974)</span>:</p>
+<p><span id="eq-sed-brune"><span class="math display">\[
+TE = 0.97^{\,0.19^{\log_{10}(C/I)}}
+\tag{34.9}\]</span></span></p>
+<p>donde <span class="math inline">\(TE\)</span> es la eficiencia de atrape (fracción), <span class="math inline">\(C\)</span> es la capacidad del embalse (m³) e <span class="math inline">\(I\)</span> es el volumen medio anual de entrada (m³). <!-- VERIFICAR: forma y coeficientes de la aproximación de Dendy (1974) contra el artículo original. --> Con <span class="math inline">\(C/I = 0.1\)</span> da 0.85, y con <span class="math inline">\(C/I = 1\)</span>, 0.97. Embalses con <span class="math inline">\(C/I\)</span> mayor que 0.5 atrapan prácticamente todo; embalses de pasada, con <span class="math inline">\(C/I\)</span> de 0.001, dejan pasar la mayor parte. La <a href="#fig-sed-brune" class="quarto-xref">Figura&nbsp;<span>34.4</span></a> muestra la curva.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div id="fig-sed-brune" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Curva en forma de S de la eficiencia de atrape contra el cociente capacidad entre volumen anual de entrada en escala logarítmica, de casi cero en 0.0001 a 97 por ciento en 1, con el punto del embalse Pirrís cerca de 0.076 y 82 por ciento" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-sed-brune-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="34-transporte_sedimentos_files/figure-html/fig-sed-brune-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4" title="Figura&nbsp;34.4: Eficiencia de atrape según la aproximación de Dendy a la curva media de Brune."><img src="34-transporte_sedimentos_files/figure-html/fig-sed-brune-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:70.0%" alt="Curva en forma de S de la eficiencia de atrape contra el cociente capacidad entre volumen anual de entrada en escala logarítmica, de casi cero en 0.0001 a 97 por ciento en 1, con el punto del embalse Pirrís cerca de 0.076 y 82 por ciento"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-sed-brune-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;34.4: Eficiencia de atrape según la aproximación de Dendy a la curva media de Brune.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="sec-sed-densidad" class="level3" data-number="34.7.3">
+<h3 data-number="34.7.3" class="anchored" data-anchor-id="sec-sed-densidad"><span class="header-section-number">34.7.3</span> Densidad de los depósitos</h3>
+<p>Para pasar de toneladas a metros cúbicos de embalse perdidos hace falta la densidad seca de los depósitos, que es mucho menor que la de los granos porque los depósitos tienen mucha agua en los poros. Una arena recién depositada tiene unos 1.5 t/m³, y una arcilla, menos de 0.6 t/m³. Con el tiempo los depósitos se consolidan y la densidad aumenta. Lane y Koelzer propusieron estimar la densidad media de los depósitos de <span class="math inline">\(T\)</span> años con <span class="citation" data-cites="alfaro2018pirris">(Alfaro Solano 2018, 88)</span></p>
+<p><span id="eq-sed-densidad"><span class="math display">\[
+W_T = W_1 + 0.4343\,K\left[\frac{T}{T-1}\,\ln T - 1\right]
+\tag{34.10}\]</span></span></p>
+<p>donde <span class="math inline">\(W_T\)</span> es la densidad seca media de los depósitos acumulados en <span class="math inline">\(T\)</span> años, <span class="math inline">\(W_1\)</span> es la densidad inicial, al cabo del primer año, y <span class="math inline">\(K\)</span> es el coeficiente de consolidación, que depende del tamaño del sedimento y de la operación del embalse. La ecuación se publicó en lb/pie³, unidades en que se tabulan <span class="math inline">\(W_1\)</span> y <span class="math inline">\(K\)</span>; 1 lb/pie³ son 0.0160 t/m³.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Ejemplo: volumen de sedimentos de diseño del embalse Pirrís">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Ejemplo: volumen de sedimentos de diseño del embalse Pirrís
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Planteamiento.</strong> En el estudio de factibilidad del embalse del Centro de Producción Pirrís se estimó una carga total de sedimentos de 125 400 t/año, una capacidad de 26.61 hm³ y una entrada media de agua de 351.61 hm³/año. La densidad de los depósitos se calculó con <span class="math inline">\(W_1 = 74\)</span> lb/pie³ y <span class="math inline">\(K = 2.7\)</span> lb/pie³ <span class="citation" data-cites="alfaro2018pirris">(Alfaro Solano 2018, 87-89)</span>. Calcule la eficiencia de atrape con la <a href="#eq-sed-brune" class="quarto-xref">Ecuación&nbsp;<span>34.9</span></a>, la densidad media de los depósitos en 50 años y el volumen de sedimentos de diseño para ese periodo.</p>
+<p><strong>Solución:</strong></p>
+<ol type="1">
+<li><span class="math inline">\(C/I = 26.61/351.61 = 0.0757\)</span>, y <span class="math inline">\(\log_{10} 0.0757 = -1.121\)</span>.</li>
+<li><span class="math inline">\(0.19^{-1.121} = e^{1.121 \times 1.661} = e^{1.862} = 6.44\)</span>, y <span class="math inline">\(TE = 0.97^{6.44} = e^{6.44 \times (-0.0305)} = 0.822\)</span>. Con el diagrama de Brune, el estudio leyó 85 %; la diferencia muestra la precisión de leer una curva a ojo.</li>
+<li>Densidad en 50 años: <span class="math inline">\(\frac{50}{49} \ln 50 - 1 = 1.0204 \times 3.912 - 1 = 2.992\)</span>, y <span class="math inline">\(W_{50} = 74 + 0.4343 \times 2.7 \times 2.992 = 74 + 3.51 = 77.5\)</span> lb/pie³, es decir, <span class="math inline">\(77.5 \times 0.01602 = 1.241\)</span> t/m³.</li>
+<li>Volumen de sedimentos con la eficiencia del estudio: <span class="math inline">\(V_s = 125\,400 \times 0.85 \times 50/1.241 = 4.29 \times 10^6\)</span> m³, el 16 % de la capacidad inicial. Con <span class="math inline">\(TE = 0.822\)</span> resulta <span class="math inline">\(4.15 \times 10^6\)</span> m³.</li>
+</ol>
+<p><strong>Pseudocódigo</strong></p>
+<ol type="1">
+<li>Calcular <span class="math inline">\(C/I\)</span> y la eficiencia de atrape.</li>
+<li>Calcular la densidad media de los depósitos con la <a href="#eq-sed-densidad" class="quarto-xref">Ecuación&nbsp;<span>34.10</span></a> y convertirla a t/m³.</li>
+<li>Multiplicar la carga anual por la eficiencia y los años, y dividir entre la densidad.</li>
+</ol>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 1) Datos del estudio de factibilidad (Alfaro, 2018)</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>carga <span class="ot">&lt;-</span> <span class="dv">125400</span>        <span class="co"># t/año</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>capacidad <span class="ot">&lt;-</span> <span class="fl">26.61e6</span>   <span class="co"># m³</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>entrada <span class="ot">&lt;-</span> <span class="fl">351.61e6</span>    <span class="co"># m³/año</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>te_brune <span class="ot">&lt;-</span> <span class="cf">function</span>(ci) <span class="fl">0.97</span><span class="sc">^</span>(<span class="fl">0.19</span><span class="sc">^</span><span class="fu">log10</span>(ci))</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>te <span class="ot">&lt;-</span> <span class="fu">te_brune</span>(capacidad <span class="sc">/</span> entrada)</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a><span class="co"># 2) Densidad media de Lane y Koelzer, T = 50 años</span></span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>w1 <span class="ot">&lt;-</span> <span class="dv">74</span>; k_cons <span class="ot">&lt;-</span> <span class="fl">2.7</span>; t_anios <span class="ot">&lt;-</span> <span class="dv">50</span>          <span class="co"># lb/pie³</span></span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>w_t <span class="ot">&lt;-</span> w1 <span class="sc">+</span> <span class="fl">0.4343</span> <span class="sc">*</span> k_cons <span class="sc">*</span> (t_anios <span class="sc">/</span> (t_anios <span class="sc">-</span> <span class="dv">1</span>) <span class="sc">*</span> <span class="fu">log</span>(t_anios) <span class="sc">-</span> <span class="dv">1</span>)</span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>dens <span class="ot">&lt;-</span> w_t <span class="sc">*</span> <span class="fl">0.0160185</span>                         <span class="co"># t/m³</span></span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a><span class="co"># 3) Volumen de sedimentos de diseño</span></span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="at">C_I =</span> capacidad <span class="sc">/</span> entrada, <span class="at">TE =</span> te, <span class="at">W50_t_m3 =</span> dens,</span>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a>  <span class="at">Vs_TE085_hm3 =</span> carga <span class="sc">*</span> <span class="fl">0.85</span> <span class="sc">*</span> t_anios <span class="sc">/</span> dens <span class="sc">/</span> <span class="fl">1e6</span>,</span>
+<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a>  <span class="at">Vs_Dendy_hm3 =</span> carga <span class="sc">*</span> te <span class="sc">*</span> t_anios <span class="sc">/</span> dens <span class="sc">/</span> <span class="fl">1e6</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>         C_I           TE     W50_t_m3 Vs_TE085_hm3 Vs_Dendy_hm3 
+  0.07568044   0.82201538   1.24156647   4.29256117   4.15123681 </code></pre>
+</div>
+</div>
+<p><strong>Interpretación.</strong> En 50 años el embalse perdería entre 4.2 y 4.3 hm³, una sexta parte de su capacidad. El resultado es tan bueno como la carga anual estimada, que se basó en curvas de gasto sólido con las limitaciones de la <a href="#sec-sed-curva" class="quarto-xref"><span>Sección 34.6.2</span></a>. Las batimetrías del embalse son la forma de comprobarlo; <span class="citation" data-cites="alfaro2018pirris">Alfaro Solano (2018)</span> encontró que las disponibles hasta 2016 tenían tanta incertidumbre que no servían para calibrar y recomendó levantamientos anuales y después de cada evento extremo.</p>
+</div>
+</div>
+</section>
+<section id="sec-sed-vida" class="level3" data-number="34.7.4">
+<h3 data-number="34.7.4" class="anchored" data-anchor-id="sec-sed-vida"><span class="header-section-number">34.7.4</span> Vida útil</h3>
+<p>A medida que el embalse se llena, su capacidad baja, el cociente <span class="math inline">\(C/I\)</span> disminuye y atrapa una fracción menor del sedimento. La pérdida de capacidad se calcula entonces año por año: cada año se evalúa la eficiencia con la capacidad que queda, se resta el volumen depositado y se pasa al año siguiente. La vida útil se define según el uso: el tiempo hasta perder la mitad de la capacidad, hasta que los depósitos lleguen a la toma o hasta que el volumen útil no alcance para la regulación de diseño <span class="citation" data-cites="morris2008reservoir">(Morris, Annandale, y Hotchkiss 2008)</span>.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Ejemplo: pérdida de capacidad año por año">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Ejemplo: pérdida de capacidad año por año
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Planteamiento.</strong> Con los datos del ejemplo anterior y una densidad constante de 1.241 t/m³, calcule la capacidad del embalse año por año hasta que pierda la mitad, actualizando cada año la eficiencia de atrape. Suponga que la carga de sedimentos y la entrada de agua no cambian.</p>
+<p><strong>Solución:</strong></p>
+<ol type="1">
+<li>Año 1: <span class="math inline">\(C/I = 0.0757\)</span>, <span class="math inline">\(TE = 0.8220\)</span>, volumen depositado <span class="math inline">\(= 125\,400 \times 0.8220/1.241 = 83\,060\)</span> m³. Capacidad al final del año: <span class="math inline">\(26.610 - 0.083 = 26.527\)</span> hm³.</li>
+<li>Año 2: <span class="math inline">\(C/I = 26.527/351.61 = 0.0754\)</span>, <span class="math inline">\(TE = 0.8217\)</span>, depósito <span class="math inline">\(= 83\,030\)</span> m³ y capacidad <span class="math inline">\(26.444\)</span> hm³.</li>
+<li>Año 3: <span class="math inline">\(C/I = 0.0752\)</span>, <span class="math inline">\(TE = 0.8213\)</span>, depósito <span class="math inline">\(= 82\,990\)</span> m³ y capacidad <span class="math inline">\(26.361\)</span> hm³.</li>
+<li>El procedimiento se repite. Como la eficiencia baja despacio, el depósito anual disminuye poco: en el año 50 es de 81 000 m³ y en el año 100, de 78 400 m³.</li>
+</ol>
+<p><strong>Pseudocódigo</strong></p>
+<ol type="1">
+<li>Iniciar con la capacidad original.</li>
+<li>Para cada año: calcular <span class="math inline">\(C/I\)</span> y <span class="math inline">\(TE\)</span>, el volumen depositado y la capacidad nueva.</li>
+<li>Detenerse cuando la capacidad baje de la mitad de la original.</li>
+</ol>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 1) Datos y capacidad inicial</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>carga <span class="ot">&lt;-</span> <span class="dv">125400</span>; entrada <span class="ot">&lt;-</span> <span class="fl">351.61e6</span>; dens <span class="ot">&lt;-</span> <span class="fl">1.241</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>capacidad <span class="ot">&lt;-</span> <span class="fl">26.61e6</span></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>te_brune <span class="ot">&lt;-</span> <span class="cf">function</span>(ci) <span class="fl">0.97</span><span class="sc">^</span>(<span class="fl">0.19</span><span class="sc">^</span><span class="fu">log10</span>(ci))</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a><span class="co"># 2) Balance año por año</span></span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>historia <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">anio =</span> <span class="dv">0</span>, <span class="at">capacidad_hm3 =</span> capacidad <span class="sc">/</span> <span class="fl">1e6</span>, <span class="at">te =</span> <span class="cn">NA_real_</span>)</span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>cap <span class="ot">&lt;-</span> capacidad</span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>anio <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> (cap <span class="sc">&gt;</span> <span class="fl">0.5</span> <span class="sc">*</span> capacidad) {</span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>  anio <span class="ot">&lt;-</span> anio <span class="sc">+</span> <span class="dv">1</span></span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a>  te <span class="ot">&lt;-</span> <span class="fu">te_brune</span>(cap <span class="sc">/</span> entrada)</span>
+<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a>  cap <span class="ot">&lt;-</span> cap <span class="sc">-</span> carga <span class="sc">*</span> te <span class="sc">/</span> dens</span>
+<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a>  historia <span class="ot">&lt;-</span> <span class="fu">add_row</span>(historia, <span class="at">anio =</span> anio, <span class="at">capacidad_hm3 =</span> cap <span class="sc">/</span> <span class="fl">1e6</span>, <span class="at">te =</span> te)</span>
+<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-19"><a href="#cb13-19" aria-hidden="true" tabindex="-1"></a><span class="co"># 3) Año en que se pierde la mitad</span></span>
+<span id="cb13-20"><a href="#cb13-20" aria-hidden="true" tabindex="-1"></a>anio</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 169</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(historia, <span class="fu">aes</span>(anio, capacidad_hm3)) <span class="sc">+</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">colour =</span> <span class="st">"#1C6BA0"</span>, <span class="at">linewidth =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> capacidad <span class="sc">/</span> <span class="fl">2e6</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>, <span class="at">colour =</span> <span class="st">"grey40"</span>) <span class="sc">+</span></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Años de operación"</span>, <span class="at">y =</span> <span class="st">"Capacidad (hm³)"</span>) <span class="sc">+</span></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>(<span class="at">base_family =</span> <span class="st">"serif"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="fig-sed-vida-util" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Curva descendente de capacidad contra años, casi recta, que baja de 26.6 hm³ y cruza la línea de la mitad de la capacidad, 13.3 hm³, cerca del año 169" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-sed-vida-util-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="34-transporte_sedimentos_files/figure-html/fig-sed-vida-util-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5" title="Figura&nbsp;34.5: Pérdida de capacidad del embalse del ejemplo."><img src="34-transporte_sedimentos_files/figure-html/fig-sed-vida-util-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:70.0%" alt="Curva descendente de capacidad contra años, casi recta, que baja de 26.6 hm³ y cruza la línea de la mitad de la capacidad, 13.3 hm³, cerca del año 169"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-sed-vida-util-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;34.5: Pérdida de capacidad del embalse del ejemplo.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p><strong>Interpretación.</strong> Con estos supuestos el embalse tardaría unos 170 años en perder la mitad de su capacidad. Es un embalse relativamente grande respecto a su carga de sedimentos. El resultado no considera dos cosas que lo acortan: la carga puede crecer con cambios de uso del suelo o con eventos extremos, y el delta de gruesos puede alcanzar la toma mucho antes de que el vaso pierda la mitad del volumen. <span class="citation" data-cites="alfaro2018pirris">Alfaro Solano (2018)</span> estimó que un solo evento crítico de cuatro días podría depositar entre 0.64 y 0.71 hm³ en ese embalse, el equivalente a ocho años de depósito medio.</p>
+</div>
+</div>
+</section>
+<section id="sec-sed-manejo" class="level3" data-number="34.7.5">
+<h3 data-number="34.7.5" class="anchored" data-anchor-id="sec-sed-manejo"><span class="header-section-number">34.7.5</span> Manejo de sedimentos</h3>
+<p>Hay tres familias de estrategias para alargar la vida de un embalse <span class="citation" data-cites="morris2008reservoir">(Morris, Annandale, y Hotchkiss 2008)</span>:</p>
+<ul>
+<li><strong>Reducir lo que entra.</strong> Conservación de suelos y control de cárcavas y deslizamientos en la cuenca (capítulo anterior), y presas de retención de sedimentos aguas arriba. Actúan despacio, pero son las únicas que atacan el origen.</li>
+<li><strong>Hacer pasar el sedimento.</strong> Bajar el nivel del embalse durante las crecientes para que el agua cargada pase rápido sin depositar, desviar las crecientes por un túnel de derivación, o abrir descargas de fondo cuando llega una corriente de densidad a la presa.</li>
+<li><strong>Sacar lo depositado.</strong> El desembalse o purga hidráulica (<em>flushing</em>) vacía el embalse y deja que el río erosione los depósitos y los saque por las descargas de fondo. El dragado y la excavación en seco remueven el material con equipo. En julio de 2015 se hizo un desembalse parcial del Pirrís, el único hasta 2016, que sirvió además para caracterizar el material depositado: limos de alta plasticidad, con <span class="math inline">\(d_{50}\)</span> entre 0.009 y 0.62 mm <span class="citation" data-cites="alfaro2018pirris">(Alfaro Solano 2018, 168-69)</span>.</li>
+</ul>
+<div class="callout callout-style-default callout-tip callout-titled" title="En la práctica">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+En la práctica
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Un desembalse descarga en pocos días el sedimento acumulado durante años. Aguas abajo, la concentración puede pasar de decenas de miles de mg/L, con efectos graves sobre la fauna acuática, las tomas de agua y los cauces. Por eso se planifica con monitoreo de la calidad del agua, en la época del año en que el río tiene más caudal para diluir, y en coordinación con las autoridades ambientales y los usuarios del agua aguas abajo.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="ejercicios-propuestos" class="level2" data-number="34.8">
+<h2 data-number="34.8" class="anchored" data-anchor-id="ejercicios-propuestos"><span class="header-section-number">34.8</span> Ejercicios propuestos</h2>
+<ol type="1">
+<li>Calcule la velocidad de caída de partículas de 0.1, 0.5 y 2 mm a 10 °C (<span class="math inline">\(\nu = 1.31 \times 10^{-6}\)</span> m²/s) y compare con 20 °C. ¿Qué implica para un desarenador en una zona alta y fría?</li>
+<li>Un canal de tierra de 3 m de ancho tiene una pendiente de 0.002 y lleva agua con 0.8 m de profundidad. El suelo del fondo es una arena con <span class="math inline">\(d_{50} = 0.5\)</span> mm. ¿Es estable el fondo? Si no lo es, ¿qué pendiente máxima lo haría estable?</li>
+<li>Para el río de grava del ejemplo, calcule el caudal sólido de fondo con Meyer-Peter y Müller para profundidades de 0.6 a 1.8 m y grafique el resultado. ¿A partir de qué profundidad empieza el transporte?</li>
+<li>Repita el ejemplo de Engelund y Hansen con <span class="math inline">\(d_{50} = 0.15\)</span> y 0.6 mm. ¿Cómo cambia la concentración con el tamaño del sedimento? Explique con la <a href="#eq-sed-eh" class="quarto-xref">Ecuación&nbsp;<span>34.7</span></a>.</li>
+<li>Con los datos del ejemplo de la curva de gasto sólido, ajuste la curva solo con las 20 muestras de menor caudal y calcule la carga anual. Compare con el resultado del ejemplo y explique la diferencia.</li>
+<li>Un embalse de 4 hm³ recibe 180 hm³ de agua y 95 000 t de sedimento al año. Con una densidad de 1.1 t/m³, calcule la eficiencia de atrape inicial y la pérdida de capacidad en 20 años, año por año.</li>
+<li>En el ejemplo de la vida útil, suponga que la carga de sedimentos aumenta un 2 % por año por cambios de uso del suelo. ¿En cuántos años se pierde la mitad de la capacidad?</li>
+<li>Investigue si en su región hay embalses con batimetrías publicadas. Con dos batimetrías, la densidad de los depósitos y la eficiencia de atrape, estime la producción de sedimentos de la cuenca en t/(km²·año) y compárela con la que daría la RUSLE con una relación de entrega del capítulo anterior.</li>
+</ol>
+</section>
+<section id="lecturas-recomendadas" class="level2" data-number="34.9">
+<h2 data-number="34.9" class="anchored" data-anchor-id="lecturas-recomendadas"><span class="header-section-number">34.9</span> Lecturas recomendadas</h2>
+<ul>
+<li><span class="citation" data-cites="garcia2008sediment">García (2008)</span>: el capítulo 2 del manual 110 de la ASCE, con la mecánica del transporte de sedimentos, el inicio del movimiento y las fórmulas de transporte. Es la referencia principal de este capítulo.</li>
+<li><span class="citation" data-cites="morris2008reservoir">Morris, Annandale, y Hotchkiss (2008)</span>: el capítulo 12 del mismo manual, sobre sedimentación de embalses y su manejo sostenible.</li>
+<li><span class="citation" data-cites="julien2010erosion">Julien (2010)</span>: un texto con muchos ejemplos resueltos de velocidad de caída, inicio del movimiento, carga de fondo, carga en suspensión y sedimentación de embalses.</li>
+<li><span class="citation" data-cites="vanoni2006sedimentation">Vanoni (2006)</span>: el manual 54 de la ASCE, publicado en 1975 y reimpreso en 2006, todavía la referencia clásica del tema.</li>
+<li><span class="citation" data-cites="alfaro2018pirris">Alfaro Solano (2018)</span>: un estudio completo de los sedimentos de un embalse de Costa Rica, con curvas de gasto sólido, batimetrías y escenarios de eventos extremos.</li>
+</ul>
+
+
+</section>
+
+</main> <!-- /main -->
+<!--
+  Herramientas de lectura del libro: búsqueda en todo el texto (funciona sin
+  internet) y ajustes de accesibilidad (tamaño de letra, alto contraste y
+  fuente más legible). Los ajustes se guardan en el navegador del lector.
+  Lo insertan _quarto.yml (libro web) y herramientas/publicar.R (un solo archivo).
+  En el libro web, Quarto ya trae su propia búsqueda, así que aquí no se agrega.
+-->
+<style>
+  #barra-lectura {
+    position: fixed; top: 0.6rem; right: 1rem; z-index: 1060;
+    display: flex; gap: 0.35rem; align-items: center;
+  }
+  #barra-lectura > button, #barra-lectura > .quarto-color-scheme-toggle {
+    position: static; display: inline-flex; align-items: center; justify-content: center;
+    min-width: 2.3rem; height: 2.3rem; padding: 0 0.55rem;
+    background: var(--bs-body-bg, #fff); color: var(--bs-body-color, #212529);
+    border: 1px solid var(--bs-border-color, #ced4da); border-radius: 0.45rem;
+    font: 600 0.95rem/1 system-ui, sans-serif; cursor: pointer; text-decoration: none;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+  }
+  #barra-lectura > button:hover, #barra-lectura > button[aria-expanded="true"] {
+    border-color: #1C6BA0; color: #1C6BA0;
+  }
+  #barra-lectura > button:focus-visible, .panel-lectura button:focus-visible,
+  .panel-lectura input:focus-visible { outline: 3px solid #1C6BA0; outline-offset: 2px; }
+  #barra-lectura svg { width: 1.05rem; height: 1.05rem; }
+  /* Icono propio del interruptor de modo oscuro (luna en modo claro, sol en
+     modo oscuro), dibujado con el color del texto para que se vea en ambos */
+  #barra-lectura > .quarto-color-scheme-toggle .bi::before {
+    content: ""; display: inline-block; width: 1.05rem; height: 1.05rem;
+    background: currentColor; -webkit-mask: var(--icono-modo) center / contain no-repeat; mask: var(--icono-modo) center / contain no-repeat;
+  }
+  #barra-lectura > .quarto-color-scheme-toggle {
+    --icono-modo: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M6 .278a.77.77 0 0 1 .08.858 7.2 7.2 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277q.792-.001 1.533-.16a.79.79 0 0 1 .81.316.73.73 0 0 1-.031.893A8.35 8.35 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.75.75 0 0 1 6 .278'/%3E%3C/svg%3E");
+  }
+  #barra-lectura > .quarto-color-scheme-toggle.alternate {
+    --icono-modo: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8M8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0m0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13m8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5M3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8m10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0m-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0m9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707M4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708'/%3E%3C/svg%3E");
+  }
+
+  .panel-lectura {
+    position: fixed; top: 3.4rem; right: 1rem; z-index: 1060; display: none;
+    width: min(24rem, calc(100vw - 2rem)); max-height: calc(100vh - 5rem); overflow: auto;
+    background: var(--bs-body-bg, #fff); color: var(--bs-body-color, #212529);
+    border: 1px solid var(--bs-border-color, #ced4da); border-radius: 0.6rem;
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.18); padding: 1rem;
+    font-family: system-ui, sans-serif; font-size: 0.95rem;
+  }
+  .panel-lectura.abierto { display: block; }
+  .panel-lectura h2 { font-size: 1rem; margin: 0 0 0.75rem; font-weight: 700; border: 0; padding: 0; }
+  .panel-lectura .fila { display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; margin: 0.6rem 0; }
+  .panel-lectura .grupo { display: inline-flex; gap: 0.3rem; }
+  .panel-lectura .grupo button, .panel-lectura .restablecer {
+    min-width: 2.4rem; padding: 0.3rem 0.6rem; border-radius: 0.4rem; cursor: pointer;
+    border: 1px solid var(--bs-border-color, #ced4da);
+    background: var(--bs-body-bg, #fff); color: var(--bs-body-color, #212529); font: inherit;
+  }
+  .panel-lectura button[aria-pressed="true"] { background: #1C6BA0; border-color: #1C6BA0; color: #fff; }
+  .panel-lectura .restablecer { width: 100%; margin-top: 0.6rem; }
+  .panel-lectura .nota { color: var(--bs-secondary-color, #6c757d); font-size: 0.85rem; margin: 0.6rem 0 0; }
+
+  #caja-busqueda {
+    width: 100%; padding: 0.5rem 0.65rem; font: inherit; border-radius: 0.4rem;
+    border: 1px solid var(--bs-border-color, #ced4da);
+    background: var(--bs-body-bg, #fff); color: var(--bs-body-color, #212529);
+  }
+  #resultados-busqueda { list-style: none; margin: 0.6rem 0 0; padding: 0; }
+  #resultados-busqueda li { border-top: 1px solid var(--bs-border-color, #e9ecef); }
+  #resultados-busqueda a { display: block; padding: 0.5rem 0.2rem; text-decoration: none; color: inherit; }
+  #resultados-busqueda a:hover, #resultados-busqueda a:focus { background: rgba(28, 107, 160, 0.08); }
+  #resultados-busqueda .lugar { display: block; font-size: 0.8rem; color: #1C6BA0; font-weight: 600; }
+  #resultados-busqueda mark { padding: 0; background: #ffe58a; color: #000; }
+  .resaltado-busqueda { outline: 3px solid #f0ad4e; outline-offset: 3px; transition: outline-color 1s; }
+
+  /* Fuente más legible: sin serifa, más espacio entre letras y líneas */
+  body.lectura-legible #quarto-document-content :is(p, li, td, th, dd, dt, figcaption, blockquote, .callout-body-container),
+  body.lectura-legible #TOC {
+    font-family: Verdana, Tahoma, "Segoe UI", sans-serif !important;
+    letter-spacing: 0.02em; word-spacing: 0.08em; line-height: 1.75;
+  }
+  body.lectura-legible #quarto-document-content :is(h1, h2, h3, h4) {
+    font-family: Verdana, Tahoma, "Segoe UI", sans-serif !important;
+  }
+
+  /* Alto contraste: texto negro sobre blanco (o blanco sobre negro en modo oscuro) */
+  body.lectura-contraste.quarto-light { --bs-body-color: #000; --bs-body-bg: #fff; background: #fff !important; color: #000 !important; }
+  body.lectura-contraste.quarto-light #quarto-document-content *:not(mark):not(code):not(pre) { color: #000 !important; }
+  body.lectura-contraste.quarto-light #quarto-document-content a { color: #0033cc !important; text-decoration: underline !important; }
+  body.lectura-contraste.quarto-dark { --bs-body-color: #fff; --bs-body-bg: #000; background: #000 !important; color: #fff !important; }
+  body.lectura-contraste.quarto-dark #quarto-document-content *:not(mark):not(code):not(pre) { color: #fff !important; }
+  body.lectura-contraste.quarto-dark #quarto-document-content a { color: #ffd84d !important; text-decoration: underline !important; }
+  body.lectura-contraste #quarto-document-content :is(.callout, table, th, td) { border-color: currentColor !important; }
+
+  @media (max-width: 767.98px) {
+    #barra-lectura { top: 0.4rem; right: 0.5rem; }
+    .panel-lectura { right: 0.5rem; top: 3.1rem; }
+  }
+  @media print { #barra-lectura, .panel-lectura { display: none !important; } }
+</style>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  var CLAVE = "libro-hidrologia-lectura";
+  var ESCALAS = [0.9, 1, 1.12, 1.25, 1.4];
+  var ajustes = { escala: 1, contraste: false, legible: false };
+  try {
+    var guardado = JSON.parse(localStorage.getItem(CLAVE) || "null");
+    if (guardado) Object.assign(ajustes, guardado);
+  } catch (e) { /* sin almacenamiento: se usan los valores de fábrica */ }
+
+  function guardar() {
+    try { localStorage.setItem(CLAVE, JSON.stringify(ajustes)); } catch (e) {}
+  }
+  function aplicar() {
+    document.documentElement.style.fontSize = ajustes.escala === 1 ? "" : (ajustes.escala * 100) + "%";
+    document.body.classList.toggle("lectura-contraste", !!ajustes.contraste);
+    document.body.classList.toggle("lectura-legible", !!ajustes.legible);
+    var b;
+    if ((b = document.getElementById("lect-contraste"))) b.setAttribute("aria-pressed", String(!!ajustes.contraste));
+    if ((b = document.getElementById("lect-legible"))) b.setAttribute("aria-pressed", String(!!ajustes.legible));
+    if ((b = document.getElementById("lect-tamano"))) b.textContent = Math.round(ajustes.escala * 100) + " %";
+  }
+  aplicar();
+
+  var main = document.getElementById("quarto-document-content") || document.querySelector("main");
+  var hayBusquedaQuarto = !!document.getElementById("quarto-search");
+
+  // --- Barra de botones, arriba a la derecha, junto al modo oscuro ---
+  var barra = document.createElement("div");
+  barra.id = "barra-lectura";
+  var iconoLupa = '<svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M11.74 10.34a6.5 6.5 0 1 0-1.4 1.4l3.85 3.85a1 1 0 0 0 1.4-1.4zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/></svg>';
+  var html = "";
+  if (!hayBusquedaQuarto) {
+    html += '<button type="button" id="boton-busqueda" aria-label="Buscar en el libro" aria-expanded="false" aria-controls="panel-busqueda" title="Buscar en el libro (Ctrl+K)">' + iconoLupa + '</button>';
+  }
+  html += '<button type="button" id="boton-acceso" aria-label="Opciones de lectura: tamaño de letra, contraste y fuente" aria-expanded="false" aria-controls="panel-acceso" title="Tamaño de letra, contraste y fuente">Aa</button>';
+  barra.innerHTML = html;
+  document.body.appendChild(barra);
+
+  // El interruptor de modo oscuro de Quarto pasa a la misma barra, que está
+  // fija arriba a la derecha y se ve en todos los capítulos. En el libro de un
+  // solo archivo Quarto crea el interruptor después de este código, así que se
+  // intenta de nuevo cuando la página termina de cargar.
+  function moverInterruptor() {
+    var interruptor = document.querySelector("body > .quarto-color-scheme-toggle.top-right");
+    if (!interruptor) return;
+    interruptor.classList.remove("top-right");
+    interruptor.setAttribute("aria-label", "Cambiar entre modo claro y oscuro");
+    interruptor.title = "Modo claro u oscuro";
+    barra.appendChild(interruptor);
+    // Quarto no recuerda el modo cuando el libro se abre como archivo local;
+    // se guarda aquí para que se mantenga al volver a abrirlo
+    interruptor.addEventListener("click", function () {
+      setTimeout(function () {
+        try { localStorage.setItem("libro-modo-oscuro", document.body.classList.contains("quarto-dark") ? "1" : "0"); } catch (e) {}
+      }, 0);
+    });
+    var oscuro = null;
+    try { oscuro = localStorage.getItem("libro-modo-oscuro"); } catch (e) {}
+    if (oscuro === "1" && !document.body.classList.contains("quarto-dark") && window.quartoToggleColorScheme) {
+      window.quartoToggleColorScheme();
+    }
+  }
+  moverInterruptor();
+  document.addEventListener("DOMContentLoaded", moverInterruptor);
+  window.addEventListener("load", moverInterruptor);
+
+  // --- Panel de accesibilidad ---
+  var panelAcceso = document.createElement("div");
+  panelAcceso.className = "panel-lectura";
+  panelAcceso.id = "panel-acceso";
+  panelAcceso.setAttribute("role", "dialog");
+  panelAcceso.setAttribute("aria-label", "Opciones de lectura");
+  panelAcceso.innerHTML =
+    '<h2>Opciones de lectura</h2>' +
+    '<div class="fila"><span>Tamaño de letra</span><span class="grupo">' +
+      '<button type="button" id="lect-menos" aria-label="Letra más pequeña">A&minus;</button>' +
+      '<button type="button" id="lect-tamano" aria-label="Volver al tamaño normal" title="Tamaño normal">100 %</button>' +
+      '<button type="button" id="lect-mas" aria-label="Letra más grande">A+</button></span></div>' +
+    '<div class="fila"><span>Alto contraste</span><span class="grupo">' +
+      '<button type="button" id="lect-contraste" aria-pressed="false">Activar</button></span></div>' +
+    '<div class="fila"><span>Fuente más legible</span><span class="grupo">' +
+      '<button type="button" id="lect-legible" aria-pressed="false">Activar</button></span></div>' +
+    '<button type="button" class="restablecer" id="lect-restablecer">Restablecer</button>' +
+    '<p class="nota">Los ajustes se guardan en este navegador. El modo oscuro está en el botón de al lado.</p>';
+  document.body.appendChild(panelAcceso);
+
+  function cambiarEscala(paso) {
+    var i = ESCALAS.indexOf(ajustes.escala);
+    if (i < 0) i = 1;
+    i = paso === 0 ? 1 : Math.min(ESCALAS.length - 1, Math.max(0, i + paso));
+    ajustes.escala = ESCALAS[i];
+    aplicar(); guardar();
+  }
+  document.getElementById("lect-menos").addEventListener("click", function () { cambiarEscala(-1); });
+  document.getElementById("lect-mas").addEventListener("click", function () { cambiarEscala(1); });
+  document.getElementById("lect-tamano").addEventListener("click", function () { cambiarEscala(0); });
+  document.getElementById("lect-contraste").addEventListener("click", function () {
+    ajustes.contraste = !ajustes.contraste; aplicar(); guardar();
+  });
+  document.getElementById("lect-legible").addEventListener("click", function () {
+    ajustes.legible = !ajustes.legible; aplicar(); guardar();
+  });
+  document.getElementById("lect-restablecer").addEventListener("click", function () {
+    ajustes = { escala: 1, contraste: false, legible: false }; aplicar(); guardar();
+  });
+  aplicar();
+
+  // --- Panel de búsqueda (solo en el libro de un archivo) ---
+  var panelBusqueda = null;
+  if (!hayBusquedaQuarto && main) {
+    panelBusqueda = document.createElement("div");
+    panelBusqueda.className = "panel-lectura";
+    panelBusqueda.id = "panel-busqueda";
+    panelBusqueda.setAttribute("role", "dialog");
+    panelBusqueda.setAttribute("aria-label", "Buscar en el libro");
+    panelBusqueda.innerHTML =
+      '<h2>Buscar en el libro</h2>' +
+      '<input type="search" id="caja-busqueda" placeholder="Por ejemplo: Thiessen, curva masa…" autocomplete="off" aria-describedby="estado-busqueda">' +
+      '<p class="nota" id="estado-busqueda" aria-live="polite">Escriba al menos 3 letras. No distingue tildes ni mayúsculas.</p>' +
+      '<ul id="resultados-busqueda"></ul>';
+    document.body.appendChild(panelBusqueda);
+  }
+
+  function normalizar(t) {
+    return t.normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase();
+  }
+
+  // Índice: cada párrafo, elemento de lista, celda o leyenda, con su capítulo y sección
+  var indice = null;
+  function construirIndice() {
+    indice = [];
+    var nodos = main.querySelectorAll("p, li, td, th, figcaption, h1, h2, h3, h4, .callout-title-container");
+    Array.prototype.forEach.call(nodos, function (el) {
+      if (el.closest(".nav-capitulos, #TOC, .panel-lectura, pre, .sourceCode, script, style")) return;
+      if (el.tagName === "LI" && el.querySelector("p")) return;   // ya se indexan sus párrafos
+      var texto = (el.textContent || "").replace(/\s+/g, " ").trim();
+      if (texto.length < 3) return;
+      var sec = el.closest("section[id]");
+      var cap = el.closest("section.level1");
+      var h1 = cap ? cap.querySelector("h1") : null;
+      var hs = sec && sec !== cap ? sec.querySelector(":scope > h2, :scope > h3, :scope > h4") : null;
+      indice.push({
+        el: el, texto: texto, norm: normalizar(texto),
+        destino: (sec || cap || {}).id || "",
+        capitulo: h1 ? h1.textContent.replace(/\s+/g, " ").trim() : "",
+        seccion: hs ? hs.textContent.replace(/\s+/g, " ").trim() : ""
+      });
+    });
+  }
+
+  function escaparHtml(t) {
+    return t.replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; });
+  }
+  function fragmento(item, palabras) {
+    var pos = item.norm.indexOf(palabras[0]);
+    var ini = Math.max(0, pos - 60), fin = Math.min(item.texto.length, pos + 140);
+    var trozo = item.texto.slice(ini, fin), trozoNorm = item.norm.slice(ini, fin);
+    // Resalta cada palabra buscada (las posiciones coinciden porque normalizar no cambia la longitud
+    // de los caracteres comunes del español)
+    var marcas = [];
+    palabras.forEach(function (w) {
+      var k = trozoNorm.indexOf(w);
+      while (k >= 0) { marcas.push([k, k + w.length]); k = trozoNorm.indexOf(w, k + w.length); }
+    });
+    marcas.sort(function (a, b) { return a[0] - b[0]; });
+    var salida = "", ultimo = 0;
+    marcas.forEach(function (m) {
+      if (m[0] < ultimo) return;
+      salida += escaparHtml(trozo.slice(ultimo, m[0])) + "<mark>" + escaparHtml(trozo.slice(m[0], m[1])) + "</mark>";
+      ultimo = m[1];
+    });
+    salida += escaparHtml(trozo.slice(ultimo));
+    return (ini > 0 ? "… " : "") + salida + (fin < item.texto.length ? " …" : "");
+  }
+
+  var temporizador = null;
+  function buscar() {
+    var caja = document.getElementById("caja-busqueda");
+    var estado = document.getElementById("estado-busqueda");
+    var lista = document.getElementById("resultados-busqueda");
+    var consulta = normalizar(caja.value.trim());
+    lista.innerHTML = "";
+    if (consulta.length < 3) {
+      estado.textContent = "Escriba al menos 3 letras. No distingue tildes ni mayúsculas.";
+      return;
+    }
+    if (!indice) construirIndice();
+    var palabras = consulta.split(/\s+/).filter(Boolean);
+    var hallados = indice.filter(function (it) {
+      return palabras.every(function (w) { return it.norm.indexOf(w) >= 0; });
+    });
+    var MAX = 60;
+    estado.textContent = hallados.length === 0 ? "Sin resultados." :
+      (hallados.length > MAX ? "Se muestran " + MAX + " de " + hallados.length + " resultados." :
+       hallados.length + (hallados.length === 1 ? " resultado." : " resultados."));
+    hallados.slice(0, MAX).forEach(function (it) {
+      var li = document.createElement("li");
+      var a = document.createElement("a");
+      a.href = "#" + it.destino;
+      var lugar = it.capitulo + (it.seccion && it.seccion !== it.capitulo ? " › " + it.seccion : "");
+      a.innerHTML = '<span class="lugar">' + escaparHtml(lugar) + "</span>" + fragmento(it, palabras);
+      a.addEventListener("click", function () {
+        cerrarPaneles();
+        // La navegación por capítulos abre la página; después se lleva al párrafo exacto
+        setTimeout(function () {
+          it.el.scrollIntoView({ block: "center" });
+          it.el.classList.add("resaltado-busqueda");
+          setTimeout(function () { it.el.classList.remove("resaltado-busqueda"); }, 2500);
+        }, 60);
+      });
+      li.appendChild(a);
+      lista.appendChild(li);
+    });
+  }
+
+  // --- Abrir y cerrar paneles ---
+  function cerrarPaneles() {
+    [panelAcceso, panelBusqueda].forEach(function (p) { if (p) p.classList.remove("abierto"); });
+    Array.prototype.forEach.call(barra.querySelectorAll("button[aria-expanded]"), function (b) {
+      b.setAttribute("aria-expanded", "false");
+    });
+  }
+  function alternar(panel, boton, foco) {
+    var abrir = !panel.classList.contains("abierto");
+    cerrarPaneles();
+    if (abrir) {
+      panel.classList.add("abierto");
+      boton.setAttribute("aria-expanded", "true");
+      if (foco) foco.focus();
+    }
+  }
+  document.getElementById("boton-acceso").addEventListener("click", function () {
+    alternar(panelAcceso, this, document.getElementById("lect-mas"));
+  });
+  if (panelBusqueda) {
+    var caja = document.getElementById("caja-busqueda");
+    document.getElementById("boton-busqueda").addEventListener("click", function () {
+      alternar(panelBusqueda, this, caja);
+    });
+    caja.addEventListener("input", function () {
+      clearTimeout(temporizador);
+      temporizador = setTimeout(buscar, 200);
+    });
+  }
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape") cerrarPaneles();
+    if (panelBusqueda && (e.ctrlKey || e.metaKey) && (e.key === "k" || e.key === "K")) {
+      e.preventDefault();
+      alternar(panelBusqueda, document.getElementById("boton-busqueda"), document.getElementById("caja-busqueda"));
+    }
+  });
+  document.addEventListener("click", function (e) {
+    if (!e.target.closest(".panel-lectura, #barra-lectura")) cerrarPaneles();
+  });
+});
+</script>
+
+<!--
+  Notas al pie de los cuadros hechos con kableExtra: Quarto parte la celda que
+  ocupa todo el ancho en una celda por columna, y la nota queda apretada en la
+  primera columna. Aquí se vuelve a unir en una sola celda de todo el ancho.
+-->
+<style>
+  tfoot td.nota-cuadro { text-align: left !important; padding: 0.4rem 0.5rem !important;
+    font-size: 0.9em; white-space: normal; }
+</style>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  document.querySelectorAll("tfoot tr").forEach(function (fila) {
+    var celdas = Array.prototype.slice.call(fila.cells);
+    if (celdas.length < 2 || celdas[0].textContent.trim() === "") return;
+    var vacias = celdas.slice(1).every(function (c) { return c.textContent.trim() === ""; });
+    if (!vacias) return;
+    celdas[0].colSpan = celdas.length;
+    celdas[0].classList.add("nota-cuadro");
+    celdas.slice(1).forEach(function (c) { c.remove(); });
+  });
+});
+</script>
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+    let newTheme = '';
+    if(darkModeDefault) {
+      newTheme = isAlternate ? baseTheme : alternateTheme;
+    } else {
+      newTheme = isAlternate ? alternateTheme : baseTheme;
+    }
+    const changeGiscusTheme = () => {
+      // From: https://github.com/giscus/giscus/issues/336
+      const sendMessage = (message) => {
+        const iframe = document.querySelector('iframe.giscus-frame');
+        if (!iframe) return;
+        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+      }
+      sendMessage({
+        setConfig: {
+          theme: newTheme
+        }
+      });
+    }
+    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+    if (isGiscussLoaded) {
+      changeGiscusTheme();
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  const darkModeDefault = false;
+  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+    toggleGiscusIfUsed(toAlternate, darkModeDefault);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copiado");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copiado");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/ems270900\.github\.io\/hidrologia-aplicada\/");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+          // target, if specified
+          link.setAttribute("target", "_blank");
+          if (link.getAttribute("rel") === null) {
+            link.setAttribute("rel", "noopener");
+          }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./33-erosion_sedimentos.html" class="pagination-link" aria-label="Erosión y producción de sedimentos">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Erosión y producción de sedimentos</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./35-morfologia_fluvial.html" class="pagination-link" aria-label="Morfología fluvial">
+        <span class="nav-page-text"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">Morfología fluvial</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>© 2026 Ing. Edwin Matarrita Segura. Texto bajo licencia <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.es">CC BY-NC-SA 4.0</a>; código R bajo licencia <a href="https://github.com/ems270900/hidrologia-aplicada/blob/main/LICENSE-CODE">MIT</a>.</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+<p>Este libro fue construido con <a href="https://quarto.org/">Quarto</a> y <a href="https://posit.co/download/rstudio-desktop/">RStudio</a>.</p>
+</div>
+  </div>
+</footer>
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
+
+
+
+
+<script src="site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>

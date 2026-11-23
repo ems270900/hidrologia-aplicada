@@ -1,0 +1,2418 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.40">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>40&nbsp; Amenaza por inundación – Hidrología Aplicada a la Ingeniería Civil</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./41-pronostico_alerta_temprana.html" rel="next">
+<link href="./39-transito_rios.html" rel="prev">
+<link href="./assets/img/favicon.png" rel="icon" type="image/png">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-8ea72dc5fed832574809a9c94082fbbb.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-9308c6a3e2b77de33fd175cc56d97d6e.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-955cb59a11449acdc5f9686ead510861.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script src="site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "Sin resultados",
+    "search-matching-documents-text": "documentos encontrados",
+    "search-copy-link-title": "Copiar el enlace en la búsqueda",
+    "search-hide-matches-text": "Ocultar resultados adicionales",
+    "search-more-match-text": "resultado adicional en este documento",
+    "search-more-matches-text": "resultados adicionales en este documento",
+    "search-clear-button-title": "Borrar",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancelar",
+    "search-submit-button-title": "Enviar",
+    "search-label": "Buscar"
+  }
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
+<script src="site_libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+<link href="site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet">
+<script src="site_libs/pagedtable-1.1/js/pagedtable.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="assets/css/styles.css">
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./37-transito_fundamentos.html">Tránsito de avenidas, embalses y crecidas</a></li><li class="breadcrumb-item"><a href="./40-amenaza_inundacion.html"><span class="chapter-number">40</span>&nbsp; <span class="chapter-title">Amenaza por inundación</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Hidrología Aplicada a la Ingeniería Civil</a> 
+        <div class="sidebar-tools-main">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Alternar modo oscuro"><i class="bi"></i></a>
+  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Alternar modo lector">
+  <div class="quarto-reader-toggle-btn">
+  <i class="bi"></i>
+  </div>
+</a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Buscar"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Hidrología Aplicada a la Ingeniería Civil</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./welcome.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Prefacio</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introducción</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Fundamentos</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01-La_hidrologia_como_ciencia.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">La hidrología como ciencia</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02-Disponibilidad.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">La disponibilidad del recurso hídrico</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03-Ciclo_hidrologico.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">El ciclo hidrológico</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04-Cuenca.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">La cuenca como unidad hidrológica</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Información hidrometeorológica</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05-Fuentes_info_hidrometeo.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Fuentes de información hidrometeorológica</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./06-Meteo.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Principios de meteorología y climatología</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./07-Precip.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Precipitación</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./08-hidrometria.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Hidrometría: aforos y curvas de descarga</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./09-registros_hidro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Verificación y completado de registros hidrológicos</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./10-teledeteccion_productos_satelitales.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Teledetección y productos satelitales</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Análisis estadístico aplicado a la hidrología</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./11-estadistica.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Conceptos básicos de probabilidad</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./12-retorno_y_riesgo.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Conceptos clave de probabilidad en hidrología</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./13-modelos.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Modelos estadísticos y distribuciones de probabilidad</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./14-dist_parametrica.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Distribuciones paramétricas de probabilidad comunes en hidrología</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">Lluvia de diseño</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./15-IDF.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Intensidad, duración y frecuencia de la precipitación</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./16-hietogramas_diseno.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Distribución temporal de la lluvia de diseño</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./17-precipitacion_maxima_probable.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Precipitación máxima probable</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
+ <span class="menu-text">Procesos de pérdida del agua</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./18-Evaporación.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Evaporación</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./19-Evapotranspiración.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Evapotranspiración</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./20-Infiltración y almacenamiento en el suelo.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Infiltración y almacenamiento en el suelo</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./21-Transición hacia la escorrentía superficial.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Intercepción, almacenamiento superficial y transición a la escorrentía</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true">
+ <span class="menu-text">Balance hídrico, agua subterránea y caudales bajos</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./22-Principio de conservación de la masa.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Principio de conservación de la masa</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./23-Balance hídrico a escala de cuenca.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Balance hídrico a escala de cuenca</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./24-Balance hídrico del suelo.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Balance hídrico del suelo</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./25-agua_subterranea.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Agua subterránea y recarga de acuíferos</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./26-caudales_minimos_sequias.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Caudales mínimos, sequías y curvas de duración</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./27-oferta_demanda.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Oferta y demanda hídrica</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true">
+ <span class="menu-text">Escorrentía y crecidas de diseño</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./28-hidrograma_unitario.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Hidrograma de escorrentía directa e hidrograma unitario</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./29-metodo_racional.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Método racional y tiempo de concentración</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./30-modelos_lluvia_escorrentia.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Modelos lluvia-escorrentía</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./31-frecuencia_caudales.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Análisis de frecuencia de caudales y regionalización</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./32-incertidumbre.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Incertidumbre en hidrología</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true">
+ <span class="menu-text">Sedimentos, calidad del agua y morfología fluvial</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./33-erosion_sedimentos.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Erosión y producción de sedimentos</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./34-transporte_sedimentos.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">Transporte de sedimentos y sedimentación de embalses</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./35-morfologia_fluvial.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">Morfología fluvial</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./36-calidad_agua.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">36</span>&nbsp; <span class="chapter-title">Calidad del agua</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="true">
+ <span class="menu-text">Tránsito de avenidas, embalses y crecidas</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="true" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./37-transito_fundamentos.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">37</span>&nbsp; <span class="chapter-title">Fundamentos del tránsito de avenidas</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./38-transito_embalses.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">38</span>&nbsp; <span class="chapter-title">Tránsito de avenidas y operación de embalses</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./39-transito_rios.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">39</span>&nbsp; <span class="chapter-title">Tránsito hidrológico en ríos</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./40-amenaza_inundacion.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">40</span>&nbsp; <span class="chapter-title">Amenaza por inundación</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./41-pronostico_alerta_temprana.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">41</span>&nbsp; <span class="chapter-title">Pronóstico de crecidas y sistemas de alerta temprana</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="true">
+ <span class="menu-text">Hidrología urbana</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="true" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./42-hidrologia_urbana.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">42</span>&nbsp; <span class="chapter-title">Hidrología urbana y escorrentía urbana</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./43-drenaje_urbano.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">43</span>&nbsp; <span class="chapter-title">Sistemas de drenaje urbano</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./44-drenaje_sostenible.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">44</span>&nbsp; <span class="chapter-title">Hidrología urbana sostenible y adaptación climática</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" role="navigation" aria-expanded="true">
+ <span class="menu-text">Cambio climático, uso del suelo e hidrología</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" role="navigation" aria-expanded="true" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-11" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./45-ecohidrologia_uso_suelo.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">45</span>&nbsp; <span class="chapter-title">Ecohidrología y cambio de uso del suelo</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./46-cambio_climatico_fundamentos.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">46</span>&nbsp; <span class="chapter-title">Cambio climático: fundamentos y evidencia</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./47-escenarios_modelos_climaticos.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">47</span>&nbsp; <span class="chapter-title">Escenarios y modelos climáticos</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./48-diseno_cambio_climatico.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">48</span>&nbsp; <span class="chapter-title">Diseño hidrológico con cambio climático</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./49-epilogo.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Palabras finales</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./99-Referencias.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Referencias</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Tabla de contenidos</h2>
+   
+  <ul>
+  <li><a href="#sec-ai-conceptos" id="toc-sec-ai-conceptos" class="nav-link active" data-scroll-target="#sec-ai-conceptos"><span class="header-section-number">40.1</span> Amenaza, vulnerabilidad y riesgo</a></li>
+  <li><a href="#sec-ai-caudal" id="toc-sec-ai-caudal" class="nav-link" data-scroll-target="#sec-ai-caudal"><span class="header-section-number">40.2</span> El caudal de diseño</a></li>
+  <li><a href="#sec-ai-uniforme" id="toc-sec-ai-uniforme" class="nav-link" data-scroll-target="#sec-ai-uniforme"><span class="header-section-number">40.3</span> Nivel del agua con flujo uniforme</a></li>
+  <li><a href="#sec-ai-paso-estandar" id="toc-sec-ai-paso-estandar" class="nav-link" data-scroll-target="#sec-ai-paso-estandar"><span class="header-section-number">40.4</span> Flujo gradualmente variado: método del paso estándar</a></li>
+  <li><a href="#sec-ai-hecras" id="toc-sec-ai-hecras" class="nav-link" data-scroll-target="#sec-ai-hecras"><span class="header-section-number">40.5</span> Modelación hidráulica con HEC-RAS</a></li>
+  <li><a href="#sec-ai-mapas" id="toc-sec-ai-mapas" class="nav-link" data-scroll-target="#sec-ai-mapas"><span class="header-section-number">40.6</span> Mapas de amenaza</a>
+  <ul class="collapse">
+  <li><a href="#sec-ai-radar" id="toc-sec-ai-radar" class="nav-link" data-scroll-target="#sec-ai-radar"><span class="header-section-number">40.6.1</span> Extensión observada con radar satelital</a></li>
+  </ul></li>
+  <li><a href="#sec-ai-dano" id="toc-sec-ai-dano" class="nav-link" data-scroll-target="#sec-ai-dano"><span class="header-section-number">40.7</span> Daño anual esperado</a></li>
+  <li><a href="#sec-ai-ejercicios" id="toc-sec-ai-ejercicios" class="nav-link" data-scroll-target="#sec-ai-ejercicios"><span class="header-section-number">40.8</span> Ejercicios propuestos</a></li>
+  <li><a href="#sec-ai-lecturas" id="toc-sec-ai-lecturas" class="nav-link" data-scroll-target="#sec-ai-lecturas"><span class="header-section-number">40.9</span> Lecturas recomendadas</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./37-transito_fundamentos.html">Tránsito de avenidas, embalses y crecidas</a></li><li class="breadcrumb-item"><a href="./40-amenaza_inundacion.html"><span class="chapter-number">40</span>&nbsp; <span class="chapter-title">Amenaza por inundación</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">40</span>&nbsp; <span class="chapter-title">Amenaza por inundación</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="quote-block">
+<p>“Los adultos no pueden mantenerse en pie en agua quieta de inundación con una profundidad de alrededor de 1.5 m o más.”<br>
+— <em>HR Wallingford y Flood Hazard Research Centre</em>, Flood risks to people <span class="citation" data-cites="defra2006fd2321">(2006)</span></p>
+</div>
+<p>Las inundaciones son el desastre más frecuente en Centroamérica. Cada época lluviosa, y con más fuerza cuando pasa un huracán o una tormenta tropical cerca del istmo, los ríos salen de su cauce y ocupan las llanuras donde están las ciudades, los cultivos y las carreteras. Para decidir dónde se puede construir, qué altura debe tener un dique o cuál es la cota mínima del piso de un hospital, no basta con el caudal de diseño: hay que saber hasta dónde llega el agua, qué profundidad alcanza y con qué velocidad corre. Ese es el producto de un estudio de amenaza por inundación. Este capítulo recorre el camino completo, desde el caudal de diseño hasta el mapa de amenaza y el daño anual esperado, con las nociones de modelación hidráulica que necesita quien hace la parte hidrológica del estudio.</p>
+<section id="sec-ai-conceptos" class="level2" data-number="40.1">
+<h2 data-number="40.1" class="anchored" data-anchor-id="sec-ai-conceptos"><span class="header-section-number">40.1</span> Amenaza, vulnerabilidad y riesgo</h2>
+<p>En la gestión del riesgo se distinguen tres conceptos que en el habla diaria se confunden. La Ley Nacional de Emergencias y Prevención del Riesgo de Costa Rica los define así <span class="citation" data-cites="costarica2006ley8488">(Asamblea Legislativa de la República de Costa Rica 2006, art. 4)</span>:</p>
+<ul>
+<li><strong>Amenaza.</strong> “Peligro latente representado por la posible ocurrencia de un fenómeno peligroso, de origen natural, tecnológico o provocado por el hombre”. En inundaciones, la amenaza se describe con la extensión, la profundidad, la velocidad y la duración del agua para una probabilidad dada.</li>
+<li><strong>Vulnerabilidad.</strong> La condición de ser afectado por el suceso, que depende de factores físicos, sociales, económicos y ambientales. Una casa de madera sobre pilotes y una de bloques a ras del suelo tienen vulnerabilidades distintas ante la misma profundidad de agua.</li>
+<li><strong>Riesgo.</strong> La probabilidad de que se presenten pérdidas o daños. “Se obtiene al relacionar la amenaza con la vulnerabilidad de los elementos expuestos” <span class="citation" data-cites="costarica2006ley8488">(Asamblea Legislativa de la República de Costa Rica 2006, art. 4)</span>.</li>
+</ul>
+<p>La hidrología y la hidráulica estiman la amenaza. El riesgo necesita además saber qué hay en la zona inundable, la exposición, y cuánto se daña cada cosa con cada profundidad, la vulnerabilidad. Un mapa de amenaza alta en un potrero vacío representa poco riesgo; el mismo mapa sobre un barrio, mucho.</p>
+<div class="pregunta">
+<p>Si el caudal de 100 años de un río es 350 m³/s, ¿hasta dónde llega el agua?</p>
+</div>
+<p>La pregunta no tiene respuesta solo con la hidrología. El mismo caudal llena hasta el borde un cauce ancho y profundo, pero desborda uno angosto y cubre cientos de metros de llanura. Para pasar del caudal a la mancha de inundación se necesita la geometría del cauce y del terreno, la rugosidad y un cálculo hidráulico.</p>
+</section>
+<section id="sec-ai-caudal" class="level2" data-number="40.2">
+<h2 data-number="40.2" class="anchored" data-anchor-id="sec-ai-caudal"><span class="header-section-number">40.2</span> El caudal de diseño</h2>
+<p>El estudio empieza con los caudales para varios periodos de retorno. Se obtienen con el análisis de frecuencia de caudales máximos si hay una estación con registro suficiente (capítulo de frecuencia de caudales), o con un modelo lluvia-escorrentía alimentado con la lluvia de diseño de las curvas IDF si no la hay (capítulos de hidrograma unitario y de modelos lluvia-escorrentía). Si en el tramo hay un embalse o un tramo largo de río, el hidrograma se transita hasta el sitio de estudio (capítulos de embalses y de tránsito en ríos).</p>
+<p>Los mapas de amenaza suelen presentarse para varios periodos de retorno, por ejemplo 5, 25, 50, 100 y 500 años. El de 100 años, con probabilidad anual de 1 %, es el más usado para el ordenamiento territorial. Conviene recordar lo que significa en una vida útil: la probabilidad de que una vivienda construida justo en el límite de la mancha de 100 años se inunde al menos una vez en 50 años es <span class="math inline">\(1 - (1 - 0.01)^{50} = 0.39\)</span> (<a href="12-retorno_y_riesgo.html#sec-ret-riesgo" class="quarto-xref"><span>Sección 12.3</span></a>).</p>
+</section>
+<section id="sec-ai-uniforme" class="level2" data-number="40.3">
+<h2 data-number="40.3" class="anchored" data-anchor-id="sec-ai-uniforme"><span class="header-section-number">40.3</span> Nivel del agua con flujo uniforme</h2>
+<p>El cálculo más simple supone flujo uniforme: la profundidad no cambia a lo largo del tramo y la pendiente de la superficie del agua es igual a la del fondo. La profundidad normal <span class="math inline">\(y_n\)</span> es la que hace que la ecuación de Manning dé el caudal de diseño:</p>
+<p><span id="eq-ai-manning"><span class="math display">\[
+Q = \frac{1}{n}\,A\,R^{2/3}\,S_0^{1/2}
+\tag{40.1}\]</span></span></p>
+<p>donde <span class="math inline">\(Q\)</span> es el caudal (m³/s), <span class="math inline">\(n\)</span> es el coeficiente de rugosidad de Manning (s/m<sup>1/3</sup>), <span class="math inline">\(A\)</span> es el área mojada (m²), <span class="math inline">\(R = A/P\)</span> es el radio hidráulico (m), <span class="math inline">\(P\)</span> es el perímetro mojado (m) y <span class="math inline">\(S_0\)</span> es la pendiente del fondo (m/m). Como <span class="math inline">\(A\)</span> y <span class="math inline">\(R\)</span> no son lineales en <span class="math inline">\(y\)</span>, la <a href="#eq-ai-manning" class="quarto-xref">Ecuación&nbsp;<span>40.1</span></a> no se puede despejar y se resuelve por tanteos.</p>
+<p>El coeficiente <span class="math inline">\(n\)</span> es el dato más incierto. Para cauces naturales, <span class="citation" data-cites="arcement1989manning">Arcement y Schneider (1989, 2-4)</span> recomiendan partir de un valor base según el material del lecho, por ejemplo de 0.028 a 0.035 para grava y de 0.030 a 0.050 para cantos rodados, y sumarle correcciones por irregularidades, cambios de sección, obstrucciones y vegetación, según el método de Cowan.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Ejemplo: profundidad normal por bisección">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Ejemplo: profundidad normal por bisección
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Planteamiento.</strong> Un cauce trapezoidal tiene ancho de fondo <span class="math inline">\(b = 20\)</span> m, taludes <span class="math inline">\(z = 2\)</span> (horizontal a vertical), pendiente <span class="math inline">\(S_0 = 0.002\)</span> y <span class="math inline">\(n = 0.035\)</span>. Calcule la profundidad normal para el caudal de 100 años, <span class="math inline">\(Q = 350\)</span> m³/s.</p>
+<p><strong>Solución:</strong></p>
+<p>Para cada tanteo de <span class="math inline">\(y\)</span> se calcula <span class="math inline">\(A = y\,(b + z\,y)\)</span>, <span class="math inline">\(P = b + 2\,y\sqrt{1 + z^2}\)</span> y el caudal con la <a href="#eq-ai-manning" class="quarto-xref">Ecuación&nbsp;<span>40.1</span></a>. El método de bisección parte de un intervalo que contiene la solución y lo parte por la mitad en cada paso, quedándose con la mitad donde el caudal calculado cruza 350 m³/s:</p>
+<ol type="1">
+<li>Intervalo inicial de 0 a 6 m. Punto medio <span class="math inline">\(y = 3\)</span> m: <span class="math inline">\(A = 3 \times (20 + 6) = 78\)</span> m², <span class="math inline">\(P = 20 + 6\sqrt{5} = 33.42\)</span> m, <span class="math inline">\(R = 2.334\)</span> m y <span class="math inline">\(Q = (1/0.035) \times 78 \times 2.334^{2/3} \times 0.002^{1/2} = 175.4\)</span> m³/s. Es menor que 350, así que la solución está entre 3 y 6 m.</li>
+<li><span class="math inline">\(y = 4.5\)</span> m: <span class="math inline">\(Q = 366.0\)</span> m³/s, mayor que 350. Intervalo de 3 a 4.5 m.</li>
+<li><span class="math inline">\(y = 3.75\)</span> m: <span class="math inline">\(Q = 262.1\)</span> m³/s. Intervalo de 3.75 a 4.5 m.</li>
+<li><span class="math inline">\(y = 4.125\)</span> m: <span class="math inline">\(Q = 311.8\)</span> m³/s. Intervalo de 4.125 a 4.5 m.</li>
+<li><span class="math inline">\(y = 4.3125\)</span> m: <span class="math inline">\(Q = 338.4\)</span> m³/s. Intervalo de 4.3125 a 4.5 m.</li>
+<li><span class="math inline">\(y = 4.406\)</span> m: <span class="math inline">\(Q = 352.1\)</span> m³/s. Intervalo de 4.3125 a 4.406 m.</li>
+</ol>
+<p>Cada paso reduce el error a la mitad. Siguiendo, la profundidad normal converge a <span class="math inline">\(y_n = 4.39\)</span> m, con <span class="math inline">\(A = 126.4\)</span> m², velocidad media <span class="math inline">\(V = 350/126.4 = 2.77\)</span> m/s y ancho superficial <span class="math inline">\(T = 20 + 2 \times 2 \times 4.39 = 37.6\)</span> m.</p>
+<p><strong>Pseudocódigo</strong></p>
+<ol type="1">
+<li>Escribir el caudal de Manning como función de <span class="math inline">\(y\)</span>.</li>
+<li>Escoger un intervalo <span class="math inline">\([y_a, y_b]\)</span> donde <span class="math inline">\(Q(y) - 350\)</span> cambie de signo.</li>
+<li>Repetir: calcular el punto medio y quedarse con la mitad donde está el cambio de signo, hasta que el intervalo sea menor que la tolerancia.</li>
+<li>Comparar con <code>uniroot()</code>, que hace lo mismo con un método más rápido.</li>
+</ol>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 1) Datos y caudal de Manning en función de la profundidad</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>b <span class="ot">&lt;-</span> <span class="dv">20</span>; z <span class="ot">&lt;-</span> <span class="dv">2</span>; s0 <span class="ot">&lt;-</span> <span class="fl">0.002</span>; n_man <span class="ot">&lt;-</span> <span class="fl">0.035</span>; q_dis <span class="ot">&lt;-</span> <span class="dv">350</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>q_manning <span class="ot">&lt;-</span> <span class="cf">function</span>(y) {</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  area <span class="ot">&lt;-</span> y <span class="sc">*</span> (b <span class="sc">+</span> z <span class="sc">*</span> y)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  perim <span class="ot">&lt;-</span> b <span class="sc">+</span> <span class="dv">2</span> <span class="sc">*</span> y <span class="sc">*</span> <span class="fu">sqrt</span>(<span class="dv">1</span> <span class="sc">+</span> z<span class="sc">^</span><span class="dv">2</span>)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  (<span class="dv">1</span> <span class="sc">/</span> n_man) <span class="sc">*</span> area <span class="sc">*</span> (area <span class="sc">/</span> perim)<span class="sc">^</span>(<span class="dv">2</span> <span class="sc">/</span> <span class="dv">3</span>) <span class="sc">*</span> <span class="fu">sqrt</span>(s0)</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co"># 2) y 3) Bisección paso a paso</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>y_a <span class="ot">&lt;-</span> <span class="dv">0</span>; y_b <span class="ot">&lt;-</span> <span class="dv">6</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>pasos <span class="ot">&lt;-</span> <span class="fu">tibble</span>()</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> (y_b <span class="sc">-</span> y_a <span class="sc">&gt;</span> <span class="fl">0.001</span>) {</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>  y_m <span class="ot">&lt;-</span> (y_a <span class="sc">+</span> y_b) <span class="sc">/</span> <span class="dv">2</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>  pasos <span class="ot">&lt;-</span> <span class="fu">bind_rows</span>(pasos, <span class="fu">tibble</span>(y_a, y_b, y_m, <span class="at">q_m =</span> <span class="fu">q_manning</span>(y_m)))</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="fu">q_manning</span>(y_m) <span class="sc">&gt;</span> q_dis) y_b <span class="ot">&lt;-</span> y_m <span class="cf">else</span> y_a <span class="ot">&lt;-</span> y_m</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(pasos, <span class="dv">6</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":["y_a"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["y_b"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["y_m"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["q_m"],"name":[4],"type":["dbl"],"align":["right"]}],"data":[{"1":"0.0000","2":"6.0","3":"3.00000","4":"175.3738"},{"1":"3.0000","2":"6.0","3":"4.50000","4":"366.0361"},{"1":"3.0000","2":"4.5","3":"3.75000","4":"262.0518"},{"1":"3.7500","2":"4.5","3":"4.12500","4":"311.8447"},{"1":"4.1250","2":"4.5","3":"4.31250","4":"338.3858"},{"1":"4.3125","2":"4.5","3":"4.40625","4":"352.0717"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(pasos)   <span class="co"># número de pasos para 1 mm de tolerancia</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 13</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 4) Con uniroot()</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>y_n <span class="ot">&lt;-</span> <span class="fu">uniroot</span>(<span class="cf">function</span>(y) <span class="fu">q_manning</span>(y) <span class="sc">-</span> q_dis, <span class="fu">c</span>(<span class="fl">0.01</span>, <span class="dv">10</span>), <span class="at">tol =</span> <span class="fl">1e-6</span>)<span class="sc">$</span>root</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="at">y_n =</span> y_n, <span class="at">v =</span> q_dis <span class="sc">/</span> (y_n <span class="sc">*</span> (b <span class="sc">+</span> z <span class="sc">*</span> y_n)))</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     y_n        v 
+4.392180 2.768416 </code></pre>
+</div>
+</div>
+<p><strong>Interpretación.</strong> El caudal de 100 años corre con 4.39 m de profundidad y 2.8 m/s de velocidad. Si las márgenes del cauce tienen 3.5 m de altura, el agua las supera por casi un metro y sale a la llanura, y la sección de cálculo debería incluir la llanura con su propia rugosidad. La bisección necesitó 13 pasos para llegar a 1 mm de precisión; <code>uniroot()</code> llega a una precisión mucho mayor con menos evaluaciones.</p>
+</div>
+</div>
+</section>
+<section id="sec-ai-paso-estandar" class="level2" data-number="40.4">
+<h2 data-number="40.4" class="anchored" data-anchor-id="sec-ai-paso-estandar"><span class="header-section-number">40.4</span> Flujo gradualmente variado: método del paso estándar</h2>
+<p>En un río real la sección, la pendiente y la rugosidad cambian de un sitio a otro, y la profundidad no es la normal. Un puente, una curva o un estrechamiento remansan el agua aguas arriba. Para calcular el perfil de la superficie del agua en flujo permanente se usa el método del paso estándar, que es el que resuelve HEC-RAS en su modo de flujo permanente <span class="citation" data-cites="brunner2016hecrasref">(Brunner 2016)</span>. Entre dos secciones transversales, la 1 aguas abajo y la 2 aguas arriba, se plantea la ecuación de la energía:</p>
+<p><span id="eq-ai-energia"><span class="math display">\[
+WS_2 + \frac{\alpha_2 V_2^2}{2g} = WS_1 + \frac{\alpha_1 V_1^2}{2g} + h_e
+\tag{40.2}\]</span></span></p>
+<p><span id="eq-ai-perdidas"><span class="math display">\[
+h_e = L\,\bar{S}_f + C\left|\frac{\alpha_2 V_2^2}{2g} - \frac{\alpha_1 V_1^2}{2g}\right|
+\tag{40.3}\]</span></span></p>
+<p>donde <span class="math inline">\(WS\)</span> es la elevación de la superficie del agua (m), <span class="math inline">\(V\)</span> es la velocidad media (m/s), <span class="math inline">\(\alpha\)</span> es el coeficiente de distribución de velocidades (adimensional, 1 en un cauce simple), <span class="math inline">\(h_e\)</span> es la pérdida de energía entre las secciones (m), <span class="math inline">\(L\)</span> es la distancia entre ellas (m), <span class="math inline">\(\bar{S}_f\)</span> es la pendiente de fricción media del tramo (m/m) y <span class="math inline">\(C\)</span> es el coeficiente de pérdida por contracción o expansión (adimensional). La pendiente de fricción en cada sección sale de la <a href="#eq-ai-manning" class="quarto-xref">Ecuación&nbsp;<span>40.1</span></a> despejada, <span class="math inline">\(S_f = (n\,V/R^{2/3})^2\)</span>. En HEC-RAS, los valores usuales de <span class="math inline">\(C\)</span> para transiciones graduales son 0.1 en contracción y 0.3 en expansión <span class="citation" data-cites="brunner2016hecrasref">(Brunner 2016)</span>.</p>
+<p>En flujo subcrítico, el cálculo avanza de aguas abajo hacia aguas arriba, empezando en una sección donde se conoce el nivel: la profundidad normal, una curva de descarga o el nivel de un embalse o del mar. Como <span class="math inline">\(V_2\)</span> y <span class="math inline">\(S_{f2}\)</span> dependen de <span class="math inline">\(WS_2\)</span>, que es la incógnita, se itera:</p>
+<ol type="1">
+<li>Suponer <span class="math inline">\(WS_2\)</span>.</li>
+<li>Calcular la profundidad, el área, la velocidad y la pendiente de fricción en la sección 2.</li>
+<li>Calcular <span class="math inline">\(h_e\)</span> con la <a href="#eq-ai-perdidas" class="quarto-xref">Ecuación&nbsp;<span>40.3</span></a> y el <span class="math inline">\(WS_2\)</span> que resulta de la <a href="#eq-ai-energia" class="quarto-xref">Ecuación&nbsp;<span>40.2</span></a>.</li>
+<li>Si el valor calculado difiere del supuesto en más de la tolerancia, corregir la suposición y volver al paso 2. HEC-RAS usa como segundo tanteo el supuesto más 70 % de la diferencia, y desde el tercero, el método de la secante <span class="citation" data-cites="brunner2016hecrasref">(Brunner 2016)</span>.</li>
+</ol>
+<div class="callout callout-style-default callout-note callout-titled" title="Ejemplo: perfil del agua por el paso estándar">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Ejemplo: perfil del agua por el paso estándar
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Planteamiento.</strong> Un tramo de río pasa por dos secciones rectangulares separadas 400 m. La sección 1, aguas abajo, tiene 30 m de ancho y fondo en la cota 100.0 m; ahí el nivel para <span class="math inline">\(Q = 250\)</span> m³/s es 103.0 m. La sección 2, aguas arriba, tiene 25 m de ancho y fondo en la cota 100.8 m. Con <span class="math inline">\(n = 0.035\)</span>, <span class="math inline">\(\alpha = 1\)</span> y coeficientes de 0.1 en contracción y 0.3 en expansión, calcule el nivel en la sección 2 con una tolerancia de 1 mm.</p>
+<p><strong>Solución:</strong></p>
+<p>Sección 1: <span class="math inline">\(y_1 = 3.0\)</span> m, <span class="math inline">\(A_1 = 90\)</span> m², <span class="math inline">\(V_1 = 2.778\)</span> m/s, <span class="math inline">\(V_1^2/2g = 0.3933\)</span> m, <span class="math inline">\(R_1 = 90/36 = 2.5\)</span> m y <span class="math inline">\(S_{f1} = (0.035 \times 2.778/2.5^{2/3})^2 = 0.002786\)</span>. La energía en la sección 1 es <span class="math inline">\(103.0 + 0.3933 = 103.393\)</span> m. Como el agua se acelera al entrar en la sección 2, más angosta, la carga de velocidad baja hacia aguas abajo y se usa el coeficiente de expansión, 0.3.</p>
+<div class="cell" data-layout-align="center">
+<div id="tbl-ai-paso" class="cell quarto-float quarto-figure quarto-figure-center anchored" data-layout-align="center">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-ai-paso-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Cuadro&nbsp;40.1: Tanteos del paso estándar en la sección 2.
+</figcaption>
+<div aria-describedby="tbl-ai-paso-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<table class="table table-hover table-condensed do-not-create-environment cell caption-top table-sm table-striped small" data-quarto-postprocess="true">
+<thead>
+<tr class="header">
+<th style="text-align: center;" data-quarto-table-cell-role="th">Tanteo</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th"><em>WS</em><sub>2</sub> supuesto (m)</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th"><em>y</em><sub>2</sub> (m)</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th"><em>V</em><sub>2</sub> (m/s)</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th"><em>V</em><sub>2</sub>²/2<em>g</em> (m)</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th"><em>S</em><sub>f2</sub></th>
+<th style="text-align: center;" data-quarto-table-cell-role="th"><em>h</em><sub>e</sub> (m)</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th"><em>WS</em><sub>2</sub> calculado (m)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">103.500</td>
+<td style="text-align: center;">2.700</td>
+<td style="text-align: center;">3.704</td>
+<td style="text-align: center;">0.6992</td>
+<td style="text-align: center;">0.00580</td>
+<td style="text-align: center;">1.809</td>
+<td style="text-align: center;">104.503</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">104.202</td>
+<td style="text-align: center;">3.402</td>
+<td style="text-align: center;">2.939</td>
+<td style="text-align: center;">0.4403</td>
+<td style="text-align: center;">0.00285</td>
+<td style="text-align: center;">1.141</td>
+<td style="text-align: center;">104.094</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">104.134</td>
+<td style="text-align: center;">3.334</td>
+<td style="text-align: center;">2.999</td>
+<td style="text-align: center;">0.4585</td>
+<td style="text-align: center;">0.00303</td>
+<td style="text-align: center;">1.183</td>
+<td style="text-align: center;">104.118</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">104.122</td>
+<td style="text-align: center;">3.322</td>
+<td style="text-align: center;">3.010</td>
+<td style="text-align: center;">0.4618</td>
+<td style="text-align: center;">0.00307</td>
+<td style="text-align: center;">1.191</td>
+<td style="text-align: center;">104.122</td>
+</tr>
+</tbody>
+</table>
+
+
+</div>
+</div>
+</figure>
+</div>
+</div>
+<ol type="1">
+<li>Primer tanteo, <span class="math inline">\(WS_2 = 103.5\)</span> m: <span class="math inline">\(y_2 = 2.7\)</span> m, <span class="math inline">\(A_2 = 67.5\)</span> m², <span class="math inline">\(V_2 = 3.704\)</span> m/s, <span class="math inline">\(V_2^2/2g = 0.6992\)</span> m, <span class="math inline">\(R_2 = 67.5/30.4 = 2.220\)</span> m y <span class="math inline">\(S_{f2} = 0.00580\)</span>. Pendiente media: <span class="math inline">\((0.002786 + 0.00580)/2 = 0.00429\)</span>. Pérdidas: <span class="math inline">\(h_e = 400 \times 0.00429 + 0.3 \times (0.6992 - 0.3933) = 1.718 + 0.092 = 1.809\)</span> m. Nivel calculado: <span class="math inline">\(103.393 + 1.809 - 0.699 = 104.503\)</span> m. La diferencia con el supuesto es de 1.003 m.</li>
+<li>Segundo tanteo: <span class="math inline">\(103.5 + 0.7 \times 1.003 = 104.202\)</span> m. Con el mismo cálculo, el nivel resulta 104.094 m; la diferencia es de −0.108 m.</li>
+<li>Tercer tanteo, por la secante entre los dos anteriores: <span class="math inline">\(104.202 - (-0.108) \times (104.202 - 103.5)/(-0.108 - 1.003) = 104.134\)</span> m. Resulta 104.118 m, con diferencia de −0.016 m.</li>
+<li>Cuarto tanteo: 104.122 m. Resulta 104.122 m. La diferencia ya es menor que 1 mm (<a href="#tbl-ai-paso" class="quarto-xref">Cuadro&nbsp;<span>40.1</span></a>).</li>
+</ol>
+<p><strong>Pseudocódigo</strong></p>
+<ol type="1">
+<li>Calcular la energía en la sección conocida.</li>
+<li>Suponer el nivel en la sección siguiente y calcular su velocidad y pendiente de fricción.</li>
+<li>Calcular las pérdidas y el nivel que resulta de la ecuación de la energía.</li>
+<li>Corregir la suposición (70 % de la diferencia en el segundo tanteo, secante desde el tercero) hasta que la diferencia sea menor que la tolerancia.</li>
+<li>Comparar con <code>uniroot()</code> aplicado a la diferencia entre el nivel supuesto y el calculado.</li>
+</ol>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 1) Datos y energía en la sección 1</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>q <span class="ot">&lt;-</span> <span class="dv">250</span>; n_man <span class="ot">&lt;-</span> <span class="fl">0.035</span>; largo <span class="ot">&lt;-</span> <span class="dv">400</span>; g <span class="ot">&lt;-</span> <span class="fl">9.81</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>seccion <span class="ot">&lt;-</span> <span class="cf">function</span>(ws, ancho, fondo) {</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>  y <span class="ot">&lt;-</span> ws <span class="sc">-</span> fondo; area <span class="ot">&lt;-</span> ancho <span class="sc">*</span> y; r <span class="ot">&lt;-</span> area <span class="sc">/</span> (ancho <span class="sc">+</span> <span class="dv">2</span> <span class="sc">*</span> y); v <span class="ot">&lt;-</span> q <span class="sc">/</span> area</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">list</span>(<span class="at">v =</span> v, <span class="at">hv =</span> v<span class="sc">^</span><span class="dv">2</span> <span class="sc">/</span> (<span class="dv">2</span> <span class="sc">*</span> g), <span class="at">sf =</span> (n_man <span class="sc">*</span> v <span class="sc">/</span> r<span class="sc">^</span>(<span class="dv">2</span> <span class="sc">/</span> <span class="dv">3</span>))<span class="sc">^</span><span class="dv">2</span>)</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>s1 <span class="ot">&lt;-</span> <span class="fu">seccion</span>(<span class="fl">103.0</span>, <span class="at">ancho =</span> <span class="dv">30</span>, <span class="at">fondo =</span> <span class="fl">100.0</span>)</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="co"># 2) y 3) Nivel calculado en la sección 2 para un nivel supuesto</span></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>ws2_calculado <span class="ot">&lt;-</span> <span class="cf">function</span>(ws2) {</span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>  s2 <span class="ot">&lt;-</span> <span class="fu">seccion</span>(ws2, <span class="at">ancho =</span> <span class="dv">25</span>, <span class="at">fondo =</span> <span class="fl">100.8</span>)</span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>  coef <span class="ot">&lt;-</span> <span class="cf">if</span> (s2<span class="sc">$</span>hv <span class="sc">&gt;</span> s1<span class="sc">$</span>hv) <span class="fl">0.3</span> <span class="cf">else</span> <span class="fl">0.1</span>           <span class="co"># expansión o contracción</span></span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>  he <span class="ot">&lt;-</span> largo <span class="sc">*</span> (s1<span class="sc">$</span>sf <span class="sc">+</span> s2<span class="sc">$</span>sf) <span class="sc">/</span> <span class="dv">2</span> <span class="sc">+</span> coef <span class="sc">*</span> <span class="fu">abs</span>(s2<span class="sc">$</span>hv <span class="sc">-</span> s1<span class="sc">$</span>hv)</span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>  <span class="fl">103.0</span> <span class="sc">+</span> s1<span class="sc">$</span>hv <span class="sc">+</span> he <span class="sc">-</span> s2<span class="sc">$</span>hv</span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a><span class="co"># 5) La solución es el nivel donde supuesto y calculado coinciden</span></span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a><span class="fu">uniroot</span>(<span class="cf">function</span>(ws) <span class="fu">ws2_calculado</span>(ws) <span class="sc">-</span> ws, <span class="fu">c</span>(<span class="fl">101.5</span>, <span class="dv">106</span>), <span class="at">tol =</span> <span class="fl">1e-6</span>)<span class="sc">$</span>root</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 104.1223</code></pre>
+</div>
+</div>
+<p>La <a href="#fig-ai-paso" class="quarto-xref">Figura&nbsp;<span>40.1</span></a> muestra el tramo con el resultado: la línea de energía baja de una sección a la otra en <span class="math inline">\(h_e\)</span>, y la superficie del agua sigue al fondo, pero con más pendiente.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div id="fig-ai-paso" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" alt="Perfil longitudinal de 400 m. El fondo baja de 100.8 m en la sección 2 a 100.0 m en la sección 1. La superficie del agua baja de 104.12 a 103.00 m y la línea de energía, discontinua, de 104.58 a 103.39 m. Se acotan la carga de velocidad de 0.46 m en la sección 2 y la pérdida de energía de 1.19 m entre las dos secciones.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-ai-paso-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="40-amenaza_inundacion_files/figure-html/fig-ai-paso-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Figura&nbsp;40.1: Perfil del tramo con la superficie del agua y la línea de energía."><img src="40-amenaza_inundacion_files/figure-html/fig-ai-paso-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:80.0%" alt="Perfil longitudinal de 400 m. El fondo baja de 100.8 m en la sección 2 a 100.0 m en la sección 1. La superficie del agua baja de 104.12 a 103.00 m y la línea de energía, discontinua, de 104.58 a 103.39 m. Se acotan la carga de velocidad de 0.46 m en la sección 2 y la pérdida de energía de 1.19 m entre las dos secciones."></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ai-paso-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;40.1: Perfil del tramo con la superficie del agua y la línea de energía.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p><strong>Interpretación.</strong> El nivel en la sección 2 es 104.12 m, 1.12 m más alto que en la sección 1, aunque el fondo solo sube 0.8 m. La diferencia se debe a las pérdidas por fricción en 400 m de cauce angosto y a la expansión. HEC-RAS repite este cálculo sección por sección a lo largo de todo el tramo, con secciones compuestas de cauce y llanuras, cada una con su rugosidad, y agrega las pérdidas en puentes y alcantarillas.</p>
+</div>
+</div>
+</section>
+<section id="sec-ai-hecras" class="level2" data-number="40.5">
+<h2 data-number="40.5" class="anchored" data-anchor-id="sec-ai-hecras"><span class="header-section-number">40.5</span> Modelación hidráulica con HEC-RAS</h2>
+<p>HEC-RAS, del Centro de Ingeniería Hidrológica del Cuerpo de Ingenieros del Ejército de Estados Unidos, es el programa de uso libre más empleado para mapas de inundación <span class="citation" data-cites="USACE_HECRAS">(U.S. Army Corps of Engineers 2023)</span>. Resuelve tres tipos de problemas <span class="citation" data-cites="brunner2016hecrasref">(Brunner 2016)</span>:</p>
+<ul>
+<li><strong>Flujo permanente unidimensional.</strong> El paso estándar de la sección anterior, con el caudal pico de diseño. Es el cálculo usual para un puente o para un tramo con cauce bien definido.</li>
+<li><strong>Flujo no permanente unidimensional.</strong> Las ecuaciones de Saint-Venant (<a href="37-transito_fundamentos.html#sec-tf-saint-venant" class="quarto-xref"><span>Sección 37.8</span></a>), resueltas con un esquema implícito de diferencias finitas. Representa la atenuación en las llanuras y el efecto del volumen del hidrograma, no solo del pico.</li>
+<li><strong>Flujo no permanente bidimensional.</strong> Las ecuaciones de aguas someras, o su versión de onda difusiva, en una malla sobre el terreno. Es lo indicado cuando el agua se extiende sobre llanuras anchas y no sigue una dirección única, como en los deltas y las planicies costeras del Caribe y del Pacífico.</li>
+</ul>
+<p>El resultado se revisa en HEC-RAS Mapper, el módulo de mapas del programa, que cruza la superficie del agua calculada con el modelo de elevación del terreno y dibuja la profundidad celda por celda, junto con la velocidad y otras variables (<a href="#fig-ai-hecras-mapa" class="quarto-xref">Figura&nbsp;<span>40.2</span></a>).</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div id="fig-ai-hecras-mapa" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" alt="Captura de pantalla de HEC-RAS Mapper con la profundidad de inundación en tonos de azul sobre una imagen satelital de la zona de Sacramento, California">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-ai-hecras-mapa-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="assets/img/cap40/hecras_inundacion.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Figura&nbsp;40.2: Mapa de inundación en HEC-RAS Mapper. Fuente: @USACE_HECRAS, figura 8-38."><img src="assets/img/cap40/hecras_inundacion.webp" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:80.0%" alt="Captura de pantalla de HEC-RAS Mapper con la profundidad de inundación en tonos de azul sobre una imagen satelital de la zona de Sacramento, California"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ai-hecras-mapa-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;40.2: Mapa de inundación en HEC-RAS Mapper. Fuente: <span class="citation" data-cites="USACE_HECRAS">U.S. Army Corps of Engineers (2023)</span>, figura 8-38.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>En un modelo bidimensional, Mapper puede dibujar la profundidad de dos maneras (<a href="#fig-ai-hecras-superficie" class="quarto-xref">Figura&nbsp;<span>40.3</span></a>). Con la superficie horizontal, cada celda de la malla tiene un solo nivel del agua y el mapa sale en bloques del tamaño de la celda. Con la superficie inclinada, el nivel se interpola entre celdas vecinas y los bordes de la mancha siguen mejor el terreno. Conviene saber cuál se usó antes de medir áreas o profundidades sobre el mapa <span class="citation" data-cites="usace2022hecras2d">(U.S. Army Corps of Engineers 2022)</span>.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div id="fig-ai-hecras-superficie" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" alt="Dos mapas de profundidad del mismo sector: a la izquierda la profundidad varía de forma continua y a la derecha aparece en bloques que siguen las celdas de la malla">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-ai-hecras-superficie-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="assets/img/cap40/hecras_superficie.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="Figura&nbsp;40.3: Superficie del agua (a) inclinada y (b) horizontal en HEC-RAS Mapper. Fuente: @usace2022hecras2d, figura 6-6."><img src="assets/img/cap40/hecras_superficie.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:80.0%" alt="Dos mapas de profundidad del mismo sector: a la izquierda la profundidad varía de forma continua y a la derecha aparece en bloques que siguen las celdas de la malla"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ai-hecras-superficie-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;40.3: Superficie del agua (a) inclinada y (b) horizontal en HEC-RAS Mapper. Fuente: <span class="citation" data-cites="usace2022hecras2d">U.S. Army Corps of Engineers (2022)</span>, figura 6-6.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>Para quien hace la parte hidrológica de un estudio, lo importante es saber qué necesita el modelo y de dónde salen los resultados:</p>
+<ol type="1">
+<li><strong>Terreno.</strong> Un modelo de elevación digital de buena resolución. Con un modelo de 30 m como el de la misión SRTM, los errores verticales son de varios metros y no sirven para profundidades de inundación. Se necesita un levantamiento con LiDAR o topografía de campo, y la batimetría del cauce, que el LiDAR no ve bajo el agua.</li>
+<li><strong>Rugosidad.</strong> Valores de <span class="math inline">\(n\)</span> para el cauce y para cada uso del suelo de la llanura, estimados como se indicó en la <a href="#sec-ai-uniforme" class="quarto-xref"><span>Sección 40.3</span></a>.</li>
+<li><strong>Condiciones de borde.</strong> El hidrograma o el caudal de entrada en el extremo de aguas arriba, que es el aporte de la hidrología, y en el extremo de aguas abajo, la profundidad normal, una curva de descarga o un nivel conocido.</li>
+<li><strong>Calibración.</strong> Las marcas de nivel máximo de una crecida histórica, tomadas en campo o en fotografías, se comparan con los niveles calculados para el caudal de esa crecida, y se ajustan los <span class="math inline">\(n\)</span> dentro de rangos razonables.</li>
+</ol>
+<div class="callout callout-style-default callout-warning callout-titled" title="Cuidado">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Cuidado
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>La incertidumbre de una mancha de inundación tiene tres fuentes que se suman: el caudal de diseño, la rugosidad y el terreno. Un error de 20 % en el caudal de 100 años, que es común con registros cortos, cambia la profundidad en decenas de centímetros, y en una llanura plana eso puede mover el borde de la mancha cientos de metros. Un estudio serio corre el modelo con varios caudales y rugosidades y reporta cómo cambia la mancha.</p>
+</div>
+</div>
+</section>
+<section id="sec-ai-mapas" class="level2" data-number="40.6">
+<h2 data-number="40.6" class="anchored" data-anchor-id="sec-ai-mapas"><span class="header-section-number">40.6</span> Mapas de amenaza</h2>
+<p>La mancha de inundación dice dónde llega el agua; el mapa de amenaza dice qué tan peligrosa es en cada sitio. El peligro para las personas y los vehículos depende de la profundidad <span class="math inline">\(d\)</span> y de la velocidad <span class="math inline">\(v\)</span>, y en particular de su producto, que mide la fuerza del agua sobre un cuerpo. La guía australiana de amenaza por inundación propone seis clases (<a href="#tbl-ai-clases" class="quarto-xref">Cuadro&nbsp;<span>40.2</span></a>) que se usan en muchos países <span class="citation" data-cites="aidr2017floodhazard">(Australian Institute for Disaster Resilience 2017)</span>.</p>
+<div class="cell" data-layout-align="center">
+<div id="tbl-ai-clases" class="cell quarto-float quarto-figure quarto-figure-center anchored" data-layout-align="center">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-ai-clases-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Cuadro&nbsp;40.2: Clases de amenaza por inundación según la profundidad y la velocidad.
+</figcaption>
+<div aria-describedby="tbl-ai-clases-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<table class="table table-hover table-condensed do-not-create-environment cell caption-top table-sm table-striped small" data-quarto-postprocess="true">
+<thead>
+<tr class="header">
+<th style="text-align: center;" data-quarto-table-cell-role="th">Clase</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Descripción</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th"><em>d</em> máx. (m)</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th"><em>v</em> máx. (m/s)</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th"><em>d</em>·<em>v</em> máx. (m²/s)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">H1</td>
+<td style="text-align: left;">En general seguro para vehículos, personas y edificaciones</td>
+<td style="text-align: center;">0.3</td>
+<td style="text-align: center;">2.0</td>
+<td style="text-align: center;">0.3</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">H2</td>
+<td style="text-align: left;">Inseguro para vehículos pequeños</td>
+<td style="text-align: center;">0.5</td>
+<td style="text-align: center;">2.0</td>
+<td style="text-align: center;">0.6</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">H3</td>
+<td style="text-align: left;">Inseguro para vehículos, niños y adultos mayores</td>
+<td style="text-align: center;">1.2</td>
+<td style="text-align: center;">2.0</td>
+<td style="text-align: center;">0.6</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">H4</td>
+<td style="text-align: left;">Inseguro para vehículos y personas</td>
+<td style="text-align: center;">2.0</td>
+<td style="text-align: center;">2.0</td>
+<td style="text-align: center;">1.0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">H5</td>
+<td style="text-align: left;">Inseguro para vehículos y personas; todas las edificaciones pueden sufrir daño estructural</td>
+<td style="text-align: center;">4.0</td>
+<td style="text-align: center;">4.0</td>
+<td style="text-align: center;">4.0</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">H6</td>
+<td style="text-align: left;">Inseguro para vehículos y personas; todas las edificaciones pueden fallar</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">&gt; 4.0</td>
+</tr>
+</tbody><tfoot>
+<tr class="odd">
+<td style="text-align: center; padding: 0;"><span style="font-style: italic;">Fuente: </span> <sup></sup> AIDR (2017, cuadros 1 y 2).</td>
+<td style="text-align: left;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+</tfoot>
+
+</table>
+
+
+</div>
+</div>
+</figure>
+</div>
+</div>
+<p>En el Reino Unido se usa una fórmula de grado de amenaza que suma un factor por los escombros que arrastra el agua, <span class="math inline">\(HR = d\,(v + 0.5) + DF\)</span>, con umbrales que separan el peligro bajo del peligro para algunas personas, para la mayoría y para todas <span class="citation" data-cites="defra2006fd2321">(HR Wallingford, Flood Hazard Research Centre, y Risk &amp; Policy Analysts 2006)</span>. Los dos criterios se basan en ensayos con personas y vehículos en canales de laboratorio y llevan a mapas parecidos.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Ejemplo: mapa de amenaza en un valle sintético">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Ejemplo: mapa de amenaza en un valle sintético
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Planteamiento.</strong> Un valle hipotético de 2 km de largo y 600 m de ancho tiene un cauce de 20 m de ancho y 3 m de profundidad, pendiente longitudinal de 0.002 y llanuras que suben 1 % hacia los lados desde la orilla, que está 3 m sobre el fondo. El cauce serpentea dentro del valle. Para el caudal de 100 años, el modelo hidráulico da una superficie del agua 4.4 m sobre el fondo del cauce, paralela al fondo. Con <span class="math inline">\(n = 0.035\)</span> en el cauce y 0.06 en la llanura, clasifique la amenaza en celdas de 10 m. La velocidad en cada celda se estima con la ecuación de Manning para un flujo ancho de la profundidad local, <span class="math inline">\(v = d^{2/3} S_0^{1/2}/n\)</span>.</p>
+<p><strong>Solución:</strong></p>
+<p>Para una celda de la llanura a 50 m del eje: el terreno está 3 m por encima del fondo del cauce más <span class="math inline">\(0.01 \times (50 - 10) = 0.4\)</span> m, es decir, a 3.4 m sobre el fondo. La profundidad es <span class="math inline">\(4.4 - 3.4 = 1.0\)</span> m. La velocidad es <span class="math inline">\(1.0^{2/3} \times 0.002^{1/2}/0.06 = 0.75\)</span> m/s y el producto <span class="math inline">\(d\,v = 0.75\)</span> m²/s. La celda supera el límite de H3 en <span class="math inline">\(d\,v\)</span> (0.6) pero no el de H4 (1.0 en <span class="math inline">\(d\,v\)</span> y 2 m en <span class="math inline">\(d\)</span>): es clase H4. Para una celda a 120 m del eje, el terreno está a 4.1 m, la profundidad es 0.3 m, <span class="math inline">\(v = 0.33\)</span> m/s y <span class="math inline">\(d\,v = 0.10\)</span> m²/s: es clase H1. En el cauce, con 4.4 m de profundidad y <span class="math inline">\(n = 0.035\)</span>, <span class="math inline">\(v = 3.42\)</span> m/s y <span class="math inline">\(d\,v = 15\)</span> m²/s: es clase H6.</p>
+<p><strong>Pseudocódigo</strong></p>
+<ol type="1">
+<li>Construir la malla del terreno.</li>
+<li>Calcular la superficie del agua en cada celda y la profundidad, <span class="math inline">\(d = WS - z\)</span>, solo donde es positiva.</li>
+<li>Estimar la velocidad con Manning y la rugosidad de cada celda.</li>
+<li>Clasificar cada celda con los límites del <a href="#tbl-ai-clases" class="quarto-xref">Cuadro&nbsp;<span>40.2</span></a>.</li>
+<li>Graficar el mapa.</li>
+</ol>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 1) Terreno: x a lo largo del valle, y a lo ancho (m)</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>s0 <span class="ot">&lt;-</span> <span class="fl">0.002</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>terreno <span class="ot">&lt;-</span> <span class="fu">expand_grid</span>(<span class="at">x =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">2000</span>, <span class="dv">10</span>), <span class="at">y =</span> <span class="fu">seq</span>(<span class="sc">-</span><span class="dv">300</span>, <span class="dv">300</span>, <span class="dv">10</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">eje =</span> <span class="dv">60</span> <span class="sc">*</span> <span class="fu">sin</span>(<span class="dv">2</span> <span class="sc">*</span> pi <span class="sc">*</span> x <span class="sc">/</span> <span class="dv">1200</span>),                  <span class="co"># cauce sinuoso</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">dist =</span> <span class="fu">abs</span>(y <span class="sc">-</span> eje),</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">en_cauce =</span> dist <span class="sc">&lt;=</span> <span class="dv">10</span>,</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">z_rel =</span> <span class="fu">if_else</span>(en_cauce, <span class="dv">0</span>, <span class="dv">3</span> <span class="sc">+</span> <span class="fl">0.01</span> <span class="sc">*</span> (dist <span class="sc">-</span> <span class="dv">10</span>)),</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">z =</span> <span class="dv">100</span> <span class="sc">+</span> s0 <span class="sc">*</span> x <span class="sc">+</span> z_rel</span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a><span class="co"># 2) Superficie del agua y profundidad</span></span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>amenaza <span class="ot">&lt;-</span> terreno <span class="sc">%&gt;%</span></span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">ws =</span> <span class="dv">100</span> <span class="sc">+</span> s0 <span class="sc">*</span> x <span class="sc">+</span> <span class="fl">4.4</span>,</span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a>         <span class="at">d =</span> <span class="fu">pmax</span>(ws <span class="sc">-</span> z, <span class="dv">0</span>),</span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a>         <span class="co"># 3) Velocidad por Manning local</span></span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a>         <span class="at">n_man =</span> <span class="fu">if_else</span>(en_cauce, <span class="fl">0.035</span>, <span class="fl">0.06</span>),</span>
+<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a>         <span class="at">v =</span> d<span class="sc">^</span>(<span class="dv">2</span> <span class="sc">/</span> <span class="dv">3</span>) <span class="sc">*</span> <span class="fu">sqrt</span>(s0) <span class="sc">/</span> n_man,</span>
+<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a>         <span class="at">dv =</span> d <span class="sc">*</span> v,</span>
+<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a>         <span class="co"># 4) Clase de amenaza (AIDR, 2017)</span></span>
+<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a>         <span class="at">clase =</span> <span class="fu">case_when</span>(</span>
+<span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a>           d <span class="sc">==</span> <span class="dv">0</span> <span class="sc">~</span> <span class="cn">NA_character_</span>,</span>
+<span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a>           d <span class="sc">&lt;=</span> <span class="fl">0.3</span> <span class="sc">&amp;</span> v <span class="sc">&lt;=</span> <span class="dv">2</span> <span class="sc">&amp;</span> dv <span class="sc">&lt;=</span> <span class="fl">0.3</span> <span class="sc">~</span> <span class="st">"H1"</span>,</span>
+<span id="cb8-26"><a href="#cb8-26" aria-hidden="true" tabindex="-1"></a>           d <span class="sc">&lt;=</span> <span class="fl">0.5</span> <span class="sc">&amp;</span> v <span class="sc">&lt;=</span> <span class="dv">2</span> <span class="sc">&amp;</span> dv <span class="sc">&lt;=</span> <span class="fl">0.6</span> <span class="sc">~</span> <span class="st">"H2"</span>,</span>
+<span id="cb8-27"><a href="#cb8-27" aria-hidden="true" tabindex="-1"></a>           d <span class="sc">&lt;=</span> <span class="fl">1.2</span> <span class="sc">&amp;</span> v <span class="sc">&lt;=</span> <span class="dv">2</span> <span class="sc">&amp;</span> dv <span class="sc">&lt;=</span> <span class="fl">0.6</span> <span class="sc">~</span> <span class="st">"H3"</span>,</span>
+<span id="cb8-28"><a href="#cb8-28" aria-hidden="true" tabindex="-1"></a>           d <span class="sc">&lt;=</span> <span class="fl">2.0</span> <span class="sc">&amp;</span> v <span class="sc">&lt;=</span> <span class="dv">2</span> <span class="sc">&amp;</span> dv <span class="sc">&lt;=</span> <span class="fl">1.0</span> <span class="sc">~</span> <span class="st">"H4"</span>,</span>
+<span id="cb8-29"><a href="#cb8-29" aria-hidden="true" tabindex="-1"></a>           d <span class="sc">&lt;=</span> <span class="fl">4.0</span> <span class="sc">&amp;</span> v <span class="sc">&lt;=</span> <span class="dv">4</span> <span class="sc">&amp;</span> dv <span class="sc">&lt;=</span> <span class="fl">4.0</span> <span class="sc">~</span> <span class="st">"H5"</span>,</span>
+<span id="cb8-30"><a href="#cb8-30" aria-hidden="true" tabindex="-1"></a>           <span class="cn">TRUE</span> <span class="sc">~</span> <span class="st">"H6"</span>))</span>
+<span id="cb8-31"><a href="#cb8-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-32"><a href="#cb8-32" aria-hidden="true" tabindex="-1"></a><span class="co"># Área inundada por clase (ha)</span></span>
+<span id="cb8-33"><a href="#cb8-33" aria-hidden="true" tabindex="-1"></a>amenaza <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(clase)) <span class="sc">%&gt;%</span> <span class="fu">count</span>(clase) <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">area_ha =</span> n <span class="sc">*</span> <span class="dv">100</span> <span class="sc">/</span> <span class="fl">1e4</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":["clase"],"name":[1],"type":["chr"],"align":["left"]},{"label":["n"],"name":[2],"type":["int"],"align":["right"]},{"label":["area_ha"],"name":[3],"type":["dbl"],"align":["right"]}],"data":[{"1":"H1","2":"1178","3":"11.78"},{"1":"H2","2":"832","3":"8.32"},{"1":"H3","2":"1501","3":"15.01"},{"1":"H4","2":"1252","3":"12.52"},{"1":"H5","2":"846","3":"8.46"},{"1":"H6","2":"407","3":"4.07"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+</div>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div id="fig-ai-mapa" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" alt="Vista en planta de un valle con un cauce sinuoso en clase H6, rodeado por franjas de clases H5 a H1 cada vez más alejadas del cauce, hasta el borde de la inundación a unos 150 m del eje">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-ai-mapa-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="40-amenaza_inundacion_files/figure-html/fig-ai-mapa-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4" title="Figura&nbsp;40.4: Mapa de amenaza para la crecida de 100 años en un valle sintético."><img src="40-amenaza_inundacion_files/figure-html/fig-ai-mapa-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:70.0%" alt="Vista en planta de un valle con un cauce sinuoso en clase H6, rodeado por franjas de clases H5 a H1 cada vez más alejadas del cauce, hasta el borde de la inundación a unos 150 m del eje"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ai-mapa-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;40.4: Mapa de amenaza para la crecida de 100 años en un valle sintético.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p><strong>Interpretación.</strong> El agua de 100 años ocupa una franja de unos 300 m de ancho, 150 m a cada lado del cauce, que es donde el terreno de la llanura alcanza la cota del agua (<a href="#fig-ai-mapa" class="quarto-xref">Figura&nbsp;<span>40.4</span></a>). El cauce y las orillas inmediatas son clase H5 y H6, donde ninguna persona ni vehículo está a salvo. La franja de llanura cercana al cauce es H3 y H4, peligrosa para personas, y solo el borde de la mancha es H1. Este cálculo de superficie plana es una simplificación: un modelo bidimensional daría velocidades más bajas en las zonas de agua quieta y más altas donde la llanura se estrecha. Aun así, muestra la lógica del mapa: la amenaza no se define solo por si el agua llega o no, sino por la profundidad y la velocidad con que llega.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled" title="En la práctica">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+En la práctica
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>En Costa Rica, la Ley 8488 obliga a considerar el riesgo en la planificación del uso del suelo <span class="citation" data-cites="costarica2006ley8488">(Asamblea Legislativa de la República de Costa Rica 2006)</span>, y la Ley Forestal declara áreas de protección las franjas a ambos lados de los ríos, quebradas y arroyos: 15 m en zona rural y 10 m en zona urbana si el terreno es plano, y 50 m si es quebrado <span class="citation" data-cites="costarica1996leyforestal">(Asamblea Legislativa de la República de Costa Rica 1996, art. 33)</span>. Esas franjas son de protección del cauce y no de inundación: en una llanura, la mancha de 100 años suele extenderse mucho más allá de 15 m. Para diseñar una obra o fijar una zonificación en un plan regulador hace falta un estudio hidrológico e hidráulico del tramo como el de este capítulo.</p>
+</div>
+</div>
+<section id="sec-ai-radar" class="level3" data-number="40.6.1">
+<h3 data-number="40.6.1" class="anchored" data-anchor-id="sec-ai-radar"><span class="header-section-number">40.6.1</span> Extensión observada con radar satelital</h3>
+<p>Un mapa de amenaza sale de un modelo, y el modelo hay que compararlo con inundaciones reales. Las marcas de nivel en campo dan puntos; una imagen satelital tomada durante la crecida da la mancha completa. Las imágenes ópticas, como las de Landsat o Sentinel-2, casi nunca sirven para esto, porque cuando hay inundación el cielo está nublado. El radar de apertura sintética (SAR) sí atraviesa las nubes: emite microondas y mide la energía que regresa al sensor, llamada retrodispersión. La misión Sentinel-1, de la Agencia Espacial Europea, opera un radar en banda C, con una pasada sobre el mismo sitio cada 12 días por satélite, y sus imágenes son gratuitas <span class="citation" data-cites="torres2012gmes">(Torres et&nbsp;al. 2012)</span>.</p>
+<p>El agua quieta se comporta como un espejo: refleja la señal lejos del sensor y aparece oscura, con retrodispersión baja, de −15 a −25 dB en polarización VV. El terreno con vegetación o suelo desnudo devuelve más energía y aparece en grises más claros, alrededor de −10 a −5 dB. El procedimiento usual para mapear una inundación tiene cuatro pasos:</p>
+<ol type="1">
+<li>Escoger una imagen del evento y una de referencia en época seca, de la misma órbita para que el ángulo de visión sea el mismo. La referencia puede ser la mediana de varias fechas.</li>
+<li>Filtrar el moteado (<em>speckle</em>), el ruido granular propio del radar, con un filtro de mediana.</li>
+<li>Separar el agua del terreno con un umbral. Como el histograma de la imagen tiene dos picos, uno para el agua y otro para el terreno, el umbral se busca en el valle entre ellos con el método de Otsu <span class="citation" data-cites="otsu1979threshold">(Otsu 1979)</span>.</li>
+<li>Marcar como inundada la celda que es agua en el evento, no lo es en la referencia y perdió más de 3 dB de retrodispersión. Así se descartan el mar, los ríos, los embalses y las lagunas permanentes.</li>
+</ol>
+<p>El método de Otsu prueba cada umbral <span class="math inline">\(t\)</span> posible y escoge el que hace más diferentes a las dos clases, medido con la varianza entre clases:</p>
+<p><span id="eq-ai-otsu"><span class="math display">\[
+\sigma_B^2(t) = \frac{\left[\mu_T\,\omega(t) - \mu(t)\right]^2}{\omega(t)\left[1 - \omega(t)\right]}
+\tag{40.4}\]</span></span></p>
+<p>donde <span class="math inline">\(\omega(t)\)</span> es la fracción de celdas con valor menor o igual que <span class="math inline">\(t\)</span> (adimensional), <span class="math inline">\(\mu(t)\)</span> es la suma acumulada hasta <span class="math inline">\(t\)</span> de cada valor por su frecuencia relativa (dB), y <span class="math inline">\(\mu_T\)</span> es la media de toda la imagen (dB). El umbral es el <span class="math inline">\(t\)</span> que da el máximo de <span class="math inline">\(\sigma_B^2\)</span>.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Ejemplo: inundación en la cuenca baja del Tempisque, 16 de noviembre de 2024">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Ejemplo: inundación en la cuenca baja del Tempisque, 16 de noviembre de 2024
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Planteamiento.</strong> A mediados de noviembre de 2024, el río Tempisque y sus afluentes salieron de su cauce en la llanura de Guanacaste. Sentinel-1 tomó una imagen el 16 de noviembre, en órbita descendente. Se cuenta además con la mediana de 14 imágenes de la misma órbita de febrero a abril de 2024, en época seca. Las dos están en el archivo <code>datos/mapas/s1_tempisque_20241116.tif</code>, en CRTM05, con celdas de 50 m y un filtro de mediana ya aplicado. Los datos se descargaron con Google Earth Engine <span class="citation" data-cites="gorelick2017google">(Gorelick et&nbsp;al. 2017)</span>. Con un umbral de Otsu de −13.55 dB, clasifique tres celdas y calcule el área inundada.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: center;">Celda</th>
+<th style="text-align: center;">Evento (dB)</th>
+<th style="text-align: center;">Referencia (dB)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">A</td>
+<td style="text-align: center;">−19.95</td>
+<td style="text-align: center;">−11.67</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">B</td>
+<td style="text-align: center;">−17.01</td>
+<td style="text-align: center;">−21.15</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">C</td>
+<td style="text-align: center;">−8.47</td>
+<td style="text-align: center;">−9.57</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Solución:</strong></p>
+<p>Celda A: en el evento, <span class="math inline">\(-19.95 &lt; -13.55\)</span>, es agua. En la referencia, <span class="math inline">\(-11.67 \geq -13.55\)</span>, era terreno. La retrodispersión bajó <span class="math inline">\(-19.95 - (-11.67) = -8.28\)</span> dB, más que los 3 dB exigidos. La celda está inundada.</p>
+<p>Celda B: es agua en el evento (<span class="math inline">\(-17.01 &lt; -13.55\)</span>) y también en la referencia (<span class="math inline">\(-21.15 &lt; -13.55\)</span>). Es agua permanente: queda en el golfo de Nicoya.</p>
+<p>Celda C: en el evento, <span class="math inline">\(-8.47 \geq -13.55\)</span>. Es terreno seco.</p>
+<p>Cada celda mide <span class="math inline">\(50 \times 50 = 2500\)</span> m², o 0.0025 km². El código de abajo encuentra 40 660 celdas inundadas en el recuadro, y el área es <span class="math inline">\(40\,660 \times 0.0025 = 101.7\)</span> km².</p>
+<p><strong>Pseudocódigo</strong></p>
+<ol type="1">
+<li>Leer las bandas del evento y de la referencia (dB).</li>
+<li>Calcular el umbral de Otsu con una muestra de celdas del evento.</li>
+<li>Marcar las celdas inundadas: agua en el evento, terreno en la referencia y descenso mayor de 3 dB.</li>
+<li>Contar las celdas y multiplicar por el área de cada una.</li>
+</ol>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(terra)</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">terraOptions</span>(<span class="at">progress =</span> <span class="dv">0</span>)</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="co"># 1) Imagen del evento y referencia de época seca (guardadas en dB x 100)</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>s1 <span class="ot">&lt;-</span> <span class="fu">rast</span>(<span class="st">"datos/mapas/s1_tempisque_20241116.tif"</span>) <span class="sc">/</span> <span class="dv">100</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>evento <span class="ot">&lt;-</span> s1[[<span class="st">"vv_evento"</span>]]</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>referencia <span class="ot">&lt;-</span> s1[[<span class="st">"vv_referencia"</span>]]</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="co"># 2) Umbral de Otsu (ecuación de la varianza entre clases)</span></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>otsu <span class="ot">&lt;-</span> <span class="cf">function</span>(x, <span class="at">n_clases =</span> <span class="dv">256</span>) {</span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>  x <span class="ot">&lt;-</span> x[<span class="fu">is.finite</span>(x)]</span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>  cortes <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="fu">min</span>(x), <span class="fu">max</span>(x), <span class="at">length.out =</span> n_clases <span class="sc">+</span> <span class="dv">1</span>)</span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>  h <span class="ot">&lt;-</span> <span class="fu">hist</span>(x, <span class="at">breaks =</span> cortes, <span class="at">plot =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>  p <span class="ot">&lt;-</span> h<span class="sc">$</span>counts <span class="sc">/</span> <span class="fu">sum</span>(h<span class="sc">$</span>counts)          <span class="co"># frecuencia relativa</span></span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>  t <span class="ot">&lt;-</span> h<span class="sc">$</span>mids                            <span class="co"># umbrales candidatos</span></span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>  omega <span class="ot">&lt;-</span> <span class="fu">cumsum</span>(p)</span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>  mu <span class="ot">&lt;-</span> <span class="fu">cumsum</span>(p <span class="sc">*</span> t)</span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a>  mu_t <span class="ot">&lt;-</span> <span class="fu">sum</span>(p <span class="sc">*</span> t)</span>
+<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a>  sigma_b <span class="ot">&lt;-</span> (mu_t <span class="sc">*</span> omega <span class="sc">-</span> mu)<span class="sc">^</span><span class="dv">2</span> <span class="sc">/</span> (omega <span class="sc">*</span> (<span class="dv">1</span> <span class="sc">-</span> omega))</span>
+<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a>  t[<span class="fu">which.max</span>(sigma_b)]</span>
+<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
+<span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a>muestra <span class="ot">&lt;-</span> <span class="fu">spatSample</span>(evento, <span class="fl">2e5</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)[, <span class="dv">1</span>]</span>
+<span id="cb9-24"><a href="#cb9-24" aria-hidden="true" tabindex="-1"></a>umbral <span class="ot">&lt;-</span> <span class="fu">otsu</span>(muestra)</span>
+<span id="cb9-25"><a href="#cb9-25" aria-hidden="true" tabindex="-1"></a>umbral</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] -13.54881</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 3) Celdas inundadas</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>inundado <span class="ot">&lt;-</span> (evento <span class="sc">&lt;</span> umbral) <span class="sc">&amp;</span> (referencia <span class="sc">&gt;=</span> umbral) <span class="sc">&amp;</span> ((evento <span class="sc">-</span> referencia) <span class="sc">&lt;</span> <span class="sc">-</span><span class="dv">3</span>)</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="co"># 4) Área (km²): cada celda mide 50 m x 50 m</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>n_celdas <span class="ot">&lt;-</span> <span class="fu">global</span>(inundado, <span class="st">"sum"</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)[[<span class="dv">1</span>]]</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="at">celdas =</span> n_celdas, <span class="at">area_km2 =</span> n_celdas <span class="sc">*</span> <span class="dv">50</span> <span class="sc">*</span> <span class="dv">50</span> <span class="sc">/</span> <span class="fl">1e6</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  celdas area_km2 
+40660.00   101.65 </code></pre>
+</div>
+</div>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div id="fig-ai-radar-histograma" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" alt="Histograma con dos picos, uno pequeño entre −24 y −17 dB que corresponde al agua y otro grande entre −10 y −5 dB que corresponde al terreno, con una línea vertical en el valle entre ambos, en −13.55 dB">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-ai-radar-histograma-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="40-amenaza_inundacion_files/figure-html/fig-ai-radar-histograma-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5" title="Figura&nbsp;40.5: Histograma de la retrodispersión del 16 de noviembre de 2024 y umbral de Otsu."><img src="40-amenaza_inundacion_files/figure-html/fig-ai-radar-histograma-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:70.0%" alt="Histograma con dos picos, uno pequeño entre −24 y −17 dB que corresponde al agua y otro grande entre −10 y −5 dB que corresponde al terreno, con una línea vertical en el valle entre ambos, en −13.55 dB"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ai-radar-histograma-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;40.5: Histograma de la retrodispersión del 16 de noviembre de 2024 y umbral de Otsu.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div id="fig-ai-radar-mapa" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" alt="Mapa de la llanura del Tempisque sobre la imagen de radar en grises, con manchas rojas de inundación al este y al sureste de Filadelfia, al norte de Santa Cruz y en la parte baja del Bebedero, el agua de época seca en celeste y los límites de las cuencas del Tempisque y del Bebedero en amarillo">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-ai-radar-mapa-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="40-amenaza_inundacion_files/figure-html/fig-ai-radar-mapa-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6" title="Figura&nbsp;40.6: Zonas inundadas en la cuenca baja del Tempisque según Sentinel-1, 16 de noviembre de 2024."><img src="40-amenaza_inundacion_files/figure-html/fig-ai-radar-mapa-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:70.0%" alt="Mapa de la llanura del Tempisque sobre la imagen de radar en grises, con manchas rojas de inundación al este y al sureste de Filadelfia, al norte de Santa Cruz y en la parte baja del Bebedero, el agua de época seca en celeste y los límites de las cuencas del Tempisque y del Bebedero en amarillo"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ai-radar-mapa-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;40.6: Zonas inundadas en la cuenca baja del Tempisque según Sentinel-1, 16 de noviembre de 2024.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p><strong>Interpretación.</strong> El histograma tiene los dos picos esperados y el umbral cae en el valle entre ellos (<a href="#fig-ai-radar-histograma" class="quarto-xref">Figura&nbsp;<span>40.5</span></a>). El 16 de noviembre había unos 102 km² inundados en el recuadro, casi todos (91 km²) en la cuenca del Tempisque y el resto en la del Bebedero (<a href="#fig-ai-radar-mapa" class="quarto-xref">Figura&nbsp;<span>40.6</span></a>). Las manchas mayores están al este y al sureste de Filadelfia, en la llanura que bordea el Tempisque aguas arriba de su unión con el Bebedero, y en una franja al norte de Santa Cruz. Muchas manchas tienen bordes rectos: siguen los límites de fincas y diques de la llanura agrícola, lo que muestra que los terraplenes y caminos controlan por dónde se extiende el agua. El resultado depende del umbral: con valores entre −15 y −12 dB el área queda entre 90 y 102 km², y sin la condición de los 3 dB sube a 112 km² con el umbral de Otsu. Un estudio serio reporta ese rango, no una sola cifra.</p>
+</div>
+</div>
+<p>Una mancha observada así sirve para calibrar y validar un modelo hidráulico: se corre el modelo con el caudal de esa crecida y se compara celda por celda con la imagen, con los mismos índices que se usan para verificar pronósticos, como el índice de éxito crítico (<a href="41-pronostico_alerta_temprana.html#sec-pa-verificacion" class="quarto-xref"><span>Sección 41.8</span></a>). Hay que tener presentes sus límites. El radar no ve el agua bajo un bosque denso ni en zonas urbanas, donde las paredes devuelven la señal y la hacen más brillante, no más oscura. El viento riza el agua y la aclara. Un arrozal inundado por riego parece una inundación. Y la imagen es una sola fecha, que casi nunca coincide con el pico de la crecida: la mancha del 16 de noviembre es un mínimo de lo que se inundó en el evento.</p>
+</section>
+</section>
+<section id="sec-ai-dano" class="level2" data-number="40.7">
+<h2 data-number="40.7" class="anchored" data-anchor-id="sec-ai-dano"><span class="header-section-number">40.7</span> Daño anual esperado</h2>
+<p>Para comparar alternativas de protección, como un dique, un canal de alivio o la reubicación de viviendas, se necesita un número que resuma el riesgo. El daño anual esperado es el promedio a largo plazo del daño de un año cualquiera. Si <span class="math inline">\(D(p)\)</span> es el daño causado por la crecida con probabilidad anual de excedencia <span class="math inline">\(p\)</span>, el daño anual esperado es el área bajo la curva de daño contra probabilidad:</p>
+<p><span id="eq-ai-dae"><span class="math display">\[
+DAE = \int_0^1 D(p)\,dp \approx \sum_{i} \frac{D_i + D_{i+1}}{2}\,(p_i - p_{i+1})
+\tag{40.5}\]</span></span></p>
+<p>donde <span class="math inline">\(DAE\)</span> es el daño anual esperado (unidades monetarias por año), <span class="math inline">\(D_i\)</span> es el daño para la crecida con probabilidad <span class="math inline">\(p_i\)</span> y la suma recorre los periodos de retorno estudiados, de mayor a menor probabilidad. Los daños de cada crecida salen de cruzar el mapa de profundidades con la ubicación de las edificaciones y una curva de daño contra profundidad para cada tipo. Es la misma lógica del diseño hidroeconómico del capítulo de periodo de retorno (<a href="12-retorno_y_riesgo.html#sec-ret-hidroeconomico" class="quarto-xref"><span>Sección 12.4</span></a>).</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Ejemplo: daño anual esperado y beneficio de un dique">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Ejemplo: daño anual esperado y beneficio de un dique
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Planteamiento.</strong> Para un barrio junto a un río se estimaron los daños de las crecidas de 2, 5, 10, 25, 50, 100 y 500 años: 0, 120, 480, 1150, 1700, 2300 y 3600 millones de colones (valores hipotéticos). Calcule el daño anual esperado. Luego estime el beneficio anual de un dique que protege hasta la crecida de 50 años, suponiendo que con crecidas mayores el dique se desborda y el daño es el mismo que sin dique.</p>
+<p><strong>Solución:</strong></p>
+<ol type="1">
+<li>Probabilidades: <span class="math inline">\(p = 1/T\)</span>, es decir, 0.5, 0.2, 0.1, 0.04, 0.02, 0.01 y 0.002.</li>
+<li>Trapecios: <span class="math inline">\((0 + 120)/2 \times (0.5 - 0.2) = 18.0\)</span>; <span class="math inline">\((120 + 480)/2 \times 0.1 = 30.0\)</span>; <span class="math inline">\((480 + 1150)/2 \times 0.06 = 48.9\)</span>; <span class="math inline">\((1150 + 1700)/2 \times 0.02 = 28.5\)</span>; <span class="math inline">\((1700 + 2300)/2 \times 0.01 = 20.0\)</span>; <span class="math inline">\((2300 + 3600)/2 \times 0.008 = 23.6\)</span>.</li>
+<li>Sin dique: <span class="math inline">\(DAE = 18.0 + 30.0 + 48.9 + 28.5 + 20.0 + 23.6 = 169\)</span> millones de colones por año.</li>
+<li>Con dique, el daño es cero para <span class="math inline">\(p &gt; 0.02\)</span>; en <span class="math inline">\(p = 0.02\)</span> el dique se desborda y el daño salta al valor sin dique, así que solo cuentan los dos últimos trapecios: <span class="math inline">\(DAE = 20.0 + 23.6 = 43.6\)</span> millones por año.</li>
+<li>Beneficio anual: <span class="math inline">\(169 - 43.6 = 125\)</span> millones de colones por año. Ese es el valor que se compara con el costo anualizado del dique.</li>
+</ol>
+<p><strong>Pseudocódigo</strong></p>
+<ol type="1">
+<li>Definir los periodos de retorno y los daños.</li>
+<li>Calcular las probabilidades y ordenar de mayor a menor.</li>
+<li>Integrar con la regla del trapecio.</li>
+<li>Repetir con los daños de la alternativa y restar.</li>
+</ol>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 1) y 2) Daños (millones de colones) por periodo de retorno</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>danos <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">t_ret =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">5</span>, <span class="dv">10</span>, <span class="dv">25</span>, <span class="dv">50</span>, <span class="dv">100</span>, <span class="dv">500</span>),</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>                <span class="at">dano =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">120</span>, <span class="dv">480</span>, <span class="dv">1150</span>, <span class="dv">1700</span>, <span class="dv">2300</span>, <span class="dv">3600</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">p =</span> <span class="dv">1</span> <span class="sc">/</span> t_ret)</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a><span class="co"># 3) Regla del trapecio</span></span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>dae <span class="ot">&lt;-</span> <span class="cf">function</span>(p, d) <span class="fu">sum</span>((<span class="fu">head</span>(d, <span class="sc">-</span><span class="dv">1</span>) <span class="sc">+</span> <span class="fu">tail</span>(d, <span class="sc">-</span><span class="dv">1</span>)) <span class="sc">/</span> <span class="dv">2</span> <span class="sc">*</span> (<span class="fu">head</span>(p, <span class="sc">-</span><span class="dv">1</span>) <span class="sc">-</span> <span class="fu">tail</span>(p, <span class="sc">-</span><span class="dv">1</span>)))</span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>sin_dique <span class="ot">&lt;-</span> <span class="fu">dae</span>(danos<span class="sc">$</span>p, danos<span class="sc">$</span>dano)</span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a><span class="co"># 4) Con dique de 50 años: daño nulo para p &gt; 0.02; desde ahí el dique se</span></span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a><span class="co"># desborda y el daño salta al valor sin dique</span></span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a>con_dique <span class="ot">&lt;-</span> <span class="fu">with</span>(<span class="fu">filter</span>(danos, t_ret <span class="sc">&gt;=</span> <span class="dv">50</span>), <span class="fu">dae</span>(p, dano))</span>
+<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="at">sin_dique =</span> sin_dique, <span class="at">con_dique =</span> con_dique, <span class="at">beneficio =</span> sin_dique <span class="sc">-</span> con_dique)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>sin_dique con_dique beneficio 
+    169.0      43.6     125.4 </code></pre>
+</div>
+</div>
+<p>El daño anual esperado es el área bajo la curva de la <a href="#fig-ai-dae" class="quarto-xref">Figura&nbsp;<span>40.7</span></a>. El dique elimina la parte celeste; queda la anaranjada, la de las crecidas que lo desbordan.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div id="fig-ai-dae" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" alt="Curva de daño en millones de colones contra probabilidad anual de excedencia, de 0 a 0.5, con puntos rotulados con los periodos de retorno de 2 a 500 años. El daño sube de 0 en 2 años a 3600 millones en 500 años. El área bajo la curva para probabilidades mayores que 0.02 está en celeste, como daño evitado por el dique; el área entre 0.002 y 0.02 está en anaranjado, como daño residual.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-ai-dae-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="40-amenaza_inundacion_files/figure-html/fig-ai-dae-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7" title="Figura&nbsp;40.7: Curva de daño contra probabilidad y efecto del dique."><img src="40-amenaza_inundacion_files/figure-html/fig-ai-dae-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:80.0%" alt="Curva de daño en millones de colones contra probabilidad anual de excedencia, de 0 a 0.5, con puntos rotulados con los periodos de retorno de 2 a 500 años. El daño sube de 0 en 2 años a 3600 millones en 500 años. El área bajo la curva para probabilidades mayores que 0.02 está en celeste, como daño evitado por el dique; el área entre 0.002 y 0.02 está en anaranjado, como daño residual."></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ai-dae-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;40.7: Curva de daño contra probabilidad y efecto del dique.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p><strong>Interpretación.</strong> El barrio pierde en promedio 169 millones de colones por año por inundaciones, y casi dos tercios de esa cifra vienen de crecidas frecuentes, de 5 a 25 años. Por eso el dique, que solo protege hasta 50 años, elimina tres cuartas partes del daño esperado. Queda un riesgo residual: con el dique la gente tiende a sentirse segura y a construir más, de modo que una crecida mayor que la de diseño causa más daño que antes. Por eso un dique siempre se acompaña de un sistema de alerta temprana (capítulo de pronóstico y alerta temprana) y de normas de construcción en la zona protegida.</p>
+</div>
+</div>
+</section>
+<section id="sec-ai-ejercicios" class="level2" data-number="40.8">
+<h2 data-number="40.8" class="anchored" data-anchor-id="sec-ai-ejercicios"><span class="header-section-number">40.8</span> Ejercicios propuestos</h2>
+<ol type="1">
+<li>Para el cauce del ejemplo de profundidad normal, calcule la profundidad con <span class="math inline">\(n = 0.030\)</span> y <span class="math inline">\(n = 0.045\)</span>. ¿Cuánto cambia el nivel del agua? Expréselo como porcentaje del cambio en <span class="math inline">\(n\)</span>.</li>
+<li>Agregue al cauce trapezoidal del ejemplo dos llanuras de 100 m de ancho cada una, con <span class="math inline">\(n = 0.06\)</span>, a partir de 3.5 m de profundidad. Calcule la profundidad normal para 350 m³/s sumando los caudales de cada subsección.</li>
+<li>Extienda el ejemplo del paso estándar a una tercera sección, 300 m aguas arriba de la sección 2, con 28 m de ancho y fondo en la cota 101.4 m.</li>
+<li>En el valle sintético, repita la clasificación para una superficie del agua 5.5 m sobre el fondo del cauce, que representa la crecida de 500 años. Compare las áreas por clase con las de 100 años.</li>
+<li>En el ejemplo del daño anual esperado, calcule el beneficio de diques de 25, 100 y 500 años. Si el costo anualizado de cada dique es de 60, 100 y 160 millones de colones por año, ¿cuál conviene?</li>
+<li>Escoja un río que atraviese una ciudad de su país. Con imágenes satelitales de una crecida reciente, delimite la zona inundada y compárela con la franja de protección que exige la ley a lo largo del cauce.</li>
+</ol>
+</section>
+<section id="sec-ai-lecturas" class="level2" data-number="40.9">
+<h2 data-number="40.9" class="anchored" data-anchor-id="sec-ai-lecturas"><span class="header-section-number">40.9</span> Lecturas recomendadas</h2>
+<ul>
+<li><span class="citation" data-cites="brunner2016hecrasref">Brunner (2016)</span>: el manual de referencia de HEC-RAS, con el paso estándar, el flujo no permanente y los modelos bidimensionales explicados en detalle.</li>
+<li><span class="citation" data-cites="arcement1989manning">Arcement y Schneider (1989)</span>: la guía del Servicio Geológico de Estados Unidos para escoger el coeficiente de Manning en cauces y llanuras, con fotografías de referencia.</li>
+<li><span class="citation" data-cites="aidr2017floodhazard">Australian Institute for Disaster Resilience (2017)</span>: la clasificación de amenaza por profundidad y velocidad, con la evidencia experimental en que se basa.</li>
+<li><span class="citation" data-cites="chow1988appliedhydrology">Chow, Maidment, y Mays (1988)</span>, capítulo 10: el tránsito con la onda dinámica, la rotura de presas y los ríos con meandros.</li>
+</ul>
+
+
+</section>
+
+</main> <!-- /main -->
+<!--
+  Herramientas de lectura del libro: búsqueda en todo el texto (funciona sin
+  internet) y ajustes de accesibilidad (tamaño de letra, alto contraste y
+  fuente más legible). Los ajustes se guardan en el navegador del lector.
+  Lo insertan _quarto.yml (libro web) y herramientas/publicar.R (un solo archivo).
+  En el libro web, Quarto ya trae su propia búsqueda, así que aquí no se agrega.
+-->
+<style>
+  #barra-lectura {
+    position: fixed; top: 0.6rem; right: 1rem; z-index: 1060;
+    display: flex; gap: 0.35rem; align-items: center;
+  }
+  #barra-lectura > button, #barra-lectura > .quarto-color-scheme-toggle {
+    position: static; display: inline-flex; align-items: center; justify-content: center;
+    min-width: 2.3rem; height: 2.3rem; padding: 0 0.55rem;
+    background: var(--bs-body-bg, #fff); color: var(--bs-body-color, #212529);
+    border: 1px solid var(--bs-border-color, #ced4da); border-radius: 0.45rem;
+    font: 600 0.95rem/1 system-ui, sans-serif; cursor: pointer; text-decoration: none;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+  }
+  #barra-lectura > button:hover, #barra-lectura > button[aria-expanded="true"] {
+    border-color: #1C6BA0; color: #1C6BA0;
+  }
+  #barra-lectura > button:focus-visible, .panel-lectura button:focus-visible,
+  .panel-lectura input:focus-visible { outline: 3px solid #1C6BA0; outline-offset: 2px; }
+  #barra-lectura svg { width: 1.05rem; height: 1.05rem; }
+  /* Icono propio del interruptor de modo oscuro (luna en modo claro, sol en
+     modo oscuro), dibujado con el color del texto para que se vea en ambos */
+  #barra-lectura > .quarto-color-scheme-toggle .bi::before {
+    content: ""; display: inline-block; width: 1.05rem; height: 1.05rem;
+    background: currentColor; -webkit-mask: var(--icono-modo) center / contain no-repeat; mask: var(--icono-modo) center / contain no-repeat;
+  }
+  #barra-lectura > .quarto-color-scheme-toggle {
+    --icono-modo: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M6 .278a.77.77 0 0 1 .08.858 7.2 7.2 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277q.792-.001 1.533-.16a.79.79 0 0 1 .81.316.73.73 0 0 1-.031.893A8.35 8.35 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.75.75 0 0 1 6 .278'/%3E%3C/svg%3E");
+  }
+  #barra-lectura > .quarto-color-scheme-toggle.alternate {
+    --icono-modo: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8M8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0m0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13m8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5M3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8m10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0m-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0m9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707M4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708'/%3E%3C/svg%3E");
+  }
+
+  .panel-lectura {
+    position: fixed; top: 3.4rem; right: 1rem; z-index: 1060; display: none;
+    width: min(24rem, calc(100vw - 2rem)); max-height: calc(100vh - 5rem); overflow: auto;
+    background: var(--bs-body-bg, #fff); color: var(--bs-body-color, #212529);
+    border: 1px solid var(--bs-border-color, #ced4da); border-radius: 0.6rem;
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.18); padding: 1rem;
+    font-family: system-ui, sans-serif; font-size: 0.95rem;
+  }
+  .panel-lectura.abierto { display: block; }
+  .panel-lectura h2 { font-size: 1rem; margin: 0 0 0.75rem; font-weight: 700; border: 0; padding: 0; }
+  .panel-lectura .fila { display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; margin: 0.6rem 0; }
+  .panel-lectura .grupo { display: inline-flex; gap: 0.3rem; }
+  .panel-lectura .grupo button, .panel-lectura .restablecer {
+    min-width: 2.4rem; padding: 0.3rem 0.6rem; border-radius: 0.4rem; cursor: pointer;
+    border: 1px solid var(--bs-border-color, #ced4da);
+    background: var(--bs-body-bg, #fff); color: var(--bs-body-color, #212529); font: inherit;
+  }
+  .panel-lectura button[aria-pressed="true"] { background: #1C6BA0; border-color: #1C6BA0; color: #fff; }
+  .panel-lectura .restablecer { width: 100%; margin-top: 0.6rem; }
+  .panel-lectura .nota { color: var(--bs-secondary-color, #6c757d); font-size: 0.85rem; margin: 0.6rem 0 0; }
+
+  #caja-busqueda {
+    width: 100%; padding: 0.5rem 0.65rem; font: inherit; border-radius: 0.4rem;
+    border: 1px solid var(--bs-border-color, #ced4da);
+    background: var(--bs-body-bg, #fff); color: var(--bs-body-color, #212529);
+  }
+  #resultados-busqueda { list-style: none; margin: 0.6rem 0 0; padding: 0; }
+  #resultados-busqueda li { border-top: 1px solid var(--bs-border-color, #e9ecef); }
+  #resultados-busqueda a { display: block; padding: 0.5rem 0.2rem; text-decoration: none; color: inherit; }
+  #resultados-busqueda a:hover, #resultados-busqueda a:focus { background: rgba(28, 107, 160, 0.08); }
+  #resultados-busqueda .lugar { display: block; font-size: 0.8rem; color: #1C6BA0; font-weight: 600; }
+  #resultados-busqueda mark { padding: 0; background: #ffe58a; color: #000; }
+  .resaltado-busqueda { outline: 3px solid #f0ad4e; outline-offset: 3px; transition: outline-color 1s; }
+
+  /* Fuente más legible: sin serifa, más espacio entre letras y líneas */
+  body.lectura-legible #quarto-document-content :is(p, li, td, th, dd, dt, figcaption, blockquote, .callout-body-container),
+  body.lectura-legible #TOC {
+    font-family: Verdana, Tahoma, "Segoe UI", sans-serif !important;
+    letter-spacing: 0.02em; word-spacing: 0.08em; line-height: 1.75;
+  }
+  body.lectura-legible #quarto-document-content :is(h1, h2, h3, h4) {
+    font-family: Verdana, Tahoma, "Segoe UI", sans-serif !important;
+  }
+
+  /* Alto contraste: texto negro sobre blanco (o blanco sobre negro en modo oscuro) */
+  body.lectura-contraste.quarto-light { --bs-body-color: #000; --bs-body-bg: #fff; background: #fff !important; color: #000 !important; }
+  body.lectura-contraste.quarto-light #quarto-document-content *:not(mark):not(code):not(pre) { color: #000 !important; }
+  body.lectura-contraste.quarto-light #quarto-document-content a { color: #0033cc !important; text-decoration: underline !important; }
+  body.lectura-contraste.quarto-dark { --bs-body-color: #fff; --bs-body-bg: #000; background: #000 !important; color: #fff !important; }
+  body.lectura-contraste.quarto-dark #quarto-document-content *:not(mark):not(code):not(pre) { color: #fff !important; }
+  body.lectura-contraste.quarto-dark #quarto-document-content a { color: #ffd84d !important; text-decoration: underline !important; }
+  body.lectura-contraste #quarto-document-content :is(.callout, table, th, td) { border-color: currentColor !important; }
+
+  @media (max-width: 767.98px) {
+    #barra-lectura { top: 0.4rem; right: 0.5rem; }
+    .panel-lectura { right: 0.5rem; top: 3.1rem; }
+  }
+  @media print { #barra-lectura, .panel-lectura { display: none !important; } }
+</style>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  var CLAVE = "libro-hidrologia-lectura";
+  var ESCALAS = [0.9, 1, 1.12, 1.25, 1.4];
+  var ajustes = { escala: 1, contraste: false, legible: false };
+  try {
+    var guardado = JSON.parse(localStorage.getItem(CLAVE) || "null");
+    if (guardado) Object.assign(ajustes, guardado);
+  } catch (e) { /* sin almacenamiento: se usan los valores de fábrica */ }
+
+  function guardar() {
+    try { localStorage.setItem(CLAVE, JSON.stringify(ajustes)); } catch (e) {}
+  }
+  function aplicar() {
+    document.documentElement.style.fontSize = ajustes.escala === 1 ? "" : (ajustes.escala * 100) + "%";
+    document.body.classList.toggle("lectura-contraste", !!ajustes.contraste);
+    document.body.classList.toggle("lectura-legible", !!ajustes.legible);
+    var b;
+    if ((b = document.getElementById("lect-contraste"))) b.setAttribute("aria-pressed", String(!!ajustes.contraste));
+    if ((b = document.getElementById("lect-legible"))) b.setAttribute("aria-pressed", String(!!ajustes.legible));
+    if ((b = document.getElementById("lect-tamano"))) b.textContent = Math.round(ajustes.escala * 100) + " %";
+  }
+  aplicar();
+
+  var main = document.getElementById("quarto-document-content") || document.querySelector("main");
+  var hayBusquedaQuarto = !!document.getElementById("quarto-search");
+
+  // --- Barra de botones, arriba a la derecha, junto al modo oscuro ---
+  var barra = document.createElement("div");
+  barra.id = "barra-lectura";
+  var iconoLupa = '<svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M11.74 10.34a6.5 6.5 0 1 0-1.4 1.4l3.85 3.85a1 1 0 0 0 1.4-1.4zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/></svg>';
+  var html = "";
+  if (!hayBusquedaQuarto) {
+    html += '<button type="button" id="boton-busqueda" aria-label="Buscar en el libro" aria-expanded="false" aria-controls="panel-busqueda" title="Buscar en el libro (Ctrl+K)">' + iconoLupa + '</button>';
+  }
+  html += '<button type="button" id="boton-acceso" aria-label="Opciones de lectura: tamaño de letra, contraste y fuente" aria-expanded="false" aria-controls="panel-acceso" title="Tamaño de letra, contraste y fuente">Aa</button>';
+  barra.innerHTML = html;
+  document.body.appendChild(barra);
+
+  // El interruptor de modo oscuro de Quarto pasa a la misma barra, que está
+  // fija arriba a la derecha y se ve en todos los capítulos. En el libro de un
+  // solo archivo Quarto crea el interruptor después de este código, así que se
+  // intenta de nuevo cuando la página termina de cargar.
+  function moverInterruptor() {
+    var interruptor = document.querySelector("body > .quarto-color-scheme-toggle.top-right");
+    if (!interruptor) return;
+    interruptor.classList.remove("top-right");
+    interruptor.setAttribute("aria-label", "Cambiar entre modo claro y oscuro");
+    interruptor.title = "Modo claro u oscuro";
+    barra.appendChild(interruptor);
+    // Quarto no recuerda el modo cuando el libro se abre como archivo local;
+    // se guarda aquí para que se mantenga al volver a abrirlo
+    interruptor.addEventListener("click", function () {
+      setTimeout(function () {
+        try { localStorage.setItem("libro-modo-oscuro", document.body.classList.contains("quarto-dark") ? "1" : "0"); } catch (e) {}
+      }, 0);
+    });
+    var oscuro = null;
+    try { oscuro = localStorage.getItem("libro-modo-oscuro"); } catch (e) {}
+    if (oscuro === "1" && !document.body.classList.contains("quarto-dark") && window.quartoToggleColorScheme) {
+      window.quartoToggleColorScheme();
+    }
+  }
+  moverInterruptor();
+  document.addEventListener("DOMContentLoaded", moverInterruptor);
+  window.addEventListener("load", moverInterruptor);
+
+  // --- Panel de accesibilidad ---
+  var panelAcceso = document.createElement("div");
+  panelAcceso.className = "panel-lectura";
+  panelAcceso.id = "panel-acceso";
+  panelAcceso.setAttribute("role", "dialog");
+  panelAcceso.setAttribute("aria-label", "Opciones de lectura");
+  panelAcceso.innerHTML =
+    '<h2>Opciones de lectura</h2>' +
+    '<div class="fila"><span>Tamaño de letra</span><span class="grupo">' +
+      '<button type="button" id="lect-menos" aria-label="Letra más pequeña">A&minus;</button>' +
+      '<button type="button" id="lect-tamano" aria-label="Volver al tamaño normal" title="Tamaño normal">100 %</button>' +
+      '<button type="button" id="lect-mas" aria-label="Letra más grande">A+</button></span></div>' +
+    '<div class="fila"><span>Alto contraste</span><span class="grupo">' +
+      '<button type="button" id="lect-contraste" aria-pressed="false">Activar</button></span></div>' +
+    '<div class="fila"><span>Fuente más legible</span><span class="grupo">' +
+      '<button type="button" id="lect-legible" aria-pressed="false">Activar</button></span></div>' +
+    '<button type="button" class="restablecer" id="lect-restablecer">Restablecer</button>' +
+    '<p class="nota">Los ajustes se guardan en este navegador. El modo oscuro está en el botón de al lado.</p>';
+  document.body.appendChild(panelAcceso);
+
+  function cambiarEscala(paso) {
+    var i = ESCALAS.indexOf(ajustes.escala);
+    if (i < 0) i = 1;
+    i = paso === 0 ? 1 : Math.min(ESCALAS.length - 1, Math.max(0, i + paso));
+    ajustes.escala = ESCALAS[i];
+    aplicar(); guardar();
+  }
+  document.getElementById("lect-menos").addEventListener("click", function () { cambiarEscala(-1); });
+  document.getElementById("lect-mas").addEventListener("click", function () { cambiarEscala(1); });
+  document.getElementById("lect-tamano").addEventListener("click", function () { cambiarEscala(0); });
+  document.getElementById("lect-contraste").addEventListener("click", function () {
+    ajustes.contraste = !ajustes.contraste; aplicar(); guardar();
+  });
+  document.getElementById("lect-legible").addEventListener("click", function () {
+    ajustes.legible = !ajustes.legible; aplicar(); guardar();
+  });
+  document.getElementById("lect-restablecer").addEventListener("click", function () {
+    ajustes = { escala: 1, contraste: false, legible: false }; aplicar(); guardar();
+  });
+  aplicar();
+
+  // --- Panel de búsqueda (solo en el libro de un archivo) ---
+  var panelBusqueda = null;
+  if (!hayBusquedaQuarto && main) {
+    panelBusqueda = document.createElement("div");
+    panelBusqueda.className = "panel-lectura";
+    panelBusqueda.id = "panel-busqueda";
+    panelBusqueda.setAttribute("role", "dialog");
+    panelBusqueda.setAttribute("aria-label", "Buscar en el libro");
+    panelBusqueda.innerHTML =
+      '<h2>Buscar en el libro</h2>' +
+      '<input type="search" id="caja-busqueda" placeholder="Por ejemplo: Thiessen, curva masa…" autocomplete="off" aria-describedby="estado-busqueda">' +
+      '<p class="nota" id="estado-busqueda" aria-live="polite">Escriba al menos 3 letras. No distingue tildes ni mayúsculas.</p>' +
+      '<ul id="resultados-busqueda"></ul>';
+    document.body.appendChild(panelBusqueda);
+  }
+
+  function normalizar(t) {
+    return t.normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase();
+  }
+
+  // Índice: cada párrafo, elemento de lista, celda o leyenda, con su capítulo y sección
+  var indice = null;
+  function construirIndice() {
+    indice = [];
+    var nodos = main.querySelectorAll("p, li, td, th, figcaption, h1, h2, h3, h4, .callout-title-container");
+    Array.prototype.forEach.call(nodos, function (el) {
+      if (el.closest(".nav-capitulos, #TOC, .panel-lectura, pre, .sourceCode, script, style")) return;
+      if (el.tagName === "LI" && el.querySelector("p")) return;   // ya se indexan sus párrafos
+      var texto = (el.textContent || "").replace(/\s+/g, " ").trim();
+      if (texto.length < 3) return;
+      var sec = el.closest("section[id]");
+      var cap = el.closest("section.level1");
+      var h1 = cap ? cap.querySelector("h1") : null;
+      var hs = sec && sec !== cap ? sec.querySelector(":scope > h2, :scope > h3, :scope > h4") : null;
+      indice.push({
+        el: el, texto: texto, norm: normalizar(texto),
+        destino: (sec || cap || {}).id || "",
+        capitulo: h1 ? h1.textContent.replace(/\s+/g, " ").trim() : "",
+        seccion: hs ? hs.textContent.replace(/\s+/g, " ").trim() : ""
+      });
+    });
+  }
+
+  function escaparHtml(t) {
+    return t.replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; });
+  }
+  function fragmento(item, palabras) {
+    var pos = item.norm.indexOf(palabras[0]);
+    var ini = Math.max(0, pos - 60), fin = Math.min(item.texto.length, pos + 140);
+    var trozo = item.texto.slice(ini, fin), trozoNorm = item.norm.slice(ini, fin);
+    // Resalta cada palabra buscada (las posiciones coinciden porque normalizar no cambia la longitud
+    // de los caracteres comunes del español)
+    var marcas = [];
+    palabras.forEach(function (w) {
+      var k = trozoNorm.indexOf(w);
+      while (k >= 0) { marcas.push([k, k + w.length]); k = trozoNorm.indexOf(w, k + w.length); }
+    });
+    marcas.sort(function (a, b) { return a[0] - b[0]; });
+    var salida = "", ultimo = 0;
+    marcas.forEach(function (m) {
+      if (m[0] < ultimo) return;
+      salida += escaparHtml(trozo.slice(ultimo, m[0])) + "<mark>" + escaparHtml(trozo.slice(m[0], m[1])) + "</mark>";
+      ultimo = m[1];
+    });
+    salida += escaparHtml(trozo.slice(ultimo));
+    return (ini > 0 ? "… " : "") + salida + (fin < item.texto.length ? " …" : "");
+  }
+
+  var temporizador = null;
+  function buscar() {
+    var caja = document.getElementById("caja-busqueda");
+    var estado = document.getElementById("estado-busqueda");
+    var lista = document.getElementById("resultados-busqueda");
+    var consulta = normalizar(caja.value.trim());
+    lista.innerHTML = "";
+    if (consulta.length < 3) {
+      estado.textContent = "Escriba al menos 3 letras. No distingue tildes ni mayúsculas.";
+      return;
+    }
+    if (!indice) construirIndice();
+    var palabras = consulta.split(/\s+/).filter(Boolean);
+    var hallados = indice.filter(function (it) {
+      return palabras.every(function (w) { return it.norm.indexOf(w) >= 0; });
+    });
+    var MAX = 60;
+    estado.textContent = hallados.length === 0 ? "Sin resultados." :
+      (hallados.length > MAX ? "Se muestran " + MAX + " de " + hallados.length + " resultados." :
+       hallados.length + (hallados.length === 1 ? " resultado." : " resultados."));
+    hallados.slice(0, MAX).forEach(function (it) {
+      var li = document.createElement("li");
+      var a = document.createElement("a");
+      a.href = "#" + it.destino;
+      var lugar = it.capitulo + (it.seccion && it.seccion !== it.capitulo ? " › " + it.seccion : "");
+      a.innerHTML = '<span class="lugar">' + escaparHtml(lugar) + "</span>" + fragmento(it, palabras);
+      a.addEventListener("click", function () {
+        cerrarPaneles();
+        // La navegación por capítulos abre la página; después se lleva al párrafo exacto
+        setTimeout(function () {
+          it.el.scrollIntoView({ block: "center" });
+          it.el.classList.add("resaltado-busqueda");
+          setTimeout(function () { it.el.classList.remove("resaltado-busqueda"); }, 2500);
+        }, 60);
+      });
+      li.appendChild(a);
+      lista.appendChild(li);
+    });
+  }
+
+  // --- Abrir y cerrar paneles ---
+  function cerrarPaneles() {
+    [panelAcceso, panelBusqueda].forEach(function (p) { if (p) p.classList.remove("abierto"); });
+    Array.prototype.forEach.call(barra.querySelectorAll("button[aria-expanded]"), function (b) {
+      b.setAttribute("aria-expanded", "false");
+    });
+  }
+  function alternar(panel, boton, foco) {
+    var abrir = !panel.classList.contains("abierto");
+    cerrarPaneles();
+    if (abrir) {
+      panel.classList.add("abierto");
+      boton.setAttribute("aria-expanded", "true");
+      if (foco) foco.focus();
+    }
+  }
+  document.getElementById("boton-acceso").addEventListener("click", function () {
+    alternar(panelAcceso, this, document.getElementById("lect-mas"));
+  });
+  if (panelBusqueda) {
+    var caja = document.getElementById("caja-busqueda");
+    document.getElementById("boton-busqueda").addEventListener("click", function () {
+      alternar(panelBusqueda, this, caja);
+    });
+    caja.addEventListener("input", function () {
+      clearTimeout(temporizador);
+      temporizador = setTimeout(buscar, 200);
+    });
+  }
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape") cerrarPaneles();
+    if (panelBusqueda && (e.ctrlKey || e.metaKey) && (e.key === "k" || e.key === "K")) {
+      e.preventDefault();
+      alternar(panelBusqueda, document.getElementById("boton-busqueda"), document.getElementById("caja-busqueda"));
+    }
+  });
+  document.addEventListener("click", function (e) {
+    if (!e.target.closest(".panel-lectura, #barra-lectura")) cerrarPaneles();
+  });
+});
+</script>
+
+<!--
+  Notas al pie de los cuadros hechos con kableExtra: Quarto parte la celda que
+  ocupa todo el ancho en una celda por columna, y la nota queda apretada en la
+  primera columna. Aquí se vuelve a unir en una sola celda de todo el ancho.
+-->
+<style>
+  tfoot td.nota-cuadro { text-align: left !important; padding: 0.4rem 0.5rem !important;
+    font-size: 0.9em; white-space: normal; }
+</style>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  document.querySelectorAll("tfoot tr").forEach(function (fila) {
+    var celdas = Array.prototype.slice.call(fila.cells);
+    if (celdas.length < 2 || celdas[0].textContent.trim() === "") return;
+    var vacias = celdas.slice(1).every(function (c) { return c.textContent.trim() === ""; });
+    if (!vacias) return;
+    celdas[0].colSpan = celdas.length;
+    celdas[0].classList.add("nota-cuadro");
+    celdas.slice(1).forEach(function (c) { c.remove(); });
+  });
+});
+</script>
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+    let newTheme = '';
+    if(darkModeDefault) {
+      newTheme = isAlternate ? baseTheme : alternateTheme;
+    } else {
+      newTheme = isAlternate ? alternateTheme : baseTheme;
+    }
+    const changeGiscusTheme = () => {
+      // From: https://github.com/giscus/giscus/issues/336
+      const sendMessage = (message) => {
+        const iframe = document.querySelector('iframe.giscus-frame');
+        if (!iframe) return;
+        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+      }
+      sendMessage({
+        setConfig: {
+          theme: newTheme
+        }
+      });
+    }
+    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+    if (isGiscussLoaded) {
+      changeGiscusTheme();
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  const darkModeDefault = false;
+  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+    toggleGiscusIfUsed(toAlternate, darkModeDefault);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copiado");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copiado");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/ems270900\.github\.io\/hidrologia-aplicada\/");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+          // target, if specified
+          link.setAttribute("target", "_blank");
+          if (link.getAttribute("rel") === null) {
+            link.setAttribute("rel", "noopener");
+          }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./39-transito_rios.html" class="pagination-link" aria-label="Tránsito hidrológico en ríos">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">39</span>&nbsp; <span class="chapter-title">Tránsito hidrológico en ríos</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./41-pronostico_alerta_temprana.html" class="pagination-link" aria-label="Pronóstico de crecidas y sistemas de alerta temprana">
+        <span class="nav-page-text"><span class="chapter-number">41</span>&nbsp; <span class="chapter-title">Pronóstico de crecidas y sistemas de alerta temprana</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>© 2026 Ing. Edwin Matarrita Segura. Texto bajo licencia <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.es">CC BY-NC-SA 4.0</a>; código R bajo licencia <a href="https://github.com/ems270900/hidrologia-aplicada/blob/main/LICENSE-CODE">MIT</a>.</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+<p>Este libro fue construido con <a href="https://quarto.org/">Quarto</a> y <a href="https://posit.co/download/rstudio-desktop/">RStudio</a>.</p>
+</div>
+  </div>
+</footer>
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
+
+
+
+
+<script src="site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>

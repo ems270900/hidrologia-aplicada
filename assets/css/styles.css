@@ -1,0 +1,1010 @@
+/* Tipografía y ancho del contenido */
+body {
+  font-family: "Roboto", "Segoe UI", system-ui, -apple-system, sans-serif;
+}
+
+main.content {
+  max-width: 1200px;
+}
+
+/* Títulos de capítulo */
+h1.title {
+  font-weight: 700;
+  letter-spacing: 0.03em;
+}
+
+/* Código (por si en algún momento se muestra) */
+pre code {
+  font-size: 0.9rem;
+}
+
+/* Tablas */
+table.table {
+  font-size: 0.9rem;
+}
+
+/* ===== Portada personalizada ===== */
+
+.custom-cover {
+  text-align: center;
+  margin-top: 2rem;
+  margin-bottom: 3rem;
+}
+
+/* Logos EIC + UCR */
+.cover-logos {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.cover-logos img {
+  height: 70px;
+  width: auto;
+}
+
+.logo-eic {
+  /* ajustes específicos si los necesitas */
+}
+
+.logo-ucr {
+  /* ajustes específicos si los necesitas */
+}
+
+/* Títulos de portada */
+.cover-title {
+  font-size: 2.3rem;
+  font-weight: 700;
+  margin-bottom: 0.3rem;
+}
+
+.cover-subtitle {
+  font-size: 1.3rem;
+  font-weight: 400;
+  margin-bottom: 1.2rem;
+  color: #555555;
+}
+
+/* Autor y afiliación */
+.cover-author {
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin-bottom: 0.2rem;
+}
+
+.cover-affiliation {
+  font-size: 0.95rem;
+  color: #555555;
+  margin-bottom: 1.8rem;
+}
+
+/* Imagen principal de portada */
+.cover-hero {
+  display: flex;
+  justify-content: center;
+}
+
+.cover-image {
+  max-width: 100%;
+  border-radius: 8px;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.18);
+}
+
+/* Opcional: ocultar cualquier imagen de portada automática
+   por si en algún momento vuelves a usar `cover-image` en el YAML */
+/*
+.quarto-cover-image {
+  display: none;
+}
+*/
+
+/* Justificación del texto, con división de palabras para que no queden
+   espacios grandes entre palabras en líneas cortas */
+p, li {
+  text-align: justify;
+  text-justify: inter-word;
+  hyphens: auto;
+  -webkit-hyphens: auto;
+}
+
+/* Fuente tipo LaTeX (Computer Modern) */
+body {
+  font-family: "Latin Modern Roman", "Computer Modern Serif", "CMU Serif", serif;
+}
+
+/* Tamaño del texto e interlineado */
+body {
+  font-size: 1.1rem;
+  line-height: 1.5;
+}
+
+p {
+  margin-bottom: 0.8rem;
+}
+
+/* Listas más compactas */
+li > p {
+  margin-bottom: 0.3rem;
+}
+
+/* Menos aire alrededor de las figuras */
+.quarto-figure {
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.cover-author {
+  font-size: 1.08rem;
+  font-weight: 600;
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.cover-affiliation {
+  font-size: 1.0rem;
+  font-weight: 400;
+  text-align: center;
+  margin-top: -0.5rem;
+}
+
+/* Centrar subtítulos de figuras */
+.figure-caption,
+.figcaption,
+.quarto-figure > figcaption {
+  text-align: center !important;
+}
+
+.figure-caption {
+  margin: auto;
+  text-align: center;
+}
+
+.fig-border img {
+  border: 3px solid #000000;   /* borde negro */
+  border-radius: 4px;          /* curva opcional, quitar si no lo querés */
+}
+
+
+
+/* Bloque de cita estilo R4DS */
+.quote-block {
+  border-left: 4px solid #2574A9;   /* color elegante */
+  background: #f9fbfd;
+  padding: 1.2em 1.5em;
+  margin: 1.5em 0;
+  border-radius: 4px;
+  font-style: italic;
+  color: #333;
+}
+
+.quote-block p {
+  margin: 0.2em 0;
+}
+
+
+/* ------- TIMELINE HIDROLOGÍA ------- */
+
+.timeline {
+  border-left: 4px solid #1a73e8;
+  margin: 2rem 0;
+  padding-left: 1.5rem;
+}
+
+.timeline-block {
+  margin-bottom: 2.2rem;
+  position: relative;
+}
+
+.timeline-block::before {
+  content: "";
+  width: 14px;
+  height: 14px;
+  background: #1a73e8;
+  border-radius: 50%;
+  position: absolute;
+  left: -31px;
+  top: 4px;
+}
+
+.timeline-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #0d47a1;
+  margin-bottom: 0.3rem;
+}
+
+.timeline-sub {
+  font-style: italic;
+  color: #555;
+  margin-bottom: 0.8rem;
+}
+
+.timeline ul {
+  margin-top: -0.5rem;
+}
+
+/* Línea de tiempo histórica de la hidrología */
+
+.timeline {
+  margin: 1.5rem 0 2rem;
+  padding-left: 1.75rem;
+  border-left: 3px solid #0d6efd;        /* línea vertical */
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.timeline-item {
+  position: relative;
+  background: #f8f9fa;
+  border: 1px solid #e1e5ea;
+  border-radius: 0.75rem;
+  padding: 0.75rem 1rem;
+}
+
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  left: -1.95rem;
+  top: 0.9rem;
+  width: 14px;
+  height: 14px;
+  border-radius: 999px;
+  background: #0d6efd;
+  border: 2px solid #ffffff;
+  box-shadow: 0 0 0 3px rgba(13, 110, 253, 0.25);
+}
+
+.timeline-era {
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  letter-spacing: 0.06em;
+  color: #0d6efd;
+  margin-bottom: 0.1rem;
+}
+
+.timeline-title {
+  font-weight: 600;
+  margin-bottom: 0.35rem;
+}
+
+.timeline-item ul {
+  margin-bottom: 0;
+}
+
+.instituciones-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.2rem;
+  margin-top: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.inst-card {
+  background: #f5faff;
+  border: 1px solid #c8d7e8;
+  border-radius: 10px;
+  padding: 1rem 1.2rem;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+}
+
+.inst-card h3 {
+  margin-top: 0;
+  margin-bottom: .4rem;
+  color: #003366;
+  font-weight: 700;
+  text-align: center;
+}
+
+.inst-card p {
+  margin: 0;
+  text-align: justify;
+}
+
+/* --- Hidrología en Costa Rica: tarjetas --- */
+
+.cr-hidro-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.2rem;
+  margin: 1.5rem 0 1rem 0;
+}
+
+.cr-card {
+  border-radius: 8px;
+  padding: 1rem 1.1rem;
+  border: 1px solid #d0d0d0;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+  font-size: 0.96rem;
+}
+
+/* Colores por categoría */
+.cr-card.cr-public {
+  background-color: #e3f2fd;           /* azul muy claro */
+  border-left: 4px solid #1976d2;
+}
+
+.cr-card.cr-academic {
+  background-color: #e8f5e9;           /* verde muy claro */
+  border-left: 4px solid #388e3c;
+}
+
+.cr-card.cr-private {
+  background-color: #fff8e1;           /* amarillo muy claro */
+  border-left: 4px solid #f9a825;
+}
+
+/* Títulos dentro de tarjetas */
+.cr-card h3 {
+  margin-top: 0;
+  margin-bottom: 0.4rem;
+  font-size: 1.02rem;
+}
+
+/* Pie de tarjeta (texto aclaratorio) */
+.cr-card-foot {
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  font-style: italic;
+}
+
+/* Nota internacional al final */
+.cr-international-note {
+  margin-top: 1.5rem;
+  font-size: 0.95rem;
+  font-style: italic;
+  text-align: justify;
+}
+
+/* Eliminar numeración de la portada */
+.quarto-title-block .quarto-title-meta {
+  counter-reset: none;
+}
+
+.quarto-title-block h1.title {
+  counter-reset: none;
+}
+
+.sidebar-title {
+  color: #10199e;
+}
+
+div.sidebar-item-container .active {
+  font-weight: bold;
+}
+
+
+
+/* Tamaño de letra de los enlaces Siguiente / Anterior */
+.page-navigation .nav-page .nav-page-text {
+  font-size: 1.05rem !important;  /* prueba 1.1rem si quieres más grande */
+}
+
+/* (opcional) hacer un poco más grande la flecha */
+.page-navigation .nav-page i.bi {
+  font-size: 1.15rem !important;
+}
+
+/* Aumentar tamaño de letra del TOC (sidebar) */
+.sidebar .sidebar-item-text {
+  font-size: 0.9rem !important;   /* Ajusta: 1.0, 1.1, 1.15, 1.2 */
+}
+
+/* Aumentar tamaño de las secciones principales */
+.sidebar .sidebar-section .sidebar-item-text {
+  font-size: 0.9rem !important;
+  font-weight: 600;
+}
+
+/* Aumentar tamaño del título del TOC */
+.sidebar-title {
+  font-size: 1.2rem !important;
+  font-weight: 700 !important;
+}
+
+
+/* --- Footer como en R4DS: izquierda + derecha --- */
+
+footer.footer .nav-footer {
+  display: flex !important;
+  justify-content: space-between !important;  /* izquierda y derecha separadas */
+  align-items: center;
+  padding: 0 1.5rem;                          /* margen horizontal suave */
+}
+
+/* bloque izquierdo: tu nombre/libro */
+footer.footer .nav-footer-left {
+  text-align: left;
+  flex: 0 0 auto;
+}
+
+/* bloque central: si no lo usas, que no estorbe */
+footer.footer .nav-footer-center {
+  flex: 1 1 auto;
+  text-align: center;
+}
+
+/* bloque derecho: "Este libro fue construido con Quarto" pegado a la derecha */
+footer.footer .nav-footer-right {
+  flex: 0 0 auto;
+  margin-left: auto !important;
+  text-align: right !important;
+  white-space: nowrap;   /* evita que se rompa la línea */
+}
+
+/* === TOC estilo R4DS === */
+
+/* Color y peso base para TODOS los ítems del TOC */
+.sidebar .sidebar-item-text,
+.sidebar .sidebar-link {
+  color: #444444 !important;      /* gris neutro */
+  font-weight: 400 !important;    /* normal */
+}
+
+/* Secciones (grupos) del TOC: un poco más gruesas, pero mismo color */
+.sidebar .sidebar-section > .sidebar-item-container > .sidebar-item-text {
+  font-weight: 600 !important;    /* similar a R4DS */
+}
+
+/* Solo la página ACTIVA resaltada */
+.sidebar .sidebar-item-container .active,
+.sidebar nav[role=doc-toc] ul > li > a.active,
+.sidebar nav[role=doc-toc] ul > li > ul > li > a.active {
+  color: #10199e !important;      /* tu azul */
+  font-weight: 700 !important;    /* más grueso */
+}
+
+h1.center-title {
+  text-align: center !important;
+}
+
+.table-footnote {
+  font-size: 0.85rem;
+  font-style: italic;
+  margin-top: 0.25rem;
+}
+
+.table > caption {
+  text-align: left !important;
+  padding-left: 0 !important;
+}
+
+/* Reducir tamaño de letra del footer del libro */
+footer.footer .nav-footer {
+  font-size: 0.8rem !important;   /* prueba 0.75 o 0.7 si lo quieres aún más pequeño */
+}
+
+/* Si quieres ser más explícito: */
+footer.footer .nav-footer-left,
+footer.footer .nav-footer-right {
+  font-size: 0.8rem !important;
+}
+
+/* No justificar el texto dentro de la barra lateral (TOC) */
+.sidebar li,
+.sidebar .sidebar-item-text,
+.sidebar .sidebar-link {
+  text-align: left !important;
+  text-justify: auto !important;
+}
+
+/* Leyenda de figura: espacio pequeño debajo de la imagen */
+.quarto-figure > figcaption {
+  margin-top: 0.4rem;
+  margin-bottom: 0;            /* pegado a la fuente */
+}
+
+/* Párrafo de la fuente de figura */
+.fig-source {
+  font-size: 0.8em;
+  font-style: italic;
+  margin-top: 0.1rem;          /* casi sin espacio con el caption */
+  margin-bottom: 0.5rem;       /* espacio normal hacia lo que sigue */
+  color: inherit;              /* mismo color que el texto normal */
+}
+
+.fig-source p {
+  margin: 0;               /* quita margen interno del <p> */
+}
+
+.firebrick {
+  color: firebrick;
+}
+
+.highlight-blue {
+  color: #10199e;
+}
+
+/* Cuadros escritos en Markdown (| a | b |): Quarto solo les pone la clase
+   "table", mientras que a los de kable les agrega table-sm y table-striped.
+   Aquí reciben el mismo formato: celdas compactas y filas alternas. */
+main table.table:not(.table-sm) > :not(caption) > * > * {
+  padding: 0.25rem 0.25rem;
+}
+main table.table:not(.table-sm) > tbody > tr:nth-of-type(odd) > * {
+  --bs-table-color-type: var(--bs-table-striped-color);
+  --bs-table-bg-type: var(--bs-table-striped-bg);
+  --bs-table-accent-bg: var(--bs-table-striped-bg);
+}
+
+/* Fila bajo el cursor en los cuadros: azul suave, distinto del gris de las
+   filas alternas (striped), para que no se pierda. Cubre los cuadros de
+   kableExtra/Bootstrap, los de datos de ejemplo (DT) y los paginados. */
+:root {
+  --hover-cuadro: #d4e5fb;
+}
+body.quarto-dark {
+  --hover-cuadro: rgba(143, 184, 255, 0.22);
+}
+.table {
+  --bs-table-hover-bg: var(--hover-cuadro);
+}
+main table.table > tbody > tr:hover > *,
+.table-hover > tbody > tr:hover > *,
+.tabla-hover-custom tbody tr:hover > *,
+table.dataTable.hover > tbody > tr:hover > *,
+table.dataTable.display > tbody > tr:hover > *,
+.pagedtable tbody tr:hover > td {
+  --bs-table-bg-state: var(--hover-cuadro);
+  --bs-table-accent-bg: var(--hover-cuadro);
+  background-color: var(--hover-cuadro) !important;
+  box-shadow: inset 0 0 0 9999px var(--hover-cuadro) !important;
+}
+
+#TOC a,
+#TOC a:visited {
+  transition: background-color 0.15s ease, color 0.15s ease, border-left-color 0.15s ease;
+  border-left: 3px solid transparent;
+  border-radius: 6px;
+  padding: 0.10rem 0.35rem;
+  text-decoration: none;
+}
+
+#TOC a:hover,
+#TOC a:focus {
+  background-color: rgba(31, 120, 180, 0.10);
+  color: #1f78b4;
+  border-left-color: #1f78b4;
+  outline: none;
+}
+
+
+
+#quarto-sidebar .sidebar-item-container a,
+#quarto-sidebar .sidebar-item-container a:visited {
+  background: transparent !important;
+  background-color: transparent !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  text-decoration: none !important;
+}
+
+#quarto-sidebar .sidebar-item-text {
+  background: transparent !important;
+  background-color: transparent !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+#quarto-sidebar .sidebar-item-container a:hover,
+#quarto-sidebar .sidebar-item-container a:focus,
+#quarto-sidebar .sidebar-item-container a:hover .sidebar-item-text,
+#quarto-sidebar .sidebar-item-container a:focus .sidebar-item-text {
+  background: transparent !important;
+  background-color: transparent !important;
+  color: #87CEFA !important;
+  text-decoration: none !important;
+  outline: none !important;
+}
+
+#quarto-sidebar .sidebar-item-container a:hover .sidebar-item-text,
+#quarto-sidebar .sidebar-item-container a:focus .sidebar-item-text {
+  font-weight: inherit !important;
+}
+
+#quarto-sidebar .sidebar-item-container a:hover .sidebar-item-text * ,
+#quarto-sidebar .sidebar-item-container a:focus .sidebar-item-text * {
+  color: #87CEFA !important;
+}
+
+/* opcional: si querés un resaltado solo-tipográfico (sin fondo) */
+#quarto-sidebar .sidebar-item-container a:hover .sidebar-item-text,
+#quarto-sidebar .sidebar-item-container a:focus .sidebar-item-text {
+  text-decoration: underline !important;
+  text-decoration-color: #87CEFA !important;
+  text-decoration-thickness: 0.08em !important;
+  text-underline-offset: 0.16em !important;
+}
+
+.cover-license{
+  margin-top: 30px;
+  text-align: center;
+  opacity: 0.9;
+}
+
+.cover-license img{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.cover-citation{
+  margin-top: 25px;
+  padding-top: 10px;
+  border-top: 1px solid #cccccc;
+  text-align: center;
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
+
+.cover-hidden {
+  display: none;
+}
+
+/* ===== Código R plegable ===== */
+details.code-fold > summary {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--bs-primary, #2780e3);
+  cursor: pointer;
+}
+
+/* Cuadros: ancho según el contenido y centrados, sin barra de desplazamiento
+   cuando caben en la página. Los cuadros anchos siguen pudiendo desplazarse. */
+.quarto-float-tbl table.table,
+table.table.lightable-classic {
+  width: auto;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Enlace a videos en el HTML de un archivo (YouTube no se reproduce desde el disco) */
+a.video-enlace {
+  display: inline-block;
+  margin: 0.5rem 0 1rem;
+  padding: 0.6rem 1.2rem;
+  border: 1px solid #c4302b;
+  border-radius: 6px;
+  color: #c4302b;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+a.video-enlace:hover {
+  background: #c4302b;
+  color: #fff;
+}
+
+/* === Tabla de contenidos: jerarquía de partes y capítulos === */
+
+/* Sin división de palabras ni texto justificado en la tabla de contenidos */
+#TOC, #TOC li, #TOC a, .sidebar li, .sidebar .sidebar-item-text {
+  hyphens: manual !important;
+  -webkit-hyphens: manual !important;
+  text-align: left !important;
+}
+
+#TOC #toc-title {
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #6c757d;
+  margin-bottom: 0.75rem;
+}
+
+#TOC > ul > li > a {
+  font-size: 0.9rem;
+  line-height: 1.3;
+  padding-top: 0.2rem;
+  padding-bottom: 0.2rem;
+}
+
+/* Partes: rótulo en versalitas, separado del bloque anterior */
+#TOC > ul > li.toc-parte {
+  margin-top: 1.1rem;
+  padding-top: 0.6rem;
+  border-top: 1px solid #e5e7eb;
+}
+#TOC > ul > li.toc-parte > a {
+  font-size: 0.72rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #10199e !important;
+  line-height: 1.35;
+}
+
+/* Capítulos: número en una columna fija y sangría francesa */
+#TOC > ul > li.toc-capitulo > a {
+  display: flex;
+  gap: 0.35rem;
+}
+#TOC > ul > li.toc-capitulo > a > .header-section-number {
+  flex: 0 0 1.6rem;
+  color: #6c757d;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Páginas preliminares (prefacio, introducción) en cursiva discreta */
+#TOC > ul > li.toc-preliminar > a {
+  font-style: italic;
+}
+
+/* Subsecciones de un capítulo */
+#TOC ul ul a {
+  font-size: 0.82rem;
+  color: #555 !important;
+}
+
+/* Versión web de varias páginas: rótulos de las partes */
+.sidebar .sidebar-section > .sidebar-item-container > a > .menu-text,
+.sidebar .sidebar-section > .sidebar-item-container > .sidebar-item-text {
+  font-size: 0.74rem !important;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #10199e !important;
+}
+
+/* === Portada === */
+
+.portada-titulo-oculto > h1 {
+  position: absolute !important;
+  width: 1px; height: 1px; overflow: hidden;
+  clip: rect(0 0 0 0); white-space: nowrap;
+}
+
+/* La portada llena la pantalla: la imagen toma el alto que dejan la banda y el
+   pie (unos 21rem) y el ancho sigue la proporción de la imagen (1.85), sin
+   pasar del espacio libre a la derecha del índice */
+.portada {
+  --reserva-portada: 21rem;
+  width: clamp(100%, calc((100vh - var(--reserva-portada)) * 1.85), calc(100vw - 28rem));
+  height: calc(100vh - 2.5rem);
+  min-height: 30rem;
+  margin: 0 0 2rem;
+  display: flex;
+  flex-direction: column;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 12px 32px rgba(11, 31, 77, 0.18);
+}
+.portada p { hyphens: manual; -webkit-hyphens: manual; }
+
+/* Banda del título: texto a la izquierda, autor abajo a la derecha */
+.portada-banda {
+  flex: 0 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 2rem;
+  background: linear-gradient(120deg, #081a40 0%, #10199e 60%, #1f6fb2 100%);
+  color: #ffffff;
+  padding: 1.8rem 2.2rem 1.6rem;
+}
+.portada-banda p { text-align: left; }
+.portada-sobre {
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  opacity: 0.8;
+  margin-bottom: 0.7rem !important;
+}
+.portada-titulo {
+  font-size: clamp(2rem, 3vw, 2.9rem);
+  line-height: 1.08;
+  font-weight: 700;
+  letter-spacing: -0.005em;
+  margin-bottom: 0.6rem !important;
+}
+.portada-subtitulo {
+  font-size: 1.05rem;
+  font-style: italic;
+  opacity: 0.9;
+  margin-bottom: 0 !important;
+}
+.portada-banda-autor { flex: 0 0 auto; }
+.portada-autor {
+  font-size: 1.05rem;
+  letter-spacing: 0.06em;
+  text-align: right !important;
+  padding-left: 1.2rem;
+  border-left: 2px solid rgba(255, 255, 255, 0.55);
+  margin-bottom: 0.1rem !important;
+}
+
+/* Imagen: su alto se ajusta para que toda la portada quepa en la pantalla */
+.portada-imagen {
+  margin: 0;
+  position: relative;
+  background: #ffffff;
+  flex: 1 1 0;
+  min-height: 0;
+}
+/* La banda y el pie ocupan unos 29rem; la imagen toma el resto de la pantalla
+   y, si no cabe completa, se achica sin recortarse */
+.portada-imagen img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.portada-imagen figcaption {
+  position: absolute;
+  right: 0.6rem;
+  bottom: 0.4rem;
+  font-size: 0.68rem;
+  color: #495057;
+  background: rgba(255, 255, 255, 0.8);
+  padding: 0.05rem 0.4rem;
+  border-radius: 3px;
+}
+
+/* Pie: logos, cómo citar y licencia en una sola franja */
+.portada-pie {
+  display: grid;
+  grid-template-columns: auto 1.4fr 1fr;
+  gap: 1.6rem;
+  align-items: start;
+  flex: 0 0 auto;
+  background: #f5f7fa;
+  border-top: 3px solid #10199e;
+  padding: 0.9rem 1.4rem;
+  font-size: 0.78rem;
+  line-height: 1.4;
+}
+.portada-pie p { text-align: left; margin-bottom: 0.2rem; }
+.portada-logos {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding-right: 1.4rem;
+  border-right: 1px solid #d5dbe3;
+  align-self: center;
+}
+.portada-logos img { height: 46px; width: auto; }
+.portada-ficha-titulo {
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #10199e;
+  margin-bottom: 0.15rem !important;
+}
+.portada-cc {
+  height: 18px; vertical-align: middle; margin-right: 0.25rem;
+  position: relative; transform-origin: left bottom;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+/* Al pasar el mouse, la insignia de licencia se agranda; vuelve sola al salir */
+.portada-cc:hover {
+  transform: scale(3.5); z-index: 5;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+}
+
+body.quarto-dark .portada-pie { background: #1f2430; border-top-color: #6c8cff; }
+body.quarto-dark .portada-logos { border-right-color: #3a4050; }
+
+@media (max-width: 900px) {
+  .portada { width: 100%; height: auto; min-height: 0; }
+  .portada-imagen { flex: 0 0 auto; }
+  .portada-banda { flex-direction: column; align-items: flex-start; gap: 1rem; padding: 1.5rem 1.4rem; }
+  .portada-autor { text-align: left !important; }
+  .portada-imagen img { height: auto; }
+  .portada-pie { grid-template-columns: 1fr; gap: 0.9rem; }
+  .portada-logos { border-right: none; padding-right: 0; justify-content: center; }
+}
+
+/* Pregunta al lector, al inicio de una sección (ver GUIA_ESTILO.md, sección 8) */
+.pregunta {
+  margin: 1.2rem 0 1.4rem;
+  padding: 0.9rem 1.1rem 0.9rem 3.2rem;
+  position: relative;
+  border-left: 4px solid #1C6BA0;
+  background: rgba(28, 107, 160, 0.07);
+  border-radius: 0 0.4rem 0.4rem 0;
+  font-size: 1.08em;
+  font-weight: 600;
+  text-align: left;
+  hyphens: manual;
+}
+.pregunta::before {
+  content: "?";
+  position: absolute; left: 0.9rem; top: 50%; transform: translateY(-50%);
+  width: 1.7rem; height: 1.7rem; line-height: 1.7rem; text-align: center;
+  border-radius: 50%; background: #1C6BA0; color: #fff; font-weight: 700;
+}
+.pregunta p { margin: 0; }
+
+/* === Datos de los ejemplos: botón de descarga y vista paginada (R/ver_datos.R) === */
+.datos-ejemplo { margin: 0.6rem 0 1.2rem; }
+.datos-ejemplo a.boton-datos {
+  display: inline-block;
+  margin-bottom: 0.5rem;
+  padding: 0.3rem 0.8rem;
+  border: 1px solid #10199e;
+  border-radius: 6px;
+  color: #10199e;
+  font-size: 0.9rem;
+  text-decoration: none;
+}
+.datos-ejemplo a.boton-datos code { color: inherit; background: transparent; padding: 0; }
+.datos-ejemplo a.boton-datos:hover { background: #10199e; color: #fff; }
+.datos-ejemplo .dataTables_wrapper { font-size: 0.85rem; }
+.datos-ejemplo table.dataTable td,
+.datos-ejemplo table.dataTable th { text-align: center !important; }
+
+/* === Capítulo actual en la tabla de contenidos === */
+/* Libro web de varias páginas: Quarto marca el enlace con .active, pero el
+   color gris de .sidebar-item-text lo tapaba. */
+#quarto-sidebar .sidebar-item-container a.active .sidebar-item-text,
+#quarto-sidebar .sidebar-item-container a.active .menu-text,
+#quarto-sidebar .sidebar-item-container a.active .chapter-number,
+#quarto-sidebar .sidebar-item-container a.active .chapter-title {
+  color: #10199e !important;
+  font-weight: 700 !important;
+}
+#quarto-sidebar .sidebar-item-container a.active {
+  border-left: 3px solid #10199e !important;
+  padding-left: 0.4rem !important;
+  background-color: rgba(16, 25, 158, 0.07) !important;
+}
+/* HTML de un solo archivo: assets/js/paginas.html marca el capítulo visible */
+#TOC > ul > li.toc-actual > a {
+  color: #10199e !important;
+  font-weight: 700 !important;
+  background-color: rgba(16, 25, 158, 0.07);
+  border-left-color: #10199e !important;
+}
+#TOC > ul > li.toc-actual > a > .header-section-number { color: #10199e; }
+
+/* === Modo oscuro: el azul oscuro del libro no se lee sobre fondo negro === */
+body.quarto-dark .sidebar-title,
+body.quarto-dark .highlight-blue,
+body.quarto-dark .portada-ficha-titulo,
+body.quarto-dark #TOC > ul > li.toc-parte > a,
+body.quarto-dark .sidebar .sidebar-section > .sidebar-item-container > .sidebar-item-text,
+body.quarto-dark .sidebar nav[role=doc-toc] ul > li > ul > li > a.active,
+body.quarto-dark #quarto-sidebar .sidebar-item-container a.active .sidebar-item-text,
+body.quarto-dark #quarto-sidebar .sidebar-item-container a.active .menu-text,
+body.quarto-dark #quarto-sidebar .sidebar-item-container a.active .chapter-number,
+body.quarto-dark #quarto-sidebar .sidebar-item-container a.active .chapter-title,
+body.quarto-dark #TOC > ul > li.toc-actual > a,
+body.quarto-dark #TOC > ul > li.toc-actual > a > .header-section-number,
+body.quarto-dark #toc-capitulo a:hover,
+body.quarto-dark #toc-capitulo a.activo,
+body.quarto-dark .datos-ejemplo a.boton-datos {
+  color: #8fb8ff !important;
+}
+body.quarto-dark #quarto-sidebar .sidebar-item-container a.active,
+body.quarto-dark #TOC > ul > li.toc-actual > a,
+body.quarto-dark #toc-capitulo a.activo {
+  border-left-color: #8fb8ff !important;
+  background-color: rgba(143, 184, 255, 0.12) !important;
+}
+body.quarto-dark #toc-capitulo a { color: #c3c7cf; border-left-color: #444; }
+body.quarto-dark .datos-ejemplo a.boton-datos { border-color: #8fb8ff; }
+body.quarto-dark .datos-ejemplo a.boton-datos:hover { background: #8fb8ff; color: #111 !important; }
+
+/* Subtítulos de cuarto nivel (por ejemplo, 35.6.1.1): se destacan del texto
+   con color y una línea a la izquierda para que no se confundan con un párrafo. */
+main h4 {
+  color: #003366;
+  font-weight: 600;
+  border-left: 3px solid #003366;
+  padding-left: 0.5rem;
+  margin-top: 1.6rem;
+}
+body.quarto-dark main h4 {
+  color: #8fb8ff;
+  border-left-color: #8fb8ff;
+}
