@@ -86,7 +86,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   "copy-button": false,
   "collapse-after": 3,
   "panel-placement": "start",
-  "type": "textbox",
+  "type": "overlay",
   "limit": 50,
   "keyboard-shortcut": [
     "f",
@@ -3371,4 +3371,180 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 <script src="site_libs/quarto-html/zenscroll-min.js"></script>
+<!--
+  Libro web de varias páginas: le da la misma apariencia que el HTML de un
+  solo archivo (tabla de contenidos, índice del capítulo, botones de arriba a
+  la derecha y navegación entre capítulos). Lo inserta _quarto.yml después de
+  accesibilidad.html. El HTML de un solo archivo no lo usa (publicar.R define
+  sus propios include-after-body).
+-->
+<style>
+  /* --- Barra lateral: solo la tabla de contenidos --- */
+  #quarto-sidebar .sidebar-header,
+  #quarto-sidebar .sidebar-search { display: none !important; }
+  #quarto-sidebar .sidebar-menu-container::before {
+    content: "Tabla de contenidos";
+    display: block; margin: 0 0 0.75rem;
+    font-size: 0.8rem; font-weight: 700; letter-spacing: 0.08em;
+    text-transform: uppercase; color: #6c757d;
+  }
+  #quarto-sidebar .sidebar-item-container a,
+  #quarto-sidebar .sidebar-item-text,
+  #quarto-sidebar .menu-text { color: #212529 !important; font-weight: 400 !important; }
+  #quarto-sidebar .menu-text { font-size: 0.9rem !important; line-height: 1.3; }
+  #quarto-sidebar .sidebar-item { margin: 0; }
+  #quarto-sidebar .sidebar-menu-container { padding-top: 0.4rem; }
+  #quarto-sidebar.sidebar-navigation { padding-top: 0.6rem !important; }
+  #quarto-sidebar .sidebar-item-container a { padding: 0.2rem 0.35rem !important; border-left: 3px solid transparent !important; border-radius: 6px !important; display: block; }
+
+  /* La portada no se repite en la lista; preliminares en cursiva */
+  #quarto-sidebar .sidebar-menu-container > ul > li.sidebar-item:first-child { display: none; }
+  #quarto-sidebar .sidebar-menu-container > ul > li.sidebar-item:not(.sidebar-item-section) .menu-text { font-style: italic; }
+
+  /* Partes: rótulo en versalitas azul, separado del bloque anterior, siempre abiertas */
+  #quarto-sidebar li.sidebar-item-section { margin-top: 1.1rem; padding-top: 0.6rem; border-top: 1px solid #e5e7eb; }
+  #quarto-sidebar li.sidebar-item-section > .sidebar-item-container > a.sidebar-item-text .menu-text {
+    font-size: 0.72rem !important; font-weight: 700 !important; letter-spacing: 0.06em;
+    text-transform: uppercase; color: #10199e !important; line-height: 1.35;
+  }
+  #quarto-sidebar li.sidebar-item-section > .sidebar-item-container > a.sidebar-item-text { pointer-events: none; }
+  #quarto-sidebar .sidebar-item-toggle { display: none !important; }
+  #quarto-sidebar ul.sidebar-section { display: block !important; height: auto !important; padding-left: 0 !important; margin-top: 0.3rem; }
+
+  /* Capítulos: número en una columna fija y sangría francesa */
+  #quarto-sidebar ul.sidebar-section .menu-text { display: flex; }
+  #quarto-sidebar ul.sidebar-section .chapter-number { flex: 0 0 1.6rem; color: #6c757d; font-variant-numeric: tabular-nums; }
+  #quarto-sidebar ul.sidebar-section .chapter-title { flex: 1 1 auto; margin-left: 0.35rem; }
+
+  /* Capítulo actual y paso del ratón */
+  #quarto-sidebar .sidebar-item-container a.active {
+    background-color: rgba(16, 25, 158, 0.07) !important; border-left-color: #10199e !important;
+  }
+  #quarto-sidebar .sidebar-item-container a.active .menu-text,
+  #quarto-sidebar .sidebar-item-container a.active .chapter-number,
+  #quarto-sidebar .sidebar-item-container a.active .chapter-title { color: #10199e !important; font-weight: 700 !important; }
+  #quarto-sidebar .sidebar-item-container a:hover:not(.active) {
+    background-color: rgba(31, 120, 180, 0.10) !important; border-left-color: #1f78b4 !important;
+  }
+  #quarto-sidebar .sidebar-item-container a:hover .sidebar-item-text,
+  #quarto-sidebar .sidebar-item-container a:hover .menu-text { text-decoration: none !important; }
+
+  /* --- Índice del capítulo, a la derecha --- */
+  #quarto-margin-sidebar #TOC { font-size: 0.82rem; line-height: 1.3; }
+  #quarto-margin-sidebar #TOC #toc-title { font-size: 0; margin: 0; padding-top: 0.6rem; height: 3.1rem; border: 0; }
+  #quarto-margin-sidebar #TOC #toc-title::after {
+    content: "En este capítulo"; font-size: 0.75rem; font-weight: 700;
+    letter-spacing: 0.08em; text-transform: uppercase; color: #6c757d;
+  }
+  #quarto-margin-sidebar #TOC ul { list-style: none; padding-left: 0; margin: 0; border: 0; }
+  #quarto-margin-sidebar #TOC ul ul { padding-left: 0.8rem; display: block !important; }
+  #quarto-margin-sidebar #TOC a, #quarto-margin-sidebar #TOC a:visited {
+    display: block; font-size: 0.82rem; padding: 0.15rem 0.4rem !important; margin: 0;
+    border-left: 2px solid #e5e7eb !important; border-radius: 0; color: #555 !important; font-weight: 400;
+    background: transparent;
+  }
+  #quarto-margin-sidebar #TOC a:hover { color: #10199e !important; }
+  #quarto-margin-sidebar #TOC a.active {
+    color: #10199e !important; font-weight: 700; border-left-color: #10199e !important;
+    background: rgba(16, 25, 158, 0.06);
+  }
+  #quarto-margin-sidebar #TOC .header-section-number { color: #8a8f98; margin-right: 0.25rem; }
+  body:has(.portada) #quarto-margin-sidebar #TOC { display: none; }
+  /* Que el índice no se pliegue en un menú flotante por los botones de arriba */
+  #quarto-toc-toggle { display: none !important; }
+  /* Al bajar, el índice se queda debajo de los botones de arriba a la derecha */
+  @media (min-width: 992px) { #quarto-margin-sidebar { top: 3.4rem !important; max-height: calc(100vh - 4rem) !important; } }
+  #quarto-margin-sidebar #TOC #toc-title { height: auto !important; padding-top: 0 !important; margin-bottom: 0.6rem !important; }
+  #quarto-margin-sidebar > * { opacity: 1 !important; pointer-events: auto !important; }
+
+  /* --- Sin migas de pan arriba del título (el HTML de un archivo no las tiene) --- */
+  @media (min-width: 992px) {
+    #title-block-header .quarto-page-breadcrumbs, .quarto-title-breadcrumbs { display: none !important; }
+  }
+
+  /* --- Navegación entre capítulos: «← Anterior» y «Siguiente →» --- */
+  .page-navigation {
+    display: flex; justify-content: space-between; gap: 1rem;
+    margin: 3rem 0 1rem; padding-top: 1rem; border-top: 1px solid #dee2e6; font-size: 0.95rem;
+  }
+  .page-navigation .nav-page { max-width: 48%; }
+  .page-navigation .nav-page-next { margin-left: auto; text-align: right; }
+  .page-navigation .nav-page a { text-decoration: none; display: block !important; }
+  .page-navigation .nav-page i.bi { display: none; }
+  .page-navigation .nav-page .nav-page-text { font-size: 0.95rem !important; color: var(--bs-link-color, #2780e3); }
+  .page-navigation small.nav-rotulo { display: block; color: #6c757d; font-size: 0.85rem; margin-bottom: 0.15rem; }
+
+  /* --- Celular: el pie de página se acomoda en varias líneas (antes ensanchaba la página) --- */
+  @media (max-width: 767.98px) {
+    footer.footer .nav-footer { flex-direction: column; gap: 0.3rem; }
+    /* Barra de arriba: solo el botón del índice; los botones quedan a la derecha */
+    .quarto-secondary-nav .quarto-page-breadcrumbs,
+    .quarto-secondary-nav .quarto-navigation-tool,
+    .quarto-secondary-nav #quarto-search { display: none !important; }
+    .quarto-secondary-nav { min-height: 3.2rem; }
+    #quarto-header .aa-DetachedSearchButton, #quarto-header .quarto-navigation-tool { visibility: hidden !important; }
+    footer.footer .nav-footer-left, footer.footer .nav-footer-right {
+      flex: 1 1 auto !important; white-space: normal !important; text-align: center !important; margin-left: 0 !important;
+    }
+  }
+
+  /* --- Modo oscuro --- */
+  body.quarto-dark #quarto-sidebar .sidebar-item-container a,
+  body.quarto-dark #quarto-sidebar .sidebar-item-text,
+  body.quarto-dark #quarto-sidebar .menu-text,
+  body.quarto-dark #quarto-sidebar .chapter-title { color: #dee2e6 !important; }
+  body.quarto-dark #quarto-sidebar .chapter-number,
+  body.quarto-dark #quarto-margin-sidebar #TOC a { color: #9aa0a6 !important; }
+  body.quarto-dark #quarto-sidebar li.sidebar-item-section > .sidebar-item-container > a.sidebar-item-text .menu-text,
+  body.quarto-dark #quarto-sidebar .sidebar-item-container a.active .menu-text,
+  body.quarto-dark #quarto-sidebar .sidebar-item-container a.active .chapter-number,
+  body.quarto-dark #quarto-sidebar .sidebar-item-container a.active .chapter-title,
+  body.quarto-dark #quarto-margin-sidebar #TOC a.active,
+  body.quarto-dark #quarto-margin-sidebar #TOC a:hover { color: #8fb8ff !important; }
+  body.quarto-dark #quarto-sidebar li.sidebar-item-section,
+  body.quarto-dark #quarto-margin-sidebar #TOC a { border-color: #3a3f47 !important; }
+  body.quarto-dark #quarto-margin-sidebar #TOC a.active,
+  body.quarto-dark #quarto-sidebar .sidebar-item-container a.active { border-left-color: #8fb8ff !important; background: rgba(143, 184, 255, 0.10) !important; }
+</style>
+<script>
+(function () {
+  function listo(fn) {
+    if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", fn);
+    else fn();
+  }
+  listo(function () {
+    var barra = document.getElementById("barra-lectura");
+    if (barra) {
+      // Lupa a la izquierda de «Aa»: abre la búsqueda de Quarto
+      if (!document.getElementById("boton-busqueda")) {
+        var lupa = document.createElement("button");
+        lupa.type = "button";
+        lupa.id = "boton-busqueda";
+        lupa.setAttribute("aria-label", "Buscar en el libro");
+        lupa.title = "Buscar en el libro";
+        lupa.innerHTML = '<svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M11.74 10.34a6.5 6.5 0 1 0-1.4 1.4l3.85 3.85a1 1 0 0 0 1.4-1.4zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/></svg>';
+        lupa.addEventListener("click", function () {
+          var b = document.querySelector("#quarto-search .aa-DetachedSearchButton, #quarto-search button");
+          if (b) b.click();
+        });
+        barra.insertBefore(lupa, barra.firstChild);
+      }
+      // Modo oscuro a la derecha de «Aa», como en el HTML de un archivo
+      var interruptor = document.querySelector("#quarto-sidebar .quarto-color-scheme-toggle");
+      if (interruptor) {
+        interruptor.classList.remove("px-1", "quarto-navigation-tool");
+        interruptor.setAttribute("aria-label", "Cambiar entre modo claro y oscuro");
+        interruptor.title = "Modo claro u oscuro";
+        barra.appendChild(interruptor);
+      }
+    }
+    // Rótulos de la navegación entre capítulos
+    var ant = document.querySelector(".page-navigation .nav-page-previous a");
+    var sig = document.querySelector(".page-navigation .nav-page-next a");
+    if (ant && !ant.querySelector(".nav-rotulo")) ant.insertAdjacentHTML("afterbegin", '<small class="nav-rotulo">&larr; Anterior</small>');
+    if (sig && !sig.querySelector(".nav-rotulo")) sig.insertAdjacentHTML("afterbegin", '<small class="nav-rotulo">Siguiente &rarr;</small>');
+  });
+})();
+</script>
+
 </body></html>
