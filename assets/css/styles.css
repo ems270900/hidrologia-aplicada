@@ -812,15 +812,30 @@ a.video-enlace:hover {
   opacity: 0.9;
   margin-bottom: 0 !important;
 }
-.portada-banda-autor { flex: 0 0 auto; }
+.portada-banda-autor {
+  flex: 0 0 auto;
+  padding-left: 1.2rem;
+  border-left: 2px solid rgba(255, 255, 255, 0.55);
+}
 .portada-autor {
   font-size: 1.05rem;
   letter-spacing: 0.06em;
   text-align: right !important;
-  padding-left: 1.2rem;
-  border-left: 2px solid rgba(255, 255, 255, 0.55);
   margin-bottom: 0.1rem !important;
 }
+.portada-correo {
+  font-size: 0.88rem;
+  letter-spacing: 0.04em;
+  text-align: right !important;
+  margin-bottom: 0 !important;
+}
+.portada-correo a,
+.portada-correo a:visited {
+  color: inherit !important;
+  opacity: 0.9;
+  text-decoration: none;
+}
+.portada-correo a:hover { text-decoration: underline; opacity: 1; }
 
 /* Imagen: su alto se ajusta para que toda la portada quepa en la pantalla */
 .portada-imagen {
@@ -898,7 +913,7 @@ body.quarto-dark .portada-logos { border-right-color: #3a4050; }
   .portada { width: 100%; height: auto; min-height: 0; }
   .portada-imagen { flex: 0 0 auto; }
   .portada-banda { flex-direction: column; align-items: flex-start; gap: 1rem; padding: 1.5rem 1.4rem; }
-  .portada-autor { text-align: left !important; }
+  .portada-autor, .portada-correo { text-align: left !important; }
   .portada-imagen img { height: auto; }
   .portada-pie { grid-template-columns: 1fr; gap: 0.9rem; }
   .portada-logos { border-right: none; padding-right: 0; justify-content: center; }
