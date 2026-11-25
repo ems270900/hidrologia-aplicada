@@ -1334,7 +1334,7 @@ En la práctica
     position: fixed; top: 0.6rem; right: 1rem; z-index: 1060;
     display: flex; gap: 0.35rem; align-items: center;
   }
-  #barra-lectura > button, #barra-lectura > .quarto-color-scheme-toggle {
+  #barra-lectura > button, #barra-lectura > .quarto-color-scheme-toggle, #barra-lectura > #boton-inicio {
     position: static; display: inline-flex; align-items: center; justify-content: center;
     min-width: 2.3rem; height: 2.3rem; padding: 0 0.55rem;
     background: var(--bs-body-bg, #fff); color: var(--bs-body-color, #212529);
@@ -1342,7 +1342,7 @@ En la práctica
     font: 600 0.95rem/1 system-ui, sans-serif; cursor: pointer; text-decoration: none;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
   }
-  #barra-lectura > button:hover, #barra-lectura > button[aria-expanded="true"] {
+  #barra-lectura > button:hover, #barra-lectura > button[aria-expanded="true"], #barra-lectura > #boton-inicio:hover {
     border-color: #1C6BA0; color: #1C6BA0;
   }
   #barra-lectura > button:focus-visible, .panel-lectura button:focus-visible,
@@ -1458,6 +1458,28 @@ document.addEventListener("DOMContentLoaded", function () {
   html += '<button type="button" id="boton-acceso" aria-label="Opciones de lectura: tamaño de letra, contraste y fuente" aria-expanded="false" aria-controls="panel-acceso" title="Tamaño de letra, contraste y fuente">Aa</button>';
   barra.innerHTML = html;
   document.body.appendChild(barra);
+
+  // --- Botón de inicio (casita), a la izquierda: vuelve a la portada ---
+  // Libro web: index.html. Un solo archivo: la página de la portada.
+  (function () {
+    var casa = document.createElement("a");
+    casa.id = "boton-inicio";
+    casa.setAttribute("role", "button");
+    casa.setAttribute("aria-label", "Ir a la portada");
+    casa.title = "Ir a la portada";
+    var esWeb = !!document.querySelector("#quarto-sidebar .sidebar-menu-container");
+    if (esWeb) {
+      casa.href = "./index.html";
+    } else {
+      var portada = document.querySelector(".portada");
+      var sec = portada && portada.closest("section.level1");
+      casa.href = "#" + (sec && sec.id ? sec.id : "");
+    }
+    casa.innerHTML = '<svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L2 8.207V13.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V8.207l.646.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293zM13 7.207V13.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V7.207l5-5z"/></svg>';
+    barra.insertBefore(casa, barra.firstChild);
+    // El índice del capítulo se acomoda al ancho de la barra al redimensionar
+    setTimeout(function () { window.dispatchEvent(new Event("resize")); }, 0);
+  })();
 
   // El interruptor de modo oscuro de Quarto pasa a la misma barra, que está
   // fija arriba a la derecha y se ve en todos los capítulos. En el libro de un
@@ -2485,7 +2507,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
           var b = document.querySelector("#quarto-search .aa-DetachedSearchButton, #quarto-search button");
           if (b) b.click();
         });
-        barra.insertBefore(lupa, barra.firstChild);
+        var casa = document.getElementById("boton-inicio");
+        barra.insertBefore(lupa, casa ? casa.nextSibling : barra.firstChild);
       }
       // Modo oscuro a la derecha de «Aa», como en el HTML de un archivo
       var interruptor = document.querySelector("#quarto-sidebar .quarto-color-scheme-toggle");
