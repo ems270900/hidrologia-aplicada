@@ -93,7 +93,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "/",
     "s"
   ],
-  "show-item-context": false,
   "language": {
     "search-no-results-text": "Sin resultados",
     "search-matching-documents-text": "documentos encontrados",
@@ -172,21 +171,17 @@ window.Quarto = {
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Hidrología Aplicada a la Ingeniería Civil</a> 
-        <div class="sidebar-tools-main">
+        <div class="sidebar-tools-main tools-wide">
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Alternar modo oscuro"><i class="bi"></i></a>
   <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Alternar modo lector">
   <div class="quarto-reader-toggle-btn">
   <i class="bi"></i>
   </div>
 </a>
+    <div id="quarto-search" class="quarto-navigation-tool px-1" title="Buscar"></div>
 </div>
     </div>
       </div>
-        <div class="mt-2 flex-shrink-0 align-items-center">
-        <div class="sidebar-search">
-        <div id="quarto-search" class="" title="Buscar"></div>
-        </div>
-        </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
@@ -880,7 +875,7 @@ Cuidado
 <p>HEC-HMS es el programa del Cuerpo de Ingenieros del Ejército de Estados Unidos (USACE) para simular la respuesta de una cuenca a la lluvia. Es gratuito y es el más usado en Centroamérica para crecientes de diseño de puentes, alcantarillas mayores y embalses. Representa la cuenca como una red de elementos: subcuencas, tramos de río, uniones y embalses. En cada subcuenca calcula tres procesos, y en cada tramo calcula el tránsito de la creciente <span class="citation" data-cites="usace2000hechmstech HECHMS2023">(U.S. Army Corps of Engineers 2000, 2023)</span>:</p>
 <ol type="1">
 <li><strong>Pérdidas.</strong> Separan la lluvia efectiva de la lluvia total. Los métodos más usados son el número de curva del SCS (<a href="21-Transición hacia la escorrentía superficial.html#sec-trans-numero-curva" class="quarto-xref"><span>Sección 21.5</span></a>), la pérdida inicial y constante, Green y Ampt (<a href="20-Infiltración y almacenamiento en el suelo.html#sec-infil-modelos" class="quarto-xref"><span>Sección 20.4</span></a>) y, para simulación continua, la contabilidad de humedad del suelo.</li>
-<li><strong>Transformación.</strong> Convierte la lluvia efectiva en escorrentía directa en la salida de la subcuenca: el hidrograma unitario del SCS (<a href="28-hidrograma_unitario.html#sec-hu-scs" class="quarto-xref"><span>Sección 28.7.2</span></a>), el de Snyder (<a href="28-hidrograma_unitario.html#sec-hu-snyder" class="quarto-xref"><span>Sección 28.7.1</span></a>), el de Clark o la onda cinemática.</li>
+<li><strong>Transformación.</strong> Convierte la lluvia efectiva en escorrentía directa en la salida de la subcuenca: el hidrograma unitario del SCS (<a href="28-hidrograma_unitario.html#sec-hu-scs" class="quarto-xref"><span>Sección 28.8.2</span></a>), el de Snyder (<a href="28-hidrograma_unitario.html#sec-hu-snyder" class="quarto-xref"><span>Sección 28.8.1</span></a>), el de Clark o la onda cinemática.</li>
 <li><strong>Flujo base.</strong> Suma el aporte subterráneo: constante, con una recesión exponencial (<a href="25-agua_subterranea.html#sec-sub-recesion" class="quarto-xref"><span>Sección 25.5.2</span></a>) o con depósitos lineales.</li>
 <li><strong>Tránsito en los cauces.</strong> Traslada y atenúa los hidrogramas de las subcuencas aguas arriba: Muskingum, Muskingum-Cunge, retardo puro o Puls modificado, que se estudian en los capítulos de tránsito de crecientes.</li>
 </ol>
@@ -910,8 +905,8 @@ Ejemplo: calibración evento por evento de un modelo de número de curva e hidro
 <ol type="1">
 <li>Retención máxima: <span class="math inline">\(S = 25\,400/72.6 - 254 = 95.8\)</span> mm. Abstracción inicial: <span class="math inline">\(I_a = 0.2 \times 95.8 = 19.2\)</span> mm.</li>
 <li>La lluvia acumulada del evento es de 57.9 mm. La lámina efectiva total es <span class="math inline">\(P_e = (57.9 - 19.2)^2/(57.9 - 19.2 + 95.8) = 11.2\)</span> mm. La lluvia efectiva de cada hora es la diferencia entre la lámina efectiva acumulada al final y al inicio de la hora.</li>
-<li>Hidrograma unitario de 1 h: con <span class="math inline">\(t_{\text{lag}} = 1.87\)</span> h, el tiempo al pico es <span class="math inline">\(T_p = 0.5 + 1.87 = 2.37\)</span> h y el pico es <span class="math inline">\(q_p = 0.208 \times 318/2.37 = 27.9\)</span> m³/s por mm (<a href="28-hidrograma_unitario.html#eq-hu-scs" class="quarto-xref">Ecuación&nbsp;<span>28.15</span></a>).</li>
-<li>El caudal simulado es el flujo base de 34.5 m³/s más la convolución de la lluvia efectiva con el hidrograma unitario (<a href="28-hidrograma_unitario.html#eq-hu-convolucion" class="quarto-xref">Ecuación&nbsp;<span>28.8</span></a>).</li>
+<li>Hidrograma unitario de 1 h: con <span class="math inline">\(t_{\text{lag}} = 1.87\)</span> h, el tiempo al pico es <span class="math inline">\(T_p = 0.5 + 1.87 = 2.37\)</span> h y el pico es <span class="math inline">\(q_p = 0.208 \times 318/2.37 = 27.9\)</span> m³/s por mm (<a href="28-hidrograma_unitario.html#eq-hu-scs" class="quarto-xref">Ecuación&nbsp;<span>28.16</span></a>).</li>
+<li>El caudal simulado es el flujo base de 34.5 m³/s más la convolución de la lluvia efectiva con el hidrograma unitario (<a href="28-hidrograma_unitario.html#eq-hu-convolucion" class="quarto-xref">Ecuación&nbsp;<span>28.9</span></a>).</li>
 </ol>
 <p>La búsqueda del mejor <span class="math inline">\(CN\)</span> y <span class="math inline">\(t_{\text{lag}}\)</span> para cada evento se hace con el código.</p>
 <p><strong>Pseudocódigo</strong></p>
@@ -1070,7 +1065,7 @@ Cuadro&nbsp;30.2: Parámetros calibrados en cada creciente.
 </div>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div id="fig-mlr-evento" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" alt="Cinco paneles, uno por evento, con el hidrograma observado en gris y el simulado en azul. En los eventos 1 a 3 el simulado sigue de cerca al observado; en el 4 el pico simulado queda en 238 m³/s contra 314 observado; en el 5 el simulado casi no responde">
+<div id="fig-mlr-evento" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Cinco paneles, uno por evento, con el hidrograma observado en gris y el simulado en azul. En los eventos 1 a 3 el simulado sigue de cerca al observado; en el 4 el pico simulado queda en 238 m³/s contra 314 observado; en el 5 el simulado casi no responde" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-mlr-evento-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <a href="30-modelos_lluvia_escorrentia_files/figure-html/fig-mlr-evento-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Figura&nbsp;30.1: Crecientes observadas y simuladas con los parámetros de cada evento."><img src="30-modelos_lluvia_escorrentia_files/figure-html/fig-mlr-evento-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:70.0%" alt="Cinco paneles, uno por evento, con el hidrograma observado en gris y el simulado en azul. En los eventos 1 a 3 el simulado sigue de cerca al observado; en el 4 el pico simulado queda en 238 m³/s contra 314 observado; en el 5 el simulado casi no responde"></a>
@@ -1093,7 +1088,7 @@ Figura&nbsp;30.1: Crecientes observadas y simuladas con los parámetros de cada 
 <p>GR4J es un modelo conceptual diario de cuatro parámetros, desarrollado en Francia y probado con cientos de cuencas de varios países para tener el menor número de parámetros que diera buenos resultados en cuencas muy distintas <span class="citation" data-cites="perrin2003improvement">(Perrin, Michel, y Andréassian 2003)</span>. Por eso es un buen punto de partida para aprender, y se usa como referencia para comparar modelos más complejos. En R está programado en el paquete airGR, del instituto francés INRAE, que trae la simulación (<code>RunModel_GR4J()</code>), la calibración automática (<code>Calibration_Michel()</code>) y otros modelos de la misma familia <span class="citation" data-cites="coron2017airgr">(Coron et&nbsp;al. 2017)</span>. Aquí se programa a mano, para entender qué hace cada depósito, y se compara con la versión del paquete. La <a href="#fig-mlr-gr4j" class="quarto-xref">Figura&nbsp;<span>30.2</span></a> muestra su estructura.</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div id="fig-mlr-gr4j" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" alt="Diagrama de flujo. La lluvia P y la evapotranspiración E se compensan; la lluvia neta se reparte entre el depósito de producción, que pierde agua por evapotranspiración y percola, y la escorrentía directa. La suma se divide en 90 % hacia el hidrograma unitario 1 y el depósito de tránsito, y 10 % hacia el hidrograma unitario 2. Un intercambio subterráneo F actúa sobre las dos ramas, y las dos salidas se suman en el caudal Q">
+<div id="fig-mlr-gr4j" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Diagrama de flujo. La lluvia P y la evapotranspiración E se compensan; la lluvia neta se reparte entre el depósito de producción, que pierde agua por evapotranspiración y percola, y la escorrentía directa. La suma se divide en 90 % hacia el hidrograma unitario 1 y el depósito de tránsito, y 10 % hacia el hidrograma unitario 2. Un intercambio subterráneo F actúa sobre las dos ramas, y las dos salidas se suman en el caudal Q" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-mlr-gr4j-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <a href="30-modelos_lluvia_escorrentia_files/figure-html/fig-mlr-gr4j-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Figura&nbsp;30.2: Estructura del modelo GR4J."><img src="30-modelos_lluvia_escorrentia_files/figure-html/fig-mlr-gr4j-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:70.0%" alt="Diagrama de flujo. La lluvia P y la evapotranspiración E se compensan; la lluvia neta se reparte entre el depósito de producción, que pierde agua por evapotranspiración y percola, y la escorrentía directa. La suma se divide en 90 % hacia el hidrograma unitario 1 y el depósito de tránsito, y 10 % hacia el hidrograma unitario 2. Un intercambio subterráneo F actúa sobre las dos ramas, y las dos salidas se suman en el caudal Q"></a>
@@ -1250,7 +1245,7 @@ validacion  0.6269398 0.6883967</code></pre>
 </div>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div id="fig-mlr-gr4j-validacion" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" alt="Hidrograma diario de 2005 con el caudal observado en gris y el simulado en azul. El simulado sigue la subida del invierno y las crecidas principales, con picos algo menores en algunas crecidas y una recesión de verano parecida a la observada">
+<div id="fig-mlr-gr4j-validacion" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Hidrograma diario de 2005 con el caudal observado en gris y el simulado en azul. El simulado sigue la subida del invierno y las crecidas principales, con picos algo menores en algunas crecidas y una recesión de verano parecida a la observada" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-mlr-gr4j-validacion-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <a href="30-modelos_lluvia_escorrentia_files/figure-html/fig-mlr-gr4j-validacion-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="Figura&nbsp;30.3: Caudal observado y simulado con GR4J en 2005, año del periodo de validación."><img src="30-modelos_lluvia_escorrentia_files/figure-html/fig-mlr-gr4j-validacion-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:70.0%" alt="Hidrograma diario de 2005 con el caudal observado en gris y el simulado en azul. El simulado sigue la subida del invierno y las crecidas principales, con picos algo menores en algunas crecidas y una recesión de verano parecida a la observada"></a>
@@ -1402,7 +1397,7 @@ Para profundizar
 <li>Para los caudales observados 5, 9, 40, 22, 14 y 8 m³/s y los simulados 6, 12, 31, 25, 13 y 7 m³/s, calcule a mano NSE, KGE y PBIAS. ¿Cuál de las tres métricas penaliza más el error en el pico?</li>
 <li>Demuestre que, si el caudal simulado es igual a la media observada todos los días, la NSE vale 0. ¿Cuánto vale el KGE en ese caso?</li>
 <li>Con el modelo de evento del ejemplo, calibre los eventos 1 a 3 juntos, con un solo <span class="math inline">\(CN\)</span> y un solo <span class="math inline">\(t_{\text{lag}}\)</span> que maximicen la suma de las NSE, y valide con los eventos 4 y 5. Compare con la calibración evento por evento.</li>
-<li>Cambie en el modelo de evento el flujo base constante por una recesión exponencial que sube hasta el caudal del punto C de la separación de pendiente variable (<a href="28-hidrograma_unitario.html#sec-hu-pendiente" class="quarto-xref"><span>Sección 28.2.2</span></a>). ¿Mejora el error de volumen?</li>
+<li>Cambie en el modelo de evento el flujo base constante por una recesión exponencial que sube hasta el caudal del punto C de la separación de pendiente variable (<a href="28-hidrograma_unitario.html#sec-hu-pendiente" class="quarto-xref"><span>Sección 28.2.3</span></a>). ¿Mejora el error de volumen?</li>
 <li>Con la función <code>gr4j()</code> del ejemplo, varíe uno a uno los cuatro parámetros calibrados en ±30 % y calcule la NSE de validación. ¿A qué parámetro es más sensible el modelo?</li>
 <li>Calibre GR4J con 2000–2009 y valide con 1990–1999. ¿Se mantienen las métricas? ¿Cambian mucho los parámetros?</li>
 <li>Agregue al bosque aleatorio del ejemplo el caudal simulado por GR4J como variable de entrada. ¿Mejora la validación? ¿Qué ventaja y qué riesgo tiene este modelo híbrido?</li>
@@ -1821,6 +1816,182 @@ document.addEventListener("DOMContentLoaded", function () {
     celdas.slice(1).forEach(function (c) { c.remove(); });
   });
 });
+</script>
+<!--
+  Libro web de varias páginas: le da la misma apariencia que el HTML de un
+  solo archivo (tabla de contenidos, índice del capítulo, botones de arriba a
+  la derecha y navegación entre capítulos). Lo inserta _quarto.yml después de
+  accesibilidad.html. El HTML de un solo archivo no lo usa (publicar.R define
+  sus propios include-after-body).
+-->
+<style>
+  /* --- Barra lateral: solo la tabla de contenidos --- */
+  #quarto-sidebar .sidebar-header,
+  #quarto-sidebar .sidebar-search { display: none !important; }
+  #quarto-sidebar .sidebar-menu-container::before {
+    content: "Tabla de contenidos";
+    display: block; margin: 0 0 0.75rem;
+    font-size: 0.8rem; font-weight: 700; letter-spacing: 0.08em;
+    text-transform: uppercase; color: #6c757d;
+  }
+  #quarto-sidebar .sidebar-item-container a,
+  #quarto-sidebar .sidebar-item-text,
+  #quarto-sidebar .menu-text { color: #212529 !important; font-weight: 400 !important; }
+  #quarto-sidebar .menu-text { font-size: 0.9rem !important; line-height: 1.3; }
+  #quarto-sidebar .sidebar-item { margin: 0; }
+  #quarto-sidebar .sidebar-menu-container { padding-top: 0.4rem; }
+  #quarto-sidebar.sidebar-navigation { padding-top: 0.6rem !important; }
+  #quarto-sidebar .sidebar-item-container a { padding: 0.2rem 0.35rem !important; border-left: 3px solid transparent !important; border-radius: 6px !important; display: block; }
+
+  /* La portada no se repite en la lista; preliminares en cursiva */
+  #quarto-sidebar .sidebar-menu-container > ul > li.sidebar-item:first-child { display: none; }
+  #quarto-sidebar .sidebar-menu-container > ul > li.sidebar-item:not(.sidebar-item-section) .menu-text { font-style: italic; }
+
+  /* Partes: rótulo en versalitas azul, separado del bloque anterior, siempre abiertas */
+  #quarto-sidebar li.sidebar-item-section { margin-top: 1.1rem; padding-top: 0.6rem; border-top: 1px solid #e5e7eb; }
+  #quarto-sidebar li.sidebar-item-section > .sidebar-item-container > a.sidebar-item-text .menu-text {
+    font-size: 0.72rem !important; font-weight: 700 !important; letter-spacing: 0.06em;
+    text-transform: uppercase; color: #10199e !important; line-height: 1.35;
+  }
+  #quarto-sidebar li.sidebar-item-section > .sidebar-item-container > a.sidebar-item-text { pointer-events: none; }
+  #quarto-sidebar .sidebar-item-toggle { display: none !important; }
+  #quarto-sidebar ul.sidebar-section { display: block !important; height: auto !important; padding-left: 0 !important; margin-top: 0.3rem; }
+
+  /* Capítulos: número en una columna fija y sangría francesa */
+  #quarto-sidebar ul.sidebar-section .menu-text { display: flex; }
+  #quarto-sidebar ul.sidebar-section .chapter-number { flex: 0 0 1.6rem; color: #6c757d; font-variant-numeric: tabular-nums; }
+  #quarto-sidebar ul.sidebar-section .chapter-title { flex: 1 1 auto; margin-left: 0.35rem; }
+
+  /* Capítulo actual y paso del ratón */
+  #quarto-sidebar .sidebar-item-container a.active {
+    background-color: rgba(16, 25, 158, 0.07) !important; border-left-color: #10199e !important;
+  }
+  #quarto-sidebar .sidebar-item-container a.active .menu-text,
+  #quarto-sidebar .sidebar-item-container a.active .chapter-number,
+  #quarto-sidebar .sidebar-item-container a.active .chapter-title { color: #10199e !important; font-weight: 700 !important; }
+  #quarto-sidebar .sidebar-item-container a:hover:not(.active) {
+    background-color: rgba(31, 120, 180, 0.10) !important; border-left-color: #1f78b4 !important;
+  }
+  #quarto-sidebar .sidebar-item-container a:hover .sidebar-item-text,
+  #quarto-sidebar .sidebar-item-container a:hover .menu-text { text-decoration: none !important; }
+
+  /* --- Índice del capítulo, a la derecha --- */
+  #quarto-margin-sidebar #TOC { font-size: 0.82rem; line-height: 1.3; }
+  #quarto-margin-sidebar #TOC #toc-title { font-size: 0; margin: 0; padding-top: 0.6rem; height: 3.1rem; border: 0; }
+  #quarto-margin-sidebar #TOC #toc-title::after {
+    content: "En este capítulo"; font-size: 0.75rem; font-weight: 700;
+    letter-spacing: 0.08em; text-transform: uppercase; color: #6c757d;
+  }
+  #quarto-margin-sidebar #TOC ul { list-style: none; padding-left: 0; margin: 0; border: 0; }
+  #quarto-margin-sidebar #TOC ul ul { padding-left: 0.8rem; display: block !important; }
+  #quarto-margin-sidebar #TOC a, #quarto-margin-sidebar #TOC a:visited {
+    display: block; font-size: 0.82rem; padding: 0.15rem 0.4rem !important; margin: 0;
+    border-left: 2px solid #e5e7eb !important; border-radius: 0; color: #555 !important; font-weight: 400;
+    background: transparent;
+  }
+  #quarto-margin-sidebar #TOC a:hover { color: #10199e !important; }
+  #quarto-margin-sidebar #TOC a.active {
+    color: #10199e !important; font-weight: 700; border-left-color: #10199e !important;
+    background: rgba(16, 25, 158, 0.06);
+  }
+  #quarto-margin-sidebar #TOC .header-section-number { color: #8a8f98; margin-right: 0.25rem; }
+  body:has(.portada) #quarto-margin-sidebar #TOC { display: none; }
+  /* Que el índice no se pliegue en un menú flotante por los botones de arriba */
+  #quarto-toc-toggle { display: none !important; }
+  /* Al bajar, el índice se queda debajo de los botones de arriba a la derecha */
+  @media (min-width: 992px) { #quarto-margin-sidebar { top: 3.4rem !important; max-height: calc(100vh - 4rem) !important; } }
+  #quarto-margin-sidebar #TOC #toc-title { height: auto !important; padding-top: 0 !important; margin-bottom: 0.6rem !important; }
+  #quarto-margin-sidebar > * { opacity: 1 !important; pointer-events: auto !important; }
+
+  /* --- Sin migas de pan arriba del título (el HTML de un archivo no las tiene) --- */
+  @media (min-width: 992px) {
+    #title-block-header .quarto-page-breadcrumbs, .quarto-title-breadcrumbs { display: none !important; }
+  }
+
+  /* --- Navegación entre capítulos: «← Anterior» y «Siguiente →» --- */
+  .page-navigation {
+    display: flex; justify-content: space-between; gap: 1rem;
+    margin: 3rem 0 1rem; padding-top: 1rem; border-top: 1px solid #dee2e6; font-size: 0.95rem;
+  }
+  .page-navigation .nav-page { max-width: 48%; }
+  .page-navigation .nav-page-next { margin-left: auto; text-align: right; }
+  .page-navigation .nav-page a { text-decoration: none; display: block !important; }
+  .page-navigation .nav-page i.bi { display: none; }
+  .page-navigation .nav-page .nav-page-text { font-size: 0.95rem !important; color: var(--bs-link-color, #2780e3); }
+  .page-navigation small.nav-rotulo { display: block; color: #6c757d; font-size: 0.85rem; margin-bottom: 0.15rem; }
+
+  /* --- Celular: el pie de página se acomoda en varias líneas (antes ensanchaba la página) --- */
+  @media (max-width: 767.98px) {
+    footer.footer .nav-footer { flex-direction: column; gap: 0.3rem; }
+    /* Barra de arriba: solo el botón del índice; los botones quedan a la derecha */
+    .quarto-secondary-nav .quarto-page-breadcrumbs,
+    .quarto-secondary-nav .quarto-navigation-tool,
+    .quarto-secondary-nav #quarto-search { display: none !important; }
+    .quarto-secondary-nav { min-height: 3.2rem; }
+    #quarto-header .aa-DetachedSearchButton, #quarto-header .quarto-navigation-tool { visibility: hidden !important; }
+    footer.footer .nav-footer-left, footer.footer .nav-footer-right {
+      flex: 1 1 auto !important; white-space: normal !important; text-align: center !important; margin-left: 0 !important;
+    }
+  }
+
+  /* --- Modo oscuro --- */
+  body.quarto-dark #quarto-sidebar .sidebar-item-container a,
+  body.quarto-dark #quarto-sidebar .sidebar-item-text,
+  body.quarto-dark #quarto-sidebar .menu-text,
+  body.quarto-dark #quarto-sidebar .chapter-title { color: #dee2e6 !important; }
+  body.quarto-dark #quarto-sidebar .chapter-number,
+  body.quarto-dark #quarto-margin-sidebar #TOC a { color: #9aa0a6 !important; }
+  body.quarto-dark #quarto-sidebar li.sidebar-item-section > .sidebar-item-container > a.sidebar-item-text .menu-text,
+  body.quarto-dark #quarto-sidebar .sidebar-item-container a.active .menu-text,
+  body.quarto-dark #quarto-sidebar .sidebar-item-container a.active .chapter-number,
+  body.quarto-dark #quarto-sidebar .sidebar-item-container a.active .chapter-title,
+  body.quarto-dark #quarto-margin-sidebar #TOC a.active,
+  body.quarto-dark #quarto-margin-sidebar #TOC a:hover { color: #8fb8ff !important; }
+  body.quarto-dark #quarto-sidebar li.sidebar-item-section,
+  body.quarto-dark #quarto-margin-sidebar #TOC a { border-color: #3a3f47 !important; }
+  body.quarto-dark #quarto-margin-sidebar #TOC a.active,
+  body.quarto-dark #quarto-sidebar .sidebar-item-container a.active { border-left-color: #8fb8ff !important; background: rgba(143, 184, 255, 0.10) !important; }
+</style>
+<script>
+(function () {
+  function listo(fn) {
+    if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", fn);
+    else fn();
+  }
+  listo(function () {
+    var barra = document.getElementById("barra-lectura");
+    if (barra) {
+      // Lupa a la izquierda de «Aa»: abre la búsqueda de Quarto
+      if (!document.getElementById("boton-busqueda")) {
+        var lupa = document.createElement("button");
+        lupa.type = "button";
+        lupa.id = "boton-busqueda";
+        lupa.setAttribute("aria-label", "Buscar en el libro");
+        lupa.title = "Buscar en el libro";
+        lupa.innerHTML = '<svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M11.74 10.34a6.5 6.5 0 1 0-1.4 1.4l3.85 3.85a1 1 0 0 0 1.4-1.4zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/></svg>';
+        lupa.addEventListener("click", function () {
+          var b = document.querySelector("#quarto-search .aa-DetachedSearchButton, #quarto-search button");
+          if (b) b.click();
+        });
+        var casa = document.getElementById("boton-inicio");
+        barra.insertBefore(lupa, casa ? casa.nextSibling : barra.firstChild);
+      }
+      // Modo oscuro a la derecha de «Aa», como en el HTML de un archivo
+      var interruptor = document.querySelector("#quarto-sidebar .quarto-color-scheme-toggle");
+      if (interruptor) {
+        interruptor.classList.remove("px-1", "quarto-navigation-tool");
+        interruptor.setAttribute("aria-label", "Cambiar entre modo claro y oscuro");
+        interruptor.title = "Modo claro u oscuro";
+        barra.appendChild(interruptor);
+      }
+    }
+    // Rótulos de la navegación entre capítulos
+    var ant = document.querySelector(".page-navigation .nav-page-previous a");
+    var sig = document.querySelector(".page-navigation .nav-page-next a");
+    if (ant && !ant.querySelector(".nav-rotulo")) ant.insertAdjacentHTML("afterbegin", '<small class="nav-rotulo">&larr; Anterior</small>');
+    if (sig && !sig.querySelector(".nav-rotulo")) sig.insertAdjacentHTML("afterbegin", '<small class="nav-rotulo">Siguiente &rarr;</small>');
+  });
+})();
 </script>
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
@@ -2451,181 +2622,4 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 <script src="site_libs/quarto-html/zenscroll-min.js"></script>
-<!--
-  Libro web de varias páginas: le da la misma apariencia que el HTML de un
-  solo archivo (tabla de contenidos, índice del capítulo, botones de arriba a
-  la derecha y navegación entre capítulos). Lo inserta _quarto.yml después de
-  accesibilidad.html. El HTML de un solo archivo no lo usa (publicar.R define
-  sus propios include-after-body).
--->
-<style>
-  /* --- Barra lateral: solo la tabla de contenidos --- */
-  #quarto-sidebar .sidebar-header,
-  #quarto-sidebar .sidebar-search { display: none !important; }
-  #quarto-sidebar .sidebar-menu-container::before {
-    content: "Tabla de contenidos";
-    display: block; margin: 0 0 0.75rem;
-    font-size: 0.8rem; font-weight: 700; letter-spacing: 0.08em;
-    text-transform: uppercase; color: #6c757d;
-  }
-  #quarto-sidebar .sidebar-item-container a,
-  #quarto-sidebar .sidebar-item-text,
-  #quarto-sidebar .menu-text { color: #212529 !important; font-weight: 400 !important; }
-  #quarto-sidebar .menu-text { font-size: 0.9rem !important; line-height: 1.3; }
-  #quarto-sidebar .sidebar-item { margin: 0; }
-  #quarto-sidebar .sidebar-menu-container { padding-top: 0.4rem; }
-  #quarto-sidebar.sidebar-navigation { padding-top: 0.6rem !important; }
-  #quarto-sidebar .sidebar-item-container a { padding: 0.2rem 0.35rem !important; border-left: 3px solid transparent !important; border-radius: 6px !important; display: block; }
-
-  /* La portada no se repite en la lista; preliminares en cursiva */
-  #quarto-sidebar .sidebar-menu-container > ul > li.sidebar-item:first-child { display: none; }
-  #quarto-sidebar .sidebar-menu-container > ul > li.sidebar-item:not(.sidebar-item-section) .menu-text { font-style: italic; }
-
-  /* Partes: rótulo en versalitas azul, separado del bloque anterior, siempre abiertas */
-  #quarto-sidebar li.sidebar-item-section { margin-top: 1.1rem; padding-top: 0.6rem; border-top: 1px solid #e5e7eb; }
-  #quarto-sidebar li.sidebar-item-section > .sidebar-item-container > a.sidebar-item-text .menu-text {
-    font-size: 0.72rem !important; font-weight: 700 !important; letter-spacing: 0.06em;
-    text-transform: uppercase; color: #10199e !important; line-height: 1.35;
-  }
-  #quarto-sidebar li.sidebar-item-section > .sidebar-item-container > a.sidebar-item-text { pointer-events: none; }
-  #quarto-sidebar .sidebar-item-toggle { display: none !important; }
-  #quarto-sidebar ul.sidebar-section { display: block !important; height: auto !important; padding-left: 0 !important; margin-top: 0.3rem; }
-
-  /* Capítulos: número en una columna fija y sangría francesa */
-  #quarto-sidebar ul.sidebar-section .menu-text { display: flex; }
-  #quarto-sidebar ul.sidebar-section .chapter-number { flex: 0 0 1.6rem; color: #6c757d; font-variant-numeric: tabular-nums; }
-  #quarto-sidebar ul.sidebar-section .chapter-title { flex: 1 1 auto; margin-left: 0.35rem; }
-
-  /* Capítulo actual y paso del ratón */
-  #quarto-sidebar .sidebar-item-container a.active {
-    background-color: rgba(16, 25, 158, 0.07) !important; border-left-color: #10199e !important;
-  }
-  #quarto-sidebar .sidebar-item-container a.active .menu-text,
-  #quarto-sidebar .sidebar-item-container a.active .chapter-number,
-  #quarto-sidebar .sidebar-item-container a.active .chapter-title { color: #10199e !important; font-weight: 700 !important; }
-  #quarto-sidebar .sidebar-item-container a:hover:not(.active) {
-    background-color: rgba(31, 120, 180, 0.10) !important; border-left-color: #1f78b4 !important;
-  }
-  #quarto-sidebar .sidebar-item-container a:hover .sidebar-item-text,
-  #quarto-sidebar .sidebar-item-container a:hover .menu-text { text-decoration: none !important; }
-
-  /* --- Índice del capítulo, a la derecha --- */
-  #quarto-margin-sidebar #TOC { font-size: 0.82rem; line-height: 1.3; }
-  #quarto-margin-sidebar #TOC #toc-title { font-size: 0; margin: 0; padding-top: 0.6rem; height: 3.1rem; border: 0; }
-  #quarto-margin-sidebar #TOC #toc-title::after {
-    content: "En este capítulo"; font-size: 0.75rem; font-weight: 700;
-    letter-spacing: 0.08em; text-transform: uppercase; color: #6c757d;
-  }
-  #quarto-margin-sidebar #TOC ul { list-style: none; padding-left: 0; margin: 0; border: 0; }
-  #quarto-margin-sidebar #TOC ul ul { padding-left: 0.8rem; display: block !important; }
-  #quarto-margin-sidebar #TOC a, #quarto-margin-sidebar #TOC a:visited {
-    display: block; font-size: 0.82rem; padding: 0.15rem 0.4rem !important; margin: 0;
-    border-left: 2px solid #e5e7eb !important; border-radius: 0; color: #555 !important; font-weight: 400;
-    background: transparent;
-  }
-  #quarto-margin-sidebar #TOC a:hover { color: #10199e !important; }
-  #quarto-margin-sidebar #TOC a.active {
-    color: #10199e !important; font-weight: 700; border-left-color: #10199e !important;
-    background: rgba(16, 25, 158, 0.06);
-  }
-  #quarto-margin-sidebar #TOC .header-section-number { color: #8a8f98; margin-right: 0.25rem; }
-  body:has(.portada) #quarto-margin-sidebar #TOC { display: none; }
-  /* Que el índice no se pliegue en un menú flotante por los botones de arriba */
-  #quarto-toc-toggle { display: none !important; }
-  /* Al bajar, el índice se queda debajo de los botones de arriba a la derecha */
-  @media (min-width: 992px) { #quarto-margin-sidebar { top: 3.4rem !important; max-height: calc(100vh - 4rem) !important; } }
-  #quarto-margin-sidebar #TOC #toc-title { height: auto !important; padding-top: 0 !important; margin-bottom: 0.6rem !important; }
-  #quarto-margin-sidebar > * { opacity: 1 !important; pointer-events: auto !important; }
-
-  /* --- Sin migas de pan arriba del título (el HTML de un archivo no las tiene) --- */
-  @media (min-width: 992px) {
-    #title-block-header .quarto-page-breadcrumbs, .quarto-title-breadcrumbs { display: none !important; }
-  }
-
-  /* --- Navegación entre capítulos: «← Anterior» y «Siguiente →» --- */
-  .page-navigation {
-    display: flex; justify-content: space-between; gap: 1rem;
-    margin: 3rem 0 1rem; padding-top: 1rem; border-top: 1px solid #dee2e6; font-size: 0.95rem;
-  }
-  .page-navigation .nav-page { max-width: 48%; }
-  .page-navigation .nav-page-next { margin-left: auto; text-align: right; }
-  .page-navigation .nav-page a { text-decoration: none; display: block !important; }
-  .page-navigation .nav-page i.bi { display: none; }
-  .page-navigation .nav-page .nav-page-text { font-size: 0.95rem !important; color: var(--bs-link-color, #2780e3); }
-  .page-navigation small.nav-rotulo { display: block; color: #6c757d; font-size: 0.85rem; margin-bottom: 0.15rem; }
-
-  /* --- Celular: el pie de página se acomoda en varias líneas (antes ensanchaba la página) --- */
-  @media (max-width: 767.98px) {
-    footer.footer .nav-footer { flex-direction: column; gap: 0.3rem; }
-    /* Barra de arriba: solo el botón del índice; los botones quedan a la derecha */
-    .quarto-secondary-nav .quarto-page-breadcrumbs,
-    .quarto-secondary-nav .quarto-navigation-tool,
-    .quarto-secondary-nav #quarto-search { display: none !important; }
-    .quarto-secondary-nav { min-height: 3.2rem; }
-    #quarto-header .aa-DetachedSearchButton, #quarto-header .quarto-navigation-tool { visibility: hidden !important; }
-    footer.footer .nav-footer-left, footer.footer .nav-footer-right {
-      flex: 1 1 auto !important; white-space: normal !important; text-align: center !important; margin-left: 0 !important;
-    }
-  }
-
-  /* --- Modo oscuro --- */
-  body.quarto-dark #quarto-sidebar .sidebar-item-container a,
-  body.quarto-dark #quarto-sidebar .sidebar-item-text,
-  body.quarto-dark #quarto-sidebar .menu-text,
-  body.quarto-dark #quarto-sidebar .chapter-title { color: #dee2e6 !important; }
-  body.quarto-dark #quarto-sidebar .chapter-number,
-  body.quarto-dark #quarto-margin-sidebar #TOC a { color: #9aa0a6 !important; }
-  body.quarto-dark #quarto-sidebar li.sidebar-item-section > .sidebar-item-container > a.sidebar-item-text .menu-text,
-  body.quarto-dark #quarto-sidebar .sidebar-item-container a.active .menu-text,
-  body.quarto-dark #quarto-sidebar .sidebar-item-container a.active .chapter-number,
-  body.quarto-dark #quarto-sidebar .sidebar-item-container a.active .chapter-title,
-  body.quarto-dark #quarto-margin-sidebar #TOC a.active,
-  body.quarto-dark #quarto-margin-sidebar #TOC a:hover { color: #8fb8ff !important; }
-  body.quarto-dark #quarto-sidebar li.sidebar-item-section,
-  body.quarto-dark #quarto-margin-sidebar #TOC a { border-color: #3a3f47 !important; }
-  body.quarto-dark #quarto-margin-sidebar #TOC a.active,
-  body.quarto-dark #quarto-sidebar .sidebar-item-container a.active { border-left-color: #8fb8ff !important; background: rgba(143, 184, 255, 0.10) !important; }
-</style>
-<script>
-(function () {
-  function listo(fn) {
-    if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", fn);
-    else fn();
-  }
-  listo(function () {
-    var barra = document.getElementById("barra-lectura");
-    if (barra) {
-      // Lupa a la izquierda de «Aa»: abre la búsqueda de Quarto
-      if (!document.getElementById("boton-busqueda")) {
-        var lupa = document.createElement("button");
-        lupa.type = "button";
-        lupa.id = "boton-busqueda";
-        lupa.setAttribute("aria-label", "Buscar en el libro");
-        lupa.title = "Buscar en el libro";
-        lupa.innerHTML = '<svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M11.74 10.34a6.5 6.5 0 1 0-1.4 1.4l3.85 3.85a1 1 0 0 0 1.4-1.4zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/></svg>';
-        lupa.addEventListener("click", function () {
-          var b = document.querySelector("#quarto-search .aa-DetachedSearchButton, #quarto-search button");
-          if (b) b.click();
-        });
-        var casa = document.getElementById("boton-inicio");
-        barra.insertBefore(lupa, casa ? casa.nextSibling : barra.firstChild);
-      }
-      // Modo oscuro a la derecha de «Aa», como en el HTML de un archivo
-      var interruptor = document.querySelector("#quarto-sidebar .quarto-color-scheme-toggle");
-      if (interruptor) {
-        interruptor.classList.remove("px-1", "quarto-navigation-tool");
-        interruptor.setAttribute("aria-label", "Cambiar entre modo claro y oscuro");
-        interruptor.title = "Modo claro u oscuro";
-        barra.appendChild(interruptor);
-      }
-    }
-    // Rótulos de la navegación entre capítulos
-    var ant = document.querySelector(".page-navigation .nav-page-previous a");
-    var sig = document.querySelector(".page-navigation .nav-page-next a");
-    if (ant && !ant.querySelector(".nav-rotulo")) ant.insertAdjacentHTML("afterbegin", '<small class="nav-rotulo">&larr; Anterior</small>');
-    if (sig && !sig.querySelector(".nav-rotulo")) sig.insertAdjacentHTML("afterbegin", '<small class="nav-rotulo">Siguiente &rarr;</small>');
-  });
-})();
-</script>
-
 </body></html>
