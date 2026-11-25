@@ -113,7 +113,7 @@
     div.csl-indent {
       margin-left: 2em;
     }  </style>
-  <link rel="stylesheet" href="tema4_files/libs/revealjs/dist/theme/quarto-bafa12471ff536d31b522b8baa3e6457.css">
+  <link rel="stylesheet" href="tema4_files/libs/revealjs/dist/theme/quarto-5cbbee2a8be65a6431e1b44bf64d0a49.css">
   <link href="tema4_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="tema4_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="tema4_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -277,7 +277,6 @@
 </tr>
 </tbody>
 </table>
-<p><span class="nota">Cada clase enlaza a su primera diapositiva. El menú de la izquierda (tecla M) lleva a cualquier diapositiva.</span></p>
 </section>
 <section>
 <section id="hidrograma" class="title-slide slide level1 separador center" data-background-color="#10199e">
@@ -347,7 +346,7 @@ N = b\,A^{0.2}, \qquad b = 0.8
 \]</span></p>
 <ul>
 <li><span class="citation" data-cites="Aparicio1992">Aparicio (<a href="#/referencias" role="doc-biblioref" onclick="">1992</a>)</span> usa <span class="math inline">\(b = 0.827\)</span>, la conversión exacta desde millas cuadradas.</li>
-<li>Mejor: el cociente <span class="math inline">\(Q(t)/Q(t + \Delta t)\)</span> se estabiliza cuando solo queda flujo base.</li>
+<li>Mejor: el cociente <span class="math inline">\(\frac{Q(t)}{Q(t + \Delta t)}\)</span> se estabiliza cuando solo queda flujo base.</li>
 </ul>
 <p>Evento 1, 318 km². Solución: <span class="math inline">\(N = 0.8 \times 318^{0.2} = 2.53\)</span> d (61 h); el cociente se estabiliza 8 h después del pico.</p>
 </div><div class="column" style="width:55%;">
@@ -405,7 +404,7 @@ R = \frac{\Delta t}{1000\,A}\sum_{i=1}^{n-1} \frac{Q_{d,i} + Q_{d,i+1}}{2}
 <ol type="1">
 <li>Recesión con las horas 17 a 23: <span class="math inline">\(k = -0.03064\)</span> h⁻¹.</li>
 <li>Bajo el pico: <span class="math inline">\(Q_{b,B} = 38.9\,e^{-0.03064\,(9 - 17)} = 49.70\)</span> m³/s.</li>
-<li>Subida: <span class="math inline">\((49.70 - 25.9)/4 = 5.95\)</span> m³/s por hora; en la hora 9, <span class="math inline">\(Q_d = 170 - 49.70 = 120.30\)</span> m³/s.</li>
+<li>Subida: <span class="math inline">\(\frac{49.70 - 25.9}{4} = 5.95\)</span> m³/s por hora; en la hora 9, <span class="math inline">\(Q_d = 170 - 49.70 = 120.30\)</span> m³/s.</li>
 <li>Suma de <span class="math inline">\(Q_d\)</span> de la hora 5 a la 17: 390.53 m³/s, volumen <span class="math inline">\(= 1\,405\,900\)</span> m³ y <span class="math inline">\(R = 4.42\)</span> mm.</li>
 </ol>
 </section>
@@ -493,7 +492,7 @@ q_{f,i} = \alpha \, q_{f,i-1} + \frac{1+\alpha}{2}\,(Q_i - Q_{i-1}), \qquad b_i 
 <ul>
 <li>Con datos diarios, <span class="math inline">\(\alpha = 0.925\)</span> <span class="citation" data-cites="nathan1990evaluation">(<a href="#/referencias" role="doc-biblioref" onclick="">Nathan &amp; McMahon, 1990</a>)</span>. Si <span class="math inline">\(q_{f,i} &lt; 0\)</span> se toma cero.</li>
 <li>Tres pases (adelante, atrás, adelante) y 30 días reflejados en cada extremo <span class="citation" data-cites="ladson2013standard">(<a href="#/referencias" role="doc-biblioref" onclick="">Ladson et&nbsp;al., 2013</a>)</span>.</li>
-<li>Índice de flujo base: <span class="math inline">\(\mathrm{BFI} = \sum b_i / \sum Q_i\)</span>. Cerca de 1, río sostenido por el acuífero; bajo, río de respuesta rápida.</li>
+<li>Índice de flujo base: <span class="math inline">\(\mathrm{BFI} = \frac{\sum b_i}{\sum Q_i}\)</span>. Cerca de 1, río sostenido por el acuífero; bajo, río de respuesta rápida.</li>
 </ul>
 </section>
 <section id="ejemplo-dry-creek-en-2009" class="slide level2">
@@ -618,8 +617,8 @@ Q_{b,i} = \frac{(1 - \mathrm{BFI}_{\max})\,a\,Q_{b,i-1} + (1 - a)\,\mathrm{BFI}_
 </div></div>
 <p><span class="nota">Ninguno es el correcto: son hipótesis sobre una parte del caudal que no se mide. Se usa el mismo método y los mismos parámetros en todos los eventos, y se reporta cuál.</span></p>
 </section>
-<section id="explorador-filtro-de-eckhardt" class="slide level2">
-<h2>Explorador: filtro de Eckhardt</h2>
+<section id="el-filtro-con-otros-parámetros" class="slide level2">
+<h2>El filtro con otros parámetros</h2>
 <div class="cell" data-layout-align="center">
 <script>window.HU_DATOS =  [{"evento":1,"t_h":0,"caudal_m3s":25.8,"lluvia_mm":0},{"evento":1,"t_h":1,"caudal_m3s":25.3,"lluvia_mm":0},{"evento":1,"t_h":2,"caudal_m3s":25.2,"lluvia_mm":0},{"evento":1,"t_h":3,"caudal_m3s":25.5,"lluvia_mm":0},{"evento":1,"t_h":4,"caudal_m3s":25.5,"lluvia_mm":0.14},{"evento":1,"t_h":5,"caudal_m3s":25.9,"lluvia_mm":6.8},{"evento":1,"t_h":6,"caudal_m3s":35.6,"lluvia_mm":23.77},{"evento":1,"t_h":7,"caudal_m3s":112,"lluvia_mm":21.5},{"evento":1,"t_h":8,"caudal_m3s":106,"lluvia_mm":8.6},{"evento":1,"t_h":9,"caudal_m3s":170,"lluvia_mm":1.97},{"evento":1,"t_h":10,"caudal_m3s":107,"lluvia_mm":0},{"evento":1,"t_h":11,"caudal_m3s":86.2,"lluvia_mm":0},{"evento":1,"t_h":12,"caudal_m3s":62.4,"lluvia_mm":0},{"evento":1,"t_h":13,"caudal_m3s":51.5,"lluvia_mm":0},{"evento":1,"t_h":14,"caudal_m3s":46.6,"lluvia_mm":0},{"evento":1,"t_h":15,"caudal_m3s":43.5,"lluvia_mm":0},{"evento":1,"t_h":16,"caudal_m3s":41.2,"lluvia_mm":0},{"evento":1,"t_h":17,"caudal_m3s":38.9,"lluvia_mm":0},{"evento":1,"t_h":18,"caudal_m3s":37.2,"lluvia_mm":0},{"evento":1,"t_h":19,"caudal_m3s":35.9,"lluvia_mm":0},{"evento":1,"t_h":20,"caudal_m3s":34.9,"lluvia_mm":0},{"evento":1,"t_h":21,"caudal_m3s":33.7,"lluvia_mm":0},{"evento":1,"t_h":22,"caudal_m3s":33.2,"lluvia_mm":0},{"evento":1,"t_h":23,"caudal_m3s":32.2,"lluvia_mm":0},{"evento":1,"t_h":24,"caudal_m3s":31.2,"lluvia_mm":0},{"evento":1,"t_h":25,"caudal_m3s":30.1,"lluvia_mm":0},{"evento":1,"t_h":26,"caudal_m3s":29.4,"lluvia_mm":3.27},{"evento":1,"t_h":27,"caudal_m3s":29,"lluvia_mm":0.07},{"evento":2,"t_h":0,"caudal_m3s":39,"lluvia_mm":0},{"evento":2,"t_h":1,"caudal_m3s":39.1,"lluvia_mm":0.06},{"evento":2,"t_h":2,"caudal_m3s":38.3,"lluvia_mm":0},{"evento":2,"t_h":3,"caudal_m3s":38.3,"lluvia_mm":0.03},{"evento":2,"t_h":4,"caudal_m3s":38,"lluvia_mm":0},{"evento":2,"t_h":5,"caudal_m3s":37.9,"lluvia_mm":0},{"evento":2,"t_h":6,"caudal_m3s":37.4,"lluvia_mm":0.54},{"evento":2,"t_h":7,"caudal_m3s":46,"lluvia_mm":2.69},{"evento":2,"t_h":8,"caudal_m3s":70.1,"lluvia_mm":6},{"evento":2,"t_h":9,"caudal_m3s":64.1,"lluvia_mm":3.18},{"evento":2,"t_h":10,"caudal_m3s":74.3,"lluvia_mm":5.55},{"evento":2,"t_h":11,"caudal_m3s":136,"lluvia_mm":6.06},{"evento":2,"t_h":12,"caudal_m3s":184,"lluvia_mm":2.34},{"evento":2,"t_h":13,"caudal_m3s":92.5,"lluvia_mm":0.57},{"evento":2,"t_h":14,"caudal_m3s":68.7,"lluvia_mm":1.16},{"evento":2,"t_h":15,"caudal_m3s":59.4,"lluvia_mm":0.62},{"evento":2,"t_h":16,"caudal_m3s":56,"lluvia_mm":0},{"evento":2,"t_h":17,"caudal_m3s":52.9,"lluvia_mm":0.03},{"evento":2,"t_h":18,"caudal_m3s":50.4,"lluvia_mm":0},{"evento":2,"t_h":19,"caudal_m3s":48.8,"lluvia_mm":0},{"evento":2,"t_h":20,"caudal_m3s":47.6,"lluvia_mm":0},{"evento":2,"t_h":21,"caudal_m3s":47.5,"lluvia_mm":0},{"evento":2,"t_h":22,"caudal_m3s":46.6,"lluvia_mm":0},{"evento":2,"t_h":23,"caudal_m3s":45.2,"lluvia_mm":0},{"evento":2,"t_h":24,"caudal_m3s":44.3,"lluvia_mm":0},{"evento":2,"t_h":25,"caudal_m3s":43.9,"lluvia_mm":0},{"evento":2,"t_h":26,"caudal_m3s":43.4,"lluvia_mm":0},{"evento":2,"t_h":27,"caudal_m3s":43.1,"lluvia_mm":0},{"evento":2,"t_h":28,"caudal_m3s":42.5,"lluvia_mm":0},{"evento":2,"t_h":29,"caudal_m3s":41.6,"lluvia_mm":0},{"evento":3,"t_h":0,"caudal_m3s":34.5,"lluvia_mm":0},{"evento":3,"t_h":1,"caudal_m3s":33.8,"lluvia_mm":0},{"evento":3,"t_h":2,"caudal_m3s":33.6,"lluvia_mm":0},{"evento":3,"t_h":3,"caudal_m3s":33.1,"lluvia_mm":0.54},{"evento":3,"t_h":4,"caudal_m3s":32.9,"lluvia_mm":5.64},{"evento":3,"t_h":5,"caudal_m3s":32.7,"lluvia_mm":21.44},{"evento":3,"t_h":6,"caudal_m3s":87.4,"lluvia_mm":17.83},{"evento":3,"t_h":7,"caudal_m3s":218,"lluvia_mm":3.73},{"evento":3,"t_h":8,"caudal_m3s":228,"lluvia_mm":0.12},{"evento":3,"t_h":9,"caudal_m3s":113,"lluvia_mm":0.03},{"evento":3,"t_h":10,"caudal_m3s":79.8,"lluvia_mm":0},{"evento":3,"t_h":11,"caudal_m3s":70.2,"lluvia_mm":0},{"evento":3,"t_h":12,"caudal_m3s":66.1,"lluvia_mm":0},{"evento":3,"t_h":13,"caudal_m3s":60.9,"lluvia_mm":0},{"evento":3,"t_h":14,"caudal_m3s":58.2,"lluvia_mm":0},{"evento":3,"t_h":15,"caudal_m3s":55,"lluvia_mm":0},{"evento":3,"t_h":16,"caudal_m3s":53.2,"lluvia_mm":0},{"evento":3,"t_h":17,"caudal_m3s":52,"lluvia_mm":0},{"evento":3,"t_h":18,"caudal_m3s":50.6,"lluvia_mm":0},{"evento":3,"t_h":19,"caudal_m3s":50.3,"lluvia_mm":0},{"evento":3,"t_h":20,"caudal_m3s":49.2,"lluvia_mm":0},{"evento":3,"t_h":21,"caudal_m3s":48,"lluvia_mm":0},{"evento":3,"t_h":22,"caudal_m3s":47.1,"lluvia_mm":0.08},{"evento":3,"t_h":23,"caudal_m3s":45.5,"lluvia_mm":2.99},{"evento":3,"t_h":24,"caudal_m3s":44.9,"lluvia_mm":5.47},{"evento":4,"t_h":0,"caudal_m3s":32.2,"lluvia_mm":0},{"evento":4,"t_h":1,"caudal_m3s":31.8,"lluvia_mm":0},{"evento":4,"t_h":2,"caudal_m3s":31.4,"lluvia_mm":0},{"evento":4,"t_h":3,"caudal_m3s":31,"lluvia_mm":0},{"evento":4,"t_h":4,"caudal_m3s":30.5,"lluvia_mm":0},{"evento":4,"t_h":5,"caudal_m3s":30.2,"lluvia_mm":0.06},{"evento":4,"t_h":6,"caudal_m3s":29.9,"lluvia_mm":0.08},{"evento":4,"t_h":7,"caudal_m3s":29.5,"lluvia_mm":0},{"evento":4,"t_h":8,"caudal_m3s":30.1,"lluvia_mm":3.73},{"evento":4,"t_h":9,"caudal_m3s":61.9,"lluvia_mm":20.68},{"evento":4,"t_h":10,"caudal_m3s":90.3,"lluvia_mm":9.08},{"evento":4,"t_h":11,"caudal_m3s":314,"lluvia_mm":5.54},{"evento":4,"t_h":12,"caudal_m3s":182,"lluvia_mm":0.67},{"evento":4,"t_h":13,"caudal_m3s":136,"lluvia_mm":0.03},{"evento":4,"t_h":14,"caudal_m3s":118,"lluvia_mm":0.11},{"evento":4,"t_h":15,"caudal_m3s":105,"lluvia_mm":0.32},{"evento":4,"t_h":16,"caudal_m3s":97.2,"lluvia_mm":0.08},{"evento":4,"t_h":17,"caudal_m3s":90.5,"lluvia_mm":0.25},{"evento":4,"t_h":18,"caudal_m3s":84.8,"lluvia_mm":0.03},{"evento":4,"t_h":19,"caudal_m3s":81,"lluvia_mm":0},{"evento":4,"t_h":20,"caudal_m3s":77.6,"lluvia_mm":0},{"evento":4,"t_h":21,"caudal_m3s":75.3,"lluvia_mm":0},{"evento":4,"t_h":22,"caudal_m3s":73.5,"lluvia_mm":0},{"evento":4,"t_h":23,"caudal_m3s":71.7,"lluvia_mm":0},{"evento":4,"t_h":24,"caudal_m3s":70.5,"lluvia_mm":0},{"evento":4,"t_h":25,"caudal_m3s":69.1,"lluvia_mm":0},{"evento":4,"t_h":26,"caudal_m3s":67.3,"lluvia_mm":0},{"evento":4,"t_h":27,"caudal_m3s":65.6,"lluvia_mm":0.06},{"evento":4,"t_h":28,"caudal_m3s":64.5,"lluvia_mm":0.11},{"evento":4,"t_h":29,"caudal_m3s":63,"lluvia_mm":0},{"evento":4,"t_h":30,"caudal_m3s":62.7,"lluvia_mm":0},{"evento":4,"t_h":31,"caudal_m3s":63,"lluvia_mm":0},{"evento":5,"t_h":0,"caudal_m3s":15.1,"lluvia_mm":0},{"evento":5,"t_h":1,"caudal_m3s":15,"lluvia_mm":0},{"evento":5,"t_h":2,"caudal_m3s":14.8,"lluvia_mm":0},{"evento":5,"t_h":3,"caudal_m3s":14.7,"lluvia_mm":0},{"evento":5,"t_h":4,"caudal_m3s":14.6,"lluvia_mm":0.13},{"evento":5,"t_h":5,"caudal_m3s":14.5,"lluvia_mm":1.4},{"evento":5,"t_h":6,"caudal_m3s":14.4,"lluvia_mm":5.34},{"evento":5,"t_h":7,"caudal_m3s":20.7,"lluvia_mm":3.08},{"evento":5,"t_h":8,"caudal_m3s":116,"lluvia_mm":1.04},{"evento":5,"t_h":9,"caudal_m3s":60.4,"lluvia_mm":4.01},{"evento":5,"t_h":10,"caudal_m3s":42.4,"lluvia_mm":1.56},{"evento":5,"t_h":11,"caudal_m3s":35.6,"lluvia_mm":0.23},{"evento":5,"t_h":12,"caudal_m3s":32.8,"lluvia_mm":0.03},{"evento":5,"t_h":13,"caudal_m3s":31.4,"lluvia_mm":0},{"evento":5,"t_h":14,"caudal_m3s":30.1,"lluvia_mm":0},{"evento":5,"t_h":15,"caudal_m3s":29.3,"lluvia_mm":0},{"evento":5,"t_h":16,"caudal_m3s":28.8,"lluvia_mm":0},{"evento":5,"t_h":17,"caudal_m3s":28.2,"lluvia_mm":0},{"evento":5,"t_h":18,"caudal_m3s":28.2,"lluvia_mm":0},{"evento":5,"t_h":19,"caudal_m3s":26.9,"lluvia_mm":0},{"evento":5,"t_h":20,"caudal_m3s":25.8,"lluvia_mm":0},{"evento":5,"t_h":21,"caudal_m3s":24.7,"lluvia_mm":0},{"evento":5,"t_h":22,"caudal_m3s":23.9,"lluvia_mm":0},{"evento":5,"t_h":23,"caudal_m3s":23.2,"lluvia_mm":0},{"evento":5,"t_h":24,"caudal_m3s":22.6,"lluvia_mm":0},{"evento":5,"t_h":25,"caudal_m3s":22.1,"lluvia_mm":0},{"evento":5,"t_h":26,"caudal_m3s":21.6,"lluvia_mm":0},{"evento":5,"t_h":27,"caudal_m3s":21.2,"lluvia_mm":0},{"evento":5,"t_h":28,"caudal_m3s":20.8,"lluvia_mm":0.03},{"evento":5,"t_h":29,"caudal_m3s":20.5,"lluvia_mm":0}] ;</script>
 <div id="explorador-eckhardt" class="explorador">
@@ -755,9 +754,9 @@ Q_{b,i} = \frac{(1 - \mathrm{BFI}_{\max})\,a\,Q_{b,i-1} + (1 - a)\,\mathrm{BFI}_
 <section id="intensidad-duración-y-frecuencia" class="slide level2">
 <h2>Intensidad, duración y frecuencia</h2>
 <ul>
-<li>Intensidad: <span class="math inline">\(i = h/\Delta t\)</span>, en mm/h.</li>
+<li>Intensidad: <span class="math inline">\(i = \frac{h}{\Delta t}\)</span>, en mm/h.</li>
 <li>Duración <span class="math inline">\(d\)</span>: una ventana fija que se desplaza por el registro, no la duración de la tormenta. Típicas: 5, 10, 15, 30, 60, 120, 360, 720 y 1440 min.</li>
-<li>Frecuencia: periodo de retorno <span class="math inline">\(T\)</span>, con probabilidad anual de excedencia <span class="math inline">\(p = 1/T\)</span>.</li>
+<li>Frecuencia: periodo de retorno <span class="math inline">\(T\)</span>, con probabilidad anual de excedencia <span class="math inline">\(p = \frac{1}{T}\)</span>.</li>
 </ul>
 <div class="callout callout-warning callout-style-simple">
 <div class="callout-body">
@@ -897,7 +896,7 @@ Q_{b,i} = \frac{(1 - \mathrm{BFI}_{\max})\,a\,Q_{b,i-1} + (1 - a)\,\mathrm{BFI}_
 <h2>Análisis de frecuencia por duración</h2>
 <ul>
 <li>Serie de máximos anuales (un valor por año) o de duración parcial (todo lo que supera un umbral).</li>
-<li>Posición de graficación de Weibull: <span class="math inline">\(P = m/(n+1)\)</span> y <span class="math inline">\(T = (n+1)/m\)</span>.</li>
+<li>Posición de graficación de Weibull: <span class="math inline">\(P = \frac{m}{n+1}\)</span> y <span class="math inline">\(T = \frac{n+1}{m}\)</span>.</li>
 <li>Se ajusta una distribución (Gumbel, log-Pearson III o GEV) a cada duración. Con factores de frecuencia <span class="citation" data-cites="chow1988appliedhydrology">(<a href="#/referencias" role="doc-biblioref" onclick="">Chow et&nbsp;al., 1988</a>)</span>:</li>
 </ul>
 <p><span class="math display">\[
@@ -925,7 +924,7 @@ X_T = \bar{X} + K_T\,S, \qquad K_T = -\frac{\sqrt{6}}{\pi}\left\{0.5772 + \ln\le
 <li><span class="math inline">\(\bar X = 39.98\)</span> mm, <span class="math inline">\(S = 12.59\)</span> mm.</li>
 <li><span class="math inline">\(K_{25} = 2.044\)</span>.</li>
 <li><span class="math inline">\(h_{25} = 39.98 + 2.044 \times 12.59 = 65.7\)</span> mm.</li>
-<li><span class="math inline">\(i_{25} = 65.7/0.5 = 131.4\)</span> mm/h.</li>
+<li><span class="math inline">\(i_{25} = \frac{65.7}{0.5} = 131.4\)</span> mm/h.</li>
 </ul>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
@@ -945,7 +944,7 @@ i(d,T) = \frac{k\,T^{m}}{(d+c)^{n}}
 <li><span class="math inline">\(n &gt; 0\)</span>: qué tan rápido cae con la duración.</li>
 <li><span class="math inline">\(c \ge 0\)</span> (min): evita que <span class="math inline">\(i \to \infty\)</span> cuando <span class="math inline">\(d \to 0\)</span>.</li>
 </ul>
-<p>Casos particulares para un <span class="math inline">\(T\)</span> fijo: Talbot <span class="math inline">\(a/(d+b)\)</span>, potencial <span class="math inline">\(a\,d^{-b}\)</span> y Sherman <span class="math inline">\(a/(d+b)^{e}\)</span> <span class="citation" data-cites="koutsoyiannis1998idf">(<a href="#/referencias" role="doc-biblioref" onclick="">Koutsoyiannis et&nbsp;al., 1998</a>)</span>.</p>
+<p>Casos particulares para un <span class="math inline">\(T\)</span> fijo: Talbot <span class="math inline">\(\frac{a}{d+b}\)</span>, potencial <span class="math inline">\(a\,d^{-b}\)</span> y Sherman <span class="math inline">\(\frac{a}{(d+b)^{e}}\)</span> <span class="citation" data-cites="koutsoyiannis1998idf">(<a href="#/referencias" role="doc-biblioref" onclick="">Koutsoyiannis et&nbsp;al., 1998</a>)</span>.</p>
 <div class="callout callout-warning callout-style-simple">
 <div class="callout-body">
 <div class="callout-icon-container">
@@ -1020,8 +1019,8 @@ i(d,T) = \frac{k\,T^{m}}{(d+c)^{n}}
 </table>
 <p>Solución:</p>
 <ol type="1">
-<li><span class="math inline">\(m\)</span> con <span class="math inline">\(d\)</span> fijo: <span class="math inline">\(\log(125/80)/\log(100/10) = 0.194\)</span> y <span class="math inline">\(\log(150/85)/\log(50/2) = 0.177\)</span>; <span class="math inline">\(\hat m = 0.186\)</span>.</li>
-<li><span class="math inline">\(n\)</span> con <span class="math inline">\(T\)</span> fijo y <span class="math inline">\(c = 5\)</span> min: <span class="math inline">\(\log(112/56)/\log(125/35) = 0.545\)</span> y <span class="math inline">\(\log(245/110)/\log(65/15) = 0.546\)</span>.</li>
+<li><span class="math inline">\(m\)</span> con <span class="math inline">\(d\)</span> fijo: <span class="math inline">\(\frac{\log(125/80)}{\log(100/10)} = 0.194\)</span> y <span class="math inline">\(\frac{\log(150/85)}{\log(50/2)} = 0.177\)</span>; <span class="math inline">\(\hat m = 0.186\)</span>.</li>
+<li><span class="math inline">\(n\)</span> con <span class="math inline">\(T\)</span> fijo y <span class="math inline">\(c = 5\)</span> min: <span class="math inline">\(\frac{\log(112/56)}{\log(125/35)} = 0.545\)</span> y <span class="math inline">\(\frac{\log(245/110)}{\log(65/15)} = 0.546\)</span>.</li>
 <li><span class="math inline">\(k = i\,(d+c)^n\,T^{-m} = 80 \times 65^{0.546} \times 10^{-0.186} \approx 509\)</span>; con otro punto, 505; <span class="math inline">\(\hat k = 507\)</span>.</li>
 </ol>
 </section>
@@ -1085,8 +1084,8 @@ i(d,T) = \frac{k\,T^{m}}{(d+c)^{n}}
 <span id="cb2-31"><a href="" aria-hidden="true" tabindex="-1"></a>malla <span class="sc">%&gt;%</span> <span class="fu">summarise</span>(<span class="at">max_er_mano =</span> <span class="fu">max</span>(<span class="fu">abs</span>(er_mano)), <span class="at">max_er_reg =</span> <span class="fu">max</span>(<span class="fu">abs</span>(er_reg)))</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="explorador-ecuación-idf" class="slide level2">
-<h2>Explorador: ecuación IDF</h2>
+<section id="ecuación-idf" class="slide level2">
+<h2>Ecuación IDF</h2>
 <div id="explorador-idf" class="explorador">
   <div class="explorador-controles">
     <label><i>d</i> = <input type="range" id="ei-d" min="5" max="180" step="5" value="45"> <span id="ei-d-val"></span> min</label>
@@ -1158,7 +1157,7 @@ i(d,T) = \frac{k\,T^{m}}{(d+c)^{n}}
 <p>Sitios sin estación, de más simple a más completo:</p>
 <ol type="1">
 <li>Transferir las curvas de una estación cercana, en la misma vertiente y a elevación parecida.</li>
-<li>Interpolar cuantiles entre estaciones con el inverso de la distancia: <span class="math inline">\(w_k = 1/D_k^{\,2}\)</span>.</li>
+<li>Interpolar cuantiles entre estaciones con el inverso de la distancia: <span class="math inline">\(w_k = \frac{1}{D_k^{\,2}}\)</span>.</li>
 <li>Análisis regional con la lluvia índice: <span class="math inline">\(x_T(d) = \mu(d)\,q_T(d)\)</span> <span class="citation" data-cites="hosking1997regional">(<a href="#/referencias" role="doc-biblioref" onclick="">Hosking &amp; Wallis, 1997</a>)</span>.</li>
 <li>A partir de lluvia diaria: máximo de 24 h ≈ 1.13 veces el del día de observación <span class="citation" data-cites="hershfield1961rainfall">(<a href="#/referencias" role="doc-biblioref" onclick="">Hershfield, 1961b</a>)</span> y cocientes regionales entre duraciones.</li>
 </ol>
@@ -1168,7 +1167,7 @@ i(d,T) = \frac{k\,T^{m}}{(d+c)^{n}}
 <h2>Para practicar</h2>
 <ol type="1">
 <li>Una estación tiene 24 años de láminas máximas anuales de 60 min. Con Weibull, ¿qué periodo de retorno empírico tiene el mayor valor y cuál el tercero? Respuesta: 25 y 8.3 años.</li>
-<li>Con <span class="math inline">\(i = 507\,T^{0.186}/(d+5)^{0.546}\)</span>, calcule la intensidad y la lámina de 45 min y 25 años. Respuesta: 109.0 mm/h y 81.7 mm.</li>
+<li>Con <span class="math inline">\(i = \frac{507\,T^{0.186}}{(d+5)^{0.546}}\)</span>, calcule la intensidad y la lámina de 45 min y 25 años. Respuesta: 109.0 mm/h y 81.7 mm.</li>
 <li>Los incrementos cada 10 min desde las 13:30 son 2.8, 4.6, 6.1, 7.4, 5.2 y 3.6 mm. Calcule la lluvia máxima de 30 min con ventana móvil y compárela con las medias horas de reloj. Respuesta: 18.7 mm (37.4 mm/h) contra 16.2 mm.</li>
 <li>Un sitio está a 5, 10 y 20 km de tres estaciones con intensidades de 60 min y 25 años de 95, 110 y 80 mm/h. Estime la intensidad con el inverso de la distancia (<span class="math inline">\(p = 2\)</span>). Respuesta: 97.1 mm/h.</li>
 </ol>
@@ -1179,7 +1178,7 @@ i(d,T) = \frac{k\,T^{m}}{(d+c)^{n}}
 <ul>
 <li>La curva IDF da la intensidad máxima para una duración y un periodo de retorno.</li>
 <li>Los máximos se extraen con ventanas móviles, no con horas del reloj.</li>
-<li>Cada duración tiene su análisis de frecuencia; la ecuación <span class="math inline">\(k\,T^m/(d+c)^n\)</span> resume la malla.</li>
+<li>Cada duración tiene su análisis de frecuencia; la ecuación <span class="math inline">\(\frac{k\,T^m}{(d+c)^n}\)</span> resume la malla.</li>
 <li>Las unidades del ajuste se respetan siempre.</li>
 <li>Sin estación en el sitio: transferencia, interpolación o análisis regional, revisando vertiente y elevación.</li>
 </ul>
@@ -1206,7 +1205,7 @@ i(d,T) = \frac{k\,T^{m}}{(d+c)^{n}}
 <p>Coloca el bloque más intenso en el centro y los demás alternando a cada lado <span class="citation" data-cites="chow1988appliedhydrology">(<a href="#/referencias" role="doc-biblioref" onclick="">Chow et&nbsp;al., 1988</a>)</span>. En cualquier ventana de duración <span class="math inline">\(d\)</span> hay exactamente la lámina de la curva IDF.</p>
 <ol type="1">
 <li>Se escogen <span class="math inline">\(T\)</span>, la duración total <span class="math inline">\(T_d \ge t_c\)</span> y el intervalo <span class="math inline">\(\Delta t\)</span> (5, 10 o 15 min).</li>
-<li>Curva de masa: <span class="math inline">\(P(d_j) = i(d_j, T)\, d_j/60\)</span>, con <span class="math inline">\(d_j = j\,\Delta t\)</span>.</li>
+<li>Curva de masa: <span class="math inline">\(P(d_j) = i(d_j, T)\, \frac{d_j}{60}\)</span>, con <span class="math inline">\(d_j = j\,\Delta t\)</span>.</li>
 <li>Bloques: <span class="math inline">\(\Delta P_j = P(d_j) - P(d_{j-1})\)</span>; salen ordenados de mayor a menor.</li>
 <li>Se reordenan: <span class="math inline">\(\ldots,\ \Delta P_5,\ \Delta P_3,\ \Delta P_1,\ \Delta P_2,\ \Delta P_4,\ \ldots\)</span></li>
 </ol>
@@ -1214,12 +1213,12 @@ i(d,T) = \frac{k\,T^{m}}{(d+c)^{n}}
 </section>
 <section id="ejemplo-imn-aranjuez-10-años" class="slide level2">
 <h2>Ejemplo: IMN-Aranjuez, 10 años</h2>
-<p>Ecuación del boletín del IMN para la estación 84-141 <span class="citation" data-cites="Rojas2011automaticas">(<a href="#/referencias" role="doc-biblioref" onclick="">Instituto Meteorológico Nacional, s.&nbsp;f.-a</a>)</span>: <span class="math inline">\(i = 174.33\,T^{0.104}/d^{0.285}\)</span>. Hietograma de <span class="math inline">\(T = 10\)</span> años, <span class="math inline">\(\Delta t = 5\)</span> min y <span class="math inline">\(T_d = 30\)</span> min.</p>
+<p>Ecuación del boletín del IMN para la estación 84-141 <span class="citation" data-cites="Rojas2011automaticas">(<a href="#/referencias" role="doc-biblioref" onclick="">Instituto Meteorológico Nacional, s.&nbsp;f.-a</a>)</span>: <span class="math inline">\(i = \frac{174.33\,T^{0.104}}{d^{0.285}}\)</span>. Hietograma de <span class="math inline">\(T = 10\)</span> años, <span class="math inline">\(\Delta t = 5\)</span> min y <span class="math inline">\(T_d = 30\)</span> min.</p>
 <div class="columns">
 <div class="column" style="width:50%;">
 <p>Solución:</p>
 <ol type="1">
-<li><span class="math inline">\(d = 5\)</span> min: <span class="math inline">\(i = 174.33 \times 10^{0.104}/5^{0.285} = 140.0\)</span> mm/h y <span class="math inline">\(P(5) = 11.7\)</span> mm.</li>
+<li><span class="math inline">\(d = 5\)</span> min: <span class="math inline">\(i = 174.33 \times \frac{10^{0.104}}{5^{0.285}} = 140.0\)</span> mm/h y <span class="math inline">\(P(5) = 11.7\)</span> mm.</li>
 <li><span class="math inline">\(d = 10\)</span> min: <span class="math inline">\(i = 114.9\)</span> mm/h, <span class="math inline">\(P(10) = 19.2\)</span> mm y <span class="math inline">\(\Delta P_2 = 7.5\)</span> mm.</li>
 <li>Así hasta 30 min. Con seis bloques, el mayor va en el bloque 3 y el orden de llenado es 3, 4, 2, 5, 1, 6.</li>
 </ol>
@@ -1285,8 +1284,8 @@ i(d,T) = \frac{k\,T^{m}}{(d+c)^{n}}
 </section>
 <section id="triangular-y-chicago" class="slide level2">
 <h2>Triangular y Chicago</h2>
-<p>Triangular <span class="citation" data-cites="chow1988appliedhydrology">(<a href="#/referencias" role="doc-biblioref" onclick="">Chow et&nbsp;al., 1988</a>)</span>: intensidad pico <span class="math inline">\(h = 2P/T_d\)</span>, en <span class="math inline">\(t_a = r\,T_d\)</span>. El coeficiente de avance <span class="math inline">\(r\)</span> sale de tormentas observadas; <span class="math inline">\(r &lt; 0.5\)</span> adelanta el pico.</p>
-<p>Chicago <span class="citation" data-cites="keifer1957synthetic">(<a href="#/referencias" role="doc-biblioref" onclick="">Keifer &amp; Chu, 1957</a>)</span>: continuo, respeta la curva IDF en cualquier ventana centrada en el pico y permite escoger <span class="math inline">\(r\)</span>. Con <span class="math inline">\(i = a/(d+b)^n\)</span>:</p>
+<p>Triangular <span class="citation" data-cites="chow1988appliedhydrology">(<a href="#/referencias" role="doc-biblioref" onclick="">Chow et&nbsp;al., 1988</a>)</span>: intensidad pico <span class="math inline">\(h = \frac{2P}{T_d}\)</span>, en <span class="math inline">\(t_a = r\,T_d\)</span>. El coeficiente de avance <span class="math inline">\(r\)</span> sale de tormentas observadas; <span class="math inline">\(r &lt; 0.5\)</span> adelanta el pico.</p>
+<p>Chicago <span class="citation" data-cites="keifer1957synthetic">(<a href="#/referencias" role="doc-biblioref" onclick="">Keifer &amp; Chu, 1957</a>)</span>: continuo, respeta la curva IDF en cualquier ventana centrada en el pico y permite escoger <span class="math inline">\(r\)</span>. Con <span class="math inline">\(i = \frac{a}{(d+b)^n}\)</span>:</p>
 <p><span class="math display">\[
 i_b = \frac{a\left[(1-n)\,t_b/r + b\right]}{\left(t_b/r + b\right)^{1+n}},
 \qquad
@@ -1323,7 +1322,7 @@ i_a = \frac{a\left[(1-n)\,t_a/(1-r) + b\right]}{\left[t_a/(1-r) + b\right]^{1+n}
 </section>
 <section id="ejemplo-cuatro-hietogramas-la-misma-lámina" class="slide level2">
 <h2>Ejemplo: cuatro hietogramas, la misma lámina</h2>
-<p>Curva hipotética <span class="math inline">\(i = 1150\,T^{0.18}/(d + 12)^{0.78}\)</span>; <span class="math inline">\(T = 25\)</span> años, <span class="math inline">\(T_d = 120\)</span> min y bloques de 10 min.</p>
+<p>Curva hipotética <span class="math inline">\(i = \frac{1150\,T^{0.18}}{(d + 12)^{0.78}}\)</span>; <span class="math inline">\(T = 25\)</span> años, <span class="math inline">\(T_d = 120\)</span> min y bloques de 10 min.</p>
 <div class="columns">
 <div class="column" style="width:58%;">
 <div class="cell" data-layout-align="center">
@@ -1341,13 +1340,12 @@ i_a = \frac{a\left[(1-n)\,t_a/(1-r) + b\right]}{\left[t_a/(1-r) + b\right]^{1+n}
 <li>Lámina: <span class="math inline">\(i = 45.5\)</span> mm/h y <span class="math inline">\(P = 91.1\)</span> mm.</li>
 <li>Bloque alterno: el bloque mayor es <span class="math inline">\(P(10) = 30.7\)</span> mm.</li>
 <li>Triangular (<span class="math inline">\(r = 0.375\)</span>): <span class="math inline">\(h = 91.1\)</span> mm/h a los 45 min; bloque mayor de 14.5 mm.</li>
-<li>Chicago: unos 30.2 mm.</li>
-<li>Embalse La Garita: unos 32 mm, en el primer tercio.</li>
+<li>Chicago: unos 30.2 mm; La Garita: unos 32 mm, en el primer tercio.</li>
 </ol>
 </div></div>
 </section>
-<section id="explorador-bloque-alterno" class="slide level2">
-<h2>Explorador: bloque alterno</h2>
+<section id="bloque-alterno" class="slide level2">
+<h2>Bloque alterno</h2>
 <div id="explorador-bloques" class="explorador">
   <div class="explorador-controles">
     <label><i>T</i> = <select id="eb-t"><option>2</option><option>10</option><option selected="">25</option><option>50</option><option>100</option></select> años</label>
@@ -1470,7 +1468,7 @@ i_a = \frac{a\left[(1-n)\,t_a/(1-r) + b\right]}{\left[t_a/(1-r) + b\right]^{1+n}
 </div>
 <p><span class="nota">Atmósfera saturada pseudoadiabática entre 1000 y 200 hPa <span class="citation" data-cites="wmo2009pmp">(<a href="#/referencias" role="doc-biblioref" onclick="">World Meteorological Organization, 2009</a>, cuadro A.1.1)</span>. Cada grado de punto de rocío añade de 9 a 10 % de agua precipitable.</span></p>
 <ol type="1">
-<li>Maximización por humedad: <span class="math inline">\(r_m = W_m/W_s\)</span> y <span class="math inline">\(P_m = r_m\,P_s\)</span>, con el punto de rocío persistente de 12 h.</li>
+<li>Maximización por humedad: <span class="math inline">\(r_m = \frac{W_m}{W_s}\)</span> y <span class="math inline">\(P_m = r_m\,P_s\)</span>, con el punto de rocío persistente de 12 h.</li>
 <li>Transposición: se trasladan tormentas de la misma región meteorológica, con ajuste de humedad y de relieve.</li>
 <li>Envolvente de las láminas maximizadas contra la duración, para cada área: esa curva es la PMP.</li>
 </ol>
@@ -1481,7 +1479,7 @@ i_a = \frac{a\left[(1-n)\,t_a/(1-r) + b\right]}{\left[t_a/(1-r) + b\right]^{1+n}
 <p>Solución:</p>
 <ol type="1">
 <li><span class="math inline">\(W_s = 68\)</span> mm y <span class="math inline">\(W_m = 88\)</span> mm (cuadro anterior).</li>
-<li><span class="math inline">\(r_m = 88/68 = 1.294\)</span>.</li>
+<li><span class="math inline">\(r_m = \frac{88}{68} = 1.294\)</span>.</li>
 <li><span class="math inline">\(P_m\)</span>: <span class="math inline">\(1.294 \times 180 = 233\)</span> mm, <span class="math inline">\(1.294 \times 255 = 330\)</span> mm y <span class="math inline">\(1.294 \times 330 = 427\)</span> mm.</li>
 <li>Revisión con la envolvente de récords mundiales, <span class="math inline">\(R = 491\,D^{0.452}\)</span>: para 24 h, 2065 mm. Los valores son físicamente posibles.</li>
 </ol>
@@ -1588,7 +1586,7 @@ K_m = \frac{X_m - \bar{X}_{n-m}}{S_{n-m}}, \qquad \mathrm{PMP} = \bar{X}_n + K_m
 <h2>Para practicar</h2>
 <ol type="1">
 <li>Construya con el bloque alterno el hietograma de 25 años y 60 min para la estación IMN-Aranjuez con bloques de 10 min. Compare el bloque mayor con el del ejemplo de 5 min.</li>
-<li>Con la curva <span class="math inline">\(i = 1150\,T^{0.18}/(d + 12)^{0.78}\)</span>, compare el hietograma de bloque alterno con el pico al 50 % y al 33 %. ¿Cambia la lámina total? ¿Qué cambiaría en el hidrograma?</li>
+<li>Con la curva <span class="math inline">\(i = \frac{1150\,T^{0.18}}{(d + 12)^{0.78}}\)</span>, compare el hietograma de bloque alterno con el pico al 50 % y al 33 %. ¿Cambia la lámina total? ¿Qué cambiaría en el hidrograma?</li>
 <li>Repita la maximización por humedad del ejemplo con un punto de rocío de tormenta de 22 °C. ¿Cuánto cambia la lámina de 24 h?</li>
 <li>Calcule <span class="math inline">\(K_m\)</span> de la serie de 1 h de otra estación del archivo del Térraba y compárelo con la curva envolvente de Hershfield.</li>
 </ol>
@@ -1673,9 +1671,9 @@ f_p(t) = f_c + (f_0 - f_c)\,e^{-k t}, \qquad F(t) = f_c\,t + \frac{f_0 - f_c}{k}
 <h2>Horton con lluvia: compresión del tiempo</h2>
 <p>Con el tiempo desde el inicio de la lluvia, la capacidad baja como si el suelo estuviera encharcado. La corrección usa la lámina infiltrada como reloj <span class="citation" data-cites="akan1992horton">(<a href="#/referencias" role="doc-biblioref" onclick="">Akan, 1992</a>)</span>:</p>
 <ol type="1">
-<li><span class="math inline">\(t^* = -\ln\left[(i - f_c)/(f_0 - f_c)\right]/k\)</span>: cuando la curva baja hasta <span class="math inline">\(i\)</span>.</li>
+<li><span class="math inline">\(t^* = -\frac{1}{k}\ln\left(\frac{i - f_c}{f_0 - f_c}\right)\)</span>: cuando la curva baja hasta <span class="math inline">\(i\)</span>.</li>
 <li><span class="math inline">\(F^* = F(t^*)\)</span>: lo que el suelo habría infiltrado encharcado hasta ese momento.</li>
-<li><span class="math inline">\(t_p = F^*/i\)</span>: bajo la lluvia, esa lámina entra a la tasa <span class="math inline">\(i\)</span>.</li>
+<li><span class="math inline">\(t_p = \frac{F^*}{i}\)</span>: bajo la lluvia, esa lámina entra a la tasa <span class="math inline">\(i\)</span>.</li>
 <li>Después de <span class="math inline">\(t_p\)</span>: <span class="math inline">\(f_p(t) = f_c + (f_0 - f_c)\,e^{-k\,(t - t_p + t^*)}\)</span>.</li>
 </ol>
 <p><span class="nota">SWMM usa una versión modificada que deja recuperar la capacidad en los periodos sin lluvia <span class="citation" data-cites="rossman2016swmm">(<a href="#/referencias" role="doc-biblioref" onclick="">Rossman &amp; Huber, 2016</a>)</span>.</span></p>
@@ -1687,9 +1685,9 @@ f_p(t) = f_c + (f_0 - f_c)\,e^{-k t}, \qquad F(t) = f_c\,t + \frac{f_0 - f_c}{k}
 <div class="column" style="width:48%;">
 <p>Solución:</p>
 <ol type="1">
-<li><span class="math inline">\(t^* = -\ln(50/170)/1.2 = 1.020\)</span> h.</li>
-<li><span class="math inline">\(F^* = 10 \times 1.020 + 141.7\,(1 - 50/170) = 110.2\)</span> mm.</li>
-<li><span class="math inline">\(t_p = 110.2/60 = 1.837\)</span> h = 110.2 min.</li>
+<li><span class="math inline">\(t^* = -\frac{\ln(50/170)}{1.2} = 1.020\)</span> h.</li>
+<li><span class="math inline">\(F^* = 10 \times 1.020 + 141.7\,(1 - \frac{50}{170}) = 110.2\)</span> mm.</li>
+<li><span class="math inline">\(t_p = \frac{110.2}{60} = 1.837\)</span> h = 110.2 min.</li>
 <li>De 110.2 a 120 min se infiltran 9.1 mm: en total 119.3 de 120 mm, y escurren 0.7 mm.</li>
 </ol>
 <p><span class="nota">Sin la corrección, el encharcamiento saldría a los 61 min y la escorrentía, de unos 20 mm.</span></p>
@@ -1822,17 +1820,17 @@ F - \psi\,\Delta\theta\,\ln\!\left(1 + \frac{F}{\psi\,\Delta\theta}\right) = K\,
 
 </div>
 </div>
-<p><span class="nota">Valores medios de <span class="citation" data-cites="rawls1983green">Rawls et&nbsp;al. (<a href="#/referencias" role="doc-biblioref" onclick="">1983</a>)</span>, como los presenta <span class="citation" data-cites="chow1988appliedhydrology">Chow et&nbsp;al. (<a href="#/referencias" role="doc-biblioref" onclick="">1988</a>)</span>. Con capas, <span class="math inline">\(K_{eq} = \sum d_j / \sum (d_j/K_j)\)</span>: domina la capa menos permeable.</span></p>
+<p><span class="nota">Valores medios de <span class="citation" data-cites="rawls1983green">Rawls et&nbsp;al. (<a href="#/referencias" role="doc-biblioref" onclick="">1983</a>)</span>, como los presenta <span class="citation" data-cites="chow1988appliedhydrology">Chow et&nbsp;al. (<a href="#/referencias" role="doc-biblioref" onclick="">1988</a>)</span>. Con capas, <span class="math inline">\(K_{eq} = \frac{\sum d_j}{\sum (d_j/K_j)}\)</span>: domina la capa menos permeable.</span></p>
 </section>
 <section id="resolver-la-ecuación-implícita" class="slide level2">
 <h2>Resolver la ecuación implícita</h2>
-<p><span class="math inline">\(F\)</span> aparece fuera y dentro del logaritmo. Con <span class="math inline">\(S = \psi\,\Delta\theta\)</span>, se busca la raíz de <span class="math inline">\(g(F) = F - S\,\ln(1 + F/S) - K\,t\)</span>.</p>
+<p><span class="math inline">\(F\)</span> está fuera y dentro del logaritmo. Con <span class="math inline">\(S = \psi\,\Delta\theta\)</span>, se busca la raíz de <span class="math inline">\(g(F) = F - S\,\ln(1 + \frac{F}{S}) - K\,t\)</span>.</p>
 <ul>
-<li>Sustitución sucesiva: <span class="math inline">\(F_{m+1} = K\,t + S\,\ln(1 + F_m/S)\)</span>, desde <span class="math inline">\(F_0 = K\,t\)</span>. Siempre converge, pero lento al inicio.</li>
-<li>Newton-Raphson: <span class="math inline">\(F_{m+1} = F_m - g(F_m)/g'(F_m)\)</span>, con <span class="math inline">\(g'(F) = F/(S + F)\)</span> y <span class="math inline">\(F_0 = \sqrt{2\,K\,S\,t}\)</span>. Tres o cuatro iteraciones.</li>
+<li>Sustitución sucesiva: <span class="math inline">\(F_{m+1} = K\,t + S\,\ln(1 + \frac{F_m}{S})\)</span>, desde <span class="math inline">\(F_0 = K\,t\)</span>. Siempre converge, pero lento al inicio.</li>
+<li>Newton-Raphson: <span class="math inline">\(F_{m+1} = F_m - \frac{g(F_m)}{g'(F_m)}\)</span>, con <span class="math inline">\(g'(F) = \frac{F}{S + F}\)</span> y <span class="math inline">\(F_0 = \sqrt{2\,K\,S\,t}\)</span>. Tres o cuatro iteraciones.</li>
 <li>Explícita con la función W de Lambert <span class="citation" data-cites="barry2005green">(<a href="#/referencias" role="doc-biblioref" onclick="">Barry et&nbsp;al., 2005</a>)</span>.</li>
 </ul>
-<p>Ejemplo: <span class="math inline">\(K = 30\)</span> mm/h, <span class="math inline">\(\psi = 200\)</span> mm y <span class="math inline">\(\Delta\theta = 0.30\)</span>, así que <span class="math inline">\(S = 60\)</span> mm. Para <span class="math inline">\(t = 10\)</span> min, <span class="math inline">\(K\,t = 5\)</span> mm. Newton-Raphson desde <span class="math inline">\(F_0 = \sqrt{2 \times 30 \times 60 \times 1/6} = 24.49\)</span> mm: <span class="math inline">\(F_1 = 28.10\)</span>, <span class="math inline">\(F_2 = 27.94\)</span> mm, y la tercera corrección es de 0.0003 mm. Entonces <span class="math inline">\(f_p = 30\,(1 + 60/27.94) = 94.4\)</span> mm/h.</p>
+<p>Ejemplo: <span class="math inline">\(K = 30\)</span> mm/h, <span class="math inline">\(\psi = 200\)</span> mm y <span class="math inline">\(\Delta\theta = 0.30\)</span>, así que <span class="math inline">\(S = 60\)</span> mm. Con <span class="math inline">\(t = 10\)</span> min, <span class="math inline">\(K\,t = 5\)</span> mm. Newton-Raphson desde <span class="math inline">\(F_0 = \sqrt{2 \times 30 \times 60 \times \frac{1}{6}} = 24.49\)</span> mm: <span class="math inline">\(F_1 = 28.10\)</span>, <span class="math inline">\(F_2 = 27.94\)</span> mm (la tercera corrección es de 0.0003 mm), y <span class="math inline">\(f_p = 30\,(1 + \frac{60}{27.94}) = 94.4\)</span> mm/h.</p>
 </section>
 <section id="green-ampt-con-lluvia" class="slide level2">
 <h2>Green-Ampt con lluvia</h2>
@@ -1857,7 +1855,7 @@ R = \sum_{m=1}^{M} \left(P_m - \phi\,\Delta t\right)
 <p>Evento 1 de la clase 4.1, <span class="math inline">\(R = 4.42\)</span> mm. Lluvias mayores: 23.77, 21.50 y 8.60 mm.</p>
 <ol type="1">
 <li><span class="math inline">\(\phi_1 = 23.77 - 4.42 = 19.35 &lt; 21.50\)</span>: no sirve.</li>
-<li><span class="math inline">\(\phi_2 = (23.77 + 21.50 - 4.42)/2 = 20.42\)</span> mm/h: cumple.</li>
+<li><span class="math inline">\(\phi_2 = \frac{23.77 + 21.50 - 4.42}{2} = 20.42\)</span> mm/h: cumple.</li>
 <li><span class="math inline">\(P_e\)</span> = 3.35 y 1.08 mm; <span class="math inline">\(D = 2\)</span> h.</li>
 </ol>
 </div><div class="column" style="width:50%;">
@@ -1987,8 +1985,8 @@ Grupo hidrológico del suelo
 
 </div>
 </div>
-<p>Humedad antecedente: <span class="math inline">\(CN_{\mathrm{I}} = 4.2\,CN_{\mathrm{II}}/(10 - 0.058\,CN_{\mathrm{II}})\)</span> y <span class="math inline">\(CN_{\mathrm{III}} = 23\,CN_{\mathrm{II}}/(10 + 0.13\,CN_{\mathrm{II}})\)</span> (I: menos de 36 mm en 5 días previos; III: más de 53 mm).</p>
-<p><span class="nota">Extracto, condición II <span class="citation" data-cites="chow1988appliedhydrology">(<a href="#/referencias" role="doc-biblioref" onclick="">Chow et&nbsp;al., 1988</a>)</span>; cuadro completo en el capítulo 21.</span></p>
+<p><span class="small">Humedad antecedente: <span class="math inline">\(CN_{\mathrm{I}} = \frac{4.2\,CN_{\mathrm{II}}}{10 - 0.058\,CN_{\mathrm{II}}}\)</span> y <span class="math inline">\(CN_{\mathrm{III}} = \frac{23\,CN_{\mathrm{II}}}{10 + 0.13\,CN_{\mathrm{II}}}\)</span> (I: menos de 36 mm en 5 días; III: más de 53 mm).</span></p>
+<p><span class="nota">Extracto, condición II <span class="citation" data-cites="chow1988appliedhydrology">(<a href="#/referencias" role="doc-biblioref" onclick="">Chow et&nbsp;al., 1988</a>)</span>; cuadro completo en el cap. 21.</span></p>
 </section>
 <section id="ejemplo-lluvia-efectiva-con-el-número-de-curva" class="slide level2">
 <h2>Ejemplo: lluvia efectiva con el número de curva</h2>
@@ -1996,9 +1994,9 @@ Grupo hidrológico del suelo
 <p>Solución:</p>
 <ol type="1">
 <li><span class="math inline">\(CN = 0.60 \times 74 + 0.25 \times 70 + 0.15 \times 83 = 74.35\)</span>.</li>
-<li><span class="math inline">\(S = 25\,400/74.35 - 254 = 87.63\)</span> mm e <span class="math inline">\(I_a = 17.53\)</span> mm.</li>
+<li><span class="math inline">\(S = \frac{25\,400}{74.35} - 254 = 87.63\)</span> mm e <span class="math inline">\(I_a = 17.53\)</span> mm.</li>
 <li>Acumulada: 10, 35, 75, 90 y 95 mm. Hora 1: <span class="math inline">\(P &lt; I_a\)</span>, sin escorrentía.</li>
-<li>Hora 2: <span class="math inline">\(P_e = (35 - 17.53)^2/(35 + 70.10) = 2.91\)</span> mm. Hora 3: 22.77 mm; luego 32.81 y 36.36 mm.</li>
+<li>Hora 2: <span class="math inline">\(P_e = \frac{(35 - 17.53)^2}{35 + 70.10} = 2.91\)</span> mm. Hora 3: 22.77 mm; luego 32.81 y 36.36 mm.</li>
 <li>Por diferencia: 0, 2.91, 19.86, 10.04 y 3.55 mm.</li>
 <li>Condición húmeda: <span class="math inline">\(CN_{\mathrm{III}} = 86.96\)</span>, <span class="math inline">\(S = 38.10\)</span> mm y <span class="math inline">\(P_e = 60.85\)</span> mm, casi el doble.</li>
 </ol>
@@ -2030,8 +2028,8 @@ Grupo hidrológico del suelo
 <span id="cb3-22"><a href="" aria-hidden="true" tabindex="-1"></a>  <span class="at">pe_total_humeda =</span> <span class="fu">sum</span>(<span class="fu">lluvia_efectiva_cn</span>(tormenta<span class="sc">$</span>p_mm, cn_humeda)))</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="explorador-número-de-curva" class="slide level2">
-<h2>Explorador: número de curva</h2>
+<section id="número-de-curva" class="slide level2">
+<h2>Número de curva</h2>
 <div id="explorador-cn" class="explorador">
   <div class="explorador-controles">
     <label><i>CN</i> (condición II) = <input type="range" id="ec-cn" min="30" max="98" step="1" value="74"> <span id="ec-cn-val"></span></label>
@@ -2208,7 +2206,7 @@ Q = \frac{C \, i \, A}{360}
 <td style="text-align: center;">m³/s</td>
 <td style="text-align: center;">mm/h</td>
 <td style="text-align: center;">ha</td>
-<td style="text-align: center;"><span class="math inline">\(Q = C\,i\,A/360\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(Q = \frac{C\,i\,A}{360}\)</span></td>
 </tr>
 <tr class="even">
 <td style="text-align: center;">m³/s</td>
@@ -2742,7 +2740,7 @@ Cuadro&nbsp;2: Intensidad máxima (mm/h), estación 84-46 San Josecito. Fuente: 
 <p><span class="math display">\[
 i = i_1 \left( \frac{d}{d_1} \right)^{b}, \quad b = \frac{\ln (i_2/i_1)}{\ln (d_2/d_1)}
 \]</span></p>
-<p><span class="small">Para 20 min y 10 años: <span class="math inline">\(b = \ln(97.38/131.43)/\ln(30/15) = -0.433\)</span> e <span class="math inline">\(i = 131.43 \times (20/15)^{-0.433} = 116.1\)</span> mm/h.</span></p>
+<p><span class="small">Para 20 min y 10 años: <span class="math inline">\(b = \frac{\ln(97.38/131.43)}{\ln(30/15)} = -0.433\)</span> e <span class="math inline">\(i = 131.43 \times \left(\frac{20}{15}\right)^{-0.433} = 116.1\)</span> mm/h.</span></p>
 </div></div>
 </section>
 <section id="curvas-idf-disponibles-en-costa-rica" class="slide level2">
@@ -2758,13 +2756,12 @@ i = i_1 \left( \frac{d}{d_1} \right)^{b}, \quad b = \frac{\ln (i_2/i_1)}{\ln (d_
 <section id="tiempo-de-concentración" class="slide level2">
 <h2>Tiempo de concentración</h2>
 <ul>
-<li>Para diseñar: tiempo de viaje desde el punto hidráulicamente más alejado hasta el punto de control <span class="citation" data-cites="mccuen1998hydrologic">(<a href="#/referencias" role="doc-biblioref" onclick="">McCuen, 1998</a>)</span>.</li>
+<li>Tiempo de viaje desde el punto hidráulicamente más alejado hasta el punto de control <span class="citation" data-cites="mccuen1998hydrologic">(<a href="#/referencias" role="doc-biblioref" onclick="">McCuen, 1998</a>)</span>.</li>
 <li>El punto más alejado en tiempo no siempre es el más lejano: un pasto plano corto puede tardar más que un cauce largo y empinado.</li>
-<li>Tres formas de calcularlo:
+<li>Dos caminos:
 <ol type="1">
 <li>Sumar los tiempos de viaje por tramos, con la velocidad de cada tipo de flujo (TR-55).</li>
-<li>Con el tiempo de retardo del SCS, a partir del número de curva.</li>
-<li>Con una fórmula empírica de longitud y pendiente.</li>
+<li>Con el tiempo de retardo del SCS, a partir del número de curva, o con una fórmula empírica de longitud y pendiente.</li>
 </ol></li>
 </ul>
 <p><span class="math display">\[
@@ -2791,7 +2788,7 @@ t_c = \sum_{k=1}^{n} \frac{L_k}{60 \, V_k}
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">Laminar, hasta unos 130 m</td>
-<td style="text-align: center;"><span class="math inline">\(t_1 = \dfrac{6.92}{i^{0.4}} \left( \dfrac{n \, L_1}{\sqrt{S_1}} \right)^{0.6}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(t_1 = \frac{6.92}{i^{0.4}} \left( \frac{n \, L_1}{\sqrt{S_1}} \right)^{0.6}\)</span></td>
 <td style="text-align: left;"><span class="math inline">\(t_1\)</span> en min, <span class="math inline">\(n\)</span> de flujo laminar, <span class="math inline">\(L_1\)</span> en m, <span class="math inline">\(S_1\)</span> en m/m, <span class="math inline">\(i\)</span> en mm/h</td>
 </tr>
 <tr class="even">
@@ -2801,7 +2798,7 @@ t_c = \sum_{k=1}^{n} \frac{L_k}{60 \, V_k}
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Cauces y tuberías</td>
-<td style="text-align: center;"><span class="math inline">\(V_3 = \dfrac{1}{n} \, R^{2/3} \, S^{1/2}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(V_3 = \frac{1}{n} \, R^{2/3} \, S^{1/2}\)</span></td>
 <td style="text-align: left;">Manning: <span class="math inline">\(R\)</span> en m, <span class="math inline">\(S\)</span> en m/m</td>
 </tr>
 </tbody>
@@ -2910,7 +2907,7 @@ t_c = \sum_{k=1}^{n} \frac{L_k}{60 \, V_k}
 </tbody>
 </table>
 </div></div>
-<p><span class="nota">En una tubería llena <span class="math inline">\(R = D/4\)</span>; en un cauce ancho, <span class="math inline">\(R\)</span> es casi igual a la profundidad.</span></p>
+<p><span class="nota">En una tubería llena <span class="math inline">\(R = \frac{D}{4}\)</span>; en un cauce ancho, <span class="math inline">\(R\)</span> es casi igual a la profundidad.</span></p>
 </section>
 <section id="fórmulas-empíricas-más-usadas" class="slide level2">
 <h2>Fórmulas empíricas más usadas</h2>
@@ -2957,37 +2954,37 @@ t_c = \frac{3.26 \, (1.1 - C) \, \sqrt{L}}{S_p^{1/3}}
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">California (1942)</td>
-<td style="text-align: center;"><span class="math inline">\(t_c = 0.0195\left(\dfrac{L^{3}}{H}\right)^{0.385}\)</span> (min)</td>
+<td style="text-align: center;"><span class="math inline">\(t_c = 0.0195\left(\frac{L^{3}}{H}\right)^{0.385}\)</span> (min)</td>
 <td style="text-align: left;"><span class="math inline">\(L\)</span> (m), <span class="math inline">\(H\)</span> desnivel (m)</td>
-<td style="text-align: left;">Kirpich con <span class="math inline">\(S = H/L\)</span></td>
+<td style="text-align: left;">Kirpich con <span class="math inline">\(S = \frac{H}{L}\)</span></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Témez (1978)</td>
-<td style="text-align: center;"><span class="math inline">\(T_c = 0.3\left(\dfrac{L}{S^{0.25}}\right)^{0.76}\)</span> (h)</td>
+<td style="text-align: center;"><span class="math inline">\(T_c = 0.3\left(\frac{L}{S^{0.25}}\right)^{0.76}\)</span> (h)</td>
 <td style="text-align: left;"><span class="math inline">\(L\)</span> (km), <span class="math inline">\(S\)</span> (m/m)</td>
 <td style="text-align: left;">Cuencas naturales de España</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Giandotti (1934)</td>
-<td style="text-align: center;"><span class="math inline">\(T_c = \dfrac{4\sqrt{A} + 1.5\,L}{0.8\sqrt{H}}\)</span> (h)</td>
+<td style="text-align: center;"><span class="math inline">\(T_c = \frac{4\sqrt{A} + 1.5\,L}{0.8\sqrt{H}}\)</span> (h)</td>
 <td style="text-align: left;"><span class="math inline">\(A\)</span> (km²), <span class="math inline">\(L\)</span> (km), <span class="math inline">\(H\)</span> (m)</td>
 <td style="text-align: left;">Cuencas de Italia</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Hathaway (Kerby)</td>
-<td style="text-align: center;"><span class="math inline">\(T_c = \dfrac{0.606\,(L\,n)^{0.467}}{S^{0.234}}\)</span> (h)</td>
+<td style="text-align: center;"><span class="math inline">\(T_c = \frac{0.606\,(L\,n)^{0.467}}{S^{0.234}}\)</span> (h)</td>
 <td style="text-align: left;"><span class="math inline">\(L\)</span> (km), <span class="math inline">\(S\)</span> (m/m), <span class="math inline">\(n\)</span></td>
 <td style="text-align: left;">Parcelas de unos 0.04 km²</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Onda cinemática</td>
-<td style="text-align: center;"><span class="math inline">\(t_c = \dfrac{6.99\,(n\,L)^{0.6}}{i^{0.4}\,S^{0.3}}\)</span> (min)</td>
+<td style="text-align: center;"><span class="math inline">\(t_c = \frac{6.99\,(n\,L)^{0.6}}{i^{0.4}\,S^{0.3}}\)</span> (min)</td>
 <td style="text-align: left;"><span class="math inline">\(n\)</span>, <span class="math inline">\(L\)</span> (m), <span class="math inline">\(i\)</span> (mm/h), <span class="math inline">\(S\)</span> (m/m)</td>
 <td style="text-align: left;">Superficies urbanizadas; iterativa</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Izzard (1946)</td>
-<td style="text-align: center;"><span class="math inline">\(t_c = \dfrac{526.4\,(0.0000276\,i + c_r)\,L^{1/3}}{S^{1/3}\,i^{2/3}}\)</span> (min)</td>
+<td style="text-align: center;"><span class="math inline">\(t_c = \frac{526.4\,(0.0000276\,i + c_r)\,L^{1/3}}{S^{1/3}\,i^{2/3}}\)</span> (min)</td>
 <td style="text-align: left;"><span class="math inline">\(i\)</span> (mm/h), <span class="math inline">\(c_r\)</span>, <span class="math inline">\(L\)</span> (m), <span class="math inline">\(S\)</span> (m/m)</td>
 <td style="text-align: left;">Caminos y césped; <span class="math inline">\(i\,L &lt; 3870\)</span></td>
 </tr>
@@ -3041,9 +3038,9 @@ t_c = \frac{3.26 \, (1.1 - C) \, \sqrt{L}}{S_p^{1/3}}
 <section id="solución-tramos-que-no-dependen-de-la-lluvia" class="slide level2">
 <h2>Solución: tramos que no dependen de la lluvia</h2>
 <ol type="1">
-<li>Tramo 2: <span class="math inline">\(V_2 = 0.491\sqrt{4} = 0.982\)</span> m/s y <span class="math inline">\(t_2 = 280/(60 \times 0.982) = 4.75\)</span> min.</li>
-<li>Tramo 3: <span class="math inline">\(V_3 = (1/0.040) \times 0.30^{2/3} \times 0.025^{1/2} = 1.77\)</span> m/s y <span class="math inline">\(t_3 = 1250/(60 \times 1.77) = 11.76\)</span> min.</li>
-<li>Tramo 1: <span class="math inline">\(6.92\,(0.24 \times 70/\sqrt{0.03})^{0.6} = 107.7\)</span>, así que <span class="math inline">\(t_1 = 107.7/i^{0.4}\)</span>.</li>
+<li>Tramo 2: <span class="math inline">\(V_2 = 0.491\sqrt{4} = 0.982\)</span> m/s y <span class="math inline">\(t_2 = \frac{280}{60 \times 0.982} = 4.75\)</span> min.</li>
+<li>Tramo 3: <span class="math inline">\(V_3 = \left(\frac{1}{0.040}\right) \times 0.30^{2/3} \times 0.025^{1/2} = 1.77\)</span> m/s y <span class="math inline">\(t_3 = \frac{1250}{60 \times 1.77} = 11.76\)</span> min.</li>
+<li>Tramo 1: <span class="math inline">\(6.92\,(0.24 \times \frac{70}{\sqrt{0.03}})^{0.6} = 107.7\)</span>, así que <span class="math inline">\(t_1 = \frac{107.7}{i^{0.4}}\)</span>.</li>
 </ol>
 <div class="fragment">
 <p>Se supone <span class="math inline">\(t_c\)</span>, se lee <span class="math inline">\(i\)</span>, se recalcula <span class="math inline">\(t_1\)</span> y <span class="math inline">\(t_c\)</span>, y se repite:</p>
@@ -3088,7 +3085,7 @@ t_c = \frac{3.26 \, (1.1 - C) \, \sqrt{L}}{S_p^{1/3}}
 </tr>
 </tbody>
 </table>
-<p><span class="nota">En la iteración 2 se interpola entre 30 y 60 min: <span class="math inline">\(b = \ln(77.00/114.57)/\ln 2 = -0.573\)</span> e <span class="math inline">\(i = 114.57 \times (32.68/30)^{-0.573} = 109.09\)</span> mm/h.</span></p>
+<p><span class="nota">En la iteración 2 se interpola entre 30 y 60 min: <span class="math inline">\(b = \frac{\ln(77.00/114.57)}{\ln 2} = -0.573\)</span> e <span class="math inline">\(i = 114.57 \times \left(\frac{32.68}{30}\right)^{-0.573} = 109.09\)</span> mm/h.</span></p>
 </div>
 </section>
 <section id="solución-fórmulas-empíricas-y-caudales" class="slide level2">
@@ -3096,8 +3093,8 @@ t_c = \frac{3.26 \, (1.1 - C) \, \sqrt{L}}{S_p^{1/3}}
 <p>Recorrido completo: <span class="math inline">\(L = 1600\)</span> m, desnivel <span class="math inline">\(H = 0.03 \times 70 + 0.04 \times 280 + 0.025 \times 1250 = 44.55\)</span> m y <span class="math inline">\(S = 0.0278\)</span> m/m.</p>
 <ol start="4" type="1">
 <li>Kirpich: <span class="math inline">\(t_c = 0.0195 \times 1600^{0.77} \times 0.0278^{-0.385} = 22.7\)</span> min.</li>
-<li>Retardo del SCS: <span class="math inline">\(t_c = 0.136 \times 1600^{0.8} \times (1000/74 - 9)^{0.7}/\sqrt{8} = 50.5\)</span> min.</li>
-<li>Caudales con <span class="math inline">\(Q = 0.46\,i \times 85/360\)</span>:</li>
+<li>Retardo del SCS: <span class="math inline">\(t_c = 0.136 \times 1600^{0.8} \times \frac{(\frac{1000}{74} - 9)^{0.7}}{\sqrt{8}} = 50.5\)</span> min.</li>
+<li>Caudales con <span class="math inline">\(Q = \frac{0.46\,i \times 85}{360}\)</span>:</li>
 </ol>
 <table class="caption-top">
 <thead>
@@ -3239,10 +3236,10 @@ Figura&nbsp;4: Solución gráfica del tiempo de concentración.
 <h2>Solución: efecto de una urbanización</h2>
 <ol type="1">
 <li>Valores medios del AyA: techos 0.875, asfalto 0.825, pasto arcilloso de 2 % a 8 % 0.21.</li>
-<li><span class="math inline">\(C_w = (3.1 \times 0.875 + 2.4 \times 0.825 + 7.0 \times 0.21)/12.5 = 0.493\)</span>.</li>
+<li><span class="math inline">\(C_w = \frac{3.1 \times 0.875 + 2.4 \times 0.825 + 7.0 \times 0.21}{12.5} = 0.493\)</span>.</li>
 <li>Kirpich: <span class="math inline">\(t_c = 0.0195 \times 520^{0.77} \times 0.045^{-0.385} = 7.9\)</span> min, menor que el mínimo: se usa 10 min.</li>
 <li><span class="math inline">\(i = 152.55\)</span> mm/h (10 min, 10 años).</li>
-<li>Antes: <span class="math inline">\(Q = 0.21 \times 152.55 \times 12.5/360 = 1.11\)</span> m³/s. Después: <span class="math inline">\(Q = 0.493 \times 152.55 \times 12.5/360 = 2.61\)</span> m³/s.</li>
+<li>Antes: <span class="math inline">\(Q = 0.21 \times 152.55 \times \frac{12.5}{360} = 1.11\)</span> m³/s. Después: <span class="math inline">\(Q = 0.493 \times 152.55 \times \frac{12.5}{360} = 2.61\)</span> m³/s.</li>
 </ol>
 <p><span class="nota">El caudal sube 2.3 veces solo por el cambio de cobertura. En un terreno más grande, el acortamiento de <span class="math inline">\(t_c\)</span> lo subiría todavía más.</span></p>
 </section>
@@ -3306,11 +3303,11 @@ Figura&nbsp;4: Solución gráfica del tiempo de concentración.
 <h2>Ejemplo: pozo que recibe dos subcuencas</h2>
 <p>Subcuenca 1: 2.0 ha, <span class="math inline">\(C = 0.75\)</span>, <span class="math inline">\(t_c = 12\)</span> min, llega por 150 m de tubería a 1.5 m/s. Subcuenca 2: 1.5 ha, <span class="math inline">\(C = 0.50\)</span>, <span class="math inline">\(t_c = 10\)</span> min, entra directo (datos hipotéticos). Caudal de diseño para 10 años:</p>
 <ol type="1">
-<li>Viaje en la tubería: <span class="math inline">\(150/(1.5 \times 60) = 1.67\)</span> min; la subcuenca 1 llega en 13.67 min.</li>
+<li>Viaje en la tubería: <span class="math inline">\(\frac{150}{1.5 \times 60} = 1.67\)</span> min; la subcuenca 1 llega en 13.67 min.</li>
 <li><span class="math inline">\(t_c\)</span> del pozo: el mayor, 13.67 min.</li>
-<li><span class="math inline">\(C_w = (2.0 \times 0.75 + 1.5 \times 0.50)/3.5 = 0.643\)</span>.</li>
-<li><span class="math inline">\(b = \ln(131.43/152.55)/\ln(15/10) = -0.367\)</span> e <span class="math inline">\(i = 152.55 \times (13.67/10)^{-0.367} = 136.0\)</span> mm/h.</li>
-<li><span class="math inline">\(Q = 0.643 \times 136.0 \times 3.5/360 = 0.85\)</span> m³/s.</li>
+<li><span class="math inline">\(C_w = \frac{2.0 \times 0.75 + 1.5 \times 0.50}{3.5} = 0.643\)</span>.</li>
+<li><span class="math inline">\(b = \frac{\ln(131.43/152.55)}{\ln(15/10)} = -0.367\)</span> e <span class="math inline">\(i = 152.55 \times \left(\frac{13.67}{10}\right)^{-0.367} = 136.0\)</span> mm/h.</li>
+<li><span class="math inline">\(Q = 0.643 \times 136.0 \times \frac{3.5}{360} = 0.85\)</span> m³/s.</li>
 </ol>
 <div class="fragment">
 <p>Sumar los caudales por separado da <span class="math inline">\(0.59 + 0.32 = 0.91\)</span> m³/s, un 7 % más. En una red con muchos tramos el error se acumula y las tuberías de aguas abajo salen sobredimensionadas.</p>
@@ -3321,7 +3318,7 @@ Figura&nbsp;4: Solución gráfica del tiempo de concentración.
 <div class="columns">
 <div class="column" style="width:42%;">
 <ul>
-<li>Para lluvias de duración <span class="math inline">\(d \geq t_c\)</span> el hidrograma es un trapecio: sube hasta <span class="math inline">\(Q = C\,i(d)\,A/360\)</span> en <span class="math inline">\(t_c\)</span>, se mantiene hasta <span class="math inline">\(d\)</span> y baja a cero en <span class="math inline">\(d + t_c\)</span> <span class="citation" data-cites="chow1988appliedhydrology">(<a href="#/referencias" role="doc-biblioref" onclick="">Chow et&nbsp;al., 1988</a>)</span>.</li>
+<li>Para lluvias de duración <span class="math inline">\(d \geq t_c\)</span> el hidrograma es un trapecio: sube hasta <span class="math inline">\(Q = \frac{C\,i(d)\,A}{360}\)</span> en <span class="math inline">\(t_c\)</span>, se mantiene hasta <span class="math inline">\(d\)</span> y baja a cero en <span class="math inline">\(d + t_c\)</span> <span class="citation" data-cites="chow1988appliedhydrology">(<a href="#/referencias" role="doc-biblioref" onclick="">Chow et&nbsp;al., 1988</a>)</span>.</li>
 <li>Las lluvias largas dan picos menores pero más volumen.</li>
 <li>Sirve para un primer volumen de una laguna de retención: se busca la duración que da el mayor volumen sobre el caudal permitido. Para cuencas de hasta unas 8 a 12 ha.</li>
 </ul>
@@ -3412,8 +3409,8 @@ Figura&nbsp;5: Hidrogramas del racional modificado para la urbanización del eje
 </tbody>
 </table>
 </section>
-<section id="explorador-duración-de-la-lluvia-e-hidrograma" class="slide level2">
-<h2>Explorador: duración de la lluvia e hidrograma</h2>
+<section id="duración-de-la-lluvia-e-hidrograma" class="slide level2">
+<h2>Duración de la lluvia e hidrograma</h2>
 <div id="explorador-hidrograma" class="explorador">
   <div class="explorador-controles">
     <label>Duración de la lluvia <i>d</i>: <input type="range" id="eh-d" min="5" max="120" step="1" value="33"> <span id="eh-d-val"></span> min</label>
@@ -3608,7 +3605,7 @@ Figura&nbsp;5: Hidrogramas del racional modificado para la urbanización del eje
 <section id="ideas-para-llevar-4" class="slide level2">
 <h2>Ideas para llevar</h2>
 <ul>
-<li><span class="math inline">\(Q = C\,i\,A/360\)</span>, con <span class="math inline">\(i\)</span> para una duración igual a <span class="math inline">\(t_c\)</span> y las unidades revisadas.</li>
+<li><span class="math inline">\(Q = \frac{C\,i\,A}{360}\)</span>, con <span class="math inline">\(i\)</span> para una duración igual a <span class="math inline">\(t_c\)</span> y las unidades revisadas.</li>
 <li><span class="math inline">\(C\)</span> es el dato menos preciso: se toma el valor medio del rango de la norma.</li>
 <li><span class="math inline">\(t_c\)</span> por tramos describe mejor la cuenca que una fórmula sola. Las fórmulas no se promedian.</li>
 <li>Solo para cuencas pequeñas: 100 ha según el AyA. Para más área, hidrograma unitario o un modelo lluvia-escorrentía.</li>
@@ -3669,12 +3666,12 @@ U_D(t) = \frac{Q_d(t)}{R}
 </section>
 <section id="curva-s-y-cambio-de-duración" class="slide level2">
 <h2>Curva S y cambio de duración</h2>
-<p>Curva S: escorrentía de una lluvia efectiva continua de <span class="math inline">\(1/D\)</span> mm/h <span class="citation" data-cites="chow1988appliedhydrology">(<a href="#/referencias" role="doc-biblioref" onclick="">Chow et&nbsp;al., 1988, pp. 230-232</a>)</span>.</p>
+<p>Curva S: escorrentía de una lluvia efectiva continua de <span class="math inline">\(\frac{1}{D}\)</span> mm/h <span class="citation" data-cites="chow1988appliedhydrology">(<a href="#/referencias" role="doc-biblioref" onclick="">Chow et&nbsp;al., 1988, pp. 230-232</a>)</span>.</p>
 <p><span class="math display">\[
 S(t) = U_D(t) + S(t - D), \qquad U_{D'}(t) = \frac{D}{D'}\,\left[S(t) - S(t - D')\right]
 \]</span></p>
 <ul>
-<li>Se estabiliza en el caudal de equilibrio <span class="math inline">\(Q_e = A/(3.6\,D)\)</span>, con <span class="math inline">\(A\)</span> en km² y <span class="math inline">\(D\)</span> en h.</li>
+<li>Se estabiliza en el caudal de equilibrio <span class="math inline">\(Q_e = \frac{A}{3.6\,D}\)</span>, con <span class="math inline">\(A\)</span> en km² y <span class="math inline">\(D\)</span> en h.</li>
 <li>En la práctica oscila si el hidrograma de partida no es exacto o la lluvia no fue uniforme.</li>
 <li>Para duraciones múltiplo: el de <span class="math inline">\(nD\)</span> horas es la suma de <span class="math inline">\(n\)</span> hidrogramas desfasados <span class="math inline">\(D\)</span>, dividida entre <span class="math inline">\(n\)</span> <span class="citation" data-cites="linsley1977hidrologia">(<a href="#/referencias" role="doc-biblioref" onclick="">Linsley et&nbsp;al., 1977, pp. 197-201</a>)</span>.</li>
 </ul>
@@ -3699,7 +3696,7 @@ S(t) = U_D(t) + S(t - D), \qquad U_{D'}(t) = \frac{D}{D'}\,\left[S(t) - S(t - D'
 <li>Volumen: suma 85 m³/s, <span class="math inline">\(85 \times 3600 = 306\,000\)</span> m³ = 1.0 mm.</li>
 <li>Desfase de 2 h: 0, 5, 15, 27.5, 32.5, 37.5, 40, 42.5 y se queda en 42.5.</li>
 <li>Desfase de 3 h: repite 27.5, 27.5, 30 sin estabilizarse.</li>
-<li>La duración es 2 h: <span class="math inline">\(Q_e = 306/(3.6 \times 2) = 42.5\)</span> m³/s.</li>
+<li>La duración es 2 h: <span class="math inline">\(Q_e = \frac{306}{3.6 \times 2} = 42.5\)</span> m³/s.</li>
 </ol>
 </div></div>
 </section>
@@ -3858,10 +3855,10 @@ S(t) = U_D(t) + S(t - D), \qquad U_{D'}(t) = \frac{D}{D'}\,\left[S(t) - S(t - D'
 <div class="column" style="width:50%;">
 <p>Sustitución hacia adelante, evento 3 (<span class="math inline">\(P_1 = 4.19\)</span>, <span class="math inline">\(P_2 = 0.58\)</span> mm):</p>
 <ol type="1">
-<li><span class="math inline">\(U_1 = 0/4.19 = 0\)</span>.</li>
-<li><span class="math inline">\(U_2 = 41.72/4.19 = 9.96\)</span>.</li>
-<li><span class="math inline">\(U_3 = (159.34 - 0.58 \times 9.96)/4.19 = 36.65\)</span>.</li>
-<li><span class="math inline">\(U_4 = (156.36 - 0.58 \times 36.65)/4.19 = 32.24\)</span>.</li>
+<li><span class="math inline">\(U_1 = \frac{0}{4.19} = 0\)</span>.</li>
+<li><span class="math inline">\(U_2 = \frac{41.72}{4.19} = 9.96\)</span>.</li>
+<li><span class="math inline">\(U_3 = \frac{159.34 - 0.58 \times 9.96}{4.19} = 36.65\)</span>.</li>
+<li><span class="math inline">\(U_4 = \frac{156.36 - 0.58 \times 36.65}{4.19} = 32.24\)</span>.</li>
 <li>Volumen: 88.58 m³/s por mm = 1.00 mm.</li>
 </ol>
 <p><span class="nota">Arrastra errores y puede dar ordenadas negativas. Mejor: mínimos cuadrados no negativos con los eventos juntos.</span></p>
@@ -3920,8 +3917,8 @@ S(t) = U_D(t) + S(t - D), \qquad U_{D'}(t) = \frac{D}{D'}\,\left[S(t) - S(t - D'
 </div>
 </div></div>
 </section>
-<section id="explorador-convolución" class="slide level2">
-<h2>Explorador: convolución</h2>
+<section id="convolución-paso-a-paso" class="slide level2">
+<h2>Convolución paso a paso</h2>
 <div id="explorador-conv" class="explorador">
   <div class="explorador-controles">
     <label><i>P</i><sub>1</sub> = <input type="range" id="ev-p1" min="0" max="40" step="1" value="8"> <span id="ev-p1-val"></span> mm</label>
@@ -3996,7 +3993,7 @@ t_p = C_1\,C_t\,(L\,L_c)^{0.3}, \qquad q_p = \frac{C_2\,C_p}{t_p}
 <ul>
 <li><span class="math inline">\(t_p\)</span>: retardo (h); <span class="math inline">\(L\)</span>: longitud del cauce principal (km); <span class="math inline">\(L_c\)</span>: distancia al punto del cauce más cercano al centroide (km); <span class="math inline">\(C_1 = 0.75\)</span> y <span class="math inline">\(C_2 = 2.75\)</span>.</li>
 <li><span class="math inline">\(C_t\)</span> y <span class="math inline">\(C_p\)</span> son regionales: se calibran en cuencas aforadas y se trasladan a las vecinas.</li>
-<li>Duración estándar <span class="math inline">\(t_r = t_p/5.5\)</span>; tiempo base <span class="math inline">\(t_b = 5.56/q_{pR}\)</span>; anchos al 75 y 50 % del pico con <span class="math inline">\(C_w = 1.22\)</span> y 2.14.</li>
+<li>Duración estándar <span class="math inline">\(t_r = \frac{t_p}{5.5}\)</span>; tiempo base <span class="math inline">\(t_b = \frac{5.56}{q_{pR}}\)</span>; anchos al 75 y 50 % del pico con <span class="math inline">\(C_w = 1.22\)</span> y 2.14.</li>
 </ul>
 </section>
 <section id="hidrograma-unitario-del-scs" class="slide level2">
@@ -4008,7 +4005,7 @@ q_p = \frac{0.208\,A}{T_p}, \qquad T_p = \frac{t_r}{2} + t_p, \qquad t_p = 0.6\,
 <div class="column" style="width:50%;">
 <ul>
 <li><span class="math inline">\(q_p\)</span> en m³/s por mm, <span class="math inline">\(A\)</span> en km², tiempos en h.</li>
-<li>Hidrograma adimensional <span class="math inline">\(q/q_p\)</span> contra <span class="math inline">\(t/T_p\)</span>, promedio de muchas cuencas rurales.</li>
+<li>Hidrograma adimensional <span class="math inline">\(\frac{q}{q_p}\)</span> contra <span class="math inline">\(\frac{t}{T_p}\)</span>, promedio de muchas cuencas rurales.</li>
 <li>Triangular equivalente: recesión de <span class="math inline">\(1.67\,T_p\)</span> y tiempo base de <span class="math inline">\(2.67\,T_p\)</span>.</li>
 <li>Fija 37.5 % del volumen en la subida. En cuencas de montaña puede ser más <span class="citation" data-cites="mccuen1998hydrologic">(<a href="#/referencias" role="doc-biblioref" onclick="">McCuen, 1998, p. 537</a>)</span>.</li>
 </ul>
@@ -4029,10 +4026,10 @@ q_p = \frac{0.208\,A}{T_p}, \qquad T_p = \frac{t_r}{2} + t_p, \qquad t_p = 0.6\,
 <p>Hidrograma unitario conjunto de 1 h de la cuenca de 318 km²: pico de 36.5 m³/s por mm a las 3 h.</p>
 <p>Solución:</p>
 <ol type="1">
-<li><span class="math inline">\(T_p = 3\)</span> h, <span class="math inline">\(t_p = 3 - 0.5 = 2.5\)</span> h y <span class="math inline">\(t_c\)</span> implícito <span class="math inline">\(= 2.5/0.6 = 4.2\)</span> h.</li>
-<li>Pico del SCS: <span class="math inline">\(q_p = 0.208 \times 318/3 = 22.0\)</span> m³/s por mm, mucho menor que el observado.</li>
+<li><span class="math inline">\(T_p = 3\)</span> h, <span class="math inline">\(t_p = 3 - 0.5 = 2.5\)</span> h y <span class="math inline">\(t_c\)</span> implícito <span class="math inline">\(= \frac{2.5}{0.6} = 4.2\)</span> h.</li>
+<li>Pico del SCS: <span class="math inline">\(q_p = 0.208 \times \frac{318}{3} = 22.0\)</span> m³/s por mm, mucho menor que el observado.</li>
 <li>A 1.5 h, <span class="math inline">\(q = 0.47 \times 22.0 = 10.3\)</span>; a 4.5 h, <span class="math inline">\(q = 0.68 \times 22.0 = 15.0\)</span> m³/s por mm.</li>
-<li>Snyder del observado: <span class="math inline">\(q_{pR} = 36.5 \times 10/318 = 1.148\)</span> m³/s por km² y por cm, y <span class="math inline">\(C_p = 1.148 \times 2.5/2.75 = 1.04\)</span>.</li>
+<li>Snyder del observado: <span class="math inline">\(q_{pR} = 36.5 \times \frac{10}{318} = 1.148\)</span> m³/s por km² y por cm, y <span class="math inline">\(C_p = 1.148 \times \frac{2.5}{2.75} = 1.04\)</span>.</li>
 </ol>
 <p><span class="nota">En esta cuenca de montaña el SCS subestima el pico y alarga la recesión: donde hay registros, el sintético se compara antes de usarlo.</span></p>
 </section>
@@ -4157,7 +4154,7 @@ q_p = \frac{0.208\,A}{T_p}, \qquad T_p = \frac{t_r}{2} + t_p, \qquad t_p = 0.6\,
 \]</span></p>
 <ul>
 <li>NSE <span class="citation" data-cites="nash1970river">(<a href="#/referencias" role="doc-biblioref" onclick="">Nash &amp; Sutcliffe, 1970</a>)</span>: 1 perfecto, 0 igual que usar la media; da mucho peso a los caudales altos.</li>
-<li>KGE <span class="citation" data-cites="gupta2009decomposition">(<a href="#/referencias" role="doc-biblioref" onclick="">Gupta et&nbsp;al., 2009</a>)</span>: correlación <span class="math inline">\(r\)</span>, variabilidad <span class="math inline">\(\alpha = \sigma_s/\sigma_o\)</span> y sesgo <span class="math inline">\(\beta = \bar Q_s/\bar Q_o\)</span>. Usar la media da −0.41: NSE y KGE no se comparan entre sí <span class="citation" data-cites="knoben2019inherent">(<a href="#/referencias" role="doc-biblioref" onclick="">Knoben et&nbsp;al., 2019</a>)</span>.</li>
+<li>KGE <span class="citation" data-cites="gupta2009decomposition">(<a href="#/referencias" role="doc-biblioref" onclick="">Gupta et&nbsp;al., 2009</a>)</span>: correlación <span class="math inline">\(r\)</span>, variabilidad <span class="math inline">\(\alpha = \frac{\sigma_s}{\sigma_o}\)</span> y sesgo <span class="math inline">\(\beta = \frac{\bar Q_s}{\bar Q_o}\)</span>. Usar la media da −0.41: NSE y KGE no se comparan entre sí <span class="citation" data-cites="knoben2019inherent">(<a href="#/referencias" role="doc-biblioref" onclick="">Knoben et&nbsp;al., 2019</a>)</span>.</li>
 <li>Mensual satisfactorio: NSE &gt; 0.50 y PBIAS dentro de ±25 % <span class="citation" data-cites="moriasi2007model">(<a href="#/referencias" role="doc-biblioref" onclick="">Moriasi et&nbsp;al., 2007</a>)</span>. Siempre mirar el hidrograma.</li>
 </ul>
 </section>
@@ -4169,14 +4166,14 @@ q_p = \frac{0.208\,A}{T_p}, \qquad T_p = \frac{t_r}{2} + t_p, \qquad t_p = 0.6\,
 <li><span class="math inline">\(\bar{Q}_o = 37.6\)</span> m³/s y <span class="math inline">\(\bar Q_s = 37.2\)</span> m³/s.</li>
 <li>Errores al cuadrado: <span class="math inline">\(3^2 + 8^2 + 15^2 + 4^2 + 2^2 = 318\)</span>.</li>
 <li>Desviaciones al cuadrado de los observados: 3281.2.</li>
-<li>NSE <span class="math inline">\(= 1 - 318/3281.2 = 0.903\)</span>.</li>
-<li><span class="math inline">\(r = 0.969\)</span>, <span class="math inline">\(\alpha = 22.35/28.64 = 0.781\)</span>, <span class="math inline">\(\beta = 0.989\)</span>: KGE <span class="math inline">\(= 1 - \sqrt{0.031^2 + 0.219^2 + 0.011^2} = 0.778\)</span>.</li>
-<li>PBIAS <span class="math inline">\(= 100 \times (186 - 188)/188 = -1.1\)</span> %.</li>
+<li>NSE <span class="math inline">\(= 1 - \frac{318}{3281.2} = 0.903\)</span>.</li>
+<li><span class="math inline">\(r = 0.969\)</span>, <span class="math inline">\(\alpha = \frac{22.35}{28.64} = 0.781\)</span>, <span class="math inline">\(\beta = 0.989\)</span>: KGE <span class="math inline">\(= 1 - \sqrt{0.031^2 + 0.219^2 + 0.011^2} = 0.778\)</span>.</li>
+<li>PBIAS <span class="math inline">\(= 100 \times \frac{186 - 188}{188} = -1.1\)</span> %.</li>
 </ol>
 <p><span class="nota">El KGE baja más que la NSE porque el modelo aplana el pico: <span class="math inline">\(\alpha\)</span> lo delata.</span></p>
 </section>
-<section id="explorador-métricas-de-desempeño" class="slide level2">
-<h2>Explorador: métricas de desempeño</h2>
+<section id="cómo-responden-las-métricas" class="slide level2">
+<h2>Cómo responden las métricas</h2>
 <div id="explorador-metricas" class="explorador">
   <div class="explorador-controles">
     <label>Factor de escala del pico: <input type="range" id="em-esc" min="0.5" max="1.5" step="0.05" value="1"> <span id="em-esc-val"></span></label>
@@ -4281,7 +4278,7 @@ q_p = \frac{0.208\,A}{T_p}, \qquad T_p = \frac{t_r}{2} + t_p, \qquad t_p = 0.6\,
 <ol type="1">
 <li><span class="math inline">\(S = 95.8\)</span> mm, <span class="math inline">\(I_a = 19.2\)</span> mm.</li>
 <li><span class="math inline">\(P = 57.9\)</span> mm: <span class="math inline">\(P_e = 11.2\)</span> mm.</li>
-<li><span class="math inline">\(T_p = 2.37\)</span> h y <span class="math inline">\(q_p = 0.208 \times 318/2.37 = 27.9\)</span> m³/s por mm.</li>
+<li><span class="math inline">\(T_p = 2.37\)</span> h y <span class="math inline">\(q_p = 0.208 \times \frac{318}{2.37} = 27.9\)</span> m³/s por mm.</li>
 <li><span class="math inline">\(Q\)</span> = 34.5 m³/s + convolución.</li>
 </ol>
 </div></div>
@@ -4318,8 +4315,8 @@ P_s = \frac{X_1 \left[1 - (S/X_1)^2\right] \tanh(P_n/X_1)}{1 + (S/X_1) \tanh(P_n
 \]</span></p>
 <p>Con <span class="math inline">\(X_1 = 144\)</span> mm, <span class="math inline">\(S = 100\)</span> mm, <span class="math inline">\(P = 12\)</span> mm y <span class="math inline">\(E = 2\)</span> mm:</p>
 <ol type="1">
-<li>Lluvia neta <span class="math inline">\(P_n = 10\)</span> mm y <span class="math inline">\(\tanh(10/144) = 0.0693\)</span>.</li>
-<li><span class="math inline">\(P_s = 144 \times (1 - 0.694^2) \times 0.0693/(1 + 0.694 \times 0.0693) = 4.93\)</span> mm; el suelo queda en 104.93 mm.</li>
+<li>Lluvia neta <span class="math inline">\(P_n = 10\)</span> mm y <span class="math inline">\(\tanh\left(\frac{10}{144}\right) = 0.0693\)</span>.</li>
+<li><span class="math inline">\(P_s = 144 \times (1 - 0.694^2) \times \frac{0.0693}{1 + 0.694 \times 0.0693} = 4.93\)</span> mm; el suelo queda en 104.93 mm.</li>
 <li>Percolación: <span class="math inline">\(\mathrm{Perc} = 104.93 \times [1 - (1 + 0.324^4)^{-1/4}] = 0.29\)</span> mm.</li>
 <li>Hacia el río: <span class="math inline">\(P_r = 0.29 + (10 - 4.93) = 5.35\)</span> mm, repartidos 90 % y 10 % con dos hidrogramas unitarios.</li>
 </ol>
@@ -4329,10 +4326,10 @@ P_s = \frac{X_1 \left[1 - (S/X_1)^2\right] \tanh(P_n/X_1)}{1 + (S/X_1) \tanh(P_n
 <h2>Calibración y validación de GR4J</h2>
 
 <img data-src="tema4_files/figure-revealjs/unnamed-chunk-75-1.svg" class="quarto-figure quarto-figure-center r-stretch" width="912"><ul>
-<li>Calibración 1990–1999: KGE 0.86 y NSE 0.74. Validación 2000–2009: 0.69 y 0.63. La caída es normal.</li>
+<li>Calibración 1990–1999: KGE 0.86 y NSE 0.74. Validación 2000–2009: 0.69 y 0.63.</li>
 <li><span class="math inline">\(X_1 = 144\)</span> mm y <span class="math inline">\(X_4 = 2.3\)</span> días son razonables para 360 km²; <span class="math inline">\(X_2 = 0.57\)</span> mm indica agua extra para cerrar el balance.</li>
 </ul>
-<p><span class="nota">Cuenca ficticia L0123001 de airGR. Con registros cortos, pocos parámetros bien calibrados rinden más que un modelo complejo.</span></p>
+<p><span class="nota">Cuenca ficticia L0123001 de airGR. Con registros cortos rinden más pocos parámetros bien calibrados.</span></p>
 </section>
 <section id="modelos-basados-en-datos" class="slide level2">
 <h2>Modelos basados en datos</h2>
@@ -4455,7 +4452,7 @@ S = k\,Q, \qquad Q_{j+1} = C_1\,(I_j + I_{j+1}) + C_2\,Q_j, \qquad C_1 = \frac{\
 </section>
 <section id="tránsito-a-nivel-método-de-puls" class="slide level2">
 <h2>Tránsito a nivel (método de Puls)</h2>
-<p>Superficie horizontal: almacenamiento y salida dependen solo del nivel <span class="citation" data-cites="chow1988appliedhydrology">(<a href="#/referencias" role="doc-biblioref" onclick="">Chow et&nbsp;al., 1988, pp. 245-252</a>)</span>.</p>
+<p><em>Level pool routing</em> (Puls, 1928): con la superficie horizontal, almacenamiento y salida dependen solo del nivel <span class="citation" data-cites="chow1988appliedhydrology">(<a href="#/referencias" role="doc-biblioref" onclick="">Chow et&nbsp;al., 1988, pp. 245-252</a>)</span>.</p>
 <p><span class="math display">\[
 \left(\frac{2S_{j+1}}{\Delta t} + Q_{j+1}\right) = \left(I_j + I_{j+1}\right) + \left(\frac{2S_j}{\Delta t} - Q_j\right)
 \]</span></p>
@@ -4465,10 +4462,9 @@ S = k\,Q, \qquad Q_{j+1} = C_1\,(I_j + I_{j+1}) + C_2\,Q_j, \qquad C_1 = \frac{\
 <ol type="1">
 <li>Escoger <span class="math inline">\(\Delta t\)</span>, en general el del hidrograma de entrada.</li>
 <li>Para varios niveles: <span class="math inline">\(S\)</span> de la curva de volúmenes y <span class="math inline">\(Q\)</span> de la ecuación del vertedor.</li>
-<li>Tabular la función <span class="math inline">\(2S/\Delta t + Q\)</span> contra <span class="math inline">\(Q\)</span>.</li>
-<li>Cada intervalo: sumar, interpolar <span class="math inline">\(Q_{j+1}\)</span> en la función y calcular el término para el siguiente.</li>
+<li>Tabular la función <span class="math inline">\(\frac{2S}{\Delta t} + Q\)</span> contra <span class="math inline">\(Q\)</span>.</li>
+<li>Cada intervalo: sumar, interpolar <span class="math inline">\(Q_{j+1}\)</span> y calcular el término siguiente.</li>
 </ol>
-<p><span class="nota"><em>Level pool routing</em>: embalse con la superficie a nivel, no “piscina nivelada”. Puls publicó el método en 1928.</span></p>
 </section>
 <section id="ejemplo-tránsito-por-un-embalse" class="slide level2">
 <h2>Ejemplo: tránsito por un embalse</h2>
@@ -4478,7 +4474,7 @@ S = k\,Q, \qquad Q_{j+1} = C_1\,(I_j + I_{j+1}) + C_2\,Q_j, \qquad C_1 = \frac{\
 <p>Solución:</p>
 <ol type="1">
 <li>Cota 110.5 m: <span class="math inline">\(Q = 37.12\)</span> m³/s, <span class="math inline">\(S = 8.427\)</span> hm³ y función 4719.0 m³/s.</li>
-<li>Inicio: <span class="math inline">\(2S_0/\Delta t - Q_0 = 4081.2\)</span>.</li>
+<li>Inicio: <span class="math inline">\(\frac{2S_0}{\Delta t} - Q_0 = 4081.2\)</span>.</li>
 <li>Hora 1: <span class="math inline">\(81.6 + 4081.2 = 4162.8\)</span>, de donde <span class="math inline">\(Q_1 = 4.75\)</span> m³/s.</li>
 <li>Siguiente: <span class="math inline">\(4162.8 - 2 \times 4.75 = 4153.3\)</span>.</li>
 <li>Pico: 503.9 m³/s en la hora 6, cota 112.84 m.</li>
@@ -4592,7 +4588,7 @@ K = \frac{\Delta x}{c_k}, \qquad X = \frac{1}{2}\left(1 - \frac{q}{S_0\,c_k\,\De
 <div class="columns">
 <div class="column" style="width:50%;">
 <ol type="1">
-<li><span class="math inline">\(q = 9.17\)</span> m²/s; <span class="math inline">\(y = (9.17 \times 0.04/\sqrt{0.0008})^{0.6} = 4.65\)</span> m.</li>
+<li><span class="math inline">\(q = 9.17\)</span> m²/s; <span class="math inline">\(y = (9.17 \times \frac{0.04}{\sqrt{0.0008}})^{0.6} = 4.65\)</span> m.</li>
 <li><span class="math inline">\(V = 1.97\)</span> m/s y <span class="math inline">\(c_k = 3.28\)</span> m/s.</li>
 <li>Dos subtramos de 12 km: <span class="math inline">\(K = 1.015\)</span> h y <span class="math inline">\(X = 0.355\)</span>.</li>
 <li>Pico: de 1083 a 910 m³/s, dos horas después. Domina la traslación.</li>
@@ -4609,8 +4605,8 @@ K = \frac{\Delta x}{c_k}, \qquad X = \frac{1}{2}\left(1 - \frac{q}{S_0\,c_k\,\De
 </div>
 </div></div>
 </section>
-<section id="explorador-muskingum" class="slide level2">
-<h2>Explorador: Muskingum</h2>
+<section id="muskingum" class="slide level2">
+<h2>Muskingum</h2>
 <div id="explorador-musk" class="explorador">
   <div class="explorador-controles">
     <label><i>K</i> = <input type="range" id="eu-k" min="0.5" max="8" step="0.5" value="3"> <span id="eu-k-val"></span> h</label>
@@ -4703,7 +4699,7 @@ K = \frac{\Delta x}{c_k}, \qquad X = \frac{1}{2}\left(1 - \frac{q}{S_0\,c_k\,\De
 <ul>
 <li>Todo tránsito combina continuidad con una relación de almacenamiento.</li>
 <li>En un embalse domina la atenuación; en un río encajonado, la traslación.</li>
-<li>Puls resuelve el embalse con una función <span class="math inline">\(2S/\Delta t + Q\)</span> tabulada una sola vez.</li>
+<li>Puls resuelve el embalse con una función <span class="math inline">\(\frac{2S}{\Delta t} + Q\)</span> tabulada una sola vez.</li>
 <li>Muskingum se calibra con crecientes registradas; Muskingum-Cunge calcula <span class="math inline">\(K\)</span> y <span class="math inline">\(X\)</span> con el cauce.</li>
 <li>Con remanso o cuando importan los niveles, hace falta un modelo hidráulico.</li>
 </ul>
@@ -5290,6 +5286,57 @@ World Meteorological Organization. (2009). <em>Manual on estimation of probable 
         else if (document.exitFullscreen) document.exitFullscreen();
       });
       aplicar();
+    })();
+    </script>
+    <!--
+      Ampliar imágenes con un clic: muestra la imagen sobre la diapositiva, al
+      tamaño de la ventana. Se cierra con otro clic o con la tecla Esc.
+      No aplica a la portada ni a los logos.
+    -->
+    <style>
+      #zoom-clase {
+        position: fixed; inset: 0; z-index: 60; display: none;
+        background: rgba(0, 0, 0, 0.82); cursor: zoom-out;
+        align-items: center; justify-content: center;
+      }
+      #zoom-clase.abierto { display: flex; }
+      #zoom-clase img {
+        max-width: 94vw; max-height: 92vh; width: auto; height: auto;
+        background: #fff; border-radius: 6px; box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+      }
+      #zoom-clase .cerrar {
+        position: absolute; top: 0.8rem; right: 1.1rem; color: #fff;
+        font: 600 1rem/1 system-ui, sans-serif; opacity: 0.85;
+      }
+    </style>
+    <script>
+    (function () {
+      var capa = document.createElement("div");
+      capa.id = "zoom-clase";
+      capa.setAttribute("role", "dialog");
+      capa.setAttribute("aria-label", "Imagen ampliada");
+      capa.innerHTML = '<span class="cerrar">Esc o clic para cerrar</span><img alt="">';
+      document.body.appendChild(capa);
+      var grande = capa.querySelector("img");
+      function cerrar() { capa.classList.remove("abierto"); grande.removeAttribute("src"); }
+      capa.addEventListener("click", cerrar);
+      document.addEventListener("keydown", function (e) {
+        if (capa.classList.contains("abierto")) { e.stopPropagation(); e.preventDefault(); if (e.key === "Escape" || e.key === " " || e.key === "Enter") cerrar(); }
+      }, true);
+      function marcar() {
+        document.querySelectorAll(".reveal .slides section:not(.portada-clase) img").forEach(function (im) {
+          if (im.closest(".logos") || im.classList.contains("ampliable")) return;
+          im.classList.add("ampliable");
+          im.addEventListener("click", function (e) {
+            e.preventDefault(); e.stopPropagation();
+            grande.src = im.currentSrc || im.src;
+            grande.alt = im.alt || "";
+            capa.classList.add("abierto");
+          });
+        });
+      }
+      if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", marcar); else marcar();
+      window.addEventListener("load", marcar);
     })();
     </script>
     
