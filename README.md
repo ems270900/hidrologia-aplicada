@@ -4,7 +4,9 @@ Versión web del libro *Hidrología Aplicada a la Ingeniería Civil: fundamentos
 
 Lectura en línea: https://ems270900.github.io/hidrologia-aplicada/
 
-Este repositorio contiene solo el libro compilado (HTML generado con Quarto), que se sirve con GitHub Pages.
+Presentaciones de clase (curso IC0808, cuatro temas), hechas a partir del libro: https://ems270900.github.io/hidrologia-aplicada/clases/
+
+Este repositorio contiene solo el libro compilado y las presentaciones de clase (HTML generado con Quarto), que se sirven con GitHub Pages.
 
 ## Licencia
 

@@ -1,0 +1,4 @@
+body { font-family: "Latin Modern Roman", "Computer Modern Serif", "CMU Serif", serif; font-size: 1.1rem; }
+h1.title { color: #10199e; font-weight: 700; }
+.subtitle { color: #555; }
+table th { color: #10199e; border-bottom: 2px solid #10199e !important; }
