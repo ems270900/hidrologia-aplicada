@@ -714,25 +714,6 @@ Q_{b,i} = \frac{(1 - \mathrm{BFI}_{\max})\,a\,Q_{b,i-1} + (1 - a)\,\mathrm{BFI}_
 })();
 </script>
 </div>
-</section>
-<section id="para-practicar" class="slide level2 scrollable">
-<h2>Para practicar</h2>
-<ol type="1">
-<li>Con el evento 2 de <code>hidrogramas_cuenca_montana.csv</code>, separe el flujo base con línea recta y con pendiente variable. Compare las láminas y los tiempos base.</li>
-<li>Grafique el evento 4 con el caudal en escala logarítmica y decida dónde termina la escorrentía directa. Repita la separación con ese punto C y compare con el ejemplo, que usa la hora 18.</li>
-<li>Calcule la lámina del evento 4 con el filtro de Eckhardt para BFI<sub>max</sub> de 0.25, 0.50 y 0.80. ¿Qué valor justificaría para una cuenca de montaña volcánica?</li>
-</ol>
-<p><span class="nota">Más ejercicios en el capítulo 28 del libro.</span></p>
-</section>
-<section id="ideas-para-llevar" class="slide level2">
-<h2>Ideas para llevar</h2>
-<ul>
-<li>El hidrograma tiene escorrentía directa y flujo base; el hidrograma unitario usa solo la primera.</li>
-<li>El fin de la escorrentía directa (C) se ubica con el caudal en escala logarítmica.</li>
-<li>No hay separación única. La pendiente variable es simple y representa la recarga de las márgenes.</li>
-<li>Los filtros digitales sirven para registros largos y dan el BFI. Sus parámetros son de la cuenca.</li>
-<li>El método y los parámetros se mantienen en todos los eventos y se reportan.</li>
-</ul>
 </section></section>
 <section>
 <section id="idf" class="title-slide slide level1 separador center" data-background-color="#10199e">
@@ -1162,26 +1143,6 @@ i(d,T) = \frac{k\,T^{m}}{(d+c)^{n}}
 <li>A partir de lluvia diaria: máximo de 24 h ≈ 1.13 veces el del día de observación <span class="citation" data-cites="hershfield1961rainfall">(<a href="#/referencias" role="doc-biblioref" onclick="">Hershfield, 1961b</a>)</span> y cocientes regionales entre duraciones.</li>
 </ol>
 <p><span class="nota">En Costa Rica el relieve cambia la lluvia en distancias cortas: una estación a 10 km del otro lado de una divisoria puede tener otro régimen.</span></p>
-</section>
-<section id="para-practicar-1" class="slide level2 scrollable">
-<h2>Para practicar</h2>
-<ol type="1">
-<li>Una estación tiene 24 años de láminas máximas anuales de 60 min. Con Weibull, ¿qué periodo de retorno empírico tiene el mayor valor y cuál el tercero? Respuesta: 25 y 8.3 años.</li>
-<li>Con <span class="math inline">\(i = \frac{507\,T^{0.186}}{(d+5)^{0.546}}\)</span>, calcule la intensidad y la lámina de 45 min y 25 años. Respuesta: 109.0 mm/h y 81.7 mm.</li>
-<li>Los incrementos cada 10 min desde las 13:30 son 2.8, 4.6, 6.1, 7.4, 5.2 y 3.6 mm. Calcule la lluvia máxima de 30 min con ventana móvil y compárela con las medias horas de reloj. Respuesta: 18.7 mm (37.4 mm/h) contra 16.2 mm.</li>
-<li>Un sitio está a 5, 10 y 20 km de tres estaciones con intensidades de 60 min y 25 años de 95, 110 y 80 mm/h. Estime la intensidad con el inverso de la distancia (<span class="math inline">\(p = 2\)</span>). Respuesta: 97.1 mm/h.</li>
-</ol>
-<p><span class="nota">Más ejercicios en el capítulo 15 del libro.</span></p>
-</section>
-<section id="ideas-para-llevar-1" class="slide level2">
-<h2>Ideas para llevar</h2>
-<ul>
-<li>La curva IDF da la intensidad máxima para una duración y un periodo de retorno.</li>
-<li>Los máximos se extraen con ventanas móviles, no con horas del reloj.</li>
-<li>Cada duración tiene su análisis de frecuencia; la ecuación <span class="math inline">\(\frac{k\,T^m}{(d+c)^n}\)</span> resume la malla.</li>
-<li>Las unidades del ajuste se respetan siempre.</li>
-<li>Sin estación en el sitio: transferencia, interpolación o análisis regional, revisando vertiente y elevación.</li>
-</ul>
 </section></section>
 <section>
 <section id="hietogramas" class="title-slide slide level1 separador center" data-background-color="#10199e">
@@ -1580,26 +1541,6 @@ K_m = \frac{X_m - \bar{X}_{n-m}}{S_{n-m}}, \qquad \mathrm{PMP} = \bar{X}_n + K_m
 <li>Las lluvias extremas de varios días suelen venir de ciclones tropicales, que no necesitan tocar tierra: uno en el Caribe puede dar lluvias torrenciales en la vertiente pacífica <span class="citation" data-cites="hidalgo2022probability">(<a href="#/referencias" role="doc-biblioref" onclick="">Hidalgo et&nbsp;al., 2023</a>)</span>.</li>
 <li>El relieve concentra la lluvia en las laderas de barlovento: métodos orográficos <span class="citation" data-cites="wmo2009pmp">(<a href="#/referencias" role="doc-biblioref" onclick="">World Meteorological Organization, 2009, Capítulo 3</a>)</span>.</li>
 <li>Cambio climático: cerca de 7 % más de vapor por grado (Clausius-Clapeyron), que afecta la maximización por humedad.</li>
-</ul>
-</section>
-<section id="para-practicar-2" class="slide level2 scrollable">
-<h2>Para practicar</h2>
-<ol type="1">
-<li>Construya con el bloque alterno el hietograma de 25 años y 60 min para la estación IMN-Aranjuez con bloques de 10 min. Compare el bloque mayor con el del ejemplo de 5 min.</li>
-<li>Con la curva <span class="math inline">\(i = \frac{1150\,T^{0.18}}{(d + 12)^{0.78}}\)</span>, compare el hietograma de bloque alterno con el pico al 50 % y al 33 %. ¿Cambia la lámina total? ¿Qué cambiaría en el hidrograma?</li>
-<li>Repita la maximización por humedad del ejemplo con un punto de rocío de tormenta de 22 °C. ¿Cuánto cambia la lámina de 24 h?</li>
-<li>Calcule <span class="math inline">\(K_m\)</span> de la serie de 1 h de otra estación del archivo del Térraba y compárelo con la curva envolvente de Hershfield.</li>
-</ol>
-<p><span class="nota">Más ejercicios en los capítulos 16 y 17 del libro.</span></p>
-</section>
-<section id="ideas-para-llevar-2" class="slide level2">
-<h2>Ideas para llevar</h2>
-<ul>
-<li>El hietograma de diseño reparte en el tiempo la lámina de la curva IDF.</li>
-<li>El bloque alterno es conservador y sirve para el pico en obras menores, no para volúmenes.</li>
-<li>En Costa Rica muchas tormentas concentran la lluvia al inicio: hay hietogramas característicos.</li>
-<li>La PMP es una estimación del límite físico de la lluvia, sin periodo de retorno, para obras de falla inaceptable.</li>
-<li>Hidrometeorológico: maximizar, transponer y envolver. Hershfield: un factor <span class="math inline">\(K_m\)</span> envolvente, para estimaciones preliminares.</li>
 </ul>
 </section></section>
 <section>
@@ -2092,26 +2033,6 @@ Grupo hidrológico del suelo
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", iniciar); else iniciar();
 })();
 </script>
-</section>
-<section id="para-practicar-3" class="slide level2 scrollable">
-<h2>Para practicar</h2>
-<ol type="1">
-<li>Con los parámetros de Horton del ejemplo, calcule el tiempo de encharcamiento y la escorrentía de una lluvia de 120 mm/h durante 1 h.</li>
-<li>Para un suelo franco con humedad inicial de 0.20, calcule con Green-Ampt la lámina infiltrada en 1 h con la superficie encharcada. Use Newton-Raphson y compruebe con sustitución sucesiva.</li>
-<li>Calcule el índice φ de los eventos 2 y 5 de <code>hidrogramas_cuenca_montana.csv</code> y explique por qué difiere del evento 1.</li>
-<li>Repita el ejemplo del número de curva si la zona residencial pasa al 50 % del área, con lotes de 500 m². ¿Cuánto crece la lluvia efectiva?</li>
-</ol>
-<p><span class="nota">Más ejercicios en los capítulos 20, 21 y 28 del libro.</span></p>
-</section>
-<section id="ideas-para-llevar-3" class="slide level2">
-<h2>Ideas para llevar</h2>
-<ul>
-<li>La precipitación efectiva es la lluvia menos las abstracciones: intercepción, depresiones e infiltración.</li>
-<li>Horton es empírico y necesita ensayos; Green-Ampt tiene base física y parámetros por textura.</li>
-<li>La escorrentía no siempre es exceso de infiltración: en cuencas con bosque domina la saturación junto al cauce.</li>
-<li>El índice φ necesita el hidrograma; sirve para analizar eventos observados.</li>
-<li>El número de curva estima <span class="math inline">\(P_e\)</span> con el suelo y la cobertura. La humedad antecedente lo cambia mucho.</li>
-</ul>
 </section></section>
 <section>
 <section id="racional" class="title-slide slide level1 separador center" data-background-color="#10199e">
@@ -3590,27 +3511,6 @@ Figura&nbsp;5: Hidrogramas del racional modificado para la urbanización del eje
 })();
 </script>
 <p><span class="nota">Calcula <span class="math inline">\(t_c\)</span> con Kirpich y con el retardo del SCS, o usa uno propio, y la intensidad con las curvas de las 15 estaciones mecánicas del IMN <span class="citation" data-cites="Rojas2011mecanicas">(<a href="#/referencias" role="doc-biblioref" onclick="">Instituto Meteorológico Nacional, s.&nbsp;f.-b</a>)</span>.</span></p>
-</section>
-<section id="para-practicar-4" class="slide level2 scrollable">
-<h2>Para practicar</h2>
-<ol type="1">
-<li><p>Una cuenca urbana de 6.0 ha tiene 1.8 ha de techos, 1.2 ha de calles de asfalto y el resto en zonas verdes con pasto y pendiente menor de 2 %. Calcule el coeficiente compuesto con los valores medios del AyA y el caudal pico para 10 y 25 años, con <span class="math inline">\(t_c = 12\)</span> min y la curva de San Josecito.</p></li>
-<li><p>Calcule <span class="math inline">\(t_c\)</span> de una cuenca de 40 ha cuyo recorrido más largo tiene 50 m de flujo laminar sobre pasto corto con pendiente de 0.05 m/m, 200 m de flujo concentrado sin pavimentar con pendiente de 6 % y 600 m de cauce con <span class="math inline">\(n = 0.035\)</span>, <span class="math inline">\(R = 0.25\)</span> m y pendiente de 0.03 m/m. Use 25 años, muestre la tabla de iteraciones y compare con Kirpich.</p></li>
-<li><p>Busque una cuenca de menos de 100 ha cerca de su casa o de su universidad, escoja la estación IDF más cercana y calcule el caudal de 25 años con dos fórmulas de <span class="math inline">\(t_c\)</span> cuyo origen se parezca a su cuenca. Revise el resultado con la calculadora.</p></li>
-<li><p>Tres subcuencas llegan a un mismo pozo: la 1 (1.2 ha, <span class="math inline">\(C = 0.80\)</span>, <span class="math inline">\(t_c = 10\)</span> min) directamente, la 2 (2.5 ha, <span class="math inline">\(C = 0.55\)</span>, <span class="math inline">\(t_c = 15\)</span> min) por 120 m de tubería a 1.2 m/s y la 3 (0.8 ha, <span class="math inline">\(C = 0.90\)</span>, <span class="math inline">\(t_c = 10\)</span> min) directamente. Calcule el caudal de diseño del pozo para 10 años.</p></li>
-<li><p>Para la urbanización del ejemplo, dibuje los hidrogramas del racional modificado para 15, 45 y 90 min y estime el volumen que habría que retener si el caudal permitido es el de antes del proyecto (1.11 m³/s).</p></li>
-</ol>
-<p><span class="nota">Más ejercicios en el capítulo 29 del libro.</span></p>
-</section>
-<section id="ideas-para-llevar-4" class="slide level2">
-<h2>Ideas para llevar</h2>
-<ul>
-<li><span class="math inline">\(Q = \frac{C\,i\,A}{360}\)</span>, con <span class="math inline">\(i\)</span> para una duración igual a <span class="math inline">\(t_c\)</span> y las unidades revisadas.</li>
-<li><span class="math inline">\(C\)</span> es el dato menos preciso: se toma el valor medio del rango de la norma.</li>
-<li><span class="math inline">\(t_c\)</span> por tramos describe mejor la cuenca que una fórmula sola. Las fórmulas no se promedian.</li>
-<li>Solo para cuencas pequeñas: 100 ha según el AyA. Para más área, hidrograma unitario o un modelo lluvia-escorrentía.</li>
-<li>Da solo el pico. Una laguna de retención o un vertedor dependen del volumen y necesitan un hidrograma.</li>
-</ul>
 </section></section>
 <section>
 <section id="hu" class="title-slide slide level1 separador center" data-background-color="#10199e">
@@ -4032,27 +3932,6 @@ q_p = \frac{0.208\,A}{T_p}, \qquad T_p = \frac{t_r}{2} + t_p, \qquad t_p = 0.6\,
 <li>Snyder del observado: <span class="math inline">\(q_{pR} = 36.5 \times \frac{10}{318} = 1.148\)</span> m³/s por km² y por cm, y <span class="math inline">\(C_p = 1.148 \times \frac{2.5}{2.75} = 1.04\)</span>.</li>
 </ol>
 <p><span class="nota">En esta cuenca de montaña el SCS subestima el pico y alarga la recesión: donde hay registros, el sintético se compara antes de usarlo.</span></p>
-</section>
-<section id="para-practicar-5" class="slide level2 scrollable">
-<h2>Para practicar</h2>
-<ol type="1">
-<li>Obtenga por sustitución hacia adelante el hidrograma unitario de 1 h del evento 1 y compárelo con el de mínimos cuadrados no negativos. ¿Por qué aparecen dos picos?</li>
-<li>Con el hidrograma unitario conjunto de 1 h, construya la curva S y obtenga el de 3 h. Verifique que su volumen sea 1 mm.</li>
-<li>Con el hidrograma unitario de 2 h del ejemplo de la curva S que se estabiliza, arme el cuadro de Linsley para obtener el de 6 h y compruébelo sumando tres hidrogramas de 2 h.</li>
-<li>Calcule el hidrograma de una lluvia efectiva de 5, 15, 25 y 10 mm con el hidrograma unitario conjunto y con el de pico promedio. Compare los picos.</li>
-<li>Para una cuenca que conozca, calcule el hidrograma unitario de 1 h de Snyder con <span class="math inline">\(C_t = 2.0\)</span> y el del SCS con <span class="math inline">\(t_c\)</span> de Kirpich.</li>
-</ol>
-<p><span class="nota">Más ejercicios en el capítulo 28 del libro.</span></p>
-</section>
-<section id="ideas-para-llevar-5" class="slide level2">
-<h2>Ideas para llevar</h2>
-<ul>
-<li>El hidrograma unitario es la respuesta de la cuenca a 1 mm de lluvia efectiva en una duración <span class="math inline">\(D\)</span>.</li>
-<li>Con proporcionalidad y superposición, cualquier tormenta se resuelve con la convolución.</li>
-<li>La curva S cambia la duración y revela la duración real del hidrograma de partida.</li>
-<li>Varias tormentas dan un hidrograma más confiable; no se promedian ordenadas hora por hora.</li>
-<li>Sin registros: Snyder o SCS, comparados con cuencas aforadas cuando se pueda.</li>
-</ul>
 </section></section>
 <section>
 <section id="modelos" class="title-slide slide level1 separador center" data-background-color="#10199e">
@@ -4349,27 +4228,6 @@ P_s = \frac{X_1 \left[1 - (S/X_1)^2\right] \tanh(P_n/X_1)}{1 + (S/X_1) \tanh(P_n
 </div>
 </div>
 </div>
-</section>
-<section id="para-practicar-6" class="slide level2 scrollable">
-<h2>Para practicar</h2>
-<ol type="1">
-<li>Para los caudales observados 5, 9, 40, 22, 14 y 8 m³/s y los simulados 6, 12, 31, 25, 13 y 7 m³/s, calcule a mano NSE, KGE y PBIAS. ¿Cuál penaliza más el error en el pico?</li>
-<li>Demuestre que si el caudal simulado es la media observada todos los días, la NSE vale 0. ¿Cuánto vale el KGE?</li>
-<li>Calibre los eventos 1 a 3 juntos con un solo <span class="math inline">\(CN\)</span> y un solo <span class="math inline">\(t_{\text{lag}}\)</span> y valide con los eventos 4 y 5.</li>
-<li>Varíe uno a uno los cuatro parámetros de GR4J en ±30 % y calcule la NSE de validación. ¿A cuál es más sensible?</li>
-<li>Describa cómo armaría en HEC-HMS el modelo de una cuenca de Costa Rica: subcuencas, pérdidas, transformación, flujo base, tránsito y de dónde sale cada parámetro.</li>
-</ol>
-<p><span class="nota">Más ejercicios en el capítulo 30 del libro.</span></p>
-</section>
-<section id="ideas-para-llevar-6" class="slide level2">
-<h2>Ideas para llevar</h2>
-<ul>
-<li>El modelo se escoge por la pregunta: racional para el pico de una obra menor, evento para crecientes de diseño, continuo para la época seca.</li>
-<li>Calibrar no basta: se valida con datos que no se usaron.</li>
-<li>NSE, KGE y PBIAS miran cosas distintas; siempre se compara el hidrograma.</li>
-<li>En modelos de evento la humedad antecedente pesa tanto como los parámetros.</li>
-<li>Los modelos basados en datos no extrapolan fuera del registro.</li>
-</ul>
 </section></section>
 <section>
 <section id="transito" class="title-slide slide level1 separador center" data-background-color="#10199e">
@@ -4683,26 +4541,6 @@ K = \frac{\Delta x}{c_k}, \qquad X = \frac{1}{2}\left(1 - \frac{q}{S_0\,c_k\,\De
 </div>
 </div>
 <p><span class="nota">En HEC-HMS cada tramo entre subcuencas lleva su método de tránsito y cada embalse, el tránsito a nivel <span class="citation" data-cites="usace2000hechmstech">(<a href="#/referencias" role="doc-biblioref" onclick="">U.S. Army Corps of Engineers, 2000</a>)</span>.</span></p>
-</section>
-<section id="para-practicar-7" class="slide level2 scrollable">
-<h2>Para practicar</h2>
-<ol type="1">
-<li>Transite la creciente del ejemplo por un embalse lineal con <span class="math inline">\(k = 2\)</span> h y con <span class="math inline">\(k = 5\)</span> h. ¿Cómo cambian el pico y su momento?</li>
-<li>Repita el tránsito a nivel con un vertedor de 80 m. ¿Cuánto bajan el pico de salida y la cota máxima?</li>
-<li>Con <span class="math inline">\(K = 3\)</span> h, pruebe <span class="math inline">\(X = 0\)</span> y <span class="math inline">\(X = 0.4\)</span> en Muskingum. ¿A cuál parámetro es más sensible el pico?</li>
-<li>Repita Muskingum-Cunge con un ancho de 150 m. ¿Qué pasa con <span class="math inline">\(X\)</span> y con la atenuación?</li>
-</ol>
-<p><span class="nota">Más ejercicios en los capítulos 37 a 39 del libro.</span></p>
-</section>
-<section id="ideas-para-llevar-7" class="slide level2">
-<h2>Ideas para llevar</h2>
-<ul>
-<li>Todo tránsito combina continuidad con una relación de almacenamiento.</li>
-<li>En un embalse domina la atenuación; en un río encajonado, la traslación.</li>
-<li>Puls resuelve el embalse con una función <span class="math inline">\(\frac{2S}{\Delta t} + Q\)</span> tabulada una sola vez.</li>
-<li>Muskingum se calibra con crecientes registradas; Muskingum-Cunge calcula <span class="math inline">\(K\)</span> y <span class="math inline">\(X\)</span> con el cauce.</li>
-<li>Con remanso o cuando importan los niveles, hace falta un modelo hidráulico.</li>
-</ul>
 </section>
 <section id="referencias" class="slide level2 scrollable smaller">
 <h2>Referencias</h2>

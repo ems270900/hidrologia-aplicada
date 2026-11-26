@@ -706,27 +706,6 @@ r = \frac{\sum (x_i - \bar{x})(y_i - \bar{y})}{\sqrt{\sum (x_i - \bar{x})^2 \, \
 <li><span class="math inline">\(t_c = 0.688 &lt; t_{0.975;19} = 2.093\)</span>: no se rechaza que la correlación anual sea nula.</li>
 </ul>
 <p><span class="nota">La lluvia mensual tiene <span class="math inline">\(r = 0.706\)</span>, casi todo por el ciclo estacional compartido.</span></p>
-</section>
-<section id="para-practicar" class="slide level2 scrollable">
-<h2>Para practicar</h2>
-<ol type="1">
-<li>La probabilidad anual de que una crecida inunde el puente <span class="math inline">\(A\)</span> es 0.10, la del puente <span class="math inline">\(B\)</span> es 0.05 y la de que se inunden los dos es 0.03 (datos hipotéticos). Calcule <span class="math inline">\(P(A \cup B)\)</span> y <span class="math inline">\(P(B \mid A)\)</span>. ¿Son independientes?</li>
-<li>Con la serie mensual de la estación base, calcule la probabilidad de un mes con menos de 100 mm en todo el año, en la época seca y en la lluviosa. ¿Son mutuamente excluyentes ese evento y la época lluviosa en el registro? ¿Y en la población?</li>
-<li>Calcule la media, la desviación estándar y la asimetría de la lluvia anual de la estación en estudio (años completos) y compárelas con las de la estación base.</li>
-<li>Un sistema de alerta avisa en 90 % de los días con crecida y, por error, en 10 % de los días sin crecida; 5 % de los días tienen crecida. Si suena la alerta, ¿qué probabilidad hay de que venga una crecida?</li>
-<li>Área (km²) y caudal medio (L/s) de cinco cuencas: (12, 31), (25, 52), (40, 60), (58, 95) y (90, 110). Calcule <span class="math inline">\(r\)</span> y <span class="math inline">\(\rho_s\)</span>.</li>
-</ol>
-<p><span class="nota">Más ejercicios en el capítulo 11 del libro.</span></p>
-</section>
-<section id="ideas-para-llevar" class="slide level2">
-<h2>Ideas para llevar</h2>
-<ul>
-<li>En hidrología no se predice el valor: se estima su probabilidad con una muestra corta.</li>
-<li>La frecuencia relativa sirve para eventos comunes; para los raros hacen falta distribuciones ajustadas.</li>
-<li>La probabilidad condicional y la total explican por qué importan la época del año y el origen de las crecidas.</li>
-<li><span class="math inline">\(F(x)\)</span> es la probabilidad de no excedencia; <span class="math inline">\(1 - F(x)\)</span>, la de excedencia.</li>
-<li>Media y desviación no son resistentes: compararlas con la mediana y el <span class="math inline">\(RIC\)</span> ayuda a encontrar errores.</li>
-</ul>
 </section></section>
 <section>
 <section id="retorno" class="title-slide slide level1 separador center" data-background-color="#10199e">
@@ -986,27 +965,6 @@ T = \frac{1}{1 - e^{-1/T_E}}
 <p>Caudal medio mensual de una estación de montaña, 1967–1987; umbral de 18 m³/s y meses seguidos sobre el umbral como un solo evento.</p>
 
 <img data-src="tema3_files/figure-revealjs/unnamed-chunk-16-1.svg" class="quarto-figure quarto-figure-center r-stretch" width="960"><p>Las dos series tienen 21 valores, pero no los mismos: seis años secos no entran en la de excedencias, que suma segundas y terceras crecidas de años lluviosos. <a href="data:text/csv;base64,ImFuaW8iLCJlbmUiLCJmZWIiLCJtYXIiLCJhYnIiLCJtYXkiLCJqdW4iLCJqdWwiLCJhZ28iLCJzZXAiLCJvY3QiLCJub3YiLCJkaWMiCjE5NjcsNC40LDMuMSwyLjQsMi43LDUuNyw2LjcsNy41LDEyLjUsMTgsMTYuMyw5LjgsNy43CjE5NjgsNS44LDYuNSw2LjcsNC42LDE1LjUsMTIuOSwxMS42LDcuOCwxNi44LDE0LDguNSwxMgoxOTY5LDUuNywzLjQsMi43LDIuNyw1LjcsNy44LDcuNSwxMS4zLDEwLjQsMTQuNywxNC43LDEwLjMKMTk3MCw0LjgsNC44LDMuMSwzLjUsOC4yLDEwLjUsOS45LDE1LjYsMjIuMywyMC45LDEyLjUsNy40CjE5NzEsMTEuMSwxOS42LDcuMiw0LjUsMTEuNCwxMy4yLDIxLjMsMTIuNCwxNS43LDIwLDE1LDEwLjgKMTk3Miw2LjEsNy45LDUsNC4yLDEwLjMsMTYuNCw4LjcsOS4xLDE2LjksMTcuNywxOS45LDExLjUKMTk3Myw1LjksMy43LDQuNywzLjIsNS41LDE0LjIsMTcuNSwxNC4zLDE4LjMsMTksMTcuNywyMC4yCjE5NzQsOC43LDcuMiw2LjgsNi42LDE2LjUsMTUuOCwxMy4zLDE2LjUsMjIuNCwyNS42LDE5LjEsMjguOAoxOTc1LDE2LjIsOS40LDUuOSw1LjIsMTAuMywxOS4yLDEwLjgsOC45LDE2LjYsMTQuOSwxNC42LDEwLjIKMTk3Niw5LjQsNi4yLDMuOCw0LjgsOC42LDguNCw4LjYsNy4xLDEwLjksMTEuNiwxNy43LDkuNgoxOTc3LDkuOSw1LjcsNC44LDQuMiwxMSw3LjUsOSwxMC44LDEzLjgsMTQuOCwyMS41LDExLjYKMTk3OCw2LDQuMiwzLjMsNS4yLDEyLjQsMTkuOCwxMS4zLDExLjksMTcuNCwyMSwxOS45LDI0LjUKMTk3OSw3LjgsNC41LDQuMSw0LDE1LjgsMTAuOSw5LjgsNy45LDE1LjksMTcuNiwzMS4xLDEzLjgKMTk4MCwyMCw2LjcsNC4xLDUuNyw2LjYsOS41LDcuNSw4LjksMTIuMiwxNS42LDIwLjEsOC45CjE5ODEsMTIuNSw4LjQsNC45LDQuNyw3LjUsMTIuOSwxMy41LDEwLjQsMTEuOSwxMi4zLDEzLjksMTEuNAoxOTgyLDUuOSw0LDMuMyw0LjMsMTYuNiwxMC4zLDEyLjYsMTMuMywxNywyMC45LDI1LjcsMTQuNAoxOTgzLDcuOCw1LjEsMy40LDUuNSwxNS41LDE0LjQsMTkuOCwxOC41LDE1LjcsMjYuMiw0Ny40LDI1LjQKMTk4NCw5LjIsMTcuOCw1LjQsMy40LDcuMSwxMS44LDEwLjMsMTEuNiwxMC40LDEyLjksMTMuNCw2LjEKMTk4NSw4LjksNC4zLDQuOSw0LjMsNy4xLDEzLjgsMTUuOSwyMS44LDIxLDE5LjcsMzMuNywyNy4zCjE5ODYsMTYuNywxMC4zLDcuMyw2LjcsMTAsMTMuMSwxMiwxNC45LDEwLjgsMjgsMTkuNCwyMS4zCjE5ODcsMTIuOCw2LjgsNiw3LjIsMTAuNiw5LjUsMTIuMiwxMi4yLDE0LjMsMTMuNCwyMy4zLDguMwoxOTg4LDUuMyw0LjMsNC43LDQuMyw1LjksNi40LE5BLE5BLDguOSwxMy43LDEwLDcuNQoxOTg5LDUuOSw0LjcsNC4xLDQuMyw3LjYsMTEuMyw4LjYsOC41LDE4LjQsTkEsMTEuNSwxMy41CjE5OTAsTkEsTkEsMy42LDIuNiw1LjksNy40LDEwLjQsNC41LDcuNywxMi41LDE1LjIsNy4zCjE5OTEsNC4xLDUuOSwyLjgsMy4xLDMuNSwzLjcsNi41LDcuNCw3LjcsMTYuNixOQSwxMC42CjE5OTIsNi44LDYuMixOQSxOQSwxMCxOQSw3LjUsNy43LDcuOSwxMi40LDE1LjgsNS4xCjE5OTMsTkEsMTAuNSwxMC41LDEwLjksTkEsMTcuOSwxNC4xLDEwLjcsMTYuNSwxOS41LDExLjUsNS41CjE5OTQsTkEsMi4xLDIsMS44LDQuNCw2LjgsNS4zLDYuNyw4LjIsTkEsTkEsOC45CjE5OTUsNy4xLDUuNSw0LjUsNC4zLDcuNCwxNC40LDkuNiwxMi41LE5BLDE3LjQsMjEuMSxOQQoxOTk2LE5BLDQuNiwzLjQsOS43LDExLDExLjUsMTAuNiwxNC4zLDE0LjIsMTUuNCwxMy4xLDkuMwoxOTk3LE5BLE5BLE5BLDcuOSwyMC43LE5BLDE4LjcsMTguOSwyMC4xLDE0LjEsMTAsTkEKMTk5OCxOQSw0LDQuMSwzLjEsNC4xLDEzLjEsOC45LE5BLE5BLE5BLE5BLE5BCg==" download="caudal_mensual_estacion_montana.csv" class="boton-datos">⬇ Descargar <code>caudal_mensual_estacion_montana.csv</code></a></p>
-</section>
-<section id="para-practicar-1" class="slide level2 scrollable">
-<h2>Para practicar</h2>
-<ol type="1">
-<li>Un puente se diseña para 100 años y durará 75 años. Calcule el riesgo y la confiabilidad. ¿Qué <span class="math inline">\(T\)</span> haría falta para un riesgo de 20 %?</li>
-<li>Calcule la probabilidad de que la crecida de 10 años no ocurra en 10 años seguidos y la de que ocurra en el primer año. ¿Cuál es el número esperado de años hasta la primera ocurrencia?</li>
-<li>Con la serie mensual de la estación de montaña (1967–1987), arme la serie de excedencias con un umbral de 20 m³/s. ¿Cuántos eventos tiene? Calcule <span class="math inline">\(T_E\)</span> y el <span class="math inline">\(T\)</span> equivalente en la serie anual.</li>
-<li>El vertedor de una presa pequeña tendrá una vida útil de 50 años y se acepta un riesgo de 5 %. ¿Para qué periodo de retorno se diseña?</li>
-<li>Un caudal tiene <span class="math inline">\(T_E = 5\)</span> años en la serie de excedencias. ¿Cuál es su periodo de retorno en la serie anual? ¿Y uno de 100 años?</li>
-</ol>
-<p><span class="nota">Más ejercicios en el capítulo 12 del libro.</span></p>
-</section>
-<section id="ideas-para-llevar-1" class="slide level2">
-<h2>Ideas para llevar</h2>
-<ul>
-<li><span class="math inline">\(T = \frac{1}{p}\)</span>: un promedio de largo plazo, no un calendario.</li>
-<li>El nivel de retorno es el cuantil <span class="math inline">\(F^{-1}(1 - \frac{1}{T})\)</span>.</li>
-<li>El riesgo en la vida útil puede ser alto aunque <span class="math inline">\(T\)</span> sea largo: con <span class="math inline">\(n = T\)</span> es de 64 %.</li>
-<li>El periodo de retorno lo fija la norma; el análisis hidroeconómico ayuda cuando solo hay daños materiales.</li>
-<li>Serie anual para <span class="math inline">\(T \ge 10\)</span> años; serie parcial para eventos frecuentes.</li>
-</ul>
 </section></section>
 <section>
 <section id="ajuste" class="title-slide slide level1 separador center" data-background-color="#10199e">
@@ -1459,27 +1417,6 @@ p_m = \frac{m - a}{n + 1 - 2a}, \qquad T_m = \frac{1}{p_m}, \qquad m = 1 \text{ 
 })();
 </script>
 <p><span class="nota">La constante <span class="math inline">\(a\)</span> mueve sobre todo el mayor dato; las rectas no dependen de ella.</span></p>
-</section>
-<section id="para-practicar-2" class="slide level2 scrollable">
-<h2>Para practicar</h2>
-<ol type="1">
-<li>El mayor caudal de una serie de 30 años es 520 m³/s y el segundo, 410 m³/s. Calcule su periodo de retorno empírico con Weibull y con Cunnane. ¿Cuál es más sensible a la fórmula?</li>
-<li>La lluvia máxima anual en 24 h tiene media de 185 mm y desviación de 62 mm (datos hipotéticos). Ajuste la Gumbel por momentos y calcule la lluvia de 100 años.</li>
-<li>Calcule a mano <span class="math inline">\(\lambda_1\)</span>, <span class="math inline">\(\lambda_2\)</span> y <span class="math inline">\(\tau_3\)</span> de la muestra 12, 15, 18, 25 y 40 m³/s, y compruébelo con <code>lmom::samlmu()</code>.</li>
-<li>Mann-Kendall en 35 años de caudal mínimo anual dio <span class="math inline">\(Z = -2.30\)</span>. Calcule el valor <span class="math inline">\(p\)</span> y decida con <span class="math inline">\(\alpha = 0.05\)</span>. ¿Qué falta para saber si el cambio importa para el diseño?</li>
-<li>En 30 estaciones salen dos tendencias significativas con <span class="math inline">\(\alpha = 0.05\)</span>. ¿Cuántas se esperarían por azar? ¿Qué nivel daría Bonferroni?</li>
-</ol>
-<p><span class="nota">Más ejercicios en el capítulo 13 del libro.</span></p>
-</section>
-<section id="ideas-para-llevar-2" class="slide level2">
-<h2>Ideas para llevar</h2>
-<ul>
-<li>El diseño pide extrapolar: por eso se usan modelos paramétricos, con su incertidumbre.</li>
-<li>Antes de ajustar: independencia, estacionariedad y homogeneidad. No rechazar no es demostrar.</li>
-<li>Momentos, L-momentos y máxima verosimilitud dan valores distintos con 20 o 30 datos; se informa cuál se usó.</li>
-<li>Las posiciones de graficación ubican los datos para mirarlos, no para diseñar.</li>
-<li>En el papel de probabilidad las desviaciones sistemáticas dicen qué le falta al modelo.</li>
-</ul>
 </section></section>
 <section>
 <section id="medios" class="title-slide slide level1 separador center" data-background-color="#10199e">
@@ -1775,26 +1712,6 @@ x_p \approx \alpha\,\beta \left(1 - \frac{1}{9\beta} + z_p \sqrt{\frac{1}{9\beta
 })();
 </script>
 <p><span class="nota">Con <span class="math inline">\(CV\)</span> bajo las tres casi coinciden; al subir el <span class="math inline">\(CV\)</span> se separan, sobre todo en la cola de diseño.</span></p>
-</section>
-<section id="para-practicar-3" class="slide level2 scrollable">
-<h2>Para practicar</h2>
-<ol type="1">
-<li>La lluvia anual sigue una normal con media de 2850 mm y desviación de 420 mm. Calcule la probabilidad de que un año llueva menos de 2200 mm y la lluvia anual de 20 años.</li>
-<li>Los logaritmos naturales de una serie de caudales máximos anuales tienen media 4.20 y desviación 0.35. Con la log-normal, calcule el caudal de 100 años y la media de los caudales.</li>
-<li>Con la lluvia de marzo de la estación base, ajuste la gamma por momentos y calcule la lluvia de marzo que no se alcanza uno de cada cinco años, a mano (Wilson y Hilferty) y con <code>qgamma()</code>.</li>
-<li>Con los 15 caudales del ejemplo de la log-normal, estime los parámetros por momentos de los datos y compare el caudal de 50 años con el obtenido con los logaritmos.</li>
-</ol>
-<p><span class="nota">Más ejercicios en el capítulo 14 del libro.</span></p>
-</section>
-<section id="ideas-para-llevar-3" class="slide level2">
-<h2>Ideas para llevar</h2>
-<ul>
-<li>Los totales y promedios tienden a la normal por el teorema del límite central.</li>
-<li>La normal no sirve para crecidas: simétrica y con probabilidad de valores negativos.</li>
-<li>La log-normal y la gamma describen variables positivas con asimetría positiva.</li>
-<li>La Pearson tipo III agrega un tercer parámetro para que la asimetría sea la de los datos.</li>
-<li>Todas se escriben como <span class="math inline">\(x_T = \bar{x} + K_T\,s\)</span>, con un <span class="math inline">\(K_T\)</span> propio de cada distribución.</li>
-</ul>
 </section></section>
 <section>
 <section id="extremos" class="title-slide slide level1 separador center" data-background-color="#10199e">
@@ -2263,27 +2180,6 @@ K_T ={}&amp; z + (z^2-1)k + \tfrac{1}{3}(z^3-6z)k^2 \\
 })();
 </script>
 <p><span class="nota">Un cambio de 0.1 en <span class="math inline">\(\xi\)</span>, dentro del error típico con 30 años, mueve mucho el nivel de 100 años.</span></p>
-</section>
-<section id="para-practicar-4" class="slide level2 scrollable">
-<h2>Para practicar</h2>
-<ol type="1">
-<li>25 lluvias máximas anuales en 24 h tienen media de 118 mm y desviación de 34 mm. Calcule la lluvia de 50 años con la Gumbel por momentos y por muestras finitas (<span class="math inline">\(\bar{y}_n = 0.5309\)</span>, <span class="math inline">\(\sigma_n = 1.0915\)</span>).</li>
-<li>Una GEV tiene <span class="math inline">\(\mu = 250\)</span> m³/s, <span class="math inline">\(\sigma = 80\)</span> m³/s y <span class="math inline">\(\xi = 0.15\)</span>. Calcule el caudal de 100 años y compárelo con la Gumbel de igual posición y escala.</li>
-<li>Los logaritmos decimales de una serie de caudales tienen <span class="math inline">\(\bar{y} = 2.80\)</span>, <span class="math inline">\(s_y = 0.22\)</span> y <span class="math inline">\(G = 0.30\)</span>. Calcule el caudal de 50 años con la LP3 y compárelo con la tabla (<span class="math inline">\(K_{50} = 2.211\)</span>).</li>
-<li>En 20 años, 60 picos independientes superan 150 m³/s; los excesos tienen media de 48 m³/s y <span class="math inline">\(\lambda_2 = 26\)</span> m³/s. Estime la GP por L-momentos y el caudal de 50 años.</li>
-<li>Con la lluvia máxima anual de 1964–2022, ajuste la Gumbel por L-momentos y compare su lluvia de 100 años con la de la GEV.</li>
-</ol>
-<p><span class="nota">Más ejercicios en el capítulo 14 del libro.</span></p>
-</section>
-<section id="ideas-para-llevar-4" class="slide level2">
-<h2>Ideas para llevar</h2>
-<ul>
-<li>Los máximos anuales siguen, en teoría, una de tres familias, reunidas en la GEV.</li>
-<li>La Gumbel tiene forma fija; la GEV deja que los datos decidan la cola, con mucha incertidumbre en <span class="math inline">\(\xi\)</span>.</li>
-<li>En mínimos, el modelo tiene que poder producir el menor dato observado.</li>
-<li>Picos sobre umbral aprovecha más eventos, pero exige escoger el umbral con cuidado.</li>
-<li>La LP3 es la norma de Estados Unidos; su asimetría muestral se pondera con una regional.</li>
-</ul>
 </section></section>
 <section>
 <section id="bondad" class="title-slide slide level1 separador center" data-background-color="#10199e">
@@ -2667,27 +2563,6 @@ G = \frac{F - p_0}{1 - p_0}
 <p>Si <span class="math inline">\(F \le p_0\)</span>, el cuantil es cero.</p>
 <p>Información histórica: los <span class="math inline">\(h - k\)</span> años sin crecida notable entran como “menores que <span class="math inline">\(X_0\)</span>” en la verosimilitud <span class="citation" data-cites="stedinger1986flood">(<a href="#/referencias" role="doc-biblioref" onclick="">Stedinger &amp; Cohn, 1986</a>)</span>. Dos crecidas en 80 años suben <span class="math inline">\(Q_{100}\)</span> de 365 a 421 m³/s.</p>
 </div></div>
-</section>
-<section id="para-practicar-5" class="slide level2 scrollable">
-<h2>Para practicar</h2>
-<ol type="1">
-<li>En una muestra de 40 datos, una normal con media y desviación estimadas da <span class="math inline">\(D_n = 0.15\)</span>. ¿Se rechaza con el valor crítico clásico? ¿Y con el de Lilliefors?</li>
-<li>Con los 20 caudales, haga la prueba chi-cuadrado para la log-normal con cuatro clases equiprobables.</li>
-<li>Calcule el AIC y el BIC de dos distribuciones con <span class="math inline">\(\ln \hat L = -150.2\)</span> (dos parámetros) y <span class="math inline">\(-148.9\)</span> (tres parámetros) ajustadas a 30 datos. ¿Coinciden?</li>
-<li>30 % de los máximos anuales son ciclónicos, Gumbel con <span class="math inline">\(u = 400\)</span> y <span class="math inline">\(\alpha = 120\)</span> m³/s; el resto, Gumbel con <span class="math inline">\(u = 200\)</span> y <span class="math inline">\(\alpha = 50\)</span> m³/s. Calcule el periodo de retorno de 700 m³/s.</li>
-<li>En 25 años el caudal mínimo anual fue cero 5 veces; los logaritmos de los positivos tienen media <span class="math inline">\(-0.50\)</span> y desviación 0.70. Calcule los mínimos de 4 y 5 años.</li>
-</ol>
-<p><span class="nota">Más ejercicios en los capítulos 14 y 31 del libro.</span></p>
-</section>
-<section id="ideas-para-llevar-5" class="slide level2">
-<h2>Ideas para llevar</h2>
-<ul>
-<li>Las pruebas descartan modelos malos; con registros cortos no escogen uno solo.</li>
-<li>Con parámetros estimados se usan valores críticos corregidos (Lilliefors, Anderson y Darling).</li>
-<li>Anderson y Darling mira las colas; Kolmogórov y Smirnov, sobre todo el centro.</li>
-<li>El caudal de diseño se informa con su intervalo de confianza: con 30 a 45 años es de ±30 %.</li>
-<li>Poblaciones mixtas, ceros e información histórica cambian el resultado y se tratan aparte.</li>
-</ul>
 </section>
 <section id="referencias" class="slide level2 scrollable smaller">
 <h2>Referencias</h2>

@@ -611,27 +611,6 @@ b_j = r_j\,\frac{s_{j+1}}{s_j}
 <span id="cb1-32"><a href="" aria-hidden="true" tabindex="-1"></a>  caudal<span class="sc">$</span>q_completo[i] <span class="ot">&lt;-</span> <span class="fu">paso</span>(caudal<span class="sc">$</span>q_completo[i <span class="sc">-</span> <span class="dv">1</span>], j)</span>
 <span id="cb1-33"><a href="" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section>
-<section id="para-practicar" class="slide level2 scrollable">
-<h2>Para practicar</h2>
-<ol type="1">
-<li>En una curva de doble masa la pendiente es 0.90 antes de un traslado en 1990 y 1.02 después (datos hipotéticos). El periodo reciente es el confiable. Corrija una lluvia anual de 1500 mm medida en 1985.</li>
-<li>En el ejemplo de doble masa, repita las pruebas <span class="math inline">\(t\)</span> y <span class="math inline">\(F\)</span> de la estación D con el quiebre en 1977 y en 1981. ¿Cambia la conclusión?</li>
-<li>Rellene los 26 meses faltantes de la estación en estudio con la ecuación de Matalas, con <span class="math inline">\(\theta = 0\)</span> y con <span class="math inline">\(\theta = 1\)</span>. Compare la desviación estándar de los meses rellenados con la de los observados (216.4 mm).</li>
-<li>Repita el relleno de Thomas y Fiering con <span class="math inline">\(\ln Q\)</span> y devuelva los valores con la exponencial. ¿Por qué salen menores que con <span class="math inline">\(Q\)</span>?</li>
-<li>Genere 100 años sintéticos con Thomas y Fiering y cuente cuántos caudales negativos salen con <span class="math inline">\(Q\)</span> y con <span class="math inline">\(\ln Q\)</span>.</li>
-</ol>
-<p><span class="nota">Más ejercicios en el capítulo 9 del libro.</span></p>
-</section>
-<section id="ideas-para-llevar" class="slide level2">
-<h2>Ideas para llevar</h2>
-<ul>
-<li>Primero se revisa la consistencia y después se rellena.</li>
-<li>La doble masa señala el quiebre; las pruebas <span class="math inline">\(t\)</span> y <span class="math inline">\(F\)</span> deciden si se corrige.</li>
-<li>La razón normal corrige la diferencia de lluviosidad; el promedio simple solo sirve con normales parecidas.</li>
-<li>La regresión da el valor esperado; para extender hay que devolver la varianza (Matalas, Thomas y Fiering).</li>
-<li>Marque siempre qué datos son rellenados.</li>
-</ul>
 </section></section>
 <section>
 <section id="precipitacion" class="title-slide slide level1 separador center" data-background-color="#10199e">
@@ -992,27 +971,6 @@ FRA = \frac{P_A}{P_0} = 1 - e^{-1.1\,t^{0.25}} + e^{-1.1\,t^{0.25} - 0.003863\,A
 <li>1 h: <span class="math inline">\(FRA = 0.772\)</span> y <span class="math inline">\(P_A = 0.772 \times 80 = 61.7\)</span> mm.</li>
 </ol>
 </div></div>
-</section>
-<section id="para-practicar-1" class="slide level2 scrollable">
-<h2>Para practicar</h2>
-<ol type="1">
-<li>Con la tormenta del ejemplo, calcule la intensidad máxima de 20 y 40 min. Grafique la intensidad máxima contra la duración.</li>
-<li>En el explorador, mueva la estación 1 hacia el borde de la cuenca. ¿Qué método cambia más? ¿Por qué?</li>
-<li>Repita el ejemplo de isoyetas suponiendo 110 mm en la zona central. ¿Cuánto cambia la media?</li>
-<li>Calcule la lámina media de 3 h y 6 h del ejemplo del factor de reducción (115 y 140 mm puntuales en 300 km²).</li>
-<li>Con la lluvia normal de las diez estaciones de la cuenca del río Grande de Tárcoles, ajuste la recta lluvia-altitud sin La Luisa ni Santa Lucía. ¿Es significativa la correlación?</li>
-</ol>
-<p><span class="nota">Más ejercicios en el capítulo 7 del libro.</span></p>
-</section>
-<section id="ideas-para-llevar-1" class="slide level2">
-<h2>Ideas para llevar</h2>
-<ul>
-<li>La lluvia varía con la latitud, el relieve y la exposición al viento, y en tres escalas de tiempo.</li>
-<li>La intensidad máxima baja al crecer la duración.</li>
-<li>Todos los métodos de lluvia media son promedios ponderados; cambian los pesos.</li>
-<li>Thiessen es objetivo y reutilizable; las isoyetas incorporan el relieve; el aritmético solo en terreno suave.</li>
-<li>La lluvia de diseño de una cuenca grande se reduce con el factor de reducción por área.</li>
-</ul>
 </section></section>
 <section>
 <section id="evaporacion" class="title-slide slide level1 separador center" data-background-color="#10199e">
@@ -1313,32 +1271,6 @@ E = \frac{\Delta}{\Delta + \gamma}\,E_r + \frac{\gamma}{\Delta + \gamma}\,E_a
 })();
 </script>
 <p><span class="nota">Penman siempre queda entre <span class="math inline">\(E_r\)</span> y <span class="math inline">\(E_a\)</span>. Meyer se calcula para un mes de 30 días y se pasa a mm/d.</span></p>
-</section>
-<section id="para-practicar-2" class="slide level2 scrollable">
-<h2>Para practicar</h2>
-<ol type="1">
-<li>Calcule <span class="math inline">\(\lambda\)</span> a 30 °C y la energía diaria para evaporar 5 mm/d sobre 1 m². ¿A qué flujo medio de radiación equivale?</li>
-<li>El tanque clase A marca 6.5 mm/d en un mes. Con <span class="math inline">\(K_p = 0.70\)</span>, estime la evaporación de un embalse de 3 km² en mm/d y en m³/d.</li>
-<li>Un embalse grande tiene agua a 25 °C, HR de 60 % y viento de 15 km/h a 10 m. Estime la evaporación del mes con Meyer.</li>
-<li>Sobre un embalse <span class="math inline">\(R_n = 150\)</span> W/m² y <span class="math inline">\(G = 10\)</span> W/m². A dos alturas la temperatura es 27.0 y 26.2 °C y la presión de vapor 2.30 y 2.10 kPa. Estime la evaporación con la razón de Bowen (<span class="math inline">\(\gamma = 0.067\)</span> kPa/°C, <span class="math inline">\(\lambda = 2.438\)</span> MJ/kg):</li>
-</ol>
-<p><span class="math display">\[
-\beta = \gamma\,\frac{T_2 - T_1}{e_2 - e_1}, \qquad E = \frac{R_n - G}{\lambda\,\rho_w\,(1 + \beta)}
-\]</span></p>
-<ol start="5" type="1">
-<li>Con Priestley y Taylor, estime la evaporación de un lago con <span class="math inline">\(R_n = 150\)</span> W/m², 20 °C y 101.3 kPa.</li>
-</ol>
-<p><span class="nota">Más ejercicios en el capítulo 18 del libro.</span></p>
-</section>
-<section id="ideas-para-llevar-2" class="slide level2">
-<h2>Ideas para llevar</h2>
-<ul>
-<li>Evaporar exige energía (2.45 MJ por kilogramo) y un aire capaz de llevarse el vapor.</li>
-<li>El tanque clase A evapora más que un embalse: se corrige con <span class="math inline">\(K_p \approx 0.70\)</span>, mejor calibrado en el sitio.</li>
-<li>El balance de energía y el método aerodinámico son dos límites; Penman los combina.</li>
-<li>Priestley y Taylor solo necesita radiación y temperatura; vale sobre superficies húmedas extensas.</li>
-<li>Las fórmulas empíricas como la de Meyer no se calibraron en el trópico: úselas para comparar, no las promedie con las demás.</li>
-</ul>
 </section></section>
 <section>
 <section id="evapotranspiracion" class="title-slide slide level1 separador center" data-background-color="#10199e">
@@ -1725,27 +1657,6 @@ ET_f = \frac{T_h - T_s}{T_h - T_c}, \qquad \mathrm{ETR} = ET_f \cdot ET_o
 </div>
 <p><a href="data:text/csv;base64,YW5pbyxtZXMsZXRfbW9kMTZfbW0sYWV0X3RlcnJhY2xpbWF0ZV9tbSxldG9fcG1fdGVycmFjbGltYXRlX21tLHBfY2hpcnBzX21tCjIwMDEsMSw5Mi42LDgzLjgyLDE0Ny45Myw5LjgxCjIwMDEsMiw2OC44NCw0MS41OCwxNjIuNjQsMC43MgoyMDAxLDMsNjYuNTYsMjcuNzMsMTgwLjYsMy43MwoyMDAxLDQsNjQuOTIsMzIuNzUsMTgwLjA1LDMuMTMKMjAwMSw1LDc3LjY1LDE1MC4xMSwxNTAuMTYsMjI2LjgKMjAwMSw2LDExMy4wMywxMzIuMTQsMTMyLjE0LDE1My43NwoyMDAxLDcsMTMxLjU3LDEyNC45LDE0MS4yNiwxMjcuOTQKMjAwMSw4LDEyMS4yOSwxMjguODQsMTI5LjM1LDE5Mi4zNAoyMDAxLDksMTIxLjE1LDExMi41LDExMi41LDIzNC45OQoyMDAxLDEwLDEyMS42NywxMDcuMywxMDcuMyw1MjUuNzQKMjAwMSwxMSwxMzYuNjcsOTcuODMsMTA4LjE4LDk0Ljg1CjIwMDEsMTIsMTIxLjMsODcuMDUsMTE2LjI4LDQ4Ljc1CjIwMDIsMSwxMDYuNzksOTAuMjEsMTQ1Ljg0LDYuMwoyMDAyLDIsNzQuMTEsNDguMjgsMTQ5Ljc4LDEuMQoyMDAyLDMsNzEuNjksMzAuNiwxOTAuOTQsMi44NQoyMDAyLDQsNjMuMTYsMTcuODcsMTg1LjMzLDguMjYKMjAwMiw1LDc3Ljg3LDEzNC42NSwxNDkuOTgsMjAxLjIyCjIwMDIsNiwxMDkuNjcsMTE2LjE0LDExNi4xNCwyMDEuOTEKMjAwMiw3LDEyNC45MiwxMjQuODYsMTI1LjQzLDE1NC43NQoyMDAyLDgsMTI1LjY1LDEyNy45OSwxMjcuOTksMjAzLjExCjIwMDIsOSwxMDYuOTIsMTExLjM2LDExMS4zNiwzNTkuNQoyMDAyLDEwLDExMi42NywxMDguMTUsMTA4LjE1LDI1My45CjIwMDIsMTEsMTM0LjE2LDExMS41NSwxMTcuOTMsNzQuOAoyMDAyLDEyLDExNy44OSw5OC41MSwxMzMuNDcsMjguNDIKMjAwMywxLDk4LjgxLDgxLjAyLDE1OC4zLDYuODMKMjAwMywyLDY5LjE2LDQwLjk4LDE1Ni40MywwLjA5CjIwMDMsMyw3MC4wNCwzMi42MSwxNzUuODMsNy44CjIwMDMsNCw2OS42Miw3Ni45MSwxNjIuODgsNDAuODYKMjAwMyw1LDg2LjQ0LDEzOC41LDEzOC41LDIxNS40OQoyMDAzLDYsMTA0LjQ1LDEwOS4yOCwxMDkuMjgsMzY1Ljk1CjIwMDMsNywxMjEuMjUsMTIzLjExLDEzMS4zMSwxNTQuMDIKMjAwMyw4LDEzMC42NCwxMzIuODcsMTMyLjg3LDE1Mi4zNAoyMDAzLDksMTI2Ljc0LDEyNS45MiwxMjUuOTIsNDI0LjkyCjIwMDMsMTAsMTEwLjMzLDEwNS44NSwxMDUuODUsNDIxLjM2CjIwMDMsMTEsMTA2LjcyLDEwNC40LDEwNC40LDE5OC45OQoyMDAzLDEyLDExOC4yMSwxMDIuOTgsMTI2LjU3LDMzLjIxCjIwMDQsMSw5My41OSw4NS43MSwxNDQuNDgsNy40MgoyMDA0LDIsNzguNjIsNTQuNzIsMTUxLjExLDAuMDkKMjAwNCwzLDc0LjQ0LDMzLjM3LDE5NS45OSwxLjMyCjIwMDQsNCw2NC43NSwzNy45OCwxNzIuNTcsNy41MwoyMDA0LDUsOTQuMzMsMTQwLjY2LDE0MC42NiwzMjIuMDMKMjAwNCw2LDExNC40MiwxMjcuNzcsMTI3Ljc3LDIyMi4zNAoyMDA0LDcsMTI5LjgzLDEzMy43NSwxMzQuMSwxNzguMDMKMjAwNCw4LDEzMy4yNCwxMzMuMTcsMTMzLjE3LDIzNC4wMgoyMDA0LDksMTExLjM5LDEyNS41OSwxMjUuNTksMzg5Ljk5CjIwMDQsMTAsMTE5LjU5LDExMS41OCwxMTEuNTgsMjEyLjY5CjIwMDQsMTEsMTM2LjQxLDEyMi4yOSwxMjIuMzksMTE2LjU5CjIwMDQsMTIsMTE2LjUxLDk1LjgxLDE0MS41NCwyOS4wNwoyMDA1LDEsOTkuMTEsODkuMTIsMTY0Ljk1LDcuOTMKMjAwNSwyLDY4LjY2LDM5Ljg5LDE2OC4xLDAuMDMKMjAwNSwzLDY2Ljg2LDM4LjU2LDE3MS41MSw5Ljg0CjIwMDUsNCw2Ni4wOCwzMi44OSwxNzYuMTYsMTEuMDQKMjAwNSw1LDgxLjQ3LDEzNS42MiwxNDQuMDgsMjI5LjM2CjIwMDUsNiwxMDQuMSwxMTUuMzUsMTE1LjM1LDM3My45NgoyMDA1LDcsMTMwLjYxLDEzMy45OSwxMzcuMywxODkuNjIKMjAwNSw4LDExNi44MSwxMjcuNzMsMTI3LjczLDE4OC40NAoyMDA1LDksMTEwLjc1LDExOC4yNywxMTguMjcsNDM0Ljg3CjIwMDUsMTAsMTEzLjQxLDEwOS4xMSwxMDkuMTEsNDE4LjQzCjIwMDUsMTEsMTIwLjc3LDEwOS43OCwxMTAuODcsMTIyLjgzCjIwMDUsMTIsMTExLjYxLDkyLjI2LDEyNS40LDI2Ljk5CjIwMDYsMSwxMTMuMTgsODcuNTgsMTQ0LjIsMTEuMgoyMDA2LDIsODMuNjUsNTQuNjcsMTU2LjQzLDIuNzYKMjAwNiwzLDc2Ljk3LDI5Ljk5LDE4OC45OCwxLjYxCjIwMDYsNCw2NS4yLDM2LjQ2LDE3Mi4wMSwxLjUzCjIwMDYsNSw5Ny42OCwxNTIuNjcsMTUyLjY3LDE2Ny4xNAoyMDA2LDYsMTIwLjkyLDEyNC40MSwxMjQuNDEsMjk2Ljk1CjIwMDYsNywxMjIuMTksMTM2LjYxLDEzNi42MSwyMjcuOTkKMjAwNiw4LDEyMS4xNCwxMzIuNzUsMTM2LjAzLDEyOS4zNgoyMDA2LDksMTI3LjM5LDEyNC41NSwxMjQuNTUsMTYzLjQyCjIwMDYsMTAsMTIxLjQyLDExMC42MSwxMTAuNjEsMjk0LjAzCjIwMDYsMTEsMTE0LjI0LDEwNi4zLDEwNi4zMSwxMTkuODQKMjAwNiwxMiwxMTcuODIsMTAwLjM5LDEyNi43NSwzNy4yOAoyMDA3LDEsMTA3LjgxLDg5LjA2LDE1OC42LDYuNDMKMjAwNywyLDcyLjIyLDQ0LjI1LDE0OS43NSwwLjEKMjAwNywzLDY3LjUsMzMuNzEsMTgzLjc5LDMuMQoyMDA3LDQsNjYuNTcsNjMuNDgsMTUzLjkxLDI3LjcxCjIwMDcsNSw4Ni43MiwxMjguNTgsMTI4LjU4LDI1OS41MgoyMDA3LDYsMTE4LjEyLDEyMS44MywxMjEuODMsMjkyLjkxCjIwMDcsNywxMzAsMTMxLjk3LDEzMi40MSwxNTIuNzIKMjAwNyw4LDEyMi44LDEyMi4yMiwxMjIuMjIsMzgxLjc3CjIwMDcsOSwxMjAuMTYsMTE0LjE5LDExNC4xOSw0NTUuOTcKMjAwNywxMCwxMTAuNzMsMTAyLjU2LDEwMi41Niw0ODYuMjIKMjAwNywxMSwxMTUuNjIsMTE0LjM1LDExNC43OSwxMzAuNzcKMjAwNywxMiwxMDkuNDEsODcuNDEsMTIzLjU0LDMyLjEKMjAwOCwxLDEwMS42OSw4My4xOCwxNDkuNTksNi4zNAoyMDA4LDIsNzQuNDcsNTEsMTQ4LjYyLDIuMTcKMjAwOCwzLDc1Ljg2LDM0LjIzLDE4NS44MiwzLjE1CjIwMDgsNCw2OS4xMSw2OC41MiwxNzMuNSw5LjY4CjIwMDgsNSw4MC42NSwxMzguNjYsMTM4LjY2LDI1OC44CjIwMDgsNiwxMDUuODgsMTE0LjY0LDExNC42NCwzMTkuNTMKMjAwOCw3LDExOS4yLDExOC4yNywxMTguMjcsMjI5LjA1CjIwMDgsOCwxMTAuOTIsMTIyLDEyMiwzODYuNTgKMjAwOCw5LDEwNC44MSwxMDYuNDQsMTA2LjQ0LDUwOS4zMQoyMDA4LDEwLDExMS40NSw5OC41Niw5OC41Niw1NjAuOTgKMjAwOCwxMSwxMTguMjEsMTEzLjM3LDExNS44LDExNC4wNAoyMDA4LDEyLDExMi41NCw5My44NiwxMjcuMjQsNDYuMDMKMjAwOSwxLDEwMy41OCw4NC45MywxNDQuNzQsOC40NwoyMDA5LDIsNzUuODYsNTAuNzMsMTU3LjQzLDAuMTEKMjAwOSwzLDc5LjM2LDMyLDE4Ni4wNywxLjMyCjIwMDksNCw3NC44NiwyMy42NSwxNzcsMTQuMTcKMjAwOSw1LDgzLjEzLDE0Mi42MiwxNDIuNjIsMjI0LjcxCjIwMDksNiwxMDkuNywxMTUuNzUsMTE1Ljc1LDM0My4zOQoyMDA5LDcsMTI1LjQ0LDExOC40MSwxMjguNDgsMTYwLjQ1CjIwMDksOCwxMjQuODIsMTI1LjU1LDEzMi44Nyw3NC40OQoyMDA5LDksMTE2LjMzLDExOS4wMSwxMTkuMTEsMTE1LjUKMjAwOSwxMCwxMTUuODUsMTA4Ljk5LDEwOC45OSwyMzguNTMKMjAwOSwxMSwxMzkuMjIsMTA0LjU4LDExMy4yNiw5OS40MgoyMDA5LDEyLDExNS4wOSw5My4zMywxMzIuNDIsMzEuOTgKMjAxMCwxLDkyLjczLDg4LjQ4LDE1Ny45Niw1LjIyCjIwMTAsMiw2NS44Niw0Ni4xMiwxNTUuMDksMi4wMQoyMDEwLDMsNjkuNzksMzMuOTcsMTg5LjY5LDEuMjQKMjAxMCw0LDY4LjM1LDg1LjQyLDE1Ni44NywxMTUuODMKMjAxMCw1LDEyNi44NSwxMzguNjYsMTM5LjksMjY5LjQ2CjIwMTAsNiwxMTMuOTQsMTA3LjUyLDEwNy41MiwyMzkuMDcKMjAxMCw3LDExNy43NiwxMTIuOSwxMTIuOSwzMDMuMDYKMjAxMCw4LDExNy4xOSwxMDUuOTMsMTA1LjkzLDQ0OS45OAoyMDEwLDksMTExLjQ3LDk4LjgsOTguOCwzMzguNzIKMjAxMCwxMCwxMzAuNSwxMTMuMjYsMTEzLjI2LDEzNy4zNwoyMDEwLDExLDEyNS4yNywxMDYuODQsMTA2Ljg0LDEzMC43OAoyMDEwLDEyLDEwNC44LDkxLjQ2LDEyOC4zOSwxMy4zMgoyMDExLDEsOTguMzQsNzcuMTcsMTM4LjIyLDUuMzUKMjAxMSwyLDc5LjQ5LDUyLjU3LDE0Ny4zOSwwLjEKMjAxMSwzLDc5LjI2LDMxLjgsMTgyLjcsMS4wOQoyMDExLDQsNjcuMTQsNDUuNDYsMTcwLjYsNy4yOAoyMDExLDUsODYuNzgsMTM2LjE5LDE0Mi45OCwyNTQuMjMKMjAxMSw2LDExMi4zMSwxMTEuMzIsMTExLjMyLDI2NS4xMwoyMDExLDcsMTI1LjI3LDExNC41OSwxMTQuNTksMTkxLjU4CjIwMTEsOCwxMjMuNjgsMTI0LjQ4LDEyNS4wNiwxNzEuMTcKMjAxMSw5LDEyMi4wMSwxMTIuNDIsMTEyLjQyLDMxMS44OQoyMDExLDEwLDEyMS44LDEwMS4wMywxMDEuMDMsNDQxLjY3CjIwMTEsMTEsMTQxLjkzLDExMy4xLDExNy42Miw3Ny40OAoyMDExLDEyLDExMS4zOCw5NC4xMiwxMjUuNDksMTYuNwoyMDEyLDEsMTAyLjQ1LDc5LjYzLDE0Ny42Myw1LjgyCjIwMTIsMiw4My40NCw0My4xMiwxNTYuNTQsMy4xMwoyMDEyLDMsNzcuMjYsMjQuODYsMTk2LjIxLDEuMDkKMjAxMiw0LDc1LjU2LDU1LjE0LDE2NC4zMSwxNi43NgoyMDEyLDUsMTE0LjEyLDE0NS45NCwxNDUuOTQsMzg3LjU4CjIwMTIsNiwxMjQuMiwxMzMuOTUsMTMzLjk1LDIwNC4zOAoyMDEyLDcsMTI4LjI0LDEzMC43MiwxNDYuNiw1Mi42MQoyMDEyLDgsMTI5LjA5LDEzNi41OSwxMzYuNTksMjA1LjEzCjIwMTIsOSwxMjMuOTgsMTIzLjg4LDEyMy44OCwyMzkuOTMKMjAxMiwxMCwxMjAuNjgsMTE3LjE3LDExNy4xNywyNDcuNDMKMjAxMiwxMSwxMzEuNDgsMTEzLjA5LDEzMi4yNCw0MC4yCjIwMTIsMTIsMTE0Ljg5LDg0LjA3LDEzNC4zNSw5Ljk0CjIwMTMsMSw5NS4yNyw2My45MSwxNjAuNzgsNi4wMgoyMDEzLDIsNjkuNzIsMzYuNzYsMTYwLjEzLDAuMTcKMjAxMywzLDcwLjI0LDI0LjY3LDE5Ny42MywyLjUzCjIwMTMsNCw2NS41MSw0OS4wNSwxODAuMzYsMS4xNgoyMDEzLDUsNzcuODEsMTUxLjcsMTU1LjA3LDIxMS41NAoyMDEzLDYsMTA2LjksMTIzLjc2LDEyMy43NiwzMjUuNwoyMDEzLDcsMTI4LjczLDExNi40LDEzMy45OSwxOTAuNTMKMjAxMyw4LDEzMS44LDEyNS4zNywxMzIuNTcsMTQ0Ljg4CjIwMTMsOSwxMTcuNDgsMTE4Ljc0LDExOC43NCw0MjguNTIKMjAxMywxMCwxMjMuMjUsMTE0LjU3LDExNC41NywzNDkuMjUKMjAxMywxMSwxMzIuMzgsMTEwLjMyLDExMS45Miw2NS41MQoyMDEzLDEyLDExNy40NCw4NC41OSwxMjYuOTEsMTEuMTIKMjAxNCwxLDExMS40Nyw4NC40MywxNjAuNTIsNi40MQoyMDE0LDIsNzkuMDYsMzkuODgsMTYxLjU3LDAuMQoyMDE0LDMsNzMuMzksMjYuMjQsMTkxLjYzLDIuMDMKMjAxNCw0LDYwLjk3LDUxLjU4LDE4MS4yMywxMy4xCjIwMTQsNSw4OS4xNSwxNTguNzIsMTY1LjEzLDEwOC41NgoyMDE0LDYsMTExLjkxLDEzMC41LDEzMC41LDExOC4yCjIwMTQsNywxMjEuOTgsMTE4LjA2LDE1NS4yOSwyNS4wMwoyMDE0LDgsMTA4Ljg5LDEzNy4wMywxMzcuOTEsMTM5LjQ0CjIwMTQsOSwxMTUuMTIsMTE1LjQ3LDExNS40Nyw1NjkuNTQKMjAxNCwxMCwxMjAuNDYsMTExLjMxLDExMS4zMSw0MTIuODkKMjAxNCwxMSwxMzguNzksMTAxLjU2LDExNC40MywxMzkuOTEKMjAxNCwxMiwxMTYuOTcsOTEuMzEsMTM0LjkyLDkuNDgKMjAxNSwxLDk2Ljk2LDgxLjQ5LDE2NC44OSw3LjEKMjAxNSwyLDc2LjQ5LDM5LjI3LDE1OS45MSwwLjkxCjIwMTUsMyw2Ny42NCwyNS45MiwyMDEuMDIsNC4xNwoyMDE1LDQsNjEuNjIsNTAuMjcsMTc5LjYyLDM3LjE1CjIwMTUsNSw2Ny43Myw4MS44NSwxNzcuNDQsMTguMDEKMjAxNSw2LDEwOC44MSwxNDEuMDUsMTQxLjA1LDE0NS45MwoyMDE1LDcsMTE3LjI2LDEyMC42MywxNTUuNDIsMTA3LjkKMjAxNSw4LDEwOC44NiwxNTYuNzQsMTU2Ljc0LDU2LjYxCjIwMTUsOSwxMTYuOTMsMTMwLjk3LDEzMC45NywyNzguMjgKMjAxNSwxMCwxMTUuNzQsMTI0LjYzLDEyNC42MywzMDcuNDQKMjAxNSwxMSwxMzUuOTMsMTA5LjU2LDExMC44OCwxMDQuMjIKMjAxNSwxMiwxMzAuMzMsMTAxLDEzOS4yNiwyOC41MwoyMDE2LDEsMTAzLjcxLDkwLjc3LDE3MC4yNSw2LjMyCjIwMTYsMiw2OS45OSw0Ni43MywxODguMjMsMC4xCjIwMTYsMyw1OS4wNCwyOS41LDIwNi44MywxLjU5CjIwMTYsNCw2MS4zOSwzNi40NiwxODcuMzIsNDYuNTQKMjAxNiw1LDExMy4wMywxNTAuNjIsMTUzLjgzLDE0Ny4zCjIwMTYsNiwxMTQuODEsMTI4LjI5LDEyOC4yOSwyMzcuMzUKMjAxNiw3LDEzNy43MiwxNDIuODksMTQyLjg5LDExNy4zMgoyMDE2LDgsMTMyLjYzLDE0MS4zLDE0MS4zLDE5MC44NwoyMDE2LDksMTM3Ljk5LDEyNi44NywxMjYuODcsMzIyLjE3CjIwMTYsMTAsMTM2LjM4LDExNC40NCwxMTQuNDQsMzg5LjQyCjIwMTYsMTEsMTMyLjE2LDEwNy40MywxMDcuOTEsMjE2LjA2CjIwMTYsMTIsMTE5LjY0LDg4LjkyLDEyMS4wOCw2OC4yNwoyMDE3LDEsMTMwLjc1LDg4LjE3LDE1Mi40LDYuODgKMjAxNywyLDk1LjgsNDkuNzcsMTYzLjY0LDAuMQoyMDE3LDMsODEuNjksMzMuODMsMTk5LjQsMS45NQoyMDE3LDQsNzcuNjYsMzUuMDQsMTc1LjQxLDE3LjgxCjIwMTcsNSwxMTEuNTMsMTM1LjIsMTM1LjIsNDk4LjY0CjIwMTcsNiwxMjguMjMsMTI1LjYzLDEyNS42MywyODIuNzYKMjAxNyw3LDEzNS4zOSwxMzQuNjEsMTM0LjY4LDIwMy40MQoyMDE3LDgsMTMzLjQ5LDEzMS44OSwxMzEuODksMTY1LjkKMjAxNyw5LDExOS43NSwxMTMuOTcsMTEzLjk3LDM1Ni40NgoyMDE3LDEwLDExNi42NywxMTEuMDYsMTExLjA2LDY3NC4wMQoyMDE3LDExLDE0MS42MywxMTEuMTMsMTIxLjg2LDU5CjIwMTcsMTIsMTE1Ljg4LDk4LjEyLDEzNS44MywxNi4wOQoyMDE4LDEsMTAwLjY4LDg0LjI3LDE1MC41Nyw3LjgzCjIwMTgsMiw3OS41Nyw0Ni45MiwxNzIuMTgsMC4xCjIwMTgsMyw3OC4wNywzNi4yNCwyMDQuMzIsMi40NQoyMDE4LDQsNzEuNyw0Ni42LDE3Ny4xMiwyNy4xMQoyMDE4LDUsODQuMDEsMTQ4LjY2LDE0OC42NiwyOTIuOTcKMjAxOCw2LDExNC40MywxMzQuNDUsMTM0LjQ1LDIyOC43MQoyMDE4LDcsMTMzLjI5LDE1MC41LDE1Mi4xNSw1Ni45CjIwMTgsOCwxMjcuMzYsMTUxLjQ3LDE1MS40NywxMTkuMzgKMjAxOCw5LDExOC44NCwxMzcuNDYsMTM3LjQ2LDE4NS4zNgoyMDE4LDEwLDEyMC41NiwxMjAuMTQsMTIwLjE0LDU4OC42NAoyMDE4LDExLDE0MC43MiwxMjIuMTcsMTMwLjg5LDQwLjE1CjIwMTgsMTIsMTEyLjUyLDEwNy4zMiwxNTEuNDksMTAuNzEKMjAxOSwxLDg3LjU0LDc1LjIyLDE2OC41MSw2LjExCjIwMTksMiw2Ny4xNSwzNC4wOCwxNzAuMzQsMC4xCjIwMTksMyw2OC4wNiwxOS4xOCwyMDMuMjksMi4yNQoyMDE5LDQsNjIuODQsMjAuMzQsMTg1LjMsMy4zNAoyMDE5LDUsODAuNDYsMTI1LjMzLDEyNS4zMyw0MjguMzgKMjAxOSw2LDEyNS4wOSwxMzcuODcsMTM3Ljg3LDk5LjczCjIwMTksNywxMjYuMDIsMTIxLjU4LDE0OC41NCwxMjAuNzEKMjAxOSw4LDEzMS45NiwxMzIuMjUsMTQ1LjksMTIzLjA3CjIwMTksOSwxMTEuOTIsMTI2LjkxLDEyNi45MSwyNjIuOTEKMjAxOSwxMCwxMTIuNTYsMTE1LjQ1LDExNS40NSw0OTIuNDIKMjAxOSwxMSwxMzkuMDUsOTQuNjIsMTI1LjY5LDEyOC44OQoyMDE5LDEyLDExOC42Myw4My43OCwxMzEuMTMsMzAuNzYKMjAyMCwxLDEwNi45Nyw3Mi43MywxNTMuNzgsOS4xMwoyMDIwLDIsODEuNTgsMzUuMDIsMTYzLjU1LDAuNAoyMDIwLDMsNzQuMjIsMjMuNjEsMTkxLjI1LDEuNTkKMjAyMCw0LDY1LjcxLDI5LjA1LDE3My45MSwxMy4xOQoyMDIwLDUsNzkuMTQsMTQ4LjksMTQ4LjksMjQ1LjU5CjIwMjAsNiwxMDguMDYsMTE5Ljg4LDExOS44OCwzNDYuNjIKMjAyMCw3LDEyOC43NiwxMzQuMDUsMTM0LjIyLDE2OC43OQoyMDIwLDgsMTIzLjksMTIyLjk5LDEyMi45OSwyMDEuNzUKMjAyMCw5LDExOS4wOCwxMjEuODEsMTIxLjgxLDM0NS40MgoyMDIwLDEwLDEyMC40MywxMDYuMTQsMTA2LjE0LDQ0OQoyMDIwLDExLDEyNS44Myw5OS42OSw5OS42OSwyMTQuOTIKMjAyMCwxMiwxMjcuOCwxMDMuODIsMTI1LjI1LDUwLjEKMjAyMSwxLDExOC43NSw4Ny42OCwxMzkuNzQsOS45NAoyMDIxLDIsODkuMjEsNTguNjMsMTQ4LjMyLDAuOTQKMjAyMSwzLDgxLjY2LDM0LjM3LDE3OS45OCwyLjA1CjIwMjEsNCw4OC41Niw4NC43MiwxNTYuNTQsNzAuMTcKMjAyMSw1LDEyOS40Miw3Ni42MiwxNTMuMjYsMTQ0Ljc5CjIwMjEsNiwxMjMuOTgsMTI2LjM2LDEyNi4zNiwyMDIuNTgKMjAyMSw3LDEzMS4xLDEyNi4zOSwxMzcuNDcsMTkxLjE2CjIwMjEsOCwxMjMuNTIsMTI3LjAyLDEyNy4wMiw1NDMuODIKMjAyMSw5LDExNC43NCwxMTguMjcsMTE4LjI3LDMyMi4zNQoyMDIxLDEwLDEyNi4yNywxMTUuMjIsMTE1LjIyLDM1Mi4zMwoyMDIxLDExLDEzMy4xNSwxMDAuMjMsMTE4LjQyLDIyLjMxCjIwMjEsMTIsMTEzLjE5LDg0LjIsMTI3LjIzLDkuODQKMjAyMiwxLDk5Ljk1LDY4LjM1LDE0OC4zOCwzLjY0CjIwMjIsMiw3Ny43NiwzNi4yNywxNTMuMSwwLjY4CjIwMjIsMyw3MS4zOSwyNC45MiwxNzUuODYsMi4yMgoyMDIyLDQsNzIuMiw5NS40NCwxNTUuOCwzOS4zNQoyMDIyLDUsMTA2LjQ2LDEzMS4xMSwxMzEuMTEsMjMyLjQ1CjIwMjIsNiwxMTguMDUsMTA3LjQ3LDEwNy40NywzOTcuMDMKMjAyMiw3LDE0MC45MiwxMjcuNDEsMTI3LjQxLDIxNS4zNgoyMDIyLDgsMTMzLjQxLDEyNi4yLDEyNi4yLDE0Ni42MwoyMDIyLDksMTE5LjI2LDExNS45MSwxMTUuOTEsMjM0LjI4CjIwMjIsMTAsMTQyLjA5LDEyMy4wNSwxMjMuMDUsMTU4LjUKMjAyMiwxMSwxMTUuMTgsOTYuNTEsOTYuNTEsMzkwLjgzCjIwMjIsMTIsMTI1LjkzLDkzLjMyLDEyOC43MywyNC45NwoyMDIzLDEsMTE1LjEyLDgxLjkyLDE0NC4zOSw1Ljk5CjIwMjMsMiw4My4zMyw0Ny43MSwxNTkuMiwxLjA2CjIwMjMsMyw4Ny4zNCw1My4xNiwxNjguNTcsMTIuMjMKMjAyMyw0LDc3LjUsMjYuODMsMTc4LjY0LDI0Ljg2CjIwMjMsNSw4My44MSw4Ni42MSwxNzguMzYsMTA4LjI4CjIwMjMsNiwxMjMuNzgsMTM2LjAzLDEzNi4wMywxODMuMDcKMjAyMyw3LDEyOC4zLDEyOC4yMiwxNDYuMzcsMTQ1LjU5CjIwMjMsOCwxMzAuMTYsMTM3LjU2LDEzNy41NiwxNTEuMjcKMjAyMyw5LDEyNS4wNiwxMzIuNDcsMTM4LjYsMTY4LjE5CjIwMjMsMTAsMTA4Ljc5LDExMS40MywxMTEuNDMsNDE2Ljk3CjIwMjMsMTEsMTIyLjc3LDEwOC40NywxMDguNDcsMjc1Ljg3CjIwMjMsMTIsMTI4LjQzLDkzLjYzLDEzNS4yNyw0MS4zNQoyMDI0LDEsMTE3LjYxLDgxLjYsMTUwLjk0LDQuNTMKMjAyNCwyLDg0LjEyLDQxLjY5LDE1OS4yMSwwLjU3CjIwMjQsMyw3NC4xMSwzMS4xLDE4NS45MywzLjE1CjIwMjQsNCw2Ni4wNywzMy4wMywxODIuNSwxMi4wOAoyMDI0LDUsOTEuODEsMTUwLjg3LDE1NS42OCwxNTYuMDcKMjAyNCw2LDExNC41NywxMDkuMzMsMTA5LjMzLDY1Ny43MgoyMDI0LDcsMTE3LjU2LDEyNS42MSwxMjUuNjEsMzA4Ljk0CjIwMjQsOCwxMjAuMjMsMTMxLjAzLDEzMS4xMiwyMTUuNQoyMDI0LDksMTIyLjA0LDExMS45NiwxMTEuOTYsMzQ3LjM4CjIwMjQsMTAsMTI3LjYxLDExMy42NiwxMTMuNjYsMjYxLjQ1CjIwMjQsMTEsMTEyLjIzLDkzLjM2LDkzLjM2LDU1MC4zOQoyMDI0LDEyLDExOC4wNCwxMTAuMzIsMTEyLjQyLDU5LjQ3Cg==" download="et_mensual_tempisque_2001_2024.csv" class="boton-datos">⬇ Descargar <code>et_mensual_tempisque_2001_2024.csv</code></a></p>
 </div></div>
-</section>
-<section id="para-practicar-3" class="slide level2 scrollable">
-<h2>Para practicar</h2>
-<ol type="1">
-<li>Una cuenca de la vertiente del Caribe tiene 3000 mm y 24 °C. Estime la ETR anual con Turc y con Holdridge y Rodríguez y Saborío, y el excedente de cada uno.</li>
-<li>Un cultivo en pleno desarrollo tiene <span class="math inline">\(k_c = 1.15\)</span>. Un día con <span class="math inline">\(ET_o = 4.0\)</span> mm/d el suelo está seco y <span class="math inline">\(k_s = 0.6\)</span>. Calcule la ET del cultivo sin estrés y la ETR.</li>
-<li>Un cafetal con malezas de 2.5 m, en mediados de temporada, tiene <span class="math inline">\(ET_o = 4.0\)</span> mm/d, <span class="math inline">\(u_2 = 3\)</span> m/s y <span class="math inline">\(HR_{\min} = 50\)</span> %. Corrija <span class="math inline">\(k_{c,\mathrm{med}}\)</span> y estime la ET de abril.</li>
-<li>En una imagen de satélite la superficie fría está a 26 °C y la caliente, 10 °C más arriba. Un píxel de cafetal está a 31 °C y <span class="math inline">\(ET_o = 4.5\)</span> mm/d.&nbsp;Estime <span class="math inline">\(ET_f\)</span> y la ETR.</li>
-<li>Calcule la ETP de Thornthwaite de enero del ejemplo y compárela con la de abril. ¿Por qué la diferencia es tan pequeña?</li>
-</ol>
-<p><span class="nota">Más ejercicios en el capítulo 19 del libro.</span></p>
-</section>
-<section id="ideas-para-llevar-3" class="slide level2">
-<h2>Ideas para llevar</h2>
-<ul>
-<li>ETP y <span class="math inline">\(ET_o\)</span> miden la demanda del clima; la ETR es lo que de verdad ocurre y la que entra en el balance.</li>
-<li>Con todos los datos, FAO Penman-Monteith; con solo temperaturas, Hargreaves y Samani calibrado contra Penman-Monteith.</li>
-<li>Thornthwaite sirve para balances regionales, pero subestima el contraste entre la época seca y la lluviosa.</li>
-<li>Turc y Holdridge con Rodríguez y Saborío dan la ETR anual de una cuenca sin aforos.</li>
-<li>Cada método tiene sus supuestos: no se promedian, se escoge el que corresponde a los datos y al uso.</li>
-</ul>
 </section></section>
 <section>
 <section id="caudales" class="title-slide slide level1 separador center" data-background-color="#10199e">
@@ -2177,27 +2088,6 @@ Q_{\text{riego}} = \frac{(ET_c - P_e)\, A}{1000\, E\, \Delta t}
 </div>
 </div>
 <p>En Costa Rica las aguas son de dominio público y su aprovechamiento requiere concesión de la Dirección de Agua del MINAE <span class="citation" data-cites="costarica1942leyaguas">(<a href="#/referencias" role="doc-biblioref" onclick="">Asamblea Legislativa de la República de Costa Rica, 1942</a>)</span>.</p>
-</section>
-<section id="para-practicar-4" class="slide level2 scrollable">
-<h2>Para practicar</h2>
-<ol type="1">
-<li>Con la serie diaria de la cuenca de 85 km², calcule <span class="math inline">\(Q_{70}\)</span> y <span class="math inline">\(Q_{99}\)</span> y la curva de duración de caudales medios mensuales. ¿Por qué es más plana?</li>
-<li>En el ejemplo de riego, ¿cuántas hectáreas caben con riego por goteo (<span class="math inline">\(E = 0.85\)</span>)?</li>
-<li>En el explorador, busque la mayor demanda que se puede atender con un embalse de 5 hm³.</li>
-<li>Un acueducto rural abastece a 6500 personas y la población crece 2 % al año. Compare la demanda dentro de 20 años con un <span class="math inline">\(Q_{95}\)</span> de 25 L/s, si aguas arriba hay 8 L/s concesionados y el caudal ambiental es de 6 L/s.</li>
-<li>Calcule el indicador de Falkenmark de una cuenca de 300 km² con caudal medio de 9 m³/s y 180 000 habitantes. Compare con el índice de uso de abril, si el caudal medio de ese mes es 1.2 m³/s y las extracciones suman 0.6 m³/s.</li>
-</ol>
-<p><span class="nota">Más ejercicios en los capítulos 26, 27 y 38 del libro.</span></p>
-</section>
-<section id="ideas-para-llevar-4" class="slide level2">
-<h2>Ideas para llevar</h2>
-<ul>
-<li>La curva de duración dice cuántos días hay agua; la de variación estacional, cuánta hay cada mes con una probabilidad dada.</li>
-<li>La oferta útil es la de estiaje menos el caudal ambiental y lo ya concesionado, mes a mes.</li>
-<li>La curva masa y el pico secuente dan el volumen útil para una demanda constante.</li>
-<li>Ningún embalse entrega más que la entrada media.</li>
-<li>Para decidir, la confiabilidad del peor año dice más que un índice anual.</li>
-</ul>
 </section></section>
 <section>
 <section id="balance" class="title-slide slide level1 separador center" data-background-color="#10199e">
@@ -2446,27 +2336,6 @@ HS_f = HS_i + P_i - ETR - R_p
 </div>
 <p><span class="math inline">\(P = 2500\)</span> y <span class="math inline">\(ETP = 1300\)</span> mm: bosque 1213 mm de caudal, pasto 1510 mm.</p>
 </div></div>
-</section>
-<section id="para-practicar-5" class="slide level2 scrollable">
-<h2>Para practicar</h2>
-<ol type="1">
-<li>Una cuenca de 120 km² recibe 2400 mm al año y su caudal medio es 3.5 m³/s. Calcule la escorrentía, la ETR por balance y el coeficiente de escorrentía. Compare la ETR con la de Turc para 22 °C.</li>
-<li>Repita el balance mensual del ejemplo con <span class="math inline">\(S_{\max} = 50\)</span> y 200 mm. ¿Cómo cambian el excedente y el déficit anual?</li>
-<li>En el balance de Schosinsky, calcule <span class="math inline">\(C_i\)</span> para un bosque sobre suelo arenoso con <span class="math inline">\(f_c = 900\)</span> mm/d y pendiente de 10 %, usando los cuadros del capítulo 24.</li>
-<li>Con la curva de Budyko, estime cuánto cambia el caudal medio de la cuenca del ejemplo si el 70 % del bosque se convierte en pasto.</li>
-<li>Escriba una función en R que reciba <span class="math inline">\(P_{ef}\)</span>, <span class="math inline">\(ETP\)</span> y <span class="math inline">\(S_{\max}\)</span>, busque el mes que sigue al último mes con excedente y devuelva el balance completo.</li>
-</ol>
-<p><span class="nota">Más ejercicios en los capítulos 22, 23, 24 y 45 del libro.</span></p>
-</section>
-<section id="ideas-para-llevar-5" class="slide level2">
-<h2>Ideas para llevar</h2>
-<ul>
-<li>Todo análisis hidrológico aplicado es un balance: lo que entra menos lo que sale es el cambio de almacenamiento.</li>
-<li>En un año completo <span class="math inline">\(P = ET + Q\)</span>; en un mes, la humedad del suelo pesa.</li>
-<li>El balance detecta datos imposibles: <span class="math inline">\(P - R\)</span> no puede superar la ETP.</li>
-<li>La capacidad del suelo decide cuánto excedente y cuánto déficit hay.</li>
-<li>La recarga depende tanto de la cobertura y las raíces como de la lluvia.</li>
-</ul>
 </section>
 <section id="referencias" class="slide level2 scrollable smaller">
 <h2>Referencias</h2>
