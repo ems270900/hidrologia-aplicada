@@ -905,7 +905,7 @@ Ejemplo: calibración evento por evento de un modelo de número de curva e hidro
 <ol type="1">
 <li>Retención máxima: <span class="math inline">\(S = 25\,400/72.6 - 254 = 95.8\)</span> mm. Abstracción inicial: <span class="math inline">\(I_a = 0.2 \times 95.8 = 19.2\)</span> mm.</li>
 <li>La lluvia acumulada del evento es de 57.9 mm. La lámina efectiva total es <span class="math inline">\(P_e = (57.9 - 19.2)^2/(57.9 - 19.2 + 95.8) = 11.2\)</span> mm. La lluvia efectiva de cada hora es la diferencia entre la lámina efectiva acumulada al final y al inicio de la hora.</li>
-<li>Hidrograma unitario de 1 h: con <span class="math inline">\(t_{\text{lag}} = 1.87\)</span> h, el tiempo al pico es <span class="math inline">\(T_p = 0.5 + 1.87 = 2.37\)</span> h y el pico es <span class="math inline">\(q_p = 0.208 \times 318/2.37 = 27.9\)</span> m³/s por mm (<a href="28-hidrograma_unitario.html#eq-hu-scs" class="quarto-xref">Ecuación&nbsp;<span>28.16</span></a>).</li>
+<li>Hidrograma unitario de 1 h: con <span class="math inline">\(t_{\text{lag}} = 1.87\)</span> h, el tiempo al pico es <span class="math inline">\(T_p = 0.5 + 1.87 = 2.37\)</span> h y el pico es <span class="math inline">\(q_p = 0.208 \times 318/2.37 = 27.9\)</span> m³/s por mm (<a href="28-hidrograma_unitario.html#eq-hu-scs" class="quarto-xref">Ecuación&nbsp;<span>28.18</span></a>).</li>
 <li>El caudal simulado es el flujo base de 34.5 m³/s más la convolución de la lluvia efectiva con el hidrograma unitario (<a href="28-hidrograma_unitario.html#eq-hu-convolucion" class="quarto-xref">Ecuación&nbsp;<span>28.9</span></a>).</li>
 </ol>
 <p>La búsqueda del mejor <span class="math inline">\(CN\)</span> y <span class="math inline">\(t_{\text{lag}}\)</span> para cada evento se hace con el código.</p>

@@ -3568,40 +3568,18 @@ U_D(t) = \frac{Q_d(t)}{R}
 <h2>Curva S y cambio de duración</h2>
 <p>Curva S: escorrentía de una lluvia efectiva continua de <span class="math inline">\(\frac{1}{D}\)</span> mm/h <span class="citation" data-cites="chow1988appliedhydrology">(<a href="#/referencias" role="doc-biblioref" onclick="">Chow et&nbsp;al., 1988, pp. 230-232</a>)</span>.</p>
 <p><span class="math display">\[
-S(t) = U_D(t) + S(t - D), \qquad U_{D'}(t) = \frac{D}{D'}\,\left[S(t) - S(t - D')\right]
+S(t) = U_D(t) + S(t - D), \qquad U_{D'}(t) = \frac{D}{D'}\,\bigl[S(t) - S(t - D')\bigr]
 \]</span></p>
-<ul>
-<li>Se estabiliza en el caudal de equilibrio <span class="math inline">\(Q_e = \frac{A}{3.6\,D}\)</span>, con <span class="math inline">\(A\)</span> en km² y <span class="math inline">\(D\)</span> en h.</li>
-<li>En la práctica oscila si el hidrograma de partida no es exacto o la lluvia no fue uniforme.</li>
-<li>Para duraciones múltiplo: el de <span class="math inline">\(nD\)</span> horas es la suma de <span class="math inline">\(n\)</span> hidrogramas desfasados <span class="math inline">\(D\)</span>, dividida entre <span class="math inline">\(n\)</span> <span class="citation" data-cites="linsley1977hidrologia">(<a href="#/referencias" role="doc-biblioref" onclick="">Linsley et&nbsp;al., 1977, pp. 197-201</a>)</span>.</li>
-</ul>
-</section>
-<section id="la-curva-s-revela-la-duración" class="slide level2">
-<h2>La curva S revela la duración</h2>
-<p>Hidrograma unitario de una cuenca de 306 km² con duración desconocida (datos hipotéticos): 0, 5, 15, 22.5, 17.5, 10, 7.5, 5, 2.5 y 0 m³/s por mm.</p>
-<div class="columns">
-<div class="column" style="width:55%;">
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="tema4_files/figure-revealjs/unnamed-chunk-61-1.svg" class="quarto-figure quarto-figure-center" width="595"></p>
-</figure>
-</div>
-</div>
-</div>
-</div><div class="column" style="width:45%;">
-<p>Solución:</p>
 <ol type="1">
-<li>Volumen: suma 85 m³/s, <span class="math inline">\(85 \times 3600 = 306\,000\)</span> m³ = 1.0 mm.</li>
-<li>Desfase de 2 h: 0, 5, 15, 27.5, 32.5, 37.5, 40, 42.5 y se queda en 42.5.</li>
-<li>Desfase de 3 h: repite 27.5, 27.5, 30 sin estabilizarse.</li>
-<li>La duración es 2 h: <span class="math inline">\(Q_e = \frac{306}{3.6 \times 2} = 42.5\)</span> m³/s.</li>
+<li>Curva S de <span class="math inline">\(D\)</span> horas.</li>
+<li>Curva S desfasada <span class="math inline">\(D'\)</span> horas.</li>
+<li>Diferencia de las dos curvas: hidrograma de <span class="math inline">\(D'/D\)</span> mm en <span class="math inline">\(D'\)</span> horas.</li>
+<li>Multiplicar por el factor <span class="math inline">\(D/D'\)</span>: hidrograma unitario de <span class="math inline">\(D'\)</span> horas.</li>
 </ol>
-</div></div>
+<p><span class="nota">Se estabiliza en <span class="math inline">\(Q_e = \frac{A}{3.6\,D}\)</span>. Para duraciones múltiplo: suma de <span class="math inline">\(n\)</span> hidrogramas desfasados <span class="math inline">\(D\)</span>, dividida entre <span class="math inline">\(n\)</span> <span class="citation" data-cites="linsley1977hidrologia">(<a href="#/referencias" role="doc-biblioref" onclick="">Linsley et&nbsp;al., 1977, pp. 197-201</a>)</span>.</span></p>
 </section>
-<section id="cuadro-de-linsley-de-2-h-a-3-h" class="slide level2">
-<h2>Cuadro de Linsley: de 2 h a 3 h</h2>
+<section id="de-2-h-a-3-h-con-la-curva-s" class="slide level2">
+<h2>De 2 h a 3 h con la curva S</h2>
 <div class="columns">
 <div class="column" style="width:52%;">
 <div class="tabla-compacta">
@@ -3610,13 +3588,13 @@ S(t) = U_D(t) + S(t - D), \qquad U_{D'}(t) = \frac{D}{D'}\,\left[S(t) - S(t - D'
 <table class="table table-hover table-condensed caption-top" data-quarto-postprocess="true" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <thead>
 <tr class="header">
-<th style="text-align: center;" data-quarto-table-cell-role="th">Tiempo (h)</th>
-<th style="text-align: center;" data-quarto-table-cell-role="th"><em>U</em><sub>2</sub> (m³/s por mm)</th>
-<th style="text-align: center;" data-quarto-table-cell-role="th"><em>S</em>(<em>t</em> − 2) (m³/s)</th>
-<th style="text-align: center;" data-quarto-table-cell-role="th"><em>S</em>(<em>t</em>) (m³/s)</th>
-<th style="text-align: center;" data-quarto-table-cell-role="th"><em>S</em>(<em>t</em> − 3) (m³/s)</th>
-<th style="text-align: center;" data-quarto-table-cell-role="th">Diferencia (m³/s)</th>
-<th style="text-align: center;" data-quarto-table-cell-role="th"><em>U</em><sub>3</sub> (m³/s por mm)</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">(1) <em>t</em> (h)</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">(2) <em>U</em><sub>2</sub>(<em>t</em>) (m³/s por mm)</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">(3) <em>S</em>(<em>t</em> − 2) (m³/s)</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">(4) <em>S</em>(<em>t</em>) = (2) + (3) (m³/s)</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">(5) <em>S</em>(<em>t</em> − 3) (m³/s)</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">(6) Diferencia = (4) − (5): 1.5 mm en 3 h (m³/s)</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">(7) <em>U</em><sub>3</sub>(<em>t</em>) = (6) × 2/3 (m³/s por mm)</th>
 </tr>
 </thead>
 <tbody>
@@ -3728,6 +3706,15 @@ S(t) = U_D(t) + S(t - D), \qquad U_{D'}(t) = \frac{D}{D'}\,\left[S(t) - S(t - D'
 <td style="text-align: center;">0.0</td>
 <td style="text-align: center;">0.00</td>
 </tr>
+<tr class="odd">
+<td style="text-align: center;">12</td>
+<td style="text-align: center;">0.0</td>
+<td style="text-align: center;">42.5</td>
+<td style="text-align: center;">42.5</td>
+<td style="text-align: center;">42.5</td>
+<td style="text-align: center;">0.0</td>
+<td style="text-align: center;">0.00</td>
+</tr>
 </tbody>
 </table>
 
@@ -3740,13 +3727,39 @@ S(t) = U_D(t) + S(t - D), \qquad U_{D'}(t) = \frac{D}{D'}\,\left[S(t) - S(t - D'
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="tema4_files/figure-revealjs/unnamed-chunk-64-1.svg" class="quarto-figure quarto-figure-center" width="537"></p>
+<p><img data-src="tema4_files/figure-revealjs/unnamed-chunk-62-1.svg" class="quarto-figure quarto-figure-center" width="537"></p>
 </figure>
 </div>
 </div>
 </div>
 </div></div>
-<p><span class="nota">Columna 7 = (columna 4 − columna 5) × 2/3. Al aumentar la duración el pico baja y se atrasa, y el tiempo base se alarga.</span></p>
+<p><span class="nota">La resta deja solo la lluvia de las primeras 3 h: <span class="math inline">\(3 \times 0.5 = 1.5\)</span> mm. Multiplicada por <span class="math inline">\(D/D' = 2/3\)</span>, queda 1 mm.</span></p>
+</section>
+<section id="otras-duraciones-y-comprobación" class="slide level2">
+<h2>Otras duraciones y comprobación</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="tema4_files/figure-revealjs/unnamed-chunk-64-1.svg" class="quarto-figure quarto-figure-center" width="537"></p>
+</figure>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="tema4_files/figure-revealjs/unnamed-chunk-65-1.svg" class="quarto-figure quarto-figure-center" width="537"></p>
+</figure>
+</div>
+</div>
+</div>
+</div></div>
+<p><span class="nota">De 2 h a 5 h: diferencia × 0.4, pico de 15 m³/s por mm. Si la duración supuesta no es la correcta, la curva S oscila: con 3 h repite 27.5, 27.5, 30.</span></p>
 </section>
 <section id="deconvolución-tormentas-compuestas" class="slide level2">
 <h2>Deconvolución: tormentas compuestas</h2>
@@ -3767,7 +3780,7 @@ S(t) = U_D(t) + S(t - D), \qquad U_{D'}(t) = \frac{D}{D'}\,\left[S(t) - S(t - D'
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="tema4_files/figure-revealjs/unnamed-chunk-66-1.svg" class="quarto-figure quarto-figure-center" width="537"></p>
+<p><img data-src="tema4_files/figure-revealjs/unnamed-chunk-67-1.svg" class="quarto-figure quarto-figure-center" width="537"></p>
 </figure>
 </div>
 </div>
@@ -3810,7 +3823,7 @@ S(t) = U_D(t) + S(t - D), \qquad U_{D'}(t) = \frac{D}{D'}\,\left[S(t) - S(t - D'
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="tema4_files/figure-revealjs/unnamed-chunk-68-1.svg" class="quarto-figure quarto-figure-center" width="576"></p>
+<p><img data-src="tema4_files/figure-revealjs/unnamed-chunk-69-1.svg" class="quarto-figure quarto-figure-center" width="576"></p>
 </figure>
 </div>
 </div>
@@ -3914,7 +3927,7 @@ q_p = \frac{0.208\,A}{T_p}, \qquad T_p = \frac{t_r}{2} + t_p, \qquad t_p = 0.6\,
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="tema4_files/figure-revealjs/unnamed-chunk-70-1.svg" class="quarto-figure quarto-figure-center" width="537"></p>
+<p><img data-src="tema4_files/figure-revealjs/unnamed-chunk-71-1.svg" class="quarto-figure quarto-figure-center" width="537"></p>
 </figure>
 </div>
 </div>
@@ -4147,7 +4160,7 @@ q_p = \frac{0.208\,A}{T_p}, \qquad T_p = \frac{t_r}{2} + t_p, \qquad t_p = 0.6\,
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="tema4_files/figure-revealjs/unnamed-chunk-72-1.svg" class="quarto-figure quarto-figure-center" width="652"></p>
+<p><img data-src="tema4_files/figure-revealjs/unnamed-chunk-73-1.svg" class="quarto-figure quarto-figure-center" width="652"></p>
 </figure>
 </div>
 </div>
@@ -4171,7 +4184,7 @@ q_p = \frac{0.208\,A}{T_p}, \qquad T_p = \frac{t_r}{2} + t_p, \qquad t_p = 0.6\,
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="tema4_files/figure-revealjs/unnamed-chunk-73-1.svg" class="quarto-figure quarto-figure-center" width="499"></p>
+<p><img data-src="tema4_files/figure-revealjs/unnamed-chunk-74-1.svg" class="quarto-figure quarto-figure-center" width="499"></p>
 </figure>
 </div>
 </div>
@@ -4204,7 +4217,7 @@ P_s = \frac{X_1 \left[1 - (S/X_1)^2\right] \tanh(P_n/X_1)}{1 + (S/X_1) \tanh(P_n
 <section id="calibración-y-validación-de-gr4j" class="slide level2">
 <h2>Calibración y validación de GR4J</h2>
 
-<img data-src="tema4_files/figure-revealjs/unnamed-chunk-75-1.svg" class="quarto-figure quarto-figure-center r-stretch" width="912"><ul>
+<img data-src="tema4_files/figure-revealjs/unnamed-chunk-76-1.svg" class="quarto-figure quarto-figure-center r-stretch" width="912"><ul>
 <li>Calibración 1990–1999: KGE 0.86 y NSE 0.74. Validación 2000–2009: 0.69 y 0.63.</li>
 <li><span class="math inline">\(X_1 = 144\)</span> mm y <span class="math inline">\(X_4 = 2.3\)</span> días son razonables para 360 km²; <span class="math inline">\(X_2 = 0.57\)</span> mm indica agua extra para cerrar el balance.</li>
 </ul>
@@ -4272,7 +4285,7 @@ S_{j+1} - S_j = \frac{I_j + I_{j+1}}{2}\,\Delta t - \frac{Q_j + Q_{j+1}}{2}\,\De
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="tema4_files/figure-revealjs/unnamed-chunk-76-1.svg" class="quarto-figure quarto-figure-center" width="595"></p>
+<p><img data-src="tema4_files/figure-revealjs/unnamed-chunk-77-1.svg" class="quarto-figure quarto-figure-center" width="595"></p>
 </figure>
 </div>
 </div>
@@ -4296,7 +4309,7 @@ S = k\,Q, \qquad Q_{j+1} = C_1\,(I_j + I_{j+1}) + C_2\,Q_j, \qquad C_1 = \frac{\
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="tema4_files/figure-revealjs/unnamed-chunk-77-1.svg" class="quarto-figure quarto-figure-center" width="576"></p>
+<p><img data-src="tema4_files/figure-revealjs/unnamed-chunk-78-1.svg" class="quarto-figure quarto-figure-center" width="576"></p>
 </figure>
 </div>
 </div>
@@ -4306,7 +4319,7 @@ S = k\,Q, \qquad Q_{j+1} = C_1\,(I_j + I_{j+1}) + C_2\,Q_j, \qquad C_1 = \frac{\
 <section id="partes-de-un-embalse" class="slide level2">
 <h2>Partes de un embalse</h2>
 
-<img data-src="tema4_files/figure-revealjs/unnamed-chunk-78-1.svg" class="quarto-figure quarto-figure-center r-stretch" width="864"><p><span class="nota">El tránsito de la avenida de diseño fija el NAME; la corona va por encima, con el borde libre.</span></p>
+<img data-src="tema4_files/figure-revealjs/unnamed-chunk-79-1.svg" class="quarto-figure quarto-figure-center r-stretch" width="864"><p><span class="nota">El tránsito de la avenida de diseño fija el NAME; la corona va por encima, con el borde libre.</span></p>
 </section>
 <section id="tránsito-a-nivel-método-de-puls" class="slide level2">
 <h2>Tránsito a nivel (método de Puls)</h2>
@@ -4342,7 +4355,7 @@ S = k\,Q, \qquad Q_{j+1} = C_1\,(I_j + I_{j+1}) + C_2\,Q_j, \qquad C_1 = \frac{\
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="tema4_files/figure-revealjs/unnamed-chunk-79-1.svg" class="quarto-figure quarto-figure-center" width="537"></p>
+<p><img data-src="tema4_files/figure-revealjs/unnamed-chunk-80-1.svg" class="quarto-figure quarto-figure-center" width="537"></p>
 </figure>
 </div>
 </div>
@@ -4372,7 +4385,7 @@ C_3 = \frac{2K(1-X) - \Delta t}{2K(1-X) + \Delta t}
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="tema4_files/figure-revealjs/unnamed-chunk-80-1.svg" class="quarto-figure quarto-figure-center" width="480"></p>
+<p><img data-src="tema4_files/figure-revealjs/unnamed-chunk-81-1.svg" class="quarto-figure quarto-figure-center" width="480"></p>
 </figure>
 </div>
 </div>
@@ -4401,7 +4414,7 @@ C_3 = \frac{2K(1-X) - \Delta t}{2K(1-X) + \Delta t}
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="tema4_files/figure-revealjs/unnamed-chunk-82-1.svg" class="quarto-figure quarto-figure-center" width="537"></p>
+<p><img data-src="tema4_files/figure-revealjs/unnamed-chunk-83-1.svg" class="quarto-figure quarto-figure-center" width="537"></p>
 </figure>
 </div>
 </div>
@@ -4429,7 +4442,7 @@ C_3 = \frac{2K(1-X) - \Delta t}{2K(1-X) + \Delta t}
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="tema4_files/figure-revealjs/unnamed-chunk-85-1.svg" class="quarto-figure quarto-figure-center" width="652"></p>
+<p><img data-src="tema4_files/figure-revealjs/unnamed-chunk-86-1.svg" class="quarto-figure quarto-figure-center" width="652"></p>
 </figure>
 </div>
 </div>
@@ -4456,7 +4469,7 @@ K = \frac{\Delta x}{c_k}, \qquad X = \frac{1}{2}\left(1 - \frac{q}{S_0\,c_k\,\De
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="tema4_files/figure-revealjs/unnamed-chunk-86-1.svg" class="quarto-figure quarto-figure-center" width="537"></p>
+<p><img data-src="tema4_files/figure-revealjs/unnamed-chunk-87-1.svg" class="quarto-figure quarto-figure-center" width="537"></p>
 </figure>
 </div>
 </div>
