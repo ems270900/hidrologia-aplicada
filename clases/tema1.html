@@ -48,7 +48,7 @@
     div.csl-indent {
       margin-left: 2em;
     }  </style>
-  <link rel="stylesheet" href="tema1_files/libs/revealjs/dist/theme/quarto-5cbbee2a8be65a6431e1b44bf64d0a49.css">
+  <link rel="stylesheet" href="tema1_files/libs/revealjs/dist/theme/quarto-d0762808c8ee59c20b39424199887aab.css">
   <link href="tema1_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="tema1_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="tema1_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -216,8 +216,8 @@
 <h1>1.1 La hidrología y el recurso hídrico</h1>
 <p>Capítulos 1 y 2 del libro</p>
 </section>
-<section id="qué-problema-resuelve" class="slide level2">
-<h2>Qué problema resuelve</h2>
+<section id="para-qué-sirve-la-hidrología" class="slide level2">
+<h2>Para qué sirve la hidrología</h2>
 <div class="pregunta">
 <p>¿Cuánta agua hay en un sitio, cuánta puede llegar en una crecida y cuánta puede faltar en una sequía?</p>
 </div>
@@ -359,11 +359,62 @@
 <h2>Ejemplo: cuánta agua dulce está en ríos y lagos</h2>
 <p>Con los volúmenes del libro (km³), calcule qué porcentaje del agua dulce está en lagos dulces, ríos y pantanos, y qué lámina formarían los ríos repartidos sobre los continentes (149 millones de km²).</p>
 <p>Solución:</p>
+<div class="columns">
+<div class="column" style="width:42%;">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Reservorio</th>
+<th style="text-align: right;">Volumen (km³)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Lagos dulces</td>
+<td style="text-align: right;">91 000</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Ríos</td>
+<td style="text-align: right;">2120</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Pantanos</td>
+<td style="text-align: right;">11 470</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Humedad del suelo</td>
+<td style="text-align: right;">16 500</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Agua subterránea dulce</td>
+<td style="text-align: right;">10 530 000</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Agua biológica</td>
+<td style="text-align: right;">1120</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Hielo y glaciares</td>
+<td style="text-align: right;">24 364 100</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Atmósfera</td>
+<td style="text-align: right;">12 900</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Total</td>
+<td style="text-align: right;">35 029 210</td>
+</tr>
+</tbody>
+</table>
+</div><div class="column" style="width:58%;">
 <ol type="1">
-<li>Agua dulce total: <span class="math inline">\(91\,000 + 2120 + 11\,470 + 16\,500 + 10\,530\,000 + 1120 + 24\,364\,100 + 12\,900 = 35\,029\,210\)</span> km³.</li>
-<li>Lagos dulces, ríos y pantanos: <span class="math inline">\(104\,590\)</span> km³, es decir, <span class="math inline">\(\frac{104\,590}{35\,029\,210} = 0.30\)</span> %.</li>
-<li>Lámina de los ríos: <span class="math inline">\(h = \frac{2120}{149 \times 10^6} = 1.42 \times 10^{-5}\)</span> km <span class="math inline">\(= 14\)</span> mm.</li>
+<li>Se suma la columna: el agua dulce total es 35 029 210 km³.</li>
+<li>Lagos, ríos y pantanos: <span class="math inline">\(91\,000 + 2120 + 11\,470 = 104\,590\)</span> km³.</li>
+<li>Porcentaje del agua dulce: <span class="math display">\[\frac{104\,590}{35\,029\,210} \times 100 = 0.30\ \%\]</span></li>
+<li>Lámina de los ríos sobre los continentes: <span class="math display">\[h = \frac{2120\ \text{km}^3}{149 \times 10^6\ \text{km}^2} = 1.42 \times 10^{-5}\ \text{km} = 14\ \text{mm}\]</span></li>
 </ol>
+</div></div>
 <p><span class="nota">Los ríos abastecen tanto porque su agua se renueva con cada lluvia, no porque guarden mucha.</span></p>
 </section>
 <section id="el-tamaño-de-los-reservorios" class="slide level2">
@@ -476,8 +527,8 @@
 <h1>1.2 Ciclo hidrológico y balance hídrico</h1>
 <p>Capítulo 3 del libro</p>
 </section>
-<section id="qué-problema-resuelve-1" class="slide level2">
-<h2>Qué problema resuelve</h2>
+<section id="por-qué-hace-falta-un-balance" class="slide level2">
+<h2>Por qué hace falta un balance</h2>
 <div class="pregunta">
 <p>¿Alcanza un embalse de 6 hm³ para entregar 1.5 hm³ cada mes, si en la época seca casi no le entra agua?</p>
 </div>
@@ -801,8 +852,8 @@ S_t = S_{t-1} + X_t - Y_t
 <h1>1.3 La cuenca hidrográfica: delimitación, red y forma</h1>
 <p>Capítulo 4 del libro</p>
 </section>
-<section id="qué-problema-resuelve-2" class="slide level2">
-<h2>Qué problema resuelve</h2>
+<section id="por-qué-importa-la-forma-de-la-cuenca" class="slide level2">
+<h2>Por qué importa la forma de la cuenca</h2>
 <div class="pregunta">
 <p>¿Por qué dos cuencas de la misma área, bajo la misma tormenta, entregan crecidas tan distintas?</p>
 </div>
@@ -840,7 +891,7 @@ S_t = S_{t-1} + X_t - Y_t
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="tema1_files/figure-revealjs/unnamed-chunk-6-1.svg" class="quarto-figure quarto-figure-center" width="816"></p>
+<p><img data-src="tema1_files/figure-revealjs/unnamed-chunk-6-1.svg" class="quarto-figure quarto-figure-center" width="883"></p>
 </figure>
 </div>
 </div>
@@ -898,6 +949,54 @@ S_t = S_{t-1} + X_t - Y_t
 <p><span class="nota">El orden depende de la escala del mapa: solo se comparan órdenes obtenidos con la misma escala.</span></p>
 </div></div>
 </section>
+<section id="orden-de-los-cauces-sobre-la-hoja-150-000" class="slide level2">
+<h2>Orden de los cauces sobre la hoja 1:50 000</h2>
+<div class="columns">
+<div class="column mapa-orden" style="width:42%;">
+<p><img data-src="assets/img/libro/orden_hoja_1.jpg"></p>
+</div><div class="column" style="width:58%;">
+<p>Paso 1 de 4</p>
+<p>Se ubica el punto de control y se repasan todos los cauces que dibuja la hoja aguas arriba, incluidos los intermitentes (líneas azules discontinuas).</p>
+<p><span class="nota">Cuenca alta del río Jorco, Desamparados, hasta su unión con el río Tiribí.</span></p>
+<p><span class="nota">Hojas Abra y Caraigres del IGN <span class="citation" data-cites="snit2025">(<a href="#/referencias" role="doc-biblioref" onclick="">Instituto Geográfico Nacional, 2025</a>)</span>; ríos de <span class="citation" data-cites="ortiz2014atlas">Ortiz Malavasi (<a href="#/referencias" role="doc-biblioref" onclick="">2014</a>)</span>.</span></p>
+</div></div>
+</section>
+<section id="orden-de-los-cauces-sobre-la-hoja-150-000-1" class="slide level2">
+<h2>Orden de los cauces sobre la hoja 1:50 000</h2>
+<div class="columns">
+<div class="column mapa-orden" style="width:42%;">
+<p><img data-src="assets/img/libro/orden_hoja_2.jpg"></p>
+</div><div class="column" style="width:58%;">
+<p>Paso 2 de 4</p>
+<p>Orden 1: cauces que nacen en la ladera y no reciben afluentes, desde su origen hasta la primera confluencia.</p>
+<p><span class="nota">Hay 13 cauces de orden 1.</span></p>
+<p><span class="nota">Hojas Abra y Caraigres del IGN <span class="citation" data-cites="snit2025">(<a href="#/referencias" role="doc-biblioref" onclick="">Instituto Geográfico Nacional, 2025</a>)</span>; ríos de <span class="citation" data-cites="ortiz2014atlas">Ortiz Malavasi (<a href="#/referencias" role="doc-biblioref" onclick="">2014</a>)</span>.</span></p>
+</div></div>
+</section>
+<section id="orden-de-los-cauces-sobre-la-hoja-150-000-2" class="slide level2">
+<h2>Orden de los cauces sobre la hoja 1:50 000</h2>
+<div class="columns">
+<div class="column mapa-orden" style="width:42%;">
+<p><img data-src="assets/img/libro/orden_hoja_3.jpg"></p>
+</div><div class="column" style="width:58%;">
+<p>Paso 3 de 4</p>
+<p>Donde se juntan dos cauces de orden 1 nace uno de orden 2. Si a un cauce de orden 2 le llega uno de orden 1, sigue siendo de orden 2.</p>
+<p><span class="nota">Hay 3 cauces de orden 2.</span></p>
+<p><span class="nota">Hojas Abra y Caraigres del IGN <span class="citation" data-cites="snit2025">(<a href="#/referencias" role="doc-biblioref" onclick="">Instituto Geográfico Nacional, 2025</a>)</span>; ríos de <span class="citation" data-cites="ortiz2014atlas">Ortiz Malavasi (<a href="#/referencias" role="doc-biblioref" onclick="">2014</a>)</span>.</span></p>
+</div></div>
+</section>
+<section id="orden-de-los-cauces-sobre-la-hoja-150-000-3" class="slide level2">
+<h2>Orden de los cauces sobre la hoja 1:50 000</h2>
+<div class="columns">
+<div class="column mapa-orden" style="width:42%;">
+<p><img data-src="assets/img/libro/orden_hoja_4.jpg"></p>
+</div><div class="column" style="width:58%;">
+<p>Paso 4 de 4</p>
+<p>Dos cauces de orden 2 forman uno de orden 3, que sigue hasta el punto de control.</p>
+<p><span class="nota">La cuenca es de orden 3 a esta escala. <span class="math inline">\(R_b\)</span>: <span class="math inline">\(\frac{13}{3} = 4.3\)</span> y <span class="math inline">\(\frac{3}{1} = 3.0\)</span>.</span></p>
+<p><span class="nota">Hojas Abra y Caraigres del IGN <span class="citation" data-cites="snit2025">(<a href="#/referencias" role="doc-biblioref" onclick="">Instituto Geográfico Nacional, 2025</a>)</span>; ríos de <span class="citation" data-cites="ortiz2014atlas">Ortiz Malavasi (<a href="#/referencias" role="doc-biblioref" onclick="">2014</a>)</span>.</span></p>
+</div></div>
+</section>
 <section id="ejemplo-razón-de-bifurcación" class="slide level2">
 <h2>Ejemplo: razón de bifurcación</h2>
 <p><span class="math display">\[
@@ -910,6 +1009,29 @@ R_b = \frac{N_u}{N_{u+1}}
 <li>Media: <span class="math inline">\(\frac{22.31}{5} = 4.46\)</span>.</li>
 </ol>
 <p><span class="nota">Strahler halló de 4.0 a 5.1 entre órdenes 1 y 2 donde la geología no impone la forma de la red. El 6.08 pide revisar el mapa geológico.</span></p>
+</section>
+<section id="longitud-del-cauce-principal" class="slide level2">
+<h2>Longitud del cauce principal</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<ul>
+<li>Cauce principal: desde el punto de control hacia arriba, en cada confluencia el de mayor orden.</li>
+<li>El cauce del mapa nace antes de la divisoria; de ahí hacia arriba el agua viene por la ladera.</li>
+<li>Longitud hidráulica más larga: recorrido completo de una gota desde el punto hidráulicamente más alejado de la divisoria hasta el punto de control: ladera más cauce <span class="citation" data-cites="nrcs2010neh630cap15">(<a href="#/referencias" role="doc-biblioref" onclick="">Natural Resources Conservation Service, 2010</a>)</span>.</li>
+<li>En el mapa: prolongar el cauce, perpendicular a las curvas, hasta la divisoria. En SIG: dirección de flujo del MDE.</li>
+</ul>
+<p><span class="nota">Es la que piden el tiempo de concentración y los hidrogramas sintéticos.</span></p>
+</div><div class="column" style="width:50%;">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="tema1_files/figure-revealjs/unnamed-chunk-8-1.svg" class="quarto-figure quarto-figure-center" width="576"></p>
+</figure>
+</div>
+</div>
+</div>
+</div></div>
 </section>
 <section id="coeficiente-de-compacidad" class="slide level2">
 <h2>Coeficiente de compacidad</h2>
@@ -928,22 +1050,22 @@ K_c = \frac{P}{2\sqrt{\pi A}} \approx \frac{0.28\,P}{\sqrt{A}}
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: center;">1.00 a 1.25</td>
+<td style="text-align: center;">1.00–1.25</td>
 <td style="text-align: left;">Circular</td>
 <td style="text-align: left;">Círculo, cuadrado, rectángulo 2:1</td>
 </tr>
 <tr class="even">
-<td style="text-align: center;">1.25 a 1.50</td>
+<td style="text-align: center;">1.25–1.50</td>
 <td style="text-align: left;">Ovalada</td>
 <td style="text-align: left;">Rectángulos 3:1 y 4:1</td>
 </tr>
 <tr class="odd">
-<td style="text-align: center;">1.50 a 1.75</td>
+<td style="text-align: center;">1.50–1.75</td>
 <td style="text-align: left;">Oblonga</td>
 <td style="text-align: left;">Rectángulo 6:1</td>
 </tr>
 <tr class="even">
-<td style="text-align: center;">1.75 a 2.00</td>
+<td style="text-align: center;">1.75–2.00</td>
 <td style="text-align: left;">Rectangular</td>
 <td style="text-align: left;">Rectángulos 8:1 y 10:1</td>
 </tr>
@@ -969,7 +1091,7 @@ K_c = \frac{P}{2\sqrt{\pi A}} \approx \frac{0.28\,P}{\sqrt{A}}
 <p><span class="math display">\[
 K_f = \frac{B}{L} = \frac{A}{L^2}
 \]</span></p>
-<p><span class="math inline">\(L\)</span>: longitud axial, del punto de control al punto más alejado de la divisoria <span class="citation" data-cites="horton1945erosional">(<a href="#/referencias" role="doc-biblioref" onclick="">Horton, 1945</a>)</span>.</p>
+<p><span class="math inline">\(L\)</span>: longitud de la cuenca. Horton usó la longitud axial <span class="citation" data-cites="horton1945erosional">(<a href="#/referencias" role="doc-biblioref" onclick="">Horton, 1945</a>)</span>; muchos textos usan la longitud hidráulica más larga. Hay que decir cuál se usó.</p>
 <table class="caption-top">
 <thead>
 <tr class="header">
@@ -1117,8 +1239,8 @@ S = \frac{L}{L_v}
 <h1>1.4 Relieve y pendientes de la cuenca</h1>
 <p>Capítulo 4 del libro</p>
 </section>
-<section id="qué-problema-resuelve-3" class="slide level2">
-<h2>Qué problema resuelve</h2>
+<section id="qué-pendiente-usar" class="slide level2">
+<h2>Qué pendiente usar</h2>
 <div class="pregunta">
 <p>Si el río es empinado en las cabeceras y casi plano cerca de la salida, ¿qué pendiente se usa en la fórmula del tiempo de concentración?</p>
 </div>
@@ -1169,7 +1291,7 @@ S = \frac{L}{L_v}
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="tema1_files/figure-revealjs/unnamed-chunk-9-1.svg" class="quarto-figure quarto-figure-center" width="528"></p>
+<p><img data-src="tema1_files/figure-revealjs/unnamed-chunk-10-1.svg" class="quarto-figure quarto-figure-center" width="528"></p>
 </figure>
 </div>
 </div>
@@ -1179,17 +1301,27 @@ S = \frac{L}{L_v}
 <section id="rectángulo-equivalente" class="slide level2">
 <h2>Rectángulo equivalente</h2>
 <p>Misma área y mismo perímetro que la cuenca <span class="citation" data-cites="roche1963hydrologie">(<a href="#/referencias" role="doc-biblioref" onclick="">Roche, 1963</a>)</span>; las curvas de nivel pasan a ser rectas paralelas al lado menor.</p>
+<div class="columns">
+<div class="column" style="width:44%;">
+<p>Los lados <span class="math inline">\(L\)</span> y <span class="math inline">\(l\)</span> cumplen:</p>
 <p><span class="math display">\[
-L, l = \frac{K_c\sqrt{A}}{1.12}\left[1 \pm \sqrt{1 - \left(\frac{1.12}{K_c}\right)^2}\right]
+L\,l = A \qquad 2\,(L + l) = P
 \]</span></p>
-<p>Solo hay solución real con <span class="math inline">\(K_c \geq 1.12\)</span>.</p>
+<p>Con <span class="math inline">\(K_c\)</span> se llega a la fórmula usual:</p>
+<p><span class="math display">\[
+L, l = \frac{K_c\sqrt{A}}{1.12}\left[1 \pm \sqrt{1 - \left(\frac{1.12}{K_c}\right)^2}\,\right]
+\]</span></p>
+<p><span class="nota">Solo hay rectángulo si <span class="math inline">\(K_c \geq 1.12\)</span>.</span></p>
+</div><div class="column" style="width:56%;">
 <p>Ejemplo: <span class="math inline">\(A = 180\)</span> km², <span class="math inline">\(P = 62\)</span> km.</p>
 <p>Solución:</p>
 <ol type="1">
-<li><span class="math inline">\(K_c = 0.28 \times \frac{62}{\sqrt{180}} = 1.294\)</span>; <span class="math inline">\(\left(\frac{1.12}{1.294}\right)^2 = 0.749\)</span> y <span class="math inline">\(\sqrt{1 - 0.749} = 0.501\)</span>.</li>
-<li><span class="math inline">\(\frac{K_c\sqrt{A}}{1.12} = 15.50\)</span> km; <span class="math inline">\(L = 15.50 \times 1.501 = 23.26\)</span> km y <span class="math inline">\(l = 15.50 \times 0.499 = 7.74\)</span> km.</li>
-<li>Verificación: <span class="math inline">\(23.26 \times 7.74 = 180.0\)</span> km² y <span class="math inline">\(2(23.26 + 7.74) = 62.0\)</span> km.</li>
+<li><span class="math inline">\(L + l = 31\)</span> km y <span class="math inline">\(L\,l = 180\)</span> km².</li>
+<li><span class="math inline">\(L\)</span> y <span class="math inline">\(l\)</span> son las raíces de <span class="math inline">\(x^2 - 31\,x + 180 = 0\)</span>: <span class="math display">\[x = \frac{31 \pm \sqrt{961 - 720}}{2} = \frac{31 \pm 15.52}{2}\]</span></li>
+<li><span class="math inline">\(L = 23.26\)</span> km y <span class="math inline">\(l = 7.74\)</span> km.</li>
+<li>Verificación: <span class="math inline">\(23.26 \times 7.74 = 180.0\)</span> km².</li>
 </ol>
+</div></div>
 </section>
 <section id="índice-de-pendiente-de-roche" class="slide level2">
 <h2>Índice de pendiente de Roche</h2>
@@ -1323,76 +1455,109 @@ S = \frac{n\,e}{\sum L}, \qquad S_m = \frac{S_x + S_y}{2}
 <section id="pendiente-del-cauce-principal" class="slide level2">
 <h2>Pendiente del cauce principal</h2>
 <div class="columns">
-<div class="column" style="width:52%;">
+<div class="column" style="width:50%;">
 <ul>
-<li>Media: <span class="math inline">\(S_1 = \frac{h_{max} - h_{min}}{L}\)</span>. Ignora la forma del perfil.</li>
-<li>Compensada: <span class="math inline">\(S_2\)</span>, recta con la misma área bajo el perfil.</li>
-<li>Taylor y Schwarz <span class="citation" data-cites="taylor1952unit">(<a href="#/referencias" role="doc-biblioref" onclick="">Taylor &amp; Schwarz, 1952</a>)</span>: canal uniforme con el mismo tiempo de recorrido, si <span class="math inline">\(V \propto \sqrt{S}\)</span>:</li>
+<li>Media, <span class="math inline">\(S_1\)</span>: une los extremos; ignora la forma del perfil. <span class="math display">\[S_1 = \frac{h_{max} - h_{min}}{L}\]</span></li>
+<li>Media ponderada, <span class="math inline">\(S_2\)</span>: recta desde el punto de control con la misma área bajo ella que el perfil. Lo que deja por encima se compensa con lo que deja por debajo; <span class="citation" data-cites="Aparicio1992">Aparicio (<a href="#/referencias" role="doc-biblioref" onclick="">1992</a>)</span> la llama compensada. <span class="math display">\[S_2 = \frac{2\,A_p}{L^2}\]</span></li>
 </ul>
-<p><span class="math display">\[
-S_3 = \left[\frac{\sum l_i}{\sum l_i/\sqrt{S_i}}\right]^2
-\]</span></p>
-<p><span class="math inline">\(S_3\)</span> da más peso a los tramos planos, que son los que retrasan el agua.</p>
-</div><div class="column" style="width:48%;">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="assets/img/libro/s3.jpg" style="width:100.0%"></p>
-<figcaption>Pendiente de Taylor y Schwarz. Fuente: <span class="citation" data-cites="Porras2025">Porras Velásquez (<a href="#/referencias" role="doc-biblioref" onclick="">2025</a>)</span>.</figcaption>
-</figure>
-</div>
+</div><div class="column" style="width:50%;">
+<ul>
+<li>Taylor y Schwarz, <span class="math inline">\(S_3\)</span>: canal uniforme con el mismo tiempo de recorrido, si <span class="math inline">\(V \propto \sqrt{S}\)</span> <span class="citation" data-cites="taylor1952unit">(<a href="#/referencias" role="doc-biblioref" onclick="">Taylor &amp; Schwarz, 1952</a>)</span>. <span class="math display">\[S_3 = \left[\frac{\sum l_i}{\sum l_i/\sqrt{S_i}}\right]^2\]</span></li>
+</ul>
+<p><span class="nota"><span class="math inline">\(A_p\)</span>: área entre el perfil y la horizontal del punto de control. Bajo la recta queda un triángulo, <span class="math inline">\(\frac{L\,(z_A - h_{min})}{2} = A_p\)</span>.</span></p>
+<p><span class="nota">En un perfil cóncavo, <span class="math inline">\(S_2 &lt; S_1\)</span>. <span class="math inline">\(S_3\)</span> pesa más los tramos planos. Serrano Pacheco <span class="citation" data-cites="SerranoPacheco_IC0808_Hidrologia">(<a href="#/referencias" role="doc-biblioref" onclick="">2017</a>)</span> y Villalobos Herrera <span class="citation" data-cites="Bob2025">(<a href="#/referencias" role="doc-biblioref" onclick="">2025</a>)</span> llaman a <span class="math inline">\(S_2\)</span> “pendiente media ponderada” y a <span class="math inline">\(S_3\)</span> “pendiente equivalente constante”.</span></p>
 </div></div>
 </section>
-<section id="ejemplo-pendiente-de-taylor-y-schwarz" class="slide level2">
-<h2>Ejemplo: pendiente de Taylor y Schwarz</h2>
+<section id="ejemplo-las-tres-pendientes-del-cauce" class="slide level2">
+<h2>Ejemplo: las tres pendientes del cauce</h2>
 <p>Cauce de 2000 m en cinco tramos de 400 m, con desniveles de 8, 10, 12, 15 y 20 m de abajo hacia arriba.</p>
 <div class="columns">
-<div class="column" style="width:50%;">
-<p>Solución:</p>
-<ol type="1">
-<li><span class="math inline">\(S_i = \frac{\Delta h_i}{400}\)</span>: 0.0200, 0.0250, 0.0300, 0.0375 y 0.0500.</li>
-<li><span class="math inline">\(S_1 = \frac{65}{2000} = 0.0325\)</span>.</li>
-<li><span class="math inline">\(\sum \frac{l_i}{\sqrt{S_i}} = 11\,522.1\)</span>.</li>
-<li><span class="math inline">\(S_3 = \left(\frac{2000}{11\,522.1}\right)^2 = 0.0301\)</span>.</li>
-</ol>
-</div><div class="column" style="width:50%;">
-<table class="caption-top">
+<div class="column" style="width:56%;">
+<table class="caption-top" style="width:100%;">
+<colgroup>
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+</colgroup>
 <thead>
 <tr class="header">
 <th style="text-align: center;">Tramo</th>
+<th style="text-align: center;"><span class="math inline">\(\Delta h_i\)</span> (m)</th>
+<th style="text-align: center;"><span class="math inline">\(z\)</span> arriba (m)</th>
 <th style="text-align: center;"><span class="math inline">\(S_i\)</span></th>
 <th style="text-align: center;"><span class="math inline">\(\frac{l_i}{\sqrt{S_i}}\)</span></th>
+<th style="text-align: center;">Área (m²)</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td style="text-align: center;">1</td>
+<td style="text-align: center;">8</td>
+<td style="text-align: center;">8</td>
 <td style="text-align: center;">0.0200</td>
 <td style="text-align: center;">2828.4</td>
+<td style="text-align: center;">1600</td>
 </tr>
 <tr class="even">
 <td style="text-align: center;">2</td>
+<td style="text-align: center;">10</td>
+<td style="text-align: center;">18</td>
 <td style="text-align: center;">0.0250</td>
 <td style="text-align: center;">2529.8</td>
+<td style="text-align: center;">5200</td>
 </tr>
 <tr class="odd">
 <td style="text-align: center;">3</td>
+<td style="text-align: center;">12</td>
+<td style="text-align: center;">30</td>
 <td style="text-align: center;">0.0300</td>
 <td style="text-align: center;">2309.4</td>
+<td style="text-align: center;">9600</td>
 </tr>
 <tr class="even">
 <td style="text-align: center;">4</td>
+<td style="text-align: center;">15</td>
+<td style="text-align: center;">45</td>
 <td style="text-align: center;">0.0375</td>
 <td style="text-align: center;">2065.6</td>
+<td style="text-align: center;">15 000</td>
 </tr>
 <tr class="odd">
 <td style="text-align: center;">5</td>
+<td style="text-align: center;">20</td>
+<td style="text-align: center;">65</td>
 <td style="text-align: center;">0.0500</td>
 <td style="text-align: center;">1788.9</td>
+<td style="text-align: center;">22 000</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Suma</td>
+<td style="text-align: center;">65</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">11 522.1</td>
+<td style="text-align: center;">53 400</td>
 </tr>
 </tbody>
 </table>
+<p><span class="nota"><span class="math inline">\(S_i = \Delta h_i / 400\)</span>. Área de cada tramo: trapecio, <span class="math inline">\(400 \times \frac{z_{abajo} + z_{arriba}}{2}\)</span>.</span></p>
+<p><span class="nota"><span class="math inline">\(S_1 &gt; S_3 &gt; S_2\)</span>. Con <span class="math inline">\(S_1\)</span> el tiempo de concentración saldría más corto que el real.</span></p>
+</div><div class="column" style="width:44%;">
+<p>Solución:</p>
+<ol type="1">
+<li>Media: <span class="math inline">\(S_1 = \frac{65}{2000} = 0.0325\)</span>.</li>
+<li>Media ponderada: <span class="math display">\[S_2 = \frac{2 \times 53\,400}{2000^2} = 0.0267\]</span></li>
+<li>Taylor y Schwarz: <span class="math display">\[S_3 = \left(\frac{2000}{11\,522.1}\right)^2 = 0.0301\]</span></li>
+</ol>
 </div></div>
-<p><span class="nota">Con <span class="math inline">\(S_1\)</span> el tiempo de concentración saldría algo más corto que el real.</span></p>
+</section>
+<section id="las-tres-pendientes-sobre-el-perfil" class="slide level2">
+<h2>Las tres pendientes sobre el perfil</h2>
+
+<img data-src="tema1_files/figure-revealjs/unnamed-chunk-12-1.svg" class="quarto-figure quarto-figure-center r-stretch" width="912"><p><span class="nota">Las dos áreas moradas son iguales: lo que la recta <span class="math inline">\(S_2\)</span> deja por encima del perfil cerca de la salida se compensa con lo que deja por debajo en las cabeceras.</span></p>
 </section>
 <section id="perfil-del-cauce-y-pendientes" class="slide level2">
 <h2>Perfil del cauce y pendientes</h2>
@@ -1427,9 +1592,12 @@ S_3 = \left[\frac{\sum l_i}{\sum l_i/\sqrt{S_i}}\right]^2
     var s1 = tot / 2000;
     var suma = dh.reduce(function (a, d) { return a + l / Math.sqrt(d / l); }, 0);
     var s3 = Math.pow(2000 / suma, 2);
+    var zc = 0, area = 0;
+    dh.forEach(function (h) { area += l * (zc + zc + h) / 2; zc += h; });
+    var s2 = 2 * area / (2000 * 2000);
     var svg = document.getElementById("pf-graf");
     while (svg.firstChild) svg.removeChild(svg.firstChild);
-    var x0 = 70, x1 = 870, y0 = 205, y1 = 15, zmax = Math.max(20, Math.ceil(tot * 1.15 / 20) * 20), paso = zmax / 4;
+    var x0 = 100, x1 = 870, y0 = 205, y1 = 15, zmax = Math.max(20, Math.ceil(tot * 1.15 / 20) * 20), paso = zmax / 4;
     function sx(d) { return x0 + d / 2000 * (x1 - x0); }
     function sy(z) { return y0 - z / zmax * (y0 - y1); }
     var f = {"font-family": "serif", "font-size": 16, fill: "#333"};
@@ -1442,11 +1610,14 @@ S_3 = \left[\frac{\sum l_i}{\sum l_i/\sqrt{S_i}}\right]^2
     el(svg, "path", {d: d, fill: "none", stroke: "#1C6BA0", "stroke-width": 3});
     el(svg, "line", {x1: sx(0), y1: sy(0), x2: sx(2000), y2: sy(s1 * 2000), stroke: "#E07B39", "stroke-width": 2, "stroke-dasharray": "8 5"});
     el(svg, "line", {x1: sx(0), y1: sy(0), x2: sx(2000), y2: sy(s3 * 2000), stroke: "#3A9A5B", "stroke-width": 2, "stroke-dasharray": "3 4"});
-    el(svg, "text", Object.assign({x: (x0 + x1) / 2, y: 232, "text-anchor": "middle"}, f), "Distancia desde el punto de control (m); desnivel (m)");
+    el(svg, "line", {x1: sx(0), y1: sy(0), x2: sx(2000), y2: sy(s2 * 2000), stroke: "#7B4EA3", "stroke-width": 2});
+    el(svg, "text", Object.assign({x: (x0 + x1) / 2, y: 232, "text-anchor": "middle"}, f), "Distancia desde el punto de control (m)");
+    el(svg, "text", Object.assign({x: 18, y: (y0 + y1) / 2, "text-anchor": "middle", transform: "rotate(-90 18 " + (y0 + y1) / 2 + ")"}, f), "Elevación (m)");
     var rel = 100 * (s3 / s1 - 1);
     document.getElementById("pf-nota").innerHTML = "<span style='color:#1C6BA0'>Perfil</span>. <span style='color:#E07B39'><i>S</i><sub>1</sub> = " + s1.toFixed(4) +
+      "</span>. <span style='color:#7B4EA3'><i>S</i><sub>2</sub> = " + s2.toFixed(4) +
       "</span>. <span style='color:#3A9A5B'><i>S</i><sub>3</sub> = " + s3.toFixed(4) + "</span> (" + rel.toFixed(0) + " % respecto de <i>S</i><sub>1</sub>). " +
-      "Con todos los tramos iguales, <i>S</i><sub>1</sub> = <i>S</i><sub>3</sub>.";
+      "Con todos los tramos iguales, las tres coinciden.";
   }
   function iniciar() {
     for (var i = 1; i <= 5; i++) document.getElementById("pf-" + i).addEventListener("input", dibujar);
@@ -1455,7 +1626,7 @@ S_3 = \left[\frac{\sum l_i}{\sum l_i/\sqrt{S_i}}\right]^2
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", iniciar); else iniciar();
 })();
 </script>
-<p><span class="nota">Cinco tramos de 400 m. Pruebe un tramo bajo casi plano: <span class="math inline">\(S_3\)</span> cae mucho más que <span class="math inline">\(S_1\)</span>.</span></p>
+<p><span class="nota">Cinco tramos de 400 m. Pruebe un tramo bajo casi plano: <span class="math inline">\(S_2\)</span> y <span class="math inline">\(S_3\)</span> caen mucho más que <span class="math inline">\(S_1\)</span>.</span></p>
 </section>
 <section id="geología-cobertura-y-cuencas-urbanas" class="slide level2">
 <h2>Geología, cobertura y cuencas urbanas</h2>
@@ -1476,14 +1647,36 @@ S_3 = \left[\frac{\sum l_i}{\sum l_i/\sqrt{S_i}}\right]^2
 </ul>
 <p><span class="nota">Estos efectos se cuantifican en el Tema 4 con el número de curva y el coeficiente de escorrentía.</span></p>
 </div></div>
+</section>
+<section id="cobertura-del-suelo-de-costa-rica" class="slide level2">
+<h2>Cobertura del suelo de Costa Rica</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="tema1_files/figure-revealjs/unnamed-chunk-13-1.svg" class="quarto-figure quarto-figure-center" width="921"></p>
+</figure>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:40%;">
+<ul>
+<li>Bosque arbóreo: unos 27 700 km², algo más de la mitad del país.</li>
+<li>Pastos: unos 13 600 km²; cultivos: unos 6100 km².</li>
+<li>Zonas urbanas: menos del 2 % del territorio, pero ahí están las superficies impermeables que más cambian la respuesta de una cuenca.</li>
+</ul>
+<p><span class="nota">Capas oficiales del SNIT: bosque y cultivos de 2019, edificaciones de 2020 y pastos de 2022 <span class="citation" data-cites="snit2025">(<a href="#/referencias" role="doc-biblioref" onclick="">Instituto Geográfico Nacional, 2025</a>)</span>. En blanco, agua y humedales.</span></p>
+</div></div>
 </section></section>
 <section>
 <section id="atmosfera" class="title-slide slide level1 separador center" data-background-color="#10199e">
 <h1>1.5 La atmósfera y la energía del Sol</h1>
 <p>Capítulos 5 y 6 del libro</p>
 </section>
-<section id="qué-problema-resuelve-4" class="slide level2">
-<h2>Qué problema resuelve</h2>
+<section id="el-sol-y-las-estaciones-en-el-trópico" class="slide level2">
+<h2>El Sol y las estaciones en el trópico</h2>
 <div class="pregunta">
 <p>¿Por qué en Costa Rica el Sol del mediodía es más alto en abril y en agosto que el 21 de junio, el día más largo del año?</p>
 </div>
@@ -1552,7 +1745,7 @@ S_3 = \left[\frac{\sum l_i}{\sum l_i/\sqrt{S_i}}\right]^2
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="tema1_files/figure-revealjs/unnamed-chunk-11-1.svg" class="quarto-figure quarto-figure-center" width="576"></p>
+<p><img data-src="tema1_files/figure-revealjs/unnamed-chunk-14-1.svg" class="quarto-figure quarto-figure-center" width="576"></p>
 </figure>
 </div>
 </div>
@@ -1564,14 +1757,60 @@ S_3 = \left[\frac{\sum l_i}{\sum l_i/\sqrt{S_i}}\right]^2
 <p><span class="math display">\[
 P = \rho\,R_d\,T, \qquad \frac{dP}{dz} = -\rho\,g, \qquad P = 1013.25\left(\frac{288.15 - 0.0065\,z}{288.15}\right)^{5.256}
 \]</span></p>
-<p><span class="math inline">\(R_d = 287\)</span> J/(kg·K); <span class="math inline">\(P\)</span> en hPa y <span class="math inline">\(z\)</span> en m, válida hasta 11 km <span class="citation" data-cites="noaa1976standard">(<a href="#/referencias" role="doc-biblioref" onclick="">NOAA et&nbsp;al., 1976</a>)</span>.</p>
-<p>Ejemplo: presión a 1150 m (San José) y a 3400 m (cerro de la Muerte), y la constante psicrométrica <span class="math inline">\(\gamma = 0.665 \times 10^{-3}\,P\)</span>.</p>
+<p><span class="math inline">\(R_d = 287\)</span> J/(kg·K); <span class="math inline">\(P\)</span> en hPa y <span class="math inline">\(z\)</span> en m. En la atmósfera estándar la temperatura baja 0.0065 K por metro desde 288.15 K al nivel del mar; la ecuación vale hasta 11 km <span class="citation" data-cites="noaa1976standard">(<a href="#/referencias" role="doc-biblioref" onclick="">NOAA et&nbsp;al., 1976</a>)</span>.</p>
+<p>Ejemplo: presión y constante psicrométrica <span class="math inline">\(\gamma\)</span> a 1150 m (San José) y a 3400 m (cerro de la Muerte).</p>
 <p>Solución:</p>
-<ol type="1">
-<li>A 1150 m: base <span class="math inline">\(\frac{280.675}{288.15} = 0.97406\)</span>; potencia <span class="math inline">\(0.87097\)</span>; <span class="math inline">\(P = 882.5\)</span> hPa y <span class="math inline">\(\gamma = 0.0587\)</span> kPa/°C.</li>
-<li>A 3400 m: base <span class="math inline">\(0.92330\)</span>; potencia <span class="math inline">\(0.65745\)</span>; <span class="math inline">\(P = 666.2\)</span> hPa y <span class="math inline">\(\gamma = 0.0443\)</span> kPa/°C.</li>
-<li>A 3400 m la presión es 34 % menor que al nivel del mar: en montaña se usa la presión de la estación.</li>
-</ol>
+<div class="tabla-compacta">
+<table class="caption-top">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Paso</th>
+<th style="text-align: left;">Cálculo</th>
+<th style="text-align: center;"><span class="math inline">\(z = 1150\)</span> m</th>
+<th style="text-align: center;"><span class="math inline">\(z = 3400\)</span> m</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">1. Temperatura estándar (K)</td>
+<td style="text-align: left;"><span class="math inline">\(T = 288.15 - 0.0065\,z\)</span></td>
+<td style="text-align: center;">280.68</td>
+<td style="text-align: center;">266.05</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">2. Cociente</td>
+<td style="text-align: left;"><span class="math inline">\(T/288.15\)</span></td>
+<td style="text-align: center;">0.97406</td>
+<td style="text-align: center;">0.92330</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">3. Potencia</td>
+<td style="text-align: left;"><span class="math inline">\((T/288.15)^{5.256}\)</span></td>
+<td style="text-align: center;">0.87097</td>
+<td style="text-align: center;">0.65745</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">4. Presión (hPa)</td>
+<td style="text-align: left;"><span class="math inline">\(1013.25 \times\)</span> paso 3</td>
+<td style="text-align: center;">882.5</td>
+<td style="text-align: center;">666.2</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">5. <span class="math inline">\(\gamma\)</span> (kPa/°C)</td>
+<td style="text-align: left;"><span class="math inline">\(0.665 \times 10^{-3} \times P\)</span> (kPa)</td>
+<td style="text-align: center;">0.0587</td>
+<td style="text-align: center;">0.0443</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><span class="nota">A 3400 m la presión es 34 % menor que al nivel del mar: en montaña se usa la presión de la estación.</span></p>
 </section>
 <section id="humedad-del-aire" class="slide level2">
 <h2>Humedad del aire</h2>
@@ -1591,12 +1830,38 @@ e_s(T) = 0.6108\,\exp\!\left(\frac{17.27\,T}{T + 237.3}\right)
 </div><div class="column" style="width:48%;">
 <p>Ejemplo: 26.0 °C y punto de rocío de 18.0 °C a las 14:00.</p>
 <p>Solución:</p>
-<ol type="1">
-<li><span class="math inline">\(e_s(26.0) = 0.6108 \times 5.503 = 3.361\)</span> kPa.</li>
-<li><span class="math inline">\(e_a = e_s(18.0) = 0.6108 \times 3.379 = 2.064\)</span> kPa.</li>
-<li><span class="math inline">\(HR = 100 \times \frac{2.064}{3.361} = 61.4\)</span> %.</li>
-<li>Déficit: <span class="math inline">\(3.361 - 2.064 = 1.297\)</span> kPa.</li>
-</ol>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Paso</th>
+<th style="text-align: left;">Cálculo</th>
+<th style="text-align: center;">Resultado</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">1. <span class="math inline">\(e_s\)</span> a 26 °C</td>
+<td style="text-align: left;"><span class="math inline">\(0.6108 \times 5.503\)</span></td>
+<td style="text-align: center;">3.361 kPa</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">2. <span class="math inline">\(e_a = e_s\)</span> a 18 °C</td>
+<td style="text-align: left;"><span class="math inline">\(0.6108 \times 3.379\)</span></td>
+<td style="text-align: center;">2.064 kPa</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">3. Humedad relativa</td>
+<td style="text-align: left;"><span class="math inline">\(100 \times \frac{2.064}{3.361}\)</span></td>
+<td style="text-align: center;">61.4 %</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">4. Déficit</td>
+<td style="text-align: left;"><span class="math inline">\(3.361 - 2.064\)</span></td>
+<td style="text-align: center;">1.297 kPa</td>
+</tr>
+</tbody>
+</table>
+<p><span class="nota">5.503 y 3.379 son los valores de la exponencial con 26 y 18 °C.</span></p>
 <p><span class="nota">Si en la madrugada el aire baja a 18 °C, la HR llega a 100 % y hay rocío.</span></p>
 </div></div>
 </section>
@@ -1664,26 +1929,72 @@ I = S_0\,d_r\,\cos\theta_z, \qquad \cos\theta_z = \sin\varphi\,\sin\delta + \cos
 <section id="ejemplo-insolación-a-10-n-el-21-de-junio" class="slide level2">
 <h2>Ejemplo: insolación a 10° N el 21 de junio</h2>
 <div class="columns">
-<div class="column" style="width:50%;">
-<p>Solución (<span class="math inline">\(J = 172\)</span>):</p>
-<ol type="1">
-<li><span class="math inline">\(\delta = 0.4090\)</span> rad (23.43°) y <span class="math inline">\(d_r = 0.9675\)</span>.</li>
-<li>A las 9:00, <span class="math inline">\(\omega = -45°\)</span>: <span class="math inline">\(\cos\theta_z = 0.0690 + 0.6389 = 0.7080\)</span> e <span class="math inline">\(I = 1361 \times 0.9675 \times 0.7080 = 932\)</span> W/m².</li>
-<li>Al mediodía, <span class="math inline">\(\cos\theta_z = \cos(10° - 23.43°) = 0.9726\)</span>: <span class="math inline">\(I = 1281\)</span> W/m².</li>
-<li><span class="math inline">\(\omega_s = \arccos(-\tan\varphi\tan\delta) = 1.6473\)</span> rad: el día dura 12.6 h y <span class="math inline">\(R_a = 36.7\)</span> MJ/(m²·d).</li>
-<li>El 21 de diciembre: 11.4 h, 1173 W/m² al mediodía y 30.8 MJ/(m²·d).</li>
-</ol>
-</div><div class="column" style="width:50%;">
+<div class="column" style="width:58%;">
+<p>Datos: <span class="math inline">\(\varphi = 10°\)</span>, <span class="math inline">\(J = 172\)</span>, <span class="math inline">\(t = 9{:}00\)</span> hora solar.</p>
+<div class="tabla-compacta">
+<table class="caption-top">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Paso</th>
+<th style="text-align: left;">Cálculo</th>
+<th style="text-align: center;">Resultado</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">1. Declinación</td>
+<td style="text-align: left;"><span class="math inline">\(\delta = 0.409\,\sin\left(\frac{2\pi\,172}{365} - 1.39\right)\)</span></td>
+<td style="text-align: center;">23.43°</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">2. Distancia Tierra-Sol</td>
+<td style="text-align: left;"><span class="math inline">\(d_r = 1 + 0.033\cos\left(\frac{2\pi\,172}{365}\right)\)</span></td>
+<td style="text-align: center;">0.9675</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">3. Ángulo horario</td>
+<td style="text-align: left;"><span class="math inline">\(\omega = 180° \times \frac{9 - 12}{12}\)</span></td>
+<td style="text-align: center;">−45°</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">4. Cenit</td>
+<td style="text-align: left;"><span class="math inline">\(\cos\theta_z = 0.0690 + 0.6389\)</span></td>
+<td style="text-align: center;">0.7080</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">5. Insolación</td>
+<td style="text-align: left;"><span class="math inline">\(I = 1361 \times 0.9675 \times 0.7080\)</span></td>
+<td style="text-align: center;">932 W/m²</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">6. Mediodía</td>
+<td style="text-align: left;"><span class="math inline">\(\cos\theta_z = \cos(10° - 23.43°) = 0.9726\)</span></td>
+<td style="text-align: center;">1281 W/m²</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">7. Duración del día</td>
+<td style="text-align: left;"><span class="math inline">\(\omega_s = \arccos(-\tan\varphi\tan\delta) = 94.4°\)</span>; <span class="math inline">\(N = \frac{2\,\omega_s}{15°}\)</span></td>
+<td style="text-align: center;">12.6 h</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><span class="nota">Paso 4: <span class="math inline">\(\sin\varphi\sin\delta = 0.0690\)</span> y <span class="math inline">\(\cos\varphi\cos\delta\cos\omega = 0.6389\)</span>.</span></p>
+</div><div class="column" style="width:42%;">
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="tema1_files/figure-revealjs/unnamed-chunk-16-1.svg" class="quarto-figure quarto-figure-center" width="576"></p>
+<p><img data-src="tema1_files/figure-revealjs/unnamed-chunk-19-1.svg" class="quarto-figure quarto-figure-center" width="480"></p>
 </figure>
 </div>
 </div>
 </div>
-<p><span class="nota">En los equinoccios el mediodía pasa de 1340 W/m²; junio gana por la duración del día.</span></p>
 </div></div>
 </section>
 <section id="insolación-instantánea" class="slide level2">
@@ -1723,7 +2034,7 @@ I = S_0\,d_r\,\cos\theta_z, \qquad \cos\theta_z = \sin\varphi\,\sin\delta + \cos
     var ra = 24 * 3600 / Math.PI * 1361 * dr * (ws * Math.sin(phi) * Math.sin(d) + Math.cos(phi) * Math.cos(d) * Math.sin(ws)) / 1e6;
     var svg = document.getElementById("in-graf");
     while (svg.firstChild) svg.removeChild(svg.firstChild);
-    var x0 = 70, x1 = 880, y0 = 230, y1 = 10, imax = 1450;
+    var x0 = 100, x1 = 880, y0 = 230, y1 = 10, imax = 1450;
     function sx(t) { return x0 + t / 24 * (x1 - x0); }
     function sy(i) { return y0 - i / imax * (y0 - y1); }
     var f = {"font-family": "serif", "font-size": 16, fill: "#333"};
@@ -1739,7 +2050,8 @@ I = S_0\,d_r\,\cos\theta_z, \qquad \cos\theta_z = \sin\varphi\,\sin\delta + \cos
     }
     el(svg, "path", {d: ref, fill: "none", stroke: "#bbb", "stroke-width": 2, "stroke-dasharray": "6 4"});
     el(svg, "path", {d: cam, fill: "rgba(224,123,57,0.15)", stroke: "#E07B39", "stroke-width": 3});
-    el(svg, "text", Object.assign({x: (x0 + x1) / 2, y: y0 + 38, "text-anchor": "middle"}, f), "Hora solar; insolación en el tope de la atmósfera (W/m²)");
+    el(svg, "text", Object.assign({x: (x0 + x1) / 2, y: y0 + 38, "text-anchor": "middle"}, f), "Hora solar");
+    el(svg, "text", Object.assign({x: 18, y: (y0 + y1) / 2, "text-anchor": "middle", transform: "rotate(-90 18 " + (y0 + y1) / 2 + ")"}, f), "Insolación (W/m²)");
     var mediodia = ins(j, 12, phi), cenit = Math.acos(Math.min(1, mediodia / (1361 * dr))) * 180 / Math.PI;
     document.getElementById("in-nota").innerHTML = "Mediodía: <b>" + mediodia.toFixed(0) + " W/m²</b> (Sol a " + cenit.toFixed(1) +
       "° del cenit). Día de <b>" + (24 * ws / Math.PI).toFixed(1) + " h</b>. <i>R</i><sub>a</sub> = <b>" + Math.max(ra, 0).toFixed(1) +
@@ -1759,8 +2071,8 @@ I = S_0\,d_r\,\cos\theta_z, \qquad \cos\theta_z = \sin\varphi\,\sin\delta + \cos
 <h1>1.6 Estabilidad atmosférica y formación de la lluvia</h1>
 <p>Capítulos 6 y 7 del libro</p>
 </section>
-<section id="qué-problema-resuelve-5" class="slide level2">
-<h2>Qué problema resuelve</h2>
+<section id="por-qué-llueve-en-la-tarde" class="slide level2">
+<h2>Por qué llueve en la tarde</h2>
 <div class="pregunta">
 <p>¿Por qué en el Valle Central las mañanas de la época lluviosa suelen estar despejadas y los aguaceros llegan en la tarde?</p>
 </div>
@@ -1790,8 +2102,8 @@ I = S_0\,d_r\,\cos\theta_z, \qquad \cos\theta_z = \sin\varphi\,\sin\delta + \cos
 </div>
 </div></div>
 </section>
-<section id="ejemplo-aire-que-cruza-la-cordillera-de-talamanca" class="slide level2">
-<h2>Ejemplo: aire que cruza la cordillera de Talamanca</h2>
+<section id="ejemplo-aire-que-cruza-talamanca" class="slide level2">
+<h2>Ejemplo: aire que cruza Talamanca</h2>
 <p>Aire del Caribe a 26 °C con punto de rocío de 19 °C; sube hasta 3000 m y baja a un valle del Pacífico a 700 m. <span class="math inline">\(\Gamma_d = 9.8\)</span> y <span class="math inline">\(\Gamma_s = 6.0\)</span> °C/km; el agua condensada cae como lluvia.</p>
 <div class="columns">
 <div class="column" style="width:52%;">
@@ -1856,13 +2168,13 @@ I = S_0\,d_r\,\cos\theta_z, \qquad \cos\theta_z = \sin\varphi\,\sin\delta + \cos
 <h2>Diagrama oblicuo T-log p y CAPE</h2>
 <div class="columns">
 <div class="column" style="width:52%;">
-<p>Sobre el sondeo de una radiosonda:</p>
-<ol type="1">
-<li>La parcela sube por la adiabática seca hasta el NCA.</li>
-<li>Desde el NCA, por la adiabática húmeda.</li>
-<li>NCL: la parcela queda por primera vez más caliente que el entorno.</li>
-<li>NE: vuelve a quedar más fría; tope de los cumulonimbos.</li>
-</ol>
+<ul>
+<li>NCA, nivel de condensación por ascenso: donde la parcela se satura y empieza la nube.</li>
+<li>NCL, nivel de convección libre: desde ahí la parcela es más caliente que el entorno y sube sola.</li>
+<li>NE, nivel de equilibrio: la parcela vuelve a igualar la temperatura del entorno; tope de los cumulonimbos.</li>
+<li>CAPE, energía potencial convectiva disponible (<em>convective available potential energy</em>): área entre la parcela y el entorno, del NCL al NE.</li>
+</ul>
+<p><span class="nota">La parcela sube por la adiabática seca hasta el NCA y por la húmeda desde ahí.</span></p>
 <p><span class="math display">\[
 \text{CAPE} = R_d \sum_{\text{NCL}}^{\text{NE}} (T_p - T_e)\ln\frac{p_{\text{inf}}}{p_{\text{sup}}}
 \]</span></p>
@@ -1871,23 +2183,25 @@ I = S_0\,d_r\,\cos\theta_z, \qquad \cos\theta_z = \sin\varphi\,\sin\delta + \cos
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="tema1_files/figure-revealjs/unnamed-chunk-19-1.svg" class="quarto-figure quarto-figure-center" width="576"></p>
+<p><img data-src="tema1_files/figure-revealjs/unnamed-chunk-22-1.svg" class="quarto-figure quarto-figure-center" width="576"></p>
 </figure>
 </div>
 </div>
 </div>
 </div></div>
 </section>
-<section id="ejemplo-cape-de-un-sondeo-de-juan-santamaría" class="slide level2">
-<h2>Ejemplo: CAPE de un sondeo de Juan Santamaría</h2>
+<section id="ejemplo-cape-de-un-sondeo" class="slide level2">
+<h2>Ejemplo: CAPE de un sondeo</h2>
 <p>Sondeo del 12 de setiembre de 2019, 12 UTC (6 a. m.): 916 hPa, 838 m, 19.6 °C y punto de rocío de 17.4 °C <span class="citation" data-cites="uwyo2019sondeo">(<a href="#/referencias" role="doc-biblioref" onclick="">University of Wyoming, Department of Atmospheric Science, 2019</a>)</span>. <a href="data:text/csv;base64,cHJlc2lvbl9ocGEsYWx0dXJhX20sdGVtcGVyYXR1cmFfYyxwdW50b19yb2Npb19jCjkxNi4wLDgzOCwxOS42LDE3LjQKOTE1LjAsODQ3LDIwLjYsMTcuNAo5MDguMCw5MTUsMjIuNiwxNi42Cjg3Ni44LDEyMTksMjAuNCwxNi4yCjg1MC4wLDE0ODksMTguNCwxNS45Cjg0Ni41LDE1MjQsMTguMiwxNS44CjgxNi44LDE4MjksMTYuNiwxNC43Cjc4OC4wLDIxMzQsMTQuOSwxMy43Cjc2MC40LDI0MzgsMTMuMywxMi42Cjc0OS4wLDI1NjcsMTIuNiwxMi4yCjc0NS4wLDI2MTIsMTMuMCwxMS44CjczMy41LDI3NDMsMTIuNCwxMS4zCjcwNy40LDMwNDgsMTEuMCwxMC4yCjcwMC4wLDMxMzYsMTAuNiw5LjkKNjgyLjAsMzM1Myw5LjIsOS4yCjY1Ny4yLDM2NTgsNy44LDYuNgo2MTAuMyw0MjY3LDUuMCwxLjQKNTg1LjAsNDYxNSwzLjQsLTEuNgo1NjYuMyw0ODc3LDEuMywtMi41CjU0NS4yLDUxODIsLTEuMSwtMy41CjUzOC4wLDUyODksLTEuOSwtMy44CjUyNC44LDU0ODYsLTMuMSwtNi4wCjUyMy4wLDU1MTQsLTMuMywtNi4zCjUwNi4wLDU3NzYsLTMuMSwtMTQuMQo1MDUuMCw1NzkxLC0zLjIsLTE0LjIKNTAwLjAsNTg3MCwtMy45LC0xNC45CjQ4NS44LDYwOTYsLTUuNSwtMTQuOAo0NzYuMCw2MjU3LC02LjcsLTE0LjcKNDQ5LjQsNjcwNiwtOC43LC0yMC4wCjQ0NC4wLDY3OTksLTkuMSwtMjEuMQo0MTUuMSw3MzE1LC0xMi43LC0yNS40CjQwMC4wLDc2MDAsLTE0LjcsLTI3LjcKMzk4LjksNzYyMCwtMTQuOCwtMjguMwozOTguMCw3NjM4LC0xNC45LC0yOC45CjM4My4xLDc5MjUsLTE3LjMsLTI1LjMKMzc2LjAsODA2NSwtMTguNSwtMjMuNQozNTMuMCw4NTMzLC0yMS45LC0yNi40CjMzOC40LDg4MzksLTI0LjEsLTI5LjgKMzI0LjQsOTE0NCwtMjYuMywtMzMuMQozMDAuMCw5NzEwLC0zMC4zLC0zOS4zCjI5OC4xLDk3NTQsLTMwLjUsLTM5LjkKMjk0LjAsOTg1MywtMzEuMSwtNDEuMQoyODUuNSwxMDA1OCwtMzIuNywtNDQuOQoyNzMuNCwxMDM2MywtMzUuMiwtNTAuNQoyNjcuMCwxMDUyOCwtMzYuNSwtNTMuNQoyNjEuNiwxMDY2OCwtMzcuNywtNTIuMwoyNTAuMCwxMDk4MCwtNDAuNSwtNDkuNQoyNDMuMCwxMTE3MiwtNDIuMywtNDkuMwoyMzkuMiwxMTI3OCwtNDMuMCwtNDkuNwoyMTguMywxMTg4NywtNDcuNCwtNTEuOAoyMTUuMCwxMTk4OSwtNDguMSwtNTIuMgoyMDguMCwxMjIwNiwtNTAuMSwtNTIuOQoyMDAuMCwxMjQ2MCwtNTIuNSwtNTYuNwoxNzIuMSwxMzQxMSwtNjAuOCwtNjUuOAoxNzAuMCwxMzQ4OCwtNjEuNSwtNjYuNQoxNjMuNywxMzcxNiwtNjMuNiwtNjguNAoxNTAuMCwxNDI1MCwtNjguNSwtNzIuOAoxNDguMSwxNDMyNiwtNjkuMCwtNzMuMgoxMzMuNiwxNDkzNSwtNzMuMSwtNzYuMQoxMzMuMCwxNDk2MSwtNzMuMywtNzYuMgoxMjYuNywxNTI0MCwtNzQuOCwtNzguMAoxMjAuMiwxNTU0NSwtNzYuNCwtNzkuOQoxMTQuMCwxNTg1MCwtNzguMCwtODEuOAoxMDkuMCwxNjEwNiwtNzkuMywtODMuNAoxMDguMSwxNjE1NCwtNzguNSwtODMuMQoxMDUuMCwxNjMxOSwtNzUuOSwtODEuOQoxMDAuMCwxNjYwMCwtNzYuNSwtODMuNQo=" download="sondeo_mroc_2019_09_12.csv" class="boton-datos">⬇ Descargar <code>sondeo_mroc_2019_09_12.csv</code></a></p>
 <div class="columns">
 <div class="column" style="width:46%;">
 <p>Solución:</p>
 <ol type="1">
-<li>Mañana: a 908 hPa la parcela está 3.8 °C más fría que el entorno (inversión nocturna). CAPE nulo.</li>
-<li>Tarde, con 28 °C y el mismo rocío: NCA a 1325 m (788 hPa) con 15.0 °C; la inversión desaparece.</li>
-<li>CAPE <span class="math inline">\(\approx 534\)</span> J/kg; <span class="math inline">\(w_{\text{máx}} = \sqrt{2\,\text{CAPE}} = 33\)</span> m/s.</li>
+<li>Mañana: a 908 hPa la parcela está 3.8 °C más fría que el entorno (inversión). CAPE nulo.</li>
+<li>Tarde, 28 °C y el mismo rocío: NCA a 788 hPa (1325 m).</li>
+<li>Cada capa aporta <span class="math inline">\(287 \times \overline{T_p - T_e} \times \ln\frac{p_i}{p_s}\)</span>; por ejemplo, de 700 a 500 hPa: <span class="math inline">\(287 \times 0.75 \times 0.336 = 72\)</span> J/kg.</li>
+<li>CAPE: suma de la última columna, <span class="math inline">\(\approx 534\)</span> J/kg.</li>
+<li>Velocidad máxima: <span class="math inline">\(w_{\text{máx}} = \sqrt{2 \times 534} = 33\)</span> m/s.</li>
 </ol>
 </div><div class="column" style="width:54%;">
 <table class="caption-top">
@@ -2065,14 +2379,60 @@ I = S_0\,d_r\,\cos\theta_z, \qquad \cos\theta_z = \sin\varphi\,\sin\delta + \cos
 </figure>
 </div>
 </div></div>
+</section>
+<section id="cómo-disparan-la-lluvia-las-montañas" class="slide level2">
+<h2>Cómo disparan la lluvia las montañas</h2>
+<div class="columns">
+<div class="column" style="width:44%;">
+<ol type="a">
+<li>Ascenso forzado por la ladera.</li>
+<li>Bloqueo: el aire se frena antes de la montaña.</li>
+<li>Convergencia a sotavento.</li>
+<li>Flujo anabático: de día sube por las laderas y converge en la cima.</li>
+<li>Flujo catabático nocturno: levanta el aire del valle.</li>
+<li>Ascenso a sotavento con onda de gravedad.</li>
+<li>Aire frío estacionario al pie de la montaña.</li>
+</ol>
+<p><span class="nota">La lluvia de montaña puede caer antes de la ladera, en la cima o del otro lado.</span></p>
+</div><div class="column imagen-alta" style="width:56%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="assets/img/libro/orografia_mecanismos.jpg"></p>
+<figcaption>Mecanismos orográficos <span class="citation" data-cites="kirshbaum2018moist">(<a href="#/referencias" role="doc-biblioref" onclick="">Kirshbaum et&nbsp;al., 2018</a>, CC BY 4.0)</span>.</figcaption>
+</figure>
+</div>
+</div></div>
+</section>
+<section id="la-lluvia-según-la-escala-de-acumulación" class="slide level2">
+<h2>La lluvia según la escala de acumulación</h2>
+<div class="columns">
+<div class="column" style="width:66%;">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="tema1_files/figure-revealjs/unnamed-chunk-23-1.svg" class="quarto-figure quarto-figure-center" width="825"></p>
+</figure>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:34%;">
+<ul>
+<li>La misma serie, sumada por día, mes o año.</li>
+<li>Cuanto más corto el periodo, más variable: CV de 2.29 diario, 0.86 mensual y 0.13 anual.</li>
+<li>61 % de los días no llueve; el día más lluvioso deja 140 mm.</li>
+<li>Un balance anual se puede hacer con pocos años; una curva IDF necesita series largas de lluvias cortas.</li>
+</ul>
+<p><span class="nota">Serie sintética de 30 años, con época lluviosa de mayo a noviembre.</span></p>
+</div></div>
 </section></section>
 <section>
 <section id="clima" class="title-slide slide level1 separador center" data-background-color="#10199e">
 <h1>1.7 Circulación atmosférica y clima</h1>
 <p>Capítulo 6 del libro</p>
 </section>
-<section id="qué-problema-resuelve-6" class="slide level2">
-<h2>Qué problema resuelve</h2>
+<section id="climas-distintos-a-la-misma-latitud" class="slide level2">
+<h2>Climas distintos a la misma latitud</h2>
 <div class="pregunta">
 <p>¿Por qué Guanacaste pasa cinco meses casi sin lluvia y en Limón llueve todo el año, si están casi a la misma latitud?</p>
 </div>
@@ -2216,6 +2576,15 @@ I = S_0\,d_r\,\cos\theta_z, \qquad \cos\theta_z = \sin\varphi\,\sin\delta + \cos
 <p><span class="nota">Efectos típicos; no todos los eventos los producen <span class="citation" data-cites="IMN_ClimaVariabilidadCC">(<a href="#/referencias" role="doc-biblioref" onclick="">Comité Regional de Recursos Hidráulicos, 2008</a>)</span>. Antes de un análisis de frecuencia, revise qué fases cubre el registro.</span></p>
 </div></div>
 </section>
+<section id="el-pacífico-en-cada-fase" class="slide level2">
+<h2>El Pacífico en cada fase</h2>
+
+<img data-src="assets/img/libro/enos_condiciones.png" style="width:100.0%" class="r-stretch quarto-figure-center"><p class="caption">Pacífico ecuatorial en condiciones normales, de El Niño y de La Niña <span class="citation" data-cites="fredtheoyster_enso">(<a href="#/referencias" role="doc-biblioref" onclick="">Fred the Oyster, s.&nbsp;f.</a>, a partir de NOAA/PMEL)</span>.</p><ul>
+<li>Normal: alisios del este; agua cálida y convección al oeste; afloramiento de agua fría frente a América.</li>
+<li>El Niño: alisios débiles; el agua cálida y la convección se corren al centro y al este; la termoclina se aplana.</li>
+<li>La Niña: alisios más fuertes; el contraste normal se refuerza.</li>
+</ul>
+</section>
 <section id="clasificación-de-köppen-geiger" class="slide level2">
 <h2>Clasificación de Köppen-Geiger</h2>
 <div class="columns">
@@ -2282,7 +2651,7 @@ P_{\text{th}} = 2\,T_{\text{anual}} + \begin{cases} 0 &amp; \text{lluvia de invi
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="tema1_files/figure-revealjs/unnamed-chunk-20-1.svg" class="quarto-figure quarto-figure-center" width="729"></p>
+<p><img data-src="tema1_files/figure-revealjs/unnamed-chunk-24-1.svg" class="quarto-figure quarto-figure-center" width="806"></p>
 </figure>
 </div>
 </div>
@@ -2425,8 +2794,8 @@ P_{\text{th}} = 2\,T_{\text{anual}} + \begin{cases} 0 &amp; \text{lluvia de invi
 <h1>1.8 Medición de la lluvia y del caudal</h1>
 <p>Capítulos 5 y 8 del libro</p>
 </section>
-<section id="qué-problema-resuelve-7" class="slide level2">
-<h2>Qué problema resuelve</h2>
+<section id="cómo-se-obtiene-un-registro-de-caudal" class="slide level2">
+<h2>Cómo se obtiene un registro de caudal</h2>
 <div class="pregunta">
 <p>Si un río se afora solo unas pocas veces al año, ¿de dónde sale un registro de caudal diario de 40 años?</p>
 </div>
@@ -2435,7 +2804,7 @@ P_{\text{th}} = 2\,T_{\text{anual}} + \begin{cases} 0 &amp; \text{lluvia de invi
 <li>Aforar es caro; leer el nivel del agua es fácil. La curva de descarga une las dos cosas.</li>
 <li>Los errores de medición pasan directo a los caudales de diseño.</li>
 </ul>
-<p>En esta clase: pluviómetros y pluviógrafos, la estación hidrométrica, el aforo con molinete, la curva de descarga y por qué cambia.</p>
+<p>En esta clase: qué se mide y con qué instrumentos (lluvia, temperatura, humedad, radiación, presión y viento), la estación hidrométrica, el aforo con molinete, la curva de descarga y por qué cambia.</p>
 </section>
 <section id="medición-de-la-lluvia" class="slide level2">
 <h2>Medición de la lluvia</h2>
@@ -2460,6 +2829,158 @@ P_{\text{th}} = 2\,T_{\text{anual}} + \begin{cases} 0 &amp; \text{lluvia de invi
 </div>
 </div></div>
 </section>
+<section id="qué-se-mide-y-con-qué" class="slide level2">
+<h2>Qué se mide y con qué</h2>
+<div class="tabla-compacta">
+<table class="caption-top">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Variable</th>
+<th style="text-align: left;">Qué es</th>
+<th style="text-align: left;">Unidad</th>
+<th style="text-align: left;">Instrumento</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Precipitación</td>
+<td style="text-align: left;">Agua que cae de las nubes y llega al suelo</td>
+<td style="text-align: left;">mm</td>
+<td style="text-align: left;">Pluviómetro, pluviógrafo, radar, satélite</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Temperatura</td>
+<td style="text-align: left;">Qué tan caliente está el aire, a la sombra</td>
+<td style="text-align: left;">°C</td>
+<td style="text-align: left;">Termómetros de máxima y mínima, termistor</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Humedad</td>
+<td style="text-align: left;">Vapor del aire frente al máximo a esa temperatura</td>
+<td style="text-align: left;">%</td>
+<td style="text-align: left;">Psicrómetro, higrómetro, sensor capacitivo</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Radiación solar</td>
+<td style="text-align: left;">Energía del Sol sobre una superficie horizontal</td>
+<td style="text-align: left;">W/m²</td>
+<td style="text-align: left;">Piranómetro, pirheliómetro, radiómetro neto</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Brillo solar</td>
+<td style="text-align: left;">Horas con radiación directa mayor de 120 W/m²</td>
+<td style="text-align: left;">h</td>
+<td style="text-align: left;">Heliógrafo</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Presión</td>
+<td style="text-align: left;">Peso de la columna de aire por unidad de área</td>
+<td style="text-align: left;">hPa</td>
+<td style="text-align: left;">Barómetro de mercurio, aneroide o electrónico</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Viento</td>
+<td style="text-align: left;">Movimiento horizontal del aire: velocidad y dirección</td>
+<td style="text-align: left;">m/s, grados</td>
+<td style="text-align: left;">Anemómetro, veleta, sensor ultrasónico</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Nubosidad</td>
+<td style="text-align: left;">Fracción del cielo cubierta</td>
+<td style="text-align: left;">octas</td>
+<td style="text-align: left;">Observador, ceilómetro</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Evaporación</td>
+<td style="text-align: left;">Paso del agua a vapor desde una superficie libre</td>
+<td style="text-align: left;">mm</td>
+<td style="text-align: left;">Tanque clase A</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Nivel y caudal</td>
+<td style="text-align: left;">Altura del río y volumen que pasa por segundo</td>
+<td style="text-align: left;">m, m³/s</td>
+<td style="text-align: left;">Limnímetro, limnígrafo, molinete, ADCP</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><span class="nota">Las estaciones automáticas reemplazan los instrumentos de lectura manual por sensores que registran cada 5 a 15 minutos <span class="citation" data-cites="wmo2018guia">(<a href="#/referencias" role="doc-biblioref" onclick="">World Meteorological Organization, 2018</a>)</span>.</span></p>
+</section>
+<section id="instrumentos-temperatura-y-humedad" class="slide level2">
+<h2>Instrumentos: temperatura y humedad</h2>
+<div class="columns">
+<div class="column" style="width:55%;">
+<ul>
+<li>Temperatura: termómetro de máxima (mercurio) y de mínima (alcohol con índice); termistor en la estación automática.</li>
+<li>Todo dentro de una caseta ventilada, a la sombra.</li>
+<li>Humedad relativa: <span class="math inline">\(HR = 100\,e_a/e_s\)</span>.</li>
+<li>Psicrómetro: bulbo seco y bulbo húmedo; la evaporación enfría el húmedo, y la diferencia da la humedad.</li>
+<li>Higrómetro de cabello o sensor capacitivo, que viene junto al de temperatura.</li>
+</ul>
+</div><div class="column" style="width:45%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="assets/img/libro/higro.jpg" style="width:100.0%"></p>
+<figcaption>Instrumentos de temperatura y humedad <span class="citation" data-cites="IMN_CostaRica">(<a href="#/referencias" role="doc-biblioref" onclick="">Instituto Meteorológico Nacional, 2025</a>)</span>.</figcaption>
+</figure>
+</div>
+</div></div>
+</section>
+<section id="instrumentos-radiación-y-brillo-solar" class="slide level2">
+<h2>Instrumentos: radiación y brillo solar</h2>
+<div class="columns">
+<div class="column" style="width:48%;">
+<ul>
+<li>Radiación solar: energía que llega del Sol; onda corta, de 0.3 a 3 μm.</li>
+<li>Piranómetro: radiación global (directa más difusa) sobre un plano horizontal.</li>
+<li>Pirheliómetro: solo la directa; sigue al Sol.</li>
+<li>Radiómetro neto: lo que llega menos lo que sale, de onda corta y larga.</li>
+<li>Brillo solar: horas con radiación directa mayor de 120 W/m². El heliógrafo quema una banda con una esfera de vidrio.</li>
+</ul>
+</div><div class="column" style="width:52%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="assets/img/libro/piro.jpg" style="width:82.0%"></p>
+<figcaption>Instrumentos de radiación <span class="citation" data-cites="IMN_CostaRica">(<a href="#/referencias" role="doc-biblioref" onclick="">Instituto Meteorológico Nacional, 2025</a>)</span>.</figcaption>
+</figure>
+</div>
+</div></div>
+</section>
+<section id="instrumentos-presión" class="slide level2">
+<h2>Instrumentos: presión</h2>
+<ul>
+<li>Peso de la columna de aire por unidad de área: 1013.25 hPa al nivel del mar; baja con la altitud (clase 1.5).</li>
+<li>Barómetro de mercurio (casi en desuso), aneroide (cápsula al vacío que se deforma) o electrónico.</li>
+</ul>
+
+<img data-src="assets/img/libro/presion.jpg" style="width:78.0%" class="r-stretch quarto-figure-center"><p class="caption">Barómetros <span class="citation" data-cites="IMN_CostaRica">(<a href="#/referencias" role="doc-biblioref" onclick="">Instituto Meteorológico Nacional, 2025</a>)</span>.</p></section>
+<section id="instrumentos-viento" class="slide level2">
+<h2>Instrumentos: viento</h2>
+<div class="columns">
+<div class="column" style="width:42%;">
+<ul>
+<li>Movimiento horizontal del aire; es un vector.</li>
+<li>Velocidad: anemómetro de cazoletas o de hélice, en m/s.</li>
+<li>Dirección desde donde sopla, en grados desde el norte: veleta.</li>
+<li>El ultrasónico mide las dos sin partes móviles.</li>
+<li>Se mide a 10 m; para la FAO se lleva a 2 m: <span class="math inline">\(u_2 = 0.748\,u_{10}\)</span>.</li>
+</ul>
+</div><div class="column" style="width:58%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="assets/img/libro/viento.jpg" style="width:100.0%"></p>
+<figcaption>Instrumentos de viento <span class="citation" data-cites="IMN_CostaRica">(<a href="#/referencias" role="doc-biblioref" onclick="">Instituto Meteorológico Nacional, 2025</a>)</span>.</figcaption>
+</figure>
+</div>
+</div></div>
+</section>
 <section id="la-estación-hidrométrica" class="slide level2">
 <h2>La estación hidrométrica</h2>
 <div class="columns">
@@ -2474,7 +2995,7 @@ P_{\text{th}} = 2\,T_{\text{anual}} + \begin{cases} 0 &amp; \text{lluvia de invi
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="tema1_files/figure-revealjs/unnamed-chunk-23-1.svg" class="quarto-figure quarto-figure-center" width="672"></p>
+<p><img data-src="tema1_files/figure-revealjs/unnamed-chunk-27-1.svg" class="quarto-figure quarto-figure-center" width="672"></p>
 </figure>
 </div>
 </div>
@@ -2484,34 +3005,38 @@ P_{\text{th}} = 2\,T_{\text{anual}} + \begin{cases} 0 &amp; \text{lluvia de invi
 <section id="el-aforo-por-velocidad-y-área" class="slide level2">
 <h2>El aforo por velocidad y área</h2>
 <div class="columns">
-<div class="column" style="width:50%;">
+<div class="column" style="width:40%;">
 <p><span class="math display">\[
 Q = A\,\bar v
 \]</span></p>
 <ul>
-<li>Métodos: volumétrico, velocidad y área, dilución y acústico (ADCP).</li>
-<li>Velocidad media en cada vertical <span class="citation" data-cites="rantz1982measurement">(<a href="#/referencias" role="doc-biblioref" onclick="">Rantz et&nbsp;al., 1982</a>)</span>:
+<li>Se divide la sección con verticales; en cada una, profundidad y velocidad <span class="citation" data-cites="rantz1982measurement">(<a href="#/referencias" role="doc-biblioref" onclick="">Rantz et&nbsp;al., 1982</a>)</span>:
 <ul>
-<li>un punto a 0.6 de la profundidad si <span class="math inline">\(d &lt; 0.75\)</span> m;</li>
-<li>dos puntos, 0.2 y 0.8, promediados.</li>
+<li>un punto a 0.6 <span class="math inline">\(d\)</span> si <span class="math inline">\(d &lt; 0.75\)</span> m;</li>
+<li>si no, dos puntos, a 0.2 <span class="math inline">\(d\)</span> y 0.8 <span class="math inline">\(d\)</span>.</li>
 </ul></li>
-<li>Entre 20 y 30 verticales; ninguna franja con más del 10 % del caudal.</li>
+<li>20 a 30 verticales; ninguna franja con más del 10 % del caudal.</li>
+<li>Otros métodos: volumétrico, dilución y acústico (ADCP).</li>
 </ul>
-</div><div class="column" style="width:50%;">
-<p>Sección intermedia:</p>
-<p><span class="math display">\[
-q_i = \bar v_i\, d_i\, \frac{b_{i+1} - b_{i-1}}{2}
-\]</span></p>
-<p>Sección media:</p>
-<p><span class="math display">\[
-q_{i,i+1} = \frac{\bar v_i + \bar v_{i+1}}{2}\, \frac{d_i + d_{i+1}}{2}\, (b_{i+1} - b_i)
-\]</span></p>
-<p><span class="nota">Con pocas verticales la sección media da menos caudal.</span></p>
+</div><div class="column" style="width:60%;">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="tema1_files/figure-revealjs/unnamed-chunk-28-1.svg" class="quarto-figure quarto-figure-center" width="816"></p>
+</figure>
+</div>
+</div>
+</div>
+<p><span class="nota">Cada franja sombreada es el área que representa una vertical. Arriba, la velocidad media de cada vertical.</span></p>
 </div></div>
 </section>
 <section id="ejemplo-aforo-por-sección-intermedia" class="slide level2">
 <h2>Ejemplo: aforo por sección intermedia</h2>
-<p>Río de 15.5 m, diez verticales (hipotéticos); orillas en 0 y 15.5 m.</p>
+<p>Río de 15.5 m, diez verticales (hipotéticos); orillas en 0 y 15.5 m. Caudal de cada franja:</p>
+<p><span class="math display">\[
+q_i = \bar v_i\, d_i\, \frac{b_{i+1} - b_{i-1}}{2}
+\]</span></p>
 <table class="caption-top">
 <colgroup>
 <col style="width: 9%">
@@ -2528,21 +3053,34 @@ q_{i,i+1} = \frac{\bar v_i + \bar v_{i+1}}{2}\, \frac{d_i + d_{i+1}}{2}\, (b_{i+
 </colgroup>
 <thead>
 <tr class="header">
-<th style="text-align: left;"><span class="math inline">\(b\)</span> (m)</th>
-<th style="text-align: center;">1.0</th>
-<th style="text-align: center;">2.5</th>
-<th style="text-align: center;">4.0</th>
-<th style="text-align: center;">5.5</th>
-<th style="text-align: center;">7.0</th>
-<th style="text-align: center;">8.5</th>
-<th style="text-align: center;">10.0</th>
-<th style="text-align: center;">11.5</th>
-<th style="text-align: center;">13.0</th>
-<th style="text-align: center;">14.5</th>
+<th style="text-align: left;">Vertical</th>
+<th style="text-align: center;">1</th>
+<th style="text-align: center;">2</th>
+<th style="text-align: center;">3</th>
+<th style="text-align: center;">4</th>
+<th style="text-align: center;">5</th>
+<th style="text-align: center;">6</th>
+<th style="text-align: center;">7</th>
+<th style="text-align: center;">8</th>
+<th style="text-align: center;">9</th>
+<th style="text-align: center;">10</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
+<td style="text-align: left;"><span class="math inline">\(b\)</span> (m)</td>
+<td style="text-align: center;">1.0</td>
+<td style="text-align: center;">2.5</td>
+<td style="text-align: center;">4.0</td>
+<td style="text-align: center;">5.5</td>
+<td style="text-align: center;">7.0</td>
+<td style="text-align: center;">8.5</td>
+<td style="text-align: center;">10.0</td>
+<td style="text-align: center;">11.5</td>
+<td style="text-align: center;">13.0</td>
+<td style="text-align: center;">14.5</td>
+</tr>
+<tr class="even">
 <td style="text-align: left;"><span class="math inline">\(d\)</span> (m)</td>
 <td style="text-align: center;">0.35</td>
 <td style="text-align: center;">0.70</td>
@@ -2555,7 +3093,7 @@ q_{i,i+1} = \frac{\bar v_i + \bar v_{i+1}}{2}\, \frac{d_i + d_{i+1}}{2}\, (b_{i+
 <td style="text-align: center;">0.60</td>
 <td style="text-align: center;">0.30</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: left;"><span class="math inline">\(\bar v\)</span> (m/s)</td>
 <td style="text-align: center;">0.18</td>
 <td style="text-align: center;">0.42</td>
@@ -2568,15 +3106,54 @@ q_{i,i+1} = \frac{\bar v_i + \bar v_{i+1}}{2}\, \frac{d_i + d_{i+1}}{2}\, (b_{i+
 <td style="text-align: center;">0.36</td>
 <td style="text-align: center;">0.15</td>
 </tr>
+<tr class="even">
+<td style="text-align: left;">Ancho (m)</td>
+<td style="text-align: center;">1.25</td>
+<td style="text-align: center;">1.50</td>
+<td style="text-align: center;">1.50</td>
+<td style="text-align: center;">1.50</td>
+<td style="text-align: center;">1.50</td>
+<td style="text-align: center;">1.50</td>
+<td style="text-align: center;">1.50</td>
+<td style="text-align: center;">1.50</td>
+<td style="text-align: center;">1.50</td>
+<td style="text-align: center;">1.25</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><span class="math inline">\(q\)</span> (m³/s)</td>
+<td style="text-align: center;">0.079</td>
+<td style="text-align: center;">0.441</td>
+<td style="text-align: center;">0.826</td>
+<td style="text-align: center;">1.278</td>
+<td style="text-align: center;">1.482</td>
+<td style="text-align: center;">1.388</td>
+<td style="text-align: center;">1.089</td>
+<td style="text-align: center;">0.663</td>
+<td style="text-align: center;">0.324</td>
+<td style="text-align: center;">0.056</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">% de <span class="math inline">\(Q\)</span></td>
+<td style="text-align: center;">1.0</td>
+<td style="text-align: center;">5.8</td>
+<td style="text-align: center;">10.8</td>
+<td style="text-align: center;">16.8</td>
+<td style="text-align: center;">19.4</td>
+<td style="text-align: center;">18.2</td>
+<td style="text-align: center;">14.3</td>
+<td style="text-align: center;">8.7</td>
+<td style="text-align: center;">4.2</td>
+<td style="text-align: center;">0.7</td>
+</tr>
 </tbody>
 </table>
 <p>Solución:</p>
 <ol type="1">
-<li>Anchos: 1.25 m en las verticales extremas y 1.50 m en las interiores.</li>
-<li>En 7.0 m: <span class="math inline">\(q = 0.76 \times 1.30 \times 1.50 = 1.482\)</span> m³/s; así con cada franja.</li>
-<li><span class="math inline">\(Q = 7.63\)</span> m³/s; con sección media, 7.48 m³/s (2 % menos).</li>
-<li>Cinco franjas pasan de 10 %: el aforo necesitaría unas 20 verticales. Incertidumbre del orden de ±8 % al 95 %.</li>
+<li>Ancho de cada franja: mitad de la distancia entre las verticales vecinas. Vertical 1: <span class="math inline">\(\frac{2.5 - 0}{2} = 1.25\)</span> m.</li>
+<li>Vertical 5: <span class="math inline">\(q = 0.76 \times 1.30 \times 1.50 = 1.482\)</span> m³/s. Igual con las demás.</li>
+<li><span class="math inline">\(Q = \sum q_i = 7.63\)</span> m³/s. Con la sección media saldrían 7.48 m³/s.</li>
 </ol>
+<p><span class="nota">Cinco franjas pasan de 10 %: hacían falta unas 20 verticales.</span></p>
 </section>
 <section id="la-curva-de-descarga" class="slide level2">
 <h2>La curva de descarga</h2>
@@ -2600,15 +3177,15 @@ h_0 = \frac{h_1\, h_2 - h_3^2}{h_1 + h_2 - 2\,h_3}
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="tema1_files/figure-revealjs/unnamed-chunk-25-1.svg" class="quarto-figure quarto-figure-center" width="576"></p>
+<p><img data-src="tema1_files/figure-revealjs/unnamed-chunk-30-1.svg" class="quarto-figure quarto-figure-center" width="576"></p>
 </figure>
 </div>
 </div>
 </div>
 </div></div>
 </section>
-<section id="ejemplo-curva-con-el-nivel-de-caudal-nulo-estimado" class="slide level2">
-<h2>Ejemplo: curva con el nivel de caudal nulo estimado</h2>
+<section id="ejemplo-curva-con-h_0-estimado" class="slide level2">
+<h2>Ejemplo: curva con <span class="math inline">\(h_0\)</span> estimado</h2>
 <table class="caption-top" style="width:100%;">
 <colgroup>
 <col style="width: 11%">
@@ -2688,7 +3265,7 @@ h_0 = \frac{h_1\, h_2 - h_3^2}{h_1 + h_2 - 2\,h_3}
     var q32 = a * Math.pow(3.2 - h0, n);
     var svg = document.getElementById("cd-graf");
     while (svg.firstChild) svg.removeChild(svg.firstChild);
-    var x0 = 70, x1 = 880, y0 = 250, y1 = 10, qmax = 60, hmax = 3.4;
+    var x0 = 100, x1 = 880, y0 = 250, y1 = 10, qmax = 60, hmax = 3.4;
     function px(q) { return x0 + q / qmax * (x1 - x0); }
     function py(h) { return y0 - h / hmax * (y0 - y1); }
     var f = {"font-family": "serif", "font-size": 16, fill: "#333"};
@@ -2703,7 +3280,8 @@ h_0 = \frac{h_1\, h_2 - h_3^2}{h_1 + h_2 - 2\,h_3}
     for (var h = h0 + 0.001; h <= 3.4; h += 0.02) { var q = a * Math.pow(h - h0, n); d += (d ? "L" : "M") + px(Math.min(q, qmax)) + " " + py(h) + " "; }
     el(svg, "path", {d: d, fill: "none", stroke: "#1C6BA0", "stroke-width": 3});
     H.forEach(function (h, i) { el(svg, "circle", {cx: px(Q[i]), cy: py(h), r: 6, fill: "#C0392B"}); });
-    el(svg, "text", Object.assign({x: (x0 + x1) / 2, y: y0 + 38, "text-anchor": "middle"}, f), "Caudal (m³/s); nivel en la regla (m)");
+    el(svg, "text", Object.assign({x: (x0 + x1) / 2, y: y0 + 38, "text-anchor": "middle"}, f), "Caudal (m³/s)");
+    el(svg, "text", Object.assign({x: 18, y: (y0 + y1) / 2, "text-anchor": "middle", transform: "rotate(-90 18 " + (y0 + y1) / 2 + ")"}, f), "Nivel en la regla (m)");
     document.getElementById("cd-nota").innerHTML = "<i>Q</i> = " + a.toFixed(2) + " (<i>h</i> − " + h0.toFixed(2) + ")<sup>" + n.toFixed(3) +
       "</sup>. Error en el aforo más bajo: <b>" + ebajo.toFixed(0) + " %</b>; mayor error: " + emax.toFixed(0) + " %. Para <i>h</i> = 3.20 m: <b>" + q32.toFixed(1) + " m³/s</b>.";
   }
@@ -2778,6 +3356,9 @@ Comité Regional de Recursos Hidráulicos. (2008). <em>El clima, su variabilidad
 <div id="ref-UCR_Fisica" class="csl-entry" role="listitem">
 Escuela de Física, Universidad de Costa Rica. (2025). <em>Escuela de Física, Universidad de Costa Rica</em>. Universidad de Costa Rica. <a href="https://www.fisica.ucr.ac.cr/">https://www.fisica.ucr.ac.cr/</a>
 </div>
+<div id="ref-fredtheoyster_enso" class="csl-entry" role="listitem">
+Fred the Oyster. (s.&nbsp;f.). <em><span>ENSO</span> - normal, <span>ENSO</span> - <span>El Niño</span> y <span>ENSO</span> - <span>La Niña</span></em>. Wikimedia Commons. <a href="https://commons.wikimedia.org/wiki/File:ENSO_-_normal.svg">https://commons.wikimedia.org/wiki/File:ENSO_-_normal.svg</a>
+</div>
 <div id="ref-gaspari2013elementos" class="csl-entry" role="listitem">
 Gaspari, F. J., Rodríguez Vagaría, A. M., Senisterra, G. E., Delgado, M. I., &amp; Besteiro, S. I. (2013). <em>Elementos metodológicos para el manejo de cuencas hidrográficas</em>. Editorial de la Universidad Nacional de La Plata.
 </div>
@@ -2789,6 +3370,12 @@ Instituto Costarricense de Electricidad. (2025). <em>Instituto Costarricense de 
 </div>
 <div id="ref-snit2025" class="csl-entry" role="listitem">
 Instituto Geográfico Nacional. (2025). <em>Sistema Nacional de Información Territorial (SNIT)</em>. Geoportal. <a href="https://www.snitcr.go.cr">https://www.snitcr.go.cr</a>
+</div>
+<div id="ref-IMN_CostaRica" class="csl-entry" role="listitem">
+Instituto Meteorológico Nacional. (2025). <em>Instituto Meteorológico Nacional de Costa Rica</em>. Ministerio de Ambiente y Energía (MINAE). <a href="https://www.imn.ac.cr/">https://www.imn.ac.cr/</a>
+</div>
+<div id="ref-kirshbaum2018moist" class="csl-entry" role="listitem">
+Kirshbaum, D. J., Adler, B., Kalthoff, N., Barthlott, C., &amp; Serafin, S. (2018). Moist orographic convection: Physical mechanisms and links to surface-exchange processes. <em>Atmosphere</em>, <em>9</em>(3), 80. <a href="https://doi.org/10.3390/atmos9030080">https://doi.org/10.3390/atmos9030080</a>
 </div>
 <div id="ref-kopp2011new" class="csl-entry" role="listitem">
 Kopp, G., &amp; Lean, J. L. (2011). A new, lower value of total solar irradiance: Evidence and climate significance. <em>Geophysical Research Letters</em>, <em>38</em>(1), L01706. <a href="https://doi.org/10.1029/2010GL045777">https://doi.org/10.1029/2010GL045777</a>
@@ -2823,14 +3410,17 @@ Milly, P. C. D., Betancourt, J., Falkenmark, M., Hirsch, R. M., Kundzewicz, Z. W
 <div id="ref-mag2019capacidad" class="csl-entry" role="listitem">
 Ministerio de Agricultura y Ganadería, &amp; Ministerio de Ambiente y Energía. (2019). <em>Decreto Ejecutivo N.° 41960-MAG-MINAE: Establecimiento de la metodología para la determinación de la capacidad de uso de las tierras agroecológicas de Costa Rica</em>. <a href="https://faolex.fao.org/docs/pdf/cos220053.pdf">https://faolex.fao.org/docs/pdf/cos220053.pdf</a>
 </div>
+<div id="ref-nrcs2010neh630cap15" class="csl-entry" role="listitem">
+Natural Resources Conservation Service. (2010). <em>National engineering handbook, part 630: Hydrology, chapter 15: Time of concentration</em>. U.S. Department of Agriculture.
+</div>
 <div id="ref-noaa1976standard" class="csl-entry" role="listitem">
 NOAA, NASA, &amp; USAF. (1976). <em>U.S. Standard Atmosphere, 1976</em> (NOAA-S/T 76-1562). U.S. Government Printing Office.
 </div>
 <div id="ref-orlanski1975rational" class="csl-entry" role="listitem">
 Orlanski, I. (1975). A rational subdivision of scales for atmospheric processes. <em>Bulletin of the American Meteorological Society</em>, <em>56</em>(5), 527-530.
 </div>
-<div id="ref-Porras2025" class="csl-entry" role="listitem">
-Porras Velásquez, J. P. (2025). <em>Material de curso IC-0808 Hidrología</em>. Escuela de Ingeniería Civil, Universidad de Costa Rica.
+<div id="ref-ortiz2014atlas" class="csl-entry" role="listitem">
+Ortiz Malavasi, E. (2014). <em>Atlas digital de Costa Rica 2014</em>. Instituto Tecnológico de Costa Rica.
 </div>
 <div id="ref-rantz1982measurement" class="csl-entry" role="listitem">
 Rantz, S. E. et&nbsp;al. (1982). <em>Measurement and computation of streamflow</em>. U.S. Geological Survey. <a href="https://doi.org/10.3133/wsp2175">https://doi.org/10.3133/wsp2175</a>
@@ -3333,6 +3923,79 @@ World Meteorological Organization. (2018). <em>Guide to instruments and methods 
       }
       if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", marcar); else marcar();
       window.addEventListener("load", marcar);
+    })();
+    </script>
+    <!--
+      Ajuste automático del tamaño de letra: si el contenido de una diapositiva
+      no cabe (se sale por abajo o una fórmula se sale de su columna), se reduce
+      la letra de esa diapositiva en pasos de 4 % hasta que quepa, sin bajar del
+      72 %. El título no cambia. Solo actúa con el tamaño normal (100 %) del
+      botón Aa: si quien mira agranda la letra, se respeta su elección.
+    -->
+    <style>
+      .reveal .slides section.ajustada h2 { font-size: var(--alto-titulo) !important; }
+    </style>
+    <script>
+    (function () {
+      var MINIMO = 0.72, PASO = 0.04;
+
+      function desborda(s) {
+        var esc = Reveal.getScale() || 1;
+        var alto = Reveal.getConfig().height;
+        var arriba = s.getBoundingClientRect().top;
+        var fondo = 0;
+        // Se mide cada elemento, porque las columnas pueden desbordar a su contenedor
+        Array.prototype.forEach.call(s.querySelectorAll("*"), function (c) {
+          // lo que está dentro de un bloque de código con barra de desplazamiento no cuenta
+          if (c.tagName !== "PRE" && c.closest("pre")) return;
+          var r = c.getBoundingClientRect();
+          if (r.width > 0 && r.height > 0) fondo = Math.max(fondo, r.bottom);
+        });
+        if ((fondo - arriba) / esc > alto - 34) return true;
+        // Fórmulas, cuadros e imágenes que se salen de su columna
+        var cols = s.querySelectorAll(".column");
+        for (var i = 0; i < cols.length; i++) {
+          var r = cols[i].getBoundingClientRect();
+          var hijos = cols[i].querySelectorAll(".MathJax_Display, .MathJax, table");
+          for (var j = 0; j < hijos.length; j++) {
+            if (hijos[j].getBoundingClientRect().right > r.right + 3) return true;
+          }
+        }
+        return false;
+      }
+
+      function ajustar(s) {
+        if (!s || s.dataset.ajustada === "1") return;
+        if (s.classList.contains("portada-clase") || s.classList.contains("separador") ||
+            s.classList.contains("scrollable")) return;
+        var reveal = document.querySelector(".reveal");
+        if (reveal && reveal.style.fontSize) return;   // letra agrandada con Aa
+        var h2 = s.querySelector("h2");
+        if (h2 && !s.style.getPropertyValue("--alto-titulo")) {
+          s.style.setProperty("--alto-titulo", getComputedStyle(h2).fontSize);
+        }
+        var tam = 1;
+        while (desborda(s) && tam - PASO >= MINIMO) {
+          tam -= PASO;
+          s.style.fontSize = (tam * 100).toFixed(0) + "%";
+          s.classList.add("ajustada");
+        }
+        s.dataset.ajustada = "1";
+      }
+
+      function actual() {
+        var s = Reveal.getCurrentSlide();
+        if (window.MathJax && MathJax.Hub) MathJax.Hub.Queue(function () { ajustar(s); });
+        else ajustar(s);
+      }
+
+      function iniciar() {
+        Reveal.on("slidechanged", actual);
+        actual();
+      }
+      if (window.Reveal && Reveal.isReady && Reveal.isReady()) iniciar();
+      else if (window.Reveal) Reveal.on("ready", iniciar);
+      else window.addEventListener("load", function () { Reveal.on("ready", iniciar); if (Reveal.isReady()) iniciar(); });
     })();
     </script>
     

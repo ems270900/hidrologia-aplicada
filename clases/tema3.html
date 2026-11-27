@@ -113,7 +113,7 @@
     div.csl-indent {
       margin-left: 2em;
     }  </style>
-  <link rel="stylesheet" href="tema3_files/libs/revealjs/dist/theme/quarto-5cbbee2a8be65a6431e1b44bf64d0a49.css">
+  <link rel="stylesheet" href="tema3_files/libs/revealjs/dist/theme/quarto-5871ceaadec16adba1eaf404a33d7956.css">
   <link href="tema3_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="tema3_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="tema3_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -273,8 +273,8 @@
 <h1>3.1 Probabilidad y estadística descriptiva</h1>
 <p>Capítulo 11 del libro</p>
 </section>
-<section id="qué-problema-resuelve" class="slide level2">
-<h2>Qué problema resuelve</h2>
+<section id="diseñar-sin-conocer-el-futuro" class="slide level2">
+<h2>Diseñar sin conocer el futuro</h2>
 <div class="pregunta">
 <p>Nadie sabe cuánto lloverá en octubre del próximo año ni cuál será la mayor crecida de los próximos 50 años. ¿Cómo se diseña entonces una obra?</p>
 </div>
@@ -712,8 +712,8 @@ r = \frac{\sum (x_i - \bar{x})(y_i - \bar{y})}{\sqrt{\sum (x_i - \bar{x})^2 \, \
 <h1>3.2 Periodo de retorno y riesgo</h1>
 <p>Capítulo 12 del libro</p>
 </section>
-<section id="qué-problema-resuelve-1" class="slide level2">
-<h2>Qué problema resuelve</h2>
+<section id="el-riesgo-durante-la-vida-útil" class="slide level2">
+<h2>El riesgo durante la vida útil</h2>
 <div class="pregunta">
 <p>Una alcantarilla se diseña para el caudal de 50 años y durará 50 años. ¿Qué probabilidad hay de que ese caudal se exceda mientras exista?</p>
 </div>
@@ -971,8 +971,8 @@ T = \frac{1}{1 - e^{-1/T_E}}
 <h1>3.3 Ajuste de modelos: supuestos, parámetros y papel de probabilidad</h1>
 <p>Capítulo 13 del libro</p>
 </section>
-<section id="qué-problema-resuelve-2" class="slide level2">
-<h2>Qué problema resuelve</h2>
+<section id="estimar-más-allá-del-registro" class="slide level2">
+<h2>Estimar más allá del registro</h2>
 <div class="pregunta">
 <p>Si un registro tiene 25 años, ¿se puede estimar la crecida de 100 años?</p>
 </div>
@@ -1423,8 +1423,8 @@ p_m = \frac{m - a}{n + 1 - 2a}, \qquad T_m = \frac{1}{p_m}, \qquad m = 1 \text{ 
 <h1>3.4 Distribuciones para valores medios</h1>
 <p>Capítulo 14 del libro</p>
 </section>
-<section id="qué-problema-resuelve-3" class="slide level2">
-<h2>Qué problema resuelve</h2>
+<section id="caudales-que-se-superan-con-cierta-frecuencia" class="slide level2">
+<h2>Caudales que se superan con cierta frecuencia</h2>
 <div class="pregunta">
 <p>¿Qué caudal medio mensual no se supera en el 90 % de los meses? ¿Qué tan seco puede ser un marzo?</p>
 </div>
@@ -1718,8 +1718,8 @@ x_p \approx \alpha\,\beta \left(1 - \frac{1}{9\beta} + z_p \sqrt{\frac{1}{9\beta
 <h1>3.5 Distribuciones para valores extremos</h1>
 <p>Capítulo 14 del libro</p>
 </section>
-<section id="qué-problema-resuelve-4" class="slide level2">
-<h2>Qué problema resuelve</h2>
+<section id="una-serie-y-dos-distribuciones" class="slide level2">
+<h2>Una serie y dos distribuciones</h2>
 <div class="pregunta">
 <p>Si una serie de 30 años de caudales máximos se ajusta bien a dos distribuciones distintas, ¿dan las dos la misma crecida de 100 años?</p>
 </div>
@@ -2186,8 +2186,8 @@ K_T ={}&amp; z + (z^2-1)k + \tfrac{1}{3}(z^3-6z)k^2 \\
 <h1>3.6 Bondad de ajuste e incertidumbre del caudal de diseño</h1>
 <p>Capítulos 14 y 31 del libro</p>
 </section>
-<section id="qué-problema-resuelve-5" class="slide level2">
-<h2>Qué problema resuelve</h2>
+<section id="elegir-la-distribución-de-diseño" class="slide level2">
+<h2>Elegir la distribución de diseño</h2>
 <div class="pregunta">
 <p>Cuatro distribuciones se ajustan a los mismos 20 caudales y ninguna se rechaza. ¿Con cuál se diseña?</p>
 </div>
@@ -3092,6 +3092,79 @@ Wilson, E. B., &amp; Hilferty, M. M. (1931). The distribution of chi-square. <em
       }
       if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", marcar); else marcar();
       window.addEventListener("load", marcar);
+    })();
+    </script>
+    <!--
+      Ajuste automático del tamaño de letra: si el contenido de una diapositiva
+      no cabe (se sale por abajo o una fórmula se sale de su columna), se reduce
+      la letra de esa diapositiva en pasos de 4 % hasta que quepa, sin bajar del
+      72 %. El título no cambia. Solo actúa con el tamaño normal (100 %) del
+      botón Aa: si quien mira agranda la letra, se respeta su elección.
+    -->
+    <style>
+      .reveal .slides section.ajustada h2 { font-size: var(--alto-titulo) !important; }
+    </style>
+    <script>
+    (function () {
+      var MINIMO = 0.72, PASO = 0.04;
+
+      function desborda(s) {
+        var esc = Reveal.getScale() || 1;
+        var alto = Reveal.getConfig().height;
+        var arriba = s.getBoundingClientRect().top;
+        var fondo = 0;
+        // Se mide cada elemento, porque las columnas pueden desbordar a su contenedor
+        Array.prototype.forEach.call(s.querySelectorAll("*"), function (c) {
+          // lo que está dentro de un bloque de código con barra de desplazamiento no cuenta
+          if (c.tagName !== "PRE" && c.closest("pre")) return;
+          var r = c.getBoundingClientRect();
+          if (r.width > 0 && r.height > 0) fondo = Math.max(fondo, r.bottom);
+        });
+        if ((fondo - arriba) / esc > alto - 34) return true;
+        // Fórmulas, cuadros e imágenes que se salen de su columna
+        var cols = s.querySelectorAll(".column");
+        for (var i = 0; i < cols.length; i++) {
+          var r = cols[i].getBoundingClientRect();
+          var hijos = cols[i].querySelectorAll(".MathJax_Display, .MathJax, table");
+          for (var j = 0; j < hijos.length; j++) {
+            if (hijos[j].getBoundingClientRect().right > r.right + 3) return true;
+          }
+        }
+        return false;
+      }
+
+      function ajustar(s) {
+        if (!s || s.dataset.ajustada === "1") return;
+        if (s.classList.contains("portada-clase") || s.classList.contains("separador") ||
+            s.classList.contains("scrollable")) return;
+        var reveal = document.querySelector(".reveal");
+        if (reveal && reveal.style.fontSize) return;   // letra agrandada con Aa
+        var h2 = s.querySelector("h2");
+        if (h2 && !s.style.getPropertyValue("--alto-titulo")) {
+          s.style.setProperty("--alto-titulo", getComputedStyle(h2).fontSize);
+        }
+        var tam = 1;
+        while (desborda(s) && tam - PASO >= MINIMO) {
+          tam -= PASO;
+          s.style.fontSize = (tam * 100).toFixed(0) + "%";
+          s.classList.add("ajustada");
+        }
+        s.dataset.ajustada = "1";
+      }
+
+      function actual() {
+        var s = Reveal.getCurrentSlide();
+        if (window.MathJax && MathJax.Hub) MathJax.Hub.Queue(function () { ajustar(s); });
+        else ajustar(s);
+      }
+
+      function iniciar() {
+        Reveal.on("slidechanged", actual);
+        actual();
+      }
+      if (window.Reveal && Reveal.isReady && Reveal.isReady()) iniciar();
+      else if (window.Reveal) Reveal.on("ready", iniciar);
+      else window.addEventListener("load", function () { Reveal.on("ready", iniciar); if (Reveal.isReady()) iniciar(); });
     })();
     </script>
     
