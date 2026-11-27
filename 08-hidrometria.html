@@ -657,8 +657,9 @@ window.Quarto = {
   <li><a href="#sec-hidrom-extrapolacion" id="toc-sec-hidrom-extrapolacion" class="nav-link" data-scroll-target="#sec-hidrom-extrapolacion"><span class="header-section-number">8.8</span> Extrapolación de la curva</a></li>
   <li><a href="#sec-hidrom-incert-curva" id="toc-sec-hidrom-incert-curva" class="nav-link" data-scroll-target="#sec-hidrom-incert-curva"><span class="header-section-number">8.9</span> Incertidumbre de la curva</a></li>
   <li><a href="#sec-hidrom-diario" id="toc-sec-hidrom-diario" class="nav-link" data-scroll-target="#sec-hidrom-diario"><span class="header-section-number">8.10</span> Caudal medio diario</a></li>
-  <li><a href="#ejercicios-propuestos" id="toc-ejercicios-propuestos" class="nav-link" data-scroll-target="#ejercicios-propuestos"><span class="header-section-number">8.11</span> Ejercicios propuestos</a></li>
-  <li><a href="#lecturas-recomendadas" id="toc-lecturas-recomendadas" class="nav-link" data-scroll-target="#lecturas-recomendadas"><span class="header-section-number">8.12</span> Lecturas recomendadas</a></li>
+  <li><a href="#sec-hidrom-especifico" id="toc-sec-hidrom-especifico" class="nav-link" data-scroll-target="#sec-hidrom-especifico"><span class="header-section-number">8.11</span> Caudal específico</a></li>
+  <li><a href="#ejercicios-propuestos" id="toc-ejercicios-propuestos" class="nav-link" data-scroll-target="#ejercicios-propuestos"><span class="header-section-number">8.12</span> Ejercicios propuestos</a></li>
+  <li><a href="#lecturas-recomendadas" id="toc-lecturas-recomendadas" class="nav-link" data-scroll-target="#lecturas-recomendadas"><span class="header-section-number">8.13</span> Lecturas recomendadas</a></li>
   </ul>
 </nav>
     </div>
@@ -1807,8 +1808,59 @@ Figura&nbsp;8.10: Caudal instantáneo y caudal medio en un día de crecida.
 </div>
 <p>Antes de usar la serie de caudales conviene revisarla con los métodos de la <a href="09-registros_hidro.html#sec-registros-calidad" class="quarto-xref"><span>Sección 9.2</span></a>: saltos que coinciden con cambios de curva, días con caudal constante por falla del sensor, y periodos en que el nivel bajó del cero de la regla.</p>
 </section>
-<section id="ejercicios-propuestos" class="level2" data-number="8.11">
-<h2 data-number="8.11" class="anchored" data-anchor-id="ejercicios-propuestos"><span class="header-section-number">8.11</span> Ejercicios propuestos</h2>
+<section id="sec-hidrom-especifico" class="level2" data-number="8.11">
+<h2 data-number="8.11" class="anchored" data-anchor-id="sec-hidrom-especifico"><span class="header-section-number">8.11</span> Caudal específico</h2>
+<p>Un caudal solo no dice mucho de la cuenca que lo produce: un río grande lleva más agua porque drena más área. Para comparar cuencas de tamaño distinto se usa el <strong>caudal específico</strong> <span class="math inline">\(q\)</span>, que es el caudal dividido entre el área de drenaje:</p>
+<p><span id="eq-hidrom-especifico"><span class="math display">\[
+q = \frac{Q}{A}
+\tag{8.11}\]</span></span></p>
+<p>donde <span class="math inline">\(Q\)</span> es el caudal (m³/s) y <span class="math inline">\(A\)</span> el área de la cuenca hasta la estación (km²). Se expresa en m³/s/km² o, más a menudo, en L/s/km², porque los valores en m³/s/km² son pequeños; 1 m³/s/km² equivale a 1000 L/s/km².</p>
+<p>El caudal específico también se puede leer como una lámina de agua repartida sobre la cuenca. Un caudal específico de 1 L/s/km² sostenido durante un año equivale a 31.5 mm, de modo que la lámina anual escurrida es <span class="math inline">\(31.5\,q\)</span> (mm, con <span class="math inline">\(q\)</span> en L/s/km²). Esa lámina se compara directamente con la lluvia anual de la <a href="07-Precip.html#sec-precip-escala" class="quarto-xref"><span>Sección 7.3.4</span></a> y con el balance hídrico de la <a href="23-Balance hídrico a escala de cuenca.html#sec-bal-diagnostico" class="quarto-xref"><span>Sección 23.1</span></a>.</p>
+<p>El cálculo vale para cualquier caudal de la serie, y conviene decir siempre de cuál se trata. Además del caudal instantáneo, las estaciones publican caudales máximos, medios y mínimos en intervalos de una hora, un día, un mes o un año. El caudal específico medio anual sirve para comparar la oferta de agua; el máximo instantáneo, para comparar la respuesta a crecidas (<a href="31-frecuencia_caudales.html#sec-frec-instantaneo" class="quarto-xref"><span>Sección 31.1.1</span></a>); y el mínimo, para comparar el aporte del flujo base en época seca. Comparar el medio de una cuenca con el máximo de otra no tiene sentido.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Ejemplo: comparación de dos cuencas">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Ejemplo: comparación de dos cuencas
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Planteamiento.</strong> Dos estaciones hipotéticas registran estos caudales medios anuales: la cuenca A, de 50 km², 3.2 m³/s; la cuenca B, de 420 km², 18.0 m³/s. Compare su producción de agua.</p>
+<p><strong>Solución:</strong></p>
+<ol type="1">
+<li>Cuenca A: <span class="math inline">\(q = \frac{3.2}{50} = 0.064\)</span> m³/s/km² <span class="math inline">\(= 64.0\)</span> L/s/km², que equivale a <span class="math inline">\(31.5 \times 64.0 = 2018\)</span> mm al año.</li>
+<li>Cuenca B: <span class="math inline">\(q = \frac{18.0}{420} = 0.0429\)</span> m³/s/km² <span class="math inline">\(= 42.9\)</span> L/s/km², que equivale a <span class="math inline">\(31.5 \times 42.9 = 1352\)</span> mm al año.</li>
+</ol>
+<p><strong>Pseudocódigo</strong></p>
+<ol type="1">
+<li>Dividir cada caudal entre el área de su cuenca.</li>
+<li>Multiplicar por 1000 para pasar a L/s/km².</li>
+<li>Multiplicar por los segundos del año y dividir entre el área para obtener la lámina.</li>
+</ol>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 1) Caudales medios anuales (m³/s) y áreas (km²) de dos cuencas hipotéticas</span></span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>cuencas <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">cuenca =</span> <span class="fu">c</span>(<span class="st">"A"</span>, <span class="st">"B"</span>), <span class="at">Q =</span> <span class="fu">c</span>(<span class="fl">3.2</span>, <span class="fl">18.0</span>), <span class="at">A =</span> <span class="fu">c</span>(<span class="dv">50</span>, <span class="dv">420</span>))</span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a><span class="co"># 2) Caudal específico (L/s/km²) y lámina anual escurrida (mm)</span></span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a>cuencas<span class="sc">$</span>q_l_s_km2 <span class="ot">&lt;-</span> <span class="dv">1000</span> <span class="sc">*</span> cuencas<span class="sc">$</span>Q <span class="sc">/</span> cuencas<span class="sc">$</span>A</span>
+<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a>cuencas<span class="sc">$</span>lamina_mm <span class="ot">&lt;-</span> cuencas<span class="sc">$</span>Q <span class="sc">*</span> <span class="dv">365</span> <span class="sc">*</span> <span class="dv">86400</span> <span class="sc">/</span> (cuencas<span class="sc">$</span>A <span class="sc">*</span> <span class="fl">1e6</span>) <span class="sc">*</span> <span class="dv">1000</span></span>
+<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a>cuencas</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":["cuenca"],"name":[1],"type":["chr"],"align":["left"]},{"label":["Q"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["A"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["q_l_s_km2"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["lamina_mm"],"name":[5],"type":["dbl"],"align":["right"]}],"data":[{"1":"A","2":"3.2","3":"50","4":"64.00000","5":"2018.304"},{"1":"B","2":"18.0","3":"420","4":"42.85714","5":"1351.543"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+</div>
+<p><strong>Interpretación.</strong> La cuenca B lleva más de cinco veces el caudal de A, pero cada kilómetro cuadrado de A produce 50 % más agua. Las diferencias de caudal específico entre cuencas vecinas suelen venir de la lluvia, de la exposición a los vientos húmedos y de la geología; también pueden venir de un área mal delimitada o de una curva de descarga desplazada, por lo que un valor muy distinto al de la región merece una revisión antes de usarse.</p>
+</div>
+</div>
+</section>
+<section id="ejercicios-propuestos" class="level2" data-number="8.12">
+<h2 data-number="8.12" class="anchored" data-anchor-id="ejercicios-propuestos"><span class="header-section-number">8.12</span> Ejercicios propuestos</h2>
 <ol type="1">
 <li>Repita el aforo del primer ejemplo suponiendo que se midieron verticales adicionales a 4.75, 6.25, 7.75 y 9.25 m, con profundidades de 1.08, 1.26, 1.28 y 1.18 m y velocidades de 0.65, 0.74, 0.75 y 0.70 m/s. Calcule el caudal, el porcentaje de la franja mayor y la nueva incertidumbre con los mismos valores supuestos. ¿Cuánto bajó el término de las franjas?</li>
 <li>Con los aforos del segundo ejemplo, ajuste la curva fijando <span class="math inline">\(h_0 = 0.30\)</span> m y <span class="math inline">\(h_0 = 0.45\)</span> m. Compare los caudales para 0.45 m y para 3.20 m con los del ejemplo y comente qué parte de la curva es más sensible a <span class="math inline">\(h_0\)</span>.</li>
@@ -1817,8 +1869,8 @@ Figura&nbsp;8.10: Caudal instantáneo y caudal medio en un día de crecida.
 <li>Con un registro de niveles cada 15 minutos de una crecida (puede generarlo con un hidrograma triangular), calcule el caudal medio diario de dos formas: promediando los caudales y convirtiendo el nivel medio. Repita con solo dos lecturas por día, a las 7:00 y a las 17:00.</li>
 </ol>
 </section>
-<section id="lecturas-recomendadas" class="level2" data-number="8.12">
-<h2 data-number="8.12" class="anchored" data-anchor-id="lecturas-recomendadas"><span class="header-section-number">8.12</span> Lecturas recomendadas</h2>
+<section id="lecturas-recomendadas" class="level2" data-number="8.13">
+<h2 data-number="8.13" class="anchored" data-anchor-id="lecturas-recomendadas"><span class="header-section-number">8.13</span> Lecturas recomendadas</h2>
 <ul>
 <li><span class="citation" data-cites="rantz1982measurement">Rantz et&nbsp;al. (1982)</span>: el manual del Servicio Geológico de Estados Unidos, en dos volúmenes. El primero trata la estación y los aforos; el segundo, la curva de descarga, los desplazamientos y la extrapolación, con muchos ejemplos.</li>
 <li><span class="citation" data-cites="wmo2010aforo">World Meteorological Organization (2010)</span>: el manual de aforos de la Organización Meteorológica Mundial, con criterios para escoger el sitio, medir y calcular la curva en redes nacionales.</li>
