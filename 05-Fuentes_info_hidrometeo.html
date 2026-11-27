@@ -702,6 +702,106 @@ window.Quarto = {
 </div>
 <p>Casi todo cálculo hidrológico empieza con un registro: la lluvia diaria de una estación, la temperatura con que se estima la evapotranspiración o los aforos con que se construye la curva de descarga de un río. Muchos procesos de la cuenca no se pueden deducir solo con la física, así que el diseño se apoya en relaciones empíricas que se ajustan con datos medidos. Si los datos son malos, el caudal de diseño también lo será, por bueno que sea el método.</p>
 <p>Este capítulo describe qué se mide, con qué instrumentos y con qué limitaciones. Conocer el instrumento ayuda a interpretar el dato: un pluviómetro que se lee una vez al día no da intensidades, un tanque evaporímetro sobrestima la evaporación de un embalse y un aforo hecho en aguas bajas no dice mucho de una crecida.</p>
+<p>El <a href="#tbl-fuentes-instrumentos" class="quarto-xref">Cuadro&nbsp;<span>5.1</span></a> resume qué es cada variable y con qué se mide. Las secciones siguientes describen cada instrumento y sus limitaciones.</p>
+<div id="tbl-fuentes-instrumentos" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-fuentes-instrumentos-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Cuadro&nbsp;5.1: Variables hidrometeorológicas y sus instrumentos de medición.
+</figcaption>
+<div aria-describedby="tbl-fuentes-instrumentos-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Variable</th>
+<th style="text-align: left;">Qué es</th>
+<th style="text-align: left;">Unidad</th>
+<th style="text-align: left;">Instrumento</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Precipitación</td>
+<td style="text-align: left;">Agua líquida o sólida que cae de las nubes y llega al suelo</td>
+<td style="text-align: left;">mm</td>
+<td style="text-align: left;">Pluviómetro (total diario); pluviógrafo de balancín, flotador o balanza (intensidad); radar y satélite (distribución espacial)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Temperatura del aire</td>
+<td style="text-align: left;">Qué tan caliente está el aire, medida a la sombra</td>
+<td style="text-align: left;">°C</td>
+<td style="text-align: left;">Termómetros de máxima y mínima; termógrafo; termistor de estación automática</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Humedad del aire</td>
+<td style="text-align: left;">Vapor de agua del aire comparado con el máximo que admite a esa temperatura</td>
+<td style="text-align: left;">%</td>
+<td style="text-align: left;">Psicrómetro; higrómetro de cabello o higrotermógrafo; sensor capacitivo</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Radiación solar</td>
+<td style="text-align: left;">Energía del Sol que llega a una superficie horizontal</td>
+<td style="text-align: left;">W/m², MJ/(m²·d)</td>
+<td style="text-align: left;">Piranómetro (global); pirheliómetro (directa); radiómetro neto (balance)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Brillo solar</td>
+<td style="text-align: left;">Horas del día con radiación directa mayor de 120 W/m²</td>
+<td style="text-align: left;">h</td>
+<td style="text-align: left;">Heliógrafo de Campbell-Stokes; sensor fotoeléctrico</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Presión atmosférica</td>
+<td style="text-align: left;">Peso de la columna de aire sobre una unidad de área</td>
+<td style="text-align: left;">hPa</td>
+<td style="text-align: left;">Barómetro de mercurio, aneroide o electrónico</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Viento</td>
+<td style="text-align: left;">Movimiento horizontal del aire: velocidad y dirección desde donde sopla</td>
+<td style="text-align: left;">m/s y grados</td>
+<td style="text-align: left;">Anemómetro de cazoletas o de hélice; veleta; sensor ultrasónico</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Nubosidad</td>
+<td style="text-align: left;">Fracción del cielo cubierta por nubes</td>
+<td style="text-align: left;">octas</td>
+<td style="text-align: left;">Observación visual; ceilómetro (altura de la base)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Evaporación</td>
+<td style="text-align: left;">Paso del agua de líquido a vapor desde una superficie libre</td>
+<td style="text-align: left;">mm</td>
+<td style="text-align: left;">Tanque evaporímetro clase A</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Humedad del suelo</td>
+<td style="text-align: left;">Agua retenida en los poros del suelo</td>
+<td style="text-align: left;">fracción del volumen</td>
+<td style="text-align: left;">Muestreo gravimétrico; sondas TDR o capacitivas</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Nivel del agua</td>
+<td style="text-align: left;">Altura de la superficie del río sobre un cero fijo</td>
+<td style="text-align: left;">m</td>
+<td style="text-align: left;">Limnímetro (regla); limnígrafo de presión, radar o ultrasonido</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Caudal</td>
+<td style="text-align: left;">Volumen de agua que pasa por una sección por unidad de tiempo</td>
+<td style="text-align: left;">m³/s</td>
+<td style="text-align: left;">Aforo con molinete, ADCP o radar de velocidad; curva de descarga</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
 <section id="sec-fuentes-meteorologicas" class="level2" data-number="5.1">
 <h2 data-number="5.1" class="anchored" data-anchor-id="sec-fuentes-meteorologicas"><span class="header-section-number">5.1</span> Variables meteorológicas</h2>
 <section id="sec-fuentes-precipitacion" class="level3" data-number="5.1.1">
@@ -1514,7 +1614,7 @@ Ejemplo: aforo por velocidad y área
 <div id="tbl-aforo-datos" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-aforo-datos-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Cuadro&nbsp;5.1: Datos del aforo (datos de ejemplo).
+Cuadro&nbsp;5.2: Datos del aforo (datos de ejemplo).
 </figcaption>
 <div aria-describedby="tbl-aforo-datos-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="caption-top table">
@@ -1607,7 +1707,7 @@ Cuadro&nbsp;5.1: Datos del aforo (datos de ejemplo).
 <div id="tbl-aforo-mano" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-aforo-mano-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Cuadro&nbsp;5.2: Cálculo a mano del aforo.
+Cuadro&nbsp;5.3: Cálculo a mano del aforo.
 </figcaption>
 <div aria-describedby="tbl-aforo-mano-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="caption-top table">
@@ -1779,7 +1879,7 @@ Ejemplo: ajuste de una curva de descarga
 <div id="tbl-curva-datos" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-curva-datos-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Cuadro&nbsp;5.3: Aforos de la estación (datos de ejemplo).
+Cuadro&nbsp;5.4: Aforos de la estación (datos de ejemplo).
 </figcaption>
 <div aria-describedby="tbl-curva-datos-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="caption-top table">
@@ -1816,7 +1916,7 @@ Cuadro&nbsp;5.3: Aforos de la estación (datos de ejemplo).
 <div id="tbl-curva-mano" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-curva-mano-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Cuadro&nbsp;5.4: Cálculo a mano de la regresión.
+Cuadro&nbsp;5.5: Cálculo a mano de la regresión.
 </figcaption>
 <div aria-describedby="tbl-curva-mano-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="caption-top table">
@@ -2092,7 +2192,7 @@ Figura&nbsp;5.34: Estaciones climatológicas de Costa Rica según su operador y 
 <p>La principal limitación para el análisis hidrológico es que la lluvia se mide en puntos. En un país con montañas altas, pendientes fuertes y lluvias convectivas y orográficas, la lluvia cambia mucho en pocos kilómetros, y una estación no representa a toda una cuenca. Además, como se ve en la <a href="#fig-cr_estaciones" class="quarto-xref">Figura&nbsp;<span>5.34</span></a>, las estaciones se concentran en el centro del país y son escasas en zonas como las llanuras del norte y la península de Osa.</p>
 <section id="sec-fuentes-puntos-area" class="level3" data-number="5.6.1">
 <h3 data-number="5.6.1" class="anchored" data-anchor-id="sec-fuentes-puntos-area"><span class="header-section-number">5.6.1</span> Precipitación media sobre la cuenca</h3>
-<p>Los modelos de escorrentía y los balances hídricos necesitan la <strong>precipitación media sobre la cuenca</strong>, una lámina que representa toda el área. Para obtenerla a partir de las estaciones hay varios métodos, que se diferencian en cuánta información usan además de la lluvia medida (<a href="#tbl-puntos-area" class="quarto-xref">Cuadro&nbsp;<span>5.5</span></a>). Aquí se presentan sus ideas; los cálculos detallados se hacen en el capítulo de precipitación.</p>
+<p>Los modelos de escorrentía y los balances hídricos necesitan la <strong>precipitación media sobre la cuenca</strong>, una lámina que representa toda el área. Para obtenerla a partir de las estaciones hay varios métodos, que se diferencian en cuánta información usan además de la lluvia medida (<a href="#tbl-puntos-area" class="quarto-xref">Cuadro&nbsp;<span>5.6</span></a>). Aquí se presentan sus ideas; los cálculos detallados se hacen en el capítulo de precipitación.</p>
 <p><strong>Promedio aritmético.</strong> Se promedian las estaciones que están dentro de la cuenca. Solo sirve si las estaciones están repartidas de manera uniforme y el relieve es suave, algo poco común en Costa Rica.</p>
 <p><strong>Polígonos de Thiessen.</strong> Cada punto de la cuenca se asigna a la estación más cercana. Así la cuenca queda dividida en polígonos, uno por estación, y cada estación pesa según el área de su polígono <span class="citation" data-cites="thiessen1911precipitation">(Thiessen 1911)</span>:</p>
 <p><span id="eq-fuentes-thiessen"><span class="math display">\[
@@ -2140,7 +2240,7 @@ Figura&nbsp;5.36: Componentes de un análisis geoestadístico. Fuente: Biostats 
 <div id="tbl-puntos-area" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-puntos-area-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Cuadro&nbsp;5.5: Métodos para estimar la precipitación media de una cuenca a partir de las estaciones.
+Cuadro&nbsp;5.6: Métodos para estimar la precipitación media de una cuenca a partir de las estaciones.
 </figcaption>
 <div aria-describedby="tbl-puntos-area-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="caption-top table">
@@ -2238,20 +2338,20 @@ Ejemplo: precipitación media anual de la cuenca del río Grande de Tárcoles co
 <div class="cell-output-display">
 <div class="datos-ejemplo">
 <a href="data:text/csv;base64,ImVzdGFjaW9uIiwiYWx0aXR1ZF9tIiwiZXN0ZV9tIiwibm9ydGVfbSIsImFudWFsX21tIgoiVW5pdmVyc2lkYWQgVMOpY25pY2EgTmFjaW9uYWwgKEJhbHNhLCBBdGVuYXMpIiw0MzcsNDU4MzU0LDEwOTg2NDAsMTk0NAoiQWVyb3B1ZXJ0byBKdWFuIFNhbnRhbWFyw61hIChBbGFqdWVsYSkiLDg5MCw0NzYwMzMsMTEwNDU4MCwxNzAxCiJCZWzDqW4gKFNhbiBBbnRvbmlvIGRlIEJlbMOpbikiLDkwMCw0Nzk2NTYsMTEwMjk4MCwxMTc4CiJDZW1lbnRlcmlvIChBbGFqdWVsYSBDZW50cm8pIiw5NTAsNDc1ODUzLDExMDc2OTAsMTk2OQoiQWVyb3B1ZXJ0byBUb2LDrWFzIEJvbGHDsW9zIChQYXZhcykiLDk5Nyw0ODQ4NjksMTEwMDk1MCwxNjUxCiJSRUNPUEUgTGEgR2FyaXRhIiwxMDYwLDQ2NzU2OSwxMTA2MzQwLDE2MzEKIklNTiAoU2FuIEpvc8OpKSIsMTE3Miw0OTIzNjAsMTA5ODg4MCwxNzA0CiJDSUdFRkkgKFNhbiBQZWRybyBkZSBNb250ZXMgZGUgT2NhKSIsMTIwMCw0OTUwMzUsMTA5ODcxMCwxODAxCiJTYW50YSBMdWPDrWEgKEhlcmVkaWEpIiwxMjAwLDQ4Nzc1OSwxMTA4MTcwLDI0MzgKIkxhIEx1aXNhIChTYXJjaMOtIE5vcnRlKSIsMTI1MCw0NjI3MDksMTExOTAwMCwzMTA4CiJGaW5jYSAjMyAoTGxhbm8gR3JhbmRlKSIsMjIyMCw1MDg1ODksMTA5OTY5MCwxOTY2CiJTYW4gSWduYWNpbyBkZSBBY29zdGEgKENlbnRybykiLDEyMTQsNDgyMTEzLDEwODMyNjAsMjA2MQoiUkVDT1BFIE9jaG9tb2dvIiwxNTQ2LDUwNjcyMCwxMDk0MDgwLDE0MTYKIkxpbmRhIFZpc3RhIGRlbCBHdWFyY28gKENhcnRhZ28pIiwxNDAwLDUwNDAxNSwxMDg3ODYwLDE1MDIKIkluc3RpdHV0byBUZWNub2zDs2dpY28gZGUgQ29zdGEgUmljYSAoQ2FydGFnbykiLDEzNjAsNTEwMDIzLDEwODk0MDAsMTQ1MQo=" download="lluvia_normal_tarcoles_crtm05.csv" class="boton-datos">⬇ Descargar <code>lluvia_normal_tarcoles_crtm05.csv</code></a>
-<div class="datatables html-widget html-fill-item" id="htmlwidget-cc84b01a24aa7fb7c511" style="width:100%;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-cc84b01a24aa7fb7c511">{"x":{"filter":"none","vertical":false,"data":[["Universidad Técnica Nacional (Balsa, Atenas)","Aeropuerto Juan Santamaría (Alajuela)","Belén (San Antonio de Belén)","Cementerio (Alajuela Centro)","Aeropuerto Tobías Bolaños (Pavas)","RECOPE La Garita","IMN (San José)","CIGEFI (San Pedro de Montes de Oca)","Santa Lucía (Heredia)","La Luisa (Sarchí Norte)","Finca #3 (Llano Grande)","San Ignacio de Acosta (Centro)","RECOPE Ochomogo","Linda Vista del Guarco (Cartago)","Instituto Tecnológico de Costa Rica (Cartago)"],[437,890,900,950,997,1060,1172,1200,1200,1250,2220,1214,1546,1400,1360],[458354,476033,479656,475853,484869,467569,492360,495035,487759,462709,508589,482113,506720,504015,510023],[1098640,1104580,1102980,1107690,1100950,1106340,1098880,1098710,1108170,1119000,1099690,1083260,1094080,1087860,1089400],[1944,1701,1178,1969,1651,1631,1704,1801,2438,3108,1966,2061,1416,1502,1451]],"container":"<table class=\"compact stripe hover\">\n  <thead>\n    <tr>\n      <th>Estación<\/th>\n      <th>Altitud (m)<\/th>\n      <th>Este CRTM05 (m)<\/th>\n      <th>Norte CRTM05 (m)<\/th>\n      <th>Lluvia normal anual (mm)<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":6,"lengthChange":false,"searching":false,"ordering":false,"autoWidth":false,"dom":"tip","language":{"info":"Filas _START_ a _END_ de _TOTAL_","infoEmpty":"Sin filas","paginate":{"previous":"Anterior","next":"Siguiente","first":"Primera","last":"Última"}},"columnDefs":[{"className":"dt-right","targets":[1,2,3,4]},{"name":"estacion","targets":0},{"name":"altitud_m","targets":1},{"name":"este_m","targets":2},{"name":"norte_m","targets":3},{"name":"anual_mm","targets":4}],"order":[],"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+<div class="datatables html-widget html-fill-item" id="htmlwidget-2d1114905631828d9fee" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-2d1114905631828d9fee">{"x":{"filter":"none","vertical":false,"data":[["Universidad Técnica Nacional (Balsa, Atenas)","Aeropuerto Juan Santamaría (Alajuela)","Belén (San Antonio de Belén)","Cementerio (Alajuela Centro)","Aeropuerto Tobías Bolaños (Pavas)","RECOPE La Garita","IMN (San José)","CIGEFI (San Pedro de Montes de Oca)","Santa Lucía (Heredia)","La Luisa (Sarchí Norte)","Finca #3 (Llano Grande)","San Ignacio de Acosta (Centro)","RECOPE Ochomogo","Linda Vista del Guarco (Cartago)","Instituto Tecnológico de Costa Rica (Cartago)"],[437,890,900,950,997,1060,1172,1200,1200,1250,2220,1214,1546,1400,1360],[458354,476033,479656,475853,484869,467569,492360,495035,487759,462709,508589,482113,506720,504015,510023],[1098640,1104580,1102980,1107690,1100950,1106340,1098880,1098710,1108170,1119000,1099690,1083260,1094080,1087860,1089400],[1944,1701,1178,1969,1651,1631,1704,1801,2438,3108,1966,2061,1416,1502,1451]],"container":"<table class=\"compact stripe hover\">\n  <thead>\n    <tr>\n      <th>Estación<\/th>\n      <th>Altitud (m)<\/th>\n      <th>Este CRTM05 (m)<\/th>\n      <th>Norte CRTM05 (m)<\/th>\n      <th>Lluvia normal anual (mm)<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":6,"lengthChange":false,"searching":false,"ordering":false,"autoWidth":false,"dom":"tip","language":{"info":"Filas _START_ a _END_ de _TOTAL_","infoEmpty":"Sin filas","paginate":{"previous":"Anterior","next":"Siguiente","first":"Primera","last":"Última"}},"columnDefs":[{"className":"dt-right","targets":[1,2,3,4]},{"name":"estacion","targets":0},{"name":"altitud_m","targets":1},{"name":"este_m","targets":2},{"name":"norte_m","targets":3},{"name":"anual_mm","targets":4}],"order":[],"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 </div>
 <p><strong>Solución:</strong></p>
 <ol type="1">
 <li><strong>Promedio aritmético.</strong> Las 11 estaciones dentro de la cuenca suman 21 091 mm, así que <span class="math inline">\(\bar{P} = 21\,091/11 = 1917\)</span> mm.</li>
-<li><strong>Polígonos de Thiessen.</strong> Se trazan las mediatrices entre estaciones vecinas y se recortan los polígonos con la divisoria. De las 15 estaciones, 14 tienen polígono dentro de la cuenca; la del Instituto Tecnológico queda fuera. Con las áreas del <a href="#tbl-tarcoles-thiessen" class="quarto-xref">Cuadro&nbsp;<span>5.6</span></a> y la <a href="#eq-fuentes-thiessen" class="quarto-xref">Ecuación&nbsp;<span>5.22</span></a>, <span class="math inline">\(\bar{P} = 4\,484\,496/2164.2 = 2072\)</span> mm. La estación de Balsa de Atenas representa un tercio de la cuenca, porque es la única en toda la parte baja.</li>
+<li><strong>Polígonos de Thiessen.</strong> Se trazan las mediatrices entre estaciones vecinas y se recortan los polígonos con la divisoria. De las 15 estaciones, 14 tienen polígono dentro de la cuenca; la del Instituto Tecnológico queda fuera. Con las áreas del <a href="#tbl-tarcoles-thiessen" class="quarto-xref">Cuadro&nbsp;<span>5.7</span></a> y la <a href="#eq-fuentes-thiessen" class="quarto-xref">Ecuación&nbsp;<span>5.22</span></a>, <span class="math inline">\(\bar{P} = 4\,484\,496/2164.2 = 2072\)</span> mm. La estación de Balsa de Atenas representa un tercio de la cuenca, porque es la única en toda la parte baja.</li>
 </ol>
 <div id="tbl-tarcoles-thiessen" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-tarcoles-thiessen-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Cuadro&nbsp;5.6: Área de los polígonos de Thiessen dentro de la cuenca.
+Cuadro&nbsp;5.7: Área de los polígonos de Thiessen dentro de la cuenca.
 </figcaption>
 <div aria-describedby="tbl-tarcoles-thiessen-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="caption-top table">
@@ -2384,12 +2484,12 @@ Cuadro&nbsp;5.6: Área de los polígonos de Thiessen dentro de la cuenca.
 </div>
 <ol start="3" type="1">
 <li><strong>Inverso del cuadrado de la distancia.</strong> Se cubre la cuenca con una malla de celdas de 250 m y en cada celda se aplica la <a href="#eq-fuentes-idw" class="quarto-xref">Ecuación&nbsp;<span>5.23</span></a> con las 15 estaciones. Por ejemplo, en un punto cercano a Orotina (Este 445 000 m, Norte 1 095 000 m), Balsa de Atenas está a 13.8 km y se lleva el 37 % del peso. La siguiente, RECOPE La Garita, está a 25.3 km y pesa el 11 %. La lluvia estimada ahí es de 1917 mm. El promedio de las 34 633 celdas de la cuenca da <span class="math inline">\(\bar{P} = 1932\)</span> mm.</li>
-<li><strong>Isoyetas.</strong> Se unen las estaciones en triángulos y se interpola linealmente a lo largo de cada lado, como cuando se trazan a mano. Fuera de la envolvente de las estaciones (la línea discontinua de la <a href="#fig-tarcoles-metodos" class="quarto-xref">Figura&nbsp;<span>5.37</span></a>), que abarca el 59 % de la cuenca, las franjas se prolongan hasta la divisoria. Con las áreas entre isoyetas del <a href="#tbl-tarcoles-isoyetas" class="quarto-xref">Cuadro&nbsp;<span>5.7</span></a> y la <a href="07-Precip.html#eq-precip-isoyetas" class="quarto-xref">Ecuación&nbsp;<span>7.6</span></a>, <span class="math inline">\(\bar{P} = 4\,642\,750/2164.6 = 2145\)</span> mm.</li>
+<li><strong>Isoyetas.</strong> Se unen las estaciones en triángulos y se interpola linealmente a lo largo de cada lado, como cuando se trazan a mano. Fuera de la envolvente de las estaciones (la línea discontinua de la <a href="#fig-tarcoles-metodos" class="quarto-xref">Figura&nbsp;<span>5.37</span></a>), que abarca el 59 % de la cuenca, las franjas se prolongan hasta la divisoria. Con las áreas entre isoyetas del <a href="#tbl-tarcoles-isoyetas" class="quarto-xref">Cuadro&nbsp;<span>5.8</span></a> y la <a href="07-Precip.html#eq-precip-isoyetas" class="quarto-xref">Ecuación&nbsp;<span>7.6</span></a>, <span class="math inline">\(\bar{P} = 4\,642\,750/2164.6 = 2145\)</span> mm.</li>
 </ol>
 <div id="tbl-tarcoles-isoyetas" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-tarcoles-isoyetas-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Cuadro&nbsp;5.7: Área entre isoyetas dentro de la cuenca.
+Cuadro&nbsp;5.8: Área entre isoyetas dentro de la cuenca.
 </figcaption>
 <div aria-describedby="tbl-tarcoles-isoyetas-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="caption-top table">
@@ -2588,7 +2688,7 @@ Figura&nbsp;5.37: Precipitación normal anual de la cuenca del río Grande de T�
 <div id="tbl-tarcoles-metodos" class="cell quarto-float quarto-figure quarto-figure-center anchored" data-layout-align="center">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-tarcoles-metodos-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Cuadro&nbsp;5.8: Precipitación media anual de la cuenca del río Grande de Tárcoles según el método.
+Cuadro&nbsp;5.9: Precipitación media anual de la cuenca del río Grande de Tárcoles según el método.
 </figcaption>
 <div aria-describedby="tbl-tarcoles-metodos-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
@@ -2635,7 +2735,7 @@ Cuadro&nbsp;5.8: Precipitación media anual de la cuenca del río Grande de Tár
 </figure>
 </div>
 </div>
-<p>La <a href="#fig-tarcoles-metodos" class="quarto-xref">Figura&nbsp;<span>5.37</span></a> muestra el campo de lluvia que construye cada método y el <a href="#tbl-tarcoles-metodos" class="quarto-xref">Cuadro&nbsp;<span>5.8</span></a>, la precipitación media que resulta. Los cuatro métodos van de 1932 a 2145 mm, una diferencia del 11 % con las mismas estaciones. El inverso de la distancia y el kriging quedan cerca del promedio aritmético porque, lejos de las estaciones, ambos tienden a la media de la red. El kriging lo hace pasado el alcance del variograma, unos 14 km. El inverso de la distancia lo hace porque, cuando todas las estaciones están lejos, sus pesos se emparejan. Thiessen y las isoyetas, en cambio, llevan hasta la divisoria el valor de la estación más cercana o de la isoyeta del borde. Por eso pesan más los 3108 mm de La Luisa, en el norte. Casi toda la diferencia sale del 59 % de la cuenca que queda fuera de la envolvente de las estaciones, donde ningún método tiene datos. Ahí el kriging da una desviación estándar media de unos 430 mm, el doble de la diferencia entre los métodos. Para decidir cuál se acerca más a la realidad haría falta una estación en la parte baja o, como se vio en la <a href="#sec-fuentes-puntos-area" class="quarto-xref"><span>Sección 5.6.1</span></a>, una regresión con la elevación o un producto satelital corregido.</p>
+<p>La <a href="#fig-tarcoles-metodos" class="quarto-xref">Figura&nbsp;<span>5.37</span></a> muestra el campo de lluvia que construye cada método y el <a href="#tbl-tarcoles-metodos" class="quarto-xref">Cuadro&nbsp;<span>5.9</span></a>, la precipitación media que resulta. Los cuatro métodos van de 1932 a 2145 mm, una diferencia del 11 % con las mismas estaciones. El inverso de la distancia y el kriging quedan cerca del promedio aritmético porque, lejos de las estaciones, ambos tienden a la media de la red. El kriging lo hace pasado el alcance del variograma, unos 14 km. El inverso de la distancia lo hace porque, cuando todas las estaciones están lejos, sus pesos se emparejan. Thiessen y las isoyetas, en cambio, llevan hasta la divisoria el valor de la estación más cercana o de la isoyeta del borde. Por eso pesan más los 3108 mm de La Luisa, en el norte. Casi toda la diferencia sale del 59 % de la cuenca que queda fuera de la envolvente de las estaciones, donde ningún método tiene datos. Ahí el kriging da una desviación estándar media de unos 430 mm, el doble de la diferencia entre los métodos. Para decidir cuál se acerca más a la realidad haría falta una estación en la parte baja o, como se vio en la <a href="#sec-fuentes-puntos-area" class="quarto-xref"><span>Sección 5.6.1</span></a>, una regresión con la elevación o un producto satelital corregido.</p>
 </div>
 </div>
 <p>Antes de usar una serie también hay que saber qué instrumento la midió, cuántos huecos tiene y si la estación cambió de sitio. El control de calidad y el relleno de registros se tratan en el capítulo de verificación y completado de registros (<a href="09-registros_hidro.html#sec-registros-calidad" class="quarto-xref"><span>Sección 9.2</span></a>).</p>

@@ -726,7 +726,7 @@ Cuidado
 <p>La diferencia tiene una consecuencia práctica. Con relación invariable, el almacenamiento es máximo cuando <span class="math inline">\(dS/dt = 0\)</span>, es decir, cuando <span class="math inline">\(I = Q\)</span>, y como <span class="math inline">\(S\)</span> depende solo de <span class="math inline">\(Q\)</span>, el caudal de salida también es máximo en ese instante: el pico de salida cae justo sobre la rama descendente del hidrograma de entrada. Con relación variable, el pico de salida ocurre un poco después de que los dos hidrogramas se cruzan (<a href="#fig-tf-lazo" class="quarto-xref">Figura&nbsp;<span>37.1</span></a>).</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div id="fig-tf-lazo" class="quarto-float quarto-figure quarto-figure-center anchored" alt="A la izquierda, hidrogramas de entrada y de salida; a la derecha, el almacenamiento contra el caudal de salida es una sola curva para el embalse y un lazo para el tramo de río" data-fig-align="center">
+<div id="fig-tf-lazo" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" alt="A la izquierda, hidrogramas de entrada y de salida; a la derecha, el almacenamiento contra el caudal de salida es una sola curva para el embalse y un lazo para el tramo de río">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-tf-lazo-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <a href="37-transito_fundamentos_files/figure-html/fig-tf-lazo-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Figura&nbsp;37.1: Almacenamiento contra caudal de salida en un embalse y en un tramo de río."><img src="37-transito_fundamentos_files/figure-html/fig-tf-lazo-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:70.0%" alt="A la izquierda, hidrogramas de entrada y de salida; a la derecha, el almacenamiento contra el caudal de salida es una sola curva para el embalse y un lazo para el tramo de río"></a>
@@ -842,7 +842,7 @@ Ejemplo: tránsito de una creciente por un embalse lineal
 </div>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div id="fig-tf-lineal" class="quarto-float quarto-figure quarto-figure-center anchored" alt="El hidrograma de entrada tiene pico de 1053 metros cúbicos por segundo en la hora 4 y el de salida, de 620 en la hora 5; las dos soluciones de salida casi coinciden" data-fig-align="center">
+<div id="fig-tf-lineal" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" alt="El hidrograma de entrada tiene pico de 1053 metros cúbicos por segundo en la hora 4 y el de salida, de 620 en la hora 5; las dos soluciones de salida casi coinciden">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-tf-lineal-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <a href="37-transito_fundamentos_files/figure-html/fig-tf-lineal-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Figura&nbsp;37.2: Tránsito por un embalse lineal con k = 2 h."><img src="37-transito_fundamentos_files/figure-html/fig-tf-lineal-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:70.0%" alt="El hidrograma de entrada tiene pico de 1053 metros cúbicos por segundo en la hora 4 y el de salida, de 620 en la hora 5; las dos soluciones de salida casi coinciden"></a>
@@ -868,7 +868,7 @@ u(t) = \frac{1}{k\,\Gamma(n)} \left(\frac{t}{k}\right)^{n-1} e^{-t/k}
 <p>La <a href="#fig-tf-cascada" class="quarto-xref">Figura&nbsp;<span>37.3</span></a> muestra la idea. La lluvia efectiva entra al primer embalse, que la suelta poco a poco hacia el segundo, y así sucesivamente. Cada embalse retrasa y atenúa la onda un poco más, de modo que la salida del último es una curva suave con un pico tardío.</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div id="fig-tf-cascada" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Cuatro tanques en escalera descendente; la lluvia efectiva entra al primero y cada tanque descarga al siguiente con Q igual a S entre k; bajo cada tanque, un hidrograma pequeño muestra que el pico se vuelve más bajo y tardío" data-fig-align="center">
+<div id="fig-tf-cascada" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" alt="Cuatro tanques en escalera descendente; la lluvia efectiva entra al primero y cada tanque descarga al siguiente con Q igual a S entre k; bajo cada tanque, un hidrograma pequeño muestra que el pico se vuelve más bajo y tardío">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-tf-cascada-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <a href="37-transito_fundamentos_files/figure-html/fig-tf-cascada-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="Figura&nbsp;37.3: Cascada de n embalses lineales iguales (modelo de Nash)."><img src="37-transito_fundamentos_files/figure-html/fig-tf-cascada-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:70.0%" alt="Cuatro tanques en escalera descendente; la lluvia efectiva entra al primero y cada tanque descarga al siguiente con Q igual a S entre k; bajo cada tanque, un hidrograma pequeño muestra que el pico se vuelve más bajo y tardío"></a>
@@ -884,7 +884,7 @@ Figura&nbsp;37.3: Cascada de n embalses lineales iguales (modelo de Nash).
 <p>El centroide del HUI está en <span class="math inline">\(nk\)</span>, que es el tiempo de retardo de la cuenca, y su pico en <span class="math inline">\((n-1)k\)</span>. Para un mismo retardo, más embalses dan un hidrograma más alto y angosto (<a href="#fig-tf-nash" class="quarto-xref">Figura&nbsp;<span>37.4</span></a>).</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div id="fig-tf-nash" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Cuatro curvas: con un embalse la curva decae desde el origen; con dos, tres y cinco embalses tiene un pico cada vez más alto y más tardío" data-fig-align="center">
+<div id="fig-tf-nash" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" alt="Cuatro curvas: con un embalse la curva decae desde el origen; con dos, tres y cinco embalses tiene un pico cada vez más alto y más tardío">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-tf-nash-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <a href="37-transito_fundamentos_files/figure-html/fig-tf-nash-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4" title="Figura&nbsp;37.4: Hidrogramas unitarios instantáneos de Nash con el mismo retardo nk = 5 h."><img src="37-transito_fundamentos_files/figure-html/fig-tf-nash-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:70.0%" alt="Cuatro curvas: con un embalse la curva decae desde el origen; con dos, tres y cinco embalses tiene un pico cada vez más alto y más tardío"></a>
@@ -965,7 +965,7 @@ Ejemplo: hidrograma unitario de Nash por momentos
 </div>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div id="fig-tf-nash-ejemplo" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Barras horarias del hidrograma unitario de 1 hora con pico de 14.7 en la hora 4 y una curva continua del hidrograma unitario instantáneo con pico cerca de la hora 3.5" data-fig-align="center">
+<div id="fig-tf-nash-ejemplo" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" alt="Barras horarias del hidrograma unitario de 1 hora con pico de 14.7 en la hora 4 y una curva continua del hidrograma unitario instantáneo con pico cerca de la hora 3.5">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-tf-nash-ejemplo-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <a href="37-transito_fundamentos_files/figure-html/fig-tf-nash-ejemplo-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5" title="Figura&nbsp;37.5: Hidrograma unitario instantáneo y de 1 h de Nash (n = 3.33, k = 1.5 h)."><img src="37-transito_fundamentos_files/figure-html/fig-tf-nash-ejemplo-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:70.0%" alt="Barras horarias del hidrograma unitario de 1 hora con pico de 14.7 en la hora 4 y una curva continua del hidrograma unitario instantáneo con pico cerca de la hora 3.5"></a>
@@ -1068,7 +1068,7 @@ Ejemplo: hidrograma unitario de Clark
 </div>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div id="fig-tf-clark-ejemplo" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Las barras del hidrograma trasladado forman un trapecio de 6 horas con pico de 20.1; la curva del hidrograma unitario de Clark sube más despacio, tiene pico de 11.6 en la hora 6 y una cola larga que baja hasta la hora 25" data-fig-align="center">
+<div id="fig-tf-clark-ejemplo" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" alt="Las barras del hidrograma trasladado forman un trapecio de 6 horas con pico de 20.1; la curva del hidrograma unitario de Clark sube más despacio, tiene pico de 11.6 en la hora 6 y una cola larga que baja hasta la hora 25">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-tf-clark-ejemplo-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <a href="37-transito_fundamentos_files/figure-html/fig-tf-clark-ejemplo-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6" title="Figura&nbsp;37.6: Hidrograma trasladado e hidrograma unitario de Clark de 1 h."><img src="37-transito_fundamentos_files/figure-html/fig-tf-clark-ejemplo-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:70.0%" alt="Las barras del hidrograma trasladado forman un trapecio de 6 horas con pico de 20.1; la curva del hidrograma unitario de Clark sube más despacio, tiene pico de 11.6 en la hora 6 y una cola larga que baja hasta la hora 25"></a>
