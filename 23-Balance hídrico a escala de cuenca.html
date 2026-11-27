@@ -643,13 +643,23 @@ window.Quarto = {
   <li><a href="#planificación" id="toc-planificación" class="nav-link" data-scroll-target="#planificación"><span class="header-section-number">23.1.2</span> Planificación</a></li>
   </ul></li>
   <li><a href="#sec-bal-etr" id="toc-sec-bal-etr" class="nav-link" data-scroll-target="#sec-bal-etr"><span class="header-section-number">23.2</span> La evapotranspiración real en el balance</a></li>
-  <li><a href="#sec-bal-anual" id="toc-sec-bal-anual" class="nav-link" data-scroll-target="#sec-bal-anual"><span class="header-section-number">23.3</span> Balance anual con zonas de vida</a></li>
+  <li><a href="#sec-bal-anual" id="toc-sec-bal-anual" class="nav-link" data-scroll-target="#sec-bal-anual"><span class="header-section-number">23.3</span> Balance anual con zonas de vida</a>
+  <ul class="collapse">
+  <li><a href="#biotemperatura-de-una-cuenca" id="toc-biotemperatura-de-una-cuenca" class="nav-link" data-scroll-target="#biotemperatura-de-una-cuenca"><span class="header-section-number">23.3.1</span> Biotemperatura de una cuenca</a></li>
+  </ul></li>
   <li><a href="#sec-bal-mensual" id="toc-sec-bal-mensual" class="nav-link" data-scroll-target="#sec-bal-mensual"><span class="header-section-number">23.4</span> Balance mensual con almacenamiento en el suelo</a>
   <ul class="collapse">
   <li><a href="#cálculo-mes-a-mes" id="toc-cálculo-mes-a-mes" class="nav-link" data-scroll-target="#cálculo-mes-a-mes"><span class="header-section-number">23.4.1</span> Cálculo mes a mes</a></li>
   </ul></li>
-  <li><a href="#ejercicios-propuestos" id="toc-ejercicios-propuestos" class="nav-link" data-scroll-target="#ejercicios-propuestos"><span class="header-section-number">23.5</span> Ejercicios propuestos</a></li>
-  <li><a href="#lecturas-recomendadas" id="toc-lecturas-recomendadas" class="nav-link" data-scroll-target="#lecturas-recomendadas"><span class="header-section-number">23.6</span> Lecturas recomendadas</a></li>
+  <li><a href="#sec-bal-sin-medicion" id="toc-sec-bal-sin-medicion" class="nav-link" data-scroll-target="#sec-bal-sin-medicion"><span class="header-section-number">23.5</span> Caudales medios en cuencas sin medición</a>
+  <ul class="collapse">
+  <li><a href="#métodos-basados-en-procesos" id="toc-métodos-basados-en-procesos" class="nav-link" data-scroll-target="#métodos-basados-en-procesos"><span class="header-section-number">23.5.1</span> Métodos basados en procesos</a></li>
+  <li><a href="#métodos-estadísticos" id="toc-métodos-estadísticos" class="nav-link" data-scroll-target="#métodos-estadísticos"><span class="header-section-number">23.5.2</span> Métodos estadísticos</a></li>
+  <li><a href="#método-de-área-y-precipitación" id="toc-método-de-área-y-precipitación" class="nav-link" data-scroll-target="#método-de-área-y-precipitación"><span class="header-section-number">23.5.3</span> Método de área y precipitación</a></li>
+  <li><a href="#regionalización" id="toc-regionalización" class="nav-link" data-scroll-target="#regionalización"><span class="header-section-number">23.5.4</span> Regionalización</a></li>
+  </ul></li>
+  <li><a href="#ejercicios-propuestos" id="toc-ejercicios-propuestos" class="nav-link" data-scroll-target="#ejercicios-propuestos"><span class="header-section-number">23.6</span> Ejercicios propuestos</a></li>
+  <li><a href="#lecturas-recomendadas" id="toc-lecturas-recomendadas" class="nav-link" data-scroll-target="#lecturas-recomendadas"><span class="header-section-number">23.7</span> Lecturas recomendadas</a></li>
   </ul>
 </nav>
     </div>
@@ -758,7 +768,7 @@ Cuadro&nbsp;23.1: Formas de obtener la evapotranspiración real.
 </section>
 <section id="sec-bal-anual" class="level2" data-number="23.3">
 <h2 data-number="23.3" class="anchored" data-anchor-id="sec-bal-anual"><span class="header-section-number">23.3</span> Balance anual con zonas de vida</h2>
-<p>Con valores anuales, el método más usado en Costa Rica para estimar la <span class="math inline">\(ETR\)</span> de una cuenca combina la evapotranspiración potencial de <span class="citation" data-cites="Holdridge1967">Holdridge (1967)</span> con la función de reducción de <span class="citation" data-cites="RodriguezSaborio1983">Rodríguez y Saborío (1983)</span>, que se explicaron en la <a href="19-Evapotranspiración.html#sec-et-holdridge" class="quarto-xref"><span>Sección 19.4.5</span></a>. La <span class="math inline">\(ETP\)</span> anual se obtiene de la biotemperatura con la <a href="19-Evapotranspiración.html#eq-et-holdridge" class="quarto-xref">Ecuación&nbsp;<span>19.14</span></a>, la relación de evapotranspiración potencial <span class="math inline">\(RE = ETP/P\)</span> con la <a href="19-Evapotranspiración.html#eq-et-re" class="quarto-xref">Ecuación&nbsp;<span>19.15</span></a>, y la fracción <span class="math inline">\(F = ETR/ETP\)</span> con la <a href="19-Evapotranspiración.html#eq-et-rodriguez-saborio" class="quarto-xref">Ecuación&nbsp;<span>19.16</span></a> (<a href="#fig-RS" class="quarto-xref">Figura&nbsp;<span>23.1</span></a>).</p>
+<p>Con valores anuales, el método más usado en Costa Rica para estimar la <span class="math inline">\(ETR\)</span> de una cuenca combina la evapotranspiración potencial de <span class="citation" data-cites="Holdridge1967">Holdridge (1967)</span> con la función de reducción de <span class="citation" data-cites="RodriguezSaborio1983">Rodríguez y Saborío (1983)</span>, que se explicaron en la <a href="19-Evapotranspiración.html#sec-et-holdridge" class="quarto-xref"><span>Sección 19.4.5</span></a>. La <span class="math inline">\(ETP\)</span> anual se obtiene de la biotemperatura con la <a href="19-Evapotranspiración.html#eq-et-holdridge" class="quarto-xref">Ecuación&nbsp;<span>19.16</span></a>, la relación de evapotranspiración potencial <span class="math inline">\(RE = ETP/P\)</span> con la <a href="19-Evapotranspiración.html#eq-et-re" class="quarto-xref">Ecuación&nbsp;<span>19.17</span></a>, y la fracción <span class="math inline">\(F = ETR/ETP\)</span> con la <a href="19-Evapotranspiración.html#eq-et-rodriguez-saborio" class="quarto-xref">Ecuación&nbsp;<span>19.18</span></a> (<a href="#fig-RS" class="quarto-xref">Figura&nbsp;<span>23.1</span></a>).</p>
 <div class="cell fig-border" data-layout-align="center">
 <div class="cell-output-display">
 <div id="fig-RS" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Gráfico original de la función F contra RE; una curva sube hasta 0.93 cerca de RE igual a 0.36 y luego sigue la recta F = 1.12 − 0.44 RE hasta RE igual a 1.5" data-fig-align="center">
@@ -777,8 +787,62 @@ Figura&nbsp;23.1: Función F(RE) de Rodríguez y Saborío. Fuente: <span class="
 <p><span id="eq-bal-holdridge"><span class="math display">\[
 R = P - F(RE)\,ETP = P - F(RE)\; 58.93\,T_b
 \tag{23.2}\]</span></span></p>
-<p>donde <span class="math inline">\(R\)</span> es la escorrentía media anual (mm/año), <span class="math inline">\(P\)</span> es la precipitación media anual (mm/año), <span class="math inline">\(F(RE)\)</span> es la fracción de la <a href="19-Evapotranspiración.html#eq-et-rodriguez-saborio" class="quarto-xref">Ecuación&nbsp;<span>19.16</span></a> (adimensional) y <span class="math inline">\(T_b\)</span> es la biotemperatura media anual (°C).</p>
+<p>donde <span class="math inline">\(R\)</span> es la escorrentía media anual (mm/año), <span class="math inline">\(P\)</span> es la precipitación media anual (mm/año), <span class="math inline">\(F(RE)\)</span> es la fracción de la <a href="19-Evapotranspiración.html#eq-et-rodriguez-saborio" class="quarto-xref">Ecuación&nbsp;<span>19.18</span></a> (adimensional) y <span class="math inline">\(T_b\)</span> es la biotemperatura media anual (°C).</p>
 <p>La <a href="#eq-bal-holdridge" class="quarto-xref">Ecuación&nbsp;<span>23.2</span></a> solo necesita la lluvia y la temperatura medias, y por eso es útil en cuencas sin estación hidrométrica. Tiene dos límites. Vale para promedios de varios años, no para un año en particular ni para meses. Y la función se ajustó con cuencas de Costa Rica para <span class="math inline">\(0.0625 &lt; RE &lt; 1.5\)</span>, de modo que fuera de ese intervalo o en otras regiones debe usarse con cautela. El ejemplo de la sección siguiente la compara con el caudal medido.</p>
+<section id="biotemperatura-de-una-cuenca" class="level3" data-number="23.3.1">
+<h3 data-number="23.3.1" class="anchored" data-anchor-id="biotemperatura-de-una-cuenca"><span class="header-section-number">23.3.1</span> Biotemperatura de una cuenca</h3>
+<p>La <a href="#eq-bal-holdridge" class="quarto-xref">Ecuación&nbsp;<span>23.2</span></a> pide la biotemperatura media de toda la cuenca, no la de una estación. Hay dos formas de obtenerla:</p>
+<ul>
+<li><strong>Isotermas.</strong> Con las temperaturas medias anuales de las estaciones se trazan isotermas, y la temperatura media de la cuenca se calcula como en el método de isoyetas (<a href="07-Precip.html#sec-precip-isoyetas" class="quarto-xref"><span>Sección 7.5.3</span></a>): el área entre cada par de isotermas por su temperatura media, dividido entre el área total.</li>
+<li><strong>Temperatura contra elevación y curva hipsométrica.</strong> En una región con pocas estaciones, la temperatura media anual se relaciona bien con la elevación. Se ajusta una recta <span class="math inline">\(T = T_0 - \Gamma\,H\)</span> con las estaciones de la zona, donde <span class="math inline">\(T_0\)</span> es la temperatura que da la recta al nivel del mar (°C), <span class="math inline">\(\Gamma\)</span> es el gradiente térmico (°C/m) y <span class="math inline">\(H\)</span> la elevación (m). Con la curva hipsométrica de la cuenca (<a href="04-Cuenca.html#sec-cuenca-hipsometrica" class="quarto-xref"><span>Sección 4.6.3</span></a>) se obtiene el área de cada franja de elevación, se calcula la temperatura en la elevación media de cada franja y se promedia ponderando por área.</li>
+</ul>
+<p>En casi todo Costa Rica las temperaturas medias mensuales están entre 0 y 30 °C, de modo que la biotemperatura es igual a la temperatura media anual. Solo en los meses más cálidos de las zonas bajas de Guanacaste o en las cumbres más altas habría que aplicar el recorte de la definición.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Ejemplo: escorrentía media anual de una cuenca sin estación">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Ejemplo: escorrentía media anual de una cuenca sin estación
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Una cuenca de 60 km² no tiene estación hidrométrica. Su curva hipsométrica da las áreas por franja de elevación del cuadro siguiente. Con las estaciones de la zona se ajustó la recta <span class="math inline">\(T = 27.0 - 0.0055\,H\)</span>, y las isoyetas dan una precipitación media anual de 2600 mm. Los datos son hipotéticos y la recta es ilustrativa, no regional. Estime la ETR y la escorrentía media anual con el método de Holdridge y la función de Rodríguez y Saborío, y el caudal medio.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Franja (m)</th>
+<th style="text-align: center;">200–600</th>
+<th style="text-align: center;">600–1000</th>
+<th style="text-align: center;">1000–1400</th>
+<th style="text-align: center;">1400–1800</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Área (km²)</td>
+<td style="text-align: center;">20</td>
+<td style="text-align: center;">18</td>
+<td style="text-align: center;">14</td>
+<td style="text-align: center;">8</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Solución:</strong></p>
+<ol type="1">
+<li><strong>Temperatura de cada franja.</strong> En la elevación media de cada franja: <span class="math inline">\(T_{400} = 27.0 - 0.0055 \times 400 = 24.8\)</span> °C, <span class="math inline">\(T_{800} = 22.6\)</span> °C, <span class="math inline">\(T_{1200} = 20.4\)</span> °C y <span class="math inline">\(T_{1600} = 18.2\)</span> °C. Todas están entre 0 y 30 °C, así que la biotemperatura es igual a la temperatura.</li>
+<li><strong>Biotemperatura de la cuenca.</strong> Ponderada por área: <span class="math inline">\(T_b = \frac{20 \times 24.8 + 18 \times 22.6 + 14 \times 20.4 + 8 \times 18.2}{60} = \frac{1334.0}{60} = 22.23\)</span> °C.</li>
+<li><strong>ETP.</strong> Con la <a href="19-Evapotranspiración.html#eq-et-holdridge" class="quarto-xref">Ecuación&nbsp;<span>19.16</span></a>, <span class="math inline">\(ETP = 58.93 \times 22.23 = 1310\)</span> mm.</li>
+<li><strong>Relación de evapotranspiración potencial.</strong> Con la <a href="19-Evapotranspiración.html#eq-et-re" class="quarto-xref">Ecuación&nbsp;<span>19.17</span></a>, <span class="math inline">\(RE = \frac{1310}{2600} = 0.504\)</span>. Como <span class="math inline">\(0.45 \le RE &lt; 1.50\)</span>, se usa el tramo recto de la <a href="19-Evapotranspiración.html#eq-et-rodriguez-saborio" class="quarto-xref">Ecuación&nbsp;<span>19.18</span></a>.</li>
+<li><strong>Fracción F.</strong> <span class="math inline">\(F = 1.12 - 0.44 \times 0.504 = 0.898\)</span>.</li>
+<li><strong>ETR.</strong> <span class="math inline">\(ETR = F \times ETP = 0.898 \times 1310 = 1177\)</span> mm.</li>
+<li><strong>Escorrentía.</strong> Con la <a href="#eq-bal-holdridge" class="quarto-xref">Ecuación&nbsp;<span>23.2</span></a>, <span class="math inline">\(R = 2600 - 1177 = 1423\)</span> mm.</li>
+<li><strong>Caudal medio.</strong> <span class="math inline">\(\bar{Q} = \frac{1.423 \times 60 \times 10^6}{31\,536\,000} = 2.71\)</span> m³/s.</li>
+</ol>
+<p>De los 2600 mm que llueven, unos 1180 mm vuelven a la atmósfera y 1420 mm salen por el río o recargan el acuífero. El resultado es un promedio de largo plazo: no dice nada del caudal de la época seca ni de un año en particular.</p>
+</div>
+</div>
+</section>
 </section>
 <section id="sec-bal-mensual" class="level2" data-number="23.4">
 <h2 data-number="23.4" class="anchored" data-anchor-id="sec-bal-mensual"><span class="header-section-number">23.4</span> Balance mensual con almacenamiento en el suelo</h2>
@@ -825,8 +889,8 @@ Cuidado
 <div id="fig-diagrama" class="cell-output-display quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-diagrama-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div id="htmlwidget-27796203161b8102db4b" style="width:100%;height:820px;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-27796203161b8102db4b">{"x":{"diagram":"\ndigraph balance {\n  graph [rankdir = TB, fontname = \"serif\", nodesep = 0.4, ranksep = 0.35]\n  node  [shape = box, style = \"rounded,filled\", fontname = \"serif\",\n         fontsize = 16, fillcolor = \"#E8F1F8\", color = \"#1C6BA0\"]\n  edge  [color = \"#1C6BA0\"]\n\n  n1 [label = \"Definir la cuenca, el área y el periodo\"]\n  n2 [label = \"Reunir datos: P, T, caudal medido\ny propiedades del suelo (Smax)\"]\n  n3 [label = \"Controlar la calidad de los datos\"]\n  n4 [label = \"Calcular la lluvia media de la cuenca\"]\n  n5 [label = \"Estimar la ETP mensual\"]\n  n6 [label = \"Precipitación efectiva Pef\"]\n  n7 [label = \"Balance mes a mes:\nETR, S, excedente y déficit\"]\n  n8 [label = \"Convertir el caudal medido\na lámina R (mm/mes)\"]\n  n9 [label = \"Comparar el excedente con R\ny revisar los controles\"]\n  n10 [label = \"Revisar datos, Smax\ny pérdidas\", fillcolor = \"#FBE9DF\", color = \"#D55E00\"]\n  n11 [label = \"Cuadros, gráficos y diagnóstico\"]\n\n  n1 -> n2 -> n3 -> n4 -> n5 -> n6 -> n7 -> n9 -> n11\n  n2 -> n8 -> n9\n  n9 -> n10 [label = \" no cierra\", fontname = \"serif\", fontsize = 14]\n  n10 -> n7\n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-1844428a15fa42dde638" style="width:100%;height:820px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-1844428a15fa42dde638">{"x":{"diagram":"\ndigraph balance {\n  graph [rankdir = TB, fontname = \"serif\", nodesep = 0.4, ranksep = 0.35]\n  node  [shape = box, style = \"rounded,filled\", fontname = \"serif\",\n         fontsize = 16, fillcolor = \"#E8F1F8\", color = \"#1C6BA0\"]\n  edge  [color = \"#1C6BA0\"]\n\n  n1 [label = \"Definir la cuenca, el área y el periodo\"]\n  n2 [label = \"Reunir datos: P, T, caudal medido\ny propiedades del suelo (Smax)\"]\n  n3 [label = \"Controlar la calidad de los datos\"]\n  n4 [label = \"Calcular la lluvia media de la cuenca\"]\n  n5 [label = \"Estimar la ETP mensual\"]\n  n6 [label = \"Precipitación efectiva Pef\"]\n  n7 [label = \"Balance mes a mes:\nETR, S, excedente y déficit\"]\n  n8 [label = \"Convertir el caudal medido\na lámina R (mm/mes)\"]\n  n9 [label = \"Comparar el excedente con R\ny revisar los controles\"]\n  n10 [label = \"Revisar datos, Smax\ny pérdidas\", fillcolor = \"#FBE9DF\", color = \"#D55E00\"]\n  n11 [label = \"Cuadros, gráficos y diagnóstico\"]\n\n  n1 -> n2 -> n3 -> n4 -> n5 -> n6 -> n7 -> n9 -> n11\n  n2 -> n8 -> n9\n  n9 -> n10 [label = \" no cierra\", fontname = \"serif\", fontsize = 14]\n  n10 -> n7\n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-diagrama-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figura&nbsp;23.2: Flujo de trabajo del balance hídrico mensual.
@@ -952,9 +1016,9 @@ Cuadro&nbsp;23.2: Datos medios mensuales de la cuenca.
 </div>
 <p><strong>Solución:</strong></p>
 <ol type="1">
-<li><p>ETP de Thornthwaite (<a href="19-Evapotranspiración.html#sec-et-thornthwaite" class="quarto-xref"><span>Sección 19.4.1</span></a>). El índice de calor de enero es <span class="math inline">\(i = (26.4/5)^{1.514} = 12.418\)</span>. La suma de los doce meses es <span class="math inline">\(I = 141.316\)</span> y el exponente, con la <a href="19-Evapotranspiración.html#eq-et-thorn-a" class="quarto-xref">Ecuación&nbsp;<span>19.4</span></a>, es <span class="math inline">\(a = 3.390\)</span>.</p></li>
-<li><p>ETP sin corregir. En enero, <span class="math inline">\(T = 26.4\)</span> °C es menor que 26.5 °C y se usa la <a href="19-Evapotranspiración.html#eq-et-thorn" class="quarto-xref">Ecuación&nbsp;<span>19.5</span></a>: <span class="math inline">\(e = 16\,(10 \times 26.4/141.316)^{3.390} = 133.11\)</span> mm. En febrero y marzo la temperatura es de 26.5 °C o más y se usa la ecuación de <span class="citation" data-cites="willmott1985climatology">Willmott, Rowe, y Mintz (1985)</span>. Para febrero: <span class="math inline">\(e = -415.85 + 32.24(26.8) - 0.43(26.8)^2 = 139.34\)</span> mm.</p></li>
-<li><p>Corrección por duración del día. Con la <a href="19-Evapotranspiración.html#eq-et-thorn-k" class="quarto-xref">Ecuación&nbsp;<span>19.6</span></a>, a 10° N el día dura 11.48 h a mitad de enero y 11.68 h a mitad de febrero. Entonces <span class="math inline">\(K_{ene} = (11.48/12)(31/30) = 0.988\)</span> y <span class="math inline">\(K_{feb} = (11.68/12)(28/30) = 0.909\)</span>, de modo que <span class="math inline">\(ETP_{ene} = 0.988 \times 133.11 = 131.55\)</span> mm y <span class="math inline">\(ETP_{feb} = 0.909 \times 139.34 = 126.63\)</span> mm. La ETP anual es de 1436 mm (<a href="#tbl-BHe1" class="quarto-xref">Cuadro&nbsp;<span>23.3</span></a>).</p></li>
+<li><p>ETP de Thornthwaite (<a href="19-Evapotranspiración.html#sec-et-thornthwaite" class="quarto-xref"><span>Sección 19.4.1</span></a>). El índice de calor de enero es <span class="math inline">\(i = (26.4/5)^{1.514} = 12.418\)</span>. La suma de los doce meses es <span class="math inline">\(I = 141.316\)</span> y el exponente, con la <a href="19-Evapotranspiración.html#eq-et-thorn-a" class="quarto-xref">Ecuación&nbsp;<span>19.6</span></a>, es <span class="math inline">\(a = 3.390\)</span>.</p></li>
+<li><p>ETP sin corregir. En enero, <span class="math inline">\(T = 26.4\)</span> °C es menor que 26.5 °C y se usa la <a href="19-Evapotranspiración.html#eq-et-thorn" class="quarto-xref">Ecuación&nbsp;<span>19.7</span></a>: <span class="math inline">\(e = 16\,(10 \times 26.4/141.316)^{3.390} = 133.11\)</span> mm. En febrero y marzo la temperatura es de 26.5 °C o más y se usa la ecuación de <span class="citation" data-cites="willmott1985climatology">Willmott, Rowe, y Mintz (1985)</span>. Para febrero: <span class="math inline">\(e = -415.85 + 32.24(26.8) - 0.43(26.8)^2 = 139.34\)</span> mm.</p></li>
+<li><p>Corrección por duración del día. Con la <a href="19-Evapotranspiración.html#eq-et-thorn-k" class="quarto-xref">Ecuación&nbsp;<span>19.8</span></a>, a 10° N el día dura 11.48 h a mitad de enero y 11.68 h a mitad de febrero. Entonces <span class="math inline">\(K_{ene} = (11.48/12)(31/30) = 0.988\)</span> y <span class="math inline">\(K_{feb} = (11.68/12)(28/30) = 0.909\)</span>, de modo que <span class="math inline">\(ETP_{ene} = 0.988 \times 133.11 = 131.55\)</span> mm y <span class="math inline">\(ETP_{feb} = 0.909 \times 139.34 = 126.63\)</span> mm. La ETP anual es de 1436 mm (<a href="#tbl-BHe1" class="quarto-xref">Cuadro&nbsp;<span>23.3</span></a>).</p></li>
 <li><p>Precipitación efectiva y escorrentía medida. En enero, <span class="math inline">\(P_{ef} = 0.85 \times 20.1 = 17.09\)</span> mm. El caudal se convierte a lámina con el área y la duración del mes: <span class="math inline">\(R_{ene} = 0.0217 \times 31 \times 86\,400 / (20 \times 10^6) \times 1000 = 2.91\)</span> mm.</p></li>
 <li><p>Almacenamiento inicial. Noviembre es el último mes con excedente (se verifica al terminar), así que el suelo está lleno al final de noviembre y el cálculo empieza en diciembre con <span class="math inline">\(S = 100\)</span> mm.</p></li>
 <li><p>Diciembre: <span class="math inline">\(W = 100 + 80.83 = 180.83\)</span> mm. Como <span class="math inline">\(W &gt; ETP = 119.48\)</span> mm, <span class="math inline">\(ETR = 119.48\)</span> mm y <span class="math inline">\(S = 180.83 - 119.48 = 61.35\)</span> mm, sin excedente ni déficit.</p></li>
@@ -1482,8 +1546,68 @@ Figura&nbsp;23.3: Balance mensual del suelo y escorrentía medida.
 </div>
 </section>
 </section>
-<section id="ejercicios-propuestos" class="level2" data-number="23.5">
-<h2 data-number="23.5" class="anchored" data-anchor-id="ejercicios-propuestos"><span class="header-section-number">23.5</span> Ejercicios propuestos</h2>
+<section id="sec-bal-sin-medicion" class="level2" data-number="23.5">
+<h2 data-number="23.5" class="anchored" data-anchor-id="sec-bal-sin-medicion"><span class="header-section-number">23.5</span> Caudales medios en cuencas sin medición</h2>
+<p>Muchas veces hay que estimar el caudal medio anual o mensual en un sitio que no tiene estación: una toma de agua, una pequeña central o una concesión en una quebrada sin aforos. Los métodos se agrupan en dos familias, según la información que usan, pero casi todos combinan datos meteorológicos de la cuenca sin registro con caudales medidos en cuencas vecinas o en otro sitio del mismo río.</p>
+<section id="métodos-basados-en-procesos" class="level3" data-number="23.5.1">
+<h3 data-number="23.5.1" class="anchored" data-anchor-id="métodos-basados-en-procesos"><span class="header-section-number">23.5.1</span> Métodos basados en procesos</h3>
+<p>Representan los procesos físicos de la cuenca con la conservación de la masa y, en los modelos más completos, de la energía y la cantidad de movimiento. El balance mensual de la <a href="#sec-bal-mensual" class="quarto-xref"><span>Sección 23.4</span></a> es el ejemplo más simple: con la lluvia y la ETP de la cuenca da el excedente de cada mes, que es una estimación de la escorrentía. Los modelos conceptuales y los de base física del capítulo de modelos de lluvia y escorrentía siguen la misma idea con más detalle. Sus parámetros no se pueden calibrar en la cuenca sin registro, así que se toman de cuencas vecinas con características parecidas de suelo, cobertura, relieve y clima.</p>
+<p>Los métodos de proxy usan una variable relacionada con el caudal cuando no hay caudales: lecturas de una regla limnimétrica sin curva de descarga, aforos esporádicos que se correlacionan con una estación vecina, marcas de crecidas o el tipo de vegetación de ribera. Dan una estimación gruesa, útil para comprobar el resultado de otro método.</p>
+</section>
+<section id="métodos-estadísticos" class="level3" data-number="23.5.2">
+<h3 data-number="23.5.2" class="anchored" data-anchor-id="métodos-estadísticos"><span class="header-section-number">23.5.2</span> Métodos estadísticos</h3>
+<p>Suponen que el caudal medio es una variable aleatoria que puede estimarse con relaciones contra otras variables de la cuenca. Hay tres tipos.</p>
+<p><strong>Regresión.</strong> Se relaciona el caudal medio de varias cuencas aforadas de la región con sus características, como el área, la lluvia media anual o la elevación media, por medio de una regresión lineal múltiple:</p>
+<p><span id="eq-bal-regresion"><span class="math display">\[
+\hat{y} = \beta_0 + \sum_{i=1}^{p} \beta_i\,x_i
+\tag{23.8}\]</span></span></p>
+<p>donde <span class="math inline">\(\hat{y}\)</span> es la variable de caudal que se estima (por ejemplo, el caudal medio anual o su logaritmo), <span class="math inline">\(x_i\)</span> son las <span class="math inline">\(p\)</span> características de la cuenca que sirven de predictores y <span class="math inline">\(\beta_0, \ldots, \beta_p\)</span> son los coeficientes que se ajustan por mínimos cuadrados con las cuencas aforadas. Si la regresión es buena y las cuencas son de la misma región, se aplica a la cuenca sin medición con sus propias características. No debe usarse fuera del intervalo de valores de las cuencas con que se ajustó. La <a href="31-frecuencia_caudales.html#sec-frec-regresion" class="quarto-xref"><span>Sección 31.6</span></a> aplica la misma idea a la avenida índice.</p>
+<p><strong>Índice.</strong> Suponen que una propiedad de las cuencas escala de forma uniforme con un índice. La curva de Budyko (<a href="45-ecohidrologia_uso_suelo.html#sec-ecohid-budyko" class="quarto-xref"><span>Sección 45.4</span></a>) relaciona la fracción de la lluvia que se evapotranspira con el índice de aridez <span class="math inline">\(ETP/P\)</span>; el método de Holdridge con la función de Rodríguez y Saborío (<a href="#sec-bal-anual" class="quarto-xref"><span>Sección 23.3</span></a>) hace lo mismo con <span class="math inline">\(RE\)</span>. Otro método de índice es el de área y precipitación, que se explica a continuación.</p>
+<p><strong>Geoestadísticos.</strong> Interpolan en el espacio la escorrentía media de las cuencas aforadas, por ejemplo con kriging, y producen un mapa de escorrentía del que se lee el valor de la cuenca sin registro.</p>
+</section>
+<section id="método-de-área-y-precipitación" class="level3" data-number="23.5.3">
+<h3 data-number="23.5.3" class="anchored" data-anchor-id="método-de-área-y-precipitación"><span class="header-section-number">23.5.3</span> Método de área y precipitación</h3>
+<p>Traslada el caudal de una estación de referencia a un sitio sin medición en una cuenca vecina con clima y morfología parecidos. Supone que la relación entre caudal, precipitación y área es la misma en las dos cuencas y no cambia en el tiempo, es decir, que las dos producen la misma escorrentía por unidad de lluvia y de área:</p>
+<p><span id="eq-bal-area-precipitacion"><span class="math display">\[
+Q_x = Q_{est}\,\frac{P_x\,A_x}{P_{est}\,A_{est}}
+\tag{23.9}\]</span></span></p>
+<p>donde <span class="math inline">\(Q_x\)</span> y <span class="math inline">\(Q_{est}\)</span> son los caudales medios del sitio de interés y de la estación (m³/s), <span class="math inline">\(P_x\)</span> y <span class="math inline">\(P_{est}\)</span> las precipitaciones medias de sus cuencas para el mismo periodo (mm) y <span class="math inline">\(A_x\)</span> y <span class="math inline">\(A_{est}\)</span> sus áreas de drenaje (km²). Se aplica a caudales medios diarios o mensuales y a promedios anuales.</p>
+<p>Es difícil que dos cuencas tengan exactamente el mismo clima. Si la evapotranspiración es distinta, la misma lluvia no produce la misma escorrentía, y conviene corregir con un factor que tome en cuenta la diferencia:</p>
+<p><span id="eq-bal-area-precipitacion-f"><span class="math display">\[
+Q_x = f\,Q_{est}\,\frac{P_x\,A_x}{P_{est}\,A_{est}}, \qquad
+f = \frac{1 - \dfrac{ETR_x}{P_x}}{1 - \dfrac{ETR_{est}}{P_{est}}}
+\tag{23.10}\]</span></span></p>
+<p>donde <span class="math inline">\(ETR_x\)</span> y <span class="math inline">\(ETR_{est}\)</span> son las evapotranspiraciones reales del periodo en las dos cuencas (mm). El término <span class="math inline">\(1 - ETR/P\)</span> es la fracción de la lluvia que escurre, de modo que la <a href="#eq-bal-area-precipitacion-f" class="quarto-xref">Ecuación&nbsp;<span>23.10</span></a> equivale a trasladar el caudal con el cociente de escorrentías: <span class="math inline">\(Q_x = Q_{est}\,\frac{(P_x - ETR_x)\,A_x}{(P_{est} - ETR_{est})\,A_{est}}\)</span>.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Ejemplo: caudal medio de una toma por área y precipitación">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Ejemplo: caudal medio de una toma por área y precipitación
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Una estación de referencia con una cuenca de 85 km², lluvia media de 2400 mm y biotemperatura de 23.5 °C tiene un caudal medio de 3.2 m³/s. Se quiere el caudal medio en una toma con 40 km² de cuenca, en la parte alta del río vecino, con 2900 mm de lluvia y biotemperatura de 21.0 °C (datos hipotéticos). Estime el caudal sin corrección y con el factor de evapotranspiración, con la ETR de Holdridge y Rodríguez y Saborío.</p>
+<p><strong>Solución:</strong></p>
+<ol type="1">
+<li><strong>Sin corrección.</strong> Con la <a href="#eq-bal-area-precipitacion" class="quarto-xref">Ecuación&nbsp;<span>23.9</span></a>, <span class="math inline">\(Q_x = 3.2 \times \frac{2900 \times 40}{2400 \times 85} = 3.2 \times 0.569 = 1.82\)</span> m³/s.</li>
+<li><strong>ETR de la estación.</strong> <span class="math inline">\(ETP = 58.93 \times 23.5 = 1385\)</span> mm, <span class="math inline">\(RE = \frac{1385}{2400} = 0.577\)</span>, tramo recto: <span class="math inline">\(F = 1.12 - 0.44 \times 0.577 = 0.866\)</span> y <span class="math inline">\(ETR_{est} = 0.866 \times 1385 = 1199\)</span> mm.</li>
+<li><strong>ETR de la toma.</strong> <span class="math inline">\(ETP = 58.93 \times 21.0 = 1238\)</span> mm y <span class="math inline">\(RE = \frac{1238}{2900} = 0.427\)</span>, menor que 0.45: se usa la curva, <span class="math inline">\(F = 7.46(0.427)^3 - 10.46(0.427)^2 + 4.63(0.427) + 0.273 = 0.924\)</span>, y <span class="math inline">\(ETR_x = 0.924 \times 1238 = 1143\)</span> mm.</li>
+<li><strong>Factor.</strong> <span class="math inline">\(f = \frac{1 - 1143/2900}{1 - 1199/2400} = \frac{0.606}{0.500} = 1.21\)</span>.</li>
+<li><strong>Con corrección.</strong> <span class="math inline">\(Q_x = 1.21 \times 1.82 = 2.20\)</span> m³/s.</li>
+</ol>
+<p>La toma está en una zona más lluviosa y más fría: escurre una fracción mayor de la lluvia, y el método sin corrección subestima el caudal en un 17 %.</p>
+</div>
+</div>
+</section>
+<section id="regionalización" class="level3" data-number="23.5.4">
+<h3 data-number="23.5.4" class="anchored" data-anchor-id="regionalización"><span class="header-section-number">23.5.4</span> Regionalización</h3>
+<p>Todos estos métodos usan información de cuencas que sean hidrológicamente parecidas. Formalmente, se definen regiones de cuencas aforadas con índices como el caudal medio anual o la precipitación media anual y se comprueba con métodos estadísticos que sean razonablemente homogéneas. La suposición es que, dentro de una región homogénea, las curvas de duración, la variación estacional y los caudales extremos escalan linealmente con una variable índice, como el caudal medio. La <a href="31-frecuencia_caudales.html#sec-frec-avenida-indice" class="quarto-xref"><span>Sección 31.5</span></a> aplica esta idea a las crecidas y la <a href="26-caudales_minimos_sequias.html#sec-min-duracion-sitio" class="quarto-xref"><span>Sección 26.1.3</span></a> a la curva de duración. Las cuencas reguladas no deben usarse para regionalizar.</p>
+</section>
+</section>
+<section id="ejercicios-propuestos" class="level2" data-number="23.6">
+<h2 data-number="23.6" class="anchored" data-anchor-id="ejercicios-propuestos"><span class="header-section-number">23.6</span> Ejercicios propuestos</h2>
 <ol type="1">
 <li>Una cuenca de 85 km² tiene una precipitación media anual de 2400 mm y una temperatura media de 22 °C. Estime la escorrentía media anual con la <a href="#eq-bal-holdridge" class="quarto-xref">Ecuación&nbsp;<span>23.2</span></a> y el caudal medio en m³/s. Respuesta: <span class="math inline">\(RE = 0.540\)</span>, <span class="math inline">\(F = 0.882\)</span>, <span class="math inline">\(R = 1256\)</span> mm y <span class="math inline">\(Q = 3.4\)</span> m³/s.</li>
 <li>Con los datos del ejemplo, repita el balance mensual suponiendo que no hay pérdidas (<span class="math inline">\(P_{ef} = P\)</span>). ¿Cuánto cambian la ETR y el excedente anuales? Respuesta: la ETR sube a 1280 mm y el excedente a 1982 mm.</li>
@@ -1492,8 +1616,8 @@ Figura&nbsp;23.3: Balance mensual del suelo y escorrentía medida.
 <li>Escriba una función en R que reciba <span class="math inline">\(P_{ef}\)</span>, <span class="math inline">\(ETP\)</span> y <span class="math inline">\(S_{\max}\)</span>, busque el mes que sigue al último mes con excedente y devuelva el balance completo.</li>
 </ol>
 </section>
-<section id="lecturas-recomendadas" class="level2" data-number="23.6">
-<h2 data-number="23.6" class="anchored" data-anchor-id="lecturas-recomendadas"><span class="header-section-number">23.6</span> Lecturas recomendadas</h2>
+<section id="lecturas-recomendadas" class="level2" data-number="23.7">
+<h2 data-number="23.7" class="anchored" data-anchor-id="lecturas-recomendadas"><span class="header-section-number">23.7</span> Lecturas recomendadas</h2>
 <ul>
 <li><span class="citation" data-cites="thornthwaite1955water">Thornthwaite y Mather (1955)</span>: el trabajo original del balance hídrico climático, con el procedimiento de cálculo mensual.</li>
 <li><span class="citation" data-cites="RodriguezSaborio1983">Rodríguez y Saborío (1983)</span>: el estudio de balance hídrico de Costa Rica en el que se ajustó la función <span class="math inline">\(F(RE)\)</span>.</li>

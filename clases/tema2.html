@@ -113,7 +113,7 @@
     div.csl-indent {
       margin-left: 2em;
     }  </style>
-  <link rel="stylesheet" href="tema2_files/libs/revealjs/dist/theme/quarto-2bcdd771980810dab46e7af5e66b0e4c.css">
+  <link rel="stylesheet" href="tema2_files/libs/revealjs/dist/theme/quarto-7f87c356fc0c7143d16b054bfe6f516f.css">
   <link href="tema2_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="tema2_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="tema2_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -265,6 +265,11 @@
 <td style="text-align: left;"><a href="#/balance">Balance hídrico</a></td>
 <td style="text-align: center;"><a href="https://ems270900.github.io/hidrologia-aplicada/22-Principio%20de%20conservación%20de%20la%20masa.html">22</a>, <a href="https://ems270900.github.io/hidrologia-aplicada/23-Balance%20hídrico%20a%20escala%20de%20cuenca.html">23</a>, <a href="https://ems270900.github.io/hidrologia-aplicada/24-Balance%20hídrico%20del%20suelo.html">24</a>, <a href="https://ems270900.github.io/hidrologia-aplicada/45-ecohidrologia_uso_suelo.html">45</a></td>
 </tr>
+<tr class="odd">
+<td style="text-align: center;">2.7</td>
+<td style="text-align: left;"><a href="#/sin-medicion">Caudales medios en cuencas sin medición</a></td>
+<td style="text-align: center;"><a href="https://ems270900.github.io/hidrologia-aplicada/23-Balance%20hídrico%20a%20escala%20de%20cuenca.html">23</a></td>
+</tr>
 </tbody>
 </table>
 </section>
@@ -402,7 +407,7 @@
 <p><span class="math display">\[
 F_a = \frac{M_a}{M_o} \qquad\qquad P_{\text{aj}} = F_a \, P_o
 \]</span></p>
-<p><span class="math inline">\(M_a\)</span>, <span class="math inline">\(M_o\)</span>: pendientes del tramo correcto y del que se corrige.</p>
+<p><span class="math inline">\(M_a\)</span>, <span class="math inline">\(M_o\)</span>: pendientes del tramo correcto y del que se corrige; <span class="math inline">\(P_o\)</span>: lluvia original del tramo que se corrige; <span class="math inline">\(P_{\text{aj}}\)</span>: lluvia ajustada.</p>
 </section>
 <section id="pruebas-de-estabilidad" class="slide level2">
 <h2>Pruebas de estabilidad</h2>
@@ -415,6 +420,7 @@ s_p = \sqrt{\frac{(n_1 - 1)\,s_1^2 + (n_2 - 1)\,s_2^2}{n_1 + n_2 - 2}}
 F_c = \frac{s_{\text{mayor}}^2}{s_{\text{menor}}^2}
 \]</span></p>
 <ul>
+<li><span class="math inline">\(\bar{x}_1\)</span>, <span class="math inline">\(\bar{x}_2\)</span>, <span class="math inline">\(s_1\)</span>, <span class="math inline">\(s_2\)</span>, <span class="math inline">\(n_1\)</span>, <span class="math inline">\(n_2\)</span>: media, desviación estándar y número de años de cada tramo; <span class="math inline">\(s_p\)</span>: desviación estándar conjunta.</li>
 <li>Media: se compara <span class="math inline">\(|t_c|\)</span> con <span class="math inline">\(t_{0.975}\)</span> y <span class="math inline">\(n_1 + n_2 - 2\)</span> grados de libertad.</li>
 <li>Varianza: se compara <span class="math inline">\(F_c\)</span> con <span class="math inline">\(F_{0.95}\)</span>; en el numerador van los grados de libertad del tramo de varianza mayor.</li>
 <li>Basta con que una prueba rechace para corregir. Si ninguna rechaza, la serie se deja como está.</li>
@@ -531,7 +537,9 @@ P_x = \frac{N_x}{n} \sum_{i=1}^{n} \frac{P_i}{N_i}
 P_x = \frac{\sum P_i / d_i^{\,p}}{\sum 1 / d_i^{\,p}}
 \]</span></p>
 <ul>
-<li><span class="math inline">\(N\)</span>: normales (medias de largo plazo), anuales o del mismo mes.</li>
+<li><span class="math inline">\(P_x\)</span>: lluvia estimada en la estación X; <span class="math inline">\(P_i\)</span>: lluvia de la vecina <span class="math inline">\(i\)</span> ese mes; <span class="math inline">\(n\)</span>: número de vecinas.</li>
+<li><span class="math inline">\(N_x\)</span>, <span class="math inline">\(N_i\)</span>: normales (medias de largo plazo) de X y de cada vecina, anuales o del mismo mes.</li>
+<li><span class="math inline">\(d_i\)</span>: distancia de la vecina a X; <span class="math inline">\(p\)</span>: exponente, usualmente 2.</li>
 <li>La razón normal corrige que una vecina sea más lluviosa; el inverso de la distancia solo mira la cercanía.</li>
 <li>Las normales del mes representan mejor regímenes distintos.</li>
 </ul>
@@ -730,6 +738,7 @@ b_0 = \bar{y} - b_1\,\bar{x}
 t_c = \frac{r\,\sqrt{n - 2}}{\sqrt{1 - r^2}}
 \]</span></p>
 <ul>
+<li><span class="math inline">\(n\)</span>: número de pares del periodo común.</li>
 <li>Si <span class="math inline">\(|t_c|\)</span> supera el <span class="math inline">\(t\)</span> de la tabla con <span class="math inline">\(n - 2\)</span> grados de libertad y 95 %, la correlación es real.</li>
 <li><span class="math inline">\(r^2\)</span> dice qué fracción de la varianza de <span class="math inline">\(y\)</span> explica la recta.</li>
 </ul>
@@ -748,7 +757,7 @@ t_c = \frac{r\,\sqrt{n - 2}}{\sqrt{1 - r^2}}
 y_t = \hat{y}_t + \theta\,\sqrt{1 - r^2}\;s_y\,\varepsilon_t
 \]</span></p>
 <ul>
-<li><span class="math inline">\(\theta = 0\)</span> para rellenar; <span class="math inline">\(\theta = 1\)</span> para extender. <span class="math inline">\(\varepsilon_t\)</span>: número aleatorio normal estándar, distinto cada mes.</li>
+<li><span class="math inline">\(\hat{y}_t\)</span>: valor de la recta; <span class="math inline">\(y_t\)</span>: valor que se usa. <span class="math inline">\(\theta = 0\)</span> para rellenar; <span class="math inline">\(\theta = 1\)</span> para extender. <span class="math inline">\(\varepsilon_t\)</span>: número aleatorio normal estándar, distinto cada mes.</li>
 </ul>
 </div><div class="column" style="width:55%;">
 <div class="cell" data-layout-align="center">
@@ -782,6 +791,7 @@ b_j = r_j\,\frac{s_{j+1}}{s_j}
 <ul>
 <li>Se parte de la media del mes siguiente y se le suma una fracción del desvío del mes actual. Ejemplo ilustrativo: si octubre vino 5 m³/s sobre su media y <span class="math inline">\(b = 0.6\)</span>, noviembre se espera 3 m³/s sobre la suya.</li>
 <li>El último término agrega la variabilidad que la correlación no explica: <span class="math inline">\(Z = 0\)</span> para rellenar (valor esperado, en cadena si faltan varios meses); <span class="math inline">\(Z\)</span> normal estándar para generar series sintéticas.</li>
+<li><span class="math inline">\(Q_j\)</span>: caudal del mes <span class="math inline">\(j\)</span>; <span class="math inline">\(\bar{Q}_j\)</span>, <span class="math inline">\(s_j\)</span>: media y desviación estándar de los caudales del mes <span class="math inline">\(j\)</span>; <span class="math inline">\(r_j\)</span>: correlación entre los meses <span class="math inline">\(j\)</span> y <span class="math inline">\(j+1\)</span>.</li>
 <li>Se calculan del registro 36 parámetros: media, desviación y correlación con el mes siguiente, para cada mes. En ríos muy variables se aplica a <span class="math inline">\(\ln Q\)</span> para no obtener caudales negativos.</li>
 </ul>
 </section>
@@ -879,7 +889,7 @@ b_j = r_j\,\frac{s_{j+1}}{s_j}
 </div>
 </div><div class="column" style="width:42%;">
 <ul>
-<li>ZCIT, 5° a 10° N: más de 2000 mm al año. Costa Rica está en su borde norte.</li>
+<li>Zona de Convergencia Intertropical (ZCIT), 5° a 10° N: más de 2000 mm al año. Costa Rica está en su borde norte.</li>
 <li>Subtrópicos: el aire desciende y se seca.</li>
 <li>El relieve concentra la lluvia en barlovento: el Caribe llueve casi todo el año y el Pacífico Norte tiene cinco o seis meses secos.</li>
 </ul>
@@ -887,21 +897,71 @@ b_j = r_j\,\frac{s_{j+1}}{s_j}
 </section>
 <section id="lluvia-y-altitud" class="slide level2">
 <h2>Lluvia y altitud</h2>
+<div class="columns">
+<div class="column" style="width:48%;">
 <p><span class="math display">\[
 P = a + b\,H
 \]</span></p>
-<ul>
-<li>Se ajusta por regresión con estaciones de una región homogénea.</li>
-<li>No sirve de una vertiente a otra: a la misma altitud llueve mucho más en barlovento.</li>
-</ul>
+<div class="tabla-compacta">
+<table class="caption-top">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Símbolo</th>
+<th style="text-align: left;">Qué es</th>
+<th style="text-align: left;">Unidad</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><span class="math inline">\(P\)</span></td>
+<td style="text-align: left;">Lluvia anual (o mensual) de un sitio</td>
+<td style="text-align: left;">mm</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="math inline">\(H\)</span></td>
+<td style="text-align: left;">Altitud del sitio</td>
+<td style="text-align: left;">m</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><span class="math inline">\(b\)</span></td>
+<td style="text-align: left;">Gradiente pluviométrico: cuánto aumenta la lluvia por metro de altitud</td>
+<td style="text-align: left;">mm/m</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="math inline">\(a\)</span></td>
+<td style="text-align: left;">Intercepto: la lluvia que da la recta en <span class="math inline">\(H = 0\)</span></td>
+<td style="text-align: left;">mm</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><span class="nota"><span class="math inline">\(a\)</span> es solo un parámetro de ajuste: fuera del rango de altitudes de las estaciones la recta no vale.</span></p>
+</div><div class="column apretado" style="width:52%;">
+<p>Cómo se obtienen <span class="math inline">\(a\)</span> y <span class="math inline">\(b\)</span>:</p>
+<ol type="1">
+<li>Reunir estaciones de una misma vertiente y exposición, con normales de un mismo periodo.</li>
+<li>Anotar para cada una su altitud <span class="math inline">\(H_i\)</span> y su lluvia <span class="math inline">\(P_i\)</span>.</li>
+<li>Ajustar la recta por mínimos cuadrados: <span class="math display">\[
+b = \frac{\sum (H_i - \bar{H})(P_i - \bar{P})}{\sum (H_i - \bar{H})^2}, \qquad a = \bar{P} - b\,\bar{H}
+\]</span></li>
+<li>Probar que la correlación sea significativa (<span class="math inline">\(t_c\)</span>, como en la regresión de la clase 2.1).</li>
+<li>Estimar <span class="math inline">\(P\)</span> en sitios sin estación de la misma vertiente, dentro del rango de altitudes.</li>
+</ol>
+<p><span class="nota">No sirve de una vertiente a otra: a la misma altitud llueve mucho más en barlovento.</span></p>
+</div></div>
 </section>
-<section id="ejemplo-la-altitud-explica-la-lluvia-en-el-tárcoles" class="slide level2">
-<h2>Ejemplo: ¿la altitud explica la lluvia en el Tárcoles?</h2>
+<section id="ejemplo-altitud-y-lluvia-en-el-tárcoles" class="slide level2">
+<h2>Ejemplo: altitud y lluvia en el Tárcoles</h2>
 <div class="columns">
 <div class="column" style="width:42%;">
 <ul>
 <li>Diez estaciones del IMN en la cuenca del río Grande de Tárcoles, entre 437 y 1250 m.</li>
-<li>Normales anuales calculadas con los boletines de 2017 y 2018: lluvia del mes menos su anomalía <span class="citation" data-cites="imn2017boletin imn2018boletin">(<a href="#/referencias" role="doc-biblioref" onclick="">Instituto Meteorológico Nacional, 2017</a>, <a href="#/referencias" role="doc-biblioref" onclick="">2018</a>)</span>.</li>
+<li>Normales anuales calculadas con los boletines públicos de 2017 y 2018: lluvia del mes menos su anomalía.</li>
 <li>Pregunta: ¿se puede estimar la lluvia anual con la altitud, <span class="math inline">\(P = a + b\,H\)</span>?</li>
 </ul>
 <p><span class="nota">Normales preliminares y registros cortos: el ejemplo enseña el método, no da valores de diseño.</span></p>
@@ -973,6 +1033,7 @@ P = a + b\,H
 
 </div>
 </div>
+<p><span class="nota">Datos tomados de: boletines meteorológicos mensuales del IMN de 2017 y 2018 <span class="citation" data-cites="imn2017boletin imn2018boletin">(<a href="#/referencias" role="doc-biblioref" onclick="">Instituto Meteorológico Nacional, 2017</a>, <a href="#/referencias" role="doc-biblioref" onclick="">2018</a>)</span>.</span></p>
 </div></div>
 </section>
 <section id="solución-recta-y-prueba-de-la-correlación" class="slide level2">
@@ -997,21 +1058,19 @@ P = a + b\,H
 </div>
 </div>
 </div>
+<p><span class="nota">Datos tomados de: boletines del IMN de 2017 y 2018.</span></p>
 <p><a href="data:text/csv;base64,ZXN0YWNpb24sYWx0aXR1ZF9tLGVuZSxmZWIsbWFyLGFicixtYXksanVuLGp1bCxhZ28sc2VwLG9jdCxub3YsZGljLGFudWFsX21tCiJVbml2ZXJzaWRhZCBUw6ljbmljYSBOYWNpb25hbCAoQmFsc2EsIEF0ZW5hcykiLDQzNyw1LjcsNi4yLDI3LjYsOTAsMjg2LDI2MC4xLDIxNC40LDIzNy45LDMyNCwzMzUuNSwxMzMuOCwyMi40LDE5NDQKQWVyb3B1ZXJ0byBKdWFuIFNhbnRhbWFyw61hIChBbGFqdWVsYSksODkwLDYuNSwxMS42LDE0LjgsNjYuNywyMzguNywyMTUuOCwxNDYuNSwyMTUuNCwzMDQsMjk3LjEsMTQ4LjYsMzUuMiwxNzAxCkJlbMOpbiAoU2FuIEFudG9uaW8gZGUgQmVsw6luKSw5MDAsMi42LDguNSwxMCw2My41LDE0NS43LDE1NS44LDEwOSwxNDUuOCwxOTgsMjI3LjksODguOCwyMi40LDExNzgKQ2VtZW50ZXJpbyAoQWxhanVlbGEgQ2VudHJvKSw5NTAsNi42LDguMSwxMS44LDg0LDI2NS40LDI0Ny4xLDE3Ni4xLDIwOS43LDM2OC4zLDM2NCwxNzUuMyw1Mi41LDE5NjkKQWVyb3B1ZXJ0byBUb2LDrWFzIEJvbGHDsW9zIChQYXZhcyksOTk3LDguNCwxMy40LDEzLjksNjIuNSwyMzAuNCwyMjEuOCwxNjAuNCwyMDUuNywyODkuMiwyOTMuMSwxMjQuOSwyNi44LDE2NTEKUkVDT1BFIExhIEdhcml0YSwxMDYwLDQuMiwxMCwxNS45LDUzLjMsMjMwLjMsMjE0LjQsMTU3LjQsMjEwLjUsMjczLjEsMzEwLjQsMTIwLjYsMzEsMTYzMQpJTU4gKFNhbiBKb3PDqSksMTE3Miw5LjksMTEuOSwxMC42LDQ3LjUsMjI5LDIzOC43LDE3My41LDIwNi41LDMwOS4xLDI5My4zLDEzOS42LDM0LjEsMTcwNApDSUdFRkkgKFNhbiBQZWRybyBkZSBNb250ZXMgZGUgT2NhKSwxMjAwLDEwLjQsOC43LDEwLDU0LjcsMjIwLjYsMjU2LjEsMTkxLjgsMjI4LDMxNC40LDMxNS4yLDE0Ny44LDQzLjUsMTgwMQpTYW50YSBMdWPDrWEgKEhlcmVkaWEpLDEyMDAsMTcuNywyMi43LDQzLjUsMTEyLDMyNi43LDMyNy41LDIxMS40LDI2OC42LDQyNC45LDQzNS4xLDE5MC44LDU2LjcsMjQzOApMYSBMdWlzYSAoU2FyY2jDrSBOb3J0ZSksMTI1MCwxMC45LDEwLjEsMTAuMSw2Ny43LDM3MSw0NjkuMiwzMzguMyw0NTQuNCw1NzgsNTM1LjQsMjIzLjksMzkuMywzMTA4Cg==" download="lluvia_normal_tarcoles_imn.csv" class="boton-datos">⬇ Descargar <code>lluvia_normal_tarcoles_imn.csv</code></a></p>
-</div></div>
-<div class="callout callout-important callout-titled callout-style-default">
+<div class="callout callout-important callout-style-simple">
 <div class="callout-body">
-<div class="callout-title">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
-</div>
-<p><strong>Importante</strong></p>
 </div>
 <div class="callout-content">
 <p>La recta <span class="math inline">\(P = 1123 + 0.785\,H\)</span> no es una relación regional: no sirve para estimar lluvia en el Tárcoles ni en el Pacífico.</p>
 </div>
 </div>
 </div>
+</div></div>
 </section>
 <section id="vertientes-y-regiones-climáticas" class="slide level2">
 <h2>Vertientes y regiones climáticas</h2>
@@ -1078,7 +1137,8 @@ P = a + b\,H
 i = \frac{\Delta h}{\Delta t}
 \]</span></p>
 <ul>
-<li>Intensidad <span class="math inline">\(i\)</span> (mm/h), duración <span class="math inline">\(d\)</span> y frecuencia (<span class="math inline">\(T = \frac{1}{p}\)</span>): la base de las curvas IDF.</li>
+<li><span class="math inline">\(i\)</span>: intensidad (mm/h); <span class="math inline">\(\Delta h\)</span>: lámina de lluvia del intervalo (mm); <span class="math inline">\(\Delta t\)</span>: duración del intervalo (h).</li>
+<li>Intensidad, duración y frecuencia son la base de la lluvia de diseño (Tema 4). La frecuencia se expresa con el periodo de retorno <span class="math inline">\(T = \frac{1}{p}\)</span> (años), donde <span class="math inline">\(p\)</span> es la probabilidad de que se supere en un año.</li>
 <li>Curva masa: lluvia acumulada contra el tiempo; su pendiente es la intensidad.</li>
 <li>Hietograma: lámina o intensidad de cada intervalo; así entra la lluvia a los modelos.</li>
 <li>La lluvia máxima en una duración <span class="math inline">\(d\)</span> es la mayor diferencia entre dos puntos de la curva masa separados por <span class="math inline">\(d\)</span>.</li>
@@ -1114,13 +1174,14 @@ i = \frac{\Delta h}{\Delta t}
 <section id="lluvia-media-promedio-aritmético" class="slide level2">
 <h2>Lluvia media: promedio aritmético</h2>
 <div class="columns">
-<div class="column" style="width:48%;">
+<div class="column apretado" style="width:48%;">
 <p><span class="math display">\[
 \bar{P} = \frac{1}{n}\sum_{i=1}^{n} P_i
 \]</span></p>
 <ul>
-<li>Solo se usan las estaciones dentro de la cuenca; todas pesan lo mismo, <span class="math inline">\(w_i = \frac{1}{n}\)</span>.</li>
-<li>En el esquema: A, B, C y D, cada una con <span class="math inline">\(w = \frac{1}{4}\)</span>; E queda fuera.</li>
+<li><span class="math inline">\(\bar{P}\)</span>: lluvia media de la cuenca (mm); <span class="math inline">\(P_i\)</span>: lluvia de la estación <span class="math inline">\(i\)</span> (mm); <span class="math inline">\(n\)</span>: número de estaciones.</li>
+<li>Se usan las estaciones de la cuenca y, si representan bien la zona, las cercanas; todas pesan lo mismo, <span class="math inline">\(w_i = \frac{1}{n}\)</span>.</li>
+<li>En el esquema se usan A, B, C y D, cada una con <span class="math inline">\(w = \frac{1}{4}\)</span>; E, lejos de la cuenca, se deja fuera por criterio.</li>
 <li><span class="math inline">\(\bar{P} = \frac{48 + 40 + 35 + 52}{4} = 43.8\)</span> mm.</li>
 <li>Sirve en terreno suave, con estaciones bien repartidas y lluvias parecidas.</li>
 </ul>
@@ -1147,7 +1208,7 @@ i = \frac{\Delta h}{\Delta t}
 <ol type="1">
 <li>Unir las estaciones con triángulos, incluidas las cercanas fuera de la cuenca.</li>
 <li>Trazar la mediatriz de cada lado: cada polígono es la zona más cercana a una estación <span class="citation" data-cites="thiessen1911precipitation">(<a href="#/referencias" role="doc-biblioref" onclick="">Thiessen, 1911</a>)</span>.</li>
-<li>Medir el área <span class="math inline">\(A_i\)</span> de cada polígono dentro de la cuenca; su peso es <span class="math inline">\(\frac{A_i}{A}\)</span>.</li>
+<li>Medir el área <span class="math inline">\(A_i\)</span> de cada polígono dentro de la cuenca; su peso es <span class="math inline">\(\frac{A_i}{A}\)</span>, con <span class="math inline">\(A\)</span> el área de la cuenca y <span class="math inline">\(P_i\)</span> la lluvia de la estación <span class="math inline">\(i\)</span>.</li>
 </ol>
 <p><img data-src="assets/img/libro/thiessen.png" style="width:78.0%"></p>
 </div><div class="column" style="width:52%;">
@@ -1218,17 +1279,17 @@ i = \frac{\Delta h}{\Delta t}
 <section id="isoyetas" class="slide level2">
 <h2>Isoyetas</h2>
 <div class="columns">
-<div class="column" style="width:50%;">
+<div class="column apretado" style="width:50%;">
 <p><span class="math display">\[
 \bar{P} = \frac{1}{A}\sum_{j=1}^{m} A_j\,\bar{P}_j
 \]</span></p>
 <ul>
+<li><span class="math inline">\(A_j\)</span>: área entre dos isoyetas consecutivas; <span class="math inline">\(\bar{P}_j\)</span>: lluvia de esa franja, el promedio de sus dos isoyetas; <span class="math inline">\(m\)</span>: número de franjas; <span class="math inline">\(A\)</span>: área de la cuenca.</li>
 <li>Si solo se interpola entre estaciones, el relieve no entra: una ladera sin estaciones queda con la lluvia del valle.</li>
 <li>El relieve se incorpora si quien las traza usa su criterio (barlovento, núcleo de la tormenta) o si se interpola con la altitud como variable auxiliar.</li>
 <li>Con red densa y buen criterio, el más fiel de los métodos clásicos; depende de quien lo hace.</li>
 </ul>
-<p>Ejemplo: 50 km²; franjas de 12, 18, 14 y 6 km² con 50, 70, 90 y 110 mm.</p>
-<p>Solución: <span class="math inline">\(\bar{P} = \frac{3780}{50} = 75.6\)</span> mm.</p>
+<p>Ejemplo: 50 km²; franjas de 12, 18, 14 y 6 km² con 50, 70, 90 y 110 mm. Solución: <span class="math inline">\(\bar{P} = \frac{3780}{50} = 75.6\)</span> mm.</p>
 </div><div class="column" style="width:50%;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -1244,6 +1305,7 @@ i = \frac{\Delta h}{\Delta t}
 P_x = \frac{\sum_{i=1}^{n} P_i / d_i^{\,p}}{\sum_{i=1}^{n} 1 / d_i^{\,p}}
 \]</span></p>
 <ul>
+<li><span class="math inline">\(P_x\)</span>: lluvia estimada en el punto; <span class="math inline">\(P_i\)</span>: lluvia de la estación <span class="math inline">\(i\)</span>; <span class="math inline">\(d_i\)</span>: distancia del punto a la estación <span class="math inline">\(i\)</span>; <span class="math inline">\(p\)</span>: exponente.</li>
 <li><span class="math inline">\(p = 2\)</span> es lo más común; un <span class="math inline">\(p\)</span> mayor da más peso a la estación cercana <span class="citation" data-cites="shepard1968two">(<a href="#/referencias" role="doc-biblioref" onclick="">Shepard, 1968</a>)</span>.</li>
 <li>Para la media de la cuenca se estima la lluvia en una malla y se promedian las celdas dentro.</li>
 </ul>
@@ -1350,23 +1412,24 @@ P_x = \frac{\sum_{i=1}^{n} P_i / d_i^{\,p}}{\sum_{i=1}^{n} 1 / d_i^{\,p}}
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", iniciar); else iniciar();
 })();
 </script>
-<p><span class="nota">La estación 5 está fuera de la cuenca: no entra en el promedio aritmético, pero su polígono sí puede entrar en Thiessen.</span></p>
+<p><span class="nota">La estación 5 está fuera de la cuenca: aquí no se tomó en el promedio aritmético, pero su polígono sí puede entrar en Thiessen.</span></p>
 </section>
 <section id="factor-de-reducción-por-área-qué-es-y-para-qué" class="slide level2">
 <h2>Factor de reducción por área: qué es y para qué</h2>
 <div class="pregunta">
-<p>La curva IDF de una estación da 80 mm en 1 h para 50 años. ¿Caen 80 mm sobre toda una cuenca de 300 km²?</p>
+<p>Un pluviómetro registra 80 mm en 1 h. ¿Cayeron 80 mm sobre toda una cuenca de 300 km²?</p>
 </div>
 <ul>
-<li>No: la IDF da la lluvia en un punto. Una tormenta intensa tiene un núcleo y alrededor llueve menos.</li>
-<li>La lluvia media de la cuenca, para la misma duración y periodo de retorno, es menor que la puntual:</li>
+<li>No: el pluviómetro mide la lluvia en un punto. Una tormenta intensa tiene un núcleo y alrededor llueve menos.</li>
+<li>La lluvia media de la cuenca, para la misma duración, es menor que la puntual:</li>
 </ul>
 <p><span class="math display">\[
 FRA = \frac{P_A}{P_0} \le 1
 \]</span></p>
 <ul>
-<li>Baja al crecer el área y sube al crecer la duración: una lluvia de 1 h viene de una celda de pocos kilómetros; una de 24 h, de un sistema extenso.</li>
-<li>Se usa cuando la lluvia de diseño sale de una IDF puntual y se aplica a toda la cuenca (hidrograma unitario, modelos, racional en cuencas grandes). No se usa si la lluvia ya es areal (radar, satélite, isoyetas de un evento).</li>
+<li><p><span class="math inline">\(FRA\)</span>: factor de reducción por área; <span class="math inline">\(P_A\)</span>: lámina media sobre el área <span class="math inline">\(A\)</span>; <span class="math inline">\(P_0\)</span>: lámina puntual de la misma duración (mm).</p></li>
+<li><p>Baja al crecer el área y sube al crecer la duración: una lluvia de 1 h viene de una celda de pocos kilómetros; una de 24 h, de un sistema extenso.</p></li>
+<li><p>Se usa cuando la lluvia de diseño es un dato de una sola estación y se aplica a toda la cuenca. No se usa si la lluvia ya es areal (radar, satélite, isoyetas de un evento).</p></li>
 </ul>
 <p><span class="nota">En 25 km² casi no cambia nada (0.97 en 1 h); en 300 km², no reducir sobrestima la lluvia en 30 %.</span></p>
 </section>
@@ -1387,8 +1450,8 @@ FRA = \frac{P_A}{P_0} = 1 - e^{-1.1\,t^{0.25}} + e^{-1.1\,t^{0.25} - 0.003863\,A
 </div>
 </div>
 </div><div class="column" style="width:48%;">
-<p>Ajuste de <span class="citation" data-cites="leclerc1972derivation">Leclerc &amp; Schaake (<a href="#/referencias" role="doc-biblioref" onclick="">1972</a>)</span> a las curvas del TP-29, con <span class="math inline">\(t\)</span> en h y <span class="math inline">\(A\)</span> en km² <span class="citation" data-cites="allen2002reevaluation">(<a href="#/referencias" role="doc-biblioref" onclick="">R. J. Allen &amp; DeGaetano, 2002</a>)</span>.</p>
-<p>Ejemplo, 300 km² y <span class="math inline">\(T = 50\)</span> años. Solución:</p>
+<p>Ajuste de <span class="citation" data-cites="leclerc1972derivation">Leclerc &amp; Schaake (<a href="#/referencias" role="doc-biblioref" onclick="">1972</a>)</span> a las curvas del Technical Paper 29 (TP-29) del Servicio Meteorológico de Estados Unidos, con <span class="math inline">\(t\)</span> en h y <span class="math inline">\(A\)</span> en km² <span class="citation" data-cites="allen2002reevaluation">(<a href="#/referencias" role="doc-biblioref" onclick="">R. J. Allen &amp; DeGaetano, 2002</a>)</span>.</p>
+<p>Ejemplo: cuenca de 300 km² con lluvias puntuales de 200 mm en 24 h y 80 mm en 1 h (valores de ejemplo). Solución:</p>
 <ol type="1">
 <li>24 h: <span class="math inline">\(FRA = 1 - 0.0876 + 0.0275 = 0.940\)</span> y <span class="math inline">\(P_A = 0.940 \times 200 = 188.0\)</span> mm.</li>
 <li>1 h: <span class="math inline">\(FRA = 0.772\)</span> y <span class="math inline">\(P_A = 0.772 \times 80 = 61.7\)</span> mm.</li>
@@ -1418,13 +1481,14 @@ FRA = \frac{P_A}{P_0} = 1 - e^{-1.1\,t^{0.25}} + e^{-1.1\,t^{0.25} - 0.003863\,A
 <div class="column" style="width:52%;">
 <ul>
 <li>Escapan las moléculas más rápidas y regresan otras: se mide la evaporación neta.</li>
-<li>Calor latente <span class="citation" data-cites="allen1998fao56">(<a href="#/referencias" role="doc-biblioref" onclick="">R. G. Allen et&nbsp;al., 1998</a>)</span>: <span class="math inline">\(\lambda = 2.501 - 0.002361\,T_s\)</span> MJ/kg, cerca de 2.45 MJ/kg. Es la energía para evaporar 1 mm sobre 1 m².</li>
+<li>Calor latente <span class="citation" data-cites="allen1998fao56">(<a href="#/referencias" role="doc-biblioref" onclick="">R. G. Allen et&nbsp;al., 1998</a>)</span>: <span class="math inline">\(\lambda = 2.501 - 0.002361\,T_s\)</span> MJ/kg, con <span class="math inline">\(T_s\)</span> la temperatura del agua (°C); cerca de 2.45 MJ/kg. Es la energía para evaporar 1 mm sobre 1 m².</li>
 <li>Ley de Dalton <span class="citation" data-cites="chow1988appliedhydrology">(<a href="#/referencias" role="doc-biblioref" onclick="">Chow et&nbsp;al., 1988</a>)</span>:</li>
 </ul>
 <p><span class="math display">\[
 E = k\,(e_s - e_a)
 \]</span></p>
 <ul>
+<li><span class="math inline">\(E\)</span>: evaporación; <span class="math inline">\(k\)</span>: coeficiente que depende del viento; <span class="math inline">\(e_s\)</span>: presión de vapor de saturación a la temperatura del agua; <span class="math inline">\(e_a\)</span>: presión de vapor del aire (kPa).</li>
 <li><span class="math inline">\(e_s - e_a\)</span>: déficit de presión de vapor. Si <span class="math inline">\(e_a &gt; e_s\)</span> hay condensación (rocío).</li>
 </ul>
 </div><div class="column" style="width:48%;">
@@ -1471,6 +1535,7 @@ E = k\,(e_s - e_a)
 E_L = K_p\,E_{\text{tanque}}
 \]</span></p>
 <ul>
+<li><span class="math inline">\(E_L\)</span>: evaporación del embalse; <span class="math inline">\(E_{\text{tanque}}\)</span>: la medida en el tanque; <span class="math inline">\(K_p\)</span>: coeficiente del tanque.</li>
 <li><span class="math inline">\(K_p\)</span> entre 0.60 y 0.85; se usa 0.70 para valores anuales, pero cambia con la estación y el sitio <span class="citation" data-cites="chow1988appliedhydrology">(<a href="#/referencias" role="doc-biblioref" onclick="">Chow et&nbsp;al., 1988</a>)</span>.</li>
 </ul>
 </div><div class="column" style="width:38%;">
@@ -1544,44 +1609,393 @@ E_L = K_p\,E_{\text{tanque}}
 </ol>
 <p><span class="nota">Más de la mitad se pierde de enero a abril. Un error de 0.1 en <span class="math inline">\(K_p\)</span> cambia la pérdida en 2.6 hm³.</span></p>
 </section>
-<section id="balance-de-energía-y-método-aerodinámico" class="slide level2">
-<h2>Balance de energía y método aerodinámico</h2>
+<section id="balance-de-energía" class="slide level2">
+<h2>Balance de energía</h2>
 <p><span class="math display">\[
 R_n - G - H - \lambda\,\rho_w\,E = 0
 \qquad\Rightarrow\qquad
 E_r = \frac{R_n}{\lambda\,\rho_w}
 \]</span></p>
-<ul>
-<li>Límite por energía: toda la radiación neta se gasta en evaporar. 100 W/m² evaporan 3.5 mm/d.</li>
-</ul>
-<p><span class="math display">\[
-E_a = B\,(e_s - e_a), \qquad B = \frac{0.622\,k^2\,\rho_a\,u_2}{P\,\rho_w\,\left[\ln(z_2/z_0)\right]^2}
-\]</span></p>
-<ul>
-<li>Límite por transporte de vapor, con perfil logarítmico del viento; <span class="math inline">\(k = 0.4\)</span> y <span class="math inline">\(z_0\)</span> de 0.01 a 0.06 cm en agua abierta <span class="citation" data-cites="chow1988appliedhydrology">(<a href="#/referencias" role="doc-biblioref" onclick="">Chow et&nbsp;al., 1988</a>)</span>.</li>
-</ul>
-</section>
-<section id="meyer-penman-y-priestley-y-taylor" class="slide level2">
-<h2>Meyer, Penman y Priestley y Taylor</h2>
 <div class="columns">
-<div class="column" style="width:50%;">
-<p>Meyer (1915), empírica, mensual <span class="citation" data-cites="Aparicio1992">(<a href="#/referencias" role="doc-biblioref" onclick="">Aparicio, 1992</a>)</span>:</p>
+<div class="column tabla-compacta" style="width:58%;">
+<table class="caption-top">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Símbolo</th>
+<th style="text-align: left;">Qué es</th>
+<th style="text-align: left;">Unidad</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><span class="math inline">\(R_n\)</span></td>
+<td style="text-align: left;">Radiación neta</td>
+<td style="text-align: left;">W/m²</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="math inline">\(G\)</span></td>
+<td style="text-align: left;">Flujo de calor hacia el agua o el suelo</td>
+<td style="text-align: left;">W/m²</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><span class="math inline">\(H\)</span></td>
+<td style="text-align: left;">Flujo de calor sensible hacia el aire</td>
+<td style="text-align: left;">W/m²</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="math inline">\(\lambda\)</span></td>
+<td style="text-align: left;">Calor latente de vaporización</td>
+<td style="text-align: left;">J/kg</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><span class="math inline">\(\rho_w\)</span></td>
+<td style="text-align: left;">Densidad del agua</td>
+<td style="text-align: left;">kg/m³</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="math inline">\(E\)</span>, <span class="math inline">\(E_r\)</span></td>
+<td style="text-align: left;">Evaporación; <span class="math inline">\(E_r\)</span> si toda la energía se va en evaporar</td>
+<td style="text-align: left;">m/s</td>
+</tr>
+</tbody>
+</table>
+</div><div class="column" style="width:42%;">
+<ul>
+<li>Límite por energía: con <span class="math inline">\(G = H = 0\)</span>, toda la radiación neta se gasta en evaporar.</li>
+<li>Para pasar a mm/d se multiplica por <span class="math inline">\(1000 \times 86\,400\)</span>.</li>
+<li>100 W/m² evaporan 3.5 mm/d.</li>
+</ul>
+</div></div>
+</section>
+<section id="método-aerodinámico" class="slide level2">
+<h2>Método aerodinámico</h2>
+<p><span class="math display">\[
+E_a = B\,(e_s - e_a), \qquad B = \frac{0.622\,k^2\,\rho_a\,u_2}{P\,\rho_w\,\left[\ln\left(\dfrac{z_2}{z_0}\right)\right]^2}
+\]</span></p>
+<div class="columns">
+<div class="column tabla-compacta" style="width:60%;">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Símbolo</th>
+<th style="text-align: left;">Qué es</th>
+<th style="text-align: left;">Unidad</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><span class="math inline">\(E_a\)</span></td>
+<td style="text-align: left;">Evaporación por transporte de vapor</td>
+<td style="text-align: left;">m/s</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="math inline">\(B\)</span></td>
+<td style="text-align: left;">Coeficiente de transferencia de vapor</td>
+<td style="text-align: left;">m/(Pa·s)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><span class="math inline">\(e_s\)</span>, <span class="math inline">\(e_a\)</span></td>
+<td style="text-align: left;">Presión de vapor de saturación y del aire</td>
+<td style="text-align: left;">Pa</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="math inline">\(k\)</span></td>
+<td style="text-align: left;">Constante de von Kármán, 0.4</td>
+<td style="text-align: left;">—</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><span class="math inline">\(\rho_a\)</span></td>
+<td style="text-align: left;">Densidad del aire</td>
+<td style="text-align: left;">kg/m³</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="math inline">\(u_2\)</span></td>
+<td style="text-align: left;">Viento a la altura <span class="math inline">\(z_2\)</span></td>
+<td style="text-align: left;">m/s</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><span class="math inline">\(P\)</span></td>
+<td style="text-align: left;">Presión atmosférica</td>
+<td style="text-align: left;">Pa</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="math inline">\(z_2\)</span>, <span class="math inline">\(z_0\)</span></td>
+<td style="text-align: left;">Altura de medición y altura de rugosidad</td>
+<td style="text-align: left;">m</td>
+</tr>
+</tbody>
+</table>
+</div><div class="column" style="width:40%;">
+<ul>
+<li>Límite por transporte de vapor, con perfil logarítmico del viento <span class="citation" data-cites="chow1988appliedhydrology">(<a href="#/referencias" role="doc-biblioref" onclick="">Chow et&nbsp;al., 1988</a>)</span>.</li>
+<li><span class="math inline">\(z_0\)</span> de 0.01 a 0.06 cm en agua abierta.</li>
+</ul>
+</div></div>
+</section>
+<section id="fórmula-de-meyer" class="slide level2">
+<h2>Fórmula de Meyer</h2>
+<p>Fórmula empírica de 1915, del tipo de la ley de Dalton, para valores mensuales <span class="citation" data-cites="Aparicio1992">(<a href="#/referencias" role="doc-biblioref" onclick="">Aparicio, 1992</a>)</span>:</p>
 <p><span class="math display">\[
 E_m = C\,(e_s - e_a)\left(1 + \frac{V_w}{16.09}\right)
 \]</span></p>
-<p><span class="math inline">\(E_m\)</span> en cm, presiones en pulgadas de mercurio, viento a 10 m en km/h; <span class="math inline">\(C = 28\)</span> en embalses grandes y 38 en tanques. No se calibró en el trópico.</p>
-</div><div class="column" style="width:50%;">
-<p>Penman combina los dos límites <span class="citation" data-cites="penman1948natural">(<a href="#/referencias" role="doc-biblioref" onclick="">Penman, 1948</a>)</span>:</p>
+<div class="columns">
+<div class="column tabla-compacta" style="width:58%;">
+<table class="caption-top">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Símbolo</th>
+<th style="text-align: left;">Qué es</th>
+<th style="text-align: left;">Unidad</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><span class="math inline">\(E_m\)</span></td>
+<td style="text-align: left;">Evaporación del mes</td>
+<td style="text-align: left;">cm</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="math inline">\(e_s\)</span></td>
+<td style="text-align: left;">Presión de vapor de saturación a la temperatura del agua</td>
+<td style="text-align: left;">pulg. Hg</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><span class="math inline">\(e_a\)</span></td>
+<td style="text-align: left;">Presión de vapor del aire</td>
+<td style="text-align: left;">pulg. Hg</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="math inline">\(V_w\)</span></td>
+<td style="text-align: left;">Viento medio a 10 m de altura</td>
+<td style="text-align: left;">km/h</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><span class="math inline">\(C\)</span></td>
+<td style="text-align: left;">38 en tanques y depósitos pequeños; 28 en embalses grandes</td>
+<td style="text-align: left;">—</td>
+</tr>
+</tbody>
+</table>
+</div><div class="column" style="width:42%;">
+<ul>
+<li>Conserva unidades inglesas: 1 pulg. Hg = 3.386 kPa y 16.09 km/h = 10 mi/h.</li>
+<li>Para pasar a mm/d: <span class="math inline">\(E\,[\text{mm/d}] = \frac{10\,E_m}{30}\)</span>.</li>
+<li>Si el viento se mide a 2 m, se lleva a 10 m con el perfil logarítmico.</li>
+</ul>
+<p><span class="nota">Estimación gruesa: su coeficiente viene de lagos templados y no se calibró en el trópico.</span></p>
+</div></div>
+</section>
+<section id="método-de-penman" class="slide level2">
+<h2>Método de Penman</h2>
+<p>Combina los dos límites de la clase: la energía disponible y el transporte del vapor <span class="citation" data-cites="penman1948natural">(<a href="#/referencias" role="doc-biblioref" onclick="">Penman, 1948</a>)</span>.</p>
 <p><span class="math display">\[
-E = \frac{\Delta}{\Delta + \gamma}\,E_r + \frac{\gamma}{\Delta + \gamma}\,E_a
+E = \underbrace{\color{#E07B39}{\frac{\Delta}{\Delta + \gamma}\,E_r}}_{\text{término radiativo}}
++ \underbrace{\color{#1C6BA0}{\frac{\gamma}{\Delta + \gamma}\,E_a}}_{\text{término aerodinámico}}
 \]</span></p>
-<p><span class="math inline">\(\Delta = \frac{4098\,e_s}{(T + 237.3)^2}\)</span> y <span class="math inline">\(\gamma = \frac{0.0016286\,P}{\lambda}\)</span>.</p>
-<p>Priestley y Taylor, superficies húmedas extensas <span class="citation" data-cites="priestley1972assessment">(<a href="#/referencias" role="doc-biblioref" onclick="">Priestley &amp; Taylor, 1972</a>)</span>: <span class="math inline">\(E = \frac{1.3\,\Delta}{\Delta + \gamma}\,E_r\)</span></p>
+<div class="columns">
+<div class="column tabla-compacta" style="width:60%;">
+<table class="caption-top">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Símbolo</th>
+<th style="text-align: left;">Qué es</th>
+<th style="text-align: left;">Unidad</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><span class="math inline">\(E\)</span></td>
+<td style="text-align: left;">Evaporación</td>
+<td style="text-align: left;">mm/d</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="math inline">\(E_r\)</span></td>
+<td style="text-align: left;">Evaporación por radiación, <span class="math inline">\(\frac{R_n}{\lambda\,\rho_w}\)</span></td>
+<td style="text-align: left;">mm/d</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><span class="math inline">\(E_a\)</span></td>
+<td style="text-align: left;">Evaporación por transporte de vapor, <span class="math inline">\(B\,(e_s - e_a)\)</span></td>
+<td style="text-align: left;">mm/d</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="math inline">\(\Delta\)</span></td>
+<td style="text-align: left;">Pendiente de la curva de presión de vapor de saturación</td>
+<td style="text-align: left;">kPa/°C</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><span class="math inline">\(\gamma\)</span></td>
+<td style="text-align: left;">Constante psicrométrica</td>
+<td style="text-align: left;">kPa/°C</td>
+</tr>
+</tbody>
+</table>
+</div><div class="column" style="width:40%;">
+<ul>
+<li>Los dos pesos suman 1: <span class="math inline">\(\frac{\Delta}{\Delta + \gamma} + \frac{\gamma}{\Delta + \gamma} = 1\)</span>.</li>
+<li>No pide la temperatura del agua: basta con radiación, temperatura, humedad, viento y presión del aire.</li>
+<li>El resultado siempre queda entre <span class="math inline">\(E_r\)</span> y <span class="math inline">\(E_a\)</span>.</li>
+</ul>
+</div></div>
+</section>
+<section id="penman-delta-gamma-y-lambda" class="slide level2">
+<h2>Penman: <span class="math inline">\(\Delta\)</span>, <span class="math inline">\(\gamma\)</span> y <span class="math inline">\(\lambda\)</span></h2>
+<div class="columns">
+<div class="column" style="width:55%;">
+<p><span class="math inline">\(\Delta\)</span> es la pendiente de la curva de presión de vapor de saturación a la temperatura del aire <span class="math inline">\(T\)</span> (°C) <span class="citation" data-cites="allen1998fao56">(<a href="#/referencias" role="doc-biblioref" onclick="">R. G. Allen et&nbsp;al., 1998</a>)</span>:</p>
+<p><span class="math display">\[
+\Delta = \frac{4098\,e_s}{(T + 237.3)^2}
+\]</span></p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="tema2_files/figure-revealjs/unnamed-chunk-26-1.svg" class="quarto-figure quarto-figure-center" width="595"></p>
+</figure>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:45%;">
+<p><span class="math inline">\(\gamma\)</span> relaciona la presión de vapor con la temperatura del aire:</p>
+<p><span class="math display">\[
+\gamma = 0.0016286\,\frac{P}{\lambda}
+\]</span></p>
+<p><span class="math inline">\(P\)</span>: presión atmosférica (kPa). Al nivel del mar, <span class="math inline">\(\gamma \approx 0.067\)</span> kPa/°C.</p>
+<p><span class="math inline">\(\lambda\)</span>: calor latente de vaporización (MJ/kg):</p>
+<p><span class="math display">\[
+\lambda = 2.501 - 0.002361\,T
+\]</span></p>
+<p><span class="nota"><span class="math inline">\(\Delta\)</span> crece con la temperatura: a 28 °C el término radiativo pesa 0.77.</span></p>
+</div></div>
+</section>
+<section id="penman-radiación-neta" class="slide level2">
+<h2>Penman: radiación neta</h2>
+<p>La radiación neta <span class="math inline">\(R_n\)</span> es la energía que queda en la superficie: la onda corta del Sol que se absorbe menos la onda larga que la superficie emite en neto. Si no se mide con un radiómetro neto, se estima con la radiación solar y la temperatura <span class="citation" data-cites="allen1998fao56">(<a href="#/referencias" role="doc-biblioref" onclick="">R. G. Allen et&nbsp;al., 1998</a>)</span>:</p>
+<p><span class="math display">\[
+R_n = \underbrace{\color{#8E5BA8}{(1 - \alpha)\,R_s}}_{\text{onda corta absorbida}}
+- \underbrace{\color{#C0392B}{\sigma\,\frac{T_{max,K}^4 + T_{min,K}^4}{2}\left(0.34 - 0.14\sqrt{e_a}\right)\left(1.35\,\frac{R_s}{R_{so}} - 0.35\right)}}_{\text{onda larga neta emitida}}
+\]</span></p>
+<div class="columns">
+<div class="column" style="width:45%;">
+<ul>
+<li>Onda corta: llega del Sol; el agua refleja la fracción <span class="math inline">\(\alpha\)</span> (albedo) y absorbe el resto.</li>
+<li>Onda larga: la superficie emite según su temperatura y la atmósfera le devuelve una parte; las nubes y el vapor la retienen.</li>
+</ul>
+</div><div class="column" style="width:55%;">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="tema2_files/figure-revealjs/unnamed-chunk-27-1.svg" class="quarto-figure quarto-figure-center" width="518"></p>
+</figure>
+</div>
+</div>
+</div>
+</div></div>
+</section>
+<section id="radiación-neta-variables" class="slide level2">
+<h2>Radiación neta: variables</h2>
+<p><span class="math display">\[
+R_n = \underbrace{\color{#8E5BA8}{(1 - \alpha)\,R_s}}_{\text{onda corta absorbida}}
+- \underbrace{\color{#C0392B}{\sigma\,\frac{T_{max,K}^4 + T_{min,K}^4}{2}\left(0.34 - 0.14\sqrt{e_a}\right)\left(1.35\,\frac{R_s}{R_{so}} - 0.35\right)}}_{\text{onda larga neta emitida}}
+\]</span></p>
+<div class="tabla-compacta">
+<table class="caption-top">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Símbolo</th>
+<th style="text-align: left;">Qué es</th>
+<th style="text-align: left;">Unidad</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><span class="math inline">\(\alpha\)</span></td>
+<td style="text-align: left;">Albedo; en agua, menos de 0.10</td>
+<td style="text-align: left;">—</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="math inline">\(R_s\)</span></td>
+<td style="text-align: left;">Radiación solar; sin piranómetro, <span class="math inline">\(\left(0.25 + 0.50\,\frac{n}{N}\right)R_a\)</span></td>
+<td style="text-align: left;">MJ/(m²·d)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><span class="math inline">\(n\)</span>, <span class="math inline">\(N\)</span></td>
+<td style="text-align: left;">Horas de sol medidas y duración del día</td>
+<td style="text-align: left;">h</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="math inline">\(R_a\)</span></td>
+<td style="text-align: left;">Radiación extraterrestre (clase 1.5)</td>
+<td style="text-align: left;">MJ/(m²·d)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><span class="math inline">\(R_{so}\)</span></td>
+<td style="text-align: left;">Radiación con cielo despejado, <span class="math inline">\((0.75 + 2 \times 10^{-5} z)\,R_a\)</span></td>
+<td style="text-align: left;">MJ/(m²·d)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="math inline">\(e_a\)</span></td>
+<td style="text-align: left;">Presión de vapor del aire</td>
+<td style="text-align: left;">kPa</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><span class="math inline">\(\sigma\)</span></td>
+<td style="text-align: left;">Stefan-Boltzmann, <span class="math inline">\(4.903 \times 10^{-9}\)</span></td>
+<td style="text-align: left;">MJ/(K⁴·m²·d)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="math inline">\(T_{max,K}\)</span>, <span class="math inline">\(T_{min,K}\)</span></td>
+<td style="text-align: left;">Temperaturas máxima y mínima del día</td>
+<td style="text-align: left;">K</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="método-de-priestley-y-taylor" class="slide level2">
+<h2>Método de Priestley y Taylor</h2>
+<p><span class="math display">\[
+E = \alpha\,\frac{\Delta}{\Delta + \gamma}\,E_r
+\]</span></p>
+<div class="columns">
+<div class="column" style="width:55%;">
+<ul>
+<li>Sobre superficies extensas y húmedas, el aire llega casi saturado y manda la energía.</li>
+<li><span class="citation" data-cites="priestley1972assessment">Priestley &amp; Taylor (<a href="#/referencias" role="doc-biblioref" onclick="">1972</a>)</span> vieron que entonces el término aerodinámico es cerca del 30 % del radiativo: de ahí <span class="math inline">\(\alpha = 1.3\)</span> (adimensional) <span class="citation" data-cites="chow1988appliedhydrology">(<a href="#/referencias" role="doc-biblioref" onclick="">Chow et&nbsp;al., 1988</a>)</span>.</li>
+<li>Solo pide radiación neta y temperatura; <span class="math inline">\(\Delta\)</span>, <span class="math inline">\(\gamma\)</span> y <span class="math inline">\(E_r\)</span> se calculan como en Penman.</li>
+</ul>
+</div><div class="column" style="width:45%;">
+<ul>
+<li>Útil cuando faltan datos de viento y humedad.</li>
+<li>Subestima con aire seco y ventoso, como en un embalse del Pacífico seco en verano: ahí el término aerodinámico pesa más que el 30 %.</li>
+</ul>
+<p><span class="nota">En el ejemplo siguiente da 6.39 mm/d frente a 6.96 mm/d de Penman.</span></p>
 </div></div>
 </section>
 <section id="ejemplo-un-embalse-por-cinco-métodos" class="slide level2">
 <h2>Ejemplo: un embalse por cinco métodos</h2>
-<p>Día de la época seca (hipotético): <span class="math inline">\(R_n = 180\)</span> W/m², 28 °C, HR 55 %, <span class="math inline">\(u_2 = 4\)</span> m/s, <span class="math inline">\(P = 100.5\)</span> kPa, <span class="math inline">\(z_0 = 0.03\)</span> cm.</p>
+<p>Día de la época seca (hipotético): <span class="math inline">\(R_n = 180\)</span> W/m², 28 °C, humedad relativa (HR) 55 %, <span class="math inline">\(u_2 = 4\)</span> m/s, <span class="math inline">\(P = 100.5\)</span> kPa, <span class="math inline">\(z_0 = 0.03\)</span> cm.</p>
 <div class="columns">
 <div class="column" style="width:60%;">
 <p>Solución:</p>
@@ -1591,7 +2005,7 @@ E = \frac{\Delta}{\Delta + \gamma}\,E_r + \frac{\gamma}{\Delta + \gamma}\,E_a
 <li><span class="math inline">\(B = 5.96 \times 10^{-11}\)</span> m/(Pa·s) y <span class="math inline">\(E_a = 8.77\)</span> mm/d.</li>
 <li><span class="math inline">\(\Delta = 0.220\)</span>, <span class="math inline">\(\gamma = 0.0672\)</span> kPa/°C; pesos 0.766 y 0.234: Penman da 6.96 mm/d.</li>
 <li>Priestley y Taylor: <span class="math inline">\(1.3 \times 0.766 \times 6.41 = 6.39\)</span> mm/d.</li>
-<li>Meyer, con <span class="math inline">\(u_{10} = 17.0\)</span> km/h: 9.65 mm/d.</li>
+<li>Meyer, con el viento llevado a 10 m, <span class="math inline">\(u_{10} = 17.0\)</span> km/h: 9.65 mm/d.</li>
 </ol>
 </div><div class="column" style="width:40%;">
 <div class="cell" data-layout-align="center">
@@ -1632,6 +2046,65 @@ E = \frac{\Delta}{\Delta + \gamma}\,E_r + \frac{\gamma}{\Delta + \gamma}\,E_a
 </div>
 <p>Meyer da más: su coeficiente viene de lagos templados.</p>
 </div></div>
+</section>
+<section id="resumen-de-métodos-de-evaporación" class="slide level2">
+<h2>Resumen de métodos de evaporación</h2>
+<div class="tabla-compacta">
+<table class="caption-top">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Método</th>
+<th style="text-align: left;">Escala</th>
+<th style="text-align: left;">Datos</th>
+<th style="text-align: left;">Cuándo usarlo</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Tanque clase A</td>
+<td style="text-align: left;">Diaria; se agrega a mensual o anual</td>
+<td style="text-align: left;">Lectura del tanque y <span class="math inline">\(K_p\)</span></td>
+<td style="text-align: left;">Hay tanque cerca del embalse</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Balance de energía</td>
+<td style="text-align: left;">Diaria o menor</td>
+<td style="text-align: left;">Radiación neta</td>
+<td style="text-align: left;">Límite superior por energía</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Aerodinámico</td>
+<td style="text-align: left;">Diaria o menor</td>
+<td style="text-align: left;">Viento, humedad, temperatura</td>
+<td style="text-align: left;">Límite por transporte de vapor</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Meyer</td>
+<td style="text-align: left;">Mensual</td>
+<td style="text-align: left;">Temperatura del agua, humedad, viento a 10 m</td>
+<td style="text-align: left;">Estimación gruesa o comparación</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Penman</td>
+<td style="text-align: left;">Diaria (o medias de un periodo)</td>
+<td style="text-align: left;">Radiación, temperatura, humedad, viento, presión</td>
+<td style="text-align: left;">Balance de embalses</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Priestley y Taylor</td>
+<td style="text-align: left;">Diaria a mensual</td>
+<td style="text-align: left;">Radiación neta y temperatura</td>
+<td style="text-align: left;">Superficies húmedas extensas, sin datos de viento</td>
+</tr>
+</tbody>
+</table>
+</div>
 </section>
 <section id="qué-limita-la-evaporación" class="slide level2">
 <h2>Qué limita la evaporación</h2>
@@ -1700,16 +2173,16 @@ E = \frac{\Delta}{\Delta + \gamma}\,E_r + \frac{\gamma}{\Delta + \gamma}\,E_a
 <h1>2.4 Evapotranspiración</h1>
 <p>Capítulo 19 del libro</p>
 </section>
-<section id="evapotranspiración-posible-y-real" class="slide level2">
-<h2>Evapotranspiración posible y real</h2>
+<section id="evapotranspiración-potencial-y-real" class="slide level2">
+<h2>Evapotranspiración potencial y real</h2>
 <div class="pregunta">
-<p>En la época seca de Guanacaste el sol es fuerte, el aire está seco y sopla el viento. ¿Por qué la ETR de un pastizal sin riego es mínima en marzo?</p>
+<p>En la época seca de Guanacaste el sol es fuerte, el aire está seco y sopla el viento. ¿Por qué la evapotranspiración real de un pastizal sin riego es mínima en marzo?</p>
 </div>
 <ul>
 <li>De cada 100 unidades de lluvia sobre los continentes, unas 61 vuelven a la atmósfera <span class="citation" data-cites="chow1988appliedhydrology">(<a href="#/referencias" role="doc-biblioref" onclick="">Chow et&nbsp;al., 1988</a>)</span>.</li>
 <li>Es la salida más grande del balance de casi cualquier cuenca: define el riego, la recarga y el caudal de la época seca.</li>
 </ul>
-<p>En esta clase: ETP, <span class="math inline">\(ET_o\)</span>, <span class="math inline">\(ET_c\)</span> y ETR; Thornthwaite, Hargreaves y Samani, FAO Penman-Monteith; ETR anual con Turc y con Holdridge; coeficientes de cultivo y satélites.</p>
+<p>En esta clase: evapotranspiración potencial, de referencia, del cultivo y real; Thornthwaite, Hargreaves y Samani, FAO Penman-Monteith; ETR anual con Turc; coeficientes de cultivo.</p>
 </section>
 <section id="evaporación-más-transpiración" class="slide level2">
 <h2>Evaporación más transpiración</h2>
@@ -1751,27 +2224,34 @@ E = \frac{\Delta}{\Delta + \gamma}\,E_r + \frac{\gamma}{\Delta + \gamma}\,E_a
 </thead>
 <tbody>
 <tr class="odd">
+<td style="text-align: left;">Nombre</td>
+<td style="text-align: left;">Evapotranspiración potencial</td>
+<td style="text-align: left;">Evapotranspiración de referencia</td>
+<td style="text-align: left;">Evapotranspiración del cultivo</td>
+<td style="text-align: left;">Evapotranspiración real</td>
+</tr>
+<tr class="even">
 <td style="text-align: left;">Superficie</td>
 <td style="text-align: left;">Vegetación verde extensa</td>
 <td style="text-align: left;">Pasto hipotético de 0.12 m</td>
 <td style="text-align: left;">Cultivo concreto</td>
 <td style="text-align: left;">La que existe</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: left;">Agua en el suelo</td>
 <td style="text-align: left;">Sin limitación</td>
 <td style="text-align: left;">Sin limitación</td>
 <td style="text-align: left;">Sin limitación</td>
 <td style="text-align: left;">La disponible</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: left;">Cómo se obtiene</td>
 <td style="text-align: left;">Thornthwaite, Holdridge</td>
 <td style="text-align: left;">FAO Penman-Monteith</td>
 <td style="text-align: left;"><span class="math inline">\(k_c\, ET_o\)</span></td>
-<td style="text-align: left;"><span class="math inline">\(k_s\, k_c\, ET_o\)</span>, balance, satélite</td>
+<td style="text-align: left;"><span class="math inline">\(k_s\, k_c\, ET_o\)</span>, balance, lisímetro</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: left;">Uso típico</td>
 <td style="text-align: left;">Clima, balances regionales</td>
 <td style="text-align: left;">Comparar climas, riego</td>
@@ -1785,6 +2265,33 @@ E = \frac{\Delta}{\Delta + \gamma}\,E_r + \frac{\gamma}{\Delta + \gamma}\,E_a
 <li>La ETP mide lo que el aire podría llevarse, no lo que el suelo puede entregar.</li>
 </ul>
 </section>
+<section id="cuándo-la-etr-iguala-a-la-etp" class="slide level2">
+<h2>Cuándo la ETR iguala a la ETP</h2>
+<p><span class="math display">\[
+\mathrm{ETR}
+\begin{cases}
+= \mathrm{ETP}, &amp; P \ge \mathrm{ETP}, \ \text{o } P &lt; \mathrm{ETP} \text{ con humedad suficiente en el suelo} \\[4pt]
+&lt; \mathrm{ETP}, &amp; P &lt; \mathrm{ETP} \text{ sin humedad suficiente en el suelo}
+\end{cases}
+\]</span></p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p>La ETR se mide con lisímetros, con el mismo balance que una cuenca:</p>
+<p><span class="math display">\[
+\mathrm{ETR} = P - Q \pm \Delta S
+\]</span></p>
+<p><span class="math inline">\(P\)</span>: lluvia más riego; <span class="math inline">\(Q\)</span>: drenaje del fondo; <span class="math inline">\(\Delta S\)</span>: cambio de almacenamiento (la balanza lo mide). Todo en mm.</p>
+</div><div class="column" style="width:50%;">
+<p>Si el lisímetro tiene agua suficiente:</p>
+<p><span class="math display">\[
+\mathrm{ETR} = ET_c = k_c\,ET_o
+\]</span></p>
+<p><span class="math display">\[
+k_c = \frac{ET_c}{ET_o}
+\]</span></p>
+<p><span class="nota">Así se obtiene el coeficiente de cultivo con la <span class="math inline">\(ET_o\)</span> de una estación cercana.</span></p>
+</div></div>
+</section>
 <section id="coeficiente-de-estrés-hídrico" class="slide level2">
 <h2>Coeficiente de estrés hídrico</h2>
 <div class="columns">
@@ -1796,17 +2303,21 @@ k_s =
 \dfrac{ADT - D_r}{(1 - p)\, ADT}, &amp; D_r &gt; AFA
 \end{cases}
 \]</span></p>
+<div class="apretado">
 <ul>
-<li><span class="math inline">\(ADT\)</span>: agua entre capacidad de campo y punto de marchitez.</li>
-<li><span class="math inline">\(AFA = p\,ADT\)</span>, con <span class="math inline">\(p\)</span> de 0.3 a 0.7 según el cultivo.</li>
-<li><span class="math inline">\(D_r\)</span>: agua consumida desde la capacidad de campo.</li>
+<li><span class="math inline">\(k_s\)</span>: coeficiente de estrés hídrico (1 sin estrés, 0 en el punto de marchitez).</li>
+<li><span class="math inline">\(ADT\)</span>: agua disponible total, entre capacidad de campo y punto de marchitez (mm).</li>
+<li><span class="math inline">\(AFA = p\,ADT\)</span>: agua fácilmente aprovechable, sin estrés (mm).</li>
+<li><span class="math inline">\(p\)</span>: fracción de <span class="math inline">\(ADT\)</span> que se agota sin estrés, de 0.3 a 0.7.</li>
+<li><span class="math inline">\(D_r\)</span>: agotamiento en la zona de raíces, agua consumida desde la capacidad de campo (mm).</li>
 </ul>
+</div>
 </div><div class="column" style="width:55%;">
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="tema2_files/figure-revealjs/unnamed-chunk-28-1.svg" class="quarto-figure quarto-figure-center" width="672"></p>
+<p><img data-src="tema2_files/figure-revealjs/unnamed-chunk-30-1.svg" class="quarto-figure quarto-figure-center" width="672"></p>
 </figure>
 </div>
 </div>
@@ -1815,7 +2326,7 @@ k_s =
 </section>
 <section id="método-de-thornthwaite" class="slide level2">
 <h2>Método de Thornthwaite</h2>
-<p>Solo temperatura media mensual y latitud <span class="citation" data-cites="thornthwaite1948approach">(<a href="#/referencias" role="doc-biblioref" onclick="">Thornthwaite, 1948</a>)</span>:</p>
+<p>ETP mensual con solo la temperatura media del mes y la latitud <span class="citation" data-cites="thornthwaite1948approach">(<a href="#/referencias" role="doc-biblioref" onclick="">Thornthwaite, 1948</a>)</span>. Escala: mensual.</p>
 <p><span class="math display">\[
 i_j = \left(\frac{T_j}{5}\right)^{1.514}, \qquad
 I = \sum_{j=1}^{12} i_j, \qquad
@@ -1825,12 +2336,63 @@ e_j = 16 \left(\frac{10\, T_j}{I}\right)^{a}, \qquad
 <p><span class="math display">\[
 a = 6.75 \times 10^{-7} I^3 - 7.71 \times 10^{-5} I^2 + 1.792 \times 10^{-2} I + 0.49239
 \]</span></p>
+<div class="columns">
+<div class="column tabla-compacta" style="width:56%;">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Símbolo</th>
+<th style="text-align: left;">Qué es</th>
+<th style="text-align: left;">Unidad</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><span class="math inline">\(T_j\)</span></td>
+<td style="text-align: left;">Temperatura media del mes <span class="math inline">\(j\)</span></td>
+<td style="text-align: left;">°C</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="math inline">\(i_j\)</span></td>
+<td style="text-align: left;">Índice de calor del mes (<span class="math inline">\(i_j = 0\)</span> si <span class="math inline">\(T_j \le 0\)</span>)</td>
+<td style="text-align: left;">—</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><span class="math inline">\(I\)</span></td>
+<td style="text-align: left;">Índice de calor anual, suma de los 12 meses</td>
+<td style="text-align: left;">—</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="math inline">\(a\)</span></td>
+<td style="text-align: left;">Exponente, función de <span class="math inline">\(I\)</span></td>
+<td style="text-align: left;">—</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><span class="math inline">\(e_j\)</span></td>
+<td style="text-align: left;">ETP de un mes tipo de 30 días con 12 h de luz</td>
+<td style="text-align: left;">mm/mes</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="math inline">\(N_j\)</span>, <span class="math inline">\(d_j\)</span></td>
+<td style="text-align: left;">Horas de luz a mitad de mes y días del mes</td>
+<td style="text-align: left;">h, d</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><span class="math inline">\(\mathrm{ETP}_j\)</span></td>
+<td style="text-align: left;">ETP corregida del mes</td>
+<td style="text-align: left;">mm/mes</td>
+</tr>
+</tbody>
+</table>
+</div><div class="column" style="width:44%;">
 <ul>
-<li><span class="math inline">\(N_j\)</span>: horas de luz a mitad de mes; <span class="math inline">\(d_j\)</span>: días del mes.</li>
 <li>No ve el viento ni la humedad; el exponente se ajustó en clima templado.</li>
-<li>Con <span class="math inline">\(T_j \ge 26.5\)</span> °C se usa <span class="math inline">\(e_j = -415.85 + 32.24\,T_j - 0.43\,T_j^2\)</span> <span class="citation" data-cites="willmott1985climatology">(<a href="#/referencias" role="doc-biblioref" onclick="">Willmott et&nbsp;al., 1985</a>)</span>.</li>
-<li>En R: <code>SPEI::thornthwaite()</code>.</li>
+<li>Con <span class="math inline">\(T_j \ge 26.5\)</span> °C <span class="citation" data-cites="willmott1985climatology">(<a href="#/referencias" role="doc-biblioref" onclick="">Willmott et&nbsp;al., 1985</a>)</span>:</li>
 </ul>
+<p><span class="math display">\[
+\small e_j = -415.85 + 32.24\,T_j - 0.43\,T_j^2
+\]</span></p>
+</div></div>
 </section>
 <section id="ejemplo-thornthwaite-en-el-valle-central" class="slide level2">
 <h2>Ejemplo: Thornthwaite en el Valle Central</h2>
@@ -1897,137 +2459,244 @@ a = 6.75 \times 10^{-7} I^3 - 7.71 \times 10^{-5} I^2 + 1.792 \times 10^{-2} I +
 </section>
 <section id="método-de-hargreaves-y-samani" class="slide level2">
 <h2>Método de Hargreaves y Samani</h2>
+<p><span class="math inline">\(ET_o\)</span> diaria con temperaturas máxima y mínima y la radiación extraterrestre <span class="citation" data-cites="hargreaves1985reference">(<a href="#/referencias" role="doc-biblioref" onclick="">Hargreaves &amp; Samani, 1985</a>)</span>. Escala: diaria; para un mes se suma o se usa la media de los días.</p>
 <p><span class="math display">\[
 ET_o = 0.0023\,(T_{med} + 17.8)\,\sqrt{T_{max} - T_{min}}\; R_a
 \]</span></p>
+<div class="columns">
+<div class="column tabla-compacta" style="width:58%;">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Símbolo</th>
+<th style="text-align: left;">Qué es</th>
+<th style="text-align: left;">Unidad</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><span class="math inline">\(ET_o\)</span></td>
+<td style="text-align: left;">Evapotranspiración de referencia</td>
+<td style="text-align: left;">mm/d</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="math inline">\(T_{max}\)</span>, <span class="math inline">\(T_{min}\)</span></td>
+<td style="text-align: left;">Temperaturas máxima y mínima del día</td>
+<td style="text-align: left;">°C</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><span class="math inline">\(T_{med}\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(\frac{T_{max} + T_{min}}{2}\)</span></td>
+<td style="text-align: left;">°C</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="math inline">\(R_a\)</span></td>
+<td style="text-align: left;">Radiación extraterrestre como lámina equivalente</td>
+<td style="text-align: left;">mm/d</td>
+</tr>
+</tbody>
+</table>
+</div><div class="column" style="width:42%;">
 <ul>
-<li>La amplitud térmica indica la nubosidad <span class="citation" data-cites="hargreaves1985reference">(<a href="#/referencias" role="doc-biblioref" onclick="">Hargreaves &amp; Samani, 1985</a>)</span>. La FAO la recomienda si faltan radiación, humedad o viento <span class="citation" data-cites="allen1998fao56">(<a href="#/referencias" role="doc-biblioref" onclick="">R. G. Allen et&nbsp;al., 1998</a>)</span>.</li>
-<li><span class="math inline">\(R_a\)</span>: radiación extraterrestre (latitud y día del año), en mm/d: <span class="math inline">\(0.408 \times\)</span> MJ/(m²·d).</li>
+<li>La amplitud térmica indica la nubosidad: con cielo despejado el día es más caliente y la noche más fría.</li>
+<li>La FAO la recomienda si faltan radiación, humedad o viento <span class="citation" data-cites="allen1998fao56">(<a href="#/referencias" role="doc-biblioref" onclick="">R. G. Allen et&nbsp;al., 1998</a>)</span>.</li>
 </ul>
+</div></div>
+</section>
+<section id="hargreaves-y-samani-radiación-extraterrestre" class="slide level2">
+<h2>Hargreaves y Samani: radiación extraterrestre</h2>
+<p>Depende solo de la latitud y del día del año <span class="citation" data-cites="allen1998fao56">(<a href="#/referencias" role="doc-biblioref" onclick="">R. G. Allen et&nbsp;al., 1998</a>)</span>:</p>
 <p><span class="math display">\[
 R_a = \frac{24 \times 60}{\pi}\, G_{sc}\, d_r \left[\omega_s \sin\varphi \sin\delta + \cos\varphi \cos\delta \sin\omega_s\right]
 \]</span></p>
-<p>Ejemplo, 15 de julio a 10° N, <span class="math inline">\(T_{max} = 29.8\)</span> y <span class="math inline">\(T_{min} = 18.3\)</span> °C. Solución: <span class="math inline">\(R_a = 37.05\)</span> MJ/(m²·d) <span class="math inline">\(= 15.12\)</span> mm/d; <span class="math inline">\(ET_o = 0.0023 \times 41.85 \times 3.391 \times 15.12 = 4.94\)</span> mm/d, unos 153 mm en julio.</p>
+<p><span class="math display">\[
+d_r = 1 + 0.033 \cos\!\left(\frac{2\pi J}{365}\right), \qquad
+\delta = 0.409 \sin\!\left(\frac{2\pi J}{365} - 1.39\right), \qquad
+\omega_s = \arccos(-\tan\varphi \tan\delta)
+\]</span></p>
+<div class="columns">
+<div class="column tabla-compacta" style="width:58%;">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Símbolo</th>
+<th style="text-align: left;">Qué es</th>
+<th style="text-align: left;">Unidad</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><span class="math inline">\(G_{sc}\)</span></td>
+<td style="text-align: left;">Constante solar, 0.0820</td>
+<td style="text-align: left;">MJ/(m²·min)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="math inline">\(d_r\)</span></td>
+<td style="text-align: left;">Distancia relativa Tierra-Sol</td>
+<td style="text-align: left;">—</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><span class="math inline">\(\varphi\)</span></td>
+<td style="text-align: left;">Latitud, positiva al norte</td>
+<td style="text-align: left;">rad</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="math inline">\(\delta\)</span></td>
+<td style="text-align: left;">Declinación solar</td>
+<td style="text-align: left;">rad</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><span class="math inline">\(\omega_s\)</span></td>
+<td style="text-align: left;">Ángulo horario a la puesta del sol</td>
+<td style="text-align: left;">rad</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="math inline">\(J\)</span></td>
+<td style="text-align: left;">Día del año, de 1 a 365</td>
+<td style="text-align: left;">—</td>
+</tr>
+</tbody>
+</table>
+</div><div class="column" style="width:42%;">
+<ul>
+<li><span class="math inline">\(R_a\)</span> sale en MJ/(m²·d); para pasarla a mm/d se multiplica por 0.408 <span class="math inline">\(= \frac{1}{2.45}\)</span>.</li>
+</ul>
+<p>Ejemplo, 15 de julio (<span class="math inline">\(J = 196\)</span>) a 10° N, <span class="math inline">\(T_{max} = 29.8\)</span> y <span class="math inline">\(T_{min} = 18.3\)</span> °C. Solución:</p>
+<ol type="1">
+<li><span class="math inline">\(R_a = 37.05\)</span> MJ/(m²·d) <span class="math inline">\(= 15.12\)</span> mm/d.</li>
+<li><span class="math inline">\(ET_o = 0.0023 \times 41.85 \times 3.391 \times 15.12 = 4.94\)</span> mm/d, unos 153 mm en julio.</li>
+</ol>
+</div></div>
 </section>
-<section id="fao-penman-monteith" class="slide level2">
+<section id="fao-penman-monteith" class="slide level2 reducida">
 <h2>FAO Penman-Monteith</h2>
+<p>Penman con resistencia aerodinámica y superficial, para el pasto de referencia (<span class="math inline">\(r_s = 70\)</span> s/m, albedo 0.23) <span class="citation" data-cites="monteith1965evaporation allen1998fao56">(<a href="#/referencias" role="doc-biblioref" onclick="">R. G. Allen et&nbsp;al., 1998</a>; <a href="#/referencias" role="doc-biblioref" onclick="">Monteith, 1965</a>)</span>. Escala: diaria; la FAO da también formas horaria y mensual.</p>
 <p><span class="math display">\[
 ET_o = \frac{0.408\,\Delta\,(R_n - G) + \gamma\,\dfrac{900}{T + 273}\,u_2\,(e_s - e_a)}{\Delta + \gamma\,(1 + 0.34\,u_2)}
 \]</span></p>
-<ul>
-<li>Penman con resistencia aerodinámica y superficial <span class="citation" data-cites="monteith1965evaporation">(<a href="#/referencias" role="doc-biblioref" onclick="">Monteith, 1965</a>)</span>; para el pasto de referencia, <span class="math inline">\(r_s = 70\)</span> s/m y albedo 0.23.</li>
-<li><span class="math inline">\(e_s\)</span> es el promedio de <span class="math inline">\(e^\circ(T_{max})\)</span> y <span class="math inline">\(e^\circ(T_{min})\)</span>; <span class="math inline">\(R_n = 0.77\,R_s - R_{nl}\)</span> y <span class="math inline">\(G \approx 0\)</span>.</li>
-</ul>
-<p>Ejemplo, 10° N y 1000 m, 27 y 17 °C, HR 95 y 55 %, <span class="math inline">\(u_2 = 2\)</span> m/s, <span class="math inline">\(R_s = 18\)</span> MJ/(m²·d). Solución:</p>
-<ol type="1">
-<li><span class="math inline">\(\gamma = 0.0599\)</span>, <span class="math inline">\(\Delta = 0.1611\)</span> kPa/°C y <span class="math inline">\(e_s - e_a = 0.851\)</span> kPa.</li>
-<li><span class="math inline">\(R_n = 13.86 - 2.75 = 11.11\)</span> MJ/(m²·d).</li>
-<li><span class="math inline">\(ET_o = 3.98\)</span> mm/d; Hargreaves y Samani da 4.38 mm/d.</li>
-</ol>
-</section>
-<section id="etr-anual-turc-y-holdridge" class="slide level2">
-<h2>ETR anual: Turc y Holdridge</h2>
 <div class="columns">
-<div class="column" style="width:50%;">
-<p>Turc, con cuencas de muchos climas <span class="citation" data-cites="turc1954bilan">(<a href="#/referencias" role="doc-biblioref" onclick="">Turc, 1954</a>)</span>:</p>
-<p><span class="math display">\[
-\overline{E} = \frac{\overline{P}}{\sqrt{0.9 + \overline{P}^2/L^2}}
-\]</span></p>
-<p>con <span class="math inline">\(L = 300 + 25\,t + 0.05\,t^3\)</span>.</p>
-<p>Holdridge y Rodríguez y Saborío, con cuencas de Costa Rica <span class="citation" data-cites="Holdridge1967 RodriguezSaborio1983">(<a href="#/referencias" role="doc-biblioref" onclick="">Holdridge, 1967</a>; <a href="#/referencias" role="doc-biblioref" onclick="">Rodríguez &amp; Saborío, 1983</a>)</span>:</p>
-<p><span class="math display">\[
-\mathrm{ETP} = 58.93\, T_b \qquad RE = \frac{\mathrm{ETP}}{P}
-\]</span></p>
-<p>y <span class="math inline">\(\mathrm{ETR} = F\,\mathrm{ETP}\)</span>.</p>
-</div><div class="column" style="width:50%;">
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="tema2_files/figure-revealjs/unnamed-chunk-29-1.svg" class="quarto-figure quarto-figure-center" width="624"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>Tramo recto: <span class="math inline">\(F = 1.12 - 0.44\,RE\)</span>.</p>
-<p>Ejemplo, 1200 mm y 20 °C. Solución: Turc, <span class="math inline">\(L = 1200\)</span> y <span class="math inline">\(\overline{E} = 871\)</span> mm. Holdridge, <span class="math inline">\(RE = 0.982\)</span>, <span class="math inline">\(F = 0.688\)</span> y ETR <span class="math inline">\(= 811\)</span> mm.</p>
+<div class="column tabla-compacta" style="width:60%;">
+<table class="caption-top">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Símbolo</th>
+<th style="text-align: left;">Qué es</th>
+<th style="text-align: left;">Unidad</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><span class="math inline">\(R_n\)</span></td>
+<td style="text-align: left;">Radiación neta (clase 2.3)</td>
+<td style="text-align: left;">MJ/(m²·d)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="math inline">\(G\)</span></td>
+<td style="text-align: left;">Flujo de calor al suelo; a escala diaria <span class="math inline">\(\approx 0\)</span></td>
+<td style="text-align: left;">MJ/(m²·d)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><span class="math inline">\(T\)</span></td>
+<td style="text-align: left;">Temperatura media del aire a 2 m</td>
+<td style="text-align: left;">°C</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="math inline">\(u_2\)</span></td>
+<td style="text-align: left;">Viento a 2 m</td>
+<td style="text-align: left;">m/s</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><span class="math inline">\(e_s\)</span></td>
+<td style="text-align: left;">Presión de saturación, media de <span class="math inline">\(e^\circ(T_{max})\)</span> y <span class="math inline">\(e^\circ(T_{min})\)</span></td>
+<td style="text-align: left;">kPa</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="math inline">\(e_a\)</span></td>
+<td style="text-align: left;">Presión real de vapor</td>
+<td style="text-align: left;">kPa</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><span class="math inline">\(\Delta\)</span>, <span class="math inline">\(\gamma\)</span></td>
+<td style="text-align: left;">Pendiente de saturación; constante psicrométrica</td>
+<td style="text-align: left;">kPa/°C</td>
+</tr>
+</tbody>
+</table>
+</div><div class="column" style="width:40%;">
+<ul>
+<li>Primer término del numerador: energía; pesa más en días soleados y calmos.</li>
+<li>Segundo término: aerodinámico; pesa más con viento y aire seco.</li>
+<li>Es el estándar internacional para la <span class="math inline">\(ET_o\)</span>.</li>
+</ul>
 </div></div>
 </section>
-<section id="etr-anual-de-una-cuenca" class="slide level2">
-<h2>ETR anual de una cuenca</h2>
-<div id="explorador-etr" class="explorador">
-  <div class="explorador-controles">
-    <label>Temperatura media anual = <input type="range" id="er-t" min="10" max="28" step="0.5" value="20"> <span id="er-t-val"></span> °C</label>
-    <label>Lluvia media anual = <input type="range" id="er-p" min="500" max="5000" step="50" value="1200"> <span id="er-p-val"></span> mm</label>
-  </div>
-  <svg id="er-graf" viewbox="0 0 900 260"></svg>
-  <p id="er-nota" style="margin:0.2em 0 0"></p>
-</div>
-<script>
-(function () {
-  var NS = "http://www.w3.org/2000/svg";
-  function el(svg, tag, at, txt) {
-    var e = document.createElementNS(NS, tag);
-    for (var k in at) e.setAttribute(k, at[k]);
-    if (txt !== undefined) e.textContent = txt;
-    svg.appendChild(e); return e;
-  }
-  function turc(P, t) {
-    var L = 300 + 25 * t + 0.05 * t * t * t, r = P * P / (L * L);
-    return r < 0.1 ? P : P / Math.sqrt(0.9 + r);
-  }
-  function holdridge(P, t) {
-    var etp = 58.93 * t, re = etp / P, F;
-    if (re <= 0.0625 || re >= 1.5) return null;
-    F = re < 0.45 ? 7.46 * re * re * re - 10.46 * re * re + 4.63 * re + 0.273 : 1.12 - 0.44 * re;
-    return F * etp;
-  }
-  function dibujar() {
-    var t = +document.getElementById("er-t").value, P = +document.getElementById("er-p").value;
-    document.getElementById("er-t-val").textContent = t;
-    document.getElementById("er-p-val").textContent = P;
-    var svg = document.getElementById("er-graf");
-    while (svg.firstChild) svg.removeChild(svg.firstChild);
-    var W = 900, H = 260, mg = {l: 80, r: 20, t: 12, b: 48}, xm = 5000, ym = 2000;
-    var sx = function (x) { return mg.l + x / xm * (W - mg.l - mg.r); };
-    var sy = function (y) { return H - mg.b - y / ym * (H - mg.t - mg.b); };
-    var f = {"font-family": "serif", "font-size": 18, fill: "#333"};
-    for (var y = 0; y <= ym; y += 500) {
-      el(svg, "line", {x1: sx(0), x2: sx(xm), y1: sy(y), y2: sy(y), stroke: "#e5e5e5"});
-      el(svg, "text", Object.assign({x: mg.l - 8, y: sy(y) + 6, "text-anchor": "end"}, f), y);
-    }
-    for (var x = 0; x <= xm; x += 1000) el(svg, "text", Object.assign({x: sx(x), y: H - mg.b + 22, "text-anchor": "middle"}, f), x);
-    el(svg, "text", Object.assign({x: (mg.l + W - mg.r) / 2, y: H - 6, "text-anchor": "middle"}, f), "Lluvia media anual (mm)");
-    el(svg, "text", Object.assign({x: 18, y: (H - mg.b) / 2, "text-anchor": "middle", transform: "rotate(-90 18 " + (H - mg.b) / 2 + ")"}, f), "ETR (mm)");
-    el(svg, "line", {x1: sx(0), y1: sy(0), x2: sx(ym), y2: sy(ym), stroke: "#999", "stroke-dasharray": "4 4"});
-    el(svg, "text", Object.assign({}, f, {x: sx(ym) + 6, y: sy(ym) + 16, fill: "#777"}), "ETR = P");
-    el(svg, "line", {x1: sx(0), x2: sx(xm), y1: sy(58.93 * t), y2: sy(58.93 * t), stroke: "#B5541C", "stroke-dasharray": "6 4", "stroke-width": 2});
-    el(svg, "text", Object.assign({}, f, {x: sx(xm) - 4, y: sy(58.93 * t) - 6, "text-anchor": "end", fill: "#B5541C"}), "ETP de Holdridge");
-    var a = [], b = [], tramo = [];
-    for (var p = 100; p <= xm; p += 25) {
-      a.push(sx(p).toFixed(1) + "," + sy(turc(p, t)).toFixed(1));
-      var h = holdridge(p, t);
-      if (h !== null) tramo.push(sx(p).toFixed(1) + "," + sy(h).toFixed(1));
-      else if (tramo.length) { b.push(tramo); tramo = []; }
-    }
-    if (tramo.length) b.push(tramo);
-    el(svg, "polyline", {points: a.join(" "), fill: "none", stroke: "#1C6BA0", "stroke-width": 3});
-    b.forEach(function (s) { el(svg, "polyline", {points: s.join(" "), fill: "none", stroke: "#3A9A5B", "stroke-width": 3}); });
-    var et = turc(P, t), eh = holdridge(P, t);
-    el(svg, "circle", {cx: sx(P), cy: sy(et), r: 7, fill: "#1C6BA0"});
-    if (eh !== null) el(svg, "circle", {cx: sx(P), cy: sy(eh), r: 7, fill: "#3A9A5B"});
-    document.getElementById("er-nota").innerHTML = "<span style='color:#1C6BA0'>Turc</span>: ETR = <b>" + et.toFixed(0) + " mm</b>, excedente " + (P - et).toFixed(0) +
-      " mm. <span style='color:#3A9A5B'>Holdridge con Rodríguez y Saborío</span>: " +
-      (eh === null ? "<i>RE</i> = " + (58.93 * t / P).toFixed(2) + ", fuera del intervalo de la función." : "<i>RE</i> = " + (58.93 * t / P).toFixed(3) + ", ETR = <b>" + eh.toFixed(0) + " mm</b>, excedente " + (P - eh).toFixed(0) + " mm.");
-  }
-  function iniciar() {
-    ["er-t", "er-p"].forEach(function (id) { document.getElementById(id).addEventListener("input", dibujar); });
-    dibujar();
-  }
-  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", iniciar); else iniciar();
-})();
-</script>
-<p><span class="nota">La diferencia entre los dos métodos pasa entera al excedente, que es lo que se busca para estimar el caudal medio.</span></p>
+<section id="ejemplo-fao-penman-monteith" class="slide level2">
+<h2>Ejemplo: FAO Penman-Monteith</h2>
+<p>Estación a 10° N y 1000 m, 15 de julio (hipotético): <span class="math inline">\(T_{max} = 27\)</span> y <span class="math inline">\(T_{min} = 17\)</span> °C, <span class="math inline">\(HR_{max} = 95\)</span> y <span class="math inline">\(HR_{min} = 55\)</span> %, <span class="math inline">\(u_2 = 2\)</span> m/s, <span class="math inline">\(R_s = 18\)</span> MJ/(m²·d).</p>
+<p>Solución:</p>
+<ol type="1">
+<li>Presión: <span class="math inline">\(P = 101.3\left(\frac{293 - 0.0065 \times 1000}{293}\right)^{5.26} = 90.0\)</span> kPa y <span class="math inline">\(\gamma = 0.665 \times 10^{-3}\,P = 0.0599\)</span> kPa/°C.</li>
+<li><span class="math inline">\(T = 22\)</span> °C y <span class="math inline">\(\Delta = 0.1611\)</span> kPa/°C.</li>
+<li><span class="math inline">\(e_s = \frac{e^\circ(27) + e^\circ(17)}{2}\)</span> y <span class="math inline">\(e_a = \frac{e^\circ(17)\,HR_{max} + e^\circ(27)\,HR_{min}}{200}\)</span>: <span class="math inline">\(e_s - e_a = 0.851\)</span> kPa.</li>
+<li><span class="math inline">\(R_n = 0.77 \times 18 - 2.75 = 11.11\)</span> MJ/(m²·d), con <span class="math inline">\(G = 0\)</span>.</li>
+<li><span class="math inline">\(ET_o = 3.98\)</span> mm/d.&nbsp;Hargreaves y Samani da 4.38 mm/d para el mismo día.</li>
+</ol>
+</section>
+<section id="etr-anual-método-de-turc" class="slide level2">
+<h2>ETR anual: método de Turc</h2>
+<p>Ajustado con el balance de cuencas de muchos climas <span class="citation" data-cites="turc1954bilan">(<a href="#/referencias" role="doc-biblioref" onclick="">Turc, 1954</a>)</span>. Escala: anual (media de largo plazo).</p>
+<p><span class="math display">\[
+\overline{E} = \frac{\overline{P}}{\sqrt{0.9 + \dfrac{\overline{P}^2}{L^2}}},
+\qquad L = 300 + 25\,t + 0.05\,t^3
+\]</span></p>
+<div class="columns">
+<div class="column tabla-compacta" style="width:55%;">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Símbolo</th>
+<th style="text-align: left;">Qué es</th>
+<th style="text-align: left;">Unidad</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><span class="math inline">\(\overline{E}\)</span></td>
+<td style="text-align: left;">ETR media anual</td>
+<td style="text-align: left;">mm</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="math inline">\(\overline{P}\)</span></td>
+<td style="text-align: left;">Lluvia media anual</td>
+<td style="text-align: left;">mm</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><span class="math inline">\(t\)</span></td>
+<td style="text-align: left;">Temperatura media anual</td>
+<td style="text-align: left;">°C</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="math inline">\(L\)</span></td>
+<td style="text-align: left;">Poder evaporante del clima</td>
+<td style="text-align: left;">mm</td>
+</tr>
+</tbody>
+</table>
+</div><div class="column" style="width:45%;">
+<ul>
+<li>Si <span class="math inline">\(\frac{\overline{P}^2}{L^2} &lt; 0.1\)</span>, se toma <span class="math inline">\(\overline{E} = \overline{P}\)</span>.</li>
+</ul>
+<p>Ejemplo, 1200 mm y 20 °C. Solución:</p>
+<ol type="1">
+<li><span class="math inline">\(L = 300 + 25 \times 20 + 0.05 \times 20^3 = 1200\)</span> mm.</li>
+<li><span class="math inline">\(\overline{E} = \frac{1200}{\sqrt{0.9 + 1}} = 871\)</span> mm; quedan 329 mm para escorrentía y recarga.</li>
+</ol>
+</div></div>
 </section>
 <section id="coeficientes-de-cultivo-y-de-estrés" class="slide level2">
 <h2>Coeficientes de cultivo y de estrés</h2>
@@ -2040,46 +2709,88 @@ ET_o = \frac{0.408\,\Delta\,(R_n - G) + \gamma\,\dfrac{900}{T + 273}\,u_2\,(e_s 
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="tema2_files/figure-revealjs/unnamed-chunk-30-1.svg" class="quarto-figure quarto-figure-center" width="672"></p>
+<p><img data-src="tema2_files/figure-revealjs/unnamed-chunk-31-1.svg" class="quarto-figure quarto-figure-center" width="672"></p>
 </figure>
 </div>
 </div>
 </div>
 </div><div class="column" style="width:45%;">
 <ul>
+<li><span class="math inline">\(k_c\)</span>: coeficiente de cultivo; <span class="math inline">\(k_s\)</span>: coeficiente de estrés hídrico; <span class="math inline">\(ET_o\)</span>: ET de referencia.</li>
 <li>Cuatro etapas: inicial, desarrollo, mediados de temporada y final <span class="citation" data-cites="allen1998fao56">(<a href="#/referencias" role="doc-biblioref" onclick="">R. G. Allen et&nbsp;al., 1998</a>)</span>.</li>
 <li>Caña: <span class="math inline">\(k_{c,\mathrm{med}} = 1.25\)</span>; piña sin cobertura: 0.30.</li>
-<li>En clima seco y ventoso <span class="math inline">\(k_{c,\mathrm{med}}\)</span> se corrige con <span class="math inline">\(u_2\)</span>, <span class="math inline">\(HR_{\min}\)</span> y la altura.</li>
+<li><span class="math inline">\(k_{c,\mathrm{med}}\)</span>: <span class="math inline">\(k_c\)</span> de mediados de temporada. En clima seco y ventoso se corrige con el viento a 2 m (<span class="math inline">\(u_2\)</span>), la humedad relativa mínima (<span class="math inline">\(HR_{\min}\)</span>) y la altura del cultivo.</li>
 </ul>
 <p>Marzo en el Tempisque, <span class="math inline">\(ET_o = 189\)</span> mm: caña (<span class="math inline">\(k_c = 1.37\)</span>) 259 mm; piña (<span class="math inline">\(k_c = 0.39\)</span>) 73 mm.</p>
 </div></div>
 </section>
-<section id="evapotranspiración-con-satélites" class="slide level2">
-<h2>Evapotranspiración con satélites</h2>
-<div class="columns">
-<div class="column" style="width:48%;">
-<ul>
-<li>Una superficie que evapotranspira se enfría: con la temperatura de la superficie se resuelve el balance de energía en cada píxel.</li>
-<li>SEBAL y METRIC (Landsat, 30 m), SSEBop, MOD16 (500 m a 1 km) <span class="citation" data-cites="senay2013operational mu2011improvements">(<a href="#/referencias" role="doc-biblioref" onclick="">Mu et&nbsp;al., 2011</a>; <a href="#/referencias" role="doc-biblioref" onclick="">Senay et&nbsp;al., 2013</a>)</span>.</li>
-</ul>
-<p><span class="math display">\[
-ET_f = \frac{T_h - T_s}{T_h - T_c}, \qquad \mathrm{ETR} = ET_f \cdot ET_o
-\]</span></p>
-<ul>
-<li>En Costa Rica: nubes, píxeles que mezclan coberturas y validación fuera del trópico.</li>
-</ul>
-</div><div class="column" style="width:52%;">
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="tema2_files/figure-revealjs/unnamed-chunk-31-1.svg" class="quarto-figure quarto-figure-center" width="720"></p>
-</figure>
+<section id="resumen-de-métodos-de-evapotranspiración" class="slide level2">
+<h2>Resumen de métodos de evapotranspiración</h2>
+<div class="tabla-compacta">
+<table class="caption-top">
+<caption>Métodos de la clase <span class="citation" data-cites="allen1998fao56">(<a href="#/referencias" role="doc-biblioref" onclick="">R. G. Allen et&nbsp;al., 1998</a>)</span>.</caption>
+<colgroup>
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Método</th>
+<th style="text-align: left;">Qué estima</th>
+<th style="text-align: left;">Escala</th>
+<th style="text-align: left;">Datos</th>
+<th style="text-align: left;">Cuándo usarlo</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Thornthwaite</td>
+<td style="text-align: left;">ETP</td>
+<td style="text-align: left;">Mensual</td>
+<td style="text-align: left;">Temperatura media mensual y latitud</td>
+<td style="text-align: left;">Balances mensuales con solo temperatura</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Hargreaves y Samani</td>
+<td style="text-align: left;"><span class="math inline">\(ET_o\)</span></td>
+<td style="text-align: left;">Diaria</td>
+<td style="text-align: left;">Temperaturas máxima y mínima, latitud</td>
+<td style="text-align: left;">Faltan radiación, humedad o viento</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">FAO Penman-Monteith</td>
+<td style="text-align: left;"><span class="math inline">\(ET_o\)</span></td>
+<td style="text-align: left;">Diaria (también horaria o mensual)</td>
+<td style="text-align: left;">Radiación, temperatura, humedad, viento</td>
+<td style="text-align: left;">Método de referencia si hay datos</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Turc</td>
+<td style="text-align: left;">ETR</td>
+<td style="text-align: left;">Anual</td>
+<td style="text-align: left;">Lluvia y temperatura medias anuales</td>
+<td style="text-align: left;">Primera estimación del caudal medio</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Holdridge con Rodríguez y Saborío (clase 2.6)</td>
+<td style="text-align: left;">ETP y ETR</td>
+<td style="text-align: left;">Anual</td>
+<td style="text-align: left;">Biotemperatura y lluvia anuales</td>
+<td style="text-align: left;">Balances anuales en Costa Rica</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Coeficientes <span class="math inline">\(k_c\)</span> y <span class="math inline">\(k_s\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(ET_c\)</span> y ETR</td>
+<td style="text-align: left;">Diaria a mensual, por etapa</td>
+<td style="text-align: left;"><span class="math inline">\(ET_o\)</span>, cultivo y humedad del suelo</td>
+<td style="text-align: left;">Riego y balance de humedad del suelo</td>
+</tr>
+</tbody>
+</table>
 </div>
-</div>
-</div>
-<p><a href="data:text/csv;base64,YW5pbyxtZXMsZXRfbW9kMTZfbW0sYWV0X3RlcnJhY2xpbWF0ZV9tbSxldG9fcG1fdGVycmFjbGltYXRlX21tLHBfY2hpcnBzX21tCjIwMDEsMSw5Mi42LDgzLjgyLDE0Ny45Myw5LjgxCjIwMDEsMiw2OC44NCw0MS41OCwxNjIuNjQsMC43MgoyMDAxLDMsNjYuNTYsMjcuNzMsMTgwLjYsMy43MwoyMDAxLDQsNjQuOTIsMzIuNzUsMTgwLjA1LDMuMTMKMjAwMSw1LDc3LjY1LDE1MC4xMSwxNTAuMTYsMjI2LjgKMjAwMSw2LDExMy4wMywxMzIuMTQsMTMyLjE0LDE1My43NwoyMDAxLDcsMTMxLjU3LDEyNC45LDE0MS4yNiwxMjcuOTQKMjAwMSw4LDEyMS4yOSwxMjguODQsMTI5LjM1LDE5Mi4zNAoyMDAxLDksMTIxLjE1LDExMi41LDExMi41LDIzNC45OQoyMDAxLDEwLDEyMS42NywxMDcuMywxMDcuMyw1MjUuNzQKMjAwMSwxMSwxMzYuNjcsOTcuODMsMTA4LjE4LDk0Ljg1CjIwMDEsMTIsMTIxLjMsODcuMDUsMTE2LjI4LDQ4Ljc1CjIwMDIsMSwxMDYuNzksOTAuMjEsMTQ1Ljg0LDYuMwoyMDAyLDIsNzQuMTEsNDguMjgsMTQ5Ljc4LDEuMQoyMDAyLDMsNzEuNjksMzAuNiwxOTAuOTQsMi44NQoyMDAyLDQsNjMuMTYsMTcuODcsMTg1LjMzLDguMjYKMjAwMiw1LDc3Ljg3LDEzNC42NSwxNDkuOTgsMjAxLjIyCjIwMDIsNiwxMDkuNjcsMTE2LjE0LDExNi4xNCwyMDEuOTEKMjAwMiw3LDEyNC45MiwxMjQuODYsMTI1LjQzLDE1NC43NQoyMDAyLDgsMTI1LjY1LDEyNy45OSwxMjcuOTksMjAzLjExCjIwMDIsOSwxMDYuOTIsMTExLjM2LDExMS4zNiwzNTkuNQoyMDAyLDEwLDExMi42NywxMDguMTUsMTA4LjE1LDI1My45CjIwMDIsMTEsMTM0LjE2LDExMS41NSwxMTcuOTMsNzQuOAoyMDAyLDEyLDExNy44OSw5OC41MSwxMzMuNDcsMjguNDIKMjAwMywxLDk4LjgxLDgxLjAyLDE1OC4zLDYuODMKMjAwMywyLDY5LjE2LDQwLjk4LDE1Ni40MywwLjA5CjIwMDMsMyw3MC4wNCwzMi42MSwxNzUuODMsNy44CjIwMDMsNCw2OS42Miw3Ni45MSwxNjIuODgsNDAuODYKMjAwMyw1LDg2LjQ0LDEzOC41LDEzOC41LDIxNS40OQoyMDAzLDYsMTA0LjQ1LDEwOS4yOCwxMDkuMjgsMzY1Ljk1CjIwMDMsNywxMjEuMjUsMTIzLjExLDEzMS4zMSwxNTQuMDIKMjAwMyw4LDEzMC42NCwxMzIuODcsMTMyLjg3LDE1Mi4zNAoyMDAzLDksMTI2Ljc0LDEyNS45MiwxMjUuOTIsNDI0LjkyCjIwMDMsMTAsMTEwLjMzLDEwNS44NSwxMDUuODUsNDIxLjM2CjIwMDMsMTEsMTA2LjcyLDEwNC40LDEwNC40LDE5OC45OQoyMDAzLDEyLDExOC4yMSwxMDIuOTgsMTI2LjU3LDMzLjIxCjIwMDQsMSw5My41OSw4NS43MSwxNDQuNDgsNy40MgoyMDA0LDIsNzguNjIsNTQuNzIsMTUxLjExLDAuMDkKMjAwNCwzLDc0LjQ0LDMzLjM3LDE5NS45OSwxLjMyCjIwMDQsNCw2NC43NSwzNy45OCwxNzIuNTcsNy41MwoyMDA0LDUsOTQuMzMsMTQwLjY2LDE0MC42NiwzMjIuMDMKMjAwNCw2LDExNC40MiwxMjcuNzcsMTI3Ljc3LDIyMi4zNAoyMDA0LDcsMTI5LjgzLDEzMy43NSwxMzQuMSwxNzguMDMKMjAwNCw4LDEzMy4yNCwxMzMuMTcsMTMzLjE3LDIzNC4wMgoyMDA0LDksMTExLjM5LDEyNS41OSwxMjUuNTksMzg5Ljk5CjIwMDQsMTAsMTE5LjU5LDExMS41OCwxMTEuNTgsMjEyLjY5CjIwMDQsMTEsMTM2LjQxLDEyMi4yOSwxMjIuMzksMTE2LjU5CjIwMDQsMTIsMTE2LjUxLDk1LjgxLDE0MS41NCwyOS4wNwoyMDA1LDEsOTkuMTEsODkuMTIsMTY0Ljk1LDcuOTMKMjAwNSwyLDY4LjY2LDM5Ljg5LDE2OC4xLDAuMDMKMjAwNSwzLDY2Ljg2LDM4LjU2LDE3MS41MSw5Ljg0CjIwMDUsNCw2Ni4wOCwzMi44OSwxNzYuMTYsMTEuMDQKMjAwNSw1LDgxLjQ3LDEzNS42MiwxNDQuMDgsMjI5LjM2CjIwMDUsNiwxMDQuMSwxMTUuMzUsMTE1LjM1LDM3My45NgoyMDA1LDcsMTMwLjYxLDEzMy45OSwxMzcuMywxODkuNjIKMjAwNSw4LDExNi44MSwxMjcuNzMsMTI3LjczLDE4OC40NAoyMDA1LDksMTEwLjc1LDExOC4yNywxMTguMjcsNDM0Ljg3CjIwMDUsMTAsMTEzLjQxLDEwOS4xMSwxMDkuMTEsNDE4LjQzCjIwMDUsMTEsMTIwLjc3LDEwOS43OCwxMTAuODcsMTIyLjgzCjIwMDUsMTIsMTExLjYxLDkyLjI2LDEyNS40LDI2Ljk5CjIwMDYsMSwxMTMuMTgsODcuNTgsMTQ0LjIsMTEuMgoyMDA2LDIsODMuNjUsNTQuNjcsMTU2LjQzLDIuNzYKMjAwNiwzLDc2Ljk3LDI5Ljk5LDE4OC45OCwxLjYxCjIwMDYsNCw2NS4yLDM2LjQ2LDE3Mi4wMSwxLjUzCjIwMDYsNSw5Ny42OCwxNTIuNjcsMTUyLjY3LDE2Ny4xNAoyMDA2LDYsMTIwLjkyLDEyNC40MSwxMjQuNDEsMjk2Ljk1CjIwMDYsNywxMjIuMTksMTM2LjYxLDEzNi42MSwyMjcuOTkKMjAwNiw4LDEyMS4xNCwxMzIuNzUsMTM2LjAzLDEyOS4zNgoyMDA2LDksMTI3LjM5LDEyNC41NSwxMjQuNTUsMTYzLjQyCjIwMDYsMTAsMTIxLjQyLDExMC42MSwxMTAuNjEsMjk0LjAzCjIwMDYsMTEsMTE0LjI0LDEwNi4zLDEwNi4zMSwxMTkuODQKMjAwNiwxMiwxMTcuODIsMTAwLjM5LDEyNi43NSwzNy4yOAoyMDA3LDEsMTA3LjgxLDg5LjA2LDE1OC42LDYuNDMKMjAwNywyLDcyLjIyLDQ0LjI1LDE0OS43NSwwLjEKMjAwNywzLDY3LjUsMzMuNzEsMTgzLjc5LDMuMQoyMDA3LDQsNjYuNTcsNjMuNDgsMTUzLjkxLDI3LjcxCjIwMDcsNSw4Ni43MiwxMjguNTgsMTI4LjU4LDI1OS41MgoyMDA3LDYsMTE4LjEyLDEyMS44MywxMjEuODMsMjkyLjkxCjIwMDcsNywxMzAsMTMxLjk3LDEzMi40MSwxNTIuNzIKMjAwNyw4LDEyMi44LDEyMi4yMiwxMjIuMjIsMzgxLjc3CjIwMDcsOSwxMjAuMTYsMTE0LjE5LDExNC4xOSw0NTUuOTcKMjAwNywxMCwxMTAuNzMsMTAyLjU2LDEwMi41Niw0ODYuMjIKMjAwNywxMSwxMTUuNjIsMTE0LjM1LDExNC43OSwxMzAuNzcKMjAwNywxMiwxMDkuNDEsODcuNDEsMTIzLjU0LDMyLjEKMjAwOCwxLDEwMS42OSw4My4xOCwxNDkuNTksNi4zNAoyMDA4LDIsNzQuNDcsNTEsMTQ4LjYyLDIuMTcKMjAwOCwzLDc1Ljg2LDM0LjIzLDE4NS44MiwzLjE1CjIwMDgsNCw2OS4xMSw2OC41MiwxNzMuNSw5LjY4CjIwMDgsNSw4MC42NSwxMzguNjYsMTM4LjY2LDI1OC44CjIwMDgsNiwxMDUuODgsMTE0LjY0LDExNC42NCwzMTkuNTMKMjAwOCw3LDExOS4yLDExOC4yNywxMTguMjcsMjI5LjA1CjIwMDgsOCwxMTAuOTIsMTIyLDEyMiwzODYuNTgKMjAwOCw5LDEwNC44MSwxMDYuNDQsMTA2LjQ0LDUwOS4zMQoyMDA4LDEwLDExMS40NSw5OC41Niw5OC41Niw1NjAuOTgKMjAwOCwxMSwxMTguMjEsMTEzLjM3LDExNS44LDExNC4wNAoyMDA4LDEyLDExMi41NCw5My44NiwxMjcuMjQsNDYuMDMKMjAwOSwxLDEwMy41OCw4NC45MywxNDQuNzQsOC40NwoyMDA5LDIsNzUuODYsNTAuNzMsMTU3LjQzLDAuMTEKMjAwOSwzLDc5LjM2LDMyLDE4Ni4wNywxLjMyCjIwMDksNCw3NC44NiwyMy42NSwxNzcsMTQuMTcKMjAwOSw1LDgzLjEzLDE0Mi42MiwxNDIuNjIsMjI0LjcxCjIwMDksNiwxMDkuNywxMTUuNzUsMTE1Ljc1LDM0My4zOQoyMDA5LDcsMTI1LjQ0LDExOC40MSwxMjguNDgsMTYwLjQ1CjIwMDksOCwxMjQuODIsMTI1LjU1LDEzMi44Nyw3NC40OQoyMDA5LDksMTE2LjMzLDExOS4wMSwxMTkuMTEsMTE1LjUKMjAwOSwxMCwxMTUuODUsMTA4Ljk5LDEwOC45OSwyMzguNTMKMjAwOSwxMSwxMzkuMjIsMTA0LjU4LDExMy4yNiw5OS40MgoyMDA5LDEyLDExNS4wOSw5My4zMywxMzIuNDIsMzEuOTgKMjAxMCwxLDkyLjczLDg4LjQ4LDE1Ny45Niw1LjIyCjIwMTAsMiw2NS44Niw0Ni4xMiwxNTUuMDksMi4wMQoyMDEwLDMsNjkuNzksMzMuOTcsMTg5LjY5LDEuMjQKMjAxMCw0LDY4LjM1LDg1LjQyLDE1Ni44NywxMTUuODMKMjAxMCw1LDEyNi44NSwxMzguNjYsMTM5LjksMjY5LjQ2CjIwMTAsNiwxMTMuOTQsMTA3LjUyLDEwNy41MiwyMzkuMDcKMjAxMCw3LDExNy43NiwxMTIuOSwxMTIuOSwzMDMuMDYKMjAxMCw4LDExNy4xOSwxMDUuOTMsMTA1LjkzLDQ0OS45OAoyMDEwLDksMTExLjQ3LDk4LjgsOTguOCwzMzguNzIKMjAxMCwxMCwxMzAuNSwxMTMuMjYsMTEzLjI2LDEzNy4zNwoyMDEwLDExLDEyNS4yNywxMDYuODQsMTA2Ljg0LDEzMC43OAoyMDEwLDEyLDEwNC44LDkxLjQ2LDEyOC4zOSwxMy4zMgoyMDExLDEsOTguMzQsNzcuMTcsMTM4LjIyLDUuMzUKMjAxMSwyLDc5LjQ5LDUyLjU3LDE0Ny4zOSwwLjEKMjAxMSwzLDc5LjI2LDMxLjgsMTgyLjcsMS4wOQoyMDExLDQsNjcuMTQsNDUuNDYsMTcwLjYsNy4yOAoyMDExLDUsODYuNzgsMTM2LjE5LDE0Mi45OCwyNTQuMjMKMjAxMSw2LDExMi4zMSwxMTEuMzIsMTExLjMyLDI2NS4xMwoyMDExLDcsMTI1LjI3LDExNC41OSwxMTQuNTksMTkxLjU4CjIwMTEsOCwxMjMuNjgsMTI0LjQ4LDEyNS4wNiwxNzEuMTcKMjAxMSw5LDEyMi4wMSwxMTIuNDIsMTEyLjQyLDMxMS44OQoyMDExLDEwLDEyMS44LDEwMS4wMywxMDEuMDMsNDQxLjY3CjIwMTEsMTEsMTQxLjkzLDExMy4xLDExNy42Miw3Ny40OAoyMDExLDEyLDExMS4zOCw5NC4xMiwxMjUuNDksMTYuNwoyMDEyLDEsMTAyLjQ1LDc5LjYzLDE0Ny42Myw1LjgyCjIwMTIsMiw4My40NCw0My4xMiwxNTYuNTQsMy4xMwoyMDEyLDMsNzcuMjYsMjQuODYsMTk2LjIxLDEuMDkKMjAxMiw0LDc1LjU2LDU1LjE0LDE2NC4zMSwxNi43NgoyMDEyLDUsMTE0LjEyLDE0NS45NCwxNDUuOTQsMzg3LjU4CjIwMTIsNiwxMjQuMiwxMzMuOTUsMTMzLjk1LDIwNC4zOAoyMDEyLDcsMTI4LjI0LDEzMC43MiwxNDYuNiw1Mi42MQoyMDEyLDgsMTI5LjA5LDEzNi41OSwxMzYuNTksMjA1LjEzCjIwMTIsOSwxMjMuOTgsMTIzLjg4LDEyMy44OCwyMzkuOTMKMjAxMiwxMCwxMjAuNjgsMTE3LjE3LDExNy4xNywyNDcuNDMKMjAxMiwxMSwxMzEuNDgsMTEzLjA5LDEzMi4yNCw0MC4yCjIwMTIsMTIsMTE0Ljg5LDg0LjA3LDEzNC4zNSw5Ljk0CjIwMTMsMSw5NS4yNyw2My45MSwxNjAuNzgsNi4wMgoyMDEzLDIsNjkuNzIsMzYuNzYsMTYwLjEzLDAuMTcKMjAxMywzLDcwLjI0LDI0LjY3LDE5Ny42MywyLjUzCjIwMTMsNCw2NS41MSw0OS4wNSwxODAuMzYsMS4xNgoyMDEzLDUsNzcuODEsMTUxLjcsMTU1LjA3LDIxMS41NAoyMDEzLDYsMTA2LjksMTIzLjc2LDEyMy43NiwzMjUuNwoyMDEzLDcsMTI4LjczLDExNi40LDEzMy45OSwxOTAuNTMKMjAxMyw4LDEzMS44LDEyNS4zNywxMzIuNTcsMTQ0Ljg4CjIwMTMsOSwxMTcuNDgsMTE4Ljc0LDExOC43NCw0MjguNTIKMjAxMywxMCwxMjMuMjUsMTE0LjU3LDExNC41NywzNDkuMjUKMjAxMywxMSwxMzIuMzgsMTEwLjMyLDExMS45Miw2NS41MQoyMDEzLDEyLDExNy40NCw4NC41OSwxMjYuOTEsMTEuMTIKMjAxNCwxLDExMS40Nyw4NC40MywxNjAuNTIsNi40MQoyMDE0LDIsNzkuMDYsMzkuODgsMTYxLjU3LDAuMQoyMDE0LDMsNzMuMzksMjYuMjQsMTkxLjYzLDIuMDMKMjAxNCw0LDYwLjk3LDUxLjU4LDE4MS4yMywxMy4xCjIwMTQsNSw4OS4xNSwxNTguNzIsMTY1LjEzLDEwOC41NgoyMDE0LDYsMTExLjkxLDEzMC41LDEzMC41LDExOC4yCjIwMTQsNywxMjEuOTgsMTE4LjA2LDE1NS4yOSwyNS4wMwoyMDE0LDgsMTA4Ljg5LDEzNy4wMywxMzcuOTEsMTM5LjQ0CjIwMTQsOSwxMTUuMTIsMTE1LjQ3LDExNS40Nyw1NjkuNTQKMjAxNCwxMCwxMjAuNDYsMTExLjMxLDExMS4zMSw0MTIuODkKMjAxNCwxMSwxMzguNzksMTAxLjU2LDExNC40MywxMzkuOTEKMjAxNCwxMiwxMTYuOTcsOTEuMzEsMTM0LjkyLDkuNDgKMjAxNSwxLDk2Ljk2LDgxLjQ5LDE2NC44OSw3LjEKMjAxNSwyLDc2LjQ5LDM5LjI3LDE1OS45MSwwLjkxCjIwMTUsMyw2Ny42NCwyNS45MiwyMDEuMDIsNC4xNwoyMDE1LDQsNjEuNjIsNTAuMjcsMTc5LjYyLDM3LjE1CjIwMTUsNSw2Ny43Myw4MS44NSwxNzcuNDQsMTguMDEKMjAxNSw2LDEwOC44MSwxNDEuMDUsMTQxLjA1LDE0NS45MwoyMDE1LDcsMTE3LjI2LDEyMC42MywxNTUuNDIsMTA3LjkKMjAxNSw4LDEwOC44NiwxNTYuNzQsMTU2Ljc0LDU2LjYxCjIwMTUsOSwxMTYuOTMsMTMwLjk3LDEzMC45NywyNzguMjgKMjAxNSwxMCwxMTUuNzQsMTI0LjYzLDEyNC42MywzMDcuNDQKMjAxNSwxMSwxMzUuOTMsMTA5LjU2LDExMC44OCwxMDQuMjIKMjAxNSwxMiwxMzAuMzMsMTAxLDEzOS4yNiwyOC41MwoyMDE2LDEsMTAzLjcxLDkwLjc3LDE3MC4yNSw2LjMyCjIwMTYsMiw2OS45OSw0Ni43MywxODguMjMsMC4xCjIwMTYsMyw1OS4wNCwyOS41LDIwNi44MywxLjU5CjIwMTYsNCw2MS4zOSwzNi40NiwxODcuMzIsNDYuNTQKMjAxNiw1LDExMy4wMywxNTAuNjIsMTUzLjgzLDE0Ny4zCjIwMTYsNiwxMTQuODEsMTI4LjI5LDEyOC4yOSwyMzcuMzUKMjAxNiw3LDEzNy43MiwxNDIuODksMTQyLjg5LDExNy4zMgoyMDE2LDgsMTMyLjYzLDE0MS4zLDE0MS4zLDE5MC44NwoyMDE2LDksMTM3Ljk5LDEyNi44NywxMjYuODcsMzIyLjE3CjIwMTYsMTAsMTM2LjM4LDExNC40NCwxMTQuNDQsMzg5LjQyCjIwMTYsMTEsMTMyLjE2LDEwNy40MywxMDcuOTEsMjE2LjA2CjIwMTYsMTIsMTE5LjY0LDg4LjkyLDEyMS4wOCw2OC4yNwoyMDE3LDEsMTMwLjc1LDg4LjE3LDE1Mi40LDYuODgKMjAxNywyLDk1LjgsNDkuNzcsMTYzLjY0LDAuMQoyMDE3LDMsODEuNjksMzMuODMsMTk5LjQsMS45NQoyMDE3LDQsNzcuNjYsMzUuMDQsMTc1LjQxLDE3LjgxCjIwMTcsNSwxMTEuNTMsMTM1LjIsMTM1LjIsNDk4LjY0CjIwMTcsNiwxMjguMjMsMTI1LjYzLDEyNS42MywyODIuNzYKMjAxNyw3LDEzNS4zOSwxMzQuNjEsMTM0LjY4LDIwMy40MQoyMDE3LDgsMTMzLjQ5LDEzMS44OSwxMzEuODksMTY1LjkKMjAxNyw5LDExOS43NSwxMTMuOTcsMTEzLjk3LDM1Ni40NgoyMDE3LDEwLDExNi42NywxMTEuMDYsMTExLjA2LDY3NC4wMQoyMDE3LDExLDE0MS42MywxMTEuMTMsMTIxLjg2LDU5CjIwMTcsMTIsMTE1Ljg4LDk4LjEyLDEzNS44MywxNi4wOQoyMDE4LDEsMTAwLjY4LDg0LjI3LDE1MC41Nyw3LjgzCjIwMTgsMiw3OS41Nyw0Ni45MiwxNzIuMTgsMC4xCjIwMTgsMyw3OC4wNywzNi4yNCwyMDQuMzIsMi40NQoyMDE4LDQsNzEuNyw0Ni42LDE3Ny4xMiwyNy4xMQoyMDE4LDUsODQuMDEsMTQ4LjY2LDE0OC42NiwyOTIuOTcKMjAxOCw2LDExNC40MywxMzQuNDUsMTM0LjQ1LDIyOC43MQoyMDE4LDcsMTMzLjI5LDE1MC41LDE1Mi4xNSw1Ni45CjIwMTgsOCwxMjcuMzYsMTUxLjQ3LDE1MS40NywxMTkuMzgKMjAxOCw5LDExOC44NCwxMzcuNDYsMTM3LjQ2LDE4NS4zNgoyMDE4LDEwLDEyMC41NiwxMjAuMTQsMTIwLjE0LDU4OC42NAoyMDE4LDExLDE0MC43MiwxMjIuMTcsMTMwLjg5LDQwLjE1CjIwMTgsMTIsMTEyLjUyLDEwNy4zMiwxNTEuNDksMTAuNzEKMjAxOSwxLDg3LjU0LDc1LjIyLDE2OC41MSw2LjExCjIwMTksMiw2Ny4xNSwzNC4wOCwxNzAuMzQsMC4xCjIwMTksMyw2OC4wNiwxOS4xOCwyMDMuMjksMi4yNQoyMDE5LDQsNjIuODQsMjAuMzQsMTg1LjMsMy4zNAoyMDE5LDUsODAuNDYsMTI1LjMzLDEyNS4zMyw0MjguMzgKMjAxOSw2LDEyNS4wOSwxMzcuODcsMTM3Ljg3LDk5LjczCjIwMTksNywxMjYuMDIsMTIxLjU4LDE0OC41NCwxMjAuNzEKMjAxOSw4LDEzMS45NiwxMzIuMjUsMTQ1LjksMTIzLjA3CjIwMTksOSwxMTEuOTIsMTI2LjkxLDEyNi45MSwyNjIuOTEKMjAxOSwxMCwxMTIuNTYsMTE1LjQ1LDExNS40NSw0OTIuNDIKMjAxOSwxMSwxMzkuMDUsOTQuNjIsMTI1LjY5LDEyOC44OQoyMDE5LDEyLDExOC42Myw4My43OCwxMzEuMTMsMzAuNzYKMjAyMCwxLDEwNi45Nyw3Mi43MywxNTMuNzgsOS4xMwoyMDIwLDIsODEuNTgsMzUuMDIsMTYzLjU1LDAuNAoyMDIwLDMsNzQuMjIsMjMuNjEsMTkxLjI1LDEuNTkKMjAyMCw0LDY1LjcxLDI5LjA1LDE3My45MSwxMy4xOQoyMDIwLDUsNzkuMTQsMTQ4LjksMTQ4LjksMjQ1LjU5CjIwMjAsNiwxMDguMDYsMTE5Ljg4LDExOS44OCwzNDYuNjIKMjAyMCw3LDEyOC43NiwxMzQuMDUsMTM0LjIyLDE2OC43OQoyMDIwLDgsMTIzLjksMTIyLjk5LDEyMi45OSwyMDEuNzUKMjAyMCw5LDExOS4wOCwxMjEuODEsMTIxLjgxLDM0NS40MgoyMDIwLDEwLDEyMC40MywxMDYuMTQsMTA2LjE0LDQ0OQoyMDIwLDExLDEyNS44Myw5OS42OSw5OS42OSwyMTQuOTIKMjAyMCwxMiwxMjcuOCwxMDMuODIsMTI1LjI1LDUwLjEKMjAyMSwxLDExOC43NSw4Ny42OCwxMzkuNzQsOS45NAoyMDIxLDIsODkuMjEsNTguNjMsMTQ4LjMyLDAuOTQKMjAyMSwzLDgxLjY2LDM0LjM3LDE3OS45OCwyLjA1CjIwMjEsNCw4OC41Niw4NC43MiwxNTYuNTQsNzAuMTcKMjAyMSw1LDEyOS40Miw3Ni42MiwxNTMuMjYsMTQ0Ljc5CjIwMjEsNiwxMjMuOTgsMTI2LjM2LDEyNi4zNiwyMDIuNTgKMjAyMSw3LDEzMS4xLDEyNi4zOSwxMzcuNDcsMTkxLjE2CjIwMjEsOCwxMjMuNTIsMTI3LjAyLDEyNy4wMiw1NDMuODIKMjAyMSw5LDExNC43NCwxMTguMjcsMTE4LjI3LDMyMi4zNQoyMDIxLDEwLDEyNi4yNywxMTUuMjIsMTE1LjIyLDM1Mi4zMwoyMDIxLDExLDEzMy4xNSwxMDAuMjMsMTE4LjQyLDIyLjMxCjIwMjEsMTIsMTEzLjE5LDg0LjIsMTI3LjIzLDkuODQKMjAyMiwxLDk5Ljk1LDY4LjM1LDE0OC4zOCwzLjY0CjIwMjIsMiw3Ny43NiwzNi4yNywxNTMuMSwwLjY4CjIwMjIsMyw3MS4zOSwyNC45MiwxNzUuODYsMi4yMgoyMDIyLDQsNzIuMiw5NS40NCwxNTUuOCwzOS4zNQoyMDIyLDUsMTA2LjQ2LDEzMS4xMSwxMzEuMTEsMjMyLjQ1CjIwMjIsNiwxMTguMDUsMTA3LjQ3LDEwNy40NywzOTcuMDMKMjAyMiw3LDE0MC45MiwxMjcuNDEsMTI3LjQxLDIxNS4zNgoyMDIyLDgsMTMzLjQxLDEyNi4yLDEyNi4yLDE0Ni42MwoyMDIyLDksMTE5LjI2LDExNS45MSwxMTUuOTEsMjM0LjI4CjIwMjIsMTAsMTQyLjA5LDEyMy4wNSwxMjMuMDUsMTU4LjUKMjAyMiwxMSwxMTUuMTgsOTYuNTEsOTYuNTEsMzkwLjgzCjIwMjIsMTIsMTI1LjkzLDkzLjMyLDEyOC43MywyNC45NwoyMDIzLDEsMTE1LjEyLDgxLjkyLDE0NC4zOSw1Ljk5CjIwMjMsMiw4My4zMyw0Ny43MSwxNTkuMiwxLjA2CjIwMjMsMyw4Ny4zNCw1My4xNiwxNjguNTcsMTIuMjMKMjAyMyw0LDc3LjUsMjYuODMsMTc4LjY0LDI0Ljg2CjIwMjMsNSw4My44MSw4Ni42MSwxNzguMzYsMTA4LjI4CjIwMjMsNiwxMjMuNzgsMTM2LjAzLDEzNi4wMywxODMuMDcKMjAyMyw3LDEyOC4zLDEyOC4yMiwxNDYuMzcsMTQ1LjU5CjIwMjMsOCwxMzAuMTYsMTM3LjU2LDEzNy41NiwxNTEuMjcKMjAyMyw5LDEyNS4wNiwxMzIuNDcsMTM4LjYsMTY4LjE5CjIwMjMsMTAsMTA4Ljc5LDExMS40MywxMTEuNDMsNDE2Ljk3CjIwMjMsMTEsMTIyLjc3LDEwOC40NywxMDguNDcsMjc1Ljg3CjIwMjMsMTIsMTI4LjQzLDkzLjYzLDEzNS4yNyw0MS4zNQoyMDI0LDEsMTE3LjYxLDgxLjYsMTUwLjk0LDQuNTMKMjAyNCwyLDg0LjEyLDQxLjY5LDE1OS4yMSwwLjU3CjIwMjQsMyw3NC4xMSwzMS4xLDE4NS45MywzLjE1CjIwMjQsNCw2Ni4wNywzMy4wMywxODIuNSwxMi4wOAoyMDI0LDUsOTEuODEsMTUwLjg3LDE1NS42OCwxNTYuMDcKMjAyNCw2LDExNC41NywxMDkuMzMsMTA5LjMzLDY1Ny43MgoyMDI0LDcsMTE3LjU2LDEyNS42MSwxMjUuNjEsMzA4Ljk0CjIwMjQsOCwxMjAuMjMsMTMxLjAzLDEzMS4xMiwyMTUuNQoyMDI0LDksMTIyLjA0LDExMS45NiwxMTEuOTYsMzQ3LjM4CjIwMjQsMTAsMTI3LjYxLDExMy42NiwxMTMuNjYsMjYxLjQ1CjIwMjQsMTEsMTEyLjIzLDkzLjM2LDkzLjM2LDU1MC4zOQoyMDI0LDEyLDExOC4wNCwxMTAuMzIsMTEyLjQyLDU5LjQ3Cg==" download="et_mensual_tempisque_2001_2024.csv" class="boton-datos">⬇ Descargar <code>et_mensual_tempisque_2001_2024.csv</code></a></p>
-</div></div>
 </section></section>
 <section>
 <section id="caudales" class="title-slide slide level1 separador center" data-background-color="#10199e">
@@ -2106,6 +2817,7 @@ ET_f = \frac{T_h - T_s}{T_h - T_c}, \qquad \mathrm{ETR} = ET_f \cdot ET_o
 p_i = \frac{i}{n + 1}
 \]</span></p>
 <ul>
+<li><span class="math inline">\(p_i\)</span>: fracción del tiempo en que se iguala o supera el caudal de orden <span class="math inline">\(i\)</span> (1 para el mayor); <span class="math inline">\(n\)</span>: número de días.</li>
 <li><span class="math inline">\(Q_p\)</span>: caudal igualado o superado el <span class="math inline">\(p\)</span> % del tiempo. <span class="math inline">\(Q_{50}\)</span> es la mediana.</li>
 <li>No es una curva de frecuencia: los días seguidos no son independientes y <span class="math inline">\(Q_{95}\)</span> no tiene periodo de retorno.</li>
 <li>La curva mediana de las curvas anuales representa un año típico.</li>
@@ -2121,7 +2833,7 @@ p_i = \frac{i}{n + 1}
 <p>Para usos de diseño, la curva diaria; la mensual sirve para balances.</p>
 </div></div>
 </section>
-<section id="ejemplo-curva-de-duración" class="slide level2">
+<section id="ejemplo-curva-de-duración" class="slide level2 reducida">
 <h2>Ejemplo: curva de duración</h2>
 <div class="columns">
 <div class="column" style="width:58%;">
@@ -2148,17 +2860,46 @@ p_i = \frac{i}{n + 1}
 </section>
 <section id="curva-de-variación-estacional" class="slide level2">
 <h2>Curva de variación estacional</h2>
+<div class="pregunta">
+<p>¿Qué caudal se puede esperar en abril con una probabilidad dada, por ejemplo 9 de cada 10 años?</p>
+</div>
+<ul>
+<li>La curva de duración dice cuánto tiempo se supera un caudal, pero no en qué meses. Esta curva hace un análisis de frecuencia para cada mes por separado <span class="citation" data-cites="villon2002hidrologia">(<a href="#/referencias" role="doc-biblioref" onclick="">Villón Béjar, 2002</a>)</span>.</li>
+<li>Se usa en el balance entre oferta y demanda: la disponibilidad de cada mes se toma de la curva de la confiabilidad buscada (90 %, 95 %).</li>
+<li>La curva del 50 % es el caudal mediano de cada mes; la del 90 %, el caudal de un mes que solo uno de cada diez años es más seco.</li>
+</ul>
+</section>
+<section id="variación-estacional-procedimiento" class="slide level2">
+<h2>Variación estacional: procedimiento</h2>
 <div class="columns">
-<div class="column" style="width:52%;">
-<p>¿Qué caudal se espera en abril con una probabilidad dada? <span class="citation" data-cites="villon2002hidrologia">(<a href="#/referencias" role="doc-biblioref" onclick="">Villón Béjar, 2002</a>)</span></p>
+<div class="column" style="width:55%;">
 <ol type="1">
 <li>Caudales medios mensuales de <span class="math inline">\(n\)</span> años.</li>
-<li>Cada mes, de mayor a menor, con la posición de Hazen <span class="math inline">\(P = 100\,\frac{2m - 1}{2n}\)</span>.</li>
+<li>Para cada mes, ordenar los <span class="math inline">\(n\)</span> valores de mayor a menor.</li>
+<li>Asignar a cada uno su probabilidad de excedencia con la posición de Hazen.</li>
 <li>Ajustar una distribución a cada mes (log-normal o Pearson III).</li>
 <li>Graficar, para cada probabilidad, el caudal contra el mes.</li>
 </ol>
-<p>La curva del 90 % no es un año real: cada mes se analiza por separado.</p>
-</div><div class="column" style="width:48%;">
+</div><div class="column" style="width:45%;">
+<p><span class="math display">\[
+P = 100\,\frac{2m - 1}{2n}
+\]</span></p>
+<p><span class="math inline">\(P\)</span>: probabilidad de que el caudal sea igualado o superado (%); <span class="math inline">\(m\)</span>: número de orden (1 para el mayor); <span class="math inline">\(n\)</span>: número de años.</p>
+</div></div>
+</section>
+<section id="ejemplo-abril-paso-a-paso" class="slide level2">
+<h2>Ejemplo: abril, paso a paso</h2>
+<div class="columns">
+<div class="column apretado" style="width:54%;">
+<p>Cuenca hipotética de 85 km², 30 años de caudales de abril. Solución:</p>
+<ol type="1">
+<li>Ordenar: de 2.018 m³/s (<span class="math inline">\(m = 1\)</span>) a 0.833 m³/s (<span class="math inline">\(m = 30\)</span>).</li>
+<li>Hazen: <span class="math inline">\(m = 1\)</span> da <span class="math inline">\(P = 100\,\frac{2 - 1}{60} = 1.7\)</span> %; <span class="math inline">\(m = 30\)</span> da 98.3 %.</li>
+<li>Log-normal: se trabaja con <span class="math inline">\(y = \ln Q\)</span>. Media de los 30 valores de <span class="math inline">\(y\)</span>: <span class="math inline">\(\mu_y = 0.4047\)</span>; desviación estándar: <span class="math inline">\(\sigma_y = 0.2477\)</span>.</li>
+<li>Caudal de probabilidad <span class="math inline">\(P\)</span>: <span class="math inline">\(Q_P = e^{\mu_y + z\,\sigma_y}\)</span>, donde <span class="math inline">\(z\)</span> es la variable normal estándar que deja la probabilidad <span class="math inline">\(P\)</span> por encima.</li>
+<li><span class="math inline">\(P = 50\)</span> %: <span class="math inline">\(z = 0\)</span> y <span class="math inline">\(Q_{50} = e^{0.4047} = 1.50\)</span> m³/s. <span class="math inline">\(P = 90\)</span> %: <span class="math inline">\(z = -1.2816\)</span> y <span class="math inline">\(Q_{90} = e^{0.4047 - 1.2816 \times 0.2477} = 1.09\)</span> m³/s.</li>
+</ol>
+</div><div class="column" style="width:46%;">
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
@@ -2168,7 +2909,7 @@ p_i = \frac{i}{n + 1}
 </div>
 </div>
 </div>
-<p>Abril (hipotético): <span class="math inline">\(\mu_y = 0.4047\)</span> y <span class="math inline">\(\sigma_y = 0.2477\)</span>, así que <span class="math inline">\(Q_{90} = e^{\mu_y - 1.2816\,\sigma_y} = 1.091\)</span> m³/s.</p>
+<p><span class="nota">Los otros 11 meses se resuelven igual. La curva del 90 % no es un año real: cada mes se analiza por separado.</span></p>
 </div></div>
 </section>
 <section id="caudal-disponible-según-la-excedencia" class="slide level2">
@@ -2178,7 +2919,7 @@ p_i = \frac{i}{n + 1}
 </div>
 <div id="explorador-estacional" class="explorador">
   <div class="explorador-controles">
-    <label>Excedencia = <input type="range" id="es-p" min="50" max="99" step="1" value="90"> <span id="es-p-val"></span> %</label>
+    <label>Excedencia = <input type="range" id="es-p" min="1" max="99" step="1" value="90"> <span id="es-p-val"></span> %</label>
     <label>Demanda = <input type="range" id="es-d" min="0" max="5" step="0.1" value="1.2"> <span id="es-d-val"></span> m³/s</label>
   </div>
   <svg id="es-graf" viewbox="0 0 900 270"></svg>
@@ -2214,11 +2955,11 @@ p_i = \frac{i}{n + 1}
     var q50 = E.mu.map(function (m) { return Math.exp(m); });
     var svg = document.getElementById("es-graf");
     while (svg.firstChild) svg.removeChild(svg.firstChild);
-    var W = 900, H = 270, mg = {l: 70, r: 20, t: 12, b: 40}, ym = 12;
+    var W = 900, H = 270, mg = {l: 70, r: 20, t: 12, b: 40}, ym = Math.max(12, Math.ceil(Math.max.apply(null, q.concat(q50, [D])) / 3) * 3);
     var sx = function (i) { return mg.l + (i + 0.5) / 12 * (W - mg.l - mg.r); };
     var sy = function (y) { return H - mg.b - y / ym * (H - mg.t - mg.b); };
     var f = {"font-family": "serif", "font-size": 18, fill: "#333"};
-    for (var y = 0; y <= ym; y += 3) {
+    for (var y = 0, paso = ym > 24 ? 6 : 3; y <= ym; y += paso) {
       el(svg, "line", {x1: mg.l, x2: W - mg.r, y1: sy(y), y2: sy(y), stroke: "#e5e5e5"});
       el(svg, "text", Object.assign({x: mg.l - 8, y: sy(y) + 6, "text-anchor": "end"}, f), y);
     }
@@ -2245,8 +2986,23 @@ p_i = \frac{i}{n + 1}
 </script>
 <p><a href="data:text/csv;base64,ImFuaW8iLCJtZXMiLCJjYXVkYWxfbTNzIgoxOTkxLDEsMy41MzEKMTk5MSwyLDIuNjk5CjE5OTEsMywyLjA2OAoxOTkxLDQsMS42CjE5OTEsNSwxLjMxOQoxOTkxLDYsNy4wODcKMTk5MSw3LDQuMzE0CjE5OTEsOCw3LjA1CjE5OTEsOSw3LjA4MwoxOTkxLDEwLDEyLjQyMwoxOTkxLDExLDYuMjc5CjE5OTEsMTIsNC42MjkKMTk5MiwxLDMuMzk0CjE5OTIsMiwyLjY0MwoxOTkyLDMsMi4wMzMKMTk5Miw0LDEuNjE0CjE5OTIsNSwxLjQ5MwoxOTkyLDYsNi44MTUKMTk5Miw3LDQuMDY0CjE5OTIsOCw4LjMwOQoxOTkyLDksMTAuNzc0CjE5OTIsMTAsMTYuNzg4CjE5OTIsMTEsOC4zNjcKMTk5MiwxMiw1LjE3MgoxOTkzLDEsNC4xODgKMTk5MywyLDMuMjU5CjE5OTMsMywyLjQ1MwoxOTkzLDQsMS44NjkKMTk5Myw1LDIuNzI0CjE5OTMsNiw2LjA3CjE5OTMsNywzLjM0NgoxOTkzLDgsOC4zNwoxOTkzLDksOC45MDgKMTk5MywxMCwxMi4xODEKMTk5MywxMSw2LjExCjE5OTMsMTIsNC4zODYKMTk5NCwxLDMuNDc4CjE5OTQsMiwyLjY4MQoxOTk0LDMsMi4wNAoxOTk0LDQsMS41NzkKMTk5NCw1LDEuMjg1CjE5OTQsNiwxLjczNQoxOTk0LDcsNC43MgoxOTk0LDgsMy40ODkKMTk5NCw5LDcuNDc5CjE5OTQsMTAsNy40OTEKMTk5NCwxMSw1LjQ0NAoxOTk0LDEyLDMuMzI4CjE5OTUsMSwyLjY0NAoxOTk1LDIsMi4xMTIKMTk5NSwzLDEuNjI4CjE5OTUsNCwxLjIyMgoxOTk1LDUsNi4zMjcKMTk5NSw2LDEyLjU1OAoxOTk1LDcsNC41NDIKMTk5NSw4LDUuNDE4CjE5OTUsOSwxNC4zMjEKMTk5NSwxMCwxMi42OTgKMTk5NSwxMSwxMC4xNzkKMTk5NSwxMiw1LjQyNgoxOTk2LDEsNC4xNDMKMTk5NiwyLDMuMTk0CjE5OTYsMywyLjQyNgoxOTk2LDQsMS44OQoxOTk2LDUsMS42MzQKMTk5Niw2LDE0LjYzNAoxOTk2LDcsNS44NDgKMTk5Niw4LDExLjg4NgoxOTk2LDksMTAuODY4CjE5OTYsMTAsMTUuMzg0CjE5OTYsMTEsOS4wNDQKMTk5NiwxMiw1LjYxOAoxOTk3LDEsNC4yNzMKMTk5NywyLDMuMjk2CjE5OTcsMywyLjQ5NwoxOTk3LDQsMS45MwoxOTk3LDUsMS41OTEKMTk5Nyw2LDEuNTk2CjE5OTcsNywzLjcxNAoxOTk3LDgsMi4zNDYKMTk5Nyw5LDMuNzE4CjE5OTcsMTAsMi40OTEKMTk5NywxMSwyLjkwOAoxOTk3LDEyLDIuMjg2CjE5OTgsMSwxLjkyMgoxOTk4LDIsMS41MDYKMTk5OCwzLDEuMTQ5CjE5OTgsNCwwLjg5NQoxOTk4LDUsMS41MjkKMTk5OCw2LDQuNDMzCjE5OTgsNywzLjQ2NwoxOTk4LDgsMi44NTYKMTk5OCw5LDMuMDc4CjE5OTgsMTAsMTEuNDg4CjE5OTgsMTEsNC42NDIKMTk5OCwxMiwzLjI2NgoxOTk5LDEsMi42NDgKMTk5OSwyLDIuMDUxCjE5OTksMywxLjU4CjE5OTksNCwxLjIxCjE5OTksNSwzLjAxMwoxOTk5LDYsNS4xMTYKMTk5OSw3LDguNDA5CjE5OTksOCw5LjQyNAoxOTk5LDksMTEuMTg0CjE5OTksMTAsMTguMDczCjE5OTksMTEsNy41NDcKMTk5OSwxMiw2LjIzMQoyMDAwLDEsNC4zNDIKMjAwMCwyLDMuMzE1CjIwMDAsMywyLjUxMgoyMDAwLDQsMi4wMTgKMjAwMCw1LDQuMjIxCjIwMDAsNiw3LjQzNQoyMDAwLDcsNS43OTcKMjAwMCw4LDcuMzU0CjIwMDAsOSw4CjIwMDAsMTAsMTAuMDA0CjIwMDAsMTEsNi45NTcKMjAwMCwxMiw0LjI0OQoyMDAxLDEsMy4zOTMKMjAwMSwyLDIuNTkyCjIwMDEsMywyLjAxNgoyMDAxLDQsMS41MzIKMjAwMSw1LDIuMjk5CjIwMDEsNiw3LjMyMgoyMDAxLDcsNC42ODkKMjAwMSw4LDguODA1CjIwMDEsOSw2Ljg0OQoyMDAxLDEwLDEyLjc5NwoyMDAxLDExLDQuODkxCjIwMDEsMTIsNC4xMgoyMDAyLDEsMy4yMjYKMjAwMiwyLDIuNTE2CjIwMDIsMywxLjkxMwoyMDAyLDQsMS40NTcKMjAwMiw1LDEuMjA5CjIwMDIsNiwyLjc4OAoyMDAyLDcsMi4wMDEKMjAwMiw4LDQuMTgyCjIwMDIsOSw2Ljg2OAoyMDAyLDEwLDkuODEzCjIwMDIsMTEsNi4wNwoyMDAyLDEyLDMuNTg4CjIwMDMsMSwyLjg5CjIwMDMsMiwyLjIyCjIwMDMsMywxLjY2OAoyMDAzLDQsMS4yODgKMjAwMyw1LDYuMTc3CjIwMDMsNiw5Ljg5MwoyMDAzLDcsMy45OTcKMjAwMyw4LDMuNDI0CjIwMDMsOSwxMC4xMDYKMjAwMywxMCwxMy4wNjgKMjAwMywxMSw3LjQ2MQoyMDAzLDEyLDQuNTg0CjIwMDQsMSwzLjY5MgoyMDA0LDIsMi44MwoyMDA0LDMsMi4xNTMKMjAwNCw0LDEuNjU5CjIwMDQsNSwzLjYwOAoyMDA0LDYsNC43MDMKMjAwNCw3LDMuODk1CjIwMDQsOCw0LjQxOQoyMDA0LDksNC41NjgKMjAwNCwxMCwxMS43MjEKMjAwNCwxMSw4LjY0NAoyMDA0LDEyLDQuMjcKMjAwNSwxLDMuMzk2CjIwMDUsMiwyLjYzNgoyMDA1LDMsMi4wNTYKMjAwNSw0LDEuNjAxCjIwMDUsNSwxLjM5NQoyMDA1LDYsNi45OTkKMjAwNSw3LDkuNzU1CjIwMDUsOCw1Ljc4NAoyMDA1LDksOC45ODgKMjAwNSwxMCwxMy43NzEKMjAwNSwxMSw3LjYzCjIwMDUsMTIsNC42ODcKMjAwNiwxLDMuNzI3CjIwMDYsMiwyLjg5OQoyMDA2LDMsMi4yMjIKMjAwNiw0LDEuNzE3CjIwMDYsNSwzLjg1OQoyMDA2LDYsNi4xOAoyMDA2LDcsNy4xNDIKMjAwNiw4LDUuMjYyCjIwMDYsOSwxMC4zODQKMjAwNiwxMCwxMy43OTUKMjAwNiwxMSw4LjYxNAoyMDA2LDEyLDQuNjYKMjAwNywxLDMuNjg1CjIwMDcsMiwyLjk2CjIwMDcsMywyLjI2OQoyMDA3LDQsMS43OTYKMjAwNyw1LDcuMjgKMjAwNyw2LDEwLjA2MQoyMDA3LDcsOS4zMDkKMjAwNyw4LDkuODI2CjIwMDcsOSwxMy4xOTQKMjAwNywxMCwxNC42MDUKMjAwNywxMSw5LjQwOQoyMDA3LDEyLDUuNTE2CjIwMDgsMSw0LjMyNAoyMDA4LDIsMy4zMjMKMjAwOCwzLDIuNTUzCjIwMDgsNCwxLjk0NAoyMDA4LDUsMy4xNTgKMjAwOCw2LDEzLjUwMQoyMDA4LDcsNy43NDkKMjAwOCw4LDcuOTA2CjIwMDgsOSw5LjEwNgoyMDA4LDEwLDE3LjgzNwoyMDA4LDExLDEwLjg4NQoyMDA4LDEyLDUuNjc3CjIwMDksMSw0LjQ5MgoyMDA5LDIsMy40NDgKMjAwOSwzLDIuNjc0CjIwMDksNCwyLjAxNQoyMDA5LDUsMS41NTEKMjAwOSw2LDEuNTM1CjIwMDksNywzLjA3MQoyMDA5LDgsMS45ODcKMjAwOSw5LDMuMjcKMjAwOSwxMCw4Ljg1MgoyMDA5LDExLDMuMzk3CjIwMDksMTIsMi43MjQKMjAxMCwxLDIuMTczCjIwMTAsMiwxLjcyNwoyMDEwLDMsMS4zNzQKMjAxMCw0LDEuMDg5CjIwMTAsNSwyLjM4CjIwMTAsNiwxMC4wNTIKMjAxMCw3LDEwLjEyNgoyMDEwLDgsOC42ODIKMjAxMCw5LDEwLjY1NAoyMDEwLDEwLDEzLjg3NAoyMDEwLDExLDkuMjIKMjAxMCwxMiw1LjU5NwoyMDExLDEsNC4xMwoyMDExLDIsMy4xMzkKMjAxMSwzLDIuNDExCjIwMTEsNCwxLjg2CjIwMTEsNSwxLjUyMQoyMDExLDYsNy42NAoyMDExLDcsNi43MjcKMjAxMSw4LDguMzA0CjIwMTEsOSw3LjQyNAoyMDExLDEwLDE2LjczMwoyMDExLDExLDEwLjU4NwoyMDExLDEyLDUuNDczCjIwMTIsMSw0LjE5NgoyMDEyLDIsMy4yMTYKMjAxMiwzLDIuNDcyCjIwMTIsNCwxLjg0NwoyMDEyLDUsMi44MzgKMjAxMiw2LDYuMTI2CjIwMTIsNyw1LjE1NQoyMDEyLDgsNy43OTgKMjAxMiw5LDEyLjUyMgoyMDEyLDEwLDEyLjU2NAoyMDEyLDExLDcuMjk0CjIwMTIsMTIsNC42OTcKMjAxMywxLDMuNzE4CjIwMTMsMiwyLjg4MwoyMDEzLDMsMi4yNTQKMjAxMyw0LDEuNjkzCjIwMTMsNSwxLjQ3OQoyMDEzLDYsNi41MTMKMjAxMyw3LDQuODE2CjIwMTMsOCw1LjY5NwoyMDEzLDksMTIuMzY4CjIwMTMsMTAsMTAuODE4CjIwMTMsMTEsNi44NTkKMjAxMywxMiw0LjQ4MgoyMDE0LDEsMy41NDUKMjAxNCwyLDIuNzk1CjIwMTQsMywyLjE3NQoyMDE0LDQsMS42NjYKMjAxNCw1LDEuMzY4CjIwMTQsNiwxLjM1OQoyMDE0LDcsMS40MTkKMjAxNCw4LDEuNTMzCjIwMTQsOSwzLjM5OAoyMDE0LDEwLDQuOTI4CjIwMTQsMTEsMi42ODkKMjAxNCwxMiwyLjI2NgoyMDE1LDEsMS45MTYKMjAxNSwyLDEuNTA5CjIwMTUsMywxLjE3OQoyMDE1LDQsMC45MDcKMjAxNSw1LDAuNzg4CjIwMTUsNiwzLjc2NwoyMDE1LDcsMi44NwoyMDE1LDgsMS44MjIKMjAxNSw5LDEuNzE4CjIwMTUsMTAsMy45NzQKMjAxNSwxMSwyLjE2NQoyMDE1LDEyLDIuMDQ4CjIwMTYsMSwxLjc3MwoyMDE2LDIsMS4zODUKMjAxNiwzLDEuMDgyCjIwMTYsNCwwLjgzMwoyMDE2LDUsMC42OTcKMjAxNiw2LDIuMDI5CjIwMTYsNywxLjQzMwoyMDE2LDgsNC41CjIwMTYsOSw3LjU3MgoyMDE2LDEwLDEwLjY3MQoyMDE2LDExLDQuOTcyCjIwMTYsMTIsMy4zODcKMjAxNywxLDIuNjkyCjIwMTcsMiwyLjExCjIwMTcsMywxLjYzOQoyMDE3LDQsMS4yNwoyMDE3LDUsNS41MTYKMjAxNyw2LDcuNDgyCjIwMTcsNyw2Ljk1OAoyMDE3LDgsNS4wMwoyMDE3LDksMTAuNjIKMjAxNywxMCwxMC43NDIKMjAxNywxMSw2LjE4NwoyMDE3LDEyLDQuMjM4CjIwMTgsMSwzLjMyNQoyMDE4LDIsMi41NTUKMjAxOCwzLDEuOTM5CjIwMTgsNCwxLjQ3NgoyMDE4LDUsMS4yOTMKMjAxOCw2LDQuNTgxCjIwMTgsNyw1Ljg2OQoyMDE4LDgsNC4zNzMKMjAxOCw5LDguNjE4CjIwMTgsMTAsMTMuODM5CjIwMTgsMTEsNy45NjUKMjAxOCwxMiw0LjQ3NQoyMDE5LDEsMy40NTcKMjAxOSwyLDIuNjkKMjAxOSwzLDIuMDc3CjIwMTksNCwxLjU4MQoyMDE5LDUsMS4zMTQKMjAxOSw2LDQuNDQ2CjIwMTksNywzLjc1CjIwMTksOCwzLjg1MwoyMDE5LDksNS4zNzgKMjAxOSwxMCw1LjY0NgoyMDE5LDExLDMuNzkyCjIwMTksMTIsMy4wOQoyMDIwLDEsMi40NTEKMjAyMCwyLDEuOTI4CjIwMjAsMywxLjQ1NwoyMDIwLDQsMS4xNTcKMjAyMCw1LDEuMzUyCjIwMjAsNiw1LjY0NgoyMDIwLDcsNi40NzQKMjAyMCw4LDYuOTM2CjIwMjAsOSwxMS40OTYKMjAyMCwxMCwxMC45NTYKMjAyMCwxMSw2LjAxNgoyMDIwLDEyLDQuMjMxCg==" download="caudal_mensual_hipotetico_1991_2020.csv" class="boton-datos">⬇ Descargar <code>caudal_mensual_hipotetico_1991_2020.csv</code></a> <span class="nota">Cuenca hipotética de 85 km². En abril y mayo, una toma de 1.2 m³/s no tiene 90 % de confiabilidad.</span></p>
 </section>
-<section id="curva-masa-de-rippl" class="slide level2">
-<h2>Curva masa de Rippl</h2>
+<section id="curva-masa-de-rippl-qué-es-y-para-qué" class="slide level2 reducida">
+<h2>Curva masa de Rippl: qué es y para qué</h2>
+<ul>
+<li>Es la curva del volumen de entrada acumulado contra el tiempo <span class="citation" data-cites="rippl1883capacity">(<a href="#/referencias" role="doc-biblioref" onclick="">Rippl, 1883</a>)</span>. Su pendiente en cada tramo es el caudal de entrada.</li>
+<li>Para qué: dimensionar el volumen útil de un embalse o un tanque que debe entregar una demanda constante (riego, abastecimiento, generación) aunque la entrada varíe a lo largo del año.</li>
+<li>Cuándo: en estudios de prefactibilidad y para embalses de regulación estacional o anual, con un registro de caudales que incluya años secos.</li>
+</ul>
+<p>Limitaciones:</p>
+<ul>
+<li>Supone que el futuro repite el registro histórico y no da la probabilidad de falla.</li>
+<li>No incluye evaporación ni filtraciones si no se restan a la entrada.</li>
+<li>Si la curva masa nunca vuelve a cortar la recta de demanda, la demanda supera al caudal medio y ningún embalse la cubre.</li>
+<li>Para el diseño final se simula el balance mes a mes (operación del embalse) o se usan series sintéticas.</li>
+</ul>
+</section>
+<section id="cómo-se-traza-la-recta-de-demanda" class="slide level2">
+<h2>Cómo se traza la recta de demanda</h2>
 <div class="columns">
 <div class="column" style="width:55%;">
 <div class="cell" data-layout-align="center">
@@ -2258,18 +3014,59 @@ p_i = \frac{i}{n + 1}
 </div>
 </div>
 </div>
-</div><div class="column" style="width:45%;">
-<ul>
-<li>Volumen de entrada acumulado contra el tiempo <span class="citation" data-cites="rippl1883capacity">(<a href="#/referencias" role="doc-biblioref" onclick="">Rippl, 1883</a>)</span>. Su pendiente es el caudal.</li>
-<li>La demanda constante es una recta.</li>
-<li>Desde cada cresta se traza la recta de demanda; la mayor separación vertical con la curva masa es el volumen útil.</li>
-</ul>
-<p>Algoritmo del pico secuente <span class="citation" data-cites="Aparicio1992">(<a href="#/referencias" role="doc-biblioref" onclick="">Aparicio, 1992</a>)</span>:</p>
-<p><span class="math display">\[
-K_t = \max\left(0,\; K_{t-1} + D_t - I_t\right)
-\]</span></p>
-<p>Volumen útil <span class="math inline">\(= \max K_t\)</span>.</p>
+</div><div class="column apretado" style="width:45%;">
+<ol type="1">
+<li>Calcular y graficar el volumen acumulado de entrada, <span class="math inline">\(V_t = \sum I_t\)</span>.</li>
+<li>La demanda <span class="math inline">\(D\)</span> (volumen por unidad de tiempo) es la pendiente de la recta: en <span class="math inline">\(\Delta t\)</span> la recta sube <span class="math inline">\(D\,\Delta t\)</span>. Ejemplo: con <span class="math inline">\(D = 2.2\)</span> hm³/mes, de una cresta <span class="math inline">\((t_0, V_0)\)</span> se une con <span class="math inline">\((t_0 + 12,\; V_0 + 26.4)\)</span>.</li>
+<li>Trazar esa recta desde cada cresta, donde la curva pasa a subir más despacio que la demanda (allí la tangente tiene pendiente <span class="math inline">\(D\)</span>).</li>
+<li>Medir la mayor separación vertical entre la recta y la curva antes de que la curva vuelva a cortarla.</li>
+<li>El volumen útil es la mayor de esas separaciones.</li>
+</ol>
 </div></div>
+</section>
+<section id="algoritmo-del-pico-secuente" class="slide level2">
+<h2>Algoritmo del pico secuente</h2>
+<p>La misma idea, en una tabla o en un programa <span class="citation" data-cites="Aparicio1992">(<a href="#/referencias" role="doc-biblioref" onclick="">Aparicio, 1992</a>)</span>:</p>
+<p><span class="math display">\[
+K_t = \max\left(0,\; K_{t-1} + D_t - I_t\right), \qquad K_0 = 0, \qquad \text{Volumen útil} = \max_t K_t
+\]</span></p>
+<div class="tabla-compacta">
+<table class="caption-top">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Símbolo</th>
+<th style="text-align: left;">Qué es</th>
+<th style="text-align: left;">Unidad</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><span class="math inline">\(K_t\)</span></td>
+<td style="text-align: left;">Déficit acumulado al final del mes <span class="math inline">\(t\)</span>: volumen que habría que tener guardado</td>
+<td style="text-align: left;">hm³</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="math inline">\(D_t\)</span></td>
+<td style="text-align: left;">Demanda del mes <span class="math inline">\(t\)</span></td>
+<td style="text-align: left;">hm³</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><span class="math inline">\(I_t\)</span></td>
+<td style="text-align: left;">Entrada al embalse en el mes <span class="math inline">\(t\)</span></td>
+<td style="text-align: left;">hm³</td>
+</tr>
+</tbody>
+</table>
+</div>
+<ul>
+<li>Si la entrada supera a la demanda, el déficit baja; nunca es negativo porque el embalse lleno vierte el exceso.</li>
+<li>Si al final del registro <span class="math inline">\(K_t\)</span> no ha vuelto a cero, se repite el cálculo con el registro duplicado.</li>
+</ul>
 </section>
 <section id="ejemplo-volumen-útil-de-un-embalse-para-riego" class="slide level2">
 <h2>Ejemplo: volumen útil de un embalse para riego</h2>
@@ -2417,31 +3214,48 @@ K_t = \max\left(0,\; K_{t-1} + D_t - I_t\right)
 </script>
 <p><span class="nota">Sin evaporación del embalse; en un diseño real se resta la evaporación del espejo de agua cada mes.</span></p>
 </section>
-<section id="oferta-y-demanda" class="slide level2">
-<h2>Oferta y demanda</h2>
+<section id="oferta-hídrica" class="slide level2">
+<h2>Oferta hídrica</h2>
 <div class="columns">
 <div class="column" style="width:50%;">
-<p>Oferta, en tres niveles:</p>
+<p>Tres niveles:</p>
 <ul>
 <li>Total: caudal medio natural.</li>
 <li>En estiaje: <span class="math inline">\(Q_{90}\)</span> o <span class="math inline">\(Q_{95}\)</span>, el mes más seco o un año seco.</li>
-<li>Disponible:</li>
+<li>Disponible, lo que queda para nuevos usos:</li>
 </ul>
 <p><span class="math display">\[
 Q_{\text{disp}} = Q_{p} - Q_{\text{amb}} - \sum Q_{\text{conc}}
 \]</span></p>
-<p>Se calcula mes a mes. No cuente dos veces el flujo base y la recarga del acuífero.</p>
 </div><div class="column" style="width:50%;">
-<p>Demanda:</p>
+<ul>
+<li><span class="math inline">\(Q_p\)</span>: caudal del mes con la confiabilidad buscada (por ejemplo, el de 90 % de la curva de variación estacional).</li>
+<li><span class="math inline">\(Q_{\text{amb}}\)</span>: caudal ambiental que debe quedar en el río.</li>
+<li><span class="math inline">\(\sum Q_{\text{conc}}\)</span>: suma de las concesiones ya otorgadas aguas arriba.</li>
+<li>Todo en m³/s, mes a mes. No cuente dos veces el flujo base y la recarga del acuífero.</li>
+</ul>
+</div></div>
+</section>
+<section id="demanda-hídrica" class="slide level2">
+<h2>Demanda hídrica</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p>Consumo humano o animal:</p>
 <p><span class="math display">\[
-Q_{\text{hum}} = \frac{P\, D}{86\,400 \times 1000}
+Q_{\text{hum}} = \frac{N\, D}{86\,400 \times 1000}
 \]</span></p>
+<ul>
+<li><span class="math inline">\(Q_{\text{hum}}\)</span>: caudal (m³/s); <span class="math inline">\(N\)</span>: habitantes o reses; <span class="math inline">\(D\)</span>: dotación (L por persona o res por día).</li>
+<li>Dotaciones: 200, 250 y 300 L/persona/d en zona rural, urbana y turística; 115 L/d por res <span class="citation" data-cites="minae2021dotaciones">(<a href="#/referencias" role="doc-biblioref" onclick="">Ministerio de Ambiente y Energía, Dirección de Agua, 2021</a>)</span>.</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<p>Riego:</p>
 <p><span class="math display">\[
 Q_{\text{riego}} = \frac{(ET_c - P_e)\, A}{1000\, E\, \Delta t}
 \]</span></p>
 <ul>
-<li>Dotaciones: 200, 250 y 300 L/persona/d en zona rural, urbana y turística; 115 L/d por res <span class="citation" data-cites="minae2021dotaciones">(<a href="#/referencias" role="doc-biblioref" onclick="">Ministerio de Ambiente y Energía, Dirección de Agua, 2021</a>)</span>.</li>
-<li>Eficiencia <span class="math inline">\(E\)</span>: 0.4 a 0.6 por gravedad y 0.8 a 0.9 por goteo.</li>
+<li><span class="math inline">\(ET_c\)</span>: ET del cultivo del mes (mm); <span class="math inline">\(P_e\)</span>: lluvia efectiva del mes (mm); <span class="math inline">\(A\)</span>: área regada (m²); <span class="math inline">\(\Delta t\)</span>: duración del mes (s).</li>
+<li><span class="math inline">\(E\)</span>: eficiencia de riego, 0.4 a 0.6 por gravedad y 0.8 a 0.9 por goteo.</li>
 </ul>
 </div></div>
 </section>
@@ -2511,7 +3325,7 @@ Q_{\text{riego}} = \frac{(ET_c - P_e)\, A}{1000\, E\, \Delta t}
 </div>
 </div>
 </div>
-<p>En Costa Rica las aguas son de dominio público y su aprovechamiento requiere concesión de la Dirección de Agua del MINAE <span class="citation" data-cites="costarica1942leyaguas">(<a href="#/referencias" role="doc-biblioref" onclick="">Asamblea Legislativa de la República de Costa Rica, 1942</a>)</span>.</p>
+<p>En Costa Rica las aguas son de dominio público y su aprovechamiento requiere concesión de la Dirección de Agua del Ministerio de Ambiente y Energía (MINAE) <span class="citation" data-cites="costarica1942leyaguas">(<a href="#/referencias" role="doc-biblioref" onclick="">Asamblea Legislativa de la República de Costa Rica, 1942</a>)</span>.</p>
 </section></section>
 <section>
 <section id="balance" class="title-slide slide level1 separador center" data-background-color="#10199e">
@@ -2527,7 +3341,7 @@ Q_{\text{riego}} = \frac{(ET_c - P_e)\, A}{1000\, E\, \Delta t}
 <li>La lluvia tiene que repartirse entre evapotranspiración, caudal y cambios de almacenamiento.</li>
 <li>El balance sirve para estimar lo que no se mide y para detectar datos incoherentes.</li>
 </ul>
-<p>En esta clase: conservación de la masa, balance de una cuenca y sus simplificaciones, balance anual con zonas de vida, balance mensual del suelo, recarga con Schosinsky y la curva de Budyko.</p>
+<p>En esta clase: conservación de la masa, balance de una cuenca y sus simplificaciones, balance mensual de Thornthwaite, recarga con Schosinsky, curva de Budyko y balance anual con zonas de vida de Holdridge y la función de Rodríguez y Saborío.</p>
 </section>
 <section id="conservación-de-la-masa" class="slide level2">
 <h2>Conservación de la masa</h2>
@@ -2541,13 +3355,14 @@ Q_{\text{riego}} = \frac{(ET_c - P_e)\, A}{1000\, E\, \Delta t}
 <p><span class="math display">\[
 S_j = S_{j-1} + I_j - Q_j
 \]</span></p>
-<p><span class="math inline">\(I_j\)</span> y <span class="math inline">\(Q_j\)</span> son volúmenes del intervalo. La lluvia es un dato de pulso; el caudal, uno de muestra.</p>
+<p><span class="math inline">\(S\)</span>: almacenamiento; <span class="math inline">\(I\)</span>, <span class="math inline">\(Q\)</span>: entrada y salida por unidad de tiempo; <span class="math inline">\(S_j\)</span>: almacenamiento al final del intervalo <span class="math inline">\(j\)</span>; <span class="math inline">\(I_j\)</span> y <span class="math inline">\(Q_j\)</span>: volúmenes que entran y salen en el intervalo. La lluvia es un dato de pulso; el caudal, uno de muestra.</p>
 </div><div class="column" style="width:50%;">
 <p>Para una cuenca:</p>
 <p><span class="math display">\[
 \Delta S = P - ET - Q - G
 \]</span></p>
 <ul>
+<li><span class="math inline">\(P\)</span>: lluvia; <span class="math inline">\(ET\)</span>: evapotranspiración; <span class="math inline">\(Q\)</span>: escorrentía; <span class="math inline">\(G\)</span>: salida subterránea bajo la divisoria; <span class="math inline">\(\Delta S\)</span>: cambio de almacenamiento (mm).</li>
 <li>Evento de pocas horas: <span class="math inline">\(P - Q = \Delta S\)</span>.</li>
 <li>Mes: todos los términos pesan; la humedad del suelo no se desprecia.</li>
 <li>Año hidrológico: <span class="math inline">\(\Delta S \approx 0\)</span> y, si <span class="math inline">\(G \approx 0\)</span>:</li>
@@ -2585,42 +3400,246 @@ P = ET + Q
 \]</span></p>
 <p>Resultados físicamente imposibles:</p>
 <ul>
-<li><span class="math inline">\(ETR &gt; ETP\)</span>.</li>
-<li>En un año, <span class="math inline">\(P - R &gt; ETP\)</span>: lluvia sobrestimada, caudal subestimado o agua que sale bajo la divisoria (<span class="math inline">\(D &gt; 0\)</span>).</li>
-<li><span class="math inline">\(\frac{R}{P}\)</span> fuera de 0 a 1, o muy distinto del de cuencas vecinas parecidas.</li>
-</ul>
-<p>Balance anual con zonas de vida, para cuencas sin estación <span class="citation" data-cites="Holdridge1967 RodriguezSaborio1983">(<a href="#/referencias" role="doc-biblioref" onclick="">Holdridge, 1967</a>; <a href="#/referencias" role="doc-biblioref" onclick="">Rodríguez &amp; Saborío, 1983</a>)</span>:</p>
-<p><span class="math display">\[
-R = P - F(RE)\; 58.93\,T_b
-\]</span></p>
-<p>Solo para promedios de varios años y <span class="math inline">\(0.0625 &lt; RE &lt; 1.5\)</span>.</p>
-</section>
-<section id="balance-mensual-del-suelo" class="slide level2">
-<h2>Balance mensual del suelo</h2>
-<p>El suelo es una cubeta de capacidad <span class="math inline">\(S_{\max}\)</span> entre capacidad de campo y punto de marchitez <span class="citation" data-cites="thornthwaite1955water">(<a href="#/referencias" role="doc-biblioref" onclick="">Thornthwaite &amp; Mather, 1955</a>)</span>:</p>
-<p><span class="math display">\[
-W_i = S_{i-1} + P_{ef,i}
-\qquad
-ETR_i = \min\left(ETP_i,\; W_i\right)
-\qquad
-S_i = \min\left(S_{\max},\; W_i - ETR_i\right)
-\]</span></p>
-<p><span class="math display">\[
-X_i = W_i - ETR_i - S_i
-\qquad\qquad
-DH_i = ETP_i - ETR_i
-\]</span></p>
-<ul>
-<li><span class="math inline">\(X\)</span>: excedente (escorrentía y recarga); <span class="math inline">\(DH\)</span>: déficit hídrico.</li>
-<li>Se empieza con <span class="math inline">\(S = S_{\max}\)</span> en el mes que sigue al último mes con excedente.</li>
-<li><span class="math inline">\(S_{\max}\)</span> va de unos 50 mm (arena con pasto) a más de 300 mm (arcilla profunda con bosque).</li>
-<li>El modelo supone que el suelo entrega agua a tasa potencial hasta vaciarse.</li>
+<li><p><span class="math inline">\(ETR &gt; ETP\)</span>.</p></li>
+<li><p>En un año, <span class="math inline">\(P - R &gt; ETP\)</span>: lluvia sobrestimada, caudal subestimado o agua que sale bajo la divisoria (<span class="math inline">\(D &gt; 0\)</span>).</p></li>
+<li><p><span class="math inline">\(\frac{R}{P}\)</span> fuera de 0 a 1, o muy distinto del de cuencas vecinas parecidas.</p></li>
+<li><p><span class="math inline">\(\Delta S\)</span>: cambio de almacenamiento; <span class="math inline">\(ETR\)</span>: evapotranspiración real; <span class="math inline">\(R\)</span>: escorrentía; <span class="math inline">\(D\)</span>: agua que sale bajo la divisoria. Todo en mm.</p></li>
 </ul>
 </section>
-<section id="ejemplo-balance-mensual" class="slide level2">
-<h2>Ejemplo: balance mensual</h2>
+<section id="balance-mensual-de-thornthwaite" class="slide level2 reducida">
+<h2>Balance mensual de Thornthwaite</h2>
+<p>El suelo es una cubeta de capacidad <span class="math inline">\(S_{\max}\)</span> <span class="citation" data-cites="thornthwaite1955water">(<a href="#/referencias" role="doc-biblioref" onclick="">Thornthwaite &amp; Mather, 1955</a>)</span>: la lluvia la llena, la evapotranspiración la vacía y lo que no cabe sale como excedente.</p>
 <div class="columns">
-<div class="column" style="width:58%;">
+<div class="column tabla-compacta" style="width:64%;">
+<table class="caption-top">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Símbolo</th>
+<th style="text-align: left;">Qué es</th>
+<th style="text-align: left;">Unidad</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><span class="math inline">\(P_{ef,i}\)</span></td>
+<td style="text-align: left;">Lluvia menos intercepción (aquí <span class="math inline">\(0.85\,P\)</span>)</td>
+<td style="text-align: left;">mm</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="math inline">\(ETP_i\)</span></td>
+<td style="text-align: left;">ET potencial (Thornthwaite, clase 2.4)</td>
+<td style="text-align: left;">mm</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><span class="math inline">\(S_{\max}\)</span></td>
+<td style="text-align: left;">Capacidad del suelo (de capacidad de campo a marchitez)</td>
+<td style="text-align: left;">mm</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="math inline">\(S_i\)</span></td>
+<td style="text-align: left;">Agua en el suelo al final del mes</td>
+<td style="text-align: left;">mm</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><span class="math inline">\(W_i\)</span></td>
+<td style="text-align: left;">Agua disponible en el mes</td>
+<td style="text-align: left;">mm</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="math inline">\(ETR_i\)</span></td>
+<td style="text-align: left;">ET real del mes</td>
+<td style="text-align: left;">mm</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><span class="math inline">\(X_i\)</span></td>
+<td style="text-align: left;">Excedente: escorrentía más recarga</td>
+<td style="text-align: left;">mm</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="math inline">\(DH_i\)</span></td>
+<td style="text-align: left;">Déficit: demanda no satisfecha</td>
+<td style="text-align: left;">mm</td>
+</tr>
+</tbody>
+</table>
+</div><div class="column" style="width:36%;">
+<ul>
+<li><span class="math inline">\(S_{\max}\)</span>: de unos 50 mm (arena con pasto) a más de 300 mm (arcilla profunda con bosque).</li>
+<li>Supone que el suelo entrega agua a tasa potencial hasta vaciarse y que el excedente sale en el mismo mes.</li>
+<li>Escala: mensual.</li>
+</ul>
+</div></div>
+</section>
+<section id="balance-de-thornthwaite-cálculo-mes-a-mes" class="slide level2">
+<h2>Balance de Thornthwaite: cálculo mes a mes</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<ol type="1">
+<li>Agua disponible: <span class="math display">\[
+W_i = S_{i-1} + P_{ef,i}
+\]</span></li>
+<li>La ET real es la demanda, si alcanza el agua, o toda el agua disponible: <span class="math display">\[
+ETR_i = \min\left(ETP_i,\; W_i\right)
+\]</span></li>
+<li>El suelo no puede pasar de su capacidad: <span class="math display">\[
+S_i = \min\left(S_{\max},\; W_i - ETR_i\right)
+\]</span></li>
+</ol>
+</div><div class="column" style="width:50%;">
+<ol start="4" type="1">
+<li>Lo que no cabe es excedente: <span class="math display">\[
+X_i = W_i - ETR_i - S_i
+\]</span></li>
+<li>Lo que falta para la demanda es déficit: <span class="math display">\[
+DH_i = ETP_i - ETR_i
+\]</span></li>
+</ol>
+<p>Inicio: en el mes que sigue al último mes con excedente el suelo está lleno, <span class="math inline">\(S = S_{\max}\)</span>. Recorriendo los 12 meses desde ahí, el ciclo cierra.</p>
+</div></div>
+</section>
+<section id="ejemplo-balance-de-thornthwaite" class="slide level2">
+<h2>Ejemplo: balance de Thornthwaite</h2>
+<p>Cuenca hipotética de 20 km² a 10° N, <span class="math inline">\(S_{\max} = 100\)</span> mm y <span class="math inline">\(P_{ef} = 0.85\,P\)</span>. La ETP es de Thornthwaite con la corrección de Willmott (1436 mm al año).</p>
+<div class="tabla-compacta">
+<table class="caption-top" style="width:100%;">
+<colgroup>
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">mm</th>
+<th style="text-align: right;">Ene</th>
+<th style="text-align: right;">Feb</th>
+<th style="text-align: right;">Mar</th>
+<th style="text-align: right;">Abr</th>
+<th style="text-align: right;">May</th>
+<th style="text-align: right;">Jun</th>
+<th style="text-align: right;">Jul</th>
+<th style="text-align: right;">Ago</th>
+<th style="text-align: right;">Set</th>
+<th style="text-align: right;">Oct</th>
+<th style="text-align: right;">Nov</th>
+<th style="text-align: right;">Dic</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><span class="math inline">\(P\)</span></td>
+<td style="text-align: right;">20.1</td>
+<td style="text-align: right;">52.9</td>
+<td style="text-align: right;">98.1</td>
+<td style="text-align: right;">294.1</td>
+<td style="text-align: right;">419.3</td>
+<td style="text-align: right;">391.0</td>
+<td style="text-align: right;">450.6</td>
+<td style="text-align: right;">315.2</td>
+<td style="text-align: right;">432.2</td>
+<td style="text-align: right;">468.1</td>
+<td style="text-align: right;">225.1</td>
+<td style="text-align: right;">95.1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="math inline">\(P_{ef}\)</span></td>
+<td style="text-align: right;">17.1</td>
+<td style="text-align: right;">45.0</td>
+<td style="text-align: right;">83.4</td>
+<td style="text-align: right;">250.0</td>
+<td style="text-align: right;">356.4</td>
+<td style="text-align: right;">332.3</td>
+<td style="text-align: right;">383.0</td>
+<td style="text-align: right;">267.9</td>
+<td style="text-align: right;">367.4</td>
+<td style="text-align: right;">397.9</td>
+<td style="text-align: right;">191.3</td>
+<td style="text-align: right;">80.8</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><span class="math inline">\(ETP\)</span></td>
+<td style="text-align: right;">131.5</td>
+<td style="text-align: right;">126.6</td>
+<td style="text-align: right;">144.2</td>
+<td style="text-align: right;">127.1</td>
+<td style="text-align: right;">120.3</td>
+<td style="text-align: right;">108.3</td>
+<td style="text-align: right;">110.0</td>
+<td style="text-align: right;">111.2</td>
+<td style="text-align: right;">109.6</td>
+<td style="text-align: right;">115.2</td>
+<td style="text-align: right;">112.2</td>
+<td style="text-align: right;">119.5</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Noviembre es el último mes con excedente: el cálculo empieza en diciembre con <span class="math inline">\(S = 100\)</span> mm.</p>
+</section>
+<section id="solución-mes-a-mes" class="slide level2">
+<h2>Solución mes a mes</h2>
+<div class="columns">
+<div class="column apretado" style="width:55%;">
+<ol type="1">
+<li>Diciembre: <span class="math inline">\(W = 100 + 80.8 = 180.8\)</span>; <span class="math inline">\(ETR = \min(119.5,\ 180.8) = 119.5\)</span>; <span class="math inline">\(S = 180.8 - 119.5 = 61.4\)</span> mm. Sin excedente ni déficit.</li>
+<li>Enero: <span class="math inline">\(W = 61.4 + 17.1 = 78.4 &lt; 131.5\)</span>: <span class="math inline">\(ETR = 78.4\)</span>, <span class="math inline">\(S = 0\)</span> y <span class="math inline">\(DH = 131.5 - 78.4 = 53.1\)</span> mm.</li>
+<li>Febrero y marzo: suelo vacío, <span class="math inline">\(ETR = P_{ef}\)</span>; déficits de 81.7 y 60.8 mm.</li>
+<li>Abril: <span class="math inline">\(W = 0 + 250.0\)</span>; <span class="math inline">\(ETR = 127.1\)</span>; <span class="math inline">\(W - ETR = 122.9\)</span>: el suelo se llena (<span class="math inline">\(S = 100\)</span>) y <span class="math inline">\(X = 22.9\)</span> mm.</li>
+<li>Mayo a noviembre: suelo lleno; <span class="math inline">\(X = P_{ef} - ETP\)</span>. Al final de noviembre <span class="math inline">\(S = 100\)</span>, como se supuso.</li>
+</ol>
+</div><div class="column" style="width:45%;">
+<p>Totales del año:</p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: left;"></th>
+<th style="text-align: right;">mm</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><span class="math inline">\(P_{ef}\)</span></td>
+<td style="text-align: right;">2773</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="math inline">\(ETR\)</span></td>
+<td style="text-align: right;">1240</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Excedente <span class="math inline">\(X\)</span></td>
+<td style="text-align: right;">1532</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Déficit <span class="math inline">\(DH\)</span></td>
+<td style="text-align: right;">196</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Escorrentía medida</td>
+<td style="text-align: right;">916</td>
+</tr>
+</tbody>
+</table>
+<p><span class="nota">El excedente casi duplica lo medido: hay que revisar la lluvia, <span class="math inline">\(S_{\max}\)</span> o pérdidas bajo la divisoria.</span></p>
+</div></div>
+</section>
+<section id="resultado-del-balance" class="slide level2">
+<h2>Resultado del balance</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
@@ -2630,16 +3649,12 @@ DH_i = ETP_i - ETR_i
 </div>
 </div>
 </div>
-</div><div class="column" style="width:42%;">
-<p>Cuenca hipotética de 20 km² a 10° N; <span class="math inline">\(S_{\max} = 100\)</span> mm y <span class="math inline">\(P_{ef} = 0.85\,P\)</span>.</p>
-<p>Solución:</p>
-<ol type="1">
-<li>Thornthwaite con Willmott: ETP de 1436 mm.</li>
-<li>Diciembre, desde <span class="math inline">\(S = 100\)</span>: <span class="math inline">\(ETR = 119.48\)</span> y <span class="math inline">\(S = 61.35\)</span> mm.</li>
-<li>Enero: <span class="math inline">\(W = 78.44 &lt; 131.55\)</span>; déficit de 53.11 mm.</li>
-<li>Año: <span class="math inline">\(ETR = 1240\)</span>, excedente 1532 y déficit 196 mm.</li>
-<li>Medido 916 mm: <span class="math inline">\(P - R = 2346 &gt; ETP\)</span>, imposible.</li>
-</ol>
+</div><div class="column" style="width:40%;">
+<ul>
+<li>De enero a marzo el suelo está vacío: la ETR cae por debajo de la ETP.</li>
+<li>En abril el suelo se recarga antes de que haya excedente.</li>
+<li>Con la escorrentía medida: <span class="math inline">\(P - R = 3262 - 916 = 2346\)</span> mm es mayor que la ETP (1436 mm), lo que es imposible. Parte del agua sale de la cuenca sin pasar por la estación, o la lluvia está sobrestimada.</li>
+</ul>
 </div></div>
 </section>
 <section id="capacidad-del-suelo" class="slide level2">
@@ -2717,17 +3732,46 @@ DH_i = ETP_i - ETR_i
 </section>
 <section id="recarga-potencial-método-de-schosinsky" class="slide level2">
 <h2>Recarga potencial: método de Schosinsky</h2>
+<p>Balance mensual de la humedad del suelo para estimar cuánta lluvia llega al acuífero <span class="citation" data-cites="schosinsky2000modelo schosinsky2006calculo">(<a href="#/referencias" role="doc-biblioref" onclick="">Schosinsky, 2006</a>; <a href="#/referencias" role="doc-biblioref" onclick="">Schosinsky &amp; Losilla, 2000</a>)</span>.</p>
 <div class="columns">
 <div class="column" style="width:50%;">
+<ol type="1">
+<li>Retención en el follaje: <span class="math inline">\(Ret = C_{fo}\,P\)</span>, con <span class="math inline">\(C_{fo} = 0.12\)</span> (0.20 en bosque muy denso) y mínimo 5 mm por mes.</li>
+<li>Lluvia que se infiltra: <span class="math display">\[
+P_i = C_i\,(P - Ret), \qquad C_i = K_p + K_v + K_{fc} \le 1
+\]</span></li>
+</ol>
+</div><div class="column" style="width:50%;">
+<ul>
+<li><span class="math inline">\(P\)</span>: lluvia del mes (mm); <span class="math inline">\(Ret\)</span>: lluvia retenida en el follaje (mm); <span class="math inline">\(P_i\)</span>: lluvia infiltrada (mm).</li>
+<li><span class="math inline">\(C_i\)</span>: coeficiente de infiltración, suma de tres fracciones:
+<ul>
+<li><span class="math inline">\(K_p\)</span>: por la pendiente del terreno;</li>
+<li><span class="math inline">\(K_v\)</span>: por la cobertura vegetal;</li>
+<li><span class="math inline">\(K_{fc}\)</span>: por la textura del suelo (su capacidad de infiltración).</li>
+</ul></li>
+<li>Los valores de <span class="math inline">\(K_p\)</span> y <span class="math inline">\(K_v\)</span> están tabulados en el capítulo 24 del libro.</li>
+</ul>
+</div></div>
+</section>
+<section id="schosinsky-balance-mensual-de-humedad" class="slide level2">
+<h2>Schosinsky: balance mensual de humedad</h2>
+<div class="columns">
+<div class="column apretado" style="width:52%;">
 <p><span class="math display">\[
-HS_f = HS_i + P_i - ETR - R_p
+C_1 = \frac{HS_i - PM + P_i}{CC - PM}, \qquad C_2 = \frac{HS_i - PM + P_i - C_1\,ETP}{CC - PM}
+\]</span> <span class="math display">\[
+ETPR = \frac{C_1 + C_2}{2}\,ETP, \qquad ETR = \min\left(ETPR,\; HS_i + P_i - PM\right)
+\]</span> <span class="math display">\[
+HS_f = \min\left(CC,\; HS_i + P_i - ETR\right), \qquad R_p = P_i + HS_i - HS_f - ETR
 \]</span></p>
 <ul>
-<li>Retención en el follaje, <span class="math inline">\(Ret\)</span>: 12 % de la lluvia (20 % en bosque muy denso), mínimo 5 mm por mes.</li>
-<li>Lluvia infiltrada: <span class="math inline">\(P_i = C_i\,(P - Ret)\)</span>, con <span class="math inline">\(C_i = K_p + K_v + K_{fc} \le 1\)</span> (pendiente, cobertura y textura).</li>
-<li>La ETR baja a medida que el suelo se seca (coeficientes <span class="math inline">\(C_1\)</span> y <span class="math inline">\(C_2\)</span>) <span class="citation" data-cites="schosinsky2000modelo schosinsky2006calculo">(<a href="#/referencias" role="doc-biblioref" onclick="">Schosinsky, 2006</a>; <a href="#/referencias" role="doc-biblioref" onclick="">Schosinsky &amp; Losilla, 2000</a>)</span>.</li>
+<li><span class="math inline">\(HS_i\)</span>, <span class="math inline">\(HS_f\)</span>: humedad del suelo al inicio y al final del mes (mm).</li>
+<li><span class="math inline">\(CC\)</span>, <span class="math inline">\(PM\)</span>: humedad a capacidad de campo y en el punto de marchitez (mm).</li>
+<li><span class="math inline">\(C_1\)</span>, <span class="math inline">\(C_2\)</span>: qué tan húmedo está el suelo antes y después de evapotranspirar (0 a 1).</li>
+<li><span class="math inline">\(ETPR\)</span>: ETP reducida por la sequedad del suelo (mm); <span class="math inline">\(R_p\)</span>: recarga potencial (mm).</li>
 </ul>
-</div><div class="column" style="width:50%;">
+</div><div class="column" style="width:48%;">
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
@@ -2748,7 +3792,11 @@ HS_f = HS_i + P_i - ETR - R_p
 <p><span class="math display">\[
 \frac{ET}{P} = \frac{1 + w\,\dfrac{ETP}{P}}{1 + w\,\dfrac{ETP}{P} + \dfrac{P}{ETP}}
 \]</span></p>
-<p><span class="math inline">\(w = 2.0\)</span> con bosque y 0.5 con pastos y cultivos. Solo para el caudal medio de largo plazo.</p>
+<ul>
+<li><span class="math inline">\(ET\)</span>: evapotranspiración real media anual; <span class="math inline">\(ETP\)</span>: potencial; <span class="math inline">\(P\)</span>: lluvia media anual (mm).</li>
+<li><span class="math inline">\(w\)</span>: parámetro de la cobertura, 2.0 con bosque y 0.5 con pastos y cultivos.</li>
+<li>Caudal medio <span class="math inline">\(= P - ET\)</span>. Solo para promedios de largo plazo.</li>
+</ul>
 </div><div class="column" style="width:52%;">
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
@@ -2760,6 +3808,491 @@ HS_f = HS_i + P_i - ETR - R_p
 </div>
 </div>
 <p><span class="math inline">\(P = 2500\)</span> y <span class="math inline">\(ETP = 1300\)</span> mm: bosque 1213 mm de caudal, pasto 1510 mm.</p>
+</div></div>
+</section>
+<section id="zonas-de-vida-de-holdridge" class="slide level2">
+<h2>Zonas de vida de Holdridge</h2>
+<div class="columns">
+<div class="column" style="width:45%;">
+<p>Holdridge clasificó las formaciones vegetales en zonas de vida con tres variables del clima <span class="citation" data-cites="Holdridge1967">(<a href="#/referencias" role="doc-biblioref" onclick="">Holdridge, 1967</a>)</span>:</p>
+<ul>
+<li>Biotemperatura media anual <span class="math inline">\(T_b\)</span>.</li>
+<li>Precipitación media anual <span class="math inline">\(P\)</span>.</li>
+<li>Relación de evapotranspiración potencial <span class="math inline">\(RE\)</span>.</li>
+</ul>
+<p>Cada hexágono del diagrama es una zona de vida. En Costa Rica hay 23, contando las de transición <span class="citation" data-cites="bolanos1993mapa">(<a href="#/referencias" role="doc-biblioref" onclick="">Bolaños &amp; Watson, 1993</a>)</span>.</p>
+</div><div class="column" style="width:55%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="assets/img/libro/ZV.png" style="width:100.0%"></p>
+<figcaption>Zonas de vida de Holdridge. Diagrama: Peter Halasz, Wikimedia Commons, CC BY-SA 2.5.</figcaption>
+</figure>
+</div>
+</div></div>
+</section>
+<section id="biotemperatura" class="slide level2">
+<h2>Biotemperatura</h2>
+<p>Temperatura media en la que solo cuentan los valores entre 0 y 30 °C, el intervalo en que las plantas crecen; los valores fuera de él se toman como cero <span class="citation" data-cites="Holdridge1967">(<a href="#/referencias" role="doc-biblioref" onclick="">Holdridge, 1967</a>)</span>:</p>
+<p><span class="math display">\[
+T_b = \frac{1}{12} \sum_{j=1}^{12} T_j^{*}, \qquad
+T_j^{*} =
+\begin{cases}
+T_j, &amp; 0 &lt; T_j &lt; 30\ ^\circ\mathrm{C} \\
+0, &amp; \text{fuera de ese intervalo}
+\end{cases}
+\]</span></p>
+<ul>
+<li><span class="math inline">\(T_j\)</span>: temperatura media del mes <span class="math inline">\(j\)</span> (°C); <span class="math inline">\(T_b\)</span>: biotemperatura media anual (°C).</li>
+<li>En casi todo Costa Rica las medias mensuales están entre 0 y 30 °C: <span class="math inline">\(T_b\)</span> es la temperatura media anual.</li>
+</ul>
+<p>Ejemplo: estación con medias mensuales entre 24.4 y 26.9 °C y media anual de 25.48 °C. Ningún mes se recorta, así que <span class="math inline">\(T_b = 25.48\)</span> °C.</p>
+</section>
+<section id="etp-de-holdridge-y-relación-re" class="slide level2">
+<h2>ETP de Holdridge y relación RE</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p>ETP media anual:</p>
+<p><span class="math display">\[
+ETP = 58.93\,T_b
+\]</span></p>
+<p>Relación de evapotranspiración potencial, la demanda entre la oferta:</p>
+<p><span class="math display">\[
+RE = \frac{ETP}{P}
+\]</span></p>
+</div><div class="column" style="width:50%;">
+<ul>
+<li><span class="math inline">\(ETP\)</span>: evapotranspiración potencial media anual (mm).</li>
+<li><span class="math inline">\(P\)</span>: precipitación media anual (mm).</li>
+<li><span class="math inline">\(RE &lt; 1\)</span>: llueve más de lo que el clima puede evaporar y sobra agua para el río y el acuífero.</li>
+<li><span class="math inline">\(RE &gt; 1\)</span>: el clima podría evaporar más de lo que llueve.</li>
+</ul>
+<p>Ejemplo: <span class="math inline">\(T_b = 25.48\)</span> °C y <span class="math inline">\(P = 3262\)</span> mm: <span class="math inline">\(ETP = 58.93 \times 25.48 = 1502\)</span> mm y <span class="math inline">\(RE = \frac{1502}{3262} = 0.460\)</span>.</p>
+</div></div>
+</section>
+<section id="función-de-rodríguez-y-saborío" class="slide level2">
+<h2>Función de Rodríguez y Saborío</h2>
+<p>La ETP todavía no es la ETR. Con el balance anual de cuencas de Costa Rica se ajustó <span class="math inline">\(F = \frac{ETR}{ETP}\)</span> en función de <span class="math inline">\(RE\)</span> <span class="citation" data-cites="RodriguezSaborio1983">(<a href="#/referencias" role="doc-biblioref" onclick="">Rodríguez &amp; Saborío, 1983</a>)</span>:</p>
+<p><span class="math display">\[
+F =
+\begin{cases}
+7.46\,RE^3 - 10.46\,RE^2 + 4.63\,RE + 0.273, &amp; 0.0625 &lt; RE &lt; 0.45 \\[4pt]
+1.12 - 0.44\,RE, &amp; 0.45 \le RE &lt; 1.50
+\end{cases}
+\]</span></p>
+<div class="columns">
+<div class="column" style="width:52%;">
+<ul>
+<li>Con <span class="math inline">\(F\)</span> se obtiene la ET real: <span class="math inline">\(ETR = F\,ETP\)</span>.</li>
+<li>Máximo de 0.93 cerca de <span class="math inline">\(RE = 0.36\)</span>; en zonas muy lluviosas baja, porque la nubosidad reduce la radiación.</li>
+<li>Ejemplo: <span class="math inline">\(RE = 0.460\)</span>, tramo recto: <span class="math inline">\(F = 1.12 - 0.44 \times 0.460 = 0.917\)</span> y <span class="math inline">\(ETR = 0.917 \times 1502 = 1378\)</span> mm.</li>
+</ul>
+</div><div class="column" style="width:48%;">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="tema2_files/figure-revealjs/unnamed-chunk-51-1.svg" class="quarto-figure quarto-figure-center" width="556"></p>
+</figure>
+</div>
+</div>
+</div>
+</div></div>
+</section>
+<section id="escorrentía-media-anual-con-zonas-de-vida" class="slide level2">
+<h2>Escorrentía media anual con zonas de vida</h2>
+<p>Para el promedio de varios años, <span class="math inline">\(\Delta S \approx 0\)</span> y sin pérdidas bajo la divisoria, el balance <span class="math inline">\(P = ETR + R\)</span> da:</p>
+<p><span class="math display">\[
+R = P - ETR = P - F\,ETP = P - F(RE)\; 58.93\,T_b
+\]</span></p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<ul>
+<li><span class="math inline">\(R\)</span>: escorrentía media anual (mm): lo que sale por el río más la recarga.</li>
+<li>Solo pide lluvia y temperatura medias: sirve en cuencas sin estación.</li>
+<li>Caudal medio: <span class="math inline">\(\bar{Q} = \frac{R\,A}{31\,536\,000}\)</span>, con <span class="math inline">\(R\)</span> en m y <span class="math inline">\(A\)</span> en m².</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<div class="callout callout-important callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Importante</strong></p>
+</div>
+<div class="callout-content">
+<p>Solo para promedios de varios años (no un año ni un mes), cuencas de Costa Rica y <span class="math inline">\(0.0625 &lt; RE &lt; 1.5\)</span>.</p>
+</div>
+</div>
+</div>
+</div></div>
+</section>
+<section id="biotemperatura-de-una-cuenca" class="slide level2">
+<h2>Biotemperatura de una cuenca</h2>
+<p>La ecuación pide la <span class="math inline">\(T_b\)</span> de toda la cuenca, no la de una estación:</p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p>Isotermas:</p>
+<ul>
+<li>Con las temperaturas de las estaciones se trazan isotermas.</li>
+<li><span class="math inline">\(T_b = \frac{\sum A_j\,\bar{T}_j}{A}\)</span>, como en las isoyetas: <span class="math inline">\(A_j\)</span>, área entre dos isotermas; <span class="math inline">\(\bar{T}_j\)</span>, su temperatura media; <span class="math inline">\(A\)</span>, área de la cuenca.</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<p>Temperatura contra elevación y curva hipsométrica:</p>
+<ul>
+<li>Con las estaciones de la zona se ajusta <span class="math inline">\(T = T_0 - \Gamma\,H\)</span> (<span class="math inline">\(T_0\)</span>: temperatura de la recta a 0 m; <span class="math inline">\(\Gamma\)</span>: gradiente térmico, °C/m; <span class="math inline">\(H\)</span>: elevación, m).</li>
+<li>La curva hipsométrica da el área de cada franja de elevación.</li>
+<li>Se calcula <span class="math inline">\(T\)</span> en la elevación media de cada franja y se pondera por área.</li>
+</ul>
+</div></div>
+</section>
+<section id="ejemplo-escorrentía-de-una-cuenca-sin-estación" class="slide level2">
+<h2>Ejemplo: escorrentía de una cuenca sin estación</h2>
+<p>Cuenca de 60 km² sin estación hidrométrica; recta de la zona <span class="math inline">\(T = 27.0 - 0.0055\,H\)</span> y lluvia media de 2600 mm (hipotéticos; la recta no es regional).</p>
+<div class="columns">
+<div class="column" style="width:45%;">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Franja (m)</th>
+<th style="text-align: right;"><span class="math inline">\(H\)</span> media (m)</th>
+<th style="text-align: right;">Área (km²)</th>
+<th style="text-align: right;"><span class="math inline">\(T\)</span> (°C)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">200–600</td>
+<td style="text-align: right;">400</td>
+<td style="text-align: right;">20</td>
+<td style="text-align: right;">24.8</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">600–1000</td>
+<td style="text-align: right;">800</td>
+<td style="text-align: right;">18</td>
+<td style="text-align: right;">22.6</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">1000–1400</td>
+<td style="text-align: right;">1200</td>
+<td style="text-align: right;">14</td>
+<td style="text-align: right;">20.4</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">1400–1800</td>
+<td style="text-align: right;">1600</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">18.2</td>
+</tr>
+</tbody>
+</table>
+</div><div class="column apretado" style="width:55%;">
+<p>Solución:</p>
+<ol type="1">
+<li><span class="math inline">\(T_{400} = 27.0 - 0.0055 \times 400 = 24.8\)</span> °C; igual en las otras franjas. Todas entre 0 y 30 °C.</li>
+<li><span class="math inline">\(T_b = \frac{20 \times 24.8 + 18 \times 22.6 + 14 \times 20.4 + 8 \times 18.2}{60} = 22.23\)</span> °C.</li>
+<li><span class="math inline">\(ETP = 58.93 \times 22.23 = 1310\)</span> mm.</li>
+<li><span class="math inline">\(RE = \frac{1310}{2600} = 0.504\)</span>: tramo recto.</li>
+<li><span class="math inline">\(F = 1.12 - 0.44 \times 0.504 = 0.898\)</span> y <span class="math inline">\(ETR = 0.898 \times 1310 = 1177\)</span> mm.</li>
+<li><span class="math inline">\(R = 2600 - 1177 = 1423\)</span> mm.</li>
+<li><span class="math inline">\(\bar{Q} = \frac{1.423 \times 60 \times 10^6}{31\,536\,000} = 2.71\)</span> m³/s.</li>
+</ol>
+</div></div>
+</section>
+<section id="etr-anual-de-una-cuenca" class="slide level2">
+<h2>ETR anual de una cuenca</h2>
+<div id="explorador-etr" class="explorador">
+  <div class="explorador-controles">
+    <label>Temperatura media anual = <input type="range" id="er-t" min="10" max="28" step="0.5" value="20"> <span id="er-t-val"></span> °C</label>
+    <label>Lluvia media anual = <input type="range" id="er-p" min="500" max="5000" step="50" value="1200"> <span id="er-p-val"></span> mm</label>
+  </div>
+  <svg id="er-graf" viewbox="0 0 900 260"></svg>
+  <p id="er-nota" style="margin:0.2em 0 0"></p>
+</div>
+<script>
+(function () {
+  var NS = "http://www.w3.org/2000/svg";
+  function el(svg, tag, at, txt) {
+    var e = document.createElementNS(NS, tag);
+    for (var k in at) e.setAttribute(k, at[k]);
+    if (txt !== undefined) e.textContent = txt;
+    svg.appendChild(e); return e;
+  }
+  function turc(P, t) {
+    var L = 300 + 25 * t + 0.05 * t * t * t, r = P * P / (L * L);
+    return r < 0.1 ? P : P / Math.sqrt(0.9 + r);
+  }
+  function holdridge(P, t) {
+    var etp = 58.93 * t, re = etp / P, F;
+    if (re <= 0.0625 || re >= 1.5) return null;
+    F = re < 0.45 ? 7.46 * re * re * re - 10.46 * re * re + 4.63 * re + 0.273 : 1.12 - 0.44 * re;
+    return F * etp;
+  }
+  function dibujar() {
+    var t = +document.getElementById("er-t").value, P = +document.getElementById("er-p").value;
+    document.getElementById("er-t-val").textContent = t;
+    document.getElementById("er-p-val").textContent = P;
+    var svg = document.getElementById("er-graf");
+    while (svg.firstChild) svg.removeChild(svg.firstChild);
+    var W = 900, H = 260, mg = {l: 80, r: 20, t: 12, b: 48}, xm = 5000, ym = 2000;
+    var sx = function (x) { return mg.l + x / xm * (W - mg.l - mg.r); };
+    var sy = function (y) { return H - mg.b - y / ym * (H - mg.t - mg.b); };
+    var f = {"font-family": "serif", "font-size": 18, fill: "#333"};
+    for (var y = 0; y <= ym; y += 500) {
+      el(svg, "line", {x1: sx(0), x2: sx(xm), y1: sy(y), y2: sy(y), stroke: "#e5e5e5"});
+      el(svg, "text", Object.assign({x: mg.l - 8, y: sy(y) + 6, "text-anchor": "end"}, f), y);
+    }
+    for (var x = 0; x <= xm; x += 1000) el(svg, "text", Object.assign({x: sx(x), y: H - mg.b + 22, "text-anchor": "middle"}, f), x);
+    el(svg, "text", Object.assign({x: (mg.l + W - mg.r) / 2, y: H - 6, "text-anchor": "middle"}, f), "Lluvia media anual (mm)");
+    el(svg, "text", Object.assign({x: 18, y: (H - mg.b) / 2, "text-anchor": "middle", transform: "rotate(-90 18 " + (H - mg.b) / 2 + ")"}, f), "ETR (mm)");
+    el(svg, "line", {x1: sx(0), y1: sy(0), x2: sx(ym), y2: sy(ym), stroke: "#999", "stroke-dasharray": "4 4"});
+    el(svg, "text", Object.assign({}, f, {x: sx(ym) + 6, y: sy(ym) + 16, fill: "#777"}), "ETR = P");
+    el(svg, "line", {x1: sx(0), x2: sx(xm), y1: sy(58.93 * t), y2: sy(58.93 * t), stroke: "#B5541C", "stroke-dasharray": "6 4", "stroke-width": 2});
+    el(svg, "text", Object.assign({}, f, {x: sx(xm) - 4, y: sy(58.93 * t) - 6, "text-anchor": "end", fill: "#B5541C"}), "ETP de Holdridge");
+    var a = [], b = [], tramo = [];
+    for (var p = 100; p <= xm; p += 25) {
+      a.push(sx(p).toFixed(1) + "," + sy(turc(p, t)).toFixed(1));
+      var h = holdridge(p, t);
+      if (h !== null) tramo.push(sx(p).toFixed(1) + "," + sy(h).toFixed(1));
+      else if (tramo.length) { b.push(tramo); tramo = []; }
+    }
+    if (tramo.length) b.push(tramo);
+    el(svg, "polyline", {points: a.join(" "), fill: "none", stroke: "#1C6BA0", "stroke-width": 3});
+    b.forEach(function (s) { el(svg, "polyline", {points: s.join(" "), fill: "none", stroke: "#3A9A5B", "stroke-width": 3}); });
+    var et = turc(P, t), eh = holdridge(P, t);
+    el(svg, "circle", {cx: sx(P), cy: sy(et), r: 7, fill: "#1C6BA0"});
+    if (eh !== null) el(svg, "circle", {cx: sx(P), cy: sy(eh), r: 7, fill: "#3A9A5B"});
+    document.getElementById("er-nota").innerHTML = "<span style='color:#1C6BA0'>Turc</span>: ETR = <b>" + et.toFixed(0) + " mm</b>, excedente " + (P - et).toFixed(0) +
+      " mm. <span style='color:#3A9A5B'>Holdridge con Rodríguez y Saborío</span>: " +
+      (eh === null ? "<i>RE</i> = " + (58.93 * t / P).toFixed(2) + ", fuera del intervalo de la función." : "<i>RE</i> = " + (58.93 * t / P).toFixed(3) + ", ETR = <b>" + eh.toFixed(0) + " mm</b>, excedente " + (P - eh).toFixed(0) + " mm.");
+  }
+  function iniciar() {
+    ["er-t", "er-p"].forEach(function (id) { document.getElementById(id).addEventListener("input", dibujar); });
+    dibujar();
+  }
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", iniciar); else iniciar();
+})();
+</script>
+<p><span class="nota">La diferencia entre los dos métodos pasa entera al excedente, que es lo que se busca para estimar el caudal medio.</span></p>
+</section></section>
+<section>
+<section id="sin-medicion" class="title-slide slide level1 separador center" data-background-color="#10199e">
+<h1>2.7 Caudales medios en cuencas sin medición</h1>
+<p>Capítulo 23 del libro</p>
+</section>
+<section id="un-sitio-sin-estación" class="slide level2">
+<h2>Un sitio sin estación</h2>
+<div class="pregunta">
+<p>Se necesita el caudal medio de una toma en una quebrada que nunca se ha aforado. ¿De dónde sale el dato?</p>
+</div>
+<ul>
+<li>Casi siempre se combinan datos meteorológicos de la cuenca sin registro con caudales medidos en cuencas vecinas o en otro sitio del mismo río.</li>
+<li>Los métodos se agrupan según la información que usan:</li>
+</ul>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p>Basados en procesos:</p>
+<ul>
+<li>Balances hídricos y modelos (por ejemplo, el balance mensual de Thornthwaite).</li>
+<li>Métodos de proxy.</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<p>Estadísticos:</p>
+<ul>
+<li>Regresión.</li>
+<li>Índice: Budyko, Holdridge con Rodríguez y Saborío, área y precipitación.</li>
+<li>Geoestadísticos.</li>
+</ul>
+</div></div>
+</section>
+<section id="métodos-basados-en-procesos" class="slide level2">
+<h2>Métodos basados en procesos</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p>Balances y modelos:</p>
+<ul>
+<li>Representan los procesos con la conservación de la masa (y, en los más completos, de la energía y la cantidad de movimiento).</li>
+<li>El balance de Thornthwaite de la clase 2.6 da el excedente mensual con la lluvia y la ETP de la cuenca: es una estimación de la escorrentía.</li>
+<li>Los parámetros no se pueden calibrar en la cuenca sin registro: se toman de cuencas vecinas con suelo, cobertura, relieve y clima parecidos.</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<p>Proxy:</p>
+<ul>
+<li>Usan una variable relacionada con el caudal cuando no hay caudales.</li>
+<li>Ejemplos: lecturas de una regla limnimétrica sin curva de descarga, aforos esporádicos correlacionados con una estación vecina, marcas de crecidas, vegetación de ribera.</li>
+<li>Dan una estimación gruesa, útil para comprobar otro método.</li>
+</ul>
+</div></div>
+</section>
+<section id="métodos-de-regresión" class="slide level2">
+<h2>Métodos de regresión</h2>
+<p>Se relaciona el caudal medio de varias cuencas aforadas de la región con sus características:</p>
+<p><span class="math display">\[
+\hat{y} = \beta_0 + \sum_{i=1}^{p} \beta_i\,x_i
+\]</span></p>
+<div class="columns">
+<div class="column tabla-compacta" style="width:55%;">
+<table class="caption-top">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Símbolo</th>
+<th style="text-align: left;">Qué es</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><span class="math inline">\(\hat{y}\)</span></td>
+<td style="text-align: left;">Variable de caudal que se estima: caudal medio anual o mensual, o su logaritmo</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="math inline">\(x_i\)</span></td>
+<td style="text-align: left;">Características de la cuenca: área, lluvia media anual, elevación media, pendiente</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><span class="math inline">\(\beta_0, \ldots, \beta_p\)</span></td>
+<td style="text-align: left;">Coeficientes ajustados por mínimos cuadrados con las cuencas aforadas</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="math inline">\(p\)</span></td>
+<td style="text-align: left;">Número de características usadas</td>
+</tr>
+</tbody>
+</table>
+</div><div class="column" style="width:45%;">
+<ul>
+<li>Si la regresión es buena y las cuencas son de la misma región, se aplica a la cuenca sin medición con sus características.</li>
+<li>No se usa fuera del intervalo de valores de las cuencas con que se ajustó.</li>
+<li>Es la misma idea que la regresión de la clase 2.1, con varias variables.</li>
+</ul>
+</div></div>
+</section>
+<section id="métodos-de-índice" class="slide level2">
+<h2>Métodos de índice</h2>
+<p>Suponen que una propiedad de las cuencas escala de manera uniforme con un índice.</p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<ul>
+<li>Curva de Budyko (clase 2.6): <span class="math inline">\(\frac{ET}{P}\)</span> depende del índice de aridez <span class="math inline">\(\frac{ETP}{P}\)</span>.</li>
+<li>Holdridge con Rodríguez y Saborío (clase 2.6): <span class="math inline">\(\frac{ETR}{ETP}\)</span> depende de <span class="math inline">\(RE\)</span>.</li>
+<li>Área y precipitación: el caudal escala con el producto de la lluvia y el área.</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<p>Geoestadísticos:</p>
+<ul>
+<li>Interpolan en el espacio la escorrentía media de las cuencas aforadas, por ejemplo con kriging (clase 2.2).</li>
+<li>El resultado es un mapa de escorrentía del que se lee el valor de la cuenca sin registro.</li>
+</ul>
+</div></div>
+<p><span class="nota">Más que relaciones matemáticas, estos métodos expresan un razonamiento hidrológico: qué controla la escorrentía media.</span></p>
+</section>
+<section id="método-de-área-y-precipitación" class="slide level2">
+<h2>Método de área y precipitación</h2>
+<p>Traslada el caudal de una estación a un sitio sin medición en una cuenca vecina con clima y morfología parecidos.</p>
+<p><span class="math display">\[
+Q_x = Q_{est}\,\frac{P_x\,A_x}{P_{est}\,A_{est}}
+\]</span></p>
+<div class="columns">
+<div class="column tabla-compacta" style="width:55%;">
+<table class="caption-top">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Símbolo</th>
+<th style="text-align: left;">Qué es</th>
+<th style="text-align: left;">Unidad</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><span class="math inline">\(Q_x\)</span>, <span class="math inline">\(Q_{est}\)</span></td>
+<td style="text-align: left;">Caudal medio del sitio de interés y de la estación</td>
+<td style="text-align: left;">m³/s</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="math inline">\(P_x\)</span>, <span class="math inline">\(P_{est}\)</span></td>
+<td style="text-align: left;">Precipitación media de cada cuenca, mismo periodo</td>
+<td style="text-align: left;">mm</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><span class="math inline">\(A_x\)</span>, <span class="math inline">\(A_{est}\)</span></td>
+<td style="text-align: left;">Área de drenaje de cada cuenca</td>
+<td style="text-align: left;">km²</td>
+</tr>
+</tbody>
+</table>
+</div><div class="column" style="width:45%;">
+<ul>
+<li>Supuesto: las dos cuencas producen la misma escorrentía por unidad de lluvia y de área, y esa relación no cambia en el tiempo.</li>
+<li>Sirve para caudales medios diarios, mensuales o anuales.</li>
+</ul>
+</div></div>
+</section>
+<section id="área-y-precipitación-con-factor-de-etr" class="slide level2">
+<h2>Área y precipitación con factor de ETR</h2>
+<p>Dos cuencas casi nunca tienen el mismo clima. Si la ETR es distinta, la misma lluvia no produce la misma escorrentía:</p>
+<p><span class="math display">\[
+Q_x = f\,Q_{est}\,\frac{P_x\,A_x}{P_{est}\,A_{est}}, \qquad
+f = \frac{1 - \dfrac{ETR_x}{P_x}}{1 - \dfrac{ETR_{est}}{P_{est}}}
+\]</span></p>
+<ul>
+<li><span class="math inline">\(ETR_x\)</span>, <span class="math inline">\(ETR_{est}\)</span>: evapotranspiración real del periodo en cada cuenca (mm), por ejemplo con Holdridge y Rodríguez y Saborío.</li>
+<li><span class="math inline">\(1 - \frac{ETR}{P}\)</span> es la fracción de la lluvia que escurre. Por eso la ecuación equivale a:</li>
+</ul>
+<p><span class="math display">\[
+Q_x = Q_{est}\,\frac{(P_x - ETR_x)\,A_x}{(P_{est} - ETR_{est})\,A_{est}}
+\]</span></p>
+</section>
+<section id="ejemplo-caudal-medio-de-una-toma" class="slide level2">
+<h2>Ejemplo: caudal medio de una toma</h2>
+<p>Estación: 85 km², 2400 mm, <span class="math inline">\(T_b = 23.5\)</span> °C, <span class="math inline">\(\bar{Q} = 3.2\)</span> m³/s. Toma: 40 km², 2900 mm, <span class="math inline">\(T_b = 21.0\)</span> °C (hipotéticos).</p>
+<div class="columns">
+<div class="column apretado" style="width:60%;">
+<p>Solución:</p>
+<ol type="1">
+<li>Sin corrección: <span class="math inline">\(Q_x = 3.2 \times \frac{2900 \times 40}{2400 \times 85} = 1.82\)</span> m³/s.</li>
+<li>Estación: <span class="math inline">\(ETP = 58.93 \times 23.5 = 1385\)</span> mm, <span class="math inline">\(RE = 0.577\)</span>, <span class="math inline">\(F = 1.12 - 0.44 \times 0.577 = 0.866\)</span> y <span class="math inline">\(ETR_{est} = 1199\)</span> mm.</li>
+<li>Toma: <span class="math inline">\(ETP = 1238\)</span> mm y <span class="math inline">\(RE = 0.427 &lt; 0.45\)</span>, así que se usa la curva: <span class="math inline">\(F = 7.46(0.427)^3 - 10.46(0.427)^2\)</span> <span class="math inline">\(+ 4.63(0.427) + 0.273 = 0.924\)</span> y <span class="math inline">\(ETR_x = 0.924 \times 1238 = 1143\)</span> mm.</li>
+<li><span class="math inline">\(f = \frac{1 - \frac{1143}{2900}}{1 - \frac{1199}{2400}} = \frac{0.606}{0.500} = 1.21\)</span>.</li>
+<li>Con corrección: <span class="math inline">\(Q_x = 1.21 \times 1.82 = 2.20\)</span> m³/s.</li>
+</ol>
+</div><div class="column" style="width:40%;">
+<p>La toma está más arriba: llueve más y hace más frío. Escurre una fracción mayor de la lluvia y el método sin corrección subestima el caudal en 17 %.</p>
+<p><span class="nota">La ETR de las dos cuencas sale de la misma función, así que el factor no corrige errores de esa función; solo la diferencia de clima.</span></p>
+</div></div>
+</section>
+<section id="regionalización" class="slide level2">
+<h2>Regionalización</h2>
+<div class="columns">
+<div class="column" style="width:55%;">
+<ul>
+<li>Todos estos métodos usan cuencas hidrológicamente parecidas.</li>
+<li>Formalmente se definen regiones de cuencas aforadas con índices como el caudal medio anual o la precipitación media anual, y se comprueba con métodos estadísticos que sean razonablemente homogéneas.</li>
+<li>Supuesto: dentro de una región homogénea, la curva de duración, la variación estacional y los caudales extremos escalan linealmente con una variable índice, como el caudal medio.</li>
+</ul>
+</div><div class="column" style="width:45%;">
+<div class="callout callout-important callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Importante</strong></p>
+</div>
+<div class="callout-content">
+<p>Las cuencas reguladas por embalses o con trasvases no se usan para regionalizar: su caudal no refleja el clima de la cuenca.</p>
+</div>
+</div>
+</div>
+<p><span class="nota">El Tema 4 aplica la misma idea a las crecidas, con la avenida índice.</span></p>
 </div></div>
 </section>
 <section id="referencias" class="slide level2 scrollable smaller">
@@ -2779,6 +4312,9 @@ Aparicio, F. J. (1992). <em>Fundamentos de hidrología de superficie</em>. Edito
 </div>
 <div id="ref-costarica1942leyaguas" class="csl-entry" role="listitem">
 Asamblea Legislativa de la República de Costa Rica. (1942). <em>Ley de Aguas n.º 276</em>. Sistema Costarricense de Información Jurídica.
+</div>
+<div id="ref-bolanos1993mapa" class="csl-entry" role="listitem">
+Bolaños, R. A., &amp; Watson, V. (1993). <em>Mapa ecológico de Costa Rica, según el sistema de clasificación de zonas de vida del mundo de L. R. Holdridge</em>. Centro Científico Tropical.
 </div>
 <div id="ref-budyko1974climate" class="csl-entry" role="listitem">
 Budyko, M. I. (1974). <em>Climate and life</em>. Academic Press.
@@ -2837,9 +4373,6 @@ Ministerio de Ambiente y Energía, Dirección de Agua. (2021). <em>Manual técni
 <div id="ref-monteith1965evaporation" class="csl-entry" role="listitem">
 Monteith, J. L. (1965). Evaporation and environment. En <em>The state and movement of water in living organisms</em> (Vol. 19, pp. 205-234). Cambridge University Press.
 </div>
-<div id="ref-mu2011improvements" class="csl-entry" role="listitem">
-Mu, Q., Zhao, M., &amp; Running, S. W. (2011). Improvements to a <span>MODIS</span> global terrestrial evapotranspiration algorithm. <em>Remote Sensing of Environment</em>, <em>115</em>(8), 1781-1800. <a href="https://doi.org/10.1016/j.rse.2011.02.019">https://doi.org/10.1016/j.rse.2011.02.019</a>
-</div>
 <div id="ref-Murillo1994" class="csl-entry" role="listitem">
 Murillo Muñoz, R. E. (1994). <em>Estudio de las intensidades de lluvia en la cuenca del río Virilla</em> [Proyecto de graduación]. Universidad de Costa Rica.
 </div>
@@ -2869,9 +4402,6 @@ Searcy, J. K. (1959). <em>Flow-duration curves</em> (Water-Supply Paper 1542-A).
 </div>
 <div id="ref-searcy1960double" class="csl-entry" role="listitem">
 Searcy, J. K., &amp; Hardison, C. H. (1960). <em>Double-mass curves</em> (Water-Supply Paper 1541-B). U.S. Geological Survey. <a href="https://doi.org/10.3133/wsp1541B">https://doi.org/10.3133/wsp1541B</a>
-</div>
-<div id="ref-senay2013operational" class="csl-entry" role="listitem">
-Senay, G. B., Bohms, S., Singh, R. K., Gowda, P. H., Velpuri, N. M., Alemu, H., &amp; Verdin, J. P. (2013). Operational evapotranspiration mapping using remote sensing and weather datasets: A new parameterization for the <span>SSEB</span> approach. <em>Journal of the American Water Resources Association</em>, <em>49</em>(3), 577-591. <a href="https://doi.org/10.1111/jawr.12057">https://doi.org/10.1111/jawr.12057</a>
 </div>
 <div id="ref-shepard1968two" class="csl-entry" role="listitem">
 Shepard, D. (1968). A two-dimensional interpolation function for irregularly-spaced data. <em>Proceedings of the 1968 23rd ACM National Conference</em>, 517-524. <a href="https://doi.org/10.1145/800186.810616">https://doi.org/10.1145/800186.810616</a>

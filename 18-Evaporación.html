@@ -999,6 +999,76 @@ E = \alpha\,\frac{\Delta}{\Delta + \gamma}\,E_r
 \beta = \frac{H}{\lambda\,\rho_w\,E} = \gamma\,\frac{T_2 - T_1}{e_2 - e_1}, \qquad E = \frac{R_n - G}{\lambda\,\rho_w\,(1 + \beta)}
 \tag{18.11}\]</span></span></p>
 <p>donde <span class="math inline">\(\beta\)</span> es la razón de Bowen (adimensional), <span class="math inline">\(T_1\)</span> y <span class="math inline">\(T_2\)</span> son las temperaturas del aire a dos alturas (°C), <span class="math inline">\(e_1\)</span> y <span class="math inline">\(e_2\)</span> las presiones de vapor a esas alturas (kPa), <span class="math inline">\(\gamma\)</span> es la constante psicrométrica (kPa/°C) y las demás variables son las de la <a href="#eq-evap-balance" class="quarto-xref">Ecuación&nbsp;<span>18.4</span></a>. Sobre un embalse <span class="math inline">\(\beta\)</span> suele ser pequeño, porque casi toda la energía se va en evaporar; sobre un suelo seco puede pasar de 1.</p>
+<p>El <a href="#tbl-evap-resumen-metodos" class="quarto-xref">Cuadro&nbsp;<span>18.1</span></a> resume los métodos, con la escala de tiempo de cada uno, los datos que piden y cuándo conviene usarlos.</p>
+<div id="tbl-evap-resumen-metodos" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-evap-resumen-metodos-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Cuadro&nbsp;18.1: Resumen de los métodos de estimación de la evaporación.
+</figcaption>
+<div aria-describedby="tbl-evap-resumen-metodos-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Método</th>
+<th style="text-align: left;">Escala</th>
+<th style="text-align: left;">Datos</th>
+<th style="text-align: left;">Cuándo usarlo</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Tanque clase A</td>
+<td style="text-align: left;">Diaria; se agrega a mensual o anual</td>
+<td style="text-align: left;">Lectura del tanque y <span class="math inline">\(K_p\)</span></td>
+<td style="text-align: left;">Hay tanque cerca del embalse</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Balance de energía</td>
+<td style="text-align: left;">Diaria o menor</td>
+<td style="text-align: left;">Radiación neta</td>
+<td style="text-align: left;">Límite superior por energía</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Aerodinámico</td>
+<td style="text-align: left;">Diaria o menor</td>
+<td style="text-align: left;">Viento, humedad, temperatura</td>
+<td style="text-align: left;">Límite por transporte de vapor</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Meyer</td>
+<td style="text-align: left;">Mensual</td>
+<td style="text-align: left;">Temperatura del agua, humedad, viento a 10 m</td>
+<td style="text-align: left;">Estimación gruesa o comparación</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Penman</td>
+<td style="text-align: left;">Diaria (o medias de un periodo)</td>
+<td style="text-align: left;">Radiación, temperatura, humedad, viento, presión</td>
+<td style="text-align: left;">Balance de embalses</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Priestley y Taylor</td>
+<td style="text-align: left;">Diaria a mensual</td>
+<td style="text-align: left;">Radiación neta y temperatura</td>
+<td style="text-align: left;">Superficies húmedas extensas, sin datos de viento</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Razón de Bowen</td>
+<td style="text-align: left;">Horaria a diaria</td>
+<td style="text-align: left;">Temperatura y presión de vapor a dos alturas</td>
+<td style="text-align: left;">Mediciones de investigación</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
 <div class="callout callout-style-default callout-note callout-titled" title="Ejemplo: evaporación de un embalse por cinco métodos">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -1088,7 +1158,7 @@ B = \frac{0.622 \times 0.4^2 \times 1.163 \times 4}{100\,500 \times 996 \times 8
 <div id="tbl-evap-metodos" class="cell quarto-float quarto-figure quarto-figure-center anchored" data-layout-align="center">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-evap-metodos-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Cuadro&nbsp;18.1: Evaporación estimada para el día del ejemplo con cinco métodos.
+Cuadro&nbsp;18.2: Evaporación estimada para el día del ejemplo con cinco métodos.
 </figcaption>
 <div aria-describedby="tbl-evap-metodos-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
@@ -1129,7 +1199,7 @@ Cuadro&nbsp;18.1: Evaporación estimada para el día del ejemplo con cinco méto
 </figure>
 </div>
 </div>
-<p>Los métodos dan entre 6.4 y 9.7 mm/d (<a href="#tbl-evap-metodos" class="quarto-xref">Cuadro&nbsp;<span>18.1</span></a>). Penman queda entre el límite por energía y el aerodinámico, como debe ser, y Priestley y Taylor da casi lo mismo que el balance de energía, porque el aire de este día es seco y el término aerodinámico pesa más que el 30 % que supone el método. Meyer da el valor más alto: su coeficiente viene de lagos de clima templado y no se calibró para el trópico. Para un balance de embalse conviene usar Penman y contrastarlo con el tanque clase A cuando lo hay.</p>
+<p>Los métodos dan entre 6.4 y 9.7 mm/d (<a href="#tbl-evap-metodos" class="quarto-xref">Cuadro&nbsp;<span>18.2</span></a>). Penman queda entre el límite por energía y el aerodinámico, como debe ser, y Priestley y Taylor da casi lo mismo que el balance de energía, porque el aire de este día es seco y el término aerodinámico pesa más que el 30 % que supone el método. Meyer da el valor más alto: su coeficiente viene de lagos de clima templado y no se calibró para el trópico. Para un balance de embalse conviene usar Penman y contrastarlo con el tanque clase A cuando lo hay.</p>
 </div>
 </div>
 </section>

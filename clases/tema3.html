@@ -113,7 +113,7 @@
     div.csl-indent {
       margin-left: 2em;
     }  </style>
-  <link rel="stylesheet" href="tema3_files/libs/revealjs/dist/theme/quarto-2bcdd771980810dab46e7af5e66b0e4c.css">
+  <link rel="stylesheet" href="tema3_files/libs/revealjs/dist/theme/quarto-7f87c356fc0c7143d16b054bfe6f516f.css">
   <link href="tema3_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="tema3_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="tema3_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -346,6 +346,7 @@
 <p><span class="math display">\[
 P(A) = \lim_{n \to \infty} \frac{n_A}{n}
 \]</span></p>
+<p><span class="math inline">\(n_A\)</span>: número de veces que ocurre el evento <span class="math inline">\(A\)</span> en <span class="math inline">\(n\)</span> observaciones. La probabilidad es la frecuencia relativa cuando las observaciones son muchas.</p>
 <div class="columns">
 <div class="column" style="width:60%;">
 <div class="cell" data-layout-align="center">
@@ -470,7 +471,11 @@ P(A \mid B) = \frac{P(A \cap B)}{P(B)} \qquad\qquad P(A \cap B) = P(A \mid B)\, 
 P(A) = \sum_{i=1}^{k} P(A \mid B_i)\, P(B_i) \qquad\qquad
 P(B_j \mid A) = \frac{P(A \mid B_j)\, P(B_j)}{\sum_{i} P(A \mid B_i)\, P(B_i)}
 \]</span></p>
-<p>Ejemplo (datos hipotéticos): en 20 % de los años el máximo anual es de origen ciclónico. Con ciclón, <span class="math inline">\(P(Q &gt; 500) = 0.30\)</span>; sin ciclón, 0.02.</p>
+<ul>
+<li><span class="math inline">\(B_1, \ldots, B_k\)</span>: eventos mutuamente excluyentes que cubren todos los casos (por ejemplo, año con ciclón y sin ciclón); <span class="math inline">\(A\)</span>: el evento que interesa.</li>
+<li>Bayes invierte la condición: de <span class="math inline">\(P(A \mid B_j)\)</span> a <span class="math inline">\(P(B_j \mid A)\)</span>.</li>
+</ul>
+<p>Ejemplo (datos hipotéticos): en 20 % de los años el máximo anual es de origen ciclónico (<span class="math inline">\(C\)</span>). Con ciclón, la probabilidad de una crecida <span class="math inline">\(E\)</span> de más de 500 m³/s es <span class="math inline">\(P(E \mid C) = 0.30\)</span>; sin ciclón, 0.02.</p>
 <p>Solución:</p>
 <ol type="1">
 <li><span class="math inline">\(P(E) = 0.30 \times 0.20 + 0.02 \times 0.80 = 0.076\)</span>, es decir, <span class="math inline">\(T = \frac{1}{0.076} = 13\)</span> años.</li>
@@ -478,13 +483,13 @@ P(B_j \mid A) = \frac{P(A \mid B_j)\, P(B_j)}{\sum_{i} P(A \mid B_i)\, P(B_i)}
 </ol>
 <p><span class="nota">Uno de cada cinco años es ciclónico, pero casi cuatro de cada cinco crecidas grandes lo son. Por eso conviene separar las poblaciones antes de ajustar un modelo (clase 3.6).</span></p>
 </section>
-<section id="función-de-distribución-y-de-densidad" class="slide level2">
+<section id="función-de-distribución-y-de-densidad" class="slide level2 reducida">
 <h2>Función de distribución y de densidad</h2>
 <p><span class="math display">\[
 F(x) = P(X \le x) \qquad\qquad f(x) = \frac{dF(x)}{dx} \qquad\qquad P(a \le X \le b) = \int_a^b f(x)\,dx
 \]</span></p>
 
-<img data-src="tema3_files/figure-revealjs/unnamed-chunk-6-1.svg" class="quarto-figure quarto-figure-center r-stretch" width="960"><p><span class="nota"><span class="math inline">\(F(x)\)</span> es la probabilidad de no excedencia y <span class="math inline">\(1 - F(x)\)</span> la de excedencia. La FDP no es una probabilidad: es probabilidad por unidad de <span class="math inline">\(x\)</span>.</span></p>
+<img data-src="tema3_files/figure-revealjs/unnamed-chunk-6-1.svg" class="quarto-figure quarto-figure-center r-stretch" width="960"><p><span class="nota"><span class="math inline">\(X\)</span>: la variable aleatoria (por ejemplo, la lluvia anual); <span class="math inline">\(x\)</span>: un valor particular; <span class="math inline">\(a\)</span>, <span class="math inline">\(b\)</span>: límites de un intervalo. <span class="math inline">\(F(x)\)</span>, función de distribución acumulada (FDA), es la probabilidad de no excedencia y <span class="math inline">\(1 - F(x)\)</span> la de excedencia. <span class="math inline">\(f(x)\)</span>, función de densidad de probabilidad (FDP), no es una probabilidad: es probabilidad por unidad de <span class="math inline">\(x\)</span>.</span></p>
 </section>
 <section id="ejemplo-probabilidad-de-no-excedencia" class="slide level2">
 <h2>Ejemplo: probabilidad de no excedencia</h2>
@@ -513,8 +518,8 @@ F(x) = P(X \le x) \qquad\qquad f(x) = \frac{dF(x)}{dx} \qquad\qquad P(a \le X \l
 <div class="column" style="width:50%;">
 <p>Tendencia central:</p>
 <ul>
-<li>Media: <span class="math inline">\(\bar{x} = \frac{1}{n}\sum x_i\)</span></li>
-<li>Mediana <span class="math inline">\(x_{0.50}\)</span></li>
+<li>Media: <span class="math inline">\(\bar{x} = \frac{1}{n}\sum x_i\)</span>, con <span class="math inline">\(x_i\)</span> los <span class="math inline">\(n\)</span> datos</li>
+<li>Mediana <span class="math inline">\(x_{0.50}\)</span>: el valor que deja la mitad de los datos debajo; <span class="math inline">\(x_{0.25}\)</span> y <span class="math inline">\(x_{0.75}\)</span> son los cuartiles</li>
 <li>Moda</li>
 </ul>
 <p>Dispersión:</p>
@@ -527,7 +532,7 @@ s^2 = \frac{1}{n-1}\sum_{i=1}^{n} (x_i - \bar{x})^2
 </div><div class="column" style="width:50%;">
 <p>Forma:</p>
 <ul>
-<li><span class="math inline">\(CV = \frac{s}{\bar{x}}\)</span></li>
+<li>Coeficiente de variación: <span class="math inline">\(CV = \frac{s}{\bar{x}}\)</span></li>
 </ul>
 <p><span class="math display">\[
 C_s = \frac{n \sum (x_i - \bar{x})^3}{(n-1)(n-2)\, s^3}
@@ -536,6 +541,7 @@ C_s = \frac{n \sum (x_i - \bar{x})^3}{(n-1)(n-2)\, s^3}
 C_k = \frac{m_4}{m_2^{2}}, \qquad m_k = \frac{1}{n}\sum (x_i - \bar{x})^k
 \]</span></p>
 <ul>
+<li><span class="math inline">\(C_s\)</span>: coeficiente de asimetría; <span class="math inline">\(C_k\)</span>: curtosis; <span class="math inline">\(m_k\)</span>: momento central de orden <span class="math inline">\(k\)</span>.</li>
 <li>La normal tiene <span class="math inline">\(C_s = 0\)</span> y <span class="math inline">\(C_k = 3\)</span>.</li>
 </ul>
 </div></div>
@@ -698,7 +704,7 @@ r = \frac{\sum (x_i - \bar{x})(y_i - \bar{y})}{\sqrt{\sum (x_i - \bar{x})^2 \, \
 \]</span></p>
 <ul>
 <li>Pearson <span class="math inline">\(r\)</span>: relación lineal; no es resistente.</li>
-<li>Spearman <span class="math inline">\(\rho_s\)</span>: Pearson de los rangos; relación monótona, casi no cambia con un dato erróneo.</li>
+<li>Spearman <span class="math inline">\(\rho_s\)</span>: Pearson de los rangos; relación monótona, casi no cambia con un dato erróneo. <span class="math inline">\(d_i\)</span>: diferencia entre los rangos de <span class="math inline">\(x_i\)</span> y <span class="math inline">\(y_i\)</span>; <span class="math inline">\(n\)</span>: número de pares.</li>
 </ul>
 <p>Ejemplo: lluvia anual de dos estaciones vecinas, 21 años completos. Solución:</p>
 <ul>
@@ -813,6 +819,7 @@ R = 1 - \left(1 - \frac{1}{T}\right)^{n}
 \qquad
 T = \frac{1}{1 - (1 - R)^{1/n}}
 \]</span></p>
+<p><span class="math inline">\(K\)</span>: número de excedencias en <span class="math inline">\(n\)</span> años; <span class="math inline">\(p = \frac{1}{T}\)</span>: probabilidad anual de excedencia; <span class="math inline">\(R\)</span>: riesgo; <span class="math inline">\(T\)</span>: periodo de retorno (años).</p>
 <div class="columns">
 <div class="column" style="width:55%;">
 <div class="cell" data-layout-align="center">
@@ -917,6 +924,7 @@ T = \frac{1}{1 - (1 - R)^{1/n}}
 <p><span class="math display">\[
 \Delta D_i = \frac{D_{i-1} + D_i}{2}\,(p_{i-1} - p_i)
 \]</span></p>
+<p><span class="math inline">\(D_i\)</span>: daño que causa el evento de periodo de retorno <span class="math inline">\(T_i\)</span> ($); <span class="math inline">\(p_i = \frac{1}{T_i}\)</span>; <span class="math inline">\(\Delta D_i\)</span>: daño anual esperado del intervalo entre <span class="math inline">\(T_{i-1}\)</span> y <span class="math inline">\(T_i\)</span> ($/año). Sumando los intervalos se obtiene el daño anual esperado.</p>
 <div class="columns">
 <div class="column" style="width:55%;">
 <div class="cell" data-layout-align="center">
@@ -937,7 +945,7 @@ T = \frac{1}{1 - (1 - R)^{1/n}}
 </ol>
 </div></div>
 </section>
-<section id="series-para-el-análisis-de-frecuencia" class="slide level2">
+<section id="series-para-el-análisis-de-frecuencia" class="slide level2 reducida">
 <h2>Series para el análisis de frecuencia</h2>
 <div class="columns">
 <div class="column" style="width:50%;">
@@ -959,8 +967,9 @@ T = \frac{1}{1 - (1 - R)^{1/n}}
 <p><span class="math display">\[
 T = \frac{1}{1 - e^{-1/T_E}}
 \]</span></p>
+<p><span class="math inline">\(T\)</span>: periodo de retorno en la serie de máximos anuales; <span class="math inline">\(T_E\)</span>: periodo de retorno en la serie de duración parcial (años).</p>
 </section>
-<section id="ejemplo-dos-series-del-mismo-registro" class="slide level2">
+<section id="ejemplo-dos-series-del-mismo-registro" class="slide level2 reducida">
 <h2>Ejemplo: dos series del mismo registro</h2>
 <p>Caudal medio mensual de una estación de montaña, 1967–1987; umbral de 18 m³/s y meses seguidos sobre el umbral como un solo evento.</p>
 
@@ -1065,7 +1074,7 @@ T = \frac{1}{1 - e^{-1/T_E}}
 <h2>Independencia y tendencia</h2>
 <div class="columns">
 <div class="column" style="width:50%;">
-<p>Autocorrelación de orden 1 y límites de Anderson (5 %):</p>
+<p>Autocorrelación de orden 1 y límites de Anderson (5 %). <span class="math inline">\(x_t\)</span>: dato del año <span class="math inline">\(t\)</span>; <span class="math inline">\(n\)</span>: número de datos; <span class="math inline">\(r_1\)</span>: correlación de cada dato con el siguiente. Si <span class="math inline">\(r_1\)</span> queda dentro de los límites, la serie se considera independiente:</p>
 <p><span class="math display">\[
 r_1 = \frac{\sum_{t=1}^{n-1} (x_t - \bar{x})(x_{t+1} - \bar{x})}{\sum_{t=1}^{n} (x_t - \bar{x})^2}
 \]</span></p>
@@ -1083,7 +1092,7 @@ V(S) = \frac{n(n-1)(2n+5)}{18}
 <p><span class="math display">\[
 Z = \frac{S - \operatorname{sgn}(S)}{\sqrt{V(S)}}
 \]</span></p>
-<p>Hay tendencia al 5 % si <span class="math inline">\(|Z| &gt; 1.96\)</span>.</p>
+<p><span class="math inline">\(S\)</span>: estadístico de Mann-Kendall (suma de los signos de todas las diferencias <span class="math inline">\(x_j - x_i\)</span> con <span class="math inline">\(j &gt; i\)</span>); <span class="math inline">\(V(S)\)</span>: su varianza; <span class="math inline">\(Z\)</span>: estadístico normalizado. Hay tendencia al 5 % si <span class="math inline">\(|Z| &gt; 1.96\)</span>.</p>
 </div></div>
 <p><span class="nota">La persistencia se parece a una tendencia: con autocorrelación se corrige la varianza de <span class="math inline">\(S\)</span> <span class="citation" data-cites="hamed1998modified">(<a href="#/referencias" role="doc-biblioref" onclick="">Hamed &amp; Rao, 1998</a>)</span>. La magnitud se estima con la pendiente de Sen.</span></p>
 </section>
@@ -1115,7 +1124,7 @@ Z = \frac{S - \operatorname{sgn}(S)}{\sqrt{V(S)}}
 <p><span class="math display">\[
 y_H = \bar{y} + K_n\, s_y, \qquad y_L = \bar{y} - K_n\, s_y
 \]</span></p>
-<p><span class="math inline">\(K_n\)</span> = 2.036 (<span class="math inline">\(n = 10\)</span>), 2.385 (<span class="math inline">\(n = 20\)</span>), 2.563 (<span class="math inline">\(n = 30\)</span>), 2.768 (<span class="math inline">\(n = 50\)</span>); una cola, 10 %.</p>
+<p><span class="math inline">\(y_H\)</span>, <span class="math inline">\(y_L\)</span>: umbrales alto y bajo; <span class="math inline">\(\bar{y}\)</span>, <span class="math inline">\(s_y\)</span>: media y desviación estándar de los logaritmos; <span class="math inline">\(n\)</span>: número de datos; <span class="math inline">\(K_n\)</span>: factor que depende de <span class="math inline">\(n\)</span>: 2.036 (<span class="math inline">\(n = 10\)</span>), 2.385 (<span class="math inline">\(n = 20\)</span>), 2.563 (<span class="math inline">\(n = 30\)</span>), 2.768 (<span class="math inline">\(n = 50\)</span>); una cola, 10 %.</p>
 <ul>
 <li>Atípico alto: se compara con información histórica antes de tocarlo; si fue real, es el dato más valioso.</li>
 <li>Boletín 17C: los altos se conservan; los bajos se buscan con la prueba de Grubbs y Beck múltiple y se tratan como datos censurados <span class="citation" data-cites="england2019bulletin17c">(<a href="#/referencias" role="doc-biblioref" onclick="">England et&nbsp;al., 2019</a>)</span>.</li>
@@ -1157,7 +1166,8 @@ y_H = \bar{y} + K_n\, s_y, \qquad y_L = \bar{y} - K_n\, s_y
 <p><span class="math display">\[
 \alpha = \frac{\sqrt{6}\, s}{\pi}, \qquad u = \bar{x} - 0.5772\,\alpha
 \]</span></p>
-<p>Máxima verosimilitud:</p>
+<p><span class="math inline">\(u\)</span>: parámetro de posición; <span class="math inline">\(\alpha\)</span>: de escala; <span class="math inline">\(\bar{x}\)</span>, <span class="math inline">\(s\)</span>: media y desviación estándar de los datos.</p>
+<p>Máxima verosimilitud: se buscan los parámetros <span class="math inline">\(\theta\)</span> que hacen más probable la muestra observada; <span class="math inline">\(f\)</span> es la FDP y <span class="math inline">\(L\)</span>, la verosimilitud.</p>
 <p><span class="math display">\[
 \ln L(\theta) = \sum_{i=1}^{n} \ln f(x_i;\, \theta)
 \]</span></p>
@@ -1172,7 +1182,7 @@ b_r = \frac{1}{n} \sum_{j=r+1}^{n} \frac{(j-1)\cdots(j-r)}{(n-1)\cdots(n-r)}\, x
 <p><span class="math display">\[
 \lambda_3 = 6b_2 - 6b_1 + b_0
 \]</span></p>
-<p><span class="math inline">\(\tau_2 = \frac{\lambda_2}{\lambda_1}\)</span>, <span class="math inline">\(\tau_3 = \frac{\lambda_3}{\lambda_2}\)</span>, <span class="math inline">\(\tau_4 = \frac{\lambda_4}{\lambda_2}\)</span>. Gumbel: <span class="math inline">\(\alpha = \frac{\lambda_2}{\ln 2}\)</span>.</p>
+<p><span class="math inline">\(x_{(j)}\)</span>: dato de orden <span class="math inline">\(j\)</span>, de menor a mayor; <span class="math inline">\(b_r\)</span>: momentos ponderados por probabilidad; <span class="math inline">\(\lambda_r\)</span>: L-momentos (<span class="math inline">\(\lambda_1\)</span> es la media, <span class="math inline">\(\lambda_2\)</span> una medida de dispersión). <span class="math inline">\(\tau_2 = \frac{\lambda_2}{\lambda_1}\)</span> (L-CV), <span class="math inline">\(\tau_3 = \frac{\lambda_3}{\lambda_2}\)</span> (L-asimetría), <span class="math inline">\(\tau_4 = \frac{\lambda_4}{\lambda_2}\)</span> (L-curtosis). Gumbel: <span class="math inline">\(\alpha = \frac{\lambda_2}{\ln 2}\)</span>.</p>
 </div></div>
 <p><span class="nota">Momentos: sencillos, pero un dato extremo pesa mucho. L-momentos: casi insesgados con muestras pequeñas. Máxima verosimilitud: da errores estándar, pero puede ser inestable con tres parámetros y pocos datos.</span></p>
 </section>
@@ -1222,6 +1232,7 @@ b_r = \frac{1}{n} \sum_{j=r+1}^{n} \frac{(j-1)\cdots(j-r)}{(n-1)\cdots(n-r)}\, x
 <p><span class="math display">\[
 p_m = \frac{m - a}{n + 1 - 2a}, \qquad T_m = \frac{1}{p_m}, \qquad m = 1 \text{ para el mayor dato}
 \]</span></p>
+<p><span class="math inline">\(p_m\)</span>: probabilidad de excedencia del dato de orden <span class="math inline">\(m\)</span>; <span class="math inline">\(T_m\)</span>: su periodo de retorno; <span class="math inline">\(n\)</span>: número de datos; <span class="math inline">\(a\)</span>: constante de cada fórmula.</p>
 <table class="caption-top">
 <caption>Fórmulas más usadas <span class="citation" data-cites="cunnane1978unbiased stedinger1993frequency">(<a href="#/referencias" role="doc-biblioref" onclick="">Cunnane, 1978</a>; <a href="#/referencias" role="doc-biblioref" onclick="">Stedinger et&nbsp;al., 1993</a>)</span>.</caption>
 <thead>
@@ -1423,7 +1434,7 @@ p_m = \frac{m - a}{n + 1 - 2a}, \qquad T_m = \frac{1}{p_m}, \qquad m = 1 \text{ 
 <h1>3.4 Distribuciones para valores medios</h1>
 <p>Capítulo 14 del libro</p>
 </section>
-<section id="caudales-que-se-superan-con-cierta-frecuencia" class="slide level2">
+<section id="caudales-que-se-superan-con-cierta-frecuencia" class="slide level2 reducida">
 <h2>Caudales que se superan con cierta frecuencia</h2>
 <div class="pregunta">
 <p>¿Qué caudal medio mensual no se supera en el 90 % de los meses? ¿Qué tan seco puede ser un marzo?</p>
@@ -1436,6 +1447,7 @@ p_m = \frac{m - a}{n + 1 - 2a}, \qquad T_m = \frac{1}{p_m}, \qquad m = 1 \text{ 
 <p><span class="math display">\[
 x_T = \bar{x} + K_T\, s
 \]</span></p>
+<p><span class="math inline">\(x_T\)</span>: valor de periodo de retorno <span class="math inline">\(T\)</span>; <span class="math inline">\(\bar{x}\)</span>, <span class="math inline">\(s\)</span>: media y desviación estándar de los datos; <span class="math inline">\(K_T\)</span>: factor de frecuencia, que depende de la distribución y de <span class="math inline">\(T\)</span>.</p>
 <p>En esta clase: normal y teorema del límite central, log-normal de dos y tres parámetros, gamma y Pearson tipo III.</p>
 </section>
 <section id="distribución-normal" class="slide level2">
@@ -1451,6 +1463,7 @@ f(x)=\frac{1}{\sigma\sqrt{2\pi}}\exp\left[-\frac{1}{2}\left(\frac{x-\mu}{\sigma}
 z = \frac{x-\mu}{\sigma}, \qquad \Phi(z) = P(Z \le z)
 \]</span></p>
 <ul>
+<li><span class="math inline">\(\mu\)</span>, <span class="math inline">\(\sigma\)</span>: media y desviación estándar; <span class="math inline">\(z\)</span>: variable normal estándar; <span class="math inline">\(\Phi\)</span>: su función de distribución.</li>
 <li>Simétrica: <span class="math inline">\(C_s = 0\)</span>, <span class="math inline">\(C_k = 3\)</span>.</li>
 <li><span class="math inline">\(\Phi\)</span> no tiene fórmula cerrada: tablas, aproximaciones o <code>pnorm()</code> y <code>qnorm()</code>.</li>
 <li>Factor de frecuencia: <span class="math inline">\(K_T = z_T\)</span>.</li>
@@ -1533,8 +1546,9 @@ x_T = \exp\left(\mu_y + z_T\,\sigma_y\right)
 \sigma_y^2 = \ln\left(1+\frac{\sigma_x^2}{\mu_x^2}\right), \quad \mu_y = \ln \mu_x - \frac{\sigma_y^2}{2}
 \]</span></p>
 <ul>
+<li><span class="math inline">\(\mu_x\)</span>, <span class="math inline">\(\sigma_x\)</span>: media y desviación estándar de los datos; <span class="math inline">\(z_T\)</span>: variable normal estándar con <span class="math inline">\(\Phi(z_T) = 1 - \frac{1}{T}\)</span>.</li>
 <li>Dos estimadores: media y desviación de los logaritmos (máxima verosimilitud) o momentos de los datos con la segunda ecuación.</li>
-<li>Log-normal de tres parámetros: <span class="math inline">\(\ln(x - \xi)\)</span> es normal, con <span class="math inline">\(\hat{\xi} = \frac{x_{(1)}\,x_{(n)} - x_{\text{med}}^2}{x_{(1)} + x_{(n)} - 2\,x_{\text{med}}}\)</span> <span class="citation" data-cites="stedinger1993frequency">(<a href="#/referencias" role="doc-biblioref" onclick="">Stedinger et&nbsp;al., 1993</a>)</span>.</li>
+<li>Log-normal de tres parámetros: <span class="math inline">\(\ln(x - \xi)\)</span> es normal, con <span class="math inline">\(\hat{\xi} = \frac{x_{(1)}\,x_{(n)} - x_{\text{med}}^2}{x_{(1)} + x_{(n)} - 2\,x_{\text{med}}}\)</span> (<span class="math inline">\(x_{(1)}\)</span>, <span class="math inline">\(x_{(n)}\)</span>: menor y mayor dato; <span class="math inline">\(x_{\text{med}}\)</span>: mediana) <span class="citation" data-cites="stedinger1993frequency">(<a href="#/referencias" role="doc-biblioref" onclick="">Stedinger et&nbsp;al., 1993</a>)</span>.</li>
 </ul>
 </section>
 <section id="ejemplo-caudal-de-50-años-con-la-log-normal" class="slide level2">
@@ -1582,13 +1596,13 @@ f(x)=\frac{x^{\beta-1}\, e^{-x/\alpha}}{\alpha^{\beta}\,\Gamma(\beta)}, \qquad x
 </div>
 </div><div class="column" style="width:45%;">
 <ul>
-<li>Forma <span class="math inline">\(\beta\)</span>, escala <span class="math inline">\(\alpha\)</span>. Con <span class="math inline">\(\beta = 1\)</span> es la exponencial.</li>
+<li>Forma <span class="math inline">\(\beta\)</span>, escala <span class="math inline">\(\alpha\)</span>; <span class="math inline">\(\Gamma\)</span>: función gamma. Con <span class="math inline">\(\beta = 1\)</span> es la exponencial.</li>
 <li>Momentos: <span class="math inline">\(\hat{\beta} = \frac{\bar{x}^2}{s^2}\)</span> y <span class="math inline">\(\hat{\alpha} = \frac{s^2}{\bar{x}}\)</span>.</li>
-<li>Modelo de la lluvia diaria, mensual o estacional; base del SPI y del hidrograma unitario de Nash.</li>
+<li>Modelo de la lluvia diaria, mensual o estacional; base del índice de precipitación estandarizado (SPI) y del hidrograma unitario de Nash.</li>
 </ul>
 </div></div>
 </section>
-<section id="pearson-tipo-iii" class="slide level2">
+<section id="pearson-tipo-iii" class="slide level2 reducida">
 <h2>Pearson tipo III</h2>
 <p>Gamma con un parámetro de posición <span class="math inline">\(\delta\)</span>, para que la asimetría no quede fija:</p>
 <p><span class="math display">\[
@@ -1597,11 +1611,12 @@ f(x)=\frac{(x-\delta)^{\beta-1}\, e^{-(x-\delta)/\alpha}}{\alpha^{\beta}\,\Gamma
 \beta = \left(\frac{2}{C_s}\right)^2, \quad \alpha = \frac{s}{\sqrt{\beta}}, \quad \delta = \bar{x} - \alpha\,\beta
 \]</span></p>
 <ul>
+<li><span class="math inline">\(\delta\)</span>: posición (límite inferior si <span class="math inline">\(C_s &gt; 0\)</span>); <span class="math inline">\(\alpha\)</span>, <span class="math inline">\(\beta\)</span>: escala y forma; <span class="math inline">\(C_s\)</span>: asimetría de los datos.</li>
 <li>Con <span class="math inline">\(C_s &lt; 0\)</span>, <span class="math inline">\(\alpha\)</span> es negativo y la distribución tiene límite superior.</li>
 <li>Con asimetría pequeña se acerca a la normal.</li>
 <li>El factor de frecuencia depende de <span class="math inline">\(T\)</span> y de <span class="math inline">\(C_s\)</span> (tablas o aproximación de Kite, clase 3.5).</li>
 </ul>
-<p>Cuantil aproximado de la gamma <span class="citation" data-cites="wilson1931distribution">(<a href="#/referencias" role="doc-biblioref" onclick="">Wilson &amp; Hilferty, 1931</a>)</span>:</p>
+<p>Cuantil aproximado de la gamma <span class="citation" data-cites="wilson1931distribution">(<a href="#/referencias" role="doc-biblioref" onclick="">Wilson &amp; Hilferty, 1931</a>)</span>, con <span class="math inline">\(x_p\)</span> el valor de probabilidad de no excedencia <span class="math inline">\(p\)</span> y <span class="math inline">\(z_p\)</span> la normal estándar correspondiente:</p>
 <p><span class="math display">\[
 x_p \approx \alpha\,\beta \left(1 - \frac{1}{9\beta} + z_p \sqrt{\frac{1}{9\beta}}\right)^{3}
 \]</span></p>
@@ -1735,7 +1750,7 @@ x_p \approx \alpha\,\beta \left(1 - \frac{1}{9\beta} + z_p \sqrt{\frac{1}{9\beta
 <p><span class="math display">\[
 \lim_{n \to \infty} P\left(\frac{M_n - b_n}{a_n} \le z\right) = G(z)
 \]</span></p>
-<p>entonces <span class="math inline">\(G\)</span> es una de tres familias, cualquiera que sea la distribución de los datos diarios:</p>
+<p>donde <span class="math inline">\(M_n\)</span> es el máximo de <span class="math inline">\(n\)</span> datos (por ejemplo, los 365 caudales diarios de un año), <span class="math inline">\(a_n &gt; 0\)</span> y <span class="math inline">\(b_n\)</span> son constantes de escala y posición, y <span class="math inline">\(z\)</span> es el valor normalizado. Entonces <span class="math inline">\(G\)</span> es una de tres familias, cualquiera que sea la distribución de los datos diarios:</p>
 <table class="caption-top">
 <caption>Las tres familias de valores extremos.</caption>
 <colgroup>
@@ -1776,12 +1791,12 @@ F(x)=\exp\left[-\exp\left(-\frac{x-u}{\alpha}\right)\right]
 \qquad
 y_T = -\ln\left[-\ln\left(1-\frac{1}{T}\right)\right], \quad x_T = u + \alpha\, y_T
 \]</span></p>
-<p>Con parámetros por momentos, en la forma de Chow:</p>
+<p><span class="math inline">\(u\)</span>: parámetro de posición (moda); <span class="math inline">\(\alpha\)</span>: parámetro de escala; <span class="math inline">\(y_T\)</span>: variable reducida de Gumbel; <span class="math inline">\(x_T\)</span>: valor de periodo de retorno <span class="math inline">\(T\)</span>. Con parámetros por momentos, en la forma de Chow:</p>
 <p><span class="math display">\[
 x_T = \bar{x} + K_T\, s, \qquad K_T = -\frac{\sqrt{6}}{\pi}\left\{0.5772 + \ln\left[\ln\left(\frac{T}{T-1}\right)\right]\right\}
 \]</span></p>
 <ul>
-<li>Forma fija: <span class="math inline">\(C_s = 1.1396\)</span> y <span class="math inline">\(C_k = 5.4\)</span>. Para <span class="math inline">\(T = 2.33\)</span> años, <span class="math inline">\(K_T = 0\)</span>.</li>
+<li><span class="math inline">\(\bar{x}\)</span> y <span class="math inline">\(s\)</span>: media y desviación estándar de la muestra; <span class="math inline">\(K_T\)</span>: factor de frecuencia. Forma fija: <span class="math inline">\(C_s = 1.1396\)</span> y <span class="math inline">\(C_k = 5.4\)</span>. Para <span class="math inline">\(T = 2.33\)</span> años, <span class="math inline">\(K_T = 0\)</span>.</li>
 <li>Método de Gumbel para muestras finitas: <span class="math inline">\(\alpha = \frac{s}{\sigma_n}\)</span> y <span class="math inline">\(u = \bar{x} - \bar{y}_n\,\alpha\)</span>, con <span class="math inline">\(\bar{y}_n\)</span> y <span class="math inline">\(\sigma_n\)</span> de la variable reducida de las posiciones de Weibull <span class="citation" data-cites="gumbel1958statistics">(<a href="#/referencias" role="doc-biblioref" onclick="">Gumbel, 1958</a>)</span>. Tienden a 0.5772 y 1.2825 cuando <span class="math inline">\(n\)</span> crece; con muestras cortas dan cuantiles mayores.</li>
 </ul>
 </section>
@@ -1823,7 +1838,7 @@ x_T = \mu + \frac{\sigma}{\xi}\left\{\left[-\ln\left(1-\frac{1}{T}\right)\right]
 \]</span></p>
 
 <img data-src="tema3_files/figure-revealjs/unnamed-chunk-37-1.svg" class="quarto-figure quarto-figure-center r-stretch" width="960"><ul>
-<li><span class="math inline">\(\xi = 0\)</span>: Gumbel. <span class="math inline">\(\xi &gt; 0\)</span>: Fréchet. <span class="math inline">\(\xi &lt; 0\)</span>: Weibull invertida, con límite <span class="math inline">\(\mu - \frac{\sigma}{\xi}\)</span>. Ojo: <code>lmom</code> usa <span class="math inline">\(k = -\xi\)</span>.</li>
+<li><span class="math inline">\(\mu\)</span>: posición; <span class="math inline">\(\sigma\)</span>: escala; <span class="math inline">\(\xi\)</span>: forma. <span class="math inline">\(\xi = 0\)</span>: Gumbel. <span class="math inline">\(\xi &gt; 0\)</span>: Fréchet. <span class="math inline">\(\xi &lt; 0\)</span>: Weibull invertida, con límite <span class="math inline">\(\mu - \frac{\sigma}{\xi}\)</span>. Ojo: <code>lmom</code> usa <span class="math inline">\(k = -\xi\)</span>.</li>
 </ul>
 </section>
 <section id="la-forma-decide-el-caudal-de-diseño" class="slide level2">
@@ -1836,7 +1851,7 @@ x_T = \mu + \frac{\sigma}{\xi}\left\{\left[-\ln\left(1-\frac{1}{T}\right)\right]
 </section>
 <section id="estimación-de-la-gev-por-l-momentos" class="slide level2">
 <h2>Estimación de la GEV por L-momentos</h2>
-<p>Aproximación de <span class="citation" data-cites="hosking1985estimation">Hosking et&nbsp;al. (<a href="#/referencias" role="doc-biblioref" onclick="">1985</a>)</span>, con <span class="math inline">\(\xi = -k\)</span>:</p>
+<p>Aproximación de <span class="citation" data-cites="hosking1985estimation">Hosking et&nbsp;al. (<a href="#/referencias" role="doc-biblioref" onclick="">1985</a>)</span>, con <span class="math inline">\(\lambda_1\)</span>, <span class="math inline">\(\lambda_2\)</span> y <span class="math inline">\(\tau_3\)</span> los L-momentos de la muestra (media, escala y L-asimetría), <span class="math inline">\(c\)</span> un valor auxiliar y <span class="math inline">\(k = -\xi\)</span> la forma en la notación de Hosking:</p>
 <p><span class="math display">\[
 c = \frac{2}{3+\tau_3} - \frac{\ln 2}{\ln 3},
 \qquad
@@ -1903,6 +1918,7 @@ F(x) = 1 - \exp\left[-\left(\frac{x}{\lambda}\right)^{k}\right],
 \qquad
 x_T = \lambda\left[-\ln\left(1 - \frac{1}{T}\right)\right]^{1/k}
 \]</span></p>
+<p><span class="math inline">\(\lambda\)</span>: escala (m³/s); <span class="math inline">\(k\)</span>: forma; <span class="math inline">\(T\)</span>: periodo de retorno del mínimo (probabilidad <span class="math inline">\(\frac{1}{T}\)</span> de no superar <span class="math inline">\(x_T\)</span>).</p>
 <div class="columns">
 <div class="column" style="width:50%;">
 <div class="cell" data-layout-align="center">
@@ -1933,7 +1949,8 @@ x_{T} = u + \frac{\sigma_u}{\xi}\left[\left(\lambda\, T_E\right)^{\xi} - 1\right
 T_E = \frac{-1}{\ln\left(1 - 1/T\right)}
 \]</span></p>
 <ul>
-<li>Número de eventos por año: Poisson con tasa <span class="math inline">\(\lambda\)</span>. Magnitud: GP con la misma forma <span class="math inline">\(\xi\)</span> de la GEV.</li>
+<li><span class="math inline">\(y = x - u\)</span>: exceso sobre el umbral; <span class="math inline">\(\sigma_u\)</span>: escala; <span class="math inline">\(\xi\)</span>: forma; <span class="math inline">\(T_E\)</span>: periodo de retorno de la serie de excedencias; <span class="math inline">\(T\)</span>: de la serie anual.</li>
+<li>Número de eventos por año: Poisson con tasa <span class="math inline">\(\lambda\)</span> (eventos/año). Magnitud: GP con la misma forma <span class="math inline">\(\xi\)</span> de la GEV.</li>
 <li>L-momentos de los excesos: <span class="math inline">\(k = \frac{\lambda_1}{\lambda_2} - 2\)</span>, <span class="math inline">\(\sigma_u = (1 + k)\lambda_1\)</span>, <span class="math inline">\(\xi = -k\)</span>.</li>
 <li>Independencia: los días seguidos sobre el umbral forman un evento; de cada uno se toma el pico.</li>
 </ul>
@@ -2037,7 +2054,7 @@ T_E = \frac{-1}{\ln\left(1 - 1/T\right)}
 <ol type="1">
 <li><span class="math inline">\(y_i = \log_{10} x_i\)</span>.</li>
 <li><span class="math inline">\(\bar{y}\)</span>, <span class="math inline">\(s_y\)</span> y la asimetría <span class="math inline">\(G\)</span> de los logaritmos.</li>
-<li><span class="math inline">\(K_T\)</span> de tablas o de <span class="citation" data-cites="kite1977frequency">Kite (<a href="#/referencias" role="doc-biblioref" onclick="">1977</a>)</span>, con <span class="math inline">\(k = \frac{G}{6}\)</span>:</li>
+<li><span class="math inline">\(K_T\)</span> de tablas o de <span class="citation" data-cites="kite1977frequency">Kite (<a href="#/referencias" role="doc-biblioref" onclick="">1977</a>)</span>, con <span class="math inline">\(k = \frac{G}{6}\)</span> y <span class="math inline">\(z\)</span> la variable normal estándar de probabilidad <span class="math inline">\(1 - \frac{1}{T}\)</span>:</li>
 </ol>
 <p><span class="math display">\[
 \begin{aligned}
@@ -2204,7 +2221,8 @@ K_T ={}&amp; z + (z^2-1)k + \tfrac{1}{3}(z^3-6z)k^2 \\
 H_0:\ \text{los datos provienen de la distribución } F_0
 \]</span></p>
 <ul>
-<li>Si el estadístico supera el valor crítico para <span class="math inline">\(\alpha\)</span> (casi siempre 0.05), se rechaza <span class="math inline">\(H_0\)</span>.</li>
+<li><span class="math inline">\(H_0\)</span>: hipótesis nula; <span class="math inline">\(F_0\)</span>: función de distribución acumulada (FDA) del modelo ajustado.</li>
+<li>Si el estadístico supera el valor crítico para el nivel de significancia <span class="math inline">\(\alpha\)</span> (casi siempre 0.05), se rechaza <span class="math inline">\(H_0\)</span>.</li>
 <li>No rechazar solo dice que la muestra no da evidencia contra el modelo.</li>
 <li>Con 20 o 30 datos las pruebas tienen poca potencia: varias distribuciones pasan la misma prueba.</li>
 </ul>
@@ -2219,12 +2237,13 @@ H_0:\ \text{los datos provienen de la distribución } F_0
 </div>
 </div>
 </section>
-<section id="prueba-chi-cuadrado" class="slide level2">
+<section id="prueba-chi-cuadrado" class="slide level2 reducida">
 <h2>Prueba chi-cuadrado</h2>
 <p><span class="math display">\[
 \chi^2 = \sum_{i=1}^{k} \frac{(O_i - E_i)^2}{E_i}, \qquad \nu = k - 1 - m
 \]</span></p>
 <ul>
+<li><span class="math inline">\(k\)</span>: número de clases; <span class="math inline">\(O_i\)</span>: datos observados en la clase <span class="math inline">\(i\)</span>; <span class="math inline">\(E_i\)</span>: datos esperados según <span class="math inline">\(F_0\)</span>; <span class="math inline">\(m\)</span>: parámetros estimados; <span class="math inline">\(\nu\)</span>: grados de libertad.</li>
 <li><span class="math inline">\(E_i \ge 5\)</span>: con 20 datos caben cuatro clases, mejor equiprobables.</li>
 </ul>
 <p>Ejemplo: 20 caudales, Gumbel por momentos (<span class="math inline">\(\alpha = 59.72\)</span>, <span class="math inline">\(u = 105.72\)</span> m³/s). Solución:</p>
@@ -2253,6 +2272,7 @@ D_n = \max_{1 \le i \le n} \left\{ \frac{i}{n} - F_0\!\left(x_{(i)}\right),\ F_0
 </div>
 </div><div class="column" style="width:45%;">
 <ul>
+<li><span class="math inline">\(D_n\)</span>: mayor distancia vertical entre la FDA empírica y <span class="math inline">\(F_0\)</span>; <span class="math inline">\(x_{(i)}\)</span>: dato de orden <span class="math inline">\(i\)</span> (de menor a mayor); <span class="math inline">\(n\)</span>: tamaño de la muestra.</li>
 <li>Valor crítico con parámetros conocidos (<span class="math inline">\(\alpha = 0.05\)</span>): <span class="math inline">\(\frac{1.36}{\sqrt{n}}\)</span>.</li>
 <li>Normal con parámetros estimados (Lilliefors): <span class="math inline">\(\frac{0.886}{\sqrt{n}}\)</span> <span class="citation" data-cites="lilliefors1967kolmogorov">(<a href="#/referencias" role="doc-biblioref" onclick="">Lilliefors, 1967</a>)</span>.</li>
 <li>Es más sensible en el centro que en las colas, al revés de lo que interesa en extremos.</li>
@@ -2358,6 +2378,7 @@ D_n = \max_{1 \le i \le n} \left\{ \frac{i}{n} - F_0\!\left(x_{(i)}\right),\ F_0
 <p><span class="math display">\[
 A^2 = -n - \frac{1}{n}\sum_{i=1}^{n}(2i-1)\left\{\ln F_0\!\left(x_{(i)}\right) + \ln\left[1 - F_0\!\left(x_{(n+1-i)}\right)\right]\right\}
 \]</span></p>
+<p><span class="math inline">\(x_{(i)}\)</span>: dato de orden <span class="math inline">\(i\)</span>; <span class="math inline">\(A^{2*}\)</span>: estadístico corregido por haber estimado los parámetros.</p>
 <table class="caption-top">
 <caption>Valores críticos de <span class="citation" data-cites="dagostino1986goodness">D’Agostino &amp; Stephens (<a href="#/referencias" role="doc-biblioref" onclick="">1986</a>)</span>.</caption>
 <colgroup>
@@ -2452,7 +2473,7 @@ A^2 = -n - \frac{1}{n}\sum_{i=1}^{n}(2i-1)\left\{\ln F_0\!\left(x_{(i)}\right) +
 <p><span class="math display">\[
 AIC = -2\ln \hat{L} + 2k, \qquad BIC = -2\ln \hat{L} + k \ln n
 \]</span></p>
-<p>Ajustes por máxima verosimilitud a los 20 caudales. Solución:</p>
+<p><span class="math inline">\(\hat{L}\)</span>: verosimilitud máxima del ajuste; <span class="math inline">\(k\)</span>: número de parámetros; <span class="math inline">\(n\)</span>: número de datos. Se prefiere el menor valor. Ajustes por máxima verosimilitud a los 20 caudales. Solución:</p>
 <table class="caption-top">
 <caption>AIC y BIC de cuatro modelos.</caption>
 <thead>
@@ -2495,7 +2516,7 @@ AIC = -2\ln \hat{L} + 2k, \qquad BIC = -2\ln \hat{L} + k \ln n
 </tr>
 </tbody>
 </table>
-<p><span class="nota">Con <span class="math inline">\(\Delta &lt; 2\)</span> los modelos tienen un respaldo parecido <span class="citation" data-cites="burnham2002model">(<a href="#/referencias" role="doc-biblioref" onclick="">Burnham &amp; Anderson, 2002</a>)</span>. Aun así, su caudal de 100 años va de 365 a 442 m³/s.</span></p>
+<p><span class="nota">Con <span class="math inline">\(\Delta &lt; 2\)</span> (diferencia con el menor AIC) los modelos tienen un respaldo parecido <span class="citation" data-cites="burnham2002model">(<a href="#/referencias" role="doc-biblioref" onclick="">Burnham &amp; Anderson, 2002</a>)</span>. Aun así, su caudal de 100 años va de 365 a 442 m³/s.</span></p>
 </section>
 <section id="cómo-escoger" class="slide level2">
 <h2>Cómo escoger</h2>
@@ -2517,7 +2538,7 @@ AIC = -2\ln \hat{L} + 2k, \qquad BIC = -2\ln \hat{L} + k \ln n
 </div>
 </div>
 </section>
-<section id="intervalo-de-confianza-por-remuestreo" class="slide level2">
+<section id="intervalo-de-confianza-por-remuestreo" class="slide level2 reducida">
 <h2>Intervalo de confianza por remuestreo</h2>
 
 <img data-src="tema3_files/figure-revealjs/unnamed-chunk-56-1.svg" class="quarto-figure quarto-figure-center r-stretch" width="912"><ul>
@@ -2543,7 +2564,7 @@ AIC = -2\ln \hat{L} + 2k, \qquad BIC = -2\ln \hat{L} + k \ln n
 </div>
 <p><span class="nota">El intervalo va de 29 % por debajo a 30 % por encima del valor central: es más grande que la diferencia entre la GEV y la LP3.</span></p>
 </section>
-<section id="casos-especiales" class="slide level2">
+<section id="casos-especiales" class="slide level2 reducida">
 <h2>Casos especiales</h2>
 <div class="columns">
 <div class="column" style="width:50%;">
@@ -2551,7 +2572,8 @@ AIC = -2\ln \hat{L} + 2k, \qquad BIC = -2\ln \hat{L} + k \ln n
 <p><span class="math display">\[
 F(x) = (1 - p)\,F_1(x) + p\,F_2(x)
 \]</span></p>
-<p>Ejemplo (hipotético): Gumbel (150; 40) y (300; 90) m³/s, <span class="math inline">\(p = 0.20\)</span>. Por tanteo, <span class="math inline">\(F(x) = 0.99\)</span> en <span class="math inline">\(x_{100} \approx 567\)</span> m³/s. Una sola Gumbel da 521 m³/s y los años ordinarios solos, 334 m³/s.</p>
+<p><span class="math inline">\(F_1\)</span>, <span class="math inline">\(F_2\)</span>: distribuciones de los años ordinarios y ciclónicos; <span class="math inline">\(p\)</span>: fracción de años ciclónicos.</p>
+<p>Ejemplo (hipotético): Gumbel con <span class="math inline">\(u = 150\)</span>, <span class="math inline">\(\alpha = 40\)</span> y <span class="math inline">\(u = 300\)</span>, <span class="math inline">\(\alpha = 90\)</span> m³/s, <span class="math inline">\(p = 0.20\)</span>. Por tanteo, <span class="math inline">\(F(x) = 0.99\)</span> en <span class="math inline">\(x_{100} \approx 567\)</span> m³/s. Una sola Gumbel da 521 m³/s y los años ordinarios solos, 334 m³/s.</p>
 </div><div class="column" style="width:50%;">
 <p>Series con ceros:</p>
 <p><span class="math display">\[
@@ -2560,8 +2582,8 @@ F(x) = p_0 + (1 - p_0)\,G(x)
 <p><span class="math display">\[
 G = \frac{F - p_0}{1 - p_0}
 \]</span></p>
-<p>Si <span class="math inline">\(F \le p_0\)</span>, el cuantil es cero.</p>
-<p>Información histórica: los <span class="math inline">\(h - k\)</span> años sin crecida notable entran como “menores que <span class="math inline">\(X_0\)</span>” en la verosimilitud <span class="citation" data-cites="stedinger1986flood">(<a href="#/referencias" role="doc-biblioref" onclick="">Stedinger &amp; Cohn, 1986</a>)</span>. Dos crecidas en 80 años suben <span class="math inline">\(Q_{100}\)</span> de 365 a 421 m³/s.</p>
+<p><span class="math inline">\(p_0\)</span>: fracción de años con valor cero; <span class="math inline">\(G\)</span>: distribución ajustada solo a los valores no nulos. Si <span class="math inline">\(F \le p_0\)</span>, el cuantil es cero.</p>
+<p>Información histórica: en <span class="math inline">\(h\)</span> años de historia hay <span class="math inline">\(k\)</span> crecidas mayores que el umbral <span class="math inline">\(X_0\)</span>; los <span class="math inline">\(h - k\)</span> años sin crecida notable entran como “menores que <span class="math inline">\(X_0\)</span>” en la verosimilitud <span class="citation" data-cites="stedinger1986flood">(<a href="#/referencias" role="doc-biblioref" onclick="">Stedinger &amp; Cohn, 1986</a>)</span>. Dos crecidas en 80 años suben <span class="math inline">\(Q_{100}\)</span> de 365 a 421 m³/s.</p>
 </div></div>
 </section>
 <section id="referencias" class="slide level2 scrollable smaller">
