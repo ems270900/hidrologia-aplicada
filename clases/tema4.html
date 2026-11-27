@@ -113,7 +113,7 @@
     div.csl-indent {
       margin-left: 2em;
     }  </style>
-  <link rel="stylesheet" href="tema4_files/libs/revealjs/dist/theme/quarto-d0762808c8ee59c20b39424199887aab.css">
+  <link rel="stylesheet" href="tema4_files/libs/revealjs/dist/theme/quarto-2bcdd771980810dab46e7af5e66b0e4c.css">
   <link href="tema4_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="tema4_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="tema4_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -2079,8 +2079,30 @@ Figura&nbsp;1: Tiempos característicos de un hidrograma (esquema).
 </div>
 </div></div>
 </section>
-<section id="isócronas-y-tiempo-de-concentración" class="slide level2">
-<h2>Isócronas y tiempo de concentración</h2>
+<section id="isócronas-y-diagrama-tiempo-área" class="slide level2">
+<h2>Isócronas y diagrama tiempo-área</h2>
+<div class="columns">
+<div class="column" style="width:42%;">
+<ul>
+<li>Isócronas cada <span class="math inline">\(\Delta t\)</span>: el área entre dos consecutivas aporta en ese intervalo <span class="citation" data-cites="chow1988appliedhydrology">(<a href="#/referencias" role="doc-biblioref" onclick="">Chow et&nbsp;al., 1988, pp. 164-166</a>)</span>.</li>
+<li>Histograma tiempo-área: las áreas de las franjas.</li>
+<li>Diagrama tiempo-área: las áreas acumuladas. Es una curva S que se queda horizontal desde <span class="math inline">\(t_c\)</span>, cuando ya aporta toda la cuenca.</li>
+<li>Con lluvia constante, el hidrograma es ese diagrama por <span class="math inline">\(\frac{C\,i}{360}\)</span>.</li>
+</ul>
+</div><div class="column" style="width:58%;">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="tema4_files/figure-revealjs/unnamed-chunk-50-1.svg" class="quarto-figure quarto-figure-center" width="614"></p>
+</figure>
+</div>
+</div>
+</div>
+</div></div>
+</section>
+<section id="lluvia-constante-y-tiempo-de-concentración" class="slide level2">
+<h2>Lluvia constante y tiempo de concentración</h2>
 <div class="columns">
 <div class="column" style="width:45%;">
 <ul>
@@ -2189,6 +2211,87 @@ Q = k \, C \, i \, A
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-t4-duracion-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figura&nbsp;3: Caudal pico según la duración de la lluvia.
 </figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div></div>
+</section>
+<section id="lluvia-variable-método-tiempo-área" class="slide level2">
+<h2>Lluvia variable: método tiempo-área</h2>
+<p>Cada bloque de lluvia da un hidrograma con la forma del histograma tiempo-área, corrido un intervalo; se suman.</p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><span class="math display">\[
+Q_n = \frac{C}{360} \sum_{k} A_k\,I_{n-k+1}
+\]</span></p>
+<ul>
+<li><span class="math inline">\(Q_n\)</span>: caudal al final del intervalo <span class="math inline">\(n\)</span> (m³/s); <span class="math inline">\(A_k\)</span>: franja <span class="math inline">\(k\)</span> (ha); <span class="math inline">\(I_j\)</span>: intensidad del bloque <span class="math inline">\(j\)</span> (mm/h).</li>
+<li>El agua de la franja <span class="math inline">\(k\)</span> en el bloque <span class="math inline">\(j\)</span> sale en el intervalo <span class="math inline">\(j + k - 1\)</span>.</li>
+<li>Es la base del hidrograma de Clark.</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: center;"><span class="math inline">\(n\)</span></th>
+<th style="text-align: left;"><span class="math inline">\(Q_n \times \frac{360}{C}\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">1</td>
+<td style="text-align: left;"><span class="math inline">\(A_1 I_1\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">2</td>
+<td style="text-align: left;"><span class="math inline">\(A_1 I_2 + A_2 I_1\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">3</td>
+<td style="text-align: left;"><span class="math inline">\(A_1 I_3 + A_2 I_2 + A_3 I_1\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">4</td>
+<td style="text-align: left;"><span class="math inline">\(A_2 I_3 + A_3 I_2 + A_4 I_1\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">5</td>
+<td style="text-align: left;"><span class="math inline">\(A_3 I_3 + A_4 I_2 + A_5 I_1\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">6</td>
+<td style="text-align: left;"><span class="math inline">\(A_4 I_3 + A_5 I_2\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">7</td>
+<td style="text-align: left;"><span class="math inline">\(A_5 I_3\)</span></td>
+</tr>
+</tbody>
+</table>
+<p><span class="nota">Cinco franjas y tres bloques de lluvia.</span></p>
+</div></div>
+</section>
+<section id="ejemplo-urbanización-con-el-método-tiempo-área" class="slide level2">
+<h2>Ejemplo: urbanización con el método tiempo-área</h2>
+<div class="columns">
+<div class="column apretado" style="width:50%;">
+<p>33 ha, <span class="math inline">\(C = 0.60\)</span>, franjas de 4, 9, 10, 7 y 3 ha cada 10 min; bloques de 60, 120 y 40 mm/h (datos hipotéticos).</p>
+<p>Solución, con <span class="math inline">\(\frac{C}{360} = 0.001667\)</span>:</p>
+<ol type="1">
+<li><span class="math inline">\(Q_1 = 0.001667 \times 4 \times 60 = 0.40\)</span> m³/s.</li>
+<li><span class="math inline">\(Q_2 = 0.001667 \times (4 \times 120 + 9 \times 60) = 1.70\)</span>.</li>
+<li><span class="math inline">\(Q_3 = 0.001667 \times 1840 = 3.07\)</span>.</li>
+<li><span class="math inline">\(Q_4 = 0.001667 \times (9 \times 40 + 10 \times 120 + 7 \times 60) = 3.30\)</span> m³/s, el pico a los 40 min.</li>
+<li><span class="math inline">\(Q_5 = 2.37\)</span>, <span class="math inline">\(Q_6 = 1.07\)</span> y <span class="math inline">\(Q_7 = 0.20\)</span> m³/s.</li>
+<li>Volumen: <span class="math inline">\(12.10 \times 600 = 7260\)</span> m³ <span class="math inline">\(= 0.60 \times 0.0367 \times 330\,000\)</span>.</li>
+</ol>
+</div><div class="column" style="width:50%;">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="tema4_files/figure-revealjs/unnamed-chunk-54-1.svg" class="quarto-figure quarto-figure-center" width="537"></p>
 </figure>
 </div>
 </div>
@@ -3585,16 +3688,16 @@ S(t) = U_D(t) + S(t - D), \qquad U_{D'}(t) = \frac{D}{D'}\,\bigl[S(t) - S(t - D'
 <div class="tabla-compacta">
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<table class="table table-hover table-condensed caption-top" data-quarto-postprocess="true" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<table class="table caption-top" data-quarto-postprocess="true" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <thead>
 <tr class="header">
-<th style="text-align: center;" data-quarto-table-cell-role="th">(1) <em>t</em> (h)</th>
-<th style="text-align: center;" data-quarto-table-cell-role="th">(2) <em>U</em><sub>2</sub>(<em>t</em>) (m³/s por mm)</th>
-<th style="text-align: center;" data-quarto-table-cell-role="th">(3) <em>S</em>(<em>t</em> − 2) (m³/s)</th>
-<th style="text-align: center;" data-quarto-table-cell-role="th">(4) <em>S</em>(<em>t</em>) = (2) + (3) (m³/s)</th>
-<th style="text-align: center;" data-quarto-table-cell-role="th">(5) <em>S</em>(<em>t</em> − 3) (m³/s)</th>
-<th style="text-align: center;" data-quarto-table-cell-role="th">(6) Diferencia = (4) − (5): 1.5 mm en 3 h (m³/s)</th>
-<th style="text-align: center;" data-quarto-table-cell-role="th">(7) <em>U</em><sub>3</sub>(<em>t</em>) = (6) × 2/3 (m³/s por mm)</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th"><em>t</em> (h)</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th"><em>U</em><sub>2</sub></th>
+<th style="text-align: center;" data-quarto-table-cell-role="th"><em>S</em>(<em>t</em> − 2)</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th"><em>S</em>(<em>t</em>)</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th"><em>S</em>(<em>t</em> − 3)</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">Diferencia</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th"><em>U</em><sub>3</sub></th>
 </tr>
 </thead>
 <tbody>
@@ -3697,24 +3800,6 @@ S(t) = U_D(t) + S(t - D), \qquad U_{D'}(t) = \frac{D}{D'}\,\bigl[S(t) - S(t - D'
 <td style="text-align: center;">0.0</td>
 <td style="text-align: center;">0.00</td>
 </tr>
-<tr class="even">
-<td style="text-align: center;">11</td>
-<td style="text-align: center;">0.0</td>
-<td style="text-align: center;">42.5</td>
-<td style="text-align: center;">42.5</td>
-<td style="text-align: center;">42.5</td>
-<td style="text-align: center;">0.0</td>
-<td style="text-align: center;">0.00</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">12</td>
-<td style="text-align: center;">0.0</td>
-<td style="text-align: center;">42.5</td>
-<td style="text-align: center;">42.5</td>
-<td style="text-align: center;">42.5</td>
-<td style="text-align: center;">0.0</td>
-<td style="text-align: center;">0.00</td>
-</tr>
 </tbody>
 </table>
 
@@ -3727,13 +3812,13 @@ S(t) = U_D(t) + S(t - D), \qquad U_{D'}(t) = \frac{D}{D'}\,\bigl[S(t) - S(t - D'
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="tema4_files/figure-revealjs/unnamed-chunk-62-1.svg" class="quarto-figure quarto-figure-center" width="537"></p>
+<p><img data-src="tema4_files/figure-revealjs/unnamed-chunk-66-1.svg" class="quarto-figure quarto-figure-center" width="537"></p>
 </figure>
 </div>
 </div>
 </div>
 </div></div>
-<p><span class="nota">La resta deja solo la lluvia de las primeras 3 h: <span class="math inline">\(3 \times 0.5 = 1.5\)</span> mm. Multiplicada por <span class="math inline">\(D/D' = 2/3\)</span>, queda 1 mm.</span></p>
+<p><span class="nota">La resta deja la lluvia de 3 h: <span class="math inline">\(3 \times 0.5 = 1.5\)</span> mm; por <span class="math inline">\(D/D' = 2/3\)</span>, queda 1 mm. Ordenadas en m³/s por mm.</span></p>
 </section>
 <section id="otras-duraciones-y-comprobación" class="slide level2">
 <h2>Otras duraciones y comprobación</h2>
@@ -3743,7 +3828,7 @@ S(t) = U_D(t) + S(t - D), \qquad U_{D'}(t) = \frac{D}{D'}\,\bigl[S(t) - S(t - D'
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="tema4_files/figure-revealjs/unnamed-chunk-64-1.svg" class="quarto-figure quarto-figure-center" width="537"></p>
+<p><img data-src="tema4_files/figure-revealjs/unnamed-chunk-68-1.svg" class="quarto-figure quarto-figure-center" width="537"></p>
 </figure>
 </div>
 </div>
@@ -3753,13 +3838,123 @@ S(t) = U_D(t) + S(t - D), \qquad U_{D'}(t) = \frac{D}{D'}\,\bigl[S(t) - S(t - D'
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="tema4_files/figure-revealjs/unnamed-chunk-65-1.svg" class="quarto-figure quarto-figure-center" width="537"></p>
+<p><img data-src="tema4_files/figure-revealjs/unnamed-chunk-69-1.svg" class="quarto-figure quarto-figure-center" width="537"></p>
 </figure>
 </div>
 </div>
 </div>
 </div></div>
 <p><span class="nota">De 2 h a 5 h: diferencia × 0.4, pico de 15 m³/s por mm. Si la duración supuesta no es la correcta, la curva S oscila: con 3 h repite 27.5, 27.5, 30.</span></p>
+</section>
+<section id="deconvolución-en-símbolos" class="slide level2">
+<h2>Deconvolución en símbolos</h2>
+<p>Dos intervalos de lluvia efectiva, <span class="math inline">\(P_1\)</span> y <span class="math inline">\(P_2\)</span> (mm), y un hidrograma unitario de tres ordenadas, <span class="math inline">\(U_1\)</span>, <span class="math inline">\(U_2\)</span> y <span class="math inline">\(U_3\)</span> (m³/s por mm):</p>
+<div class="columns">
+<div class="column" style="width:52%;">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: center;"><span class="math inline">\(n\)</span></th>
+<th style="text-align: center;">Aporte de <span class="math inline">\(P_1\)</span></th>
+<th style="text-align: center;">Aporte de <span class="math inline">\(P_2\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(Q_n\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">1</td>
+<td style="text-align: center;"><span class="math inline">\(P_1 U_1\)</span></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"><span class="math inline">\(P_1 U_1\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">2</td>
+<td style="text-align: center;"><span class="math inline">\(P_1 U_2\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(P_2 U_1\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(P_1 U_2 + P_2 U_1\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">3</td>
+<td style="text-align: center;"><span class="math inline">\(P_1 U_3\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(P_2 U_2\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(P_1 U_3 + P_2 U_2\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">4</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"><span class="math inline">\(P_2 U_3\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(P_2 U_3\)</span></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Convolución: se conocen <span class="math inline">\(P\)</span> y <span class="math inline">\(U\)</span>, se calcula <span class="math inline">\(Q\)</span>.</li>
+<li>Deconvolución: se conocen <span class="math inline">\(P\)</span> y <span class="math inline">\(Q\)</span>; las incógnitas son las <span class="math inline">\(U\)</span>.</li>
+</ul>
+</div><div class="column" style="width:48%;">
+<p><span class="math display">\[
+\begin{bmatrix} P_1 &amp; 0 &amp; 0 \\ P_2 &amp; P_1 &amp; 0 \\ 0 &amp; P_2 &amp; P_1 \\ 0 &amp; 0 &amp; P_2 \end{bmatrix}
+\begin{bmatrix} U_1 \\ U_2 \\ U_3 \end{bmatrix} =
+\begin{bmatrix} Q_1 \\ Q_2 \\ Q_3 \\ Q_4 \end{bmatrix}
+\]</span></p>
+<ul>
+<li>Cuatro ecuaciones, tres incógnitas.</li>
+<li>Mínimos cuadrados: <span class="math inline">\(\mathbf{U} = (\mathbf{P}^T\mathbf{P})^{-1}\mathbf{P}^T\mathbf{Q}\)</span> <span class="citation" data-cites="chow1988appliedhydrology">(<a href="#/referencias" role="doc-biblioref" onclick="">Chow et&nbsp;al., 1988, pp. 221-223</a>)</span>.</li>
+</ul>
+</div></div>
+</section>
+<section id="ejemplo-sustitución-y-mínimos-cuadrados" class="slide level2">
+<h2>Ejemplo: sustitución y mínimos cuadrados</h2>
+<p>Lluvia efectiva de 2 y 1 mm; escorrentía directa de 10, 26, 17 y 5 m³/s (datos hipotéticos). Hidrograma unitario de 1 h con tres ordenadas.</p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p>Solución, sustitución hacia adelante:</p>
+<ol type="1">
+<li><span class="math inline">\(U_1 = \frac{10}{2} = 5\)</span> m³/s por mm.</li>
+<li><span class="math inline">\(U_2 = \frac{26 - 1 \times 5}{2} = 10.5\)</span>.</li>
+<li><span class="math inline">\(U_3 = \frac{17 - 1 \times 10.5}{2} = 3.25\)</span>.</li>
+<li>Hora 4: <span class="math inline">\(1 \times 3.25 = 3.25\)</span> contra 5 medidos. Todo el error queda ahí: <span class="math inline">\(1.75^2 = 3.06\)</span>.</li>
+</ol>
+</div><div class="column" style="width:50%;">
+<p>Mínimos cuadrados, <span class="math inline">\((\mathbf{P}^T\mathbf{P})\,\mathbf{U} = \mathbf{P}^T\mathbf{Q}\)</span>:</p>
+<ol start="5" type="1">
+<li><span class="math inline">\(5U_1 + 2U_2 = 46\)</span>; <span class="math inline">\(2U_1 + 5U_2 + 2U_3 = 69\)</span>; <span class="math inline">\(2U_2 + 5U_3 = 39\)</span>.</li>
+<li><span class="math inline">\(U_2 = \frac{35}{3.4} = 10.29\)</span>; <span class="math inline">\(U_1 = 5.08\)</span>; <span class="math inline">\(U_3 = 3.68\)</span>.</li>
+<li>Calculados: 10.16, 25.67, 17.66 y 3.68 m³/s. Suma de errores al cuadrado: 2.31.</li>
+</ol>
+</div></div>
+</section>
+<section id="comparación-de-los-dos-métodos" class="slide level2">
+<h2>Comparación de los dos métodos</h2>
+
+<img data-src="tema4_files/figure-revealjs/unnamed-chunk-70-1.svg" class="quarto-figure quarto-figure-center r-stretch" width="912"><table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Método</th>
+<th style="text-align: center;"><span class="math inline">\(U_1\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(U_2\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(U_3\)</span></th>
+<th style="text-align: center;">Errores al cuadrado (m⁶/s²)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Sustitución hacia adelante</td>
+<td style="text-align: center;">5.00</td>
+<td style="text-align: center;">10.50</td>
+<td style="text-align: center;">3.25</td>
+<td style="text-align: center;">3.06</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Mínimos cuadrados</td>
+<td style="text-align: center;">5.08</td>
+<td style="text-align: center;">10.29</td>
+<td style="text-align: center;">3.68</td>
+<td style="text-align: center;">2.31</td>
+</tr>
+</tbody>
+</table>
+<p><span class="nota">La sustitución arrastra el error a la siguiente ordenada. En R: <code>qr.solve(P, Q)</code> o <code>nnls::nnls(P, Q)</code>.</span></p>
 </section>
 <section id="deconvolución-tormentas-compuestas" class="slide level2">
 <h2>Deconvolución: tormentas compuestas</h2>
@@ -3780,30 +3975,120 @@ S(t) = U_D(t) + S(t - D), \qquad U_{D'}(t) = \frac{D}{D'}\,\bigl[S(t) - S(t - D'
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="tema4_files/figure-revealjs/unnamed-chunk-67-1.svg" class="quarto-figure quarto-figure-center" width="537"></p>
+<p><img data-src="tema4_files/figure-revealjs/unnamed-chunk-72-1.svg" class="quarto-figure quarto-figure-center" width="537"></p>
 </figure>
 </div>
 </div>
 </div>
 </div></div>
 </section>
-<section id="hidrograma-unitario-representativo" class="slide level2">
-<h2>Hidrograma unitario representativo</h2>
+<section id="por-qué-no-se-promedian-las-ordenadas" class="slide level2">
+<h2>Por qué no se promedian las ordenadas</h2>
+<p>Dos hidrogramas iguales; B llega 1 h más tarde:</p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: left;"><span class="math inline">\(t\)</span> (h)</th>
+<th style="text-align: center;">0</th>
+<th style="text-align: center;">1</th>
+<th style="text-align: center;">2</th>
+<th style="text-align: center;">3</th>
+<th style="text-align: center;">4</th>
+<th style="text-align: center;">5</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Hidrograma A (m³/s por mm)</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">10</td>
+<td style="text-align: center;">30</td>
+<td style="text-align: center;">10</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Hidrograma B (m³/s por mm)</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">10</td>
+<td style="text-align: center;">30</td>
+<td style="text-align: center;">10</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Promedio hora por hora</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">20</td>
+<td style="text-align: center;">20</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">B corrido 1 h a la izquierda</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">10</td>
+<td style="text-align: center;">30</td>
+<td style="text-align: center;">10</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Promedio con los picos alineados</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">10</td>
+<td style="text-align: center;">30</td>
+<td style="text-align: center;">10</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+</tr>
+</tbody>
+</table>
 <ul>
-<li>No se promedian las ordenadas hora por hora: si los picos no coinciden, el pico promedio queda bajo.</li>
-<li>Linsley: promediar picos y tiempos al pico y dibujar un hidrograma con esa forma y volumen de 1 mm <span class="citation" data-cites="Linsley1958">(<a href="#/referencias" role="doc-biblioref" onclick="">Linsley et&nbsp;al., 1958, p. 198</a>)</span>.</li>
-<li>En el ejemplo: pico promedio de 43 m³/s por mm a las 3 h; la solución conjunta da 36.5 m³/s por mm.</li>
+<li>El promedio hora por hora conserva el volumen, pero el pico baja de 30 a 20 m³/s por mm.</li>
+<li>Si antes se alinean los picos, el promedio conserva el pico y la forma.</li>
 </ul>
-<div class="callout callout-tip callout-style-simple">
-<div class="callout-body">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
+</section>
+<section id="procedimiento-de-linsley" class="slide level2">
+<h2>Procedimiento de Linsley</h2>
+<p>Promediar por separado picos y tiempos al pico, y pasar un hidrograma de 1 mm por ese punto <span class="citation" data-cites="Linsley1958">(<a href="#/referencias" role="doc-biblioref" onclick="">Linsley et&nbsp;al., 1958, p. 198</a>)</span>:</p>
+<ol type="1">
+<li>Hidrograma unitario de cada tormenta, todos de la misma duración.</li>
+<li>Volumen de 1 mm en cada uno; si no, multiplicar por <span class="math inline">\(\frac{1}{V}\)</span>.</li>
+<li>Pico <span class="math inline">\(q_{p,i}\)</span> y tiempo al pico <span class="math inline">\(T_{p,i}\)</span> de cada uno.</li>
+<li>Promedios <span class="math inline">\(\bar{q}_p\)</span> y <span class="math inline">\(\bar{T}_p\)</span>, este redondeado al intervalo.</li>
+<li>Correr cada hidrograma <span class="math inline">\(\bar{T}_p - T_{p,i}\)</span> intervalos.</li>
+<li>Promediar las ordenadas corridas.</li>
+<li>Comprobar que pase por <span class="math inline">\(\bar{q}_p\)</span> en <span class="math inline">\(\bar{T}_p\)</span> y que tenga 1 mm.</li>
+</ol>
+<p><span class="nota">Tormentas con lluvia concentrada, un solo pico y lluvia en toda la cuenca, de crecientes del mismo orden que la de diseño.</span></p>
+</section>
+<section id="ejemplo-hidrograma-unitario-representativo" class="slide level2">
+<h2>Ejemplo: hidrograma unitario representativo</h2>
+<div class="columns">
+<div class="column apretado" style="width:46%;">
+<p>Cinco hidrogramas de 1 h de la cuenca de 318 km².</p>
+<p>Solución:</p>
+<ol type="1">
+<li>El evento 2 tiene 1.13 mm: se multiplica por 0.886.</li>
+<li><span class="math inline">\(\bar{q}_p = 42.51\)</span> m³/s por mm; <span class="math inline">\(\bar{T}_p = \frac{4 + 2 + 3 + 3 + 3}{5} = 3\)</span> h.</li>
+<li>El evento 1 se corre 1 h a la izquierda y el 2, 1 h a la derecha.</li>
+<li>Hora 4: <span class="math inline">\(\frac{7.21 + 17.34 + 32.15 + 18.25 + 19.28}{5} = 18.85\)</span>.</li>
+<li>Suma 88.33 m³/s por mm: 1.00 mm.</li>
+</ol>
+</div><div class="column" style="width:54%;">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="tema4_files/figure-revealjs/unnamed-chunk-74-1.svg" class="quarto-figure quarto-figure-center" width="576"></p>
+</figure>
 </div>
-<div class="callout-content">
-<p>Usar tormentas con lluvia concentrada, un solo pico y lluvia en toda la cuenca; crecientes del mismo orden que la de diseño; el mismo método de separación en todos los eventos; y comprobar siempre que el volumen sea 1 mm.</p>
 </div>
 </div>
-</div>
+</div></div>
+<p><span class="nota">Promedio hora por hora: pico de 34.9, 18 % menor. Solución conjunta: 36.5 m³/s por mm. Grises: los cinco eventos alineados.</span></p>
 </section>
 <section id="ejemplo-hidrograma-de-una-tormenta-de-diseño" class="slide level2">
 <h2>Ejemplo: hidrograma de una tormenta de diseño</h2>
@@ -3823,7 +4108,7 @@ S(t) = U_D(t) + S(t - D), \qquad U_{D'}(t) = \frac{D}{D'}\,\bigl[S(t) - S(t - D'
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="tema4_files/figure-revealjs/unnamed-chunk-69-1.svg" class="quarto-figure quarto-figure-center" width="576"></p>
+<p><img data-src="tema4_files/figure-revealjs/unnamed-chunk-76-1.svg" class="quarto-figure quarto-figure-center" width="576"></p>
 </figure>
 </div>
 </div>
@@ -3896,38 +4181,96 @@ S(t) = U_D(t) + S(t - D), \qquad U_{D'}(t) = \frac{D}{D'}\,\bigl[S(t) - S(t - D'
 })();
 </script>
 </section>
-<section id="hidrogramas-unitarios-sintéticos" class="slide level2">
+<section id="hidrogramas-unitarios-sintéticos" class="slide level2 tabla-compacta">
 <h2>Hidrogramas unitarios sintéticos</h2>
 <p>Donde no hay registros de caudal, la forma del hidrograma se relaciona con la cuenca <span class="citation" data-cites="chow1988appliedhydrology">(<a href="#/referencias" role="doc-biblioref" onclick="">Chow et&nbsp;al., 1988, p. 223</a>)</span>.</p>
-<p>Snyder, con cuencas de 30 a 30 000 km² de los Apalaches:</p>
+<table class="caption-top">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Método</th>
+<th style="text-align: left;">Datos de la cuenca</th>
+<th style="text-align: left;">Se calibra</th>
+<th style="text-align: left;">Qué da</th>
+<th style="text-align: left;">Cuándo conviene</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Snyder</td>
+<td style="text-align: left;"><span class="math inline">\(L\)</span>, <span class="math inline">\(L_c\)</span>, área</td>
+<td style="text-align: left;"><span class="math inline">\(C_t\)</span> y <span class="math inline">\(C_p\)</span>, con cuencas aforadas</td>
+<td style="text-align: left;">Pico, tiempo al pico, anchos y tiempo base; la forma se dibuja</td>
+<td style="text-align: left;">Cuencas medianas y grandes con cuencas aforadas vecinas</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">SCS</td>
+<td style="text-align: left;">Área y <span class="math inline">\(t_c\)</span></td>
+<td style="text-align: left;">Nada; la forma es fija</td>
+<td style="text-align: left;">El hidrograma completo, en cuadro</td>
+<td style="text-align: left;">Cuencas rurales sin datos; el más usado</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Clark</td>
+<td style="text-align: left;">Área, isócronas o <span class="math inline">\(t_c\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(R\)</span> y, sin isócronas, <span class="math inline">\(t_c\)</span></td>
+<td style="text-align: left;">El hidrograma completo, con la forma de la cuenca</td>
+<td style="text-align: left;">Cuencas irregulares o con HEC-HMS</td>
+</tr>
+</tbody>
+</table>
+<p><span class="nota">Los tres se desarrollaron con cuencas de Estados Unidos: sus coeficientes o su forma se revisan con crecientes de la región.</span></p>
+</section>
+<section id="hidrograma-unitario-de-snyder" class="slide level2">
+<h2>Hidrograma unitario de Snyder</h2>
+<div class="columns">
+<div class="column" style="width:48%;">
 <p><span class="math display">\[
 t_p = C_1\,C_t\,(L\,L_c)^{0.3}, \qquad q_p = \frac{C_2\,C_p}{t_p}
 \]</span></p>
 <ul>
-<li><span class="math inline">\(t_p\)</span>: retardo (h); <span class="math inline">\(L\)</span>: longitud del cauce principal (km); <span class="math inline">\(L_c\)</span>: distancia al punto del cauce más cercano al centroide (km); <span class="math inline">\(C_1 = 0.75\)</span> y <span class="math inline">\(C_2 = 2.75\)</span>.</li>
-<li><span class="math inline">\(C_t\)</span> y <span class="math inline">\(C_p\)</span> son regionales: se calibran en cuencas aforadas y se trasladan a las vecinas.</li>
-<li>Duración estándar <span class="math inline">\(t_r = \frac{t_p}{5.5}\)</span>; tiempo base <span class="math inline">\(t_b = \frac{5.56}{q_{pR}}\)</span>; anchos al 75 y 50 % del pico con <span class="math inline">\(C_w = 1.22\)</span> y 2.14.</li>
+<li><span class="math inline">\(L\)</span>: cauce principal (km); <span class="math inline">\(L_c\)</span>: hasta el punto del cauce más cercano al centroide (km); <span class="math inline">\(C_1 = 0.75\)</span>, <span class="math inline">\(C_2 = 2.75\)</span>.</li>
+<li>Duración estándar <span class="math inline">\(t_r = \frac{t_p}{5.5}\)</span>. Para otra duración <span class="math inline">\(t_R\)</span>: <span class="math inline">\(t_{pR} = t_p - \frac{t_r - t_R}{4}\)</span> y <span class="math inline">\(q_{pR} = q_p\,\frac{t_p}{t_{pR}}\)</span>.</li>
+<li><span class="math inline">\(t_b = \frac{5.56}{q_{pR}}\)</span>; <span class="math inline">\(W_{75} = 1.22\,q_{pR}^{-1.08}\)</span> y <span class="math inline">\(W_{50} = 2.14\,q_{pR}^{-1.08}\)</span>.</li>
 </ul>
-</section>
-<section id="hidrograma-unitario-del-scs" class="slide level2">
-<h2>Hidrograma unitario del SCS</h2>
-<p><span class="math display">\[
-q_p = \frac{0.208\,A}{T_p}, \qquad T_p = \frac{t_r}{2} + t_p, \qquad t_p = 0.6\,t_c
-\]</span></p>
-<div class="columns">
-<div class="column" style="width:50%;">
-<ul>
-<li><span class="math inline">\(q_p\)</span> en m³/s por mm, <span class="math inline">\(A\)</span> en km², tiempos en h.</li>
-<li>Hidrograma adimensional <span class="math inline">\(\frac{q}{q_p}\)</span> contra <span class="math inline">\(\frac{t}{T_p}\)</span>, promedio de muchas cuencas rurales.</li>
-<li>Triangular equivalente: recesión de <span class="math inline">\(1.67\,T_p\)</span> y tiempo base de <span class="math inline">\(2.67\,T_p\)</span>.</li>
-<li>Fija 37.5 % del volumen en la subida. En cuencas de montaña puede ser más <span class="citation" data-cites="mccuen1998hydrologic">(<a href="#/referencias" role="doc-biblioref" onclick="">McCuen, 1998, p. 537</a>)</span>.</li>
-</ul>
-</div><div class="column" style="width:50%;">
+</div><div class="column" style="width:52%;">
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="tema4_files/figure-revealjs/unnamed-chunk-71-1.svg" class="quarto-figure quarto-figure-center" width="537"></p>
+<p><img data-src="tema4_files/figure-revealjs/unnamed-chunk-77-1.svg" class="quarto-figure quarto-figure-center" width="576"></p>
+</figure>
+</div>
+</div>
+</div>
+</div></div>
+<p><span class="nota">Un tercio de cada ancho antes del pico; luego se comprueba 1 mm <span class="citation" data-cites="chow1988appliedhydrology">(<a href="#/referencias" role="doc-biblioref" onclick="">Chow et&nbsp;al., 1988, pp. 223-227</a>)</span>.</span></p>
+</section>
+<section id="hidrograma-unitario-del-scs" class="slide level2">
+<h2>Hidrograma unitario del SCS</h2>
+<div class="columns">
+<div class="column" style="width:47%;">
+<p><span class="math display">\[
+q_p = \frac{0.208\,A}{T_p}, \qquad T_p = \frac{t_r}{2} + t_p, \qquad t_p = 0.6\,t_c
+\]</span></p>
+<ul>
+<li><span class="math inline">\(q_p\)</span> en m³/s por mm, <span class="math inline">\(A\)</span> en km², tiempos en h.</li>
+<li>Hidrograma adimensional <span class="math inline">\(\frac{q}{q_p}\)</span> contra <span class="math inline">\(\frac{t}{T_p}\)</span>: misma forma, distinta escala.</li>
+<li>Triángulo de base <span class="math inline">\(2.67\,T_p\)</span> y 1 mm de volumen: <span class="math inline">\(q_p = \frac{2 \times 1000}{2.67 \times 3600}\,\frac{A}{T_p} = 0.208\,\frac{A}{T_p}\)</span>.</li>
+<li>La subida lleva <span class="math inline">\(\frac{1}{2.67} = 37.5\)</span> % del volumen.</li>
+</ul>
+</div><div class="column" style="width:53%;">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="tema4_files/figure-revealjs/unnamed-chunk-78-1.svg" class="quarto-figure quarto-figure-center" width="576"></p>
 </figure>
 </div>
 </div>
@@ -3936,15 +4279,147 @@ q_p = \frac{0.208\,A}{T_p}, \qquad T_p = \frac{t_r}{2} + t_p, \qquad t_p = 0.6\,
 </section>
 <section id="ejemplo-scs-frente-al-observado" class="slide level2">
 <h2>Ejemplo: SCS frente al observado</h2>
+<div class="columns">
+<div class="column apretado" style="width:50%;">
 <p>Hidrograma unitario conjunto de 1 h de la cuenca de 318 km²: pico de 36.5 m³/s por mm a las 3 h.</p>
 <p>Solución:</p>
 <ol type="1">
-<li><span class="math inline">\(T_p = 3\)</span> h, <span class="math inline">\(t_p = 3 - 0.5 = 2.5\)</span> h y <span class="math inline">\(t_c\)</span> implícito <span class="math inline">\(= \frac{2.5}{0.6} = 4.2\)</span> h.</li>
-<li>Pico del SCS: <span class="math inline">\(q_p = 0.208 \times \frac{318}{3} = 22.0\)</span> m³/s por mm, mucho menor que el observado.</li>
-<li>A 1.5 h, <span class="math inline">\(q = 0.47 \times 22.0 = 10.3\)</span>; a 4.5 h, <span class="math inline">\(q = 0.68 \times 22.0 = 15.0\)</span> m³/s por mm.</li>
-<li>Snyder del observado: <span class="math inline">\(q_{pR} = 36.5 \times \frac{10}{318} = 1.148\)</span> m³/s por km² y por cm, y <span class="math inline">\(C_p = 1.148 \times \frac{2.5}{2.75} = 1.04\)</span>.</li>
+<li><span class="math inline">\(T_p = 3\)</span> h, <span class="math inline">\(t_p = 2.5\)</span> h y <span class="math inline">\(t_c\)</span> implícito <span class="math inline">\(= \frac{2.5}{0.6} = 4.2\)</span> h.</li>
+<li><span class="math inline">\(q_p = \frac{0.208 \times 318}{3} = 22.0\)</span> m³/s por mm, mucho menor que el observado.</li>
+<li>A 1.5 h, <span class="math inline">\(q = 0.47 \times 22.0 = 10.3\)</span>; a 4.5 h, <span class="math inline">\(q = 0.68 \times 22.0 = 15.0\)</span>.</li>
+<li>Snyder del observado: <span class="math inline">\(q_{pR} = \frac{36.5 \times 10}{318} = 1.148\)</span> y <span class="math inline">\(C_p = \frac{1.148 \times 2.5}{2.75} = 1.04\)</span>.</li>
 </ol>
+</div><div class="column" style="width:50%;">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="tema4_files/figure-revealjs/unnamed-chunk-80-1.svg" class="quarto-figure quarto-figure-center" width="537"></p>
+</figure>
+</div>
+</div>
+</div>
+</div></div>
 <p><span class="nota">En esta cuenca de montaña el SCS subestima el pico y alarga la recesión: donde hay registros, el sintético se compara antes de usarlo.</span></p>
+</section>
+<section id="hidrograma-unitario-de-clark" class="slide level2">
+<h2>Hidrograma unitario de Clark</h2>
+<div class="columns">
+<div class="column" style="width:42%;">
+<ul>
+<li>Traslación: isócronas cada <span class="math inline">\(\Delta t\)</span> y su histograma tiempo-área; cada franja da <span class="math inline">\(I = \frac{A_i}{3.6\,\Delta t}\)</span> m³/s por mm <span class="citation" data-cites="Clark1945">(<a href="#/referencias" role="doc-biblioref" onclick="">Clark, 1945</a>)</span>.</li>
+<li>Almacenamiento: embalse lineal <span class="math inline">\(S = R\,O\)</span>:</li>
+</ul>
+<p><span class="math display">\[
+O_t = C_A\,I_t + C_B\,O_{t-1}
+\]</span></p>
+<p><span class="math inline">\(C_A = \frac{\Delta t}{R + 0.5\,\Delta t}\)</span>, <span class="math inline">\(C_B = 1 - C_A\)</span> y <span class="math inline">\(U_t = \frac{O_t + O_{t-1}}{2}\)</span> <span class="citation" data-cites="usace2000hechmstech">(<a href="#/referencias" role="doc-biblioref" onclick="">U.S. Army Corps of Engineers, 2000</a>)</span>.</p>
+</div><div class="column" style="width:58%;">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="tema4_files/figure-revealjs/unnamed-chunk-81-1.svg" class="quarto-figure quarto-figure-center" width="652"></p>
+</figure>
+</div>
+</div>
+</div>
+</div></div>
+</section>
+<section id="clark-en-símbolos" class="slide level2">
+<h2>Clark en símbolos</h2>
+<table class="caption-top">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;"><span class="math inline">\(t\)</span> (h)</th>
+<th style="text-align: center;">Área <span class="math inline">\(A_t\)</span> (km²)</th>
+<th style="text-align: center;">Trasladado <span class="math inline">\(I_t\)</span></th>
+<th style="text-align: center;">Salida <span class="math inline">\(O_t\)</span></th>
+<th style="text-align: center;">Hidrograma unitario <span class="math inline">\(U_t\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">0</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;"><span class="math inline">\(O_0 = 0\)</span></td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">1</td>
+<td style="text-align: center;"><span class="math inline">\(A_1\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\frac{A_1}{3.6}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(C_A I_1 + C_B O_0\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\frac{O_1 + O_0}{2}\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">2</td>
+<td style="text-align: center;"><span class="math inline">\(A_2\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\frac{A_2}{3.6}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(C_A I_2 + C_B O_1\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\frac{O_2 + O_1}{2}\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">⋮</td>
+<td style="text-align: center;">⋮</td>
+<td style="text-align: center;">⋮</td>
+<td style="text-align: center;">⋮</td>
+<td style="text-align: center;">⋮</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">5</td>
+<td style="text-align: center;"><span class="math inline">\(A_5\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\frac{A_5}{3.6}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(C_A I_5 + C_B O_4\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\frac{O_5 + O_4}{2}\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">6</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;"><span class="math inline">\(C_B O_5\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\frac{O_6 + O_5}{2}\)</span></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Después de <span class="math inline">\(t_c\)</span> no entra agua: la salida se multiplica por <span class="math inline">\(C_B\)</span> en cada intervalo, una recesión exponencial.</li>
+<li>Dos parámetros, <span class="math inline">\(t_c\)</span> y <span class="math inline">\(R\)</span>, que se calibran con crecientes medidas.</li>
+</ul>
+</section>
+<section id="ejemplo-clark-con-isócronas" class="slide level2">
+<h2>Ejemplo: Clark con isócronas</h2>
+<div class="columns">
+<div class="column apretado" style="width:48%;">
+<p>Franjas de 36, 89, 99, 68 y 26 km², <span class="math inline">\(t_c = 5\)</span> h y <span class="math inline">\(R = 2\)</span> h (datos hipotéticos).</p>
+<p>Solución:</p>
+<ol type="1">
+<li><span class="math inline">\(I_1 = \frac{36}{3.6} = 10.00\)</span>; <span class="math inline">\(I_2 = 24.72\)</span>; <span class="math inline">\(I_3 = 27.50\)</span>; <span class="math inline">\(I_4 = 18.89\)</span>; <span class="math inline">\(I_5 = 7.22\)</span>.</li>
+<li><span class="math inline">\(C_A = \frac{1}{2 + 0.5} = 0.40\)</span> y <span class="math inline">\(C_B = 0.60\)</span>.</li>
+<li><span class="math inline">\(O_1 = 4.00\)</span>; <span class="math inline">\(O_2 = 0.40 \times 24.72 + 0.60 \times 4.00 = 12.29\)</span>; <span class="math inline">\(O_3 = 18.37\)</span>; <span class="math inline">\(O_4 = 18.58\)</span>.</li>
+<li><span class="math inline">\(U_4 = \frac{18.58 + 18.37}{2} = 18.48\)</span> m³/s por mm, el pico.</li>
+<li>Suma 88.33 m³/s por mm: 1.00 mm.</li>
+</ol>
+</div><div class="column" style="width:52%;">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="tema4_files/figure-revealjs/unnamed-chunk-83-1.svg" class="quarto-figure quarto-figure-center" width="556"></p>
+</figure>
+</div>
+</div>
+</div>
+</div></div>
+<p><span class="nota">Barras: hidrograma trasladado. El pico observado de esta cuenca es 36.5 m³/s por mm a las 3 h: habría que reducir <span class="math inline">\(t_c\)</span> y <span class="math inline">\(R\)</span>.</span></p>
 </section></section>
 <section>
 <section id="modelos" class="title-slide slide level1 separador center" data-background-color="#10199e">
@@ -4160,7 +4635,7 @@ q_p = \frac{0.208\,A}{T_p}, \qquad T_p = \frac{t_r}{2} + t_p, \qquad t_p = 0.6\,
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="tema4_files/figure-revealjs/unnamed-chunk-73-1.svg" class="quarto-figure quarto-figure-center" width="652"></p>
+<p><img data-src="tema4_files/figure-revealjs/unnamed-chunk-85-1.svg" class="quarto-figure quarto-figure-center" width="652"></p>
 </figure>
 </div>
 </div>
@@ -4184,7 +4659,7 @@ q_p = \frac{0.208\,A}{T_p}, \qquad T_p = \frac{t_r}{2} + t_p, \qquad t_p = 0.6\,
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="tema4_files/figure-revealjs/unnamed-chunk-74-1.svg" class="quarto-figure quarto-figure-center" width="499"></p>
+<p><img data-src="tema4_files/figure-revealjs/unnamed-chunk-86-1.svg" class="quarto-figure quarto-figure-center" width="499"></p>
 </figure>
 </div>
 </div>
@@ -4217,7 +4692,7 @@ P_s = \frac{X_1 \left[1 - (S/X_1)^2\right] \tanh(P_n/X_1)}{1 + (S/X_1) \tanh(P_n
 <section id="calibración-y-validación-de-gr4j" class="slide level2">
 <h2>Calibración y validación de GR4J</h2>
 
-<img data-src="tema4_files/figure-revealjs/unnamed-chunk-76-1.svg" class="quarto-figure quarto-figure-center r-stretch" width="912"><ul>
+<img data-src="tema4_files/figure-revealjs/unnamed-chunk-88-1.svg" class="quarto-figure quarto-figure-center r-stretch" width="912"><ul>
 <li>Calibración 1990–1999: KGE 0.86 y NSE 0.74. Validación 2000–2009: 0.69 y 0.63.</li>
 <li><span class="math inline">\(X_1 = 144\)</span> mm y <span class="math inline">\(X_4 = 2.3\)</span> días son razonables para 360 km²; <span class="math inline">\(X_2 = 0.57\)</span> mm indica agua extra para cerrar el balance.</li>
 </ul>
@@ -4285,7 +4760,7 @@ S_{j+1} - S_j = \frac{I_j + I_{j+1}}{2}\,\Delta t - \frac{Q_j + Q_{j+1}}{2}\,\De
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="tema4_files/figure-revealjs/unnamed-chunk-77-1.svg" class="quarto-figure quarto-figure-center" width="595"></p>
+<p><img data-src="tema4_files/figure-revealjs/unnamed-chunk-89-1.svg" class="quarto-figure quarto-figure-center" width="595"></p>
 </figure>
 </div>
 </div>
@@ -4309,7 +4784,7 @@ S = k\,Q, \qquad Q_{j+1} = C_1\,(I_j + I_{j+1}) + C_2\,Q_j, \qquad C_1 = \frac{\
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="tema4_files/figure-revealjs/unnamed-chunk-78-1.svg" class="quarto-figure quarto-figure-center" width="576"></p>
+<p><img data-src="tema4_files/figure-revealjs/unnamed-chunk-90-1.svg" class="quarto-figure quarto-figure-center" width="576"></p>
 </figure>
 </div>
 </div>
@@ -4319,7 +4794,7 @@ S = k\,Q, \qquad Q_{j+1} = C_1\,(I_j + I_{j+1}) + C_2\,Q_j, \qquad C_1 = \frac{\
 <section id="partes-de-un-embalse" class="slide level2">
 <h2>Partes de un embalse</h2>
 
-<img data-src="tema4_files/figure-revealjs/unnamed-chunk-79-1.svg" class="quarto-figure quarto-figure-center r-stretch" width="864"><p><span class="nota">El tránsito de la avenida de diseño fija el NAME; la corona va por encima, con el borde libre.</span></p>
+<img data-src="tema4_files/figure-revealjs/unnamed-chunk-91-1.svg" class="quarto-figure quarto-figure-center r-stretch" width="864"><p><span class="nota">El tránsito de la avenida de diseño fija el NAME; la corona va por encima, con el borde libre.</span></p>
 </section>
 <section id="tránsito-a-nivel-método-de-puls" class="slide level2">
 <h2>Tránsito a nivel (método de Puls)</h2>
@@ -4355,7 +4830,7 @@ S = k\,Q, \qquad Q_{j+1} = C_1\,(I_j + I_{j+1}) + C_2\,Q_j, \qquad C_1 = \frac{\
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="tema4_files/figure-revealjs/unnamed-chunk-80-1.svg" class="quarto-figure quarto-figure-center" width="537"></p>
+<p><img data-src="tema4_files/figure-revealjs/unnamed-chunk-92-1.svg" class="quarto-figure quarto-figure-center" width="537"></p>
 </figure>
 </div>
 </div>
@@ -4385,7 +4860,7 @@ C_3 = \frac{2K(1-X) - \Delta t}{2K(1-X) + \Delta t}
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="tema4_files/figure-revealjs/unnamed-chunk-81-1.svg" class="quarto-figure quarto-figure-center" width="480"></p>
+<p><img data-src="tema4_files/figure-revealjs/unnamed-chunk-93-1.svg" class="quarto-figure quarto-figure-center" width="480"></p>
 </figure>
 </div>
 </div>
@@ -4414,7 +4889,7 @@ C_3 = \frac{2K(1-X) - \Delta t}{2K(1-X) + \Delta t}
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="tema4_files/figure-revealjs/unnamed-chunk-83-1.svg" class="quarto-figure quarto-figure-center" width="537"></p>
+<p><img data-src="tema4_files/figure-revealjs/unnamed-chunk-95-1.svg" class="quarto-figure quarto-figure-center" width="537"></p>
 </figure>
 </div>
 </div>
@@ -4442,7 +4917,7 @@ C_3 = \frac{2K(1-X) - \Delta t}{2K(1-X) + \Delta t}
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="tema4_files/figure-revealjs/unnamed-chunk-86-1.svg" class="quarto-figure quarto-figure-center" width="652"></p>
+<p><img data-src="tema4_files/figure-revealjs/unnamed-chunk-98-1.svg" class="quarto-figure quarto-figure-center" width="652"></p>
 </figure>
 </div>
 </div>
@@ -4469,7 +4944,7 @@ K = \frac{\Delta x}{c_k}, \qquad X = \frac{1}{2}\left(1 - \frac{q}{S_0\,c_k\,\De
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="tema4_files/figure-revealjs/unnamed-chunk-87-1.svg" class="quarto-figure quarto-figure-center" width="537"></p>
+<p><img data-src="tema4_files/figure-revealjs/unnamed-chunk-99-1.svg" class="quarto-figure quarto-figure-center" width="537"></p>
 </figure>
 </div>
 </div>
@@ -4584,6 +5059,9 @@ Brown, S. A., Schall, J. D., Morris, J. L., Doherty, C. L., Stein, S. M., &amp; 
 </div>
 <div id="ref-chow1988appliedhydrology" class="csl-entry" role="listitem">
 Chow, V. T., Maidment, D. R., &amp; Mays, L. W. (1988). <em>Applied hydrology</em>. McGraw-Hill.
+</div>
+<div id="ref-Clark1945" class="csl-entry" role="listitem">
+Clark, C. O. (1945). Storage and the unit hydrograph. <em>Transactions of the American Society of Civil Engineers</em>, <em>110</em>, 1419-1488.
 </div>
 <div id="ref-coron2017airgr" class="csl-entry" role="listitem">
 Coron, L., Thirel, G., Delaigue, O., Perrin, C., &amp; Andréassian, V. (2017). The suite of lumped GR hydrological models in an R package. <em>Environmental Modelling &amp; Software</em>, <em>94</em>, 166-171. <a href="https://doi.org/10.1016/j.envsoft.2017.05.002">https://doi.org/10.1016/j.envsoft.2017.05.002</a>
