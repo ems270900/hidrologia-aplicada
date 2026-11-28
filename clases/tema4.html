@@ -113,7 +113,7 @@
     div.csl-indent {
       margin-left: 2em;
     }  </style>
-  <link rel="stylesheet" href="tema4_files/libs/revealjs/dist/theme/quarto-7f87c356fc0c7143d16b054bfe6f516f.css">
+  <link rel="stylesheet" href="tema4_files/libs/revealjs/dist/theme/quarto-d4118fa43cd0917421345dd1bc78beec.css">
   <link href="tema4_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="tema4_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="tema4_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -1451,21 +1451,23 @@ i_a = \frac{a\left[(1-n)\,t_a/(1-r) + b\right]}{\left[t_a/(1-r) + b\right]^{1+n}
 <h2>Récords mundiales</h2>
 
 <img data-src="tema4_files/figure-revealjs/unnamed-chunk-36-1.svg" class="quarto-figure quarto-figure-center r-stretch" width="816"></section>
-<section id="método-estadístico-de-hershfield" class="slide level2">
+<section id="método-estadístico-de-hershfield" class="slide level2 reducida">
 <h2>Método estadístico de Hershfield</h2>
 <p>Hershfield invirtió la pregunta del análisis de frecuencia <span class="citation" data-cites="hershfield1961pmp">(<a href="#/referencias" role="doc-biblioref" onclick="">Hershfield, 1961a</a>)</span>:</p>
-<p><span class="math display">\[
-K_m = \frac{X_m - \bar{X}_{n-m}}{S_{n-m}}, \qquad \mathrm{PMP} = \bar{X}_n + K_m\,S_n
-\]</span></p>
 <div class="columns">
 <div class="column" style="width:50%;">
-<ul>
-<li><span class="math inline">\(X_m\)</span>: mayor valor de la serie de <span class="math inline">\(n\)</span> máximos anuales; <span class="math inline">\(\bar{X}_{n-m}\)</span>, <span class="math inline">\(S_{n-m}\)</span>: media y desviación estándar sin ese valor; <span class="math inline">\(\bar{X}_n\)</span>, <span class="math inline">\(S_n\)</span>: las de la serie completa; <span class="math inline">\(K_m\)</span>: factor de frecuencia.</li>
-<li>En 2700 estaciones el mayor <span class="math inline">\(K_m\)</span> fue 15. Luego vio que baja con la media y cambia con la duración <span class="citation" data-cites="hershfield1965method">(<a href="#/referencias" role="doc-biblioref" onclick="">Hershfield, 1965</a>)</span>.</li>
-<li><span class="math inline">\(\bar X\)</span> y <span class="math inline">\(S\)</span> se corrigen por el valor máximo y por la longitud del registro <span class="citation" data-cites="wmo2009pmp">(<a href="#/referencias" role="doc-biblioref" onclick="">World Meteorological Organization, 2009, Capítulo 4</a>)</span>.</li>
-<li>Sirve para estimaciones preliminares.</li>
-</ul>
-</div><div class="column" style="width:50%;">
+<p>Factor de frecuencia del mayor valor:</p>
+<p><span class="math display">\[
+K_m = \dfrac{X_m - \bar{X}_{n-m}}{S_{n-m}}
+\]</span></p>
+<p><span class="math inline">\(X_m\)</span>: mayor valor de la serie de <span class="math inline">\(n\)</span> máximos anuales; <span class="math inline">\(\bar{X}_{n-m}\)</span>, <span class="math inline">\(S_{n-m}\)</span>: media y desviación estándar de la serie sin ese valor.</p>
+<p>PMP con el <span class="math inline">\(K_m\)</span> envolvente:</p>
+<p><span class="math display">\[
+\mathrm{PMP} = \bar{X}_n + K_m\,S_n
+\]</span></p>
+<p><span class="math inline">\(\bar{X}_n\)</span>, <span class="math inline">\(S_n\)</span>: media y desviación estándar de la serie completa.</p>
+<p>Sirve para estimaciones preliminares.</p>
+</div><div class="column apretado" style="width:50%;">
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
@@ -1475,6 +1477,10 @@ K_m = \frac{X_m - \bar{X}_{n-m}}{S_{n-m}}, \qquad \mathrm{PMP} = \bar{X}_n + K_m
 </div>
 </div>
 </div>
+<ul>
+<li>En 2700 estaciones el mayor <span class="math inline">\(K_m\)</span> fue 15. Luego vio que baja con la media y cambia con la duración <span class="citation" data-cites="hershfield1965method">(<a href="#/referencias" role="doc-biblioref" onclick="">Hershfield, 1965</a>)</span>.</li>
+<li><span class="math inline">\(\bar X\)</span> y <span class="math inline">\(S\)</span> se corrigen por el máximo y la longitud del registro <span class="citation" data-cites="wmo2009pmp">(<a href="#/referencias" role="doc-biblioref" onclick="">World Meteorological Organization, 2009</a>)</span>.</li>
+</ul>
 </div></div>
 </section>
 <section id="ejemplo-pmp-de-una-hora-en-san-vito-de-jaba" class="slide level2">
@@ -1595,16 +1601,21 @@ ADT = 1000\,(\theta_{CC} - \theta_{PM})\,Z_r
 \]</span></p>
 <p><span class="nota">Agua disponible total (mm) en la zona de raíces de profundidad <span class="math inline">\(Z_r\)</span> (m) <span class="citation" data-cites="allen1998fao56">(<a href="#/referencias" role="doc-biblioref" onclick="">Allen et&nbsp;al., 1998</a>)</span>. La textura, la estructura y la cobertura controlan la infiltración.</span></p>
 </section>
-<section id="modelo-de-horton" class="slide level2">
+<section id="modelo-de-horton" class="slide level2 reducida">
 <h2>Modelo de Horton</h2>
-<p><span class="math display">\[
-f_p(t) = f_c + (f_0 - f_c)\,e^{-k t}, \qquad F(t) = f_c\,t + \frac{f_0 - f_c}{k}\left(1 - e^{-kt}\right)
-\]</span></p>
 <div class="columns">
 <div class="column" style="width:50%;">
+<p>Capacidad de infiltración <span class="citation" data-cites="horton1940approach">(<a href="#/referencias" role="doc-biblioref" onclick="">Horton, 1940</a>)</span>:</p>
+<p><span class="math display">\[
+f_p(t) = f_c + (f_0 - f_c)\,e^{-k t}
+\]</span></p>
+<p><span class="math inline">\(f_p\)</span>: capacidad de infiltración (mm/h); <span class="math inline">\(f_0\)</span>, <span class="math inline">\(f_c\)</span>: capacidad inicial y final (mm/h); <span class="math inline">\(k\)</span>: constante de decaimiento (1/h); <span class="math inline">\(t\)</span>: tiempo con el suelo encharcado (h).</p>
+<p>Lámina infiltrada acumulada (mm):</p>
+<p><span class="math display">\[
+F(t) = f_c\,t + \dfrac{f_0 - f_c}{k}\left(1 - e^{-kt}\right)
+\]</span></p>
 <ul>
-<li>Empírico: la capacidad decae de la inicial <span class="math inline">\(f_0\)</span> a la final <span class="math inline">\(f_c\)</span> (mm/h) con la constante <span class="math inline">\(k\)</span> (1/h) <span class="citation" data-cites="horton1940approach">(<a href="#/referencias" role="doc-biblioref" onclick="">Horton, 1940</a>)</span>. <span class="math inline">\(F\)</span>: lámina infiltrada acumulada (mm); <span class="math inline">\(t\)</span>: tiempo con el suelo encharcado (h).</li>
-<li><span class="math inline">\(i \le f_c\)</span>: todo se infiltra. <span class="math inline">\(f_c &lt; i &lt; f_0\)</span>: encharca en <span class="math inline">\(t_p\)</span>. <span class="math inline">\(i \ge f_0\)</span>: encharca desde el inicio.</li>
+<li>Con lluvia de intensidad <span class="math inline">\(i\)</span> (mm/h): <span class="math inline">\(i \le f_c\)</span>, todo se infiltra; <span class="math inline">\(f_c &lt; i &lt; f_0\)</span>, encharca en el tiempo <span class="math inline">\(t_p\)</span>; <span class="math inline">\(i \ge f_0\)</span>, encharca desde el inicio.</li>
 <li>No hay valores generales confiables de <span class="math inline">\(f_0\)</span> y <span class="math inline">\(k\)</span>: se ajustan con ensayos de campo o eventos.</li>
 </ul>
 </div><div class="column" style="width:50%;">
@@ -4516,18 +4527,25 @@ O_t = C_A\,I_t + C_B\,O_{t-1}
 </section>
 <section id="métricas-de-desempeño" class="slide level2 reducida">
 <h2>Métricas de desempeño</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p>Eficiencia de Nash y Sutcliffe <span class="citation" data-cites="nash1970river">(<a href="#/referencias" role="doc-biblioref" onclick="">Nash &amp; Sutcliffe, 1970</a>)</span>:</p>
 <p><span class="math display">\[
-\mathrm{NSE} = 1 - \frac{\sum (Q_{o,t} - Q_{s,t})^2}{\sum (Q_{o,t} - \bar{Q}_o)^2}
-\qquad
+\mathrm{NSE} = 1 - \dfrac{\sum (Q_{o,t} - Q_{s,t})^2}{\sum (Q_{o,t} - \bar{Q}_o)^2}
+\]</span></p>
+<p><span class="math inline">\(Q_{o,t}\)</span>, <span class="math inline">\(Q_{s,t}\)</span>: caudal observado y simulado en el tiempo <span class="math inline">\(t\)</span>; <span class="math inline">\(\bar{Q}_o\)</span>: media observada. 1 es perfecto y 0 equivale a usar la media; da mucho peso a los caudales altos.</p>
+<p>Sesgo porcentual:</p>
+<p><span class="math display">\[
+\mathrm{PBIAS} = 100 \, \dfrac{\sum (Q_{s,t} - Q_{o,t})}{\sum Q_{o,t}}
+\]</span></p>
+</div><div class="column" style="width:50%;">
+<p>Eficiencia de Kling y Gupta <span class="citation" data-cites="gupta2009decomposition">(<a href="#/referencias" role="doc-biblioref" onclick="">Gupta et&nbsp;al., 2009</a>)</span>:</p>
+<p><span class="math display">\[
 \mathrm{KGE} = 1 - \sqrt{(r - 1)^2 + (\alpha - 1)^2 + (\beta - 1)^2}
 \]</span></p>
-<p><span class="math display">\[
-\mathrm{PBIAS} = 100 \, \frac{\sum (Q_{s,t} - Q_{o,t})}{\sum Q_{o,t}}
-\]</span></p>
+<p><span class="math inline">\(r\)</span>: correlación entre observados y simulados; <span class="math inline">\(\alpha = \frac{\sigma_s}{\sigma_o}\)</span>: cociente de desviaciones estándar (variabilidad); <span class="math inline">\(\beta = \frac{\bar Q_s}{\bar Q_o}\)</span>: cociente de medias (sesgo). Usar la media da −0.41: NSE y KGE no se comparan entre sí <span class="citation" data-cites="knoben2019inherent">(<a href="#/referencias" role="doc-biblioref" onclick="">Knoben et&nbsp;al., 2019</a>)</span>.</p>
+</div></div>
 <ul>
-<li><span class="math inline">\(Q_{o,t}\)</span>, <span class="math inline">\(Q_{s,t}\)</span>: caudal observado y simulado en el tiempo <span class="math inline">\(t\)</span>; <span class="math inline">\(\bar{Q}_o\)</span>: media observada; PBIAS: sesgo porcentual.</li>
-<li>NSE (eficiencia de Nash y Sutcliffe) <span class="citation" data-cites="nash1970river">(<a href="#/referencias" role="doc-biblioref" onclick="">Nash &amp; Sutcliffe, 1970</a>)</span>: 1 perfecto, 0 igual que usar la media; da mucho peso a los caudales altos.</li>
-<li>KGE (eficiencia de Kling y Gupta) <span class="citation" data-cites="gupta2009decomposition">(<a href="#/referencias" role="doc-biblioref" onclick="">Gupta et&nbsp;al., 2009</a>)</span>: correlación <span class="math inline">\(r\)</span>, variabilidad <span class="math inline">\(\alpha = \frac{\sigma_s}{\sigma_o}\)</span> (cociente de desviaciones estándar) y sesgo <span class="math inline">\(\beta = \frac{\bar Q_s}{\bar Q_o}\)</span>. Usar la media da −0.41: NSE y KGE no se comparan entre sí <span class="citation" data-cites="knoben2019inherent">(<a href="#/referencias" role="doc-biblioref" onclick="">Knoben et&nbsp;al., 2019</a>)</span>.</li>
 <li>Mensual satisfactorio: NSE &gt; 0.50 y PBIAS dentro de ±25 % <span class="citation" data-cites="moriasi2007model">(<a href="#/referencias" role="doc-biblioref" onclick="">Moriasi et&nbsp;al., 2007</a>)</span>. Siempre mirar el hidrograma.</li>
 </ul>
 </section>
@@ -4773,28 +4791,37 @@ S_{j+1} - S_j = \frac{I_j + I_{j+1}}{2}\,\Delta t - \frac{Q_j + Q_{j+1}}{2}\,\De
 </div>
 </div></div>
 </section>
-<section id="embalse-lineal" class="slide level2">
+<section id="embalse-lineal" class="slide level2 reducida">
 <h2>Embalse lineal</h2>
-<p><span class="math display">\[
-S = k\,Q, \qquad Q_{j+1} = C_1\,(I_j + I_{j+1}) + C_2\,Q_j, \qquad C_1 = \frac{\Delta t}{2k + \Delta t}, \quad C_2 = \frac{2k - \Delta t}{2k + \Delta t}
-\]</span></p>
 <div class="columns">
-<div class="column" style="width:45%;">
-<ul>
-<li><span class="math inline">\(k\)</span>: tiempo medio de residencia (h). Sin entrada, <span class="math inline">\(Q = Q_0\,e^{-t/k}\)</span>, la recesión del flujo base.</li>
-<li><span class="math inline">\(2C_1 + C_2 = 1\)</span>; para <span class="math inline">\(C_2 \ge 0\)</span>, <span class="math inline">\(\Delta t \le 2k\)</span>.</li>
-<li>Es Muskingum con <span class="math inline">\(X = 0\)</span>. En cascada da el modelo de Nash y, con un histograma tiempo-área, el de Clark.</li>
-</ul>
-</div><div class="column" style="width:55%;">
+<div class="column" style="width:55%;">
+<p>Almacenamiento proporcional a la salida:</p>
+<p><span class="math display">\[
+S = k\,Q
+\]</span></p>
+<p><span class="math inline">\(S\)</span>: almacenamiento (m³); <span class="math inline">\(Q\)</span>: caudal de salida (m³/s); <span class="math inline">\(k\)</span>: tiempo medio de residencia (h). Sin entrada, <span class="math inline">\(Q = Q_0\,e^{-t/k}\)</span>, la recesión del flujo base.</p>
+<p>Tránsito paso a paso:</p>
+<p><span class="math display">\[
+Q_{j+1} = C_1\,(I_j + I_{j+1}) + C_2\,Q_j
+\]</span></p>
+<p><span class="math display">\[
+C_1 = \dfrac{\Delta t}{2k + \Delta t}, \quad C_2 = \dfrac{2k - \Delta t}{2k + \Delta t}
+\]</span></p>
+<p><span class="math inline">\(I_j\)</span>, <span class="math inline">\(Q_j\)</span>: entrada y salida al inicio del intervalo <span class="math inline">\(j\)</span>; <span class="math inline">\(\Delta t\)</span>: intervalo de cálculo; <span class="math inline">\(C_1\)</span>, <span class="math inline">\(C_2\)</span>: coeficientes de tránsito.</p>
+</div><div class="column" style="width:45%;">
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="tema4_files/figure-revealjs/unnamed-chunk-90-1.svg" class="quarto-figure quarto-figure-center" width="576"></p>
+<p><img data-src="tema4_files/figure-revealjs/unnamed-chunk-90-1.svg" class="quarto-figure quarto-figure-center" width="480"></p>
 </figure>
 </div>
 </div>
 </div>
+<ul>
+<li><span class="math inline">\(2C_1 + C_2 = 1\)</span>; para <span class="math inline">\(C_2 \ge 0\)</span>, <span class="math inline">\(\Delta t \le 2k\)</span>.</li>
+<li>Es Muskingum con <span class="math inline">\(X = 0\)</span>. En cascada da el modelo de Nash y, con un histograma tiempo-área, el de Clark.</li>
+</ul>
 </div></div>
 </section>
 <section id="partes-de-un-embalse" class="slide level2">
@@ -4873,7 +4900,7 @@ C_3 = \frac{2K(1-X) - \Delta t}{2K(1-X) + \Delta t}
 </div>
 </div></div>
 <ul>
-<li><span class="math inline">\(K\)</span>: tiempo de viaje en el tramo; <span class="math inline">\(X\)</span>: factor de ponderación, de 0 (embalse) a 0.5 (traslación pura), en ríos de 0.1 a 0.3.</li>
+<li><span class="math inline">\(S\)</span>: almacenamiento en el tramo; <span class="math inline">\(I\)</span>, <span class="math inline">\(Q\)</span>: caudal de entrada y de salida; <span class="math inline">\(\Delta t\)</span>: intervalo de cálculo; <span class="math inline">\(K\)</span>: tiempo de viaje en el tramo; <span class="math inline">\(X\)</span>: factor de ponderación, de 0 (embalse) a 0.5 (traslación pura), en ríos de 0.1 a 0.3.</li>
 <li>Coeficientes positivos si <span class="math inline">\(2KX \le \Delta t \le 2K(1-X)\)</span>; si no, se divide el tramo en subtramos.</li>
 </ul>
 </section>
@@ -5219,7 +5246,7 @@ World Meteorological Organization. (2009). <em>Manual on estimation of probable 
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <div class="footer footer-default">
-<p>Hidrología Aplicada a la Ingeniería Civil</p>
+<p>Hidrología Aplicada a la Ingeniería Civil · Ing. Edwin Matarrita S. · Universidad de Costa Rica</p>
 </div>
 </div></div>
 

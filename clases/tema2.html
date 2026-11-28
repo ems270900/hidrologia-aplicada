@@ -113,7 +113,7 @@
     div.csl-indent {
       margin-left: 2em;
     }  </style>
-  <link rel="stylesheet" href="tema2_files/libs/revealjs/dist/theme/quarto-7f87c356fc0c7143d16b054bfe6f516f.css">
+  <link rel="stylesheet" href="tema2_files/libs/revealjs/dist/theme/quarto-d4118fa43cd0917421345dd1bc78beec.css">
   <link href="tema2_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="tema2_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="tema2_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -409,23 +409,30 @@ F_a = \frac{M_a}{M_o} \qquad\qquad P_{\text{aj}} = F_a \, P_o
 \]</span></p>
 <p><span class="math inline">\(M_a\)</span>, <span class="math inline">\(M_o\)</span>: pendientes del tramo correcto y del que se corrige; <span class="math inline">\(P_o\)</span>: lluvia original del tramo que se corrige; <span class="math inline">\(P_{\text{aj}}\)</span>: lluvia ajustada.</p>
 </section>
-<section id="pruebas-de-estabilidad" class="slide level2">
+<section id="pruebas-de-estabilidad" class="slide level2 reducida">
 <h2>Pruebas de estabilidad</h2>
 <p>El ojo encuentra quiebres en cualquier serie. Antes de corregir se prueba si los dos tramos vienen de la misma población.</p>
+<div class="columns">
+<div class="column" style="width:55%;">
+<p>Prueba t de las medias:</p>
 <p><span class="math display">\[
-t_c = \frac{\bar{x}_1 - \bar{x}_2}{s_p \sqrt{\dfrac{1}{n_1} + \dfrac{1}{n_2}}},
-\qquad
-s_p = \sqrt{\frac{(n_1 - 1)\,s_1^2 + (n_2 - 1)\,s_2^2}{n_1 + n_2 - 2}}
-\qquad\qquad
-F_c = \frac{s_{\text{mayor}}^2}{s_{\text{menor}}^2}
+t_c = \dfrac{\bar{x}_1 - \bar{x}_2}{s_p \sqrt{\dfrac{1}{n_1} + \dfrac{1}{n_2}}}
 \]</span></p>
+<p><span class="math display">\[
+s_p = \sqrt{\dfrac{(n_1 - 1)\,s_1^2 + (n_2 - 1)\,s_2^2}{n_1 + n_2 - 2}}
+\]</span></p>
+<p><span class="math inline">\(\bar{x}_1\)</span>, <span class="math inline">\(\bar{x}_2\)</span>, <span class="math inline">\(s_1\)</span>, <span class="math inline">\(s_2\)</span>, <span class="math inline">\(n_1\)</span>, <span class="math inline">\(n_2\)</span>: media, desviación estándar muestral y número de años de cada tramo; <span class="math inline">\(s_p\)</span>: desviación estándar conjunta. Se compara <span class="math inline">\(|t_c|\)</span> con <span class="math inline">\(t_{0.975}\)</span> de Student y <span class="math inline">\(n_1 + n_2 - 2\)</span> grados de libertad.</p>
+</div><div class="column" style="width:45%;">
+<p>Prueba F de las varianzas:</p>
+<p><span class="math display">\[
+F_c = \dfrac{s_{\text{mayor}}^2}{s_{\text{menor}}^2}
+\]</span></p>
+<p><span class="math inline">\(s_{\text{mayor}}^2\)</span>, <span class="math inline">\(s_{\text{menor}}^2\)</span>: la mayor y la menor de las varianzas de los dos tramos. Se compara <span class="math inline">\(F_c\)</span> con <span class="math inline">\(F_{0.95}\)</span>; en el numerador van los grados de libertad del tramo de varianza mayor.</p>
 <ul>
-<li><span class="math inline">\(\bar{x}_1\)</span>, <span class="math inline">\(\bar{x}_2\)</span>, <span class="math inline">\(s_1\)</span>, <span class="math inline">\(s_2\)</span>, <span class="math inline">\(n_1\)</span>, <span class="math inline">\(n_2\)</span>: media, desviación estándar y número de años de cada tramo; <span class="math inline">\(s_p\)</span>: desviación estándar conjunta.</li>
-<li>Media: se compara <span class="math inline">\(|t_c|\)</span> con <span class="math inline">\(t_{0.975}\)</span> y <span class="math inline">\(n_1 + n_2 - 2\)</span> grados de libertad.</li>
-<li>Varianza: se compara <span class="math inline">\(F_c\)</span> con <span class="math inline">\(F_{0.95}\)</span>; en el numerador van los grados de libertad del tramo de varianza mayor.</li>
 <li>Basta con que una prueba rechace para corregir. Si ninguna rechaza, la serie se deja como está.</li>
 <li>En R: <code>t.test(x1, x2, var.equal = TRUE)</code> y <code>var.test()</code>.</li>
 </ul>
+</div></div>
 </section>
 <section id="ejemplo-consistencia-de-dos-estaciones" class="slide level2">
 <h2>Ejemplo: consistencia de dos estaciones</h2>
@@ -3341,7 +3348,7 @@ Q_{\text{riego}} = \frac{(ET_c - P_e)\, A}{1000\, E\, \Delta t}
 <li>La lluvia tiene que repartirse entre evapotranspiración, caudal y cambios de almacenamiento.</li>
 <li>El balance sirve para estimar lo que no se mide y para detectar datos incoherentes.</li>
 </ul>
-<p>En esta clase: conservación de la masa, balance de una cuenca y sus simplificaciones, balance mensual de Thornthwaite, recarga con Schosinsky, curva de Budyko y balance anual con zonas de vida de Holdridge y la función de Rodríguez y Saborío.</p>
+<p>En esta clase: conservación de la masa, balance de una cuenca y sus simplificaciones, balance mensual de Thornthwaite, curva de Budyko y balance anual con zonas de vida de Holdridge y la función de Rodríguez y Saborío.</p>
 </section>
 <section id="conservación-de-la-masa" class="slide level2">
 <h2>Conservación de la masa</h2>
@@ -3730,60 +3737,6 @@ DH_i = ETP_i - ETR_i
 </script>
 <p><span class="nota">Con <span class="math inline">\(S_{\max} \ge 296\)</span> mm no hay déficit. ¿Cuánto hay que bajar la lluvia para que el excedente se parezca a la escorrentía medida?</span></p>
 </section>
-<section id="recarga-potencial-método-de-schosinsky" class="slide level2">
-<h2>Recarga potencial: método de Schosinsky</h2>
-<p>Balance mensual de la humedad del suelo para estimar cuánta lluvia llega al acuífero <span class="citation" data-cites="schosinsky2000modelo schosinsky2006calculo">(<a href="#/referencias" role="doc-biblioref" onclick="">Schosinsky, 2006</a>; <a href="#/referencias" role="doc-biblioref" onclick="">Schosinsky &amp; Losilla, 2000</a>)</span>.</p>
-<div class="columns">
-<div class="column" style="width:50%;">
-<ol type="1">
-<li>Retención en el follaje: <span class="math inline">\(Ret = C_{fo}\,P\)</span>, con <span class="math inline">\(C_{fo} = 0.12\)</span> (0.20 en bosque muy denso) y mínimo 5 mm por mes.</li>
-<li>Lluvia que se infiltra: <span class="math display">\[
-P_i = C_i\,(P - Ret), \qquad C_i = K_p + K_v + K_{fc} \le 1
-\]</span></li>
-</ol>
-</div><div class="column" style="width:50%;">
-<ul>
-<li><span class="math inline">\(P\)</span>: lluvia del mes (mm); <span class="math inline">\(Ret\)</span>: lluvia retenida en el follaje (mm); <span class="math inline">\(P_i\)</span>: lluvia infiltrada (mm).</li>
-<li><span class="math inline">\(C_i\)</span>: coeficiente de infiltración, suma de tres fracciones:
-<ul>
-<li><span class="math inline">\(K_p\)</span>: por la pendiente del terreno;</li>
-<li><span class="math inline">\(K_v\)</span>: por la cobertura vegetal;</li>
-<li><span class="math inline">\(K_{fc}\)</span>: por la textura del suelo (su capacidad de infiltración).</li>
-</ul></li>
-<li>Los valores de <span class="math inline">\(K_p\)</span> y <span class="math inline">\(K_v\)</span> están tabulados en el capítulo 24 del libro.</li>
-</ul>
-</div></div>
-</section>
-<section id="schosinsky-balance-mensual-de-humedad" class="slide level2">
-<h2>Schosinsky: balance mensual de humedad</h2>
-<div class="columns">
-<div class="column apretado" style="width:52%;">
-<p><span class="math display">\[
-C_1 = \frac{HS_i - PM + P_i}{CC - PM}, \qquad C_2 = \frac{HS_i - PM + P_i - C_1\,ETP}{CC - PM}
-\]</span> <span class="math display">\[
-ETPR = \frac{C_1 + C_2}{2}\,ETP, \qquad ETR = \min\left(ETPR,\; HS_i + P_i - PM\right)
-\]</span> <span class="math display">\[
-HS_f = \min\left(CC,\; HS_i + P_i - ETR\right), \qquad R_p = P_i + HS_i - HS_f - ETR
-\]</span></p>
-<ul>
-<li><span class="math inline">\(HS_i\)</span>, <span class="math inline">\(HS_f\)</span>: humedad del suelo al inicio y al final del mes (mm).</li>
-<li><span class="math inline">\(CC\)</span>, <span class="math inline">\(PM\)</span>: humedad a capacidad de campo y en el punto de marchitez (mm).</li>
-<li><span class="math inline">\(C_1\)</span>, <span class="math inline">\(C_2\)</span>: qué tan húmedo está el suelo antes y después de evapotranspirar (0 a 1).</li>
-<li><span class="math inline">\(ETPR\)</span>: ETP reducida por la sequedad del suelo (mm); <span class="math inline">\(R_p\)</span>: recarga potencial (mm).</li>
-</ul>
-</div><div class="column" style="width:48%;">
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="tema2_files/figure-revealjs/unnamed-chunk-48-1.svg" class="quarto-figure quarto-figure-center" width="624"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>Pastizal, 1858 mm de lluvia (hipotético): <span class="math inline">\(C_i = 0.872\)</span>; <span class="math inline">\(ETR = 1224\)</span> y <span class="math inline">\(R_p = 191\)</span> mm, solo en setiembre y octubre.</p>
-</div></div>
-</section>
 <section id="curva-de-budyko" class="slide level2">
 <h2>Curva de Budyko</h2>
 <div class="columns">
@@ -3802,7 +3755,7 @@ HS_f = \min\left(CC,\; HS_i + P_i - ETR\right), \qquad R_p = P_i + HS_i - HS_f -
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="tema2_files/figure-revealjs/unnamed-chunk-50-1.svg" class="quarto-figure quarto-figure-center" width="624"></p>
+<p><img data-src="tema2_files/figure-revealjs/unnamed-chunk-48-1.svg" class="quarto-figure quarto-figure-center" width="624"></p>
 </figure>
 </div>
 </div>
@@ -3891,7 +3844,7 @@ F =
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="tema2_files/figure-revealjs/unnamed-chunk-51-1.svg" class="quarto-figure quarto-figure-center" width="556"></p>
+<p><img data-src="tema2_files/figure-revealjs/unnamed-chunk-49-1.svg" class="quarto-figure quarto-figure-center" width="556"></p>
 </figure>
 </div>
 </div>
@@ -4295,6 +4248,26 @@ Q_x = Q_{est}\,\frac{(P_x - ETR_x)\,A_x}{(P_{est} - ETR_{est})\,A_{est}}
 <p><span class="nota">El Tema 4 aplica la misma idea a las crecidas, con la avenida índice.</span></p>
 </div></div>
 </section>
+<section id="dos-regionalizaciones-de-costa-rica" class="slide level2">
+<h2>Dos regionalizaciones de Costa Rica</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="assets/img/libro/zonas_imn.png" alt="Mapa de Costa Rica con las 27 zonas climáticas del IMN coloreadas por región" height="350"></p>
+<figcaption>Zonas climáticas del IMN <span class="citation" data-cites="solano2001aspectos">(<a href="#/referencias" role="doc-biblioref" onclick="">Solano Quintero &amp; Villalobos Flores, 2001</a>)</span>.</figcaption>
+</figure>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="assets/img/libro/regiones_dtw_matarrita.png" alt="Mapa de Costa Rica dividido en 18 regiones de colores, de PN-01 a PS-04" height="350"></p>
+<figcaption>Regionalización hidroclimática en 18 regiones <span class="citation" data-cites="matarrita2026comparacion">(<a href="#/referencias" role="doc-biblioref" onclick="">Matarrita Segura, 2026</a>)</span>.</figcaption>
+</figure>
+</div>
+</div></div>
+<p><span class="nota">Las dos agrupan lluvia, no caudales: antes de usarlas se comprueba que las cuencas aforadas de cada región sean homogéneas.</span></p>
+</section>
 <section id="referencias" class="slide level2 scrollable smaller">
 <h2>Referencias</h2>
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
@@ -4391,12 +4364,6 @@ Rippl, W. (1883). The capacity of storage-reservoirs for water-supply. <em>Minut
 <div id="ref-RodriguezSaborio1983" class="csl-entry" role="listitem">
 Rodríguez, C., &amp; Saborío, L. (1983). <em>Balance hídrico y clasificación climática aplicada a Costa Rica</em>. Instituto Costarricense de Electricidad (ICE).
 </div>
-<div id="ref-schosinsky2006calculo" class="csl-entry" role="listitem">
-Schosinsky, G. (2006). Cálculo de la recarga potencial de acuíferos mediante un balance hídrico de suelos. <em>Revista Geológica de América Central</em>, <em>34-35</em>, 13-30. <a href="https://www.redalyc.org/pdf/454/45437342002.pdf">https://www.redalyc.org/pdf/454/45437342002.pdf</a>
-</div>
-<div id="ref-schosinsky2000modelo" class="csl-entry" role="listitem">
-Schosinsky, G., &amp; Losilla, M. (2000). Modelo analítico para determinar la infiltración con base en la lluvia mensual. <em>Revista Geológica de América Central</em>, <em>23</em>, 43-55.
-</div>
 <div id="ref-searcy1959flow" class="csl-entry" role="listitem">
 Searcy, J. K. (1959). <em>Flow-duration curves</em> (Water-Supply Paper 1542-A). U.S. Geological Survey. <a href="https://doi.org/10.3133/wsp1542A">https://doi.org/10.3133/wsp1542A</a>
 </div>
@@ -4411,6 +4378,9 @@ Shuttleworth, W. J. (2012). <em>Terrestrial hydrometeorology</em>. Wiley-Blackwe
 </div>
 <div id="ref-smakhtin2001low" class="csl-entry" role="listitem">
 Smakhtin, V. U. (2001). Low flow hydrology: a review. <em>Journal of Hydrology</em>, <em>240</em>(3–4), 147-186. <a href="https://doi.org/10.1016/S0022-1694(00)00340-1">https://doi.org/10.1016/S0022-1694(00)00340-1</a>
+</div>
+<div id="ref-solano2001aspectos" class="csl-entry" role="listitem">
+Solano Quintero, J., &amp; Villalobos Flores, R. (2001). Aspectos fisiográficos aplicados a un bosquejo de regionalización geográfico-climática de Costa Rica. <em>Tópicos Meteorológicos y Oceanográficos</em>, <em>8</em>(1), 26-39.
 </div>
 <div id="ref-thiessen1911precipitation" class="csl-entry" role="listitem">
 Thiessen, A. H. (1911). Precipitation averages for large areas. <em>Monthly Weather Review</em>, <em>39</em>(7), 1082-1084. <a href="https://doi.org/10.1175/1520-0493(1911)39<1082b:PAFLA>2.0.CO;2">https://doi.org/10.1175/1520-0493(1911)39&lt;1082b:PAFLA&gt;2.0.CO;2</a>
@@ -4448,7 +4418,7 @@ Zhang, L., Dawes, W. R., &amp; Walker, G. R. (2001). Response of mean annual eva
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <div class="footer footer-default">
-<p>Hidrología Aplicada a la Ingeniería Civil</p>
+<p>Hidrología Aplicada a la Ingeniería Civil · Ing. Edwin Matarrita S. · Universidad de Costa Rica</p>
 </div>
 </div></div>
 
