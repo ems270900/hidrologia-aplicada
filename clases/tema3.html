@@ -113,7 +113,7 @@
     div.csl-indent {
       margin-left: 2em;
     }  </style>
-  <link rel="stylesheet" href="tema3_files/libs/revealjs/dist/theme/quarto-d4118fa43cd0917421345dd1bc78beec.css">
+  <link rel="stylesheet" href="tema3_files/libs/revealjs/dist/theme/quarto-7b32a74f441bcb5d74e3a394d161db5e.css">
   <link href="tema3_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="tema3_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="tema3_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -520,25 +520,58 @@ P(a \le X \le b) = \int_a^b f(x)\,dx
 
 <img data-src="tema3_files/figure-revealjs/unnamed-chunk-6-1.svg" class="quarto-figure quarto-figure-center r-stretch" width="960"><p><span class="nota">La probabilidad de excedencia es <span class="math inline">\(1 - F(x)\)</span>.</span></p>
 </section>
-<section id="ejemplo-probabilidad-de-no-excedencia" class="slide level2">
+<section id="ejemplo-probabilidad-de-no-excedencia" class="slide level2 reducida">
 <h2>Ejemplo: probabilidad de no excedencia</h2>
-<p>Lluvia anual de la estación base, 1961–1985: <span class="math inline">\(\bar x = 3298.3\)</span> mm, <span class="math inline">\(s = 487.5\)</span> mm. ¿Probabilidad de 3000 mm o menos, entre 3000 y 3500 mm y más de 4000 mm?</p>
-<div class="columns">
-<div class="column" style="width:50%;">
-<p>Solución con la distribución empírica:</p>
-<ul>
-<li>7 de 25 años con 3000 mm o menos: 0.28.</li>
-<li>10 de 25 entre 3000 y 3500 mm: 0.40.</li>
-<li>3 de 25 sobre 4000 mm: 0.12.</li>
-</ul>
-</div><div class="column" style="width:50%;">
-<p>Solución con una normal de igual media y desviación:</p>
-<ul>
-<li><span class="math inline">\(z = \frac{3000 - 3298.3}{487.5} = -0.61\)</span>, <span class="math inline">\(\Phi = 0.270\)</span>.</li>
-<li><span class="math inline">\(z = 0.41\)</span>, <span class="math inline">\(\Phi = 0.660\)</span>; intervalo: 0.390.</li>
-<li><span class="math inline">\(z = 1.44\)</span>, <span class="math inline">\(\Phi = 0.925\)</span>; excedencia: 0.075.</li>
-</ul>
-</div></div>
+<p>Lluvia anual de la estación base, 1961–1985 (<span class="math inline">\(n = 25\)</span> años): <span class="math inline">\(\bar x = 3298.3\)</span> mm, <span class="math inline">\(s = 487.5\)</span> mm. Sea <span class="math inline">\(X\)</span> la lluvia de un año cualquiera. Preguntas, escritas con la notación de probabilidad:</p>
+<ol type="1">
+<li>¿Probabilidad de que un año llueva 3000 mm o menos? <span class="math inline">\(P(X \le 3000) = F(3000)\)</span>.</li>
+<li>¿Probabilidad de que llueva entre 3000 y 3500 mm? <span class="math inline">\(P(3000 &lt; X \le 3500) = F(3500) - F(3000)\)</span>.</li>
+<li>¿Probabilidad de que llueva más de 4000 mm? <span class="math inline">\(P(X &gt; 4000) = 1 - F(4000)\)</span>.</li>
+</ol>
+<p>Solución con la distribución empírica: <span class="math inline">\(F(x)\)</span> es la fracción de los 25 años con lluvia menor o igual que <span class="math inline">\(x\)</span>.</p>
+<ol type="1">
+<li>7 años con 3000 mm o menos: <span class="math inline">\(P(X \le 3000) = \frac{7}{25} = 0.28\)</span>.</li>
+<li>10 años entre 3000 y 3500 mm: <span class="math inline">\(P(3000 &lt; X \le 3500) = \frac{17}{25} - \frac{7}{25} = \frac{10}{25} = 0.40\)</span>.</li>
+<li>3 años con más de 4000 mm: <span class="math inline">\(P(X &gt; 4000) = 1 - \frac{22}{25} = \frac{3}{25} = 0.12\)</span>.</li>
+</ol>
+</section>
+<section id="ejemplo-la-misma-pregunta-con-una-normal" class="slide level2 reducida">
+<h2>Ejemplo: la misma pregunta con una normal</h2>
+<p>Ahora <span class="math inline">\(F(x)\)</span> es la FDA de una normal con la misma media y desviación: <span class="math inline">\(F(x) = \Phi(z)\)</span>, con <span class="math inline">\(z = \frac{x - \bar x}{s}\)</span> y <span class="math inline">\(\Phi\)</span> de la tabla normal.</p>
+<p>Solución:</p>
+<ol type="1">
+<li><span class="math inline">\(P(X \le 3000)\)</span>: <span class="math inline">\(z = \frac{3000 - 3298.3}{487.5} = -0.61\)</span>, entonces <span class="math inline">\(P(X \le 3000) = \Phi(-0.61) = 1 - \Phi(0.61) = 1 - 0.7291 = 0.271\)</span>.</li>
+<li><span class="math inline">\(P(3000 &lt; X \le 3500)\)</span>: <span class="math inline">\(z = \frac{3500 - 3298.3}{487.5} = 0.41\)</span> y <span class="math inline">\(\Phi(0.41) = 0.6591\)</span>, entonces <span class="math inline">\(P(3000 &lt; X \le 3500) = F(3500) - F(3000) = 0.6591 - 0.2709 = 0.388\)</span>.</li>
+<li><span class="math inline">\(P(X &gt; 4000)\)</span>: <span class="math inline">\(z = \frac{4000 - 3298.3}{487.5} = 1.44\)</span>, entonces <span class="math inline">\(P(X &gt; 4000) = 1 - \Phi(1.44) = 1 - 0.9251 = 0.075\)</span>.</li>
+</ol>
+<div class="tabla-compacta">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Pregunta</th>
+<th style="text-align: center;">Empírica</th>
+<th style="text-align: center;">Normal</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><span class="math inline">\(P(X \le 3000)\)</span></td>
+<td style="text-align: center;">0.28</td>
+<td style="text-align: center;">0.271</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="math inline">\(P(3000 &lt; X \le 3500)\)</span></td>
+<td style="text-align: center;">0.40</td>
+<td style="text-align: center;">0.388</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><span class="math inline">\(P(X &gt; 4000)\)</span></td>
+<td style="text-align: center;">0.12</td>
+<td style="text-align: center;">0.075</td>
+</tr>
+</tbody>
+</table>
+</div>
 <p><span class="nota">En el centro coinciden; en la cola alta, no (0.12 frente a 0.075). Escoger el modelo que mejor representa la cola es el tema de las clases 3.3 a 3.6.</span></p>
 </section>
 <section id="estadísticos-descriptivos" class="slide level2">
@@ -1387,32 +1420,27 @@ T = \frac{1}{1 - e^{-1/T_E}}
 <table class="caption-top">
 <caption>Pruebas que se usan en el Tema 3.</caption>
 <colgroup>
-<col style="width: 33%">
-<col style="width: 33%">
-<col style="width: 33%">
+<col style="width: 50%">
+<col style="width: 50%">
 </colgroup>
 <thead>
 <tr class="header">
 <th style="text-align: left;">Prueba</th>
 <th style="text-align: left;">Para qué</th>
-<th style="text-align: left;">Dónde</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">Límites de Anderson y Mann-Kendall</td>
 <td style="text-align: left;">Independencia y tendencia</td>
-<td style="text-align: left;">Siguientes diapositivas</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Grubbs y Beck</td>
 <td style="text-align: left;">Valores atípicos</td>
-<td style="text-align: left;">Esta clase</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Chi-cuadrado, Kolmogórov-Smirnov y Anderson-Darling</td>
 <td style="text-align: left;">Bondad de ajuste</td>
-<td style="text-align: left;">Clase 3.6</td>
 </tr>
 </tbody>
 </table>
@@ -4111,9 +4139,9 @@ x_{T} = u + \frac{\sigma_u}{\xi}\left[\left(\lambda\, T_E\right)^{\xi} - 1\right
 <li>Independencia: los días seguidos sobre el umbral forman un evento; de cada uno se toma el pico.</li>
 </ul>
 </section>
-<section id="máximos-anuales-o-picos-sobre-umbral" class="slide level2 smaller">
+<section id="máximos-anuales-o-picos-sobre-umbral" class="slide level2">
 <h2>Máximos anuales o picos sobre umbral</h2>
-<div class="tabla-compacta">
+<div class="tabla-grande">
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <table class="lightable-classic caption-top" data-quarto-postprocess="true" style="font-family: serif; width: auto !important; margin-left: auto; margin-right: auto;">
@@ -4334,12 +4362,15 @@ K_T ={}&amp; z + (z^2-1)k + \tfrac{1}{3}(z^3-6z)k^2 \\
     document.getElementById("ex-xi-val").textContent = xi.toFixed(2);
     var svg = document.getElementById("ex-graf");
     while (svg.firstChild) svg.removeChild(svg.firstChild);
-    var W = 900, H = 290, mg = {l: 70, r: 20, t: 14, b: 48}, ymax = 600;
+    // Escala vertical según la curva más alta, para que ninguna se recorte
+    var top = Math.max(xt(1000, xi), xt(1000, 0), mu - (xi < 0 ? sg / xi : 0));
+    var paso = [100, 200, 250, 500, 1000].find(function (p) { return Math.ceil(top / p) <= 7; }) || 1000;
+    var W = 900, H = 290, mg = {l: 70, r: 20, t: 14, b: 48}, ymax = Math.ceil(top / paso) * paso;
     var lx0 = Math.log10(1.1), lx1 = 3;
     var sx = function (T) { return mg.l + (Math.log10(T) - lx0) / (lx1 - lx0) * (W - mg.l - mg.r); };
-    var sy = function (y) { return H - mg.b - Math.min(y, ymax) / ymax * (H - mg.t - mg.b); };
+    var sy = function (y) { return H - mg.b - y / ymax * (H - mg.t - mg.b); };
     var f = {"font-family": "serif", "font-size": 18, fill: "#333"};
-    for (var y = 0; y <= ymax; y += 100) {
+    for (var y = 0; y <= ymax; y += paso) {
       el(svg, "line", {x1: sx(1.1), x2: sx(1000), y1: sy(y), y2: sy(y), stroke: "#e5e5e5"});
       el(svg, "text", Object.assign({x: mg.l - 8, y: sy(y) + 6, "text-anchor": "end"}, f), y);
     }
@@ -4370,7 +4401,7 @@ K_T ={}&amp; z + (z^2-1)k + \tfrac{1}{3}(z^3-6z)k^2 \\
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", iniciar); else iniciar();
 })();
 </script>
-<p><span class="nota">Un cambio de 0.1 en <span class="math inline">\(\xi\)</span>, dentro del error típico con 30 años, mueve mucho el nivel de 100 años.</span></p>
+<p><span class="nota">La escala vertical se ajusta a la curva más alta. Un cambio de 0.1 en <span class="math inline">\(\xi\)</span>, dentro del error típico con 30 años, mueve mucho el nivel de 100 años.</span></p>
 </section></section>
 <section>
 <section id="bondad" class="title-slide slide level1 separador center" data-background-color="#10199e">
@@ -4389,16 +4420,47 @@ K_T ={}&amp; z + (z^2-1)k + \tfrac{1}{3}(z^3-6z)k^2 \\
 </ul>
 <p>En esta clase: pruebas chi-cuadrado, de Kolmogórov y Smirnov y de Anderson y Darling; criterios AIC y BIC; intervalo de confianza por remuestreo; poblaciones mixtas, ceros e información histórica.</p>
 </section>
-<section id="pruebas-de-bondad-de-ajuste" class="slide level2">
+<section id="pruebas-de-bondad-de-ajuste" class="slide level2 reducida">
 <h2>Pruebas de bondad de ajuste</h2>
+<p>Sirven para comprobar si una distribución ya ajustada describe bien los datos, antes de usarla para calcular el caudal de diseño.</p>
 <p><span class="math display">\[
 H_0:\ \text{los datos provienen de la distribución } F_0
 \]</span></p>
+<div class="tabla-compacta">
+<table class="caption-top">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Símbolo</th>
+<th style="text-align: left;">Qué es</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><span class="math inline">\(H_0\)</span></td>
+<td style="text-align: left;">Hipótesis nula: el modelo describe los datos</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="math inline">\(F_0\)</span></td>
+<td style="text-align: left;">Función de distribución acumulada (FDA) del modelo ajustado</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><span class="math inline">\(\alpha\)</span></td>
+<td style="text-align: left;">Nivel de significancia: probabilidad aceptada de rechazar un modelo correcto (casi siempre 0.05)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Valor crítico</td>
+<td style="text-align: left;">Valor del estadístico que solo se supera con probabilidad <span class="math inline">\(\alpha\)</span> si <span class="math inline">\(H_0\)</span> es cierta; se lee en una tabla</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Pasos, iguales en las tres pruebas: (1) calcular el estadístico, que mide la diferencia entre los datos y <span class="math inline">\(F_0\)</span>; (2) buscar el valor crítico para <span class="math inline">\(\alpha\)</span>; (3) si el estadístico es mayor, se rechaza <span class="math inline">\(H_0\)</span>.</p>
 <ul>
-<li><span class="math inline">\(H_0\)</span>: hipótesis nula; <span class="math inline">\(F_0\)</span>: función de distribución acumulada (FDA) del modelo ajustado.</li>
-<li>Si el estadístico supera el valor crítico para el nivel de significancia <span class="math inline">\(\alpha\)</span> (casi siempre 0.05), se rechaza <span class="math inline">\(H_0\)</span>.</li>
-<li>No rechazar solo dice que la muestra no da evidencia contra el modelo.</li>
-<li>Con 20 o 30 datos las pruebas tienen poca potencia: varias distribuciones pasan la misma prueba.</li>
+<li>No rechazar solo dice que la muestra no da evidencia contra el modelo. Con 20 o 30 datos, varias distribuciones pasan la misma prueba.</li>
 </ul>
 <div class="callout callout-warning callout-style-simple">
 <div class="callout-body">
@@ -4413,28 +4475,165 @@ H_0:\ \text{los datos provienen de la distribución } F_0
 </section>
 <section id="prueba-chi-cuadrado" class="slide level2 reducida">
 <h2>Prueba chi-cuadrado</h2>
+<p>Compara cuántos datos caen en cada clase con cuántos deberían caer según el modelo.</p>
 <div class="columns">
-<div class="column" style="width:55%;">
+<div class="column" style="width:40%;">
 <p>Estadístico de la prueba:</p>
 <p><span class="math display">\[
-\chi^2 = \sum_{i=1}^{k} \dfrac{(O_i - E_i)^2}{E_i}
+\chi^2 = \sum_{i=1}^{k} \frac{(O_i - E_i)^2}{E_i}
 \]</span></p>
-<p><span class="math inline">\(k\)</span>: número de clases; <span class="math inline">\(O_i\)</span>: datos observados en la clase <span class="math inline">\(i\)</span>; <span class="math inline">\(E_i\)</span>: datos esperados en la clase <span class="math inline">\(i\)</span> según <span class="math inline">\(F_0\)</span>.</p>
-</div><div class="column" style="width:45%;">
 <p>Grados de libertad:</p>
 <p><span class="math display">\[
 \nu = k - 1 - m
 \]</span></p>
-<p><span class="math inline">\(m\)</span>: número de parámetros estimados con los datos.</p>
-<p>Se pide <span class="math inline">\(E_i \ge 5\)</span>: con 20 datos caben cuatro clases, mejor equiprobables.</p>
+</div><div class="column" style="width:60%;">
+<div class="tabla-compacta">
+<table class="caption-top">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Símbolo</th>
+<th style="text-align: left;">Qué es</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><span class="math inline">\(k\)</span></td>
+<td style="text-align: left;">Número de clases</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="math inline">\(O_i\)</span></td>
+<td style="text-align: left;">Datos observados en la clase <span class="math inline">\(i\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><span class="math inline">\(E_i\)</span></td>
+<td style="text-align: left;">Datos esperados en la clase <span class="math inline">\(i\)</span>: <span class="math inline">\(n\)</span> por su probabilidad según <span class="math inline">\(F_0\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="math inline">\(n\)</span></td>
+<td style="text-align: left;">Número de datos</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><span class="math inline">\(m\)</span></td>
+<td style="text-align: left;">Parámetros estimados con los datos</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="math inline">\(\nu\)</span></td>
+<td style="text-align: left;">Grados de libertad</td>
+</tr>
+</tbody>
+</table>
+</div>
 </div></div>
-<p>Ejemplo: 20 caudales, Gumbel por momentos (<span class="math inline">\(\alpha = 59.72\)</span>, <span class="math inline">\(u = 105.72\)</span> m³/s). Solución:</p>
+<ul>
+<li>Se pide <span class="math inline">\(E_i \ge 5\)</span>. Con 20 datos caben cuatro clases; conviene que sean equiprobables, de probabilidad 0.25 cada una, para que todas tengan <span class="math inline">\(E_i = 5\)</span>.</li>
+<li>Se rechaza <span class="math inline">\(H_0\)</span> si <span class="math inline">\(\chi^2\)</span> supera el valor de la tabla de <span class="math inline">\(\chi^2\)</span> para <span class="math inline">\(\nu\)</span> y <span class="math inline">\(1 - \alpha\)</span>.</li>
+</ul>
+</section>
+<section id="ejemplo-chi-cuadrado" class="slide level2 reducida">
+<h2>Ejemplo: chi-cuadrado</h2>
+<p>Los 20 caudales máximos anuales (m³/s, hipotéticos), con la Gumbel por momentos: <span class="math inline">\(u = 105.72\)</span> y <span class="math inline">\(\alpha = 59.72\)</span> m³/s. ¿Se rechaza la Gumbel? Solución:</p>
 <ol type="1">
-<li>Límites de cuatro clases de probabilidad 0.25: <span class="math inline">\(x = 105.72 - 59.72\ln(-\ln 0.25) = 86.2\)</span>; los otros, 127.6 y 180.1 m³/s.</li>
-<li>Conteo: 4, 7, 4 y 5 caudales; <span class="math inline">\(E_i = 5\)</span>.</li>
-<li><span class="math inline">\(\chi^2 = 0.2 + 0.8 + 0.2 + 0 = 1.2\)</span>, con <span class="math inline">\(\nu = 4 - 1 - 2 = 1\)</span>.</li>
-<li><span class="math inline">\(1.2 &lt; \chi^2_{0.95,1} = 3.84\)</span>: no se rechaza la Gumbel (<span class="math inline">\(p = 0.27\)</span>); con <span class="math inline">\(\nu = 1\)</span> solo detecta diferencias muy grandes.</li>
+<li>Límites de cuatro clases equiprobables: se despeja <span class="math inline">\(x\)</span> de la FDA de Gumbel, <span class="math inline">\(x = u - \alpha \ln(-\ln F)\)</span>, con <span class="math inline">\(F = 0.25\)</span>, 0.50 y 0.75. Con <span class="math inline">\(F = 0.25\)</span>: <span class="math inline">\(x = 105.72 - 59.72 \ln(-\ln 0.25) = 105.72 - 59.72(0.327) = 86.2\)</span> m³/s; igual, 127.6 y 180.1 m³/s.</li>
+<li>Se cuentan los caudales de cada clase (<span class="math inline">\(O_i\)</span>). Cada clase tiene probabilidad 0.25, así que <span class="math inline">\(E_i = 20 \times 0.25 = 5\)</span>.</li>
 </ol>
+<div class="tabla-compacta">
+<table class="caption-top">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Clase (m³/s)</th>
+<th style="text-align: left;">Caudales de la clase</th>
+<th style="text-align: center;"><span class="math inline">\(O_i\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(E_i\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(\frac{(O_i - E_i)^2}{E_i}\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">≤ 86.2</td>
+<td style="text-align: left;">32.5, 46.0, 68.9, 81.3</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;"><span class="math inline">\(\frac{(4-5)^2}{5} = 0.2\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">86.2 a 127.6</td>
+<td style="text-align: left;">97.8, 98.2, 101, 104, 104, 115, 120</td>
+<td style="text-align: center;">7</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;"><span class="math inline">\(\frac{(7-5)^2}{5} = 0.8\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">127.6 a 180.1</td>
+<td style="text-align: left;">131, 142, 144, 155</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">0.2</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">&gt; 180.1</td>
+<td style="text-align: left;">198, 206, 269, 271, 319</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Suma</td>
+<td style="text-align: left;"></td>
+<td style="text-align: center;">20</td>
+<td style="text-align: center;">20</td>
+<td style="text-align: center;"><span class="math inline">\(\chi^2 = 1.2\)</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="ejemplo-chi-cuadrado-decisión" class="slide level2">
+<h2>Ejemplo: chi-cuadrado, decisión</h2>
+<ol start="3" type="1">
+<li>Grados de libertad: <span class="math inline">\(\nu = k - 1 - m = 4 - 1 - 2 = 1\)</span>, porque hay 4 clases y la Gumbel tiene 2 parámetros estimados con los datos.</li>
+<li>Valor crítico: en la tabla de <span class="math inline">\(\chi^2\)</span>, columna <span class="math inline">\(1 - \alpha = 0.95\)</span>, fila <span class="math inline">\(\nu = 1\)</span>.</li>
+</ol>
+<div class="tabla-grande">
+<table class="caption-top">
+<caption>Valores críticos de <span class="math inline">\(\chi^2\)</span> para <span class="math inline">\(\alpha = 0.05\)</span>.</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><span class="math inline">\(\nu\)</span></th>
+<th style="text-align: center;">1</th>
+<th style="text-align: center;">2</th>
+<th style="text-align: center;">3</th>
+<th style="text-align: center;">4</th>
+<th style="text-align: center;">5</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><span class="math inline">\(\chi^2_{0.95,\nu}\)</span></td>
+<td style="text-align: center;"><strong>3.84</strong></td>
+<td style="text-align: center;">5.99</td>
+<td style="text-align: center;">7.81</td>
+<td style="text-align: center;">9.49</td>
+<td style="text-align: center;">11.07</td>
+</tr>
+</tbody>
+</table>
+</div>
+<ol start="5" type="1">
+<li>Decisión: <span class="math inline">\(\chi^2 = 1.2 &lt; 3.84\)</span>, así que no se rechaza la Gumbel.</li>
+</ol>
+<p>En R: <code>qchisq(0.95, df = 1)</code> da 3.84 y <code>1 - pchisq(1.2, df = 1)</code> da <span class="math inline">\(p = 0.27\)</span>.</p>
+<p><span class="nota">Con <span class="math inline">\(\nu = 1\)</span> la prueba solo detecta diferencias muy grandes. Con pocos datos sirve para descartar modelos muy malos, no para escoger entre buenos.</span></p>
 </section>
 <section id="prueba-de-kolmogórov-y-smirnov" class="slide level2 reducida">
 <h2>Prueba de Kolmogórov y Smirnov</h2>
@@ -4488,23 +4687,130 @@ D_n = \max_{1 \le i \le n} \left\{ \frac{i}{n} - F_0\!\left(x_{(i)}\right),\ F_0
 </ul>
 </div></div>
 </section>
-<section id="ejemplo-kolmogórov-y-smirnov" class="slide level2">
+<section id="ejemplo-kolmogórov-y-smirnov" class="slide level2 reducida">
 <h2>Ejemplo: Kolmogórov y Smirnov</h2>
-<p>Lluvia máxima anual, 53 años (datos hipotéticos): <span class="math inline">\(\bar{x} = 140.87\)</span> mm, <span class="math inline">\(s = 46.80\)</span> mm.</p>
+<p>Lluvia máxima anual de 53 años (mm, datos hipotéticos), <span class="math inline">\(\bar{x} = 140.87\)</span> mm y <span class="math inline">\(s = 46.80\)</span> mm. ¿Se ajusta una normal? <a href="data:text/csv;base64,YW5pbyxwX21heF9tbQoxOTcwLDEwNy4zCjE5NzEsMTEyLjUKMTk3MiwxMjkuOAoxOTczLDEzMi41CjE5NzQsMTIzLjEKMTk3NSwxMDguOQoxOTc2LDEyMS42CjE5NzcsNzguMgoxOTc4LDkyLjQKMTk3OSw5MS40CjE5ODAsMTgxLjYKMTk4MSwxMjkuNAoxOTgyLDExNi4xCjE5ODMsMTU5LjQKMTk4NCwxOTQuNAoxOTg1LDEwNi4xCjE5ODYsMTIyCjE5ODcsMTA1LjMKMTk4OCwzMTAuNQoxOTg5LDE2MC43CjE5OTAsMTMzLjYKMTk5MSw5MS4xCjE5OTIsODYuOQoxOTkzLDE1MS4xCjE5OTQsMTEyLjgKMTk5NSw5Ny42CjE5OTYsMTY5LjMKMTk5NywxMzYuOAoxOTk4LDkxLjcKMTk5OSwxNzcuNAoyMDAwLDE1NS4zCjIwMDEsMTQ5LjgKMjAwMiwyMjIuNgoyMDAzLDEyNi41CjIwMDQsMjY4LjMKMjAwNSw4OC4yCjIwMDYsMTc4LjMKMjAwNywxMTguNwoyMDA4LDIwOS4yCjIwMDksMTU3LjQKMjAxMCwxNzcuOAoyMDExLDE3Ny41CjIwMTIsMTUyLjEKMjAxMywxNTMuNAoyMDE0LDEyMS45CjIwMTUsODkuNwoyMDE2LDEzNi43CjIwMTcsMTkyLjMKMjAxOCwyMTEuNgoyMDE5LDk1LjgKMjAyMCwxMTcuOQoyMDIxLDk5LjgKMjAyMiwxMzMuOQo=" download="precipitacion_maxima_anual_1970_2022.csv" class="boton-datos">⬇ Descargar <code>precipitacion_maxima_anual_1970_2022.csv</code></a></p>
+<div class="columns">
+<div class="column" style="width:45%;">
 <p>Solución:</p>
 <ol type="1">
-<li>Menor dato, 78.2 mm: <span class="math inline">\(z = -1.339\)</span>, <span class="math inline">\(F_0 = 0.0903\)</span>; distancias <span class="math inline">\(-0.072\)</span> y <span class="math inline">\(0.090\)</span>.</li>
-<li>Mayor distancia, en <span class="math inline">\(x_{(32)} = 136.8\)</span> mm: <span class="math inline">\(F_0 = 0.4653\)</span> y <span class="math inline">\(\frac{32}{53} - 0.4653 = 0.138\)</span>.</li>
-<li>Valor crítico clásico: <span class="math inline">\(\frac{1.36}{\sqrt{53}} = 0.187\)</span>. No se rechazaría la normal.</li>
-<li>Lilliefors: <span class="math inline">\(\frac{0.886}{\sqrt{53}} = 0.122 &lt; 0.138\)</span>. Se rechaza la normal (<span class="math inline">\(p = 0.013\)</span>).</li>
-<li>Gumbel por momentos: <span class="math inline">\(D_n = 0.070\)</span>, por debajo de los dos valores críticos.</li>
+<li>Se ordenan los 53 datos de menor a mayor.</li>
+<li>Para cada dato: <span class="math inline">\(z = \frac{x_{(i)} - \bar{x}}{s}\)</span> y <span class="math inline">\(F_0 = \Phi(z)\)</span>, de la tabla normal.</li>
+<li>Se calculan las dos distancias de la fórmula, <span class="math inline">\(\frac{i}{n} - F_0\)</span> y <span class="math inline">\(F_0 - \frac{i-1}{n}\)</span>.</li>
+<li><span class="math inline">\(D_n\)</span> es la mayor de todas: 0.138, en <span class="math inline">\(i = 32\)</span>.</li>
 </ol>
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<a href="data:text/csv;base64,YW5pbyxwX21heF9tbQoxOTcwLDEwNy4zCjE5NzEsMTEyLjUKMTk3MiwxMjkuOAoxOTczLDEzMi41CjE5NzQsMTIzLjEKMTk3NSwxMDguOQoxOTc2LDEyMS42CjE5NzcsNzguMgoxOTc4LDkyLjQKMTk3OSw5MS40CjE5ODAsMTgxLjYKMTk4MSwxMjkuNAoxOTgyLDExNi4xCjE5ODMsMTU5LjQKMTk4NCwxOTQuNAoxOTg1LDEwNi4xCjE5ODYsMTIyCjE5ODcsMTA1LjMKMTk4OCwzMTAuNQoxOTg5LDE2MC43CjE5OTAsMTMzLjYKMTk5MSw5MS4xCjE5OTIsODYuOQoxOTkzLDE1MS4xCjE5OTQsMTEyLjgKMTk5NSw5Ny42CjE5OTYsMTY5LjMKMTk5NywxMzYuOAoxOTk4LDkxLjcKMTk5OSwxNzcuNAoyMDAwLDE1NS4zCjIwMDEsMTQ5LjgKMjAwMiwyMjIuNgoyMDAzLDEyNi41CjIwMDQsMjY4LjMKMjAwNSw4OC4yCjIwMDYsMTc4LjMKMjAwNywxMTguNwoyMDA4LDIwOS4yCjIwMDksMTU3LjQKMjAxMCwxNzcuOAoyMDExLDE3Ny41CjIwMTIsMTUyLjEKMjAxMywxNTMuNAoyMDE0LDEyMS45CjIwMTUsODkuNwoyMDE2LDEzNi43CjIwMTcsMTkyLjMKMjAxOCwyMTEuNgoyMDE5LDk1LjgKMjAyMCwxMTcuOQoyMDIxLDk5LjgKMjAyMiwxMzMuOQo=" download="precipitacion_maxima_anual_1970_2022.csv" class="boton-datos">⬇ Descargar <code>precipitacion_maxima_anual_1970_2022.csv</code></a>
+</div><div class="column" style="width:55%;">
+<div class="tabla-compacta">
+<table class="caption-top" style="width:100%;">
+<colgroup>
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;"><span class="math inline">\(i\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(x_{(i)}\)</span> (mm)</th>
+<th style="text-align: center;"><span class="math inline">\(z\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(F_0\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(\frac{i}{n} - F_0\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(F_0 - \frac{i-1}{n}\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">78.2</td>
+<td style="text-align: center;">−1.339</td>
+<td style="text-align: center;">0.0903</td>
+<td style="text-align: center;">−0.071</td>
+<td style="text-align: center;">0.090</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">86.9</td>
+<td style="text-align: center;">−1.153</td>
+<td style="text-align: center;">0.1244</td>
+<td style="text-align: center;">−0.087</td>
+<td style="text-align: center;">0.106</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">⋮</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">31</td>
+<td style="text-align: center;">136.7</td>
+<td style="text-align: center;">−0.089</td>
+<td style="text-align: center;">0.4645</td>
+<td style="text-align: center;">0.120</td>
+<td style="text-align: center;">−0.102</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">32</td>
+<td style="text-align: center;">136.8</td>
+<td style="text-align: center;">−0.087</td>
+<td style="text-align: center;">0.4653</td>
+<td style="text-align: center;"><strong>0.138</strong></td>
+<td style="text-align: center;">−0.120</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">33</td>
+<td style="text-align: center;">149.8</td>
+<td style="text-align: center;">0.191</td>
+<td style="text-align: center;">0.5756</td>
+<td style="text-align: center;">0.047</td>
+<td style="text-align: center;">−0.028</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">⋮</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">53</td>
+<td style="text-align: center;">310.5</td>
+<td style="text-align: center;">3.624</td>
+<td style="text-align: center;">0.9999</td>
+<td style="text-align: center;">0.000</td>
+<td style="text-align: center;">0.019</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Por ejemplo, en <span class="math inline">\(i = 1\)</span>: <span class="math inline">\(z = \frac{78.2 - 140.87}{46.80} = -1.339\)</span> y <span class="math inline">\(F_0 = 0.0903\)</span>; las distancias son <span class="math inline">\(\frac{1}{53} - 0.0903 = -0.071\)</span> y <span class="math inline">\(0.0903 - \frac{0}{53} = 0.090\)</span>.</p>
+</div></div>
+</section>
+<section id="ejemplo-kolmogórov-y-smirnov-decisión" class="slide level2">
+<h2>Ejemplo: Kolmogórov y Smirnov, decisión</h2>
+<ol start="5" type="1">
+<li>Valores críticos con <span class="math inline">\(\alpha = 0.05\)</span> y <span class="math inline">\(n = 53\)</span>:
+<ul>
+<li>Clásico, para parámetros conocidos: <span class="math inline">\(\frac{1.36}{\sqrt{53}} = 0.187\)</span>. Como <span class="math inline">\(0.138 &lt; 0.187\)</span>, no se rechazaría la normal.</li>
+<li>Lilliefors, que corresponde aquí porque <span class="math inline">\(\bar{x}\)</span> y <span class="math inline">\(s\)</span> salieron de la misma muestra: <span class="math inline">\(\frac{0.886}{\sqrt{53}} = 0.122\)</span>. Como <span class="math inline">\(0.138 &gt; 0.122\)</span>, se rechaza la normal (<span class="math inline">\(p = 0.013\)</span>).</li>
+</ul></li>
+<li>Con la Gumbel por momentos, el mismo procedimiento da <span class="math inline">\(D_n = 0.070\)</span>, menor que los dos valores críticos: no se rechaza.</li>
+</ol>
+<div class="callout callout-warning callout-style-simple">
+<div class="callout-body">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-content">
+<p>Usar el valor crítico para parámetros conocidos hace que casi cualquier modelo parezca aceptable. Es el error más común con esta prueba.</p>
 </div>
 </div>
-<p><span class="nota">Usar la tabla para parámetros conocidos hace que casi cualquier modelo parezca aceptable. Es el error más común con esta prueba.</span></p>
+</div>
 </section>
 <section id="distancia-de-kolmogórov-y-smirnov" class="slide level2">
 <h2>Distancia de Kolmogórov y Smirnov</h2>
@@ -4583,7 +4889,7 @@ D_n = \max_{1 \le i \le n} \left\{ \frac{i}{n} - F_0\!\left(x_{(i)}\right),\ F_0
 </section>
 <section id="prueba-de-anderson-y-darling" class="slide level2 reducida">
 <h2>Prueba de Anderson y Darling</h2>
-<p>Usa todas las diferencias y les da más peso en las colas <span class="citation" data-cites="anderson1954test stephens1974edf">(<a href="#/referencias" role="doc-biblioref" onclick="">Anderson &amp; Darling, 1954</a>; <a href="#/referencias" role="doc-biblioref" onclick="">Stephens, 1974</a>)</span>:</p>
+<p>Usa las diferencias de todos los datos y les da más peso en las colas, que es donde está el caudal de diseño <span class="citation" data-cites="anderson1954test stephens1974edf">(<a href="#/referencias" role="doc-biblioref" onclick="">Anderson &amp; Darling, 1954</a>; <a href="#/referencias" role="doc-biblioref" onclick="">Stephens, 1974</a>)</span>.</p>
 <p><span class="math display">\[
 A^2 = -n - \frac{1}{n}\sum_{i=1}^{n}(2i-1)\left\{\ln F_0\!\left(x_{(i)}\right) + \ln\left[1 - F_0\!\left(x_{(n+1-i)}\right)\right]\right\}
 \]</span></p>
@@ -4601,12 +4907,20 @@ A^2 = -n - \frac{1}{n}\sum_{i=1}^{n}(2i-1)\left\{\ln F_0\!\left(x_{(i)}\right) +
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;"><span class="math inline">\(A^2\)</span>, <span class="math inline">\(A^{2*}\)</span></td>
-<td style="text-align: left;">Estadístico de la prueba, y el mismo corregido por haber estimado los parámetros</td>
+<td style="text-align: left;"><span class="math inline">\(A^2\)</span></td>
+<td style="text-align: left;">Estadístico de la prueba; crece cuando el modelo se aleja de los datos</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><span class="math inline">\(x_{(i)}\)</span>, <span class="math inline">\(n\)</span></td>
-<td style="text-align: left;">Dato de orden <span class="math inline">\(i\)</span> (de menor a mayor) y tamaño de la muestra</td>
+<td style="text-align: left;"><span class="math inline">\(A^{2*}\)</span></td>
+<td style="text-align: left;">El mismo estadístico corregido por haber estimado los parámetros con la muestra</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><span class="math inline">\(x_{(i)}\)</span></td>
+<td style="text-align: left;">Dato de orden <span class="math inline">\(i\)</span>, de menor a mayor; <span class="math inline">\(x_{(n+1-i)}\)</span> es el de orden <span class="math inline">\(i\)</span> contado desde el mayor</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="math inline">\(n\)</span></td>
+<td style="text-align: left;">Tamaño de la muestra</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;"><span class="math inline">\(F_0\)</span></td>
@@ -4644,8 +4958,32 @@ A^2 = -n - \frac{1}{n}\sum_{i=1}^{n}(2i-1)\left\{\ln F_0\!\left(x_{(i)}\right) +
 </tbody>
 </table>
 </div>
-<p>Misma serie de 53 años. Solución: normal, <span class="math inline">\(A^{2*} = 1.262 &gt; 0.752\)</span>, se rechaza; Gumbel, <span class="math inline">\(A^{2*} = 0.336 &lt; 0.757\)</span>, no se rechaza.</p>
-<p><span class="nota">Con la normal, el dato de 310.5 mm tendría una probabilidad de excedencia de 0.00014.</span></p>
+<p>Se rechaza <span class="math inline">\(H_0\)</span> si <span class="math inline">\(A^{2*}\)</span> supera el valor crítico.</p>
+</section>
+<section id="ejemplo-anderson-y-darling" class="slide level2 reducida">
+<h2>Ejemplo: Anderson y Darling</h2>
+<p>La misma serie de 53 años. ¿Normal o Gumbel?</p>
+<div class="columns apretado">
+<div class="column" style="width:50%;">
+<p>Solución con la normal (<span class="math inline">\(\bar{x} = 140.87\)</span>, <span class="math inline">\(s = 46.80\)</span> mm):</p>
+<ol type="1">
+<li><span class="math inline">\(F_0\)</span> de cada dato, como en el ejemplo anterior.</li>
+<li>Término <span class="math inline">\(i = 1\)</span> de la suma, que une el menor dato con el mayor: <span class="math inline">\(\ln F_0(78.2) = \ln 0.0903 = -2.405\)</span> y <span class="math inline">\(\ln[1 - F_0(310.5)] = \ln 0.000145 = -8.840\)</span>; <span class="math inline">\((2 \cdot 1 - 1)(-2.405 - 8.840) = -11.245\)</span>.</li>
+<li>Se suman los 53 términos y se aplica la fórmula: <span class="math inline">\(A^2 = 1.243\)</span>.</li>
+<li>Corrección: <span class="math inline">\(1 + \frac{0.75}{53} + \frac{2.25}{53^2} = 1.01495\)</span>; <span class="math inline">\(A^{2*} = 1.243 \times 1.01495 = 1.262\)</span>.</li>
+<li><span class="math inline">\(1.262 &gt; 0.752\)</span>: se rechaza la normal.</li>
+</ol>
+</div><div class="column" style="width:50%;">
+<p>Solución con la Gumbel por máxima verosimilitud (<span class="math inline">\(u = 120.68\)</span>, <span class="math inline">\(\alpha = 33.08\)</span> mm):</p>
+<ol type="1">
+<li><span class="math inline">\(F_0 = \exp\left[-\exp\left(-\frac{x - u}{\alpha}\right)\right]\)</span> de cada dato.</li>
+<li>Término <span class="math inline">\(i = 1\)</span>: <span class="math inline">\(\ln F_0(78.2) = -3.611\)</span> y <span class="math inline">\(\ln[1 - F_0(310.5)] = -5.739\)</span>.</li>
+<li>Suma de los 53 términos: <span class="math inline">\(A^2 = 0.327\)</span>.</li>
+<li>Corrección: <span class="math inline">\(1 + \frac{0.2}{\sqrt{53}} = 1.02747\)</span>; <span class="math inline">\(A^{2*} = 0.327 \times 1.02747 = 0.336\)</span>.</li>
+<li><span class="math inline">\(0.336 &lt; 0.757\)</span>: no se rechaza la Gumbel.</li>
+</ol>
+<p><span class="nota">Con la normal, 310.5 mm tendría una probabilidad de excedencia de 0.00014 (uno en 7000 años): por eso su término pesa tanto.</span></p>
+</div></div>
 </section>
 <section id="comparación-de-distribuciones" class="slide level2">
 <h2>Comparación de distribuciones</h2>
@@ -4706,11 +5044,11 @@ A^2 = -n - \frac{1}{n}\sum_{i=1}^{n}(2i-1)\left\{\ln F_0\!\left(x_{(i)}\right) +
 <li>Dentro del rango de los datos las distribuciones coinciden; en la extrapolación se separan.</li>
 </ul>
 </section>
-<section id="criterios-de-información" class="slide level2">
+<section id="criterios-de-información" class="slide level2 reducida">
 <h2>Criterios de información</h2>
-<p>Comparan modelos ajustados a los mismos datos: premian el buen ajuste y castigan los parámetros. Se prefiere el menor valor.</p>
+<p>Las pruebas dicen si un modelo se rechaza; los criterios de información ordenan los modelos que no se rechazaron. Premian el buen ajuste y castigan cada parámetro adicional. Se prefiere el menor valor.</p>
 <div class="columns">
-<div class="column" style="width:48%;">
+<div class="column" style="width:50%;">
 <p>Criterio de Akaike:</p>
 <p><span class="math display">\[
 AIC = -2\ln \hat{L} + 2k
@@ -4719,8 +5057,17 @@ AIC = -2\ln \hat{L} + 2k
 <p><span class="math display">\[
 BIC = -2\ln \hat{L} + k \ln n
 \]</span></p>
+<p>Diferencia con el mejor modelo:</p>
+<p><span class="math display">\[
+\Delta = AIC - AIC_{\min}
+\]</span></p>
+</div><div class="column" style="width:50%;">
 <div class="tabla-compacta">
 <table class="caption-top">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
 <thead>
 <tr class="header">
 <th style="text-align: left;">Símbolo</th>
@@ -4729,8 +5076,8 @@ BIC = -2\ln \hat{L} + k \ln n
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;"><span class="math inline">\(\hat{L}\)</span></td>
-<td style="text-align: left;">Verosimilitud máxima del ajuste</td>
+<td style="text-align: left;"><span class="math inline">\(\ln \hat{L}\)</span></td>
+<td style="text-align: left;">Logaritmo de la verosimilitud máxima, del ajuste por máxima verosimilitud (sección 3.3)</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"><span class="math inline">\(k\)</span></td>
@@ -4740,11 +5087,36 @@ BIC = -2\ln \hat{L} + k \ln n
 <td style="text-align: left;"><span class="math inline">\(n\)</span></td>
 <td style="text-align: left;">Número de datos</td>
 </tr>
+<tr class="even">
+<td style="text-align: left;"><span class="math inline">\(AIC_{\min}\)</span></td>
+<td style="text-align: left;">Menor AIC entre los modelos comparados</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><span class="math inline">\(\Delta\)</span></td>
+<td style="text-align: left;">Cuánto se aleja cada modelo del mejor</td>
+</tr>
 </tbody>
 </table>
 </div>
-</div><div class="column" style="width:52%;">
-<p>Ajustes por máxima verosimilitud a los 20 caudales. Solución:</p>
+<ul>
+<li><span class="math inline">\(\Delta &lt; 2\)</span>: respaldo parecido al del mejor modelo <span class="citation" data-cites="burnham2002model">(<a href="#/referencias" role="doc-biblioref" onclick="">Burnham &amp; Anderson, 2002</a>)</span>.</li>
+<li>El BIC castiga más los parámetros: con <span class="math inline">\(n = 20\)</span>, <span class="math inline">\(\ln 20 = 3.0 &gt; 2\)</span>.</li>
+</ul>
+</div></div>
+</section>
+<section id="ejemplo-aic-y-bic" class="slide level2 reducida">
+<h2>Ejemplo: AIC y BIC</h2>
+<p>Los 20 caudales, ajustados por máxima verosimilitud a cuatro modelos.</p>
+<div class="columns">
+<div class="column" style="width:45%;">
+<p>Solución para la Gumbel (<span class="math inline">\(k = 2\)</span>, <span class="math inline">\(\ln \hat L = -112.528\)</span>):</p>
+<ol type="1">
+<li><span class="math inline">\(AIC = -2(-112.528) + 2 \times 2 = 225.06 + 4 = 229.06\)</span></li>
+<li><span class="math inline">\(BIC = 225.06 + 2 \ln 20 = 225.06 + 5.99 = 231.05\)</span></li>
+<li>El menor AIC es el de la gamma, 228.81: <span class="math inline">\(\Delta = 229.06 - 228.81 = 0.25\)</span>.</li>
+</ol>
+<p>Igual con los demás modelos.</p>
+</div><div class="column" style="width:55%;">
 <div class="tabla-compacta">
 <table class="caption-top">
 <caption>AIC y BIC de cuatro modelos.</caption>
@@ -4754,6 +5126,7 @@ BIC = -2\ln \hat{L} + k \ln n
 <th style="text-align: center;"><span class="math inline">\(k\)</span></th>
 <th style="text-align: center;"><span class="math inline">\(\ln \hat L\)</span></th>
 <th style="text-align: center;">AIC</th>
+<th style="text-align: center;"><span class="math inline">\(\Delta\)</span></th>
 <th style="text-align: center;">BIC</th>
 </tr>
 </thead>
@@ -4763,6 +5136,7 @@ BIC = -2\ln \hat{L} + k \ln n
 <td style="text-align: center;">2</td>
 <td style="text-align: center;">−112.528</td>
 <td style="text-align: center;">229.06</td>
+<td style="text-align: center;">0.25</td>
 <td style="text-align: center;">231.05</td>
 </tr>
 <tr class="even">
@@ -4770,6 +5144,7 @@ BIC = -2\ln \hat{L} + k \ln n
 <td style="text-align: center;">3</td>
 <td style="text-align: center;">−112.461</td>
 <td style="text-align: center;">230.92</td>
+<td style="text-align: center;">2.11</td>
 <td style="text-align: center;">233.91</td>
 </tr>
 <tr class="odd">
@@ -4777,6 +5152,7 @@ BIC = -2\ln \hat{L} + k \ln n
 <td style="text-align: center;">2</td>
 <td style="text-align: center;">−112.614</td>
 <td style="text-align: center;">229.23</td>
+<td style="text-align: center;">0.42</td>
 <td style="text-align: center;">231.22</td>
 </tr>
 <tr class="even">
@@ -4784,13 +5160,15 @@ BIC = -2\ln \hat{L} + k \ln n
 <td style="text-align: center;">2</td>
 <td style="text-align: center;">−112.404</td>
 <td style="text-align: center;">228.81</td>
+<td style="text-align: center;">0</td>
 <td style="text-align: center;">230.80</td>
 </tr>
 </tbody>
 </table>
 </div>
+<p>La GEV ajusta apenas mejor que la Gumbel, pero su tercer parámetro no compensa: es la de mayor AIC y BIC.</p>
 </div></div>
-<p><span class="nota">Con <span class="math inline">\(\Delta &lt; 2\)</span> (diferencia con el menor AIC) los modelos tienen un respaldo parecido <span class="citation" data-cites="burnham2002model">(<a href="#/referencias" role="doc-biblioref" onclick="">Burnham &amp; Anderson, 2002</a>)</span>. Aun así, su caudal de 100 años va de 365 a 442 m³/s.</span></p>
+<p><span class="nota">Los cuatro modelos quedan a menos de 2.2 del mejor y tienen un respaldo parecido. Aun así, su caudal de 100 años va de 365 a 442 m³/s: los criterios no resuelven la elección por sí solos.</span></p>
 </section>
 <section id="cómo-escoger" class="slide level2">
 <h2>Cómo escoger</h2>
@@ -4814,50 +5192,205 @@ BIC = -2\ln \hat{L} + k \ln n
 </section>
 <section id="intervalo-de-confianza-por-remuestreo" class="slide level2 reducida">
 <h2>Intervalo de confianza por remuestreo</h2>
-
-<img data-src="tema3_files/figure-revealjs/unnamed-chunk-52-1.svg" class="quarto-figure quarto-figure-center r-stretch" width="912"><ul>
-<li>45 caudales máximos anuales de una estación hipotética (410 km²), GEV por L-momentos y log-Pearson tipo III.</li>
-<li>Banda de 90 %: se remuestrean los 45 años con reemplazo, se reajusta la GEV y se toman los percentiles 5 y 95. <a href="data:text/csv;base64,ImVzdGFjaW9uIiwiYW5pbyIsInFfbWF4X20zcyIKIkUwMSIsMTk5Miw3MS42CiJFMDEiLDE5OTMsMzguNgoiRTAxIiwxOTk0LDcxLjMKIkUwMSIsMTk5NSwzMS44CiJFMDEiLDE5OTYsMTMzLjMKIkUwMSIsMTk5NywzNy40CiJFMDEiLDE5OTgsMTQ5LjMKIkUwMSIsMTk5OSw4Ni44CiJFMDEiLDIwMDAsMzkuNAoiRTAxIiwyMDAxLDE1MgoiRTAxIiwyMDAyLDU3LjQKIkUwMSIsMjAwMyw2NgoiRTAxIiwyMDA0LDE5NS45CiJFMDEiLDIwMDUsOTMuMwoiRTAxIiwyMDA2LDEyNi44CiJFMDEiLDIwMDcsMTMyLjMKIkUwMSIsMjAwOCw2NS41CiJFMDEiLDIwMDksNjkuNQoiRTAxIiwyMDEwLDYxLjUKIkUwMSIsMjAxMSwxNTguNgoiRTAxIiwyMDEyLDEyOQoiRTAxIiwyMDEzLDEyOS45CiJFMDEiLDIwMTQsMTE0LjkKIkUwMSIsMjAxNSw3My4xCiJFMDEiLDIwMTYsNzkuOAoiRTAxIiwyMDE3LDU2LjUKIkUwMSIsMjAxOCw3MC43CiJFMDEiLDIwMTksMTExLjQKIkUwMSIsMjAyMCw1NS4yCiJFMDEiLDIwMjEsNjMuNQoiRTAxIiwyMDIyLDg5LjgKIkUwMSIsMjAyMyw4Mi4zCiJFMDIiLDE5ODMsMzE2LjkKIkUwMiIsMTk4NCwxMjkuOQoiRTAyIiwxOTg1LDE1My4zCiJFMDIiLDE5ODYsMTY0LjMKIkUwMiIsMTk4NywxMTguNgoiRTAyIiwxOTg4LDE3MS43CiJFMDIiLDE5ODksMTQ5LjYKIkUwMiIsMTk5MCwxMTEuMwoiRTAyIiwxOTkxLDE1My42CiJFMDIiLDE5OTIsMTgyLjkKIkUwMiIsMTk5MywxMDYuMwoiRTAyIiwxOTk0LDE3OS44CiJFMDIiLDE5OTUsMjg2LjQKIkUwMiIsMTk5Niw2NS43CiJFMDIiLDE5OTcsMjE0LjIKIkUwMiIsMTk5OCwzNTEuMQoiRTAyIiwxOTk5LDE3NC45CiJFMDIiLDIwMDAsNzYuMQoiRTAyIiwyMDAxLDE3My4zCiJFMDIiLDIwMDIsOTkuNAoiRTAyIiwyMDAzLDIwNQoiRTAyIiwyMDA0LDE1OQoiRTAyIiwyMDA1LDE2Mi43CiJFMDIiLDIwMDYsMTUyLjcKIkUwMiIsMjAwNywyMDkuNgoiRTAyIiwyMDA4LDEzOC41CiJFMDIiLDIwMDksMTI5LjkKIkUwMiIsMjAxMCwxNzEuMQoiRTAyIiwyMDExLDIxNi45CiJFMDIiLDIwMTIsOTYuMQoiRTAyIiwyMDEzLDI1NC4zCiJFMDIiLDIwMTQsNjguMQoiRTAyIiwyMDE1LDIyOC40CiJFMDIiLDIwMTYsMjkyLjQKIkUwMiIsMjAxNywxNTIuOAoiRTAyIiwyMDE4LDE2Mi42CiJFMDIiLDIwMTksMzU4LjgKIkUwMiIsMjAyMCwyODcuNQoiRTAyIiwyMDIxLDE3NS41CiJFMDIiLDIwMjIsMTcxLjYKIkUwMiIsMjAyMyw4My43CiJFMDMiLDE5OTYsNjg0LjQKIkUwMyIsMTk5NywyMjMuOQoiRTAzIiwxOTk4LDE4NS44CiJFMDMiLDE5OTksMjYyLjUKIkUwMyIsMjAwMCw0MDcuNgoiRTAzIiwyMDAxLDI3MS42CiJFMDMiLDIwMDIsMzM3LjcKIkUwMyIsMjAwMywzNjkuOQoiRTAzIiwyMDA0LDYwNy43CiJFMDMiLDIwMDUsMzYwLjgKIkUwMyIsMjAwNiwyOTYuOAoiRTAzIiwyMDA3LDQ4Ny44CiJFMDMiLDIwMDgsMzA4LjkKIkUwMyIsMjAwOSwxNjQuOQoiRTAzIiwyMDEwLDUxNS42CiJFMDMiLDIwMTEsMTQwLjQKIkUwMyIsMjAxMiw1MzkuNQoiRTAzIiwyMDEzLDM4Mi4yCiJFMDMiLDIwMTQsMjIxLjUKIkUwMyIsMjAxNSw0NjQuMwoiRTAzIiwyMDE2LDIyOC4zCiJFMDMiLDIwMTcsNDQwCiJFMDMiLDIwMTgsMjI1LjEKIkUwMyIsMjAxOSwzNTYKIkUwMyIsMjAyMCwzMDguMwoiRTAzIiwyMDIxLDMwMQoiRTAzIiwyMDIyLDI1MQoiRTAzIiwyMDIzLDM3Mi41CiJFMDQiLDIwMDIsNjguMwoiRTA0IiwyMDAzLDg2LjgKIkUwNCIsMjAwNCw3OS45CiJFMDQiLDIwMDUsNTAuNgoiRTA0IiwyMDA2LDkxLjMKIkUwNCIsMjAwNyw1OS4zCiJFMDQiLDIwMDgsMTA2LjcKIkUwNCIsMjAwOSwxMzcuNAoiRTA0IiwyMDEwLDU1CiJFMDQiLDIwMTEsNzMuOAoiRTA0IiwyMDEyLDk3LjgKIkUwNCIsMjAxMywxMDYuMwoiRTA0IiwyMDE0LDY4LjIKIkUwNCIsMjAxNSw4NgoiRTA0IiwyMDE2LDE0OQoiRTA0IiwyMDE3LDI0MwoiRTA0IiwyMDE4LDk3LjIKIkUwNCIsMjAxOSwxMjUuOQoiRTA0IiwyMDIwLDQ3LjEKIkUwNCIsMjAyMSwxMTYuMQoiRTA0IiwyMDIyLDcyLjkKIkUwNCIsMjAyMywxNDguOQoiRTA1IiwxOTc5LDcyOC41CiJFMDUiLDE5ODAsNDc5LjYKIkUwNSIsMTk4MSw0ODcuMgoiRTA1IiwxOTgyLDk1Mi4yCiJFMDUiLDE5ODMsNzIzLjEKIkUwNSIsMTk4NCw1MjMuMgoiRTA1IiwxOTg1LDY4OC4zCiJFMDUiLDE5ODYsMjIzLjcKIkUwNSIsMTk4Nyw0NDAuNAoiRTA1IiwxOTg4LDI3OC44CiJFMDUiLDE5ODksNDE5LjUKIkUwNSIsMTk5MCwxODEKIkUwNSIsMTk5MSw1OTEuMwoiRTA1IiwxOTkyLDI2MC4xCiJFMDUiLDE5OTMsNDg2LjkKIkUwNSIsMTk5NCwzMTguOAoiRTA1IiwxOTk1LDYzMS41CiJFMDUiLDE5OTYsNTQzLjgKIkUwNSIsMTk5NywzNzEuOQoiRTA1IiwxOTk4LDY4MC42CiJFMDUiLDE5OTksNDQ0LjYKIkUwNSIsMjAwMCwzMzguOAoiRTA1IiwyMDAxLDQwNwoiRTA1IiwyMDAyLDE0NjkuMgoiRTA1IiwyMDAzLDQxNy4zCiJFMDUiLDIwMDQsNDc3LjQKIkUwNSIsMjAwNSwzMjcKIkUwNSIsMjAwNiw1NDcuNAoiRTA1IiwyMDA3LDYyMy4xCiJFMDUiLDIwMDgsMzc1LjcKIkUwNSIsMjAwOSw1MzQKIkUwNSIsMjAxMCw0NjYuMgoiRTA1IiwyMDExLDM4MC40CiJFMDUiLDIwMTIsODg2LjQKIkUwNSIsMjAxMywyNjUuOQoiRTA1IiwyMDE0LDk0MC43CiJFMDUiLDIwMTUsNTgzLjMKIkUwNSIsMjAxNiw0NTUuOQoiRTA1IiwyMDE3LDQ1MAoiRTA1IiwyMDE4LDQ0MS45CiJFMDUiLDIwMTksNjYyLjQKIkUwNSIsMjAyMCwyMzUuNgoiRTA1IiwyMDIxLDc0My45CiJFMDUiLDIwMjIsOTAzLjEKIkUwNSIsMjAyMywzNjQuMQoiRTA2IiwyMDA1LDc2LjcKIkUwNiIsMjAwNiw0NS4zCiJFMDYiLDIwMDcsNTEKIkUwNiIsMjAwOCwyNQoiRTA2IiwyMDA5LDM5CiJFMDYiLDIwMTAsMTcuNwoiRTA2IiwyMDExLDE1LjcKIkUwNiIsMjAxMiwxMi44CiJFMDYiLDIwMTMsMTcuOAoiRTA2IiwyMDE0LDczLjIKIkUwNiIsMjAxNSwyOC40CiJFMDYiLDIwMTYsMjAuNAoiRTA2IiwyMDE3LDExLjIKIkUwNiIsMjAxOCwyMi40CiJFMDYiLDIwMTksMTYuMwoiRTA2IiwyMDIwLDY2LjUKIkUwNiIsMjAyMSw5NS43CiJFMDYiLDIwMjIsNTQuNQoiRTA2IiwyMDIzLDQ2LjcKIkUwNyIsMTk4OCw2NTMuOQoiRTA3IiwxOTg5LDE4NC40CiJFMDciLDE5OTAsMTg1LjIKIkUwNyIsMTk5MSwyNTEKIkUwNyIsMTk5MiwyMzAuNgoiRTA3IiwxOTkzLDE2MC42CiJFMDciLDE5OTQsMTEyCiJFMDciLDE5OTUsOTMuNwoiRTA3IiwxOTk2LDE3OS42CiJFMDciLDE5OTcsMjIyLjgKIkUwNyIsMTk5OCw2MS41CiJFMDciLDE5OTksMTI1LjQKIkUwNyIsMjAwMCwyOTMuNQoiRTA3IiwyMDAxLDU0Ny45CiJFMDciLDIwMDIsMTUyLjIKIkUwNyIsMjAwMywxMjkuMgoiRTA3IiwyMDA0LDM4MC40CiJFMDciLDIwMDUsMTg2LjUKIkUwNyIsMjAwNiwyMTYuNAoiRTA3IiwyMDA3LDg5LjkKIkUwNyIsMjAwOCwxNTMuOAoiRTA3IiwyMDA5LDEyNi4yCiJFMDciLDIwMTAsMTExLjcKIkUwNyIsMjAxMSwxMzUuMwoiRTA3IiwyMDEyLDE2My42CiJFMDciLDIwMTMsMTYyLjgKIkUwNyIsMjAxNCwxNjcuNQoiRTA3IiwyMDE1LDE2NS4xCiJFMDciLDIwMTYsMTEwLjEKIkUwNyIsMjAxNywxNzIuNwoiRTA3IiwyMDE4LDIwOC4zCiJFMDciLDIwMTksMjIyLjgKIkUwNyIsMjAyMCwxNzYuNgoiRTA3IiwyMDIxLDE5MgoiRTA3IiwyMDIyLDIwMi4yCiJFMDciLDIwMjMsMzA2LjEKIkUwOCIsMTk5NCwxMTIyLjQKIkUwOCIsMTk5NSwyNDguNQoiRTA4IiwxOTk2LDU3NQoiRTA4IiwxOTk3LDc3Ni43CiJFMDgiLDE5OTgsMjYxLjUKIkUwOCIsMTk5OSw4MDIuNgoiRTA4IiwyMDAwLDY1Ny40CiJFMDgiLDIwMDEsNzQ5LjYKIkUwOCIsMjAwMiw1ODMuOAoiRTA4IiwyMDAzLDg4MS4xCiJFMDgiLDIwMDQsNjMyLjgKIkUwOCIsMjAwNSwyMjIKIkUwOCIsMjAwNiw3NjguNQoiRTA4IiwyMDA3LDM0OS4zCiJFMDgiLDIwMDgsNDA4LjgKIkUwOCIsMjAwOSwzMDcuMwoiRTA4IiwyMDEwLDExODYuMgoiRTA4IiwyMDExLDUyOS40CiJFMDgiLDIwMTIsODY4LjQKIkUwOCIsMjAxMyw4MTEuOQoiRTA4IiwyMDE0LDUwMy4xCiJFMDgiLDIwMTUsNzI5LjkKIkUwOCIsMjAxNiwxMTM2LjUKIkUwOCIsMjAxNyw3MDcuOQoiRTA4IiwyMDE4LDEwODIuMwoiRTA4IiwyMDE5LDQ3OS42CiJFMDgiLDIwMjAsODk1LjcKIkUwOCIsMjAyMSw0NzEuMQoiRTA4IiwyMDIyLDMwMC43CiJFMDgiLDIwMjMsNDI0LjcKIkUwOSIsMTk5OSwzMC43CiJFMDkiLDIwMDAsMTAwLjMKIkUwOSIsMjAwMSw2NC45CiJFMDkiLDIwMDIsMTA3LjIKIkUwOSIsMjAwMyw5MS4xCiJFMDkiLDIwMDQsMTQyCiJFMDkiLDIwMDUsMTEwLjQKIkUwOSIsMjAwNiw2Mi41CiJFMDkiLDIwMDcsNDQuOAoiRTA5IiwyMDA4LDE1Ny44CiJFMDkiLDIwMDksNTkuNwoiRTA5IiwyMDEwLDkwLjYKIkUwOSIsMjAxMSw3MwoiRTA5IiwyMDEyLDEzNy45CiJFMDkiLDIwMTMsMTExCiJFMDkiLDIwMTQsMTAxLjkKIkUwOSIsMjAxNSw4MC43CiJFMDkiLDIwMTYsOTQuOAoiRTA5IiwyMDE3LDU4LjIKIkUwOSIsMjAxOCw0MC44CiJFMDkiLDIwMTksMTEwLjIKIkUwOSIsMjAyMCw2My44CiJFMDkiLDIwMjEsMjM1LjMKIkUwOSIsMjAyMiw5Ny45CiJFMDkiLDIwMjMsNjkuMwoiRTEwIiwxOTg2LDU0My42CiJFMTAiLDE5ODcsMTcwLjgKIkUxMCIsMTk4OCw1MDQuNQoiRTEwIiwxOTg5LDI2Ni40CiJFMTAiLDE5OTAsMzA0LjEKIkUxMCIsMTk5MSwxMTkuOAoiRTEwIiwxOTkyLDI5OS44CiJFMTAiLDE5OTMsMTY3LjQKIkUxMCIsMTk5NCwxNjQuMgoiRTEwIiwxOTk1LDEyMy40CiJFMTAiLDE5OTYsNDI2LjgKIkUxMCIsMTk5NywxNTYuNQoiRTEwIiwxOTk4LDMxMS4zCiJFMTAiLDE5OTksMTUxLjMKIkUxMCIsMjAwMCwxNjQuOAoiRTEwIiwyMDAxLDMwNy40CiJFMTAiLDIwMDIsMjQ4LjIKIkUxMCIsMjAwMywyODQuOQoiRTEwIiwyMDA0LDI1OAoiRTEwIiwyMDA1LDI2Ni4xCiJFMTAiLDIwMDYsMTgyLjQKIkUxMCIsMjAwNywyNzUuNAoiRTEwIiwyMDA4LDMzNS45CiJFMTAiLDIwMDksNTMwLjgKIkUxMCIsMjAxMCwyMTcuOQoiRTEwIiwyMDExLDIwMi40CiJFMTAiLDIwMTIsNDMxLjUKIkUxMCIsMjAxMywzNDguMwoiRTEwIiwyMDE0LDE4MC4zCiJFMTAiLDIwMTUsMTM0LjkKIkUxMCIsMjAxNiwxMzAuMQoiRTEwIiwyMDE3LDMyMC4xCiJFMTAiLDIwMTgsMzM3LjcKIkUxMCIsMjAxOSwyNTcuMgoiRTEwIiwyMDIwLDIwNC4xCiJFMTAiLDIwMjEsMTE3LjcKIkUxMCIsMjAyMiwxMjIuOQoiRTEwIiwyMDIzLDI1Ni42Cg==" download="caudal_maximo_region_hipotetica.csv" class="boton-datos">⬇ Descargar <code>caudal_maximo_region_hipotetica.csv</code></a></li>
-</ul>
-</section>
-<section id="el-caudal-de-diseño-con-su-incertidumbre" class="slide level2">
-<h2>El caudal de diseño con su incertidumbre</h2>
-<p>Estación hipotética con 45 años, cuenca de 410 km². Solución:</p>
+<p>El caudal de 100 años se estima con una sola muestra; otra muestra del mismo río daría otro valor. El remuestreo (<em>bootstrap</em>) simula esas otras muestras con los propios datos:</p>
 <ol type="1">
-<li><span class="math inline">\(\lambda_1 = 527.82\)</span> m³/s, <span class="math inline">\(\lambda_2 = 125.99\)</span> m³/s y <span class="math inline">\(\tau_3 = 0.226\)</span>; GEV con <span class="math inline">\(k = -0.0863\)</span>, <span class="math inline">\(\sigma = 166.7\)</span> y <span class="math inline">\(\mu = 416.1\)</span> m³/s.</li>
-<li><span class="math inline">\(x_{100} = 416.1 + \frac{166.7}{-0.0863}\,(1 - 1.4870) = 1357\)</span> m³/s. Con la LP3, 1325 m³/s.</li>
-<li>2000 remuestreos con reemplazo de los 45 años, GEV en cada uno: percentiles 5 y 95 de 965 y 1765 m³/s.</li>
+<li>Se sortean 45 años de los 45 observados, con reemplazo: un año puede salir dos veces y otro ninguna.</li>
+<li>Se ajusta la GEV a esa muestra y se calcula su <span class="math inline">\(x_{100}\)</span>.</li>
+<li>Se repite 2000 veces. Los percentiles 5 y 95 de los 2000 valores forman el intervalo de 90 %.</li>
 </ol>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">29</span>)</span>
-<span id="cb5-2"><a href="" aria-hidden="true" tabindex="-1"></a>q100_boot <span class="ot">&lt;-</span> <span class="fu">replicate</span>(<span class="dv">2000</span>, {</span>
-<span id="cb5-3"><a href="" aria-hidden="true" tabindex="-1"></a>  muestra <span class="ot">&lt;-</span> <span class="fu">sample</span>(q, <span class="at">replace =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb5-4"><a href="" aria-hidden="true" tabindex="-1"></a>  <span class="fu">quagev</span>(<span class="fl">0.99</span>, <span class="fu">pelgev</span>(<span class="fu">samlmu</span>(muestra)))</span>
-<span id="cb5-5"><a href="" aria-hidden="true" tabindex="-1"></a>})</span>
-<span id="cb5-6"><a href="" aria-hidden="true" tabindex="-1"></a><span class="fu">quantile</span>(q100_boot, <span class="fu">c</span>(<span class="fl">0.05</span>, <span class="fl">0.95</span>))</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Ejemplo: 45 caudales máximos anuales hipotéticos, cuenca de 410 km². <a href="data:text/csv;base64,ImVzdGFjaW9uIiwiYW5pbyIsInFfbWF4X20zcyIKIkUwMSIsMTk5Miw3MS42CiJFMDEiLDE5OTMsMzguNgoiRTAxIiwxOTk0LDcxLjMKIkUwMSIsMTk5NSwzMS44CiJFMDEiLDE5OTYsMTMzLjMKIkUwMSIsMTk5NywzNy40CiJFMDEiLDE5OTgsMTQ5LjMKIkUwMSIsMTk5OSw4Ni44CiJFMDEiLDIwMDAsMzkuNAoiRTAxIiwyMDAxLDE1MgoiRTAxIiwyMDAyLDU3LjQKIkUwMSIsMjAwMyw2NgoiRTAxIiwyMDA0LDE5NS45CiJFMDEiLDIwMDUsOTMuMwoiRTAxIiwyMDA2LDEyNi44CiJFMDEiLDIwMDcsMTMyLjMKIkUwMSIsMjAwOCw2NS41CiJFMDEiLDIwMDksNjkuNQoiRTAxIiwyMDEwLDYxLjUKIkUwMSIsMjAxMSwxNTguNgoiRTAxIiwyMDEyLDEyOQoiRTAxIiwyMDEzLDEyOS45CiJFMDEiLDIwMTQsMTE0LjkKIkUwMSIsMjAxNSw3My4xCiJFMDEiLDIwMTYsNzkuOAoiRTAxIiwyMDE3LDU2LjUKIkUwMSIsMjAxOCw3MC43CiJFMDEiLDIwMTksMTExLjQKIkUwMSIsMjAyMCw1NS4yCiJFMDEiLDIwMjEsNjMuNQoiRTAxIiwyMDIyLDg5LjgKIkUwMSIsMjAyMyw4Mi4zCiJFMDIiLDE5ODMsMzE2LjkKIkUwMiIsMTk4NCwxMjkuOQoiRTAyIiwxOTg1LDE1My4zCiJFMDIiLDE5ODYsMTY0LjMKIkUwMiIsMTk4NywxMTguNgoiRTAyIiwxOTg4LDE3MS43CiJFMDIiLDE5ODksMTQ5LjYKIkUwMiIsMTk5MCwxMTEuMwoiRTAyIiwxOTkxLDE1My42CiJFMDIiLDE5OTIsMTgyLjkKIkUwMiIsMTk5MywxMDYuMwoiRTAyIiwxOTk0LDE3OS44CiJFMDIiLDE5OTUsMjg2LjQKIkUwMiIsMTk5Niw2NS43CiJFMDIiLDE5OTcsMjE0LjIKIkUwMiIsMTk5OCwzNTEuMQoiRTAyIiwxOTk5LDE3NC45CiJFMDIiLDIwMDAsNzYuMQoiRTAyIiwyMDAxLDE3My4zCiJFMDIiLDIwMDIsOTkuNAoiRTAyIiwyMDAzLDIwNQoiRTAyIiwyMDA0LDE1OQoiRTAyIiwyMDA1LDE2Mi43CiJFMDIiLDIwMDYsMTUyLjcKIkUwMiIsMjAwNywyMDkuNgoiRTAyIiwyMDA4LDEzOC41CiJFMDIiLDIwMDksMTI5LjkKIkUwMiIsMjAxMCwxNzEuMQoiRTAyIiwyMDExLDIxNi45CiJFMDIiLDIwMTIsOTYuMQoiRTAyIiwyMDEzLDI1NC4zCiJFMDIiLDIwMTQsNjguMQoiRTAyIiwyMDE1LDIyOC40CiJFMDIiLDIwMTYsMjkyLjQKIkUwMiIsMjAxNywxNTIuOAoiRTAyIiwyMDE4LDE2Mi42CiJFMDIiLDIwMTksMzU4LjgKIkUwMiIsMjAyMCwyODcuNQoiRTAyIiwyMDIxLDE3NS41CiJFMDIiLDIwMjIsMTcxLjYKIkUwMiIsMjAyMyw4My43CiJFMDMiLDE5OTYsNjg0LjQKIkUwMyIsMTk5NywyMjMuOQoiRTAzIiwxOTk4LDE4NS44CiJFMDMiLDE5OTksMjYyLjUKIkUwMyIsMjAwMCw0MDcuNgoiRTAzIiwyMDAxLDI3MS42CiJFMDMiLDIwMDIsMzM3LjcKIkUwMyIsMjAwMywzNjkuOQoiRTAzIiwyMDA0LDYwNy43CiJFMDMiLDIwMDUsMzYwLjgKIkUwMyIsMjAwNiwyOTYuOAoiRTAzIiwyMDA3LDQ4Ny44CiJFMDMiLDIwMDgsMzA4LjkKIkUwMyIsMjAwOSwxNjQuOQoiRTAzIiwyMDEwLDUxNS42CiJFMDMiLDIwMTEsMTQwLjQKIkUwMyIsMjAxMiw1MzkuNQoiRTAzIiwyMDEzLDM4Mi4yCiJFMDMiLDIwMTQsMjIxLjUKIkUwMyIsMjAxNSw0NjQuMwoiRTAzIiwyMDE2LDIyOC4zCiJFMDMiLDIwMTcsNDQwCiJFMDMiLDIwMTgsMjI1LjEKIkUwMyIsMjAxOSwzNTYKIkUwMyIsMjAyMCwzMDguMwoiRTAzIiwyMDIxLDMwMQoiRTAzIiwyMDIyLDI1MQoiRTAzIiwyMDIzLDM3Mi41CiJFMDQiLDIwMDIsNjguMwoiRTA0IiwyMDAzLDg2LjgKIkUwNCIsMjAwNCw3OS45CiJFMDQiLDIwMDUsNTAuNgoiRTA0IiwyMDA2LDkxLjMKIkUwNCIsMjAwNyw1OS4zCiJFMDQiLDIwMDgsMTA2LjcKIkUwNCIsMjAwOSwxMzcuNAoiRTA0IiwyMDEwLDU1CiJFMDQiLDIwMTEsNzMuOAoiRTA0IiwyMDEyLDk3LjgKIkUwNCIsMjAxMywxMDYuMwoiRTA0IiwyMDE0LDY4LjIKIkUwNCIsMjAxNSw4NgoiRTA0IiwyMDE2LDE0OQoiRTA0IiwyMDE3LDI0MwoiRTA0IiwyMDE4LDk3LjIKIkUwNCIsMjAxOSwxMjUuOQoiRTA0IiwyMDIwLDQ3LjEKIkUwNCIsMjAyMSwxMTYuMQoiRTA0IiwyMDIyLDcyLjkKIkUwNCIsMjAyMywxNDguOQoiRTA1IiwxOTc5LDcyOC41CiJFMDUiLDE5ODAsNDc5LjYKIkUwNSIsMTk4MSw0ODcuMgoiRTA1IiwxOTgyLDk1Mi4yCiJFMDUiLDE5ODMsNzIzLjEKIkUwNSIsMTk4NCw1MjMuMgoiRTA1IiwxOTg1LDY4OC4zCiJFMDUiLDE5ODYsMjIzLjcKIkUwNSIsMTk4Nyw0NDAuNAoiRTA1IiwxOTg4LDI3OC44CiJFMDUiLDE5ODksNDE5LjUKIkUwNSIsMTk5MCwxODEKIkUwNSIsMTk5MSw1OTEuMwoiRTA1IiwxOTkyLDI2MC4xCiJFMDUiLDE5OTMsNDg2LjkKIkUwNSIsMTk5NCwzMTguOAoiRTA1IiwxOTk1LDYzMS41CiJFMDUiLDE5OTYsNTQzLjgKIkUwNSIsMTk5NywzNzEuOQoiRTA1IiwxOTk4LDY4MC42CiJFMDUiLDE5OTksNDQ0LjYKIkUwNSIsMjAwMCwzMzguOAoiRTA1IiwyMDAxLDQwNwoiRTA1IiwyMDAyLDE0NjkuMgoiRTA1IiwyMDAzLDQxNy4zCiJFMDUiLDIwMDQsNDc3LjQKIkUwNSIsMjAwNSwzMjcKIkUwNSIsMjAwNiw1NDcuNAoiRTA1IiwyMDA3LDYyMy4xCiJFMDUiLDIwMDgsMzc1LjcKIkUwNSIsMjAwOSw1MzQKIkUwNSIsMjAxMCw0NjYuMgoiRTA1IiwyMDExLDM4MC40CiJFMDUiLDIwMTIsODg2LjQKIkUwNSIsMjAxMywyNjUuOQoiRTA1IiwyMDE0LDk0MC43CiJFMDUiLDIwMTUsNTgzLjMKIkUwNSIsMjAxNiw0NTUuOQoiRTA1IiwyMDE3LDQ1MAoiRTA1IiwyMDE4LDQ0MS45CiJFMDUiLDIwMTksNjYyLjQKIkUwNSIsMjAyMCwyMzUuNgoiRTA1IiwyMDIxLDc0My45CiJFMDUiLDIwMjIsOTAzLjEKIkUwNSIsMjAyMywzNjQuMQoiRTA2IiwyMDA1LDc2LjcKIkUwNiIsMjAwNiw0NS4zCiJFMDYiLDIwMDcsNTEKIkUwNiIsMjAwOCwyNQoiRTA2IiwyMDA5LDM5CiJFMDYiLDIwMTAsMTcuNwoiRTA2IiwyMDExLDE1LjcKIkUwNiIsMjAxMiwxMi44CiJFMDYiLDIwMTMsMTcuOAoiRTA2IiwyMDE0LDczLjIKIkUwNiIsMjAxNSwyOC40CiJFMDYiLDIwMTYsMjAuNAoiRTA2IiwyMDE3LDExLjIKIkUwNiIsMjAxOCwyMi40CiJFMDYiLDIwMTksMTYuMwoiRTA2IiwyMDIwLDY2LjUKIkUwNiIsMjAyMSw5NS43CiJFMDYiLDIwMjIsNTQuNQoiRTA2IiwyMDIzLDQ2LjcKIkUwNyIsMTk4OCw2NTMuOQoiRTA3IiwxOTg5LDE4NC40CiJFMDciLDE5OTAsMTg1LjIKIkUwNyIsMTk5MSwyNTEKIkUwNyIsMTk5MiwyMzAuNgoiRTA3IiwxOTkzLDE2MC42CiJFMDciLDE5OTQsMTEyCiJFMDciLDE5OTUsOTMuNwoiRTA3IiwxOTk2LDE3OS42CiJFMDciLDE5OTcsMjIyLjgKIkUwNyIsMTk5OCw2MS41CiJFMDciLDE5OTksMTI1LjQKIkUwNyIsMjAwMCwyOTMuNQoiRTA3IiwyMDAxLDU0Ny45CiJFMDciLDIwMDIsMTUyLjIKIkUwNyIsMjAwMywxMjkuMgoiRTA3IiwyMDA0LDM4MC40CiJFMDciLDIwMDUsMTg2LjUKIkUwNyIsMjAwNiwyMTYuNAoiRTA3IiwyMDA3LDg5LjkKIkUwNyIsMjAwOCwxNTMuOAoiRTA3IiwyMDA5LDEyNi4yCiJFMDciLDIwMTAsMTExLjcKIkUwNyIsMjAxMSwxMzUuMwoiRTA3IiwyMDEyLDE2My42CiJFMDciLDIwMTMsMTYyLjgKIkUwNyIsMjAxNCwxNjcuNQoiRTA3IiwyMDE1LDE2NS4xCiJFMDciLDIwMTYsMTEwLjEKIkUwNyIsMjAxNywxNzIuNwoiRTA3IiwyMDE4LDIwOC4zCiJFMDciLDIwMTksMjIyLjgKIkUwNyIsMjAyMCwxNzYuNgoiRTA3IiwyMDIxLDE5MgoiRTA3IiwyMDIyLDIwMi4yCiJFMDciLDIwMjMsMzA2LjEKIkUwOCIsMTk5NCwxMTIyLjQKIkUwOCIsMTk5NSwyNDguNQoiRTA4IiwxOTk2LDU3NQoiRTA4IiwxOTk3LDc3Ni43CiJFMDgiLDE5OTgsMjYxLjUKIkUwOCIsMTk5OSw4MDIuNgoiRTA4IiwyMDAwLDY1Ny40CiJFMDgiLDIwMDEsNzQ5LjYKIkUwOCIsMjAwMiw1ODMuOAoiRTA4IiwyMDAzLDg4MS4xCiJFMDgiLDIwMDQsNjMyLjgKIkUwOCIsMjAwNSwyMjIKIkUwOCIsMjAwNiw3NjguNQoiRTA4IiwyMDA3LDM0OS4zCiJFMDgiLDIwMDgsNDA4LjgKIkUwOCIsMjAwOSwzMDcuMwoiRTA4IiwyMDEwLDExODYuMgoiRTA4IiwyMDExLDUyOS40CiJFMDgiLDIwMTIsODY4LjQKIkUwOCIsMjAxMyw4MTEuOQoiRTA4IiwyMDE0LDUwMy4xCiJFMDgiLDIwMTUsNzI5LjkKIkUwOCIsMjAxNiwxMTM2LjUKIkUwOCIsMjAxNyw3MDcuOQoiRTA4IiwyMDE4LDEwODIuMwoiRTA4IiwyMDE5LDQ3OS42CiJFMDgiLDIwMjAsODk1LjcKIkUwOCIsMjAyMSw0NzEuMQoiRTA4IiwyMDIyLDMwMC43CiJFMDgiLDIwMjMsNDI0LjcKIkUwOSIsMTk5OSwzMC43CiJFMDkiLDIwMDAsMTAwLjMKIkUwOSIsMjAwMSw2NC45CiJFMDkiLDIwMDIsMTA3LjIKIkUwOSIsMjAwMyw5MS4xCiJFMDkiLDIwMDQsMTQyCiJFMDkiLDIwMDUsMTEwLjQKIkUwOSIsMjAwNiw2Mi41CiJFMDkiLDIwMDcsNDQuOAoiRTA5IiwyMDA4LDE1Ny44CiJFMDkiLDIwMDksNTkuNwoiRTA5IiwyMDEwLDkwLjYKIkUwOSIsMjAxMSw3MwoiRTA5IiwyMDEyLDEzNy45CiJFMDkiLDIwMTMsMTExCiJFMDkiLDIwMTQsMTAxLjkKIkUwOSIsMjAxNSw4MC43CiJFMDkiLDIwMTYsOTQuOAoiRTA5IiwyMDE3LDU4LjIKIkUwOSIsMjAxOCw0MC44CiJFMDkiLDIwMTksMTEwLjIKIkUwOSIsMjAyMCw2My44CiJFMDkiLDIwMjEsMjM1LjMKIkUwOSIsMjAyMiw5Ny45CiJFMDkiLDIwMjMsNjkuMwoiRTEwIiwxOTg2LDU0My42CiJFMTAiLDE5ODcsMTcwLjgKIkUxMCIsMTk4OCw1MDQuNQoiRTEwIiwxOTg5LDI2Ni40CiJFMTAiLDE5OTAsMzA0LjEKIkUxMCIsMTk5MSwxMTkuOAoiRTEwIiwxOTkyLDI5OS44CiJFMTAiLDE5OTMsMTY3LjQKIkUxMCIsMTk5NCwxNjQuMgoiRTEwIiwxOTk1LDEyMy40CiJFMTAiLDE5OTYsNDI2LjgKIkUxMCIsMTk5NywxNTYuNQoiRTEwIiwxOTk4LDMxMS4zCiJFMTAiLDE5OTksMTUxLjMKIkUxMCIsMjAwMCwxNjQuOAoiRTEwIiwyMDAxLDMwNy40CiJFMTAiLDIwMDIsMjQ4LjIKIkUxMCIsMjAwMywyODQuOQoiRTEwIiwyMDA0LDI1OAoiRTEwIiwyMDA1LDI2Ni4xCiJFMTAiLDIwMDYsMTgyLjQKIkUxMCIsMjAwNywyNzUuNAoiRTEwIiwyMDA4LDMzNS45CiJFMTAiLDIwMDksNTMwLjgKIkUxMCIsMjAxMCwyMTcuOQoiRTEwIiwyMDExLDIwMi40CiJFMTAiLDIwMTIsNDMxLjUKIkUxMCIsMjAxMywzNDguMwoiRTEwIiwyMDE0LDE4MC4zCiJFMTAiLDIwMTUsMTM0LjkKIkUxMCIsMjAxNiwxMzAuMQoiRTEwIiwyMDE3LDMyMC4xCiJFMTAiLDIwMTgsMzM3LjcKIkUxMCIsMjAxOSwyNTcuMgoiRTEwIiwyMDIwLDIwNC4xCiJFMTAiLDIwMjEsMTE3LjcKIkUxMCIsMjAyMiwxMjIuOQoiRTEwIiwyMDIzLDI1Ni42Cg==" download="caudal_maximo_region_hipotetica.csv" class="boton-datos">⬇ Descargar <code>caudal_maximo_region_hipotetica.csv</code></a></p>
+
+<img data-src="tema3_files/figure-revealjs/unnamed-chunk-51-1.svg" class="quarto-figure quarto-figure-center r-stretch" width="912"></section>
+<section id="el-caudal-de-diseño-con-su-incertidumbre" class="slide level2 reducida">
+<h2>El caudal de diseño con su incertidumbre</h2>
+<div class="columns">
+<div class="column" style="width:48%;">
+<p>Cuantil de la GEV:</p>
+<p><span class="math display">\[
+x_T = \mu + \frac{\sigma}{k}\left[1 - \left(-\ln F\right)^{k}\right], \quad F = 1 - \frac{1}{T}
+\]</span></p>
+<div class="tabla-compacta">
+<table class="caption-top">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Símbolo</th>
+<th style="text-align: left;">Qué es</th>
+<th style="text-align: center;">Unidad</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><span class="math inline">\(x_T\)</span></td>
+<td style="text-align: left;">Caudal de periodo de retorno <span class="math inline">\(T\)</span></td>
+<td style="text-align: center;">m³/s</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="math inline">\(\mu\)</span>, <span class="math inline">\(\sigma\)</span></td>
+<td style="text-align: left;">Parámetros de posición y de escala</td>
+<td style="text-align: center;">m³/s</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><span class="math inline">\(k\)</span></td>
+<td style="text-align: left;">Parámetro de forma, <span class="math inline">\(k = -\xi\)</span></td>
+<td style="text-align: center;">—</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="math inline">\(F\)</span></td>
+<td style="text-align: left;">Probabilidad de no excedencia</td>
+<td style="text-align: center;">—</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><span class="math inline">\(\lambda_1\)</span>, <span class="math inline">\(\lambda_2\)</span>, <span class="math inline">\(\tau_3\)</span></td>
+<td style="text-align: left;">L-momentos de la muestra</td>
+<td style="text-align: center;">m³/s, m³/s, —</td>
+</tr>
+</tbody>
+</table>
 </div>
-<p><span class="nota">El intervalo va de 29 % por debajo a 30 % por encima del valor central: es más grande que la diferencia entre la GEV y la LP3.</span></p>
+</div><div class="column" style="width:52%;">
+<p>Estación hipotética con 45 años. Solución:</p>
+<ol type="1">
+<li>L-momentos de los 45 caudales: <span class="math inline">\(\lambda_1 = 527.82\)</span> m³/s, <span class="math inline">\(\lambda_2 = 125.99\)</span> m³/s y <span class="math inline">\(\tau_3 = 0.226\)</span>.</li>
+<li>Parámetros de la GEV a partir de ellos: <span class="math inline">\(k = -0.0863\)</span> (cola pesada), <span class="math inline">\(\sigma = 166.7\)</span> m³/s y <span class="math inline">\(\mu = 416.1\)</span> m³/s.</li>
+<li>Para <span class="math inline">\(T = 100\)</span>: <span class="math inline">\(F = 0.99\)</span>, <span class="math inline">\(-\ln 0.99 = 0.01005\)</span> y <span class="math inline">\((0.01005)^{-0.0863} = 1.4870\)</span>.</li>
+<li><span class="math inline">\(x_{100} = 416.1 + \frac{166.7}{-0.0863}(1 - 1.4870)\)</span> <span class="math inline">\(= 416.1 + 940.7 = 1357\)</span> m³/s.</li>
+<li>Remuestreo, 2000 veces: intervalo de 90 % de 965 a 1765 m³/s.</li>
+</ol>
+<p>Con la LP3 el valor central es 1325 m³/s.</p>
+</div></div>
 </section>
-<section id="casos-especiales" class="slide level2 reducida">
-<h2>Casos especiales</h2>
+<section id="remuestreo-en-r" class="slide level2">
+<h2>Remuestreo en R</h2>
+<p>El intervalo del paso 4 se obtiene con el paquete <code>lmomco</code>. Cada línea hace un paso del remuestreo:</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">29</span>)                               <span class="co"># para repetir el mismo sorteo</span></span>
+<span id="cb5-2"><a href="" aria-hidden="true" tabindex="-1"></a>q100_boot <span class="ot">&lt;-</span> <span class="fu">replicate</span>(<span class="dv">2000</span>, {             <span class="co"># 2000 repeticiones</span></span>
+<span id="cb5-3"><a href="" aria-hidden="true" tabindex="-1"></a>  muestra <span class="ot">&lt;-</span> <span class="fu">sample</span>(q, <span class="at">replace =</span> <span class="cn">TRUE</span>)     <span class="co"># 45 años sorteados con reemplazo</span></span>
+<span id="cb5-4"><a href="" aria-hidden="true" tabindex="-1"></a>  <span class="fu">quagev</span>(<span class="fl">0.99</span>, <span class="fu">pelgev</span>(<span class="fu">samlmu</span>(muestra)))    <span class="co"># L-momentos, GEV y x100</span></span>
+<span id="cb5-5"><a href="" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb5-6"><a href="" aria-hidden="true" tabindex="-1"></a><span class="fu">quantile</span>(q100_boot, <span class="fu">c</span>(<span class="fl">0.05</span>, <span class="fl">0.95</span>))         <span class="co"># intervalo de 90 %</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><code>q</code> es el vector con los 45 caudales máximos anuales.</p>
+<p><span class="nota">El intervalo, de 965 a 1765 m³/s, va de 29 % por debajo a 30 % por encima del valor central: es más grande que la diferencia entre la GEV y la LP3 (1357 frente a 1325 m³/s).</span></p>
+</section>
+<section id="casos-especiales-poblaciones-mixtas" class="slide level2 reducida">
+<h2>Casos especiales: poblaciones mixtas</h2>
+<p>En algunas cuencas las crecidas tienen dos orígenes, por ejemplo lluvias ordinarias y ciclones tropicales. Una sola distribución mezcla las dos y subestima la cola.</p>
 <div class="columns">
 <div class="column" style="width:50%;">
-<p>Poblaciones mixtas (ciclónicas y ordinarias):</p>
 <p><span class="math display">\[
 F(x) = (1 - p)\,F_1(x) + p\,F_2(x)
 \]</span></p>
-<p><span class="math inline">\(F_1\)</span>, <span class="math inline">\(F_2\)</span>: distribuciones de los años ordinarios y ciclónicos; <span class="math inline">\(p\)</span>: fracción de años ciclónicos.</p>
-<p>Ejemplo (hipotético): Gumbel con <span class="math inline">\(u = 150\)</span>, <span class="math inline">\(\alpha = 40\)</span> y <span class="math inline">\(u = 300\)</span>, <span class="math inline">\(\alpha = 90\)</span> m³/s, <span class="math inline">\(p = 0.20\)</span>. Por tanteo, <span class="math inline">\(F(x) = 0.99\)</span> en <span class="math inline">\(x_{100} \approx 567\)</span> m³/s. Una sola Gumbel da 521 m³/s y los años ordinarios solos, 334 m³/s.</p>
+<div class="tabla-compacta">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Símbolo</th>
+<th style="text-align: left;">Qué es</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><span class="math inline">\(F(x)\)</span></td>
+<td style="text-align: left;">FDA de la serie completa</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="math inline">\(F_1\)</span></td>
+<td style="text-align: left;">FDA de los años ordinarios</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><span class="math inline">\(F_2\)</span></td>
+<td style="text-align: left;">FDA de los años con ciclón</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="math inline">\(p\)</span></td>
+<td style="text-align: left;">Fracción de años con ciclón</td>
+</tr>
+</tbody>
+</table>
+</div>
 </div><div class="column" style="width:50%;">
-<p>Series con ceros:</p>
+<p>Ejemplo (hipotético): <span class="math inline">\(F_1\)</span> Gumbel con <span class="math inline">\(u = 150\)</span>, <span class="math inline">\(\alpha = 40\)</span> m³/s; <span class="math inline">\(F_2\)</span> Gumbel con <span class="math inline">\(u = 300\)</span>, <span class="math inline">\(\alpha = 90\)</span> m³/s; <span class="math inline">\(p = 0.20\)</span>. Solución:</p>
+<ol type="1">
+<li>Se busca <span class="math inline">\(x\)</span> tal que <span class="math inline">\(F(x) = 0.99\)</span>, por tanteo.</li>
+<li>Con <span class="math inline">\(x = 567\)</span> m³/s: <span class="math inline">\(F_1 = \exp[-\exp(-\frac{567 - 150}{40})] = 1.000\)</span> y <span class="math inline">\(F_2 = \exp[-\exp(-\frac{567 - 300}{90})] = 0.950\)</span>.</li>
+<li><span class="math inline">\(F = 0.80(1.000) + 0.20(0.950) = 0.990\)</span>. Entonces <span class="math inline">\(x_{100} \approx 567\)</span> m³/s.</li>
+<li>Una sola Gumbel da 521 m³/s y los años ordinarios solos, 334 m³/s.</li>
+</ol>
+</div></div>
+</section>
+<section id="casos-especiales-ceros-e-información-histórica" class="slide level2 reducida">
+<h2>Casos especiales: ceros e información histórica</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p>Series con ceros (años sin caudal en ríos efímeros, o sin lluvia):</p>
 <p><span class="math display">\[
 F(x) = p_0 + (1 - p_0)\,G(x)
 \]</span></p>
+<p>Para un cuantil, se despeja <span class="math inline">\(G\)</span>:</p>
 <p><span class="math display">\[
 G = \frac{F - p_0}{1 - p_0}
 \]</span></p>
-<p><span class="math inline">\(p_0\)</span>: fracción de años con valor cero; <span class="math inline">\(G\)</span>: distribución ajustada solo a los valores no nulos. Si <span class="math inline">\(F \le p_0\)</span>, el cuantil es cero.</p>
-<p>Información histórica: en <span class="math inline">\(h\)</span> años de historia hay <span class="math inline">\(k\)</span> crecidas mayores que el umbral <span class="math inline">\(X_0\)</span>; los <span class="math inline">\(h - k\)</span> años sin crecida notable entran como “menores que <span class="math inline">\(X_0\)</span>” en la verosimilitud <span class="citation" data-cites="stedinger1986flood">(<a href="#/referencias" role="doc-biblioref" onclick="">Stedinger &amp; Cohn, 1986</a>)</span>. Dos crecidas en 80 años suben <span class="math inline">\(Q_{100}\)</span> de 365 a 421 m³/s.</p>
+<div class="tabla-compacta">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Símbolo</th>
+<th style="text-align: left;">Qué es</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><span class="math inline">\(p_0\)</span></td>
+<td style="text-align: left;">Fracción de años con valor cero</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="math inline">\(G\)</span></td>
+<td style="text-align: left;">FDA ajustada solo a los valores no nulos</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Si <span class="math inline">\(F \le p_0\)</span>, el cuantil es cero.</p>
+</div><div class="column" style="width:50%;">
+<p>Información histórica (crecidas anteriores a la estación, por marcas o archivos):</p>
+<div class="tabla-compacta">
+<table class="caption-top">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Símbolo</th>
+<th style="text-align: left;">Qué es</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><span class="math inline">\(h\)</span></td>
+<td style="text-align: left;">Años del periodo histórico</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="math inline">\(X_0\)</span></td>
+<td style="text-align: left;">Umbral: caudal que una crecida debía superar para quedar registrada</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><span class="math inline">\(k\)</span></td>
+<td style="text-align: left;">Crecidas históricas mayores que <span class="math inline">\(X_0\)</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<ul>
+<li>Las <span class="math inline">\(k\)</span> crecidas entran con su valor en la verosimilitud; los <span class="math inline">\(h - k\)</span> años restantes entran como “menores que <span class="math inline">\(X_0\)</span>” <span class="citation" data-cites="stedinger1986flood">(<a href="#/referencias" role="doc-biblioref" onclick="">Stedinger &amp; Cohn, 1986</a>)</span>.</li>
+<li>Ejemplo: dos crecidas en 80 años suben <span class="math inline">\(Q_{100}\)</span> de 365 a 421 m³/s.</li>
+</ul>
 </div></div>
 </section>
 <section id="referencias" class="slide level2 scrollable smaller">
