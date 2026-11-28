@@ -113,7 +113,7 @@
     div.csl-indent {
       margin-left: 2em;
     }  </style>
-  <link rel="stylesheet" href="tema3_files/libs/revealjs/dist/theme/quarto-7b32a74f441bcb5d74e3a394d161db5e.css">
+  <link rel="stylesheet" href="tema3_files/libs/revealjs/dist/theme/quarto-a6663498eed6ed8e634019623fb0ecde.css">
   <link href="tema3_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="tema3_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="tema3_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -2101,19 +2101,48 @@ b_1 = \dfrac{1}{n} \sum_{j=1}^{n} \dfrac{j-1}{n-1}\, x_{(j)}
 </section>
 <section id="posiciones-de-graficación" class="slide level2">
 <h2>Posiciones de graficación</h2>
-<p>Los datos se ordenan de mayor a menor; <span class="math inline">\(m\)</span> es el orden (<span class="math inline">\(m = 1\)</span> para el mayor) y <span class="math inline">\(n\)</span> el número de datos.</p>
+<p>Los datos se ordenan de mayor a menor y a cada uno se le asigna una probabilidad de excedencia empírica.</p>
 <div class="columns">
-<div class="column" style="width:50%;">
-<p>Probabilidad de excedencia empírica del dato <span class="math inline">\(m\)</span>, con <span class="math inline">\(a\)</span> la constante de cada fórmula:</p>
+<div class="column" style="width:42%;">
 <p><span class="math display">\[
 p_m = \frac{m - a}{n + 1 - 2a}
-\]</span></p>
-</div><div class="column" style="width:50%;">
-<p>Periodo de retorno empírico del dato <span class="math inline">\(m\)</span>:</p>
-<p><span class="math display">\[
+\qquad
 T_m = \frac{1}{p_m}
 \]</span></p>
-</div></div>
+<div class="tabla-compacta">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Símbolo</th>
+<th style="text-align: left;">Qué es</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><span class="math inline">\(m\)</span></td>
+<td style="text-align: left;">Orden del dato (<span class="math inline">\(m = 1\)</span> para el mayor)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="math inline">\(n\)</span></td>
+<td style="text-align: left;">Número de datos</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><span class="math inline">\(a\)</span></td>
+<td style="text-align: left;">Constante de cada fórmula</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="math inline">\(p_m\)</span></td>
+<td style="text-align: left;">Probabilidad de excedencia empírica del dato <span class="math inline">\(m\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><span class="math inline">\(T_m\)</span></td>
+<td style="text-align: left;">Periodo de retorno empírico del dato <span class="math inline">\(m\)</span> (años)</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div><div class="column" style="width:58%;">
+<div class="tabla-compacta">
 <table class="caption-top">
 <caption>Fórmulas más usadas <span class="citation" data-cites="cunnane1978unbiased stedinger1993frequency">(<a href="#/referencias" role="doc-biblioref" onclick="">Cunnane, 1978</a>; <a href="#/referencias" role="doc-biblioref" onclick="">Stedinger et&nbsp;al., 1993</a>)</span>.</caption>
 <thead>
@@ -2157,6 +2186,8 @@ T_m = \frac{1}{p_m}
 </tr>
 </tbody>
 </table>
+</div>
+</div></div>
 <p><span class="nota">California, <span class="math inline">\(p_m = \frac{m}{n}\)</span>, asigna al menor dato una probabilidad de excedencia de 1, y ya casi no se usa.</span></p>
 </section>
 <section id="ejemplo-el-mayor-caudal-según-la-fórmula" class="slide level2 reducida">
